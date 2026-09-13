@@ -608,3 +608,11 @@ body.menu-open {
   }
 
 }
+.social-record img {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  margin: 20px auto;
+  border-radius: 6px;
+}
