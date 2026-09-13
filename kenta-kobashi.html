@@ -6,444 +6,649 @@
 
 <title>Kenta Kobashi | Historical Archive</title>
 
-  <style>
-   body {
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background: #f8f8f8;
   color: #0b1f4d;
+  line-height: 1.7;
 }
 
-    a {
-      color: #b22234;
-      text-decoration: none;
-    }
+body.menu-open {
+  overflow: hidden;
+}
 
-    a:hover {
-      text-decoration: underline;
-    }
+a {
+  color: #b22234;
+  text-decoration: none;
+}
 
-    .menu-button {
-      position: fixed;
-      top: 18px;
-      left: 18px;
-      z-index: 1001;
-      width: 46px;
-      height: 46px;
-      border: none;
-      border-radius: 4px;
-      background: #b22234;
-      cursor: pointer;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-    }
+a:hover {
+  text-decoration: underline;
+}
 
-    .menu-button span {
-      display: block;
-      width: 24px;
-      height: 3px;
-      margin: 5px auto;
-      background: white;
-    }
 
-    .side-menu {
-      position: fixed;
-      top: 0;
-      left: -340px;
-      width: 300px;
-      height: 100%;
-      background: white;
-      z-index: 1000;
-      box-shadow: 5px 0 20px rgba(0,0,0,0.2);
-      transition: left 0.3s ease;
-      overflow-y: auto;
-    }
+/* =========================
+   HAMBURGER MENU
+   ========================= */
 
-    .side-menu.open {
-      left: 0;
-    }
+.menu-button {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 1101;
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 4px;
+  background: #b22234;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  padding: 0;
+}
 
-    .menu-header {
-      background: #0b1f4d;
-      color: white;
-      padding: 30px 25px;
-      border-bottom: 5px solid #b22234;
-    }
-
-    .menu-header h2 {
-      margin: 0;
-      font-size: 22px;
-    }
-
-    .side-menu nav {
-      padding: 20px 0;
-    }
-
-   .side-menu nav a {
+.menu-button span {
   display: block;
+  width: 24px;
+  height: 3px;
+  margin: 5px auto;
+  background: white;
+  transition: transform 0.2s ease;
+}
+
+.menu-button:hover {
+  background: #8f1b2b;
+}
+
+
+/* =========================
+   SIDEBAR
+   ========================= */
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -340px;
+  bottom: 0;
+  width: 300px;
+  max-width: 85vw;
+  height: 100vh;
+  height: 100dvh;
+  background: #ffffff;
+  border-right: 5px solid #b22234;
+  z-index: 1100;
+  box-shadow: 5px 0 20px rgba(0,0,0,0.2);
+  transition: left 0.3s ease;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.side-menu.open {
+  left: 0;
+}
+
+.menu-header {
+  background: #0b1f4d;
+  color: white;
+  padding: 30px 25px;
+  border-bottom: 5px solid #b22234;
+}
+
+.menu-header h2 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+.side-menu nav {
+  display: block;
+  width: 100%;
+  padding: 20px 0 60px;
+}
+
+.side-menu nav > a,
+.menu-dropdown-toggle {
+  display: block;
+  width: 100%;
   padding: 15px 25px;
   color: #0b1f4d;
+  background: #ffffff;
+  border: none;
+  border-bottom: 1px solid #d5dbea;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
-  border-bottom: 1px solid #d5dbea;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-    .side-menu nav a:hover {
-      color: #b22234;
-      background: #f5f5f5;
-      text-decoration: none;
-    }
-
-    .menu-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-      z-index: 999;
-      display: none;
-    }
-
-    .menu-overlay.open {
-      display: block;
-    }
-
-    header {
-      background: #0b1f4d;
-      color: white;
-      padding: 90px 20px 60px;
-      border-bottom: 6px solid #b22234;
-      text-align: center;
-    }
-
-    header .eyebrow {
-      color: #f5f5f5;
-      font-size: 14px;
-      font-weight: bold;
-      letter-spacing: 3px;
-      margin-bottom: 15px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: clamp(36px, 7vw, 64px);
-    }
-
-    header p {
-      max-width: 800px;
-      margin: 20px auto 0;
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    .archive-intro {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 55px 20px 25px;
-      text-align: center;
-    }
-
-    .archive-intro h2 {
-      font-size: 32px;
-      margin-bottom: 15px;
-    }
-
-    .archive-intro p {
-      font-size: 17px;
-      line-height: 1.7;
-      color: #333;
-    }
-
-    .archive-section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 30px 20px 60px;
-    }
-
-    .section-heading {
-      margin-bottom: 30px;
-      padding-bottom: 12px;
-      border-bottom: 4px solid #b22234;
-    }
-
-    .section-heading h2 {
-      margin: 0;
-      font-size: 30px;
-    }
-
-    .video-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 30px;
-    }
-
-    .video-record {
-      background: white;
-      padding: 15px;
-      border: 1px solid #ddd;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      background: #000;
-    }
-
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .article-record {
-      background: white;
-      padding: 30px;
-      border-left: 6px solid #b22234;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    .article-record h3 {
-      margin-top: 0;
-      font-size: 26px;
-      line-height: 1.3;
-    }
-
-    .article-record p {
-      color: #444;
-      line-height: 1.7;
-    }
-
-    .read-button {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 12px 20px;
-      background: #0b1f4d;
-      color: white;
-      font-weight: bold;
-    }
-
-    .read-button:hover {
-      background: #b22234;
-      text-decoration: none;
-    }
-
-    .social-record {
-      background: white;
-      padding: 25px;
-      margin-bottom: 30px;
-      border-top: 5px solid #0b1f4d;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    .social-record h3 {
-      margin-top: 0;
-      color: #0b1f4d;
-    }
-
-    .social-record blockquote {
-      margin: 0;
-    }
-
-    footer {
-      background: #0b1f4d;
-      color: white;
-      text-align: center;
-      padding: 35px 20px;
-      border-top: 6px solid #b22234;
-    }
-
-    footer p {
-      margin: 6px 0;
-    }
-
-    .back-link {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px 50px;
-    }
-
-    .back-link a {
-      font-weight: bold;
-    }
-    /* =========================================================
-   SEPTEMBER 11 PAGE SIDEBAR OVERRIDE
-   ========================================================= */
-
-.side-menu {
-  position: fixed !important;
-
-  top: 0 !important;
-  left: -340px !important;
-  bottom: 0 !important;
-
-    width: 300px !important;
-
-  max-width: 85vw !important;
-  height: 100vh !important;
-  height: 100dvh !important;
-
-  box-sizing: border-box !important;
-
-  background: #ffffff !important;
-
-  border-right: 5px solid #b22234 !important;
-
-  z-index: 1000 !important;
-
-  overflow-x: hidden !important;
-  overflow-y: auto !important;
-
-  touch-action: pan-y !important;
-
-  transition: left 0.3s ease !important;
-
-  -webkit-overflow-scrolling: auto !important;
+.side-menu nav > a:hover,
+.menu-dropdown-toggle:hover {
+  color: #b22234;
+  background: #f5f5f5;
+  text-decoration: none;
 }
-
-.side-menu.open {
-  left: 0 !important;
-
-  overflow-y: auto !important;
-  touch-action: pan-y !important;
-}
-
-/* Menu navigation */
-
-.side-menu nav {
-  display: block !important;
-
-  width: 100% !important;
-
-  padding: 20px 0 60px !important;
-  margin: 0 !important;
-
-  overflow: visible !important;
-
-  touch-action: pan-y !important;
-}
-
-.side-menu nav a {
-  display: block !important;
-
-  width: 100% !important;
-
-  box-sizing: border-box !important;
-
-  padding: 15px 25px !important;
-
-  background: #ffffff !important;
-
-  color: #0b1f4d !important;
-
-  font-family: Arial, Helvetica, sans-serif !important;
-
-  font-size: 16px !important;
-
-  font-weight: 500 !important;
-
-  line-height: 1.5 !important;
-
-  border-bottom: 1px solid #d5dbea !important;
-
-  touch-action: pan-y !important;
-}
-
-/* Politics dropdown */
 
 .menu-dropdown {
-  width: 100% !important;
-
-  box-sizing: border-box !important;
-
-  background: #ffffff !important;
+  width: 100%;
 }
 
 .menu-dropdown-toggle {
-  width: 100% !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  box-sizing: border-box !important;
+.menu-dropdown-arrow {
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
 
-  display: flex !important;
-
-  justify-content: space-between !important;
-  align-items: center !important;
-
-  padding: 15px 25px !important;
-
-  background: #ffffff !important;
-
-  color: #0b1f4d !important;
-
-  border: none !important;
-
-  border-bottom: 1px solid #d5dbea !important;
-
-  font-family: Arial, Helvetica, sans-serif !important;
-
-  font-size: 16px !important;
-
-  font-weight: 500 !important;
-
-  line-height: 1.5 !important;
-
-  touch-action: pan-y !important;
+.menu-dropdown.open .menu-dropdown-arrow {
+  transform: rotate(180deg);
 }
 
 .menu-submenu {
-  width: 100% !important;
+  display: none;
+  width: 100%;
+  background: #f8f8f8;
+}
 
-  box-sizing: border-box !important;
-
-  background: #f8f8f8 !important;
+.menu-dropdown.open .menu-submenu {
+  display: block;
 }
 
 .menu-submenu a {
-  padding-left: 40px !important;
-
-  background: #f8f8f8 !important;
-
-  color: #0b1f4d !important;
+  display: block;
+  width: 100%;
+  padding: 13px 25px 13px 40px;
+  color: #0b1f4d;
+  background: #f8f8f8;
+  border-bottom: 1px solid #d5dbea;
+  font-size: 15px;
+  text-decoration: none;
 }
 
-/* Overlay */
+.menu-submenu a:hover {
+  color: #b22234;
+  background: #eeeeee;
+  text-decoration: none;
+}
 
 .menu-overlay {
-  position: fixed !important;
-
-  inset: 0 !important;
-
-  z-index: 999 !important;
-
-  background: rgba(11, 31, 77, 0.65) !important;
+  position: fixed;
+  inset: 0;
+  background: rgba(11,31,77,0.65);
+  z-index: 1099;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
 }
 
-/* Prevent the page behind the menu from scrolling */
-
-body.menu-open {
-  overflow: hidden !important;
-  position: fixed !important;
-  width: 100% !important;
+.menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
 }
-  </style>
+
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+  background: #0b1f4d;
+  color: white;
+  text-align: center;
+  padding: 110px 20px 65px;
+  border-bottom: 6px solid #b22234;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(40px, 8vw, 70px);
+  line-height: 1.1;
+}
+
+.hero .japanese {
+  margin-top: 12px;
+  font-size: 25px;
+  opacity: 0.95;
+}
+
+.hero .tagline {
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #f5f5f5;
+}
+
+.hero p {
+  max-width: 850px;
+  margin: 25px auto 0;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #f2f2f2;
+}
+
+.kobashi-photo {
+  display: block;
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+  margin: 30px auto 25px;
+  border: 4px solid white;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+
+/* =========================
+   MAIN CONTENT
+   ========================= */
+
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px 20px;
+}
+
+.section-heading {
+  margin-bottom: 30px;
+  padding-bottom: 12px;
+  border-bottom: 4px solid #b22234;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 32px;
+  line-height: 1.3;
+}
+
+.section p {
+  color: #333;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.section strong {
+  color: #0b1f4d;
+}
+
+
+/* =========================
+   QUICK FACTS
+   ========================= */
+
+.fact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.fact-box {
+  background: white;
+  border-top: 5px solid #0b1f4d;
+  padding: 22px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.fact-box h3 {
+  margin: 0 0 8px;
+  color: #b22234;
+  font-size: 17px;
+}
+
+.fact-box p {
+  margin: 0;
+  color: #333;
+  font-size: 16px;
+}
+
+
+/* =========================
+   HIGHLIGHTS
+   ========================= */
+
+.highlight {
+  background: white;
+  border-left: 6px solid #b22234;
+  padding: 25px 30px;
+  margin: 30px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.highlight h3 {
+  margin-top: 0;
+  color: #0b1f4d;
+  font-size: 25px;
+}
+
+.highlight p {
+  margin-bottom: 0;
+}
+
+
+/* =========================
+   CHAMPIONSHIP TABLE
+   ========================= */
+
+.table-wrapper {
+  overflow-x: auto;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 650px;
+}
+
+th {
+  background: #0b1f4d;
+  color: white;
+  padding: 15px;
+  text-align: left;
+}
+
+td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  color: #333;
+  vertical-align: top;
+}
+
+tr:nth-child(even) {
+  background: #f5f5f5;
+}
+
+
+/* =========================
+   PLAYLIST
+   ========================= */
+
+.playlist-card {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 25px;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-left: 6px solid #b22234;
+}
+
+.playlist-image {
+  width: 100%;
+  display: block;
+}
+
+.playlist-info h3 {
+  margin-top: 0;
+  color: #0b1f4d;
+  font-size: 25px;
+}
+
+.playlist-info p {
+  margin-bottom: 18px;
+}
+
+.playlist-button {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #b22234;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.playlist-button:hover {
+  background: #0b1f4d;
+  text-decoration: none;
+}
+
+
+/* =========================
+   DOCUMENTARIES
+   ========================= */
+
+.documentary-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.documentary-card {
+  background: white;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.documentary-video {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.documentary-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.documentary-card h3 {
+  margin: 20px 5px 5px;
+  color: #0b1f4d;
+  font-size: 22px;
+}
+
+.documentary-card p {
+  margin: 5px;
+  color: #555;
+  font-size: 15px;
+}
+
+
+/* =========================
+   BUTTON
+   ========================= */
+
+.read-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 12px 20px;
+  background: #0b1f4d;
+  color: white;
+  font-weight: bold;
+}
+
+.read-button:hover {
+  background: #b22234;
+  text-decoration: none;
+}
+
+
+/* =========================
+   ARCHIVE NOTE
+   ========================= */
+
+.archive-note {
+  background: #0b1f4d;
+  color: white;
+  padding: 30px;
+  margin-top: 20px;
+  border-left: 6px solid #b22234;
+}
+
+.archive-note h3 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.archive-note p {
+  color: #f1f1f1;
+  margin-bottom: 0;
+}
+
+
+/* =========================
+   BACK LINK
+   ========================= */
+
+.back-link {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+.back-link a {
+  display: inline-block;
+  font-weight: bold;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+  background: #0b1f4d;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 6px solid #b22234;
+}
+
+footer p {
+  margin: 6px 0;
+}
+
+footer a {
+  color: white;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 700px) {
+
+  .hero {
+    padding: 100px 18px 50px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero .japanese {
+    font-size: 21px;
+  }
+
+  .hero .tagline {
+    font-size: 18px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .section {
+    padding: 45px 18px 15px;
+  }
+
+  .section-heading h2 {
+    font-size: 27px;
+  }
+
+  .section p {
+    font-size: 16px;
+  }
+
+  .fact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .highlight {
+    padding: 22px;
+  }
+
+  .playlist-card {
+    grid-template-columns: 1fr;
+  }
+
+  .playlist-image {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .kobashi-photo {
+    width: 300px;
+  }
+
+  .menu-button {
+    top: 15px;
+    left: 15px;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
 
-<button class="menu-button" aria-label="Open menu" aria-expanded="false">
+
+<!-- =========================
+     MENU BUTTON
+     ========================= -->
+
+<button
+  class="menu-button"
+  id="menuButton"
+  type="button"
+  aria-label="Open menu"
+  aria-expanded="false"
+  aria-controls="sidebar"
+>
   <span></span>
   <span></span>
   <span></span>
 </button>
 
-<div class="menu-overlay"></div>
 
-<aside class="side-menu">
+<!-- =========================
+     MENU OVERLAY
+     ========================= -->
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+
+<!-- =========================
+     SIDEBAR
+     ========================= -->
+
+<aside class="side-menu" id="sidebar">
+
   <div class="menu-header">
     <h2>The Historical Record</h2>
   </div>
@@ -456,7 +661,9 @@ body.menu-open {
 
     <a href="index.html">Home</a>
 
-    <div class="menu-dropdown">
+
+    <div class="menu-dropdown" id="politicsDropdown">
+
       <button
         class="menu-dropdown-toggle"
         type="button"
@@ -468,783 +675,11 @@ body.menu-open {
       </button>
 
       <div class="menu-submenu" id="politics-submenu">
+
         <a href="politics.html">Politics Home</a>
-        <a href="september-11.html">September 11, 2001</a>
-      </div>
-    </div>
 
-    <a href="entertainment-sports.html">Entertainment / Sports</a>
-
-    <a href="world-events.html">World Events</a>
-
-    <a href="social-media.html">Social Media</a>
-
-    <a href="thoughts.html">Thoughts / Blog</a>
-
-  </nav>
-</aside>
-
-
-<!-- =========================
-     MAIN CONTENT
-========================= -->
-
-<main class="main">
-
-  <!-- HERO -->
-
-  <section class="hero">
-
-    <h1>Kenta Kobashi</h1>
-
-    <div class="japanese">
-      小橋 建太
-    </div>
-
-    <div class="tagline">
-          <div class="tagline">
-      The Burning Lariat. The Absolute Champion.
-    </div>
-
-    <img src="IMG_3907.jpeg" alt="Kenta Kobashi" class="kobashi-photo">
-
-    <p>
-      The Burning Lariat. The Absolute Champion.
-    </div>
-
-    <p>
-      Kenta Kobashi is one of the most celebrated professional wrestlers
-      of his generation. From his rise through All Japan Pro Wrestling
-      to his legendary years in Pro Wrestling NOAH, Kobashi built a career
-      defined by championship success, extraordinary endurance, devastating
-      strikes, unforgettable rivalries, and a determination to continue
-      wrestling despite some of the most serious injuries and health
-      challenges of his career.
-    </p>
-
-  </section>
-
-
-  <!-- QUICK FACTS -->
-
-  <section class="section">
-
-    <h2>Quick Facts</h2>
-
-    <div class="fact-grid">
-
-      <div class="fact-box">
-        <strong>Full Name</strong>
-        Kenta Kobashi
-      </div>
-
-      <div class="fact-box">
-        <strong>Japanese Name</strong>
-        小橋 建太
-      </div>
-
-      <div class="fact-box">
-        <strong>Born</strong>
-        March 27, 1967
-      </div>
-
-      <div class="fact-box">
-        <strong>Professional Debut</strong>
-        February 26, 1988
-      </div>
-
-      <div class="fact-box">
-        <strong>Primary Promotions</strong>
-        All Japan Pro Wrestling and Pro Wrestling NOAH
-      </div>
-
-      <div class="fact-box">
-        <strong>Retirement</strong>
-        May 11, 2013
-      </div>
-
-    </div>
-
-    <div class="highlight">
-
-      <strong>A career built on endurance</strong>
-
-      <p>
-        Kobashi's career included major championship victories,
-        legendary matches against wrestlers such as Mitsuharu Misawa,
-        Toshiaki Kawada, Akira Taue and Stan Hansen, repeated battles
-        with serious knee and arm injuries, and a successful return to
-        professional wrestling after undergoing treatment for kidney cancer.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- EARLY YEARS -->
-
-  <section class="section">
-
-    <h2>Early All Japan Years</h2>
-
-    <p>
-      Kenta Kobashi entered All Japan Pro Wrestling during the late
-      1980s. Before his official debut, he appeared as a trainee in a
-      battle royal with Tsuyoshi Kikuchi on December 16, 1987.
-      His official professional debut came on February 26, 1988,
-      against Motoshi Okuma in Rittō, Shiga.
-    </p>
-
-    <p>
-      The early years were difficult. Kobashi became known for a lengthy
-      singles losing streak, eventually reaching 63 consecutive singles
-      defeats. Rather than preventing his rise, the streak became part of
-      the story of his development as a wrestler. His determination and
-      willingness to improve eventually earned him Rookie of the Year
-      recognition.
-    </p>
-
-    <p>
-      Kobashi gradually established himself in the All Japan tag division.
-      He won his first All Asia Tag Team Championship with Tiger Mask II,
-      Mitsuharu Misawa, before later winning the championship with Johnny Ace.
-    </p>
-
-  </section>
-
-
-  <!-- SUPER GENERATION ARMY -->
-
-  <section class="section">
-
-    <h2>The Super Generation Army</h2>
-
-    <p>
-      In 1990, Kobashi became part of the Super Generation Army alongside
-      Mitsuharu Misawa, Toshiaki Kawada, Akira Taue and Tsuyoshi Kikuchi.
-      The group became central to one of the most important periods in
-      All Japan Pro Wrestling history.
-    </p>
-
-    <p>
-      Kobashi's partnership with Kikuchi became especially important.
-      On May 25, 1992, the two defeated Can-Am Express in Sendai to win
-      the All Asia Tag Team Championship.
-    </p>
-
-    <p>
-      Their work together became so highly regarded that their 1992
-      championship match was later recognized by the Wrestling Observer
-      Newsletter as its Match of the Year.
-    </p>
-
-    <p>
-      During this period Kobashi also began developing the physical style
-      that would become his trademark. His powerful chops, suplexes,
-      lariats and remarkable ability to absorb punishment made him one of
-      All Japan's most recognizable rising stars.
-    </p>
-
-  </section>
-
-
-  <!-- FOUR HEAVENLY KINGS -->
-
-  <section class="section">
-
-    <h2>The Four Heavenly Kings Era</h2>
-
-    <p>
-      The 1990s eventually produced one of the most famous periods in
-      Japanese professional wrestling, centered around Kobashi,
-      Mitsuharu Misawa, Toshiaki Kawada and Akira Taue.
-    </p>
-
-    <p>
-      Kobashi's rivalry with Stan Hansen became one of the defining
-      stories of his rise. He repeatedly challenged himself against
-      larger and more experienced opponents while continuing to develop
-      into one of All Japan's leading singles wrestlers.
-    </p>
-
-    <p>
-      In 1993, Kobashi recorded his first singles victory over Terry Gordy.
-      He also participated in highly acclaimed matches against Steve
-      Williams, including the famous Homicide Backdrop encounters.
-    </p>
-
-    <p>
-      Kobashi's 1993 match with Stan Hansen was awarded five stars by
-      Dave Meltzer's Wrestling Observer Newsletter, further establishing
-      his reputation as one of the world's elite wrestlers.
-    </p>
-
-    <p>
-      On December 3, 1993, Kobashi and Misawa defeated the Holy Demon Army
-      to win the World Tag Team Championship.
-    </p>
-
-  </section>
-
-
-  <!-- 1994-1995 -->
-
-  <section class="section">
-
-    <h2>The Road to the Triple Crown</h2>
-
-    <p>
-      Kobashi continued to rise through the All Japan singles ranks in
-      1994. He won his first singles match against Stan Hansen and
-      challenged Steve Williams for the Triple Crown Heavyweight
-      Championship at the Nippon Budokan on September 3, 1994.
-    </p>
-
-    <p>
-      One of the defining matches of Kobashi's career came on January 19,
-      1995, when he wrestled Toshiaki Kawada to a 60-minute draw.
-      The match became one of the most highly regarded hour-long matches
-      in professional wrestling history.
-    </p>
-
-    <p>
-      The following period brought serious physical problems. Kobashi
-      suffered a significant arm injury following a chair incident
-      involving Stan Hansen and also began dealing with major knee
-      problems that would follow him for much of his career.
-    </p>
-
-    <p>
-      His rivalry with Mitsuharu Misawa continued to produce major
-      singles and tag team matches, including a Triple Crown challenge
-      against Misawa on October 25, 1995.
-    </p>
-
-  </section>
-
-
-  <!-- TRIPLE CROWN -->
-
-  <section class="section">
-
-    <h2>Triple Crown Champion</h2>
-
-    <p>
-      On July 24, 1996, Kobashi defeated Akira Taue to win the
-      Triple Crown Heavyweight Championship for the first time.
-    </p>
-
-    <p>
-      Kobashi had long been influenced by Stan Hansen's Western Lariat.
-      After winning the Triple Crown, his version became known as the
-      <strong>Burning Lariat</strong>, one of the most recognizable
-      finishing moves in Japanese professional wrestling.
-    </p>
-
-    <p>
-      Kobashi's rise continued through the late 1990s. In the 1997
-      Champion Carnival, he scored his first pinfall victory over
-      Mitsuharu Misawa in singles competition.
-    </p>
-
-  </section>
-
-
-  <!-- BURNING -->
-
-  <section class="section">
-
-    <h2>Burning</h2>
-
-    <p>
-      Kobashi's partnership with Jun Akiyama grew during the late 1990s.
-      The two eventually became central figures in the Burning stable,
-      which also included Yoshinobu Kanemaru and Kentaro Shiga.
-    </p>
-
-    <p>
-      On June 12, 1998, Kobashi defeated Toshiaki Kawada to win his
-      second Triple Crown Heavyweight Championship.
-    </p>
-
-    <p>
-      Burning also became associated with one of Kobashi's most famous
-      moves.
-    </p>
-
-  </section>
-
-
-  <!-- BURNING HAMMER -->
-
-  <section class="section">
-
-    <h2>The Burning Hammer</h2>
-
-    <p>
-      On October 24, 1998, Kobashi debuted a devastating new finishing
-      maneuver during a tag team match with Jinsei Shinzaki against
-      Mitsuharu Misawa and Takao Omori.
-    </p>
-
-    <p>
-      The move was influenced by the Death Valley Bomb. Fans eventually
-      gave it the name <strong>Burning Hammer</strong>.
-    </p>
-
-    <div class="highlight">
-
-      <strong>Why the Burning Hammer became legendary</strong>
-
-      <p>
-        The Burning Hammer became one of the most feared moves in
-        professional wrestling because of how rarely Kobashi used it
-        and because of the reputation surrounding the move.
-      </p>
-
-    </div>
-
-    <p>
-      In 1998, Kobashi and Jun Akiyama also won the World's Strongest
-      Tag Determination League, defeating Stan Hansen and Big Van Vader
-      in the tournament final.
-    </p>
-
-  </section>
-
-
-  <!-- AJPW FINAL YEARS -->
-
-  <section class="section">
-
-    <h2>The End of All Japan</h2>
-
-    <p>
-      Kobashi's rivalry with Vader continued into 1999. He also remained
-      deeply involved in the ongoing rivalries involving Misawa, Kawada,
-      Taue and the No Fear team.
-    </p>
-
-    <p>
-      In February 2000, Kobashi defeated Big Van Vader to win his third
-      Triple Crown Heavyweight Championship. He later won the Champion
-      Carnival in April 2000 and recorded his first televised singles
-      victory over Mitsuharu Misawa.
-    </p>
-
-    <p>
-      The death of Giant Baba in January 1999 and the resulting changes
-      inside All Japan eventually led to a major organizational split.
-      Misawa became president while Kobashi served as a board director.
-    </p>
-
-    <p>
-      On June 16, 2000, Misawa announced that he was leaving All Japan.
-      A large group of wrestlers followed him, including Kobashi.
-      The Triple Crown Championship was vacated and the group went on
-      to establish Pro Wrestling NOAH.
-    </p>
-
-  </section>
-
-
-  <!-- NOAH -->
-
-  <section class="section">
-
-    <h2>Pro Wrestling NOAH</h2>
-
-    <p>
-      Kobashi became one of the foundational stars of Pro Wrestling NOAH.
-      His NOAH debut took place on August 5, 2000, when he teamed with
-      Jun Akiyama against Mitsuharu Misawa and Akira Taue.
-    </p>
-
-    <p>
-      Unfortunately, the years of punishment Kobashi had absorbed began
-      taking an enormous toll on his body. His knees became increasingly
-      damaged and he underwent multiple surgeries involving his knees and
-      elbows.
-    </p>
-
-    <p>
-      Even after repeated setbacks, Kobashi continued to return to the
-      ring.
-    </p>
-
-  </section>
-
-
-  <!-- GHC -->
-
-  <section class="section">
-
-    <h2>The Absolute Champion</h2>
-
-    <p>
-      On March 1, 2003, Kobashi defeated Mitsuharu Misawa to win the
-      GHC Heavyweight Championship.
-    </p>
-
-    <p>
-      The match became one of the defining victories of Kobashi's career,
-      with Kobashi using the Burning Hammer to defeat Misawa.
-    </p>
-
-    <div class="highlight">
-
-      <strong>GHC Heavyweight Championship</strong>
-
-      <p>
-        Kobashi's reign lasted from March 1, 2003 until March 5, 2005.
-        During the reign he successfully defended the championship
-        13 times over 735 days.
-      </p>
-
-    </div>
-
-    <p>
-      During this championship run Kobashi defeated a long list of major
-      opponents, including Tamon Honda, Masahiro Chono, Bison Smith,
-      Yuji Nagata, Yoshinari Ogawa, Takuma Sano, Takeshi Rikio,
-      Yoshihiro Takayama, Jun Akiyama, Akira Taue, Akitoshi Saito and
-      Mike Awesome.
-    </p>
-
-    <p>
-      Kobashi's success during 2003 and 2004 earned him Wrestling Observer
-      Newsletter Wrestler of the Year honors.
-    </p>
-
-  </section>
-
-
-  <!-- INTERNATIONAL -->
-
-  <section class="section">
-
-    <h2>International Recognition</h2>
-
-    <p>
-      Kobashi's reputation eventually reached well beyond Japan.
-      During the 2000s he made appearances in North America and Europe,
-      including work with Harley Race's World League Wrestling and Ring
-      of Honor.
-    </p>
-
-    <p>
-      His American appearances included matches with wrestlers such as
-      Samoa Joe and Homicide, introducing a new generation of international
-      fans to the wrestler who had already become a legend in Japan.
-    </p>
-
-  </section>
-
-
-  <!-- CANCER -->
-
-  <section class="section">
-
-    <h2>Injuries and Cancer</h2>
-
-    <p>
-      Kobashi's career was repeatedly interrupted by serious injuries.
-      His knees required multiple operations and he also suffered major
-      problems with his arms and elbows.
-    </p>
-
-    <p>
-      In 2006, Kobashi was diagnosed with kidney cancer after doctors
-      discovered a tumor. He underwent a laparoscopic nephrectomy and
-      chemotherapy.
-    </p>
-
-    <p>
-      Despite the seriousness of the diagnosis, Kobashi announced that
-      he intended to return to professional wrestling.
-    </p>
-
-    <div class="highlight">
-
-      <strong>Return from cancer</strong>
-
-      <p>
-        Kobashi returned to the NOAH ring in December 2007, receiving an
-        enormous ovation from the crowd.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- LATE CAREER -->
-
-  <section class="section">
-
-    <h2>The Final Years</h2>
-
-    <p>
-      Kobashi continued wrestling through the late 2000s despite the
-      accumulated damage to his body.
-    </p>
-
-    <p>
-      In September 2008, he underwent emergency surgery on both arms.
-      Doctors advised him to stop performing his famous machine-gun
-      knife-edge chops, but Kobashi continued to use the technique.
-    </p>
-
-    <p>
-      On March 1, 2009, he returned to the Nippon Budokan and defeated
-      Masao Inoue with the Burning Lariat.
-    </p>
-
-    <p>
-      On June 8, 2009, Kobashi won the GHC Openweight Hardcore
-      Championship, which became the final championship of his career.
-    </p>
-
-    <p>
-      Only days later, on June 13, 2009, Mitsuharu Misawa died after
-      suffering an injury during a match. The loss deeply affected
-      Japanese professional wrestling and Kobashi personally.
-    </p>
-
-    <p>
-      Kobashi also made a one-night return to All Japan Pro Wrestling
-      on August 30, 2009, marking his first All Japan match in nine years.
-    </p>
-
-    <p>
-      In December 2009, serious nerve damage to his right arm forced
-      another extended absence from wrestling.
-    </p>
-
-    <p>
-      Kobashi returned to the ring on July 23, 2011. He also participated
-      in the All Together charity event with Keiji Muto, where the two
-      defeated Takashi Iizuka and Toru Yano.
-    </p>
-
-  </section>
-
-
-  <!-- RETIREMENT -->
-
-  <section class="section">
-
-    <h2>Retirement</h2>
-
-    <p>
-      On December 9, 2012, Kobashi announced that he would retire from
-      professional wrestling in 2013.
-    </p>
-
-    <p>
-      His retirement match was announced for the Nippon Budokan, the
-      building that had hosted so many of the defining matches of his
-      career.
-    </p>
-
-    <p>
-      On May 11, 2013, Kenta Kobashi wrestled his final professional
-      match at Final Burning in Budokan.
-    </p>
-
-    <p>
-      The retirement event featured appearances and tributes from many
-      of the most important figures in Japanese professional wrestling,
-      including Jun Akiyama, Keiji Muto, Kensuke Sasaki, Akira Taue,
-      Hiroshi Hase, Masahiro Chono, Toshiaki Kawada and others.
-    </p>
-
-    <div class="highlight">
-
-      <strong>The final match</strong>
-
-      <p>
-        Kobashi teamed with Jun Akiyama, Keiji Muto and Kensuke Sasaki
-        against Go Shiozaki, KENTA, Maybach Taniguchi and Yoshinobu
-        Kanemaru.
-      </p>
-
-      <p>
-        Kobashi scored the final pinfall of his career on Yoshinobu
-        Kanemaru with a moonsault.
-      </p>
-
-    </div>
-
-    <p>
-      Approximately 17,000 fans attended the event, which was also
-      broadcast live in Japan and shown in movie theaters.
-    </p>
-
-  </section>
-
-
-  <!-- LEGACY -->
-
-  <section class="section">
-
-    <h2>Legacy</h2>
-
-    <p>
-      Kenta Kobashi's legacy is built around far more than championship
-      statistics. His career became a story of perseverance, rivalries,
-      physical sacrifice and an extraordinary connection with wrestling
-      fans.
-    </p>
-
-    <p>
-      His matches with Mitsuharu Misawa, Toshiaki Kawada, Akira Taue,
-      Stan Hansen, Steve Williams, Vader and many others helped define
-      one of the most influential eras in Japanese professional wrestling.
-    </p>
-
-    <p>
-      His Burning Lariat became iconic. His Burning Hammer became one of
-      wrestling's most famous finishing moves. His long GHC Heavyweight
-      Championship reign became one of the defining accomplishments of
-      Pro Wrestling NOAH.
-    </p>
-
-    <p>
-      Even after serious knee injuries, arm surgeries and treatment for
-      kidney cancer, Kobashi repeatedly returned to the ring.
-    </p>
-
-    <p>
-      His retirement in 2013 marked the end of one of the most remarkable
-      careers in Japanese professional wrestling.
-    </p>
-
-  </section>
-
-
-  <!-- CHAMPIONSHIPS -->
-
-  <section class="section">
-
-    <h2>Championships &amp; Accomplishments</h2>
-
-    <div class="table-wrapper">
-
-      <table>
-
-        <thead>
-          <tr>
-            <th>Championship / Accomplishment</th>
-            <th>Notable Achievement</th>
-          </tr>
-        </thead>
-
-        <tbody>
-
-          <tr>
-            <td>Triple Crown Heavyweight Championship</td>
-            <td>Three-time champion in All Japan Pro Wrestling</td>
-          </tr>
-
-          <tr>
-            <td>GHC Heavyweight Championship</td>
-            <td>Won in 2003 and held the championship for 735 days</td>
-          </tr>
-
-          <tr>
-            <td>GHC Tag Team Championship</td>
-            <td>Multiple-time champion</td>
-          </tr>
-
-          <tr>
-            <td>World Tag Team Championship</td>
-            <td>Multiple-time All Japan champion</td>
-          </tr>
-
-          <tr>
-            <td>All Asia Tag Team Championship</td>
-            <td>Multiple-time champion</td>
-          </tr>
-
-          <tr>
-            <td>Champion Carnival</td>
-            <td>Tournament winner, including 2000</td>
-          </tr>
-
-          <tr>
-            <td>World's Strongest Tag Determination League</td>
-            <td>Multiple-time tournament participant and winner</td>
-          </tr>
-
-          <tr>
-            <td>GHC Openweight Hardcore Championship</td>
-            <td>Final championship of Kobashi's career</td>
-          </tr>
-
-          <tr>
-            <td>Wrestling Observer Newsletter</td>
-            <td>Wrestler of the Year in 2003 and 2004</td>
-          </tr>
-
-        </tbody>
-
-      </table>
-
-    </div>
-
-  </section>
-
-
-  <!-- WATCH SECTION -->
-
-  <section class="section">
-
-    <h2>Watch Kenta Kobashi</h2>
-
-    <p>
-      Explore matches from across Kobashi's legendary career.
-    </p>
-
-
-    <!-- PLAYLIST -->
-
-    <div class="playlist-card">
-
-      <a
-        class="playlist-image"
-        href="https://youtube.com/playlist?list=PLqzG15CnLZ0borBSk0WmdRgwH18iaI3sy&si=wHOskR7SPk-0v8Om"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-
-        <img
-          src="https://i.ytimg.com/vi/ORnIzE4zEEo/hqdefault.jpg"
-          alt="Kenta Kobashi Match Collection"
-        >
-
-        <span class="play-button">▶</span>
-
-      </a>
-
-      <div class="playlist-info">
-
-        <h3>Kenta Kobashi Match Collection</h3>
-
-        <p>
-          Browse a large collection of Kenta Kobashi matches spanning
-          his career in All Japan Pro Wrestling, Pro Wrestling NOAH,
-          and beyond.
-        </p>
-
-        <a
-          class="playlist-button"
-          href="https://youtube.com/playlist?list=PLqzG15CnLZ0borBSk0WmdRgwH18iaI3sy&si=wHOskR7SPk-0v8Om"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Watch the Match Playlist
+        <a href="september-11.html">
+          September 11, 2001
         </a>
 
       </div>
@@ -1252,171 +687,1009 @@ body.menu-open {
     </div>
 
 
-    <!-- DOCUMENTARIES -->
+    <a href="entertainment-sports.html">
+      Entertainment / Sports
+    </a>
 
-    <h2>Documentaries &amp; Deep Dives</h2>
+    <a href="world-events.html">
+      World Events
+    </a>
+
+    <a href="social-media.html">
+      Social Media
+    </a>
+
+    <a href="thoughts.html">
+      Thoughts / Blog
+    </a>
+
+  </nav>
+
+</aside>
+
+
+<!-- =========================
+     HERO
+     ========================= -->
+
+<header class="hero">
+
+  <h1>Kenta Kobashi</h1>
+
+  <div class="japanese">
+    小橋 建太
+  </div>
+
+  <div class="tagline">
+    The Burning Lariat. The Absolute Champion.
+  </div>
+
+  <img
+    src="IMG_3907.jpeg"
+    alt="Kenta Kobashi"
+    class="kobashi-photo"
+  >
+
+  <p>
+    Kenta Kobashi is one of the most celebrated professional wrestlers
+    of his generation. From his rise through All Japan Pro Wrestling
+    to his legendary championship years in Pro Wrestling NOAH,
+    Kobashi became known for extraordinary endurance, devastating
+    strikes, dramatic championship battles, and an ability to turn
+    long matches into unforgettable stories.
+  </p>
+
+</header>
+
+
+<!-- =========================
+     QUICK FACTS
+     ========================= -->
+
+<section class="section">
+
+  <div class="section-heading">
+    <h2>Quick Facts</h2>
+  </div>
+
+  <div class="fact-grid">
+
+    <div class="fact-box">
+      <h3>Ring Name</h3>
+      <p>Kenta Kobashi</p>
+    </div>
+
+    <div class="fact-box">
+      <h3>Japanese Name</h3>
+      <p>小橋 建太</p>
+    </div>
+
+    <div class="fact-box">
+      <h3>Professional Debut</h3>
+      <p>1988, All Japan Pro Wrestling</p>
+    </div>
+
+    <div class="fact-box">
+      <h3>Major Promotions</h3>
+      <p>All Japan Pro Wrestling and Pro Wrestling NOAH</p>
+    </div>
+
+    <div class="fact-box">
+      <h3>Signature Move</h3>
+      <p>Burning Lariat</p>
+    </div>
+
+    <div class="fact-box">
+      <h3>Famous Finisher</h3>
+      <p>Burning Hammer</p>
+    </div>
+
+    <div class="fact-box">
+      <h3>GHC Heavyweight Champion</h3>
+      <p>2003, with a two-year championship reign</p>
+    </div>
+
+    <div class="fact-box">
+      <h3>Retirement</h3>
+      <p>May 11, 2013, at Nippon Budokan</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     EARLY YEARS
+     ========================= -->
+
+<section class="section">
+
+  <div class="section-heading">
+    <h2>The Early All Japan Years</h2>
+  </div>
+
+  <p>
+    Kobashi entered All Japan Pro Wrestling during one of the most
+    influential periods in Japanese professional wrestling. He began
+    as a young wrestler who had to establish himself in a promotion
+    filled with imposing heavyweight stars.
+  </p>
+
+  <p>
+    His early career was defined by constant improvement. Kobashi
+    gradually transformed himself from an inexperienced young wrestler
+    into one of the promotion's most dependable performers.
+  </p>
+
+  <p>
+    His development alongside wrestlers such as Mitsuharu Misawa,
+    Toshiaki Kawada, and Akira Taue helped create the environment
+    that would eventually produce some of All Japan's most famous
+    championship matches.
+  </p>
+
+</section>
+
+
+<!-- =========================
+     SUPER GENERATION ARMY
+     ========================= -->
+
+<section class="section">
+
+  <div class="section-heading">
+    <h2>The Super Generation Army</h2>
+  </div>
+
+  <p>
+    Kobashi became closely associated with Mitsuharu Misawa and the
+    Super Generation Army. Their battles against the Holy Demon Army
+    helped establish All Japan as one of the world's premier wrestling
+    promotions during the 1990s.
+  </p>
+
+  <p>
+    Kobashi's reputation grew because of the punishment he could absorb.
+    Matches involving him frequently became contests of endurance,
+    with increasingly dramatic exchanges as the bout progressed.
+  </p>
+
+  <div class="highlight">
+
+    <h3>A Defining Era</h3>
 
     <p>
-      These documentaries and long-form videos explore Kobashi's career,
-      matches, rivalries and legacy in greater depth.
+      The All Japan heavyweight scene of the 1990s became famous for
+      lengthy, physical matches built around escalation, resilience,
+      and championship-level storytelling. Kobashi became one of the
+      central figures of that era.
     </p>
 
+  </div>
 
-    <div class="documentary-grid">
-
-
-      <div class="documentary-card">
-
-        <div class="documentary-video">
-
-          <iframe
-            src="https://www.youtube.com/embed/ORnIzE4zEEo"
-            title="Kenta Kobashi Documentary"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-
-        </div>
-
-        <div class="documentary-title">
-          Kenta Kobashi Documentary
-        </div>
-
-      </div>
+</section>
 
 
-      <div class="documentary-card">
+<!-- =========================
+     FOUR HEAVENLY KINGS
+     ========================= -->
 
-        <div class="documentary-video">
+<section class="section">
 
-          <iframe
-            src="https://www.youtube.com/embed/olWx1_oJlgg"
-            title="Kenta Kobashi Deep Dive"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
+  <div class="section-heading">
+    <h2>The Four Heavenly Kings Era</h2>
+  </div>
 
-        </div>
+  <p>
+    The rivalry network involving Kobashi, Misawa, Kawada, and Taue
+    became one of the defining periods of Japanese heavyweight wrestling.
+  </p>
 
-        <div class="documentary-title">
-          Kenta Kobashi Deep Dive
-        </div>
+  <p>
+    Their matches frequently pushed professional wrestling toward
+    extraordinary levels of athleticism and physical storytelling.
+    Kobashi's role in that era helped establish him as a wrestler
+    capable of carrying major singles and tag team programs.
+  </p>
 
-      </div>
+  <p>
+    His championship victories and repeated performances against
+    the biggest stars of All Japan gradually changed his status from
+    promising young wrestler to established main-event competitor.
+  </p>
 
-
-      <div class="documentary-card">
-
-        <div class="documentary-video">
-
-          <iframe
-            src="https://www.youtube.com/embed/OFXSzG6wSaA"
-            title="Kenta Kobashi Documentary"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-
-        </div>
-
-        <div class="documentary-title">
-          Kenta Kobashi Documentary
-        </div>
-
-      </div>
+</section>
 
 
-      <div class="documentary-card">
+<!-- =========================
+     ROAD TO TRIPLE CROWN
+     ========================= -->
 
-        <div class="documentary-video">
+<section class="section">
 
-          <iframe
-            src="https://www.youtube.com/embed/yrlFvOyNppU"
-            title="Kenta Kobashi Documentary"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
+  <div class="section-heading">
+    <h2>The Road to the Triple Crown</h2>
+  </div>
 
-        </div>
+  <p>
+    Kobashi's rise eventually led to the All Japan Triple Crown
+    Heavyweight Championship. The title represented the highest
+    level of singles competition in the promotion.
+  </p>
 
-        <div class="documentary-title">
-          Kenta Kobashi Documentary
-        </div>
+  <p>
+    Winning the championship established Kobashi as one of the
+    promotion's leading heavyweight stars and placed him permanently
+    among the defining wrestlers of the era.
+  </p>
 
-      </div>
+  <div class="highlight">
+
+    <h3>The Triple Crown</h3>
+
+    <p>
+      Kobashi held the Triple Crown Heavyweight Championship on
+      multiple occasions and repeatedly returned to the title picture
+      throughout his All Japan career.
+    </p>
+
+  </div>
+
+</section>
 
 
-      <div class="documentary-card">
+<!-- =========================
+     TRIPLE CROWN CHAMPION
+     ========================= -->
 
-        <div class="documentary-video">
+<section class="section">
 
-          <iframe
-            src="https://www.youtube.com/embed/FY3cv2I5UV8"
-            title="Kenta Kobashi Documentary"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
+  <div class="section-heading">
+    <h2>Triple Crown Champion</h2>
+  </div>
 
-        </div>
+  <p>
+    Kobashi's Triple Crown matches became known for their intensity
+    and physicality. The championship became a symbol of his evolution
+    into one of All Japan's most important stars.
+  </p>
 
-        <div class="documentary-title">
-          Kenta Kobashi Documentary
-        </div>
+  <p>
+    His matches against the other major heavyweight wrestlers of the
+    period became important parts of the company's history and helped
+    define the reputation that Kobashi carried into the next phase
+    of his career.
+  </p>
 
-      </div>
+</section>
 
+
+<!-- =========================
+     BURNING
+     ========================= -->
+
+<section class="section">
+
+  <div class="section-heading">
+    <h2>Burning</h2>
+  </div>
+
+  <p>
+    Kobashi eventually became associated with the Burning faction,
+    a group whose name would become inseparable from his identity
+    during the later portion of his career.
+  </p>
+
+  <p>
+    The name fit the character that Kobashi had developed in the ring.
+    His style was based on persistence, physical punishment, explosive
+    offense, and an almost relentless refusal to stay down.
+  </p>
+
+</section>
+
+
+<!-- =========================
+     BURNING LARIAT
+     ========================= -->
+
+<section class="section">
+
+  <div class="section-heading">
+    <h2>The Burning Lariat</h2>
+  </div>
+
+  <p>
+    The Burning Lariat became Kobashi's signature weapon.
+    Rather than relying on complicated technique, the move was built
+    around timing, impact, and the sheer force behind Kobashi's swing.
+  </p>
+
+  <div class="highlight">
+
+    <h3>The Burning Lariat</h3>
+
+    <p>
+      Few moves became as closely identified with a wrestler as
+      Kobashi's lariat became with him. It became the punctuation mark
+      at the end of many of his most important matches.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     BURNING HAMMER
+     ========================= -->
+
+<section class="section">
+
+  <div class="section-heading">
+    <h2>The Burning Hammer</h2>
+  </div>
+
+  <p>
+    Kobashi's Burning Hammer developed a legendary reputation because
+    of its devastating appearance and the rarity with which he used it.
+  </p>
+
+  <p>
+    The move became one of professional wrestling's most recognizable
+    finishing maneuvers and is closely associated with Kobashi's name.
+  </p>
+
+</section>
+
+
+<!-- =========================
+     END OF ALL JAPAN
+     ========================= -->
+
+<section class="section">
+
+  <div class="section-heading">
+    <h2>The End of All Japan</h2>
+  </div>
+
+  <p>
+    The wrestling landscape changed dramatically around the turn of
+    the millennium. Misawa and a large group of wrestlers departed
+    All Japan and formed Pro Wrestling NOAH.
+  </p>
+
+  <p>
+    Kobashi followed the movement and became one of the most important
+    figures in the new promotion.
+  </p>
+
+</section>
+
+
+<!-- =========================
+     PRO WRESTLING NOAH
+     ========================= -->
+
+<section class="section">
+
+  <div class="section-heading">
+    <h2>Pro Wrestling NOAH</h2>
+  </div>
+
+  <p>
+    Pro Wrestling NOAH gave Kobashi another platform on which to
+    establish his legacy. He became one of the promotion's defining
+    stars and eventually reached the top of the company.
+  </p>
+
+  <p>
+    His rivalry with Mitsuharu Misawa continued, while new opponents
+    and younger wrestlers gradually entered the picture.
+  </p>
+
+  <div class="highlight">
+
+    <h3>The Absolute Champion</h3>
+
+    <p>
+      Kobashi's championship reign as GHC Heavyweight Champion became
+      one of the defining accomplishments of his NOAH career.
+      He held the championship for roughly two years and made
+      thirteen successful defenses.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     GHC CHAMPIONSHIP
+     ========================= -->
+
+<section class="section">
+
+  <div class="section-heading">
+    <h2>The GHC Heavyweight Championship</h2>
+  </div>
+
+  <p>
+    Kobashi defeated Mitsuharu Misawa to win the GHC Heavyweight
+    Championship in 2003.
+  </p>
+
+  <p>
+    His reign became famous for its longevity and for the number of
+    major challengers he defeated. The championship run established
+    Kobashi as the centerpiece of NOAH's heavyweight division.
+  </p>
+
+  <p>
+    NOAH's historical championship records list Kobashi's reign as
+    beginning in 2003 and ending after approximately two years,
+    with thirteen defenses. [oai_citation:1‡PRO-WRESTLING NOAH OFFICIAL SITE](https://www.noah.co.jp/profile/?utm_source=chatgpt.com)
+  </p>
+
+</section>
+
+
+<!-- =========================
+     INTERNATIONAL RECOGNITION
+     ========================= -->
+
+<section class="section">
+
+  <div class="section-heading">
+    <h2>International Recognition</h2>
+  </div>
+
+  <p>
+    Kobashi's reputation eventually reached well beyond Japan.
+    His matches became heavily discussed among international wrestling
+    fans, particularly among viewers interested in the history of
+    All Japan and NOAH.
+  </p>
+
+  <p>
+    His reputation was built not simply on championships, but on the
+    consistency and intensity of his performances across decades.
+  </p>
+
+</section>
+
+
+<!-- =========================
+     INJURIES AND CANCER
+     ========================= -->
+
+<section class="section">
+
+  <div class="section-heading">
+    <h2>Injuries and Cancer</h2>
+  </div>
+
+  <p>
+    Kobashi's career was also marked by serious physical setbacks.
+    Years of demanding matches took a significant toll on his body,
+    leading to periods away from competition.
+  </p>
+
+  <p>
+    In 2006, Kobashi was diagnosed with kidney cancer and was forced
+    to take a prolonged absence from wrestling.
+  </p>
+
+  <p>
+    His return became one of the most emotional moments of his career.
+    After 546 days away from the ring, he returned at Nippon Budokan
+    in 2007.
+  </p>
+
+  <div class="highlight">
+
+    <h3>546 Days Away</h3>
+
+    <p>
+      Kobashi's return demonstrated the resilience that had become one
+      of the defining themes of his career. His comeback was met with
+      an enormous emotional response from Japanese wrestling fans.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     FINAL YEARS
+     ========================= -->
+
+<section class="section">
+
+  <div class="section-heading">
+    <h2>The Final Years</h2>
+  </div>
+
+  <p>
+    Kobashi continued competing after returning from cancer treatment,
+    although injuries increasingly limited his ability to wrestle
+    on a regular basis.
+  </p>
+
+  <p>
+    Even as his in-ring career became more difficult, his importance
+    to NOAH and to Japanese professional wrestling remained enormous.
+  </p>
+
+  <p>
+    Eventually, Kobashi and NOAH reached the point where his remaining
+    career would be focused on bringing his historic run to a proper
+    conclusion.
+  </p>
+
+</section>
+
+
+<!-- =========================
+     RETIREMENT
+     ========================= -->
+
+<section class="section">
+
+  <div class="section-heading">
+    <h2>Retirement</h2>
+  </div>
+
+  <p>
+    On May 11, 2013, Kenta Kobashi wrestled his retirement match at
+    Nippon Budokan.
+  </p>
+
+  <p>
+    The event brought together many of the wrestlers and personalities
+    associated with his career and gave fans the opportunity to
+    celebrate one of Japanese wrestling's most influential performers.
+  </p>
+
+  <div class="highlight">
+
+    <h3>May 11, 2013</h3>
+
+    <p>
+      Kenta Kobashi officially retired from professional wrestling
+      after a career that had lasted roughly twenty-five years.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     LEGACY
+     ========================= -->
+
+<section class="section">
+
+  <div class="section-heading">
+    <h2>Legacy</h2>
+  </div>
+
+  <p>
+    Kenta Kobashi's legacy is built on much more than championship
+    statistics.
+  </p>
+
+  <p>
+    His career represents one of the defining stories of Japanese
+    heavyweight wrestling. His matches with Mitsuharu Misawa,
+    Toshiaki Kawada, Akira Taue, Jun Akiyama, and numerous other
+    opponents helped define an era.
+  </p>
+
+  <p>
+    His career also became inseparable from perseverance. He fought
+    through injuries, returned from cancer, continued performing at
+    the highest level possible, and eventually received the farewell
+    that his career deserved.
+  </p>
+
+  <p>
+    Today, Kobashi remains an important figure in Japanese wrestling
+    history and continues to be associated with wrestling events,
+    appearances, training, and public activities.
+  </p>
+
+</section>
+
+
+<!-- =========================
+     CHAMPIONSHIPS
+     ========================= -->
+
+<section class="section">
+
+  <div class="section-heading">
+    <h2>Championships &amp; Accomplishments</h2>
+  </div>
+
+  <div class="table-wrapper">
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Promotion / Award</th>
+          <th>Accomplishment</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>All Japan Pro Wrestling</td>
+          <td>Triple Crown Heavyweight Championship</td>
+        </tr>
+
+        <tr>
+          <td>All Japan Pro Wrestling</td>
+          <td>World Tag Team Championship</td>
+        </tr>
+
+        <tr>
+          <td>All Japan Pro Wrestling</td>
+          <td>Asia Tag Team Championship</td>
+        </tr>
+
+        <tr>
+          <td>All Japan Pro Wrestling</td>
+          <td>Champion Carnival winner, 2000</td>
+        </tr>
+
+        <tr>
+          <td>All Japan Pro Wrestling</td>
+          <td>Multiple World Tag League victories</td>
+        </tr>
+
+        <tr>
+          <td>Pro Wrestling NOAH</td>
+          <td>GHC Heavyweight Championship</td>
+        </tr>
+
+        <tr>
+          <td>Pro Wrestling NOAH</td>
+          <td>GHC Tag Team Championship</td>
+        </tr>
+
+        <tr>
+          <td>Pro Wrestling NOAH</td>
+          <td>Global Hardcore Crown Championship</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     WATCH KENTA KOBASHI
+     ========================= -->
+
+<section class="section">
+
+  <div class="section-heading">
+    <h2>Watch Kenta Kobashi</h2>
+  </div>
+
+
+  <!-- PLAYLIST -->
+
+  <div class="playlist-card">
+
+    <img
+      class="playlist-image"
+      src="https://i.ytimg.com/vi/ORnIzE4zEEo/hqdefault.jpg"
+      alt="Kenta Kobashi wrestling video playlist"
+    >
+
+    <div class="playlist-info">
+
+      <h3>Kenta Kobashi Match Collection</h3>
+
+      <p>
+        Explore a collection of Kenta Kobashi matches and historical
+        footage covering different stages of his legendary career.
+      </p>
+
+      <a
+        class="playlist-button"
+        href="https://youtube.com/playlist?list=PLqzG15CnLZ0borBSk0WmdRgwH18iaI3sy&si=wHOskR7SPk-0v8Om"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Watch the Full Playlist
+      </a>
 
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 
-  <!-- SOURCE NOTE -->
+<!-- =========================
+     DOCUMENTARIES
+     ========================= -->
 
-  <section class="section">
+<section class="section">
 
-    <h2>Archive Note</h2>
+  <div class="section-heading">
+    <h2>Kenta Kobashi Documentaries &amp; Features</h2>
+  </div>
+
+  <div class="documentary-grid">
+
+
+    <article class="documentary-card">
+
+      <div class="documentary-video">
+
+        <iframe
+          src="https://www.youtube.com/embed/ORnIzE4zEEo"
+          title="Kenta Kobashi wrestling feature"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+      <h3>Kenta Kobashi Feature</h3>
+
+      <p>
+        A look at one of the most influential wrestlers of the
+        All Japan and NOAH generations.
+      </p>
+
+    </article>
+
+
+    <article class="documentary-card">
+
+      <div class="documentary-video">
+
+        <iframe
+          src="https://www.youtube.com/embed/olWx1_oJlgg"
+          title="Kenta Kobashi documentary"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+      <h3>The Kobashi Story</h3>
+
+      <p>
+        A feature exploring Kobashi's career and place in
+        Japanese professional wrestling history.
+      </p>
+
+    </article>
+
+
+    <article class="documentary-card">
+
+      <div class="documentary-video">
+
+        <iframe
+          src="https://www.youtube.com/embed/OFXSzG6wSaA"
+          title="Kenta Kobashi career feature"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+      <h3>Career Highlights</h3>
+
+      <p>
+        Highlights from the career of one of Japanese wrestling's
+        most recognizable heavyweight performers.
+      </p>
+
+    </article>
+
+
+    <article class="documentary-card">
+
+      <div class="documentary-video">
+
+        <iframe
+          src="https://www.youtube.com/embed/yrlFvOyNppU"
+          title="Kenta Kobashi wrestling documentary"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+      <h3>All Japan &amp; NOAH</h3>
+
+      <p>
+        A deeper look at the promotions and rivalries that shaped
+        Kobashi's career.
+      </p>
+
+    </article>
+
+
+    <article class="documentary-card">
+
+      <div class="documentary-video">
+
+        <iframe
+          src="https://www.youtube.com/embed/FY3cv2I5UV8"
+          title="Kenta Kobashi wrestling history"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+      <h3>The Burning Lariat</h3>
+
+      <p>
+        A retrospective on Kobashi's signature style, major matches,
+        and lasting influence.
+      </p>
+
+    </article>
+
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     ARCHIVE NOTE
+     ========================= -->
+
+<section class="section">
+
+  <div class="archive-note">
+
+    <h3>Archive Note</h3>
 
     <p>
-      This page is intended as a historical overview of Kenta Kobashi's
-      professional wrestling career. The embedded videos and match
-      collection are hosted by YouTube and remain the property of their
-      respective creators and rights holders.
+      Kenta Kobashi's career represents one of the most important
+      chapters in the history of Japanese professional wrestling.
+      His work in All Japan Pro Wrestling and Pro Wrestling NOAH,
+      his championship victories, his battles with injury and cancer,
+      and his emotional retirement all form part of a career that
+      continues to be studied and remembered by wrestling fans around
+      the world.
     </p>
 
-    <p>
-      Kenta Kobashi's career is presented here as part of the Historical
-      Archive's Entertainment &amp; Sports collection.
-    </p>
+  </div>
 
-  </section>
+</section>
 
 
-</main>
+<!-- =========================
+     BACK TO ENTERTAINMENT
+     ========================= -->
+
+<div class="back-link">
+
+  <a href="entertainment-sports.html">
+    ← Back to Entertainment / Sports
+  </a>
+
+</div>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+     ========================= -->
 
-<footer class="footer">
+<footer>
 
-  Historical Archive &copy; 2026
+  <p>
+    <strong>The Historical Record</strong>
+  </p>
+
+  <p>
+    Preserving history, one record at a time.
+  </p>
+
+  <p>
+    <a href="index.html">Return to the Archive</a>
+  </p>
 
 </footer>
 
 
+<!-- =========================
+     JAVASCRIPT
+     ========================= -->
+
 <script>
 
-function toggleSidebar() {
+const menuButton = document.getElementById("menuButton");
+const sidebar = document.getElementById("sidebar");
+const menuOverlay = document.getElementById("menuOverlay");
+const politicsDropdown = document.getElementById("politicsDropdown");
+const politicsToggle = politicsDropdown.querySelector(".menu-dropdown-toggle");
 
-  const sidebar = document.getElementById("sidebar");
+function openMenu() {
 
-  sidebar.classList.toggle("open");
+  sidebar.classList.add("open");
+  menuOverlay.classList.add("open");
+  document.body.classList.add("menu-open");
 
+  menuButton.setAttribute("aria-expanded", "true");
+  menuButton.setAttribute("aria-label", "Close menu");
 }
+
+function closeMenu() {
+
+  sidebar.classList.remove("open");
+  menuOverlay.classList.remove("open");
+  document.body.classList.remove("menu-open");
+
+  menuButton.setAttribute("aria-expanded", "false");
+  menuButton.setAttribute("aria-label", "Open menu");
+}
+
+menuButton.addEventListener("click", function() {
+
+  if (sidebar.classList.contains("open")) {
+    closeMenu();
+  } else {
+    openMenu();
+  }
+
+});
+
+menuOverlay.addEventListener("click", function() {
+  closeMenu();
+});
+
+
+politicsToggle.addEventListener("click", function() {
+
+  const isOpen = politicsDropdown.classList.toggle("open");
+
+  politicsToggle.setAttribute(
+    "aria-expanded",
+    isOpen ? "true" : "false"
+  );
+
+});
+
+
+sidebar.querySelectorAll("a").forEach(function(link) {
+
+  link.addEventListener("click", function() {
+    closeMenu();
+  });
+
+});
+
+
+document.addEventListener("keydown", function(event) {
+
+  if (event.key === "Escape") {
+    closeMenu();
+  }
+
+});
 
 </script>
 
