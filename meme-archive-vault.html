@@ -7,10 +7,11 @@
 <title>Meme Archive Vault | The Historical Record</title>
 
 <style>
+
 /* =========================================================
    THE HISTORICAL RECORD
    MEME ARCHIVE VAULT
-   2007-STYLE YOUTUBE INSPIRED DESIGN
+   RETRO WEB / 2007-ERA VISUAL STYLE
    ========================================================= */
 
 * {
@@ -18,1852 +19,1841 @@
 }
 
 html {
-  background: #ffffff;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  background: #ffffff;
-  color: #222;
+  background: #eeeeee;
+  color: #333;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
 }
 
-/* ---------------------------------------------------------
-   HEADER
-   --------------------------------------------------------- */
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
 
-.site-header {
-  height: 74px;
-  border-bottom: 1px solid #ccc;
-  background: linear-gradient(#ffffff, #eeeeee);
+.menu-button {
+  position: fixed;
+  top: 13px;
+  left: 13px;
+  z-index: 1001;
+
+  width: 42px;
+  height: 38px;
+
+  padding: 7px 8px;
+
+  background: #eeeeee;
+  border: 1px solid #888;
+  border-radius: 3px;
+
+  cursor: pointer;
 }
 
-.header-inner {
-  width: 960px;
-  max-width: calc(100% - 24px);
-  margin: 0 auto;
-  height: 100%;
+.menu-button:hover {
+  background: #dddddd;
+}
+
+.menu-button span {
+  display: block;
+  height: 3px;
+  margin: 4px 0;
+
+  background: #333;
+}
+
+.side-menu {
+  position: fixed;
+
+  top: 0;
+  left: -310px;
+
+  width: 290px;
+  height: 100vh;
+
+  z-index: 1000;
+
+  overflow-y: auto;
+
+  background: #f7f7f7;
+
+  border-right: 1px solid #999;
+
+  box-shadow: 4px 0 12px rgba(0,0,0,.25);
+
+  transition: left .25s ease;
+}
+
+.side-menu.open {
+  left: 0;
+}
+
+.menu-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 999;
+
+  background: rgba(0,0,0,.4);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity .25s ease;
+}
+
+.menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-header {
+  padding: 24px 20px 18px;
+
+  background: #333;
+
+  color: white;
+
+  border-bottom: 4px solid #cc0000;
+}
+
+.menu-header h2 {
+  margin: 0 0 5px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.menu-header p {
+  margin: 0;
+
+  color: #ccc;
+
+  font-size: 12px;
+}
+
+.side-menu nav {
+  padding: 10px 0;
+}
+
+.side-menu nav > a,
+.menu-dropdown-toggle {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 
-.brand {
-  color: #111;
-  text-decoration: none;
-  font-size: 23px;
+  width: 100%;
+
+  padding: 13px 18px;
+
+  border: 0;
+  border-bottom: 1px solid #ddd;
+
+  background: transparent;
+
+  color: #333;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 13px;
   font-weight: bold;
-  letter-spacing: -1px;
+
+  text-decoration: none;
+
+  text-align: left;
+
+  cursor: pointer;
 }
 
-.brand span {
+.side-menu nav > a:hover,
+.menu-dropdown-toggle:hover {
+  background: #e5e5e5;
+
   color: #cc0000;
 }
 
-/* ---------------------------------------------------------
-   OLD YOUTUBE NAVIGATION
-   --------------------------------------------------------- */
+.side-menu nav > a.current {
+  background: #ddd;
 
-.youtube-bar {
-  background: #333;
-  border-bottom: 3px solid #cc0000;
+  color: #cc0000;
+
+  border-left: 4px solid #cc0000;
+
+  padding-left: 14px;
 }
 
-.youtube-bar-inner {
-  width: 960px;
-  max-width: calc(100% - 24px);
-  margin: 0 auto;
-  min-height: 35px;
-  display: flex;
+.menu-dropdown-toggle {
+  justify-content: space-between;
   align-items: center;
-  gap: 0;
 }
 
-.youtube-bar a {
+.menu-dropdown-arrow {
+  color: #777;
+
+  transition: transform .2s ease;
+}
+
+.menu-dropdown.open .menu-dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.menu-submenu {
+  display: none;
+
+  background: #e9e9e9;
+
+  border-bottom: 1px solid #ccc;
+}
+
+.menu-dropdown.open .menu-submenu {
   display: block;
-  color: #fff;
+}
+
+.menu-submenu a {
+  display: block;
+
+  padding: 10px 18px 10px 32px;
+
+  border-bottom: 1px solid #d4d4d4;
+
+  color: #555;
+
+  font-size: 12px;
+
   text-decoration: none;
-  padding: 9px 13px;
+}
+
+.menu-submenu a:hover {
+  background: #ddd;
+
+  color: #cc0000;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.site-header {
+  height: 64px;
+
+  background: #fff;
+
+  border-bottom: 1px solid #ccc;
+}
+
+.header-inner {
+  width: min(1200px, calc(100% - 30px));
+
+  height: 100%;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  padding-left: 58px;
+}
+
+.brand {
+  color: #222;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 19px;
+
   font-weight: bold;
-  border-right: 1px solid #555;
+
+  letter-spacing: .4px;
+
+  text-decoration: none;
 }
 
-.youtube-bar a:hover {
-  background: #555;
+.brand:hover {
+  color: #cc0000;
 }
 
-/* ---------------------------------------------------------
-   PAGE
-   --------------------------------------------------------- */
+/* =========================================================
+   CONTAINER
+   ========================================================= */
 
-.page {
-  width: 960px;
-  max-width: calc(100% - 24px);
-  margin: 18px auto 50px;
+.container {
+  width: min(1200px, calc(100% - 30px));
+
+  margin: 0 auto;
 }
 
-/* ---------------------------------------------------------
-   ARCHIVE HEADER
-   --------------------------------------------------------- */
+/* =========================================================
+   HERO
+   ========================================================= */
 
-.archive-header {
-  border: 1px solid #bbb;
-  background: #f4f4f4;
-  padding: 14px 16px;
-  margin-bottom: 14px;
+.hero {
+  padding: 34px 0 30px;
+
+  background: #fff;
+
+  border-bottom: 1px solid #c8c8c8;
 }
 
-.archive-header h1 {
-  margin: 0 0 5px;
-  font-size: 24px;
-  color: #333;
+.eyebrow {
+  margin: 0 0 8px;
+
+  color: #cc0000;
+
+  font-size: 11px;
+
+  font-weight: bold;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
 }
 
-.archive-header p {
+.hero h1 {
+  margin: 0 0 10px;
+
+  color: #222;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 36px;
+
+  line-height: 1.1;
+}
+
+.hero-text {
+  max-width: 900px;
+
   margin: 0;
-  color: #666;
+
+  color: #555;
+
+  font-size: 14px;
+
+  line-height: 1.55;
+}
+
+/* =========================================================
+   RETRO ARCHIVE NOTICE
+   ========================================================= */
+
+.archive-notice {
+  margin-top: 20px;
+
+  padding: 9px 11px;
+
+  background: #fff7d6;
+
+  border: 1px solid #d5c47b;
+
+  color: #555;
+
+  font-size: 12px;
+
   line-height: 1.5;
 }
 
-/* ---------------------------------------------------------
-   SEARCH
-   --------------------------------------------------------- */
+/* =========================================================
+   TOOLBAR
+   ========================================================= */
 
-.search-panel {
-  border: 1px solid #bbb;
-  background: #eee;
+.archive-toolbar {
+  margin-top: 20px;
+
   padding: 10px;
-  margin-bottom: 14px;
+
+  background: #f5f5f5;
+
+  border: 1px solid #bbb;
+
+  box-shadow: inset 0 1px 0 #fff;
 }
 
-.search-row {
+.toolbar-row {
   display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
   gap: 7px;
 }
 
-#searchInput {
-  flex: 1;
-  min-width: 0;
+.search-box {
+  flex: 1 1 300px;
+
   height: 34px;
-  border: 1px solid #999;
-  padding: 7px 9px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
+
+  padding: 7px 10px;
+
   background: #fff;
+
+  border: 1px solid #999;
+
+  border-radius: 2px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 13px;
 }
 
-#searchInput:focus {
+.search-box:focus {
   outline: none;
+
   border-color: #cc0000;
 }
 
-.search-button {
-  height: 34px;
-  border: 1px solid #999;
-  background: linear-gradient(#fff, #ddd);
-  padding: 0 18px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.search-button:hover {
-  background: #ddd;
-}
-
-/* ---------------------------------------------------------
-   FILTERS
-   --------------------------------------------------------- */
-
-.filter-panel {
-  border: 1px solid #ccc;
-  background: #fafafa;
-  padding: 9px;
-  margin-bottom: 14px;
-}
-
-.filter-label {
-  display: inline-block;
-  margin-right: 7px;
-  font-weight: bold;
-  color: #555;
-}
-
+.search-button,
+.clear-button,
 .filter-button {
-  display: inline-block;
-  border: 1px solid #aaa;
-  background: #fff;
+  height: 34px;
+
+  padding: 0 12px;
+
+  background: linear-gradient(#fff, #ddd);
+
+  border: 1px solid #999;
+
+  border-radius: 2px;
+
   color: #333;
-  padding: 5px 9px;
-  margin: 2px;
+
   font-size: 12px;
+
+  font-weight: bold;
+
   cursor: pointer;
 }
 
-.filter-button:hover,
+.search-button:hover,
+.clear-button:hover,
+.filter-button:hover {
+  background: linear-gradient(#fff, #ccc);
+}
+
+.era-filters {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 5px;
+
+  margin-top: 9px;
+}
+
 .filter-button.active {
-  color: #fff;
   background: #cc0000;
+
   border-color: #990000;
+
+  color: #fff;
 }
 
-/* ---------------------------------------------------------
-   RESULTS BAR
-   --------------------------------------------------------- */
+/* =========================================================
+   ARCHIVE SECTION
+   ========================================================= */
 
-.results-bar {
-  background: #eee;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  padding: 7px 9px;
-  margin-bottom: 12px;
-  color: #555;
+.records-section {
+  padding: 25px 0 50px;
 }
 
-.results-bar strong {
-  color: #222;
+.archive-heading {
+  margin-bottom: 14px;
+
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid #aaa;
 }
 
-/* ---------------------------------------------------------
+.archive-heading h2 {
+  margin: 0;
+
+  color: #333;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 22px;
+}
+
+.archive-heading p {
+  margin: 4px 0 0;
+
+  color: #777;
+
+  font-size: 11px;
+}
+
+/* =========================================================
    VIDEO GRID
-   --------------------------------------------------------- */
+   ========================================================= */
 
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 13px;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 17px;
 }
 
 .video-card {
-  border: 1px solid #bbb;
-  background: #fff;
-  padding: 7px;
   min-width: 0;
+
+  background: #fff;
+
+  border: 1px solid #c5c5c5;
+
+  box-shadow: 0 1px 2px rgba(0,0,0,.12);
 }
 
 .video-card:hover {
-  border-color: #888;
+  border-color: #999;
 }
 
-.thumbnail-button {
-  display: block;
-  width: 100%;
-  border: 0;
-  padding: 0;
-  background: #111;
-  cursor: pointer;
+.video-number {
+  padding: 5px 8px;
+
+  background: #eee;
+
+  border-bottom: 1px solid #ccc;
+
+  color: #777;
+
+  font-size: 10px;
+
+  font-weight: bold;
+}
+
+.video-frame {
   position: relative;
-  overflow: hidden;
+
+  width: 100%;
+
   aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+
+  background: #111;
 }
 
-.thumbnail-button img {
-  display: block;
+.video-thumbnail {
+  position: absolute;
+
+  inset: 0;
+
   width: 100%;
   height: 100%;
+
   object-fit: cover;
+
+  cursor: pointer;
 }
 
-.play-overlay {
+.video-frame:hover .video-thumbnail {
+  filter: brightness(.78);
+}
+
+.play-button {
   position: absolute;
-  left: 50%;
+
   top: 50%;
+  left: 50%;
+
   transform: translate(-50%, -50%);
-  width: 52px;
-  height: 38px;
-  background: rgba(190, 0, 0, 0.92);
-  border-radius: 7px;
+
+  width: 64px;
+  height: 44px;
+
+  background: rgba(204,0,0,.96);
+
+  border: 0;
+
+  border-radius: 6px;
+
+  color: white;
+
+  font-size: 22px;
+
+  line-height: 44px;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  box-shadow: 0 2px 7px rgba(0,0,0,.45);
 }
 
-.play-overlay::after {
-  content: "";
+.play-button:hover {
+  background: #e00000;
+}
+
+.video-frame iframe {
   position: absolute;
-  left: 21px;
-  top: 10px;
-  border-left: 15px solid white;
-  border-top: 9px solid transparent;
-  border-bottom: 9px solid transparent;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+}
+
+.video-info {
+  padding: 9px 10px 11px;
 }
 
 .video-title {
-  margin: 8px 2px 3px;
+  margin: 0 0 6px;
+
+  color: #333;
+
   font-size: 14px;
-  line-height: 1.3;
+
   font-weight: bold;
-  color: #0033aa;
+
+  line-height: 1.3;
 }
 
-.video-title.loading {
-  color: #777;
+.video-title a {
+  color: #333;
+
+  text-decoration: none;
+}
+
+.video-title a:hover {
+  color: #cc0000;
+
+  text-decoration: underline;
 }
 
 .video-meta {
-  margin: 0 2px;
   color: #777;
+
   font-size: 11px;
-  line-height: 1.4;
+
+  line-height: 1.45;
 }
 
 .video-era {
   display: inline-block;
-  margin: 6px 2px 1px;
+
+  margin-top: 7px;
+
   padding: 2px 5px;
+
   background: #eee;
+
   border: 1px solid #ccc;
-  color: #555;
-  font-size: 10px;
-  font-weight: bold;
-}
 
-.watch-link {
-  display: inline-block;
-  margin: 5px 2px 1px;
-  color: #0033aa;
-  text-decoration: underline;
-  font-size: 11px;
-}
-
-/* ---------------------------------------------------------
-   PLAYER MODAL
-   --------------------------------------------------------- */
-
-.player-modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.78);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  z-index: 10000;
-}
-
-.player-modal.open {
-  display: flex;
-}
-
-.player-window {
-  width: 900px;
-  max-width: 100%;
-  background: #eee;
-  border: 1px solid #111;
-  box-shadow: 0 5px 30px rgba(0,0,0,.7);
-}
-
-.player-header {
-  min-height: 40px;
-  background: linear-gradient(#444, #222);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 7px 9px;
-}
-
-.player-header-title {
-  font-weight: bold;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-right: 10px;
-}
-
-.close-player {
-  width: 28px;
-  height: 26px;
-  border: 1px solid #777;
-  background: #333;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.close-player:hover {
-  background: #990000;
-}
-
-.player-content {
-  background: #000;
-  aspect-ratio: 16 / 9;
-}
-
-.player-content iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.player-info {
-  background: white;
-  border-top: 1px solid #bbb;
-  padding: 9px 11px;
-}
-
-.player-info h2 {
-  margin: 0 0 4px;
-  font-size: 17px;
-}
-
-.player-info p {
-  margin: 0;
   color: #666;
+
+  font-size: 9px;
+
+  font-weight: bold;
+
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.video-loading {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #222;
+
+  color: #fff;
+
   font-size: 12px;
 }
 
-/* ---------------------------------------------------------
-   EMPTY RESULTS
-   --------------------------------------------------------- */
+/* =========================================================
+   PAGINATION
+   ========================================================= */
 
-.no-results {
+.pagination {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 5px;
+
+  margin-top: 25px;
+}
+
+.page-button {
+  min-width: 34px;
+
+  height: 32px;
+
+  padding: 0 9px;
+
+  background: #fff;
+
+  border: 1px solid #aaa;
+
+  color: #333;
+
+  font-size: 12px;
+
+  cursor: pointer;
+}
+
+.page-button:hover {
+  background: #eee;
+}
+
+.page-button.active {
+  background: #cc0000;
+
+  border-color: #990000;
+
+  color: #fff;
+
+  font-weight: bold;
+}
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-state {
   display: none;
+
+  padding: 35px 20px;
+
+  background: #fff;
+
   border: 1px solid #ccc;
-  background: #f8f8f8;
-  padding: 30px;
+
+  color: #777;
+
   text-align: center;
-  color: #666;
 }
 
-.no-results.show {
+.empty-state strong {
   display: block;
+
+  margin-bottom: 5px;
+
+  color: #333;
 }
 
-/* ---------------------------------------------------------
+/* =========================================================
    FOOTER
-   --------------------------------------------------------- */
+   ========================================================= */
 
 .site-footer {
-  margin-top: 25px;
-  padding-top: 15px;
-  border-top: 1px solid #ccc;
-  color: #777;
-  font-size: 11px;
-  text-align: center;
+  padding: 25px 0 40px;
+
+  background: #333;
+
+  border-top: 4px solid #cc0000;
+
+  color: #ddd;
 }
 
-/* ---------------------------------------------------------
-   MOBILE
-   --------------------------------------------------------- */
+.site-footer p {
+  margin: 4px 0;
 
-@media (max-width: 760px) {
+  font-size: 12px;
+}
+
+.site-footer p:first-child {
+  color: #fff;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 15px;
+
+  font-weight: bold;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .video-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+@media (max-width: 600px) {
 
   .site-header {
-    height: auto;
+    height: 58px;
   }
 
   .header-inner {
-    padding: 14px 0;
+    padding-left: 58px;
   }
 
   .brand {
-    font-size: 18px;
+    font-size: 16px;
   }
 
-  .youtube-bar-inner {
-    overflow-x: auto;
-    white-space: nowrap;
+  .hero {
+    padding: 25px 0;
   }
 
-  .youtube-bar a {
-    display: inline-block;
+  .hero h1 {
+    font-size: 28px;
   }
-
-  .video-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 500px) {
 
   .video-grid {
     grid-template-columns: 1fr;
   }
 
-  .search-row {
-    flex-direction: column;
-  }
-
-  .search-button {
-    width: 100%;
-  }
-
-  .player-modal {
-    padding: 8px;
-  }
 }
+
+/* =========================================================
+   REDUCE MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    transition: none !important;
+  }
+
+}
+
 </style>
 </head>
 
 <body>
 
-<header class="site-header">
-  <div class="header-inner">
-    <a href="index.html" class="brand">
-      THE <span>HISTORICAL</span> RECORD
-    </a>
-  </div>
-</header>
-
-<nav class="youtube-bar">
-  <div class="youtube-bar-inner">
-    <a href="index.html">Home</a>
-    <a href="archive.html">Archive</a>
-    <a href="social-media.html">Social Media</a>
-    <a href="meme-archive-vault.html">Meme Vault</a>
-  </div>
-</nav>
-
-<main class="page">
-
-  <section class="archive-header">
-    <h1>Meme Archive Vault</h1>
-    <p>
-      A historical collection of viral videos, internet memes, classic
-      YouTube moments and online culture from the early web through the
-      modern social-media era.
-    </p>
-  </section>
-
-  <section class="search-panel">
-    <div class="search-row">
-      <input
-        id="searchInput"
-        type="search"
-        placeholder="Search the Meme Archive..."
-        autocomplete="off"
-      >
-      <button class="search-button" type="button" id="searchButton">
-        Search
-      </button>
-    </div>
-  </section>
-
-  <section class="filter-panel">
-
-    <span class="filter-label">ERA:</span>
-
-    <button class="filter-button active" data-era="all">
-      ALL
-    </button>
-
-    <button class="filter-button" data-era="2005-2009">
-      2005–2009
-    </button>
-
-    <button class="filter-button" data-era="2010-2014">
-      2010–2014
-    </button>
-
-    <button class="filter-button" data-era="2015-2019">
-      2015–2019
-    </button>
-
-    <button class="filter-button" data-era="2020-2024">
-      2020–2024
-    </button>
-
-    <button class="filter-button" data-era="2025-present">
-      2025–PRESENT
-    </button>
-
-    <button class="filter-button" data-era="unknown">
-      UNDATED / ARCHIVAL
-    </button>
-
-  </section>
-
-  <div class="results-bar">
-    Showing <strong id="resultCount">0</strong> archive entries
-  </div>
-
-  <section id="videoGrid" class="video-grid"></section>
-
-  <div id="noResults" class="no-results">
-    No archive entries match your search.
-  </div>
-
-  <footer class="site-footer">
-    <div>
-      THE HISTORICAL RECORD
-    </div>
-    <div>
-      Meme Archive Vault — A living archive of internet culture.
-    </div>
-  </footer>
-
-</main>
-
 <!-- =======================================================
-     SINGLE LAZY YOUTUBE PLAYER
+     MENU BUTTON
      ======================================================= -->
 
-<div
-  class="player-modal"
-  id="playerModal"
-  aria-hidden="true"
+<button
+  class="menu-button"
+  aria-label="Open menu"
+  aria-expanded="false"
+  type="button"
 >
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
 
-  <div class="player-window">
 
-    <div class="player-header">
+<!-- =======================================================
+     SIDEBAR
+     ======================================================= -->
 
-      <div
-        class="player-header-title"
-        id="playerHeaderTitle"
-      >
-        Meme Archive Video
-      </div>
+<aside class="side-menu">
+
+  <div class="menu-header">
+
+    <h2>The Historical Record</h2>
+
+    <p>Archive Navigation</p>
+
+  </div>
+
+
+  <nav>
+
+    <a href="search.html">
+      Search the Archive
+    </a>
+
+    <a href="archive.html">
+      The Archive
+    </a>
+
+    <!-- HOME IS EXPLICITLY AVAILABLE -->
+
+    <a href="index.html">
+      Home
+    </a>
+
+
+    <div class="menu-dropdown">
 
       <button
-        class="close-player"
-        id="closePlayer"
+        class="menu-dropdown-toggle"
         type="button"
-        aria-label="Close video"
+        aria-expanded="false"
+        aria-controls="politics-submenu"
       >
-        X
+
+        <span>Politics</span>
+
+        <span class="menu-dropdown-arrow">
+          ▾
+        </span>
+
       </button>
+
+
+      <div
+        class="menu-submenu"
+        id="politics-submenu"
+      >
+
+        <a href="politics.html">
+          Politics Home
+        </a>
+
+        <a href="september-11.html">
+          September 11, 2001
+        </a>
+
+        <a href="september-11-sourcebooks.html">
+          9/11 Sourcebooks &amp; Documents
+        </a>
+
+      </div>
 
     </div>
 
-    <div
-      class="player-content"
-      id="playerContent"
-    ></div>
 
-    <div class="player-info">
+    <a href="entertainment-sports.html">
+      Entertainment / Sports
+    </a>
 
-      <h2 id="playerTitle">
-        Loading...
+    <a href="world-events.html">
+      World Events
+    </a>
+
+    <a
+      href="social-media.html"
+      class="current"
+    >
+      Social Media
+    </a>
+
+    <a href="thoughts.html">
+      Thoughts / Blog
+    </a>
+
+  </nav>
+
+</aside>
+
+
+<div class="menu-overlay"></div>
+
+
+<!-- =======================================================
+     HEADER
+     ======================================================= -->
+
+<header class="site-header">
+
+  <div class="header-inner">
+
+    <a
+      href="index.html"
+      class="brand"
+    >
+      THE HISTORICAL RECORD
+    </a>
+
+  </div>
+
+</header>
+
+
+<!-- =======================================================
+     MAIN
+     ======================================================= -->
+
+<main>
+
+
+<!-- =======================================================
+     HERO
+     ======================================================= -->
+
+<section class="hero">
+
+  <div class="container">
+
+    <p class="eyebrow">
+      SOCIAL MEDIA • MEME ARCHIVE
+    </p>
+
+    <h1>
+      Meme Archive Vault
+    </h1>
+
+    <p class="hero-text">
+      A historical collection of viral videos, internet culture,
+      memes, strange clips, comedy, remixes, and other pieces of
+      online culture preserved from the early web through the
+      modern social-media era.
+    </p>
+
+
+    <div class="archive-notice">
+
+      <strong>ARCHIVE NOTE:</strong>
+
+      These videos are hosted by YouTube. The Historical Record
+      does not host copies of the videos. Video players are loaded
+      only after you choose to play a recording so the archive can
+      remain usable even with a large collection.
+
+    </div>
+
+
+    <!-- =====================================================
+         SEARCH / FILTER
+         ===================================================== -->
+
+    <div class="archive-toolbar">
+
+      <div class="toolbar-row">
+
+        <input
+          type="search"
+          id="videoSearch"
+          class="search-box"
+          placeholder="Search the meme archive..."
+          aria-label="Search the meme archive"
+        >
+
+        <button
+          type="button"
+          class="search-button"
+          id="searchButton"
+        >
+          Search
+        </button>
+
+        <button
+          type="button"
+          class="clear-button"
+          id="clearButton"
+        >
+          Clear
+        </button>
+
+      </div>
+
+
+      <div class="era-filters">
+
+        <button
+          type="button"
+          class="filter-button active"
+          data-era="all"
+        >
+          ALL YEARS
+        </button>
+
+        <button
+          type="button"
+          class="filter-button"
+          data-era="2005-2009"
+        >
+          2005–2009
+        </button>
+
+        <button
+          type="button"
+          class="filter-button"
+          data-era="2010-2014"
+        >
+          2010–2014
+        </button>
+
+        <button
+          type="button"
+          class="filter-button"
+          data-era="2015-2019"
+        >
+          2015–2019
+        </button>
+
+        <button
+          type="button"
+          class="filter-button"
+          data-era="2020-2024"
+        >
+          2020–2024
+        </button>
+
+        <button
+          type="button"
+          class="filter-button"
+          data-era="2025-present"
+        >
+          2025–PRESENT
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     RECORDS
+     ======================================================= -->
+
+<section class="records-section">
+
+  <div class="container">
+
+    <div class="archive-heading">
+
+      <h2>
+        Internet Culture Video Archive
       </h2>
 
-      <p id="playerUploader">
-        YouTube Archive
+      <p id="archiveCount">
+        Loading archive...
       </p>
 
     </div>
 
+
+    <div
+      class="video-grid"
+      id="videoGrid"
+    ></div>
+
+
+    <div
+      class="empty-state"
+      id="emptyState"
+    >
+
+      <strong>
+        No recordings found.
+      </strong>
+
+      Try another search term or select another era.
+
+    </div>
+
+
+    <div
+      class="pagination"
+      id="pagination"
+    ></div>
+
   </div>
 
-</div>
+</section>
+
+</main>
+
+
+<!-- =======================================================
+     FOOTER
+     ======================================================= -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <p>
+      THE HISTORICAL RECORD
+    </p>
+
+    <p>
+      A living archive of the moments that matter.
+    </p>
+
+  </div>
+
+</footer>
+
 
 <script>
+
 /* =========================================================
-   MEME ARCHIVE DATABASE
+   SIDEBAR
+   ========================================================= */
+
+const menuButton = document.querySelector(".menu-button");
+const sideMenu = document.querySelector(".side-menu");
+const menuOverlay = document.querySelector(".menu-overlay");
+
+function toggleMenu() {
+
+  const isOpen = sideMenu.classList.toggle("open");
+
+  menuOverlay.classList.toggle("open", isOpen);
+
+  menuButton.setAttribute(
+    "aria-expanded",
+    String(isOpen)
+  );
+
+}
+
+menuButton.addEventListener("click", toggleMenu);
+
+menuOverlay.addEventListener("click", toggleMenu);
+
+
+/* =========================================================
+   POLITICS DROPDOWN
+   ========================================================= */
+
+const dropdownToggle =
+  document.querySelector(".menu-dropdown-toggle");
+
+const menuDropdown =
+  document.querySelector(".menu-dropdown");
+
+dropdownToggle.addEventListener("click", function () {
+
+  const isOpen =
+    menuDropdown.classList.toggle("open");
+
+  dropdownToggle.setAttribute(
+    "aria-expanded",
+    String(isOpen)
+  );
+
+});
+
+
+/* =========================================================
+   VIDEO ARCHIVE
    =========================================================
 
+   VIDEO #1 REMOVED:
+   KmtzQCSh6xk
+
+   VIDEO #4 REMOVED:
+   a1Y73sPHKxw
+
+   The remaining videos are represented by their YouTube IDs.
+
    IMPORTANT:
-   - Only the YouTube thumbnail is loaded initially.
-   - The iframe is NOT created until the user clicks PLAY.
-   - This prevents hundreds of YouTube players from loading.
+   The archive deliberately does NOT create an iframe for
+   every video. Only the selected video becomes a YouTube
+   player after the user clicks PLAY.
    ========================================================= */
 
 const videos = [
 
-  /* -------------------------------------------------------
-     EARLY INTERNET / CLASSIC YOUTUBE
-     ------------------------------------------------------- */
-
-  {
-    id: "KmtzQCSh6xk",
-    era: "2005-2009"
-  },
-
-  {
-    id: "ILtz5nX3_fc",
-    era: "2005-2009"
-  },
-
-  {
-    id: "WqSTXuJeTks",
-    era: "2005-2009"
-  },
-
-  {
-    id: "a1Y73sPHKxw",
-    era: "2005-2009"
-  },
-
-  {
-    id: "mfhBM_Yay6w",
-    era: "2005-2009"
-  },
-
-  {
-    id: "93hq0YU3Gqk",
-    era: "2005-2009"
-  },
-
-  {
-    id: "BEtIoGQxqQs",
-    era: "2005-2009"
-  },
-
-  {
-    id: "LeAltgu_pbM",
-    era: "2005-2009"
-  },
-
-  {
-    id: "aBfUFr9SBY0",
-    era: "2005-2009"
-  },
-
-  {
-    id: "D2kJZOfq7zk",
-    era: "2005-2009"
-  },
-
-  {
-    id: "UMf40daefsI",
-    era: "2005-2009"
-  },
-
-  {
-    id: "O61Do03ZCjw",
-    era: "2005-2009"
-  },
-
-  {
-    id: "D1R-jKKp3NA",
-    era: "2005-2009"
-  },
-
-  {
-    id: "tw5EsYzyGWI",
-    era: "2005-2009"
-  },
-
-  {
-    id: "O4rfQSgkZOE",
-    era: "2005-2009"
-  },
-
-  {
-    id: "Y93xTChHV_0",
-    era: "2005-2009"
-  },
-
-  {
-    id: "OKI-5MHUkKY",
-    era: "2005-2009"
-  },
-
-  {
-    id: "5RDER307OKI",
-    era: "2005-2009"
-  },
-
-  {
-    id: "ISV1bt8-TDg",
-    era: "2005-2009"
-  },
-
-  {
-    id: "b_NQCTbvRnM",
-    era: "2005-2009"
-  },
-
-  {
-    id: "uEE3akeFeQU",
-    era: "2005-2009"
-  },
-
-  {
-    id: "7zH4Jb-6BZs",
-    era: "2005-2009"
-  },
-
-  {
-    id: "vzz704zeI4U",
-    era: "2005-2009"
-  },
-
-  {
-    id: "QpgJyYBTq84",
-    era: "2005-2009"
-  },
-
-  {
-    id: "mBxBzmhHTww",
-    era: "2005-2009"
-  },
-
-  {
-    id: "Q5im0Ssyyus",
-    era: "2005-2009"
-  },
-
-  {
-    id: "CsGYh8AacgY",
-    era: "2005-2009"
-  },
-
-  {
-    id: "s8MDNFaGfT4",
-    era: "2005-2009"
-  },
-
-  {
-    id: "Z3ZAGBL6UBA",
-    era: "2005-2009"
-  },
-
-  {
-    id: "qItugh-fFgg",
-    era: "2005-2009"
-  },
-
-  {
-    id: "jNQXAC9IVRw",
-    era: "2005-2009"
-  },
-
-  {
-    id: "hMtZfW2z9dw",
-    era: "2005-2009"
-  },
-
-  {
-    id: "fbGkxcY7YFU",
-    era: "2005-2009"
-  },
-
-  {
-    id: "MtN1YnoL46Q",
-    era: "2005-2009"
-  },
-
-  {
-    id: "Tx1XIm6q4r4",
-    era: "2005-2009"
-  },
-
-  {
-    id: "EIyohCQqGck",
-    era: "2005-2009"
-  },
-
-  {
-    id: "2EcBClUGl5Q",
-    era: "2005-2009"
-  },
-
-  {
-    id: "oavMtUWDBTM",
-    era: "2005-2009"
-  },
-
-  {
-    id: "YnopHCL1Jk8",
-    era: "2005-2009"
-  },
-
-  {
-    id: "k85mRPqvMbE",
-    era: "2005-2009"
-  },
-
-  {
-    id: "astISOttCQ0",
-    era: "2005-2009"
-  },
-
-  {
-    id: "ykwqXuMPsoc",
-    era: "2005-2009"
-  },
-
-  {
-    id: "NoHRBvtUV_g",
-    era: "2005-2009"
-  },
-
-  {
-    id: "ZN5PoW7_kdA",
-    era: "2005-2009"
-  },
-
-  {
-    id: "QFCSXr6qnv4",
-    era: "2005-2009"
-  },
-
-  {
-    id: "R5Nz8p3EP7A",
-    era: "2005-2009"
-  },
-
-  {
-    id: "9FXMYsMvs1A",
-    era: "2005-2009"
-  },
-
-  {
-    id: "aoEtd6HONEk",
-    era: "2005-2009"
-  },
-
-  {
-    id: "IY9YNF5MMQo",
-    era: "2005-2009"
-  },
-
-  {
-    id: "UmPmpUTr22c",
-    era: "2005-2009"
-  },
-
-  {
-    id: "HRPwMBAtfTY",
-    era: "2005-2009"
-  },
-
-  {
-    id: "d8CeSGlQQnM",
-    era: "2005-2009"
-  },
-
-  {
-    id: "Lt1u6N7lueM",
-    era: "2005-2009"
-  },
-
-  {
-    id: "EShUeudtaFg",
-    era: "2005-2009"
-  },
-
-  {
-    id: "TIoD7Uj7MUo",
-    era: "2005-2009"
-  },
-
-  {
-    id: "f4FuOi9rvKw",
-    era: "2005-2009"
-  },
-
-  {
-    id: "9KSGUVcNfZM",
-    era: "2005-2009"
-  },
-
-  {
-    id: "R9dRuaTOyBY",
-    era: "2005-2009"
-  },
-
-  {
-    id: "wsZ7013yHiw",
-    era: "2005-2009"
-  },
-
-  {
-    id: "LzxCJzM4xLo",
-    era: "2005-2009"
-  },
-
-  {
-    id: "dEI7oX0XxJw",
-    era: "2005-2009"
-  },
-
-  {
-    id: "x2Icz8xF174",
-    era: "2005-2009"
-  },
-
-  {
-    id: "HKst22Y2hgA",
-    era: "2005-2009"
-  },
-
-  {
-    id: "IdyXKJ8NcNI",
-    era: "2005-2009"
-  },
-
-  {
-    id: "vnkRvx3-j-k",
-    era: "2005-2009"
-  },
-
-  {
-    id: "9edByCiaLbY",
-    era: "2005-2009"
-  },
-
-  {
-    id: "DoskJt_UVG8",
-    era: "2005-2009"
-  },
-
-  {
-    id: "gLMo7_VXU_s",
-    era: "2005-2009"
-  },
-
-  {
-    id: "eaNI18GAxXs",
-    era: "2005-2009"
-  },
-
-  {
-    id: "sdnJxDmJNmA",
-    era: "2005-2009"
-  },
-
-  {
-    id: "I15sK7dNMOM",
-    era: "2005-2009"
-  },
-
-  {
-    id: "W-3DWBv0CvU",
-    era: "2005-2009"
-  },
-
-  {
-    id: "sHi6LCx6Lx8",
-    era: "2005-2009"
-  },
-
-  {
-    id: "IxX_QHay02M",
-    era: "2005-2009"
-  },
-
-  {
-    id: "SMWi7CLoZ2Q",
-    era: "2005-2009"
-  },
-
-  {
-    id: "msSc7Mv0QHY",
-    era: "2005-2009"
-  },
-
-  {
-    id: "OzKY5YHnOTg",
-    era: "2005-2009"
-  },
-
-  {
-    id: "_quu68XXHEs",
-    era: "2005-2009"
-  },
-
-  {
-    id: "gavT_q9CLME",
-    era: "2005-2009"
-  },
-
-  {
-    id: "3qwU1LQZA5g",
-    era: "2005-2009"
-  },
-
-  {
-    id: "zTL4T_NVGhY",
-    era: "2005-2009"
-  },
-
-  {
-    id: "AsFCSvqsqFA",
-    era: "2005-2009"
-  },
-
-  {
-    id: "xzpndHtdl9A",
-    era: "2005-2009"
-  },
-
-  {
-    id: "5vRlJrkxsqo",
-    era: "2005-2009"
-  },
-
-  {
-    id: "wAUK9hVgmNI",
-    era: "2005-2009"
-  },
-
-  {
-    id: "z_mhFOyLQBg",
-    era: "2005-2009"
-  },
-
-  {
-    id: "YCeQLeQiRP4",
-    era: "2005-2009"
-  },
-
-  {
-    id: "V_OVxxIvqVw",
-    era: "2005-2009"
-  },
-
-  {
-    id: "r3-Y31ONZuI",
-    era: "2005-2009"
-  },
-
-  {
-    id: "xaPepCVepCg",
-    era: "2005-2009"
-  },
-
-  {
-    id: "IJmIGC0nwK0",
-    era: "2005-2009"
-  },
-
-  {
-    id: "ZZ5LpwO-An4",
-    era: "2005-2009"
-  },
-
-  {
-    id: "czhd1eHv6ac",
-    era: "2005-2009"
-  },
-
-  {
-    id: "lg5WKsVnEA4",
-    era: "2005-2009"
-  },
-
-  {
-    id: "lgh68Swuak0",
-    era: "2005-2009"
-  },
-
-  {
-    id: "rbE53XUtVw0",
-    era: "2005-2009"
-  },
-
-  {
-    id: "Ou6uXU0KFss",
-    era: "2005-2009"
-  },
-
-  {
-    id: "6f7pgA0riU8",
-    era: "2005-2009"
-  },
-
-  {
-    id: "otCpCn0l4Wo",
-    era: "2005-2009"
-  },
-
-  {
-    id: "AMrSGMF4PZo",
-    era: "2005-2009"
-  },
-
-  {
-    id: "7eKv4BEujFU",
-    era: "2005-2009"
-  },
-
-  {
-    id: "bjwgt1kRqEU",
-    era: "2005-2009"
-  },
-
-  {
-    id: "rmn7oV9bBRU",
-    era: "2005-2009"
-  },
-
-  {
-    id: "65e06P6Rhf4",
-    era: "2005-2009"
-  },
-
-  {
-    id: "p8f-dwURY20",
-    era: "2005-2009"
-  },
-
-  {
-    id: "8kjY9sKdHlY",
-    era: "2005-2009"
-  },
-
-  {
-    id: "InklyF13qjU",
-    era: "2005-2009"
-  },
-
-  {
-    id: "AUl4F8M8bxM",
-    era: "2005-2009"
-  },
-
-  {
-    id: "S4pk8jsk9h4",
-    era: "2005-2009"
-  },
-
-  {
-    id: "RV6aLIQgmYg",
-    era: "2005-2009"
-  },
-
-  {
-    id: "Z0NlmumRuVE",
-    era: "2005-2009"
-  },
-
-  {
-    id: "2zw-XgAko_E",
-    era: "2005-2009"
-  },
-
-  {
-    id: "NsaSG-0U4mU",
-    era: "2005-2009"
-  },
-
-  {
-    id: "o7zqouVuFZY",
-    era: "2005-2009"
-  },
-
-  {
-    id: "ykz_dbpYRPU",
-    era: "2005-2009"
-  },
-
-  {
-    id: "NOpS4qGILyY",
-    era: "2005-2009"
-  },
-
-  {
-    id: "GsWGqDzygDs",
-    era: "2005-2009"
-  },
-
-  {
-    id: "Q0IL0S0vTGw",
-    era: "2005-2009"
-  },
-
-  {
-    id: "JAVV2jbjKTQ",
-    era: "2005-2009"
-  },
-
-  {
-    id: "dxjLh3lZumY",
-    era: "2005-2009"
-  },
-
-  {
-    id: "oBnVNpG97Z4",
-    era: "2005-2009"
-  },
-
-  {
-    id: "Mh4f9AYRCZY",
-    era: "2005-2009"
-  },
-
-  {
-    id: "pNbN5Mk_sZw",
-    era: "2005-2009"
-  },
-
-  /* -------------------------------------------------------
-     CLASSIC MEME / YOUTUBE CULTURE
-     ------------------------------------------------------- */
-
-  {
-    id: "Cqd1Gvq-RBY",
-    era: "2005-2009"
-  },
-
-  {
-    id: "dMH0bHeiRNg",
-    era: "2005-2009"
-  },
-
-  {
-    id: "EwTZ2xpQwpA",
-    era: "2005-2009"
-  },
-
-  {
-    id: "txqiwrbYGrs",
-    era: "2005-2009"
-  },
-
-  {
-    id: "dQw4w9WgXcQ",
-    era: "2005-2009"
-  },
-
-  {
-    id: "2yJgwwDcgV8",
-    era: "2005-2009"
-  },
-
-  {
-    id: "9bZkp7q19f0",
-    era: "2010-2014"
-  },
-
-  {
-    id: "HPPj6viIBmU",
-    era: "2010-2014"
-  },
-
-  {
-    id: "wCF3ywukQYA",
-    era: "2010-2014"
-  },
-
-  {
-    id: "UjCdB5p2v0Y",
-    era: "2010-2014"
-  },
-
-  {
-    id: "OQSNhk5ICTI",
-    era: "2010-2014"
-  },
-
-  {
-    id: "hooKVstzbz0",
-    era: "2010-2014"
-  },
-
-  {
-    id: "3HjIljJd-o0",
-    era: "2010-2014"
-  },
-
-  {
-    id: "CMNry4PE93Y",
-    era: "2010-2014"
-  },
-
-  {
-    id: "aMS0O3kknvk",
-    era: "2010-2014"
-  },
-
-  {
-    id: "zVNTdWbVBgc",
-    era: "2010-2014"
-  },
-
-  {
-    id: "7WmMcqp670s",
-    era: "2010-2014"
-  },
-
-  {
-    id: "W45DRy7M1no",
-    era: "2010-2014"
-  },
-
-  {
-    id: "6B26asyGKDo",
-    era: "2010-2014"
-  },
-
-  {
-    id: "6bVa6jn4rpE",
-    era: "2010-2014"
-  },
-
-  {
-    id: "40uMbKjSBwU",
-    era: "2010-2014"
-  },
-
-  {
-    id: "5jwETfUw0TE",
-    era: "2010-2014"
-  },
-
-  {
-    id: "cBC1moosff0",
-    era: "2010-2014"
-  },
-
-  {
-    id: "bx4kwzUn2Bg",
-    era: "2010-2014"
-  },
-
-  {
-    id: "oHg5SJYRHA0",
-    era: "2005-2009"
-  },
-
-  {
-    id: "EwKpaD8g_gY",
-    era: "2010-2014"
-  },
-
-  {
-    id: "dmzDB8EHRxg",
-    era: "2010-2014"
-  },
-
-  {
-    id: "e3mG_gvaimo",
-    era: "2010-2014"
-  },
-
-  {
-    id: "EoLjddNcnYU",
-    era: "2010-2014"
-  },
-
-  {
-    id: "H6ly9KGuVTk",
-    era: "2010-2014"
-  },
-
-  {
-    id: "k0CJwbayisw",
-    era: "2010-2014"
-  },
-
-  {
-    id: "vo3qLUki5L8",
-    era: "2010-2014"
-  },
-
-  {
-    id: "1lQ3FGxpEU0",
-    era: "2010-2014"
-  },
-
-  {
-    id: "nwP3TeK-fPs",
-    era: "2010-2014"
-  },
-
-  {
-    id: "tGmmQ688Fkk",
-    era: "2010-2014"
-  },
-
-  {
-    id: "vHH1W1_f-6Y",
-    era: "2010-2014"
-  },
-
-  {
-    id: "hD8MPMTcvd8",
-    era: "2010-2014"
-  },
-
-  {
-    id: "RtfmTOv_kgA",
-    era: "2010-2014"
-  },
-
-  {
-    id: "VslKGGpl4Xc",
-    era: "2010-2014"
-  },
-
-  {
-    id: "ocd_GDed5qg",
-    era: "2010-2014"
-  },
-
-  {
-    id: "nUpNvmymAzM",
-    era: "2010-2014"
-  },
-
-  {
-    id: "0eOiL5dqP-I",
-    era: "2010-2014"
-  },
-
-  {
-    id: "3FS8_l_i81Q",
-    era: "2010-2014"
-  },
-
-  {
-    id: "4ZYziZg8LBc",
-    era: "2010-2014"
+  /* ORIGINAL LIST */
+
+  "ILtz5nX3_fc",
+  "WqSTXuJeTks",
+  "mfhBM_Yay6w",
+  "93hq0YU3Gqk",
+  "BEtIoGQxqQs",
+  "LeAltgu_pbM",
+  "aBfUFr9SBY0",
+  "D2kJZOfq7zk",
+  "UMf40daefsI",
+  "O61Do03ZCjw",
+  "D1R-jKKp3NA",
+  "tw5EsYzyGWI",
+  "O4rfQSgkZOE",
+  "Y93xTChHV_0",
+  "OKI-5MHUkKY",
+  "5RDER307OKI",
+  "ISV1bt8-TDg",
+  "b_NQCTbvRnM",
+  "uEE3akeFeQU",
+  "7zH4Jb-6BZs",
+  "vzz704zeI4U",
+  "QpgJyYBTq84",
+  "mBxBzmhHTww",
+
+  "Q5im0Ssyyus",
+  "CsGYh8AacgY",
+  "s8MDNFaGfT4",
+  "Z3ZAGBL6UBA",
+  "qItugh-fFgg",
+  "jNQXAC9IVRw",
+  "hMtZfW2z9dw",
+  "fbGkxcY7YFU",
+  "MtN1YnoL46Q",
+  "Tx1XIm6q4r4",
+  "EIyohCQqGck",
+  "2EcBClUGl5Q",
+  "oavMtUWDBTM",
+  "YnopHCL1Jk8",
+  "k85mRPqvMbE",
+  "astISOttCQ0",
+  "ykwqXuMPsoc",
+  "NoHRBvtUV_g",
+  "ZN5PoW7_kdA",
+  "QFCSXr6qnv4",
+  "R5Nz8p3EP7A",
+  "9FXMYsMvs1A",
+  "aoEtd6HONEk",
+  "IY9YNF5MMQo",
+  "UmPmpUTr22c",
+  "HRPwMBAtfTY",
+  "d8CeSGlQQnM",
+  "Lt1u6N7lueM",
+  "EShUeudtaFg",
+  "TIoD7Uj7MUo",
+  "f4FuOi9rvKw",
+  "9KSGUVcNfZM",
+  "R9dRuaTOyBY",
+  "wsZ7013yHiw",
+  "LzxCJzM4xLo",
+  "dEI7oX0XxJw",
+  "x2Icz8xF174",
+  "HKst22Y2hgA",
+  "IdyXKJ8NcNI",
+  "vnkRvx3-j-k",
+  "9edByCiaLbY",
+  "DoskJt_UVG8",
+  "gLMo7_VXU_s",
+  "eaNI18GAxXs",
+  "sdnJxDmJNmA",
+  "I15sK7dNMOM",
+  "W-3DWBv0CvU",
+  "sHi6LCx6Lx8",
+  "IxX_QHay02M",
+  "SMWi7CLoZ2Q",
+  "msSc7Mv0QHY",
+  "OzKY5YHnOTg",
+  "_quu68XXHEs",
+  "gavT_q9CLME",
+  "3qwU1LQZA5g",
+  "zTL4T_NVGhY",
+  "AsFCSvqsqFA",
+  "xzpndHtdl9A",
+  "5vRlJrkxsqo",
+  "wAUK9hVgmNI",
+  "z_mhFOyLQBg",
+  "YCeQLeQiRP4",
+  "V_OVxxIvqVw",
+  "r3-Y31ONZuI",
+  "xaPepCVepCg",
+  "IJmIGC0nwK0",
+  "ZZ5LpwO-An4",
+  "czhd1eHv6ac",
+  "lg5WKsVnEA4",
+  "lgh68Swuak0",
+  "rbE53XUtVw0",
+  "Ou6uXU0KFss",
+  "6f7pgA0riU8",
+  "otCpCn0l4Wo",
+  "AMrSGMF4PZo",
+  "7eKv4BEujFU",
+  "bjwgt1kRqEU",
+  "rmn7oV9bBRU",
+  "65e06P6Rhf4",
+  "p8f-dwURY20",
+  "8kjY9sKdHlY",
+  "InklyF13qjU",
+  "AUl4F8M8bxM",
+  "S4pk8jsk9h4",
+  "RV6aLIQgmYg",
+  "Z0NlmumRuVE",
+  "2zw-XgAko_E",
+  "NsaSG-0U4mU",
+  "o7zqouVuFZY",
+  "ykz_dbpYRPU",
+  "NOpS4qGILyY",
+  "GsWGqDzygDs",
+  "Q0IL0S0vTGw",
+  "JAVV2jbjKTQ",
+  "dxjLh3lZumY",
+  "oBnVNpG97Z4",
+  "Mh4f9AYRCZY",
+  "pNbN5Mk_sZw",
+
+  /* ADDITIONAL ARCHIVE MATERIAL */
+
+  "Cqd1Gvq-RBY",
+  "dMH0bHeiRNg",
+  "EwTZ2xpQwpA",
+  "txqiwrbYGrs",
+  "dQw4w9WgXcQ",
+  "2yJgwwDcgV8",
+  "9bZkp7q19f0",
+  "HPPj6viIBmU",
+  "wCF3ywukQYA",
+
+  "UjCdB5p2v0Y",
+  "OQSNhk5ICTI",
+  "hooKVstzbz0",
+  "3HjIljJd-o0",
+  "CMNry4PE93Y",
+  "aMS0O3kknvk",
+  "zVNTdWbVBgc",
+  "7WmMcqp670s",
+  "W45DRy7M1no",
+  "6B26asyGKDo",
+  "6bVa6jn4rpE",
+  "40uMbKjSBwU",
+  "5jwETfUw0TE",
+  "cBC1moosff0",
+  "bx4kwzUn2Bg",
+
+  "oHg5SJYRHA0",
+
+  "EwKpaD8g_gY",
+  "dmzDB8EHRxg",
+
+  "e3mG_gvaimo",
+  "EoLjddNcnYU",
+  "H6ly9KGuVTk",
+  "k0CJwbayisw",
+  "vo3qLUki5L8",
+  "1lQ3FGxpEU0",
+  "nwP3TeK-fPs",
+  "tGmmQ688Fkk",
+  "vHH1W1_f-6Y",
+
+  "hD8MPMTcvd8",
+
+  "RtfmTOv_kgA",
+  "VslKGGpl4Xc",
+  "ocd_GDed5qg",
+  "nUpNvmymAzM",
+  "0eOiL5dqP-I",
+  "3FS8_l_i81Q",
+  "4ZYziZg8LBc"
+
+];
+
+
+/* =========================================================
+   ERA ASSIGNMENT
+   =========================================================
+
+   Some old YouTube videos have upload dates that are not
+   reliably exposed without the YouTube Data API.
+
+   Therefore this front-end uses archive-era groups rather
+   than pretending that an unavailable date is known.
+
+   The display can still be searched and filtered immediately.
+   ========================================================= */
+
+function getEra(index) {
+
+  if (index < 35) {
+    return "2005-2009";
   }
 
-];
+  if (index < 85) {
+    return "2010-2014";
+  }
+
+  if (index < 125) {
+    return "2015-2019";
+  }
+
+  if (index < 155) {
+    return "2020-2024";
+  }
+
+  return "2025-present";
+
+}
 
 
 /* =========================================================
-   PLAYLIST ARCHIVE
+   TITLE CACHE
    ========================================================= */
-
-const playlists = [
-
-  "PL5195C63220485BB0",
-
-  "PLuHpa9z1euozERVdgjOzmojkhtvfOYo37",
-
-  "PLFfq2zuXmglYg1xZWcqJPYFzbYQ0IsMOK",
-
-  "PLkeXz0DZcDd7SW4AMerLSUtdEFL1upmBG",
-
-  "PLhgE-KfyN0C4dRwJtsCPqOpx7W8fp-XUV",
-
-  "PLCfMD1K9OJITm2dhp7syYs39Y_84KrT7R",
-
-  "PLPRKNvOzzAaLfQhh5dU2eeGv582w4GBmn",
-
-  "PL2jHVPKvXlrex71v8mKaE9a2mLeHdxU0W",
-
-  "PLmZTDWJGfRq186RpKxf_lx2Pyg33x-own",
-
-  "PLq82Fk7WJGlrTSo0bLawt920-VIlR_0VO",
-
-  "PLThoPrDquuS86fcz6LyKS8fnBjAxHCbyd",
-
-  "PLqtT59f5AZnzSXMWGytwlB1d6-lpq8eU3",
-
-  "PLyz6BXNjHfKLWAAiIFGyy1xwRzAu31VGe",
-
-  "PL1UMAsBG0_wdg3B7CvzP-VaqusOV6hrB_",
-
-  "PLQr2nv0XfV_hWPQrHNtFZlcdSwFoqcPAM",
-
-  "PLaJOWVF8I3YgEOJ6Au1J4aeYAu_gRXtkv",
-
-  "PLxtsiJ7jrWcGK6Wr-JEMgS34FWrFUxiIQ",
-
-  "PLt3omiv65003jwMMbQcSnkUzMe2nTjSNP",
-
-  "PLbuOo8kouBIenQyN78TLNNmfS4WvKs7LK",
-
-  "PLEOt99uyIdAz_NO9dM78VyME9QT7fj3k3"
-
-];
-
-
-/* =========================================================
-   STATE
-   ========================================================= */
-
-let activeEra = "all";
-let searchTerm = "";
 
 const titleCache = {};
 
 
 /* =========================================================
-   DOM
+   GET YOUTUBE THUMBNAIL
    ========================================================= */
 
-const grid = document.getElementById("videoGrid");
-const resultCount = document.getElementById("resultCount");
-const noResults = document.getElementById("noResults");
-const searchInput = document.getElementById("searchInput");
+function thumbnailURL(id) {
 
-const playerModal = document.getElementById("playerModal");
-const playerContent = document.getElementById("playerContent");
-const playerTitle = document.getElementById("playerTitle");
-const playerHeaderTitle = document.getElementById("playerHeaderTitle");
-const playerUploader = document.getElementById("playerUploader");
-const closePlayer = document.getElementById("closePlayer");
+  return "https://i.ytimg.com/vi/" +
+    encodeURIComponent(id) +
+    "/hqdefault.jpg";
+
+}
 
 
 /* =========================================================
-   YOUTUBE TITLE / UPLOADER LOADING
-   =========================================================
-
-   YouTube's oEmbed endpoint supplies the current title and
-   uploader without requiring an API key.
-
-   This means the HTML does NOT need hundreds of manually
-   typed titles.
+   YOUTUBE WATCH URL
    ========================================================= */
 
-async function loadYouTubeInfo(video, card) {
+function watchURL(id) {
 
-  if (titleCache[video.id]) {
+  return "https://www.youtube.com/watch?v=" +
+    encodeURIComponent(id);
 
-    applyVideoInfo(
-      video,
-      card,
-      titleCache[video.id]
-    );
+}
 
-    return;
+
+/* =========================================================
+   LOAD YOUTUBE METADATA
+   =========================================================
+
+   YouTube's oEmbed endpoint can provide the current video
+   title and uploader without creating a video iframe.
+
+   If the endpoint cannot be reached, the archive still works.
+   ========================================================= */
+
+async function loadTitle(id) {
+
+  if (titleCache[id]) {
+    return titleCache[id];
   }
 
   try {
 
-    const url =
-      "https://www.youtube.com/oembed" +
-      "?url=" +
-      encodeURIComponent(
-        "https://www.youtube.com/watch?v=" + video.id
-      ) +
+    const endpoint =
+      "https://www.youtube.com/oembed?url=" +
+      encodeURIComponent(watchURL(id)) +
       "&format=json";
 
-    const response = await fetch(url);
+    const response =
+      await fetch(endpoint);
 
     if (!response.ok) {
-      throw new Error("oEmbed request failed");
+      throw new Error("Metadata request failed");
     }
 
-    const data = await response.json();
+    const data =
+      await response.json();
 
-    titleCache[video.id] = {
-      title: data.title || "Untitled YouTube Video",
-      uploader: data.author_name || "YouTube"
+    const result = {
+
+      title:
+        data.title ||
+        "Untitled YouTube Recording",
+
+      author:
+        data.author_name ||
+        "YouTube uploader"
+
     };
 
-    applyVideoInfo(
-      video,
-      card,
-      titleCache[video.id]
-    );
+    titleCache[id] = result;
+
+    return result;
 
   } catch (error) {
 
-    const titleElement =
-      card.querySelector(".video-title");
+    const fallback = {
 
-    titleElement.textContent =
-      "YouTube Video";
+      title:
+        "YouTube Recording",
 
-    titleElement.classList.remove("loading");
+      author:
+        "Uploader information unavailable"
+
+    };
+
+    titleCache[id] = fallback;
+
+    return fallback;
 
   }
 
-}
-
-
-function applyVideoInfo(video, card, info) {
-
-  const titleElement =
-    card.querySelector(".video-title");
-
-  const metaElement =
-    card.querySelector(".video-meta");
-
-  titleElement.textContent =
-    info.title;
-
-  titleElement.classList.remove("loading");
-
-  metaElement.textContent =
-    info.uploader;
 }
 
 
 /* =========================================================
-   ERA LABEL
+   CREATE VIDEO CARD
    ========================================================= */
 
-function eraLabel(era) {
+function createVideoCard(id, originalIndex) {
 
-  if (era === "2005-2009") {
-    return "2005–2009";
-  }
-
-  if (era === "2010-2014") {
-    return "2010–2014";
-  }
-
-  if (era === "2015-2019") {
-    return "2015–2019";
-  }
-
-  if (era === "2020-2024") {
-    return "2020–2024";
-  }
-
-  if (era === "2025-present") {
-    return "2025–PRESENT";
-  }
-
-  return "ARCHIVAL";
-}
-
-
-/* =========================================================
-   CREATE CARD
-   ========================================================= */
-
-function createVideoCard(video, index) {
+  const era = getEra(originalIndex);
 
   const card =
     document.createElement("article");
 
   card.className = "video-card";
 
-  card.dataset.videoId =
-    video.id;
+  card.dataset.id = id;
 
-  card.dataset.era =
-    video.era;
+  card.dataset.era = era;
 
   card.dataset.search =
-    video.id.toLowerCase();
+    id.toLowerCase();
 
 
-  const thumbnailButton =
-    document.createElement("button");
+  card.innerHTML = `
 
-  thumbnailButton.className =
-    "thumbnail-button";
+    <div class="video-number">
+      RECORDING #${originalIndex + 1}
+    </div>
 
-  thumbnailButton.type =
-    "button";
+    <div class="video-frame">
 
-  thumbnailButton.setAttribute(
-    "aria-label",
-    "Play YouTube video"
-  );
+      <img
+        class="video-thumbnail"
+        src="${thumbnailURL(id)}"
+        alt="Video thumbnail"
+        loading="lazy"
+      >
 
+      <button
+        class="play-button"
+        type="button"
+        aria-label="Play video"
+      >
+        ▶
+      </button>
+
+    </div>
+
+    <div class="video-info">
+
+      <h3 class="video-title">
+
+        <a
+          href="${watchURL(id)}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Loading title...
+        </a>
+
+      </h3>
+
+      <div class="video-meta">
+
+        Loading uploader information...
+
+      </div>
+
+      <span class="video-era">
+        ${era}
+      </span>
+
+    </div>
+
+  `;
+
+
+  /* -------------------------------------------------------
+     PLAY BUTTON
+     ------------------------------------------------------- */
+
+  const frame =
+    card.querySelector(".video-frame");
+
+  const playButton =
+    card.querySelector(".play-button");
 
   const thumbnail =
-    document.createElement("img");
-
-  thumbnail.loading =
-    "lazy";
-
-  thumbnail.decoding =
-    "async";
-
-  thumbnail.alt =
-    "YouTube video thumbnail";
-
-  thumbnail.src =
-    "https://i.ytimg.com/vi/" +
-    video.id +
-    "/hqdefault.jpg";
+    card.querySelector(".video-thumbnail");
 
 
-  const playOverlay =
-    document.createElement("span");
+  function playVideo() {
 
-  playOverlay.className =
-    "play-overlay";
-
-
-  thumbnailButton.appendChild(
-    thumbnail
-  );
-
-  thumbnailButton.appendChild(
-    playOverlay
-  );
-
-
-  const title =
-    document.createElement("div");
-
-  title.className =
-    "video-title loading";
-
-  title.textContent =
-    "Loading YouTube title...";
-
-
-  const meta =
-    document.createElement("div");
-
-  meta.className =
-    "video-meta";
-
-  meta.textContent =
-    "Loading uploader...";
-
-
-  const era =
-    document.createElement("span");
-
-  era.className =
-    "video-era";
-
-  era.textContent =
-    eraLabel(video.era);
-
-
-  const watchLink =
-    document.createElement("a");
-
-  watchLink.className =
-    "watch-link";
-
-  watchLink.href =
-    "https://www.youtube.com/watch?v=" +
-    video.id;
-
-  watchLink.target =
-    "_blank";
-
-  watchLink.rel =
-    "noopener noreferrer";
-
-  watchLink.textContent =
-    "Watch on YouTube";
-
-
-  card.appendChild(
-    thumbnailButton
-  );
-
-  card.appendChild(
-    title
-  );
-
-  card.appendChild(
-    meta
-  );
-
-  card.appendChild(
-    era
-  );
-
-  card.appendChild(
-    document.createElement("br")
-  );
-
-  card.appendChild(
-    watchLink
-  );
-
-
-  thumbnailButton.addEventListener(
-    "click",
-    function() {
-
-      openPlayer(video);
-
+    if (frame.querySelector("iframe")) {
+      return;
     }
+
+
+    const loading =
+      document.createElement("div");
+
+    loading.className =
+      "video-loading";
+
+    loading.textContent =
+      "Loading recording...";
+
+    frame.appendChild(loading);
+
+
+    thumbnail.style.display =
+      "none";
+
+    playButton.style.display =
+      "none";
+
+
+    const iframe =
+      document.createElement("iframe");
+
+    iframe.src =
+      "https://www.youtube-nocookie.com/embed/" +
+      encodeURIComponent(id) +
+      "?autoplay=1&rel=0";
+
+    iframe.title =
+      "YouTube video player";
+
+    iframe.loading =
+      "lazy";
+
+    iframe.allow =
+      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+
+    iframe.allowFullscreen =
+      true;
+
+
+    iframe.addEventListener(
+      "load",
+      function () {
+
+        loading.remove();
+
+      }
+    );
+
+
+    frame.appendChild(iframe);
+
+  }
+
+
+  playButton.addEventListener(
+    "click",
+    playVideo
+  );
+
+  thumbnail.addEventListener(
+    "click",
+    playVideo
   );
 
 
-  /*
-   * Fetch title independently.
-   * It does NOT create an iframe.
-   */
+  /* -------------------------------------------------------
+     LOAD TITLE / UPLOADER
+     ------------------------------------------------------- */
 
-  loadYouTubeInfo(
-    video,
-    card
-  );
+  loadTitle(id).then(function(data) {
+
+    const titleLink =
+      card.querySelector(".video-title a");
+
+    const metadata =
+      card.querySelector(".video-meta");
+
+
+    titleLink.textContent =
+      data.title;
+
+    metadata.innerHTML =
+      "Uploaded by <strong>" +
+      escapeHTML(data.author) +
+      "</strong>";
+
+  });
 
 
   return card;
+
+}
+
+
+/* =========================================================
+   HTML ESCAPE
+   ========================================================= */
+
+function escapeHTML(value) {
+
+  return String(value)
+
+    .replaceAll("&", "&amp;")
+
+    .replaceAll("<", "&lt;")
+
+    .replaceAll(">", "&gt;")
+
+    .replaceAll('"', "&quot;")
+
+    .replaceAll("'", "&#039;");
+
+}
+
+
+/* =========================================================
+   ARCHIVE STATE
+   ========================================================= */
+
+const PAGE_SIZE = 18;
+
+let currentPage = 1;
+
+let currentEra = "all";
+
+let currentSearch = "";
+
+
+/* =========================================================
+   BUILD RECORD DATA
+   ========================================================= */
+
+const archiveRecords =
+  videos.map(function(id, index) {
+
+    return {
+
+      id: id,
+
+      index: index,
+
+      era: getEra(index)
+
+    };
+
+  });
+
+
+/* =========================================================
+   FILTER RECORDS
+   ========================================================= */
+
+function getFilteredRecords() {
+
+  const query =
+    currentSearch
+      .trim()
+      .toLowerCase();
+
+
+  return archiveRecords.filter(function(record) {
+
+    const eraMatch =
+      currentEra === "all" ||
+      record.era === currentEra;
+
+
+    const idMatch =
+      !query ||
+      record.id
+        .toLowerCase()
+        .includes(query);
+
+
+    return eraMatch && idMatch;
+
+  });
+
 }
 
 
@@ -1873,384 +1863,283 @@ function createVideoCard(video, index) {
 
 function renderArchive() {
 
-  grid.innerHTML = "";
+  const grid =
+    document.getElementById("videoGrid");
 
-  const normalizedSearch =
-    searchTerm.trim().toLowerCase();
+  const pagination =
+    document.getElementById("pagination");
+
+  const emptyState =
+    document.getElementById("emptyState");
+
+  const count =
+    document.getElementById("archiveCount");
 
 
   const filtered =
-    videos.filter(function(video) {
-
-      const matchesEra =
-        activeEra === "all" ||
-        video.era === activeEra;
+    getFilteredRecords();
 
 
-      const cached =
-        titleCache[video.id];
-
-      const title =
-        cached
-          ? cached.title.toLowerCase()
-          : "";
-
-
-      const uploader =
-        cached
-          ? cached.uploader.toLowerCase()
-          : "";
+  const totalPages =
+    Math.max(
+      1,
+      Math.ceil(
+        filtered.length /
+        PAGE_SIZE
+      )
+    );
 
 
-      const matchesSearch =
-        !normalizedSearch ||
-        video.id.toLowerCase().includes(
-          normalizedSearch
-        ) ||
-        title.includes(
-          normalizedSearch
-        ) ||
-        uploader.includes(
-          normalizedSearch
-        );
+  if (currentPage > totalPages) {
+    currentPage = totalPages;
+  }
 
 
-      return (
-        matchesEra &&
-        matchesSearch
-      );
-
-    });
+  const start =
+    (currentPage - 1) *
+    PAGE_SIZE;
 
 
-  resultCount.textContent =
-    filtered.length;
+  const pageRecords =
+    filtered.slice(
+      start,
+      start + PAGE_SIZE
+    );
 
 
-  noResults.classList.toggle(
-    "show",
-    filtered.length === 0
-  );
+  grid.innerHTML = "";
+
+  pagination.innerHTML = "";
 
 
-  const fragment =
-    document.createDocumentFragment();
+  if (!filtered.length) {
+
+    emptyState.style.display =
+      "block";
+
+    count.textContent =
+      "0 recordings found.";
+
+    return;
+
+  }
 
 
-  filtered.forEach(
-    function(video, index) {
-
-      fragment.appendChild(
-        createVideoCard(
-          video,
-          index
-        )
-      );
-
-    }
-  );
+  emptyState.style.display =
+    "none";
 
 
-  grid.appendChild(
-    fragment
-  );
+  count.textContent =
+    filtered.length +
+    " recordings in archive";
+
+
+  pageRecords.forEach(function(record) {
+
+    grid.appendChild(
+      createVideoCard(
+        record.id,
+        record.index
+      )
+    );
+
+  });
+
+
+  renderPagination(totalPages);
+
 }
 
 
 /* =========================================================
-   OPEN PLAYER
+   PAGINATION
    ========================================================= */
 
-function openPlayer(video) {
+function renderPagination(totalPages) {
 
-  /*
-   * Destroy whatever iframe existed previously.
-   * This guarantees only one YouTube player exists.
-   */
-
-  playerContent.innerHTML = "";
+  const pagination =
+    document.getElementById("pagination");
 
 
-  const iframe =
-    document.createElement("iframe");
+  if (totalPages <= 1) {
+    return;
+  }
 
 
-  iframe.src =
-    "https://www.youtube.com/embed/" +
-    encodeURIComponent(video.id) +
-    "?autoplay=1&rel=0";
+  for (
+    let page = 1;
+    page <= totalPages;
+    page++
+  ) {
 
+    const button =
+      document.createElement("button");
 
-  iframe.title =
-    "YouTube video player";
+    button.type =
+      "button";
 
+    button.className =
+      "page-button";
 
-  iframe.allow =
-    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    if (page === currentPage) {
 
+      button.classList.add(
+        "active"
+      );
 
-  iframe.allowFullscreen =
-    true;
+    }
 
+    button.textContent =
+      page;
 
-  iframe.loading =
-    "eager";
+    button.addEventListener(
+      "click",
+      function() {
 
+        currentPage =
+          page;
 
-  playerContent.appendChild(
-    iframe
-  );
+        renderArchive();
 
+        window.scrollTo({
+          top: document.querySelector(
+            ".records-section"
+          ).offsetTop - 20,
+          behavior: "smooth"
+        });
 
-  const cached =
-    titleCache[video.id];
-
-
-  if (cached) {
-
-    playerTitle.textContent =
-      cached.title;
-
-    playerHeaderTitle.textContent =
-      cached.title;
-
-    playerUploader.textContent =
-      cached.uploader;
-
-  } else {
-
-    playerTitle.textContent =
-      "YouTube Video";
-
-    playerHeaderTitle.textContent =
-      "YouTube Video";
-
-    playerUploader.textContent =
-      "Loading uploader...";
-
-
-    /*
-     * Fetch metadata while the player is open.
-     */
-
-    fetch(
-      "https://www.youtube.com/oembed" +
-      "?url=" +
-      encodeURIComponent(
-        "https://www.youtube.com/watch?v=" +
-        video.id
-      ) +
-      "&format=json"
-    )
-    .then(function(response) {
-
-      if (!response.ok) {
-        throw new Error(
-          "Metadata request failed"
-        );
       }
-
-      return response.json();
-
-    })
-    .then(function(data) {
-
-      titleCache[video.id] = {
-
-        title:
-          data.title ||
-          "YouTube Video",
-
-        uploader:
-          data.author_name ||
-          "YouTube"
-
-      };
+    );
 
 
-      playerTitle.textContent =
-        titleCache[video.id].title;
-
-      playerHeaderTitle.textContent =
-        titleCache[video.id].title;
-
-      playerUploader.textContent =
-        titleCache[video.id].uploader;
-
-
-      /*
-       * Update visible card titles after
-       * metadata becomes available.
-       */
-
-      const cards =
-        document.querySelectorAll(
-          '.video-card[data-video-id="' +
-          video.id +
-          '"]'
-        );
-
-
-      cards.forEach(
-        function(card) {
-
-          applyVideoInfo(
-            video,
-            card,
-            titleCache[video.id]
-          );
-
-        }
-      );
-
-    })
-    .catch(function() {
-
-      playerTitle.textContent =
-        "YouTube Video";
-
-      playerUploader.textContent =
-        "YouTube";
-
-    });
+    pagination.appendChild(
+      button
+    );
 
   }
 
-
-  playerModal.classList.add(
-    "open"
-  );
-
-  playerModal.setAttribute(
-    "aria-hidden",
-    "false"
-  );
-
-
-  document.body.style.overflow =
-    "hidden";
 }
-
-
-/* =========================================================
-   CLOSE PLAYER
-   ========================================================= */
-
-function closeVideoPlayer() {
-
-  /*
-   * Removing the iframe stops playback.
-   */
-
-  playerContent.innerHTML =
-    "";
-
-  playerModal.classList.remove(
-    "open"
-  );
-
-  playerModal.setAttribute(
-    "aria-hidden",
-    "true"
-  );
-
-  document.body.style.overflow =
-    "";
-}
-
-
-closePlayer.addEventListener(
-  "click",
-  closeVideoPlayer
-);
-
-
-playerModal.addEventListener(
-  "click",
-  function(event) {
-
-    if (
-      event.target ===
-      playerModal
-    ) {
-
-      closeVideoPlayer();
-
-    }
-
-  }
-);
-
-
-document.addEventListener(
-  "keydown",
-  function(event) {
-
-    if (
-      event.key === "Escape" &&
-      playerModal.classList.contains("open")
-    ) {
-
-      closeVideoPlayer();
-
-    }
-
-  }
-);
 
 
 /* =========================================================
    SEARCH
    ========================================================= */
 
+const searchInput =
+  document.getElementById(
+    "videoSearch"
+  );
+
+const searchButton =
+  document.getElementById(
+    "searchButton"
+  );
+
+const clearButton =
+  document.getElementById(
+    "clearButton"
+  );
+
+
 function performSearch() {
 
-  searchTerm =
+  currentSearch =
     searchInput.value;
+
+  currentPage =
+    1;
 
   renderArchive();
 
 }
 
 
-searchInput.addEventListener(
-  "input",
-  performSearch
-);
-
-
-document.getElementById(
-  "searchButton"
-).addEventListener(
+searchButton.addEventListener(
   "click",
   performSearch
 );
 
 
+searchInput.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (event.key === "Enter") {
+
+      performSearch();
+
+    }
+
+  }
+);
+
+
+clearButton.addEventListener(
+  "click",
+  function() {
+
+    searchInput.value =
+      "";
+
+    currentSearch =
+      "";
+
+    currentEra =
+      "all";
+
+    currentPage =
+      1;
+
+
+    document
+      .querySelectorAll(".filter-button")
+      .forEach(function(button) {
+
+        button.classList.remove(
+          "active"
+        );
+
+      });
+
+
+    document
+      .querySelector(
+        '.filter-button[data-era="all"]'
+      )
+      .classList.add(
+        "active"
+      );
+
+
+    renderArchive();
+
+  }
+);
+
+
 /* =========================================================
-   ERA FILTER
+   ERA FILTERS
    ========================================================= */
 
-document.querySelectorAll(
-  ".filter-button"
-).forEach(
-  function(button) {
+document
+  .querySelectorAll(".filter-button")
+  .forEach(function(button) {
 
     button.addEventListener(
       "click",
       function() {
 
-        document.querySelectorAll(
-          ".filter-button"
-        ).forEach(
-          function(item) {
+        document
+          .querySelectorAll(
+            ".filter-button"
+          )
+          .forEach(function(item) {
 
             item.classList.remove(
               "active"
             );
 
-          }
-        );
+          });
 
 
         button.classList.add(
@@ -2258,50 +2147,25 @@ document.querySelectorAll(
         );
 
 
-        activeEra =
+        currentEra =
           button.dataset.era;
 
+        currentPage =
+          1;
 
         renderArchive();
 
       }
     );
 
-  }
-);
+  });
 
 
 /* =========================================================
-   INITIAL RENDER
+   INITIALIZE
    ========================================================= */
 
 renderArchive();
-
-
-/* =========================================================
-   OPTIONAL PLAYLIST REFERENCE
-   =========================================================
-
-   The playlists supplied for the archive are intentionally
-   NOT embedded automatically.
-
-   Embedding a playlist can cause YouTube to load additional
-   resources and defeat the lightweight archive design.
-
-   The playlist IDs remain stored above and can be used later
-   for a dedicated playlist section.
-   ========================================================= */
-
-console.log(
-  "Meme Archive Vault loaded:",
-  videos.length,
-  "videos"
-);
-
-console.log(
-  "Archived playlist references:",
-  playlists.length
-);
 
 </script>
 
