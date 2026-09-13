@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>September 11 Sourcebooks | The Historical Record</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f5f5;
+  color: #222;
+  line-height: 1.7;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.site-header {
+  background: #0b1f4d;
+  color: white;
+  padding: 22px 20px;
+  border-bottom: 5px solid #b22234;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 25px;
+  letter-spacing: 1px;
+}
+
+.site-subtitle {
+  margin: 3px 0 0;
+  font-size: 13px;
+  color: #d9e0ef;
+}
+
+/* =========================
+   MENU BUTTON
+========================= */
+
+.menu-button {
+  background: #b22234;
+  border: none;
+  color: white;
+  padding: 11px 15px;
+  font-size: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* =========================
+   SIDE MENU
+========================= */
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -310px;
+  width: 290px;
+  height: 100%;
+  background: #0b1f4d;
+  color: white;
+  z-index: 1001;
+  padding: 25px 20px;
+  overflow-y: auto;
+  transition: left 0.3s ease;
+  box-shadow: 5px 0 20px rgba(0,0,0,0.3);
+}
+
+.side-menu.open {
+  left: 0;
+}
+
+.side-menu h2 {
+  margin-top: 0;
+  color: white;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding-bottom: 12px;
+}
+
+.side-menu a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px 8px;
+  border-radius: 4px;
+}
+
+.side-menu a:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.close-menu {
+  background: #b22234;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.menu-section {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: #bfc9df;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 1000;
+  display: none;
+}
+
+.menu-overlay.show {
+  display: block;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+main {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 35px 20px 60px;
+}
+
+/* =========================
+   BREADCRUMB
+========================= */
+
+.breadcrumb {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 18px;
+}
+
+.breadcrumb a {
+  color: #0b1f4d;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  background: white;
+  border: 1px solid #ddd;
+  border-top: 5px solid #b22234;
+  padding: 35px;
+  margin-bottom: 30px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+}
+
+.hero-label {
+  color: #b22234;
+  font-weight: bold;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  color: #0b1f4d;
+  font-size: 38px;
+  line-height: 1.2;
+  margin: 8px 0 15px;
+}
+
+.hero p {
+  margin: 0;
+  font-size: 17px;
+  color: #444;
+}
+
+/* =========================
+   QUICK NAVIGATION
+========================= */
+
+.quick-nav {
+  background: #0b1f4d;
+  color: white;
+  padding: 25px;
+  margin-bottom: 35px;
+  border-radius: 4px;
+}
+
+.quick-nav h2 {
+  margin-top: 0;
+  font-size: 21px;
+}
+
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 10px;
+}
+
+.quick-links a {
+  background: white;
+  color: #0b1f4d;
+  text-decoration: none;
+  padding: 12px 14px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.quick-links a:hover {
+  background: #eef2f8;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+  margin-bottom: 45px;
+}
+
+.section-heading {
+  border-bottom: 3px solid #b22234;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: #0b1f4d;
+  font-size: 28px;
+}
+
+.section-heading p {
+  margin: 5px 0 0;
+  color: #666;
+}
+
+/* =========================
+   FEATURED REPORT
+========================= */
+
+.report-card {
+  background: white;
+  border: 1px solid #d5d5d5;
+  border-left: 6px solid #b22234;
+  padding: 28px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.report-card h3 {
+  color: #0b1f4d;
+  font-size: 25px;
+  margin-top: 0;
+}
+
+.report-card p {
+  color: #444;
+}
+
+.report-meta {
+  color: #777;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.button {
+  display: inline-block;
+  padding: 11px 16px;
+  background: #0b1f4d;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.button:hover {
+  background: #17356f;
+}
+
+.button.red {
+  background: #b22234;
+}
+
+.button.red:hover {
+  background: #921b2b;
+}
+
+/* =========================
+   SOURCEBOOK CARDS
+========================= */
+
+.sourcebook-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.sourcebook-card {
+  background: white;
+  border: 1px solid #d7d7d7;
+  padding: 23px;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.volume-number {
+  color: #b22234;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.sourcebook-card h3 {
+  color: #0b1f4d;
+  margin: 7px 0 12px;
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.sourcebook-card p {
+  color: #555;
+  font-size: 14px;
+}
+
+.sourcebook-card a {
+  color: #b22234;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.sourcebook-card a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   DOCUMENT LIST
+========================= */
+
+.document-list {
+  display: grid;
+  gap: 14px;
+}
+
+.document-card {
+  background: white;
+  border: 1px solid #d7d7d7;
+  padding: 20px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.document-card h3 {
+  margin: 0 0 5px;
+  color: #0b1f4d;
+  font-size: 18px;
+}
+
+.document-card p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.document-card a {
+  flex-shrink: 0;
+}
+
+/* =========================
+   READING PATH
+========================= */
+
+.reading-path {
+  background: #eef2f8;
+  border: 1px solid #cfd7e5;
+  padding: 25px;
+}
+
+.reading-step {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+.reading-step:last-child {
+  margin-bottom: 0;
+}
+
+.step-number {
+  min-width: 34px;
+  height: 34px;
+  background: #0b1f4d;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.reading-step strong {
+  color: #0b1f4d;
+}
+
+/* =========================
+   CREDIT BOX
+========================= */
+
+.credit-box {
+  background: white;
+  border: 1px solid #d7d7d7;
+  padding: 25px;
+}
+
+.credit-box h3 {
+  color: #0b1f4d;
+  margin-top: 0;
+}
+
+.credit-box p {
+  font-size: 14px;
+  color: #555;
+}
+
+.credit-box a {
+  color: #b22234;
+  font-weight: bold;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  background: #0b1f4d;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  border-top: 5px solid #b22234;
+}
+
+footer p {
+  margin: 4px 0;
+}
+
+.footer-small {
+  color: #cbd3e2;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+  .hero {
+    padding: 25px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .document-card {
+    display: block;
+  }
+
+  .document-card .button {
+    margin-top: 15px;
+  }
+
+  .site-title {
+    font-size: 20px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     SIDE MENU
+========================= -->
+
+<aside class="side-menu" id="sideMenu">
+
+  <button class="close-menu" onclick="closeMenu()">Close Menu</button>
+
+  <h2>The Historical Record</h2>
+
+  <div class="menu-section">Main</div>
+
+  <a href="index.html">Home</a>
+  <a href="search.html">Search the Archive</a>
+  <a href="archive.html">The Archive</a>
+
+  <div class="menu-section">Politics</div>
+
+  <a href="politics.html">Politics Home</a>
+  <a href="september-11.html">September 11, 2001</a>
+  <a href="september-11-sourcebooks.html">9/11 Sourcebooks & Documents</a>
+
+  <div class="menu-section">Other Sections</div>
+
+  <a href="entertainment-sports.html">Entertainment / Sports</a>
+  <a href="world-events.html">World Events</a>
+  <a href="social-media.html">Social Media</a>
+  <a href="thoughts.html">Thoughts / Blog</a>
+
+</aside>
+
+<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="site-header">
+
+  <div class="header-inner">
+
+    <div>
+      <h1 class="site-title">THE HISTORICAL RECORD</h1>
+      <p class="site-subtitle">A Personal Digital Archive</p>
+    </div>
+
+    <button class="menu-button" onclick="openMenu()">
+      ☰ Menu
+    </button>
+
+  </div>
+
+</header>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main>
+
+  <div class="breadcrumb">
+    <a href="index.html">Home</a>
+    &nbsp; / &nbsp;
+    <a href="september-11.html">September 11, 2001</a>
+    &nbsp; / &nbsp;
+    Sourcebooks & Documents
+  </div>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-label">
+      September 11, 2001
+    </div>
+
+    <h1>
+      The September 11 Sourcebooks
+    </h1>
+
+    <p>
+      A guided collection of primary-source material, government records,
+      historical documents, the 9/11 Commission Report, and archival research
+      relating to the September 11, 2001 terrorist attacks and the events
+      surrounding them.
+    </p>
+
+  </section>
+
+
+  <!-- QUICK NAVIGATION -->
+
+  <section class="quick-nav">
+
+    <h2>Start Here</h2>
+
+    <div class="quick-links">
+
+      <a href="#commission-report">
+        9/11 Commission Report
+      </a>
+
+      <a href="#sourcebooks">
+        Sourcebooks
+      </a>
+
+      <a href="#later-documents">
+        Later Document Releases
+      </a>
+
+      <a href="#reading-guide">
+        Suggested Reading Order
+      </a>
+
+      <a href="#sources">
+        Sources & Credits
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       COMMISSION REPORT
+  ========================= -->
+
+  <section class="section" id="commission-report">
+
+    <div class="section-heading">
+
+      <h2>
+        The 9/11 Commission Report
+      </h2>
+
+      <p>
+        The central official government report on the September 11 attacks.
+      </p>
+
+    </div>
+
+
+    <div class="report-card">
+
+      <div class="report-meta">
+        Final Report • National Commission on Terrorist Attacks Upon the United States
+        • July 22, 2004
+      </div>
+
+      <h3>
+        The 9/11 Commission Report
+      </h3>
+
+      <p>
+        The National Commission on Terrorist Attacks Upon the United States
+        was created to prepare a full and complete account of the circumstances
+        surrounding the September 11, 2001 terrorist attacks, including
+        preparedness for and the immediate response to the attacks.
+      </p>
+
+      <p>
+        The report also contains recommendations intended to help protect the
+        United States against future terrorist attacks.
+      </p>
+
+      <p>
+        The official U.S. Government edition contains the complete report,
+        including the thirteen principal chapters, appendices, notes,
+        illustrations, tables, commission members, and staff information.
+      </p>
+
+      <div class="button-row">
+
+        <a
+          class="button red"
+          href="https://www.govinfo.gov/content/pkg/GPO-911REPORT/pdf/GPO-911REPORT.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open Full 9/11 Commission Report PDF
+        </a>
+
+        <a
+          class="button"
+          href="https://www.9-11commission.gov/report/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Commission Report Archive
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       SOURCEBOOKS
+  ========================= -->
+
+  <section class="section" id="sourcebooks">
+
+    <div class="section-heading">
+
+      <h2>
+        The September 11th Sourcebooks
+      </h2>
+
+      <p>
+        The National Security Archive's original sourcebook collection.
+      </p>
+
+    </div>
+
+
+    <div class="sourcebook-grid">
+
+
+      <!-- VOLUME I -->
+
+      <article class="sourcebook-card">
+
+        <div class="volume-number">
+          Volume I
+        </div>
+
+        <h3>
+          Terrorism and U.S. Policy
+        </h3>
+
+        <p>
+          The first volume focuses on primary sources concerning U.S.
+          terrorism policy, including intelligence material, terrorism
+          assessments, government reports, policy directives, and records
+          concerning earlier terrorist attacks.
+        </p>
+
+        <a
+          href="https://nsarchive.gwu.edu/node/4917"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open Volume I at the National Security Archive →
+        </a>
+
+      </article>
+
+
+      <!-- VOLUME II -->
+
+      <article class="sourcebook-card">
+
+        <div class="volume-number">
+          Volume II
+        </div>
+
+        <h3>
+          Afghanistan: Lessons from the Last War
+        </h3>
+
+        <p>
+          A collection examining the Soviet war in Afghanistan, Soviet
+          policymaking, military operations, U.S. involvement, and lessons
+          drawn from the conflict.
+        </p>
+
+        <a
+          href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB57/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open Volume II →
+        </a>
+
+      </article>
+
+
+      <!-- VOLUME III -->
+
+      <article class="sourcebook-card">
+
+        <div class="volume-number">
+          Volume III
+        </div>
+
+        <h3>
+          BIOWAR
+        </h3>
+
+        <p>
+          Documents concerning the Nixon administration's 1969 decision to
+          end U.S. offensive biological and chemical weapons programs.
+        </p>
+
+        <a
+          href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB58/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open Volume III →
+        </a>
+
+      </article>
+
+
+      <!-- VOLUME IV -->
+
+      <article class="sourcebook-card">
+
+        <div class="volume-number">
+          Volume IV
+        </div>
+
+        <h3>
+          The Once and Future King?
+        </h3>
+
+        <p>
+          Secret U.S. government records concerning King Zahir Shah's
+          Afghanistan during the final years of his reign from 1970 through
+          1973.
+        </p>
+
+        <a
+          href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB59/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open Volume IV →
+        </a>
+
+      </article>
+
+
+      <!-- VOLUME V -->
+
+      <article class="sourcebook-card">
+
+        <div class="volume-number">
+          Volume V
+        </div>
+
+        <h3>
+          Anthrax at Sverdlovsk, 1979
+        </h3>
+
+        <p>
+          U.S. intelligence records concerning the deadly 1979 anthrax
+          outbreak at Sverdlovsk and the controversy surrounding the Soviet
+          biological weapons program.
+        </p>
+
+        <a
+          href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB61/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open Volume V →
+        </a>
+
+      </article>
+
+
+      <!-- VOLUME VI -->
+
+      <article class="sourcebook-card">
+
+        <div class="volume-number">
+          Volume VI
+        </div>
+
+        <h3>
+          The Hunt for Bin Laden
+        </h3>
+
+        <p>
+          Background material concerning U.S. special operations forces,
+          military strategy, and the developing hunt for Osama bin Laden
+          in Afghanistan.
+        </p>
+
+        <a
+          href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB63/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open Volume VI →
+        </a>
+
+      </article>
+
+
+      <!-- VOLUME VII -->
+
+      <article class="sourcebook-card">
+
+        <div class="volume-number">
+          Volume VII
+        </div>
+
+        <h3>
+          The Taliban File
+        </h3>
+
+        <p>
+          A collection of declassified U.S. records concerning the rise of
+          the Taliban, Pakistan's involvement, U.S. dealings with the Taliban,
+          Afghanistan, and the relationship between the Taliban and Osama bin
+          Laden.
+        </p>
+
+        <a
+          href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB97/index.htm"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open Volume VII →
+        </a>
+
+      </article>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       TALIBAN UPDATES
+  ========================= -->
+
+  <section class="section">
+
+    <div class="section-heading">
+
+      <h2>
+        Taliban File Updates
+      </h2>
+
+      <p>
+        Additional records published after the original Volume VII collection.
+      </p>
+
+    </div>
+
+
+    <div class="document-list">
+
+
+      <article class="document-card">
+
+        <div>
+
+          <h3>
+            Pakistan's Support for the Taliban
+          </h3>
+
+          <p>
+            Documents concerning Pakistani financial and military support for
+            the Taliban during the 1990s.
+          </p>
+
+        </div>
+
+        <a
+          class="button"
+          href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB97/index2.htm"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Archive
+        </a>
+
+      </article>
+
+
+      <article class="document-card">
+
+        <div>
+
+          <h3>
+            U.S. Efforts to Have the Taliban Expel Bin Laden
+          </h3>
+
+          <p>
+            Records concerning repeated U.S. approaches to the Taliban over
+            Osama bin Laden.
+          </p>
+
+        </div>
+
+        <a
+          class="button"
+          href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB97/index3.htm"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Archive
+        </a>
+
+      </article>
+
+
+      <article class="document-card">
+
+        <div>
+
+          <h3>
+            Mullah Omar Called Washington in 1998
+          </h3>
+
+          <p>
+            Newly released documents concerning contacts between the Taliban
+            and the United States.
+          </p>
+
+        </div>
+
+        <a
+          class="button"
+          href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB134/index.htm"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Archive
+        </a>
+
+      </article>
+
+
+      <article class="document-card">
+
+        <div>
+
+          <h3>
+            Update: Taliban File Part IV
+          </h3>
+
+          <p>
+            Additional records concerning pre-9/11 U.S. attempts to drive
+            bin Laden from Afghanistan.
+          </p>
+
+        </div>
+
+        <a
+          class="button"
+          href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB134/index2.htm"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Archive
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       ADDITIONAL DOCUMENTS
+  ========================= -->
+
+  <section class="section" id="later-documents">
+
+    <div class="section-heading">
+
+      <h2>
+        Additional 9/11 Documents
+      </h2>
+
+      <p>
+        Later National Security Archive releases that expand upon the
+        historical record.
+      </p>
+
+    </div>
+
+
+    <div class="document-list">
+
+
+      <article class="document-card">
+
+        <div>
+
+          <h3>
+            Bush Administration's First Memo on al-Qaeda
+          </h3>
+
+          <p>
+            A declassified document central to the historical debate over
+            the Bush administration's pre-9/11 terrorism policy.
+          </p>
+
+        </div>
+
+        <a
+          class="button"
+          href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB147/index.htm"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Document
+        </a>
+
+      </article>
+
+
+      <article class="document-card">
+
+        <div>
+
+          <h3>
+            9/11 Commission Staff Report on FAA Failings
+          </h3>
+
+          <p>
+            A staff report concerning failures within the Federal Aviation
+            Administration in the period surrounding the attacks.
+          </p>
+
+        </div>
+
+        <a
+          class="button"
+          href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB148/index.htm"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Document
+        </a>
+
+      </article>
+
+
+      <article class="document-card">
+
+        <div>
+
+          <h3>
+            FAA Believed Flight 175 Was Heading Toward New York
+          </h3>
+
+          <p>
+            FAA records providing additional detail about the response to
+            United Airlines Flight 175 and the confusion surrounding the
+            developing attacks.
+          </p>
+
+        </div>
+
+        <a
+          class="button"
+          href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB165/index.htm"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Document
+        </a>
+
+      </article>
+
+
+      <article class="document-card">
+
+        <div>
+
+          <h3>
+            Government Releases Detailed Information on 9/11 Crashes
+          </h3>
+
+          <p>
+            A National Security Archive collection concerning government
+            records and information about the four hijacked flights.
+          </p>
+
+        </div>
+
+        <a
+          class="button"
+          href="https://nsarchive.gwu.edu/briefing-book-sourcebook/2001-09-21/september-11th-sourcebooks"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Source Collection
+        </a>
+
+      </article>
+
+
+      <article class="document-card">
+
+        <div>
+
+          <h3>
+            Complete Air-Ground Transcripts
+          </h3>
+
+          <p>
+            Records concerning the air-ground communications associated with
+            the hijacked flights.
+          </p>
+
+        </div>
+
+        <a
+          class="button"
+          href="https://nsarchive.gwu.edu/briefing-book-sourcebook/2001-09-21/september-11th-sourcebooks"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Source Collection
+        </a>
+
+      </article>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       READING ORDER
+  ========================= -->
+
+  <section class="section" id="reading-guide">
+
+    <div class="section-heading">
+
+      <h2>
+        Suggested Reading Order
+      </h2>
+
+      <p>
+        A simple way to work through the material without getting buried.
+      </p>
+
+    </div>
+
+
+    <div class="reading-path">
+
+
+      <div class="reading-step">
+
+        <div class="step-number">1</div>
+
+        <div>
+          <strong>Start with the 9/11 Commission Report.</strong>
+
+          <br>
+
+          Read the official government account first. This gives the reader
+          the broad chronology, findings, failures, responses, and
+          recommendations before moving into individual documents.
+        </div>
+
+      </div>
+
+
+      <div class="reading-step">
+
+        <div class="step-number">2</div>
+
+        <div>
+          <strong>Move to Volume I: Terrorism and U.S. Policy.</strong>
+
+          <br>
+
+          This provides background on terrorism policy and the U.S. government's
+          understanding of terrorism before September 11.
+        </div>
+
+      </div>
+
+
+      <div class="reading-step">
+
+        <div class="step-number">3</div>
+
+        <div>
+          <strong>Read the Afghanistan material.</strong>
+
+          <br>
+
+          Volumes II and IV provide historical background on Afghanistan,
+          including the Soviet war and the political history of the country.
+        </div>
+
+      </div>
+
+
+      <div class="reading-step">
+
+        <div class="step-number">4</div>
+
+        <div>
+          <strong>Move into the hunt for bin Laden.</strong>
+
+          <br>
+
+          Volume VI provides background on U.S. special operations and the
+          developing effort to locate and pursue bin Laden.
+        </div>
+
+      </div>
+
+
+      <div class="reading-step">
+
+        <div class="step-number">5</div>
+
+        <div>
+          <strong>Study the Taliban File.</strong>
+
+          <br>
+
+          Volume VII and its later updates document the Taliban's rise,
+          relations with Pakistan, U.S. diplomatic efforts, and the
+          Taliban's relationship with bin Laden.
+        </div>
+
+      </div>
+
+
+      <div class="reading-step">
+
+        <div class="step-number">6</div>
+
+        <div>
+          <strong>Finish with the later 9/11 document releases.</strong>
+
+          <br>
+
+          These records can be used alongside the Commission Report to compare
+          the official narrative with the underlying government records and
+          later-released documentation.
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       OFFICIAL SOURCE
+  ========================= -->
+
+  <section class="section" id="sources">
+
+    <div class="section-heading">
+
+      <h2>
+        Sources, Archives & Credits
+      </h2>
+
+      <p>
+        The original institutions and collections behind this page.
+      </p>
+
+    </div>
+
+
+    <div class="credit-box">
+
+      <h3>
+        National Security Archive
+      </h3>
+
+      <p>
+        The September 11th Sourcebooks are a collection published by the
+        National Security Archive at The George Washington University.
+        The collection brings together primary-source documentation and
+        related historical records concerning terrorism, U.S. policy,
+        Afghanistan, the Taliban, al-Qaeda, and the September 11 attacks.
+      </p>
+
+      <p>
+        The original source collection should always be consulted when
+        researching or using any individual document.
+      </p>
+
+      <p>
+        <a
+          href="https://nsarchive.gwu.edu/briefing-book-sourcebook/2001-09-21/september-11th-sourcebooks"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit the National Security Archive's September 11th Sourcebooks →
+        </a>
+      </p>
+
+      <p>
+        <strong>Archive credit:</strong>
+        National Security Archive, The George Washington University,
+        Washington, D.C.
+      </p>
+
+    </div>
+
+
+    <br>
+
+
+    <div class="credit-box">
+
+      <h3>
+        9/11 Commission
+      </h3>
+
+      <p>
+        The National Commission on Terrorist Attacks Upon the United States
+        was an independent, bipartisan commission established by Congress
+        and the President in 2002. Its final report was released on July 22,
+        2004.
+      </p>
+
+      <p>
+        The official government edition of the report is preserved through
+        the U.S. Government Publishing Office's GovInfo system.
+      </p>
+
+      <p>
+        <a
+          href="https://www.govinfo.gov/features/911-commission-report"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit the official GovInfo 9/11 Commission Report page →
+        </a>
+      </p>
+
+      <p>
+        <strong>Government report:</strong>
+        Final Report of the National Commission on Terrorist Attacks Upon
+        the United States, July 22, 2004.
+      </p>
+
+    </div>
+
+
+    <br>
+
+
+    <div class="credit-box">
+
+      <h3>
+        About This Page
+      </h3>
+
+      <p>
+        This page is part of <strong>The Historical Record</strong>, an
+        independent personal historical archive. It is intended to organize
+        and make historical source material easier to locate and understand.
+      </p>
+
+      <p>
+        The Historical Record does not claim ownership of the third-party
+        source materials linked from this page. Original documents, reports,
+        photographs, websites, and other materials remain associated with
+        their respective archives, agencies, authors, publishers, and
+        institutions.
+      </p>
+
+      <p>
+        Whenever possible, readers are directed back to the original source
+        so that the complete context and original archival record remain
+        available.
+      </p>
+
+    </div>
+
+  </section>
+
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  <p>
+    <strong>THE HISTORICAL RECORD</strong>
+  </p>
+
+  <p>
+    September 11, 2001 Sourcebooks & Documents
+  </p>
+
+  <p class="footer-small">
+    Independent personal archive • Sources credited and linked to their
+    original institutions
+  </p>
+
+</footer>
+
+
+<!-- =========================
+     MENU SCRIPT
+========================= -->
+
+<script>
+
+function openMenu() {
+  document.getElementById("sideMenu").classList.add("open");
+  document.getElementById("menuOverlay").classList.add("show");
+}
+
+function closeMenu() {
+  document.getElementById("sideMenu").classList.remove("open");
+  document.getElementById("menuOverlay").classList.remove("show");
+}
+
+</script>
+
+</body>
+</html>
