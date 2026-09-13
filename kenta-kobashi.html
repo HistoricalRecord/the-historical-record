@@ -432,27 +432,54 @@ tr:nth-child(even) {
 
 <body>
 
-<button class="menu-button" onclick="toggleSidebar()">☰</button>
+<button class="menu-button" aria-label="Open menu" aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
 
-<!-- =========================
-     SIDEBAR
-========================= -->
+<div class="menu-overlay"></div>
 
-<div class="sidebar" id="sidebar">
+<aside class="side-menu">
+  <div class="menu-header">
+    <h2>The Historical Record</h2>
+  </div>
 
-  <h2>Historical Archive</h2>
+  <nav>
 
-  <a href="index.html">Home</a>
+    <a href="search.html">Search the Archive</a>
 
-  <a href="entertainment-sports.html">
-    Entertainment &amp; Sports
-  </a>
+    <a href="archive.html">The Archive</a>
 
-  <a href="kenta-kobashi.html">
-    Kenta Kobashi
-  </a>
+    <a href="index.html">Home</a>
 
-</div>
+    <div class="menu-dropdown">
+      <button
+        class="menu-dropdown-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="politics-submenu"
+      >
+        <span>Politics</span>
+        <span class="menu-dropdown-arrow">▾</span>
+      </button>
+
+      <div class="menu-submenu" id="politics-submenu">
+        <a href="politics.html">Politics Home</a>
+        <a href="september-11.html">September 11, 2001</a>
+      </div>
+    </div>
+
+    <a href="entertainment-sports.html">Entertainment / Sports</a>
+
+    <a href="world-events.html">World Events</a>
+
+    <a href="social-media.html">Social Media</a>
+
+    <a href="thoughts.html">Thoughts / Blog</a>
+
+  </nav>
+</aside>
 
 
 <!-- =========================
