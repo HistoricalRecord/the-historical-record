@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search the Archive | The Historical Record</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <button class="menu-button" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <aside class="side-menu">
+
+    <div class="menu-header">
+      <h2>The Historical Record</h2>
+      <p>Archive Navigation</p>
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="politics.html">Politics</a>
+      <a href="entertainment-sports.html">Entertainment / Sports</a>
+      <a href="world-events.html">World Events</a>
+      <a href="social-media.html">Social Media</a>
+      <a href="thoughts.html">Thoughts / Blog</a>
+      <a href="search.html">Search the Archive</a>
+    </nav>
+
+  </aside>
+
+  <div class="menu-overlay"></div>
+
+  <header class="site-header">
+
+    <div class="container header-inner">
+
+      <a href="index.html" class="brand">
+        THE HISTORICAL RECORD
+      </a>
+
+    </div>
+
+  </header>
+
+  <main>
+
+    <section class="hero">
+
+      <div class="container">
+
+        <p class="eyebrow">
+          ARCHIVE SEARCH
+        </p>
+
+        <h1>
+          Search the Archive
+        </h1>
+
+        <p class="hero-text">
+          Search articles, records, events, posts, and other material
+          preserved throughout The Historical Record.
+        </p>
+
+        <form id="search-form">
+
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Enter a keyword..."
+            aria-label="Search the archive"
+            autocomplete="off"
+          >
+
+          <button type="submit">
+            Search
+          </button>
+
+        </form>
+
+      </div>
+
+    </section>
+
+    <section class="about-section">
+
+      <div class="container">
+
+        <div id="search-status"></div>
+
+        <div id="search-results"></div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+
+    <div class="container">
+
+      <p>
+        THE HISTORICAL RECORD
+      </p>
+
+      <p>
+        A living archive of the moments that matter.
+      </p>
+
+    </div>
+
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+
+    const archivePages = [
+      {
+        file: "index.html",
+        title: "Home"
+      },
+      {
+        file: "politics.html",
+        title: "Politics"
+      },
+      {
+        file: "entertainment-sports.html",
+        title: "Entertainment / Sports"
+      },
+      {
+        file: "world-events.html",
+        title: "World Events"
+      },
+      {
+        file: "social-media.html",
+        title: "Social Media"
+      },
+      {
+        file: "thoughts.html",
+        title: "Thoughts / Blog"
+      }
+    ];
+
+    const form = document.getElementById("search-form");
+    const input = document.getElementById("search-input");
+    const results = document.getElementById("search-results");
+    const status = document.getElementById("search-status");
+
+    form.addEventListener("submit", async function(event) {
+
+      event.preventDefault();
+
+      const keyword = input.value.trim().toLowerCase();
+
+      results.innerHTML = "";
+      status.innerHTML = "";
+
+      if (!keyword) {
+        status.innerHTML = "<p>Please enter a keyword to search the archive.</p>";
+        return;
+      }
+
+      status.innerHTML = "<p>Searching the archive...</p>";
+
+      const matches = [];
+
+      for (const page of archivePages) {
+
+        try {
+
+          const response = await fetch(page.file);
+
+          if (!response.ok) {
+            continue;
+          }
+
+          const html = await response.text();
+
+          const parser = new DOMParser();
+          const documentPage = parser.parseFromString(html, "text/html");
+
+          const text = documentPage.body.innerText.toLowerCase();
+
+          if (text.includes(keyword)) {
+
+            const headings = Array.from(
+              documentPage.querySelectorAll("h1, h2, h3")
+            );
+
+            let heading = page.title;
+
+            for (const element of headings) {
+
+              if (
+                element.textContent.toLowerCase().includes(keyword)
+              ) {
+                heading = element.textContent.trim();
+                break;
+              }
+
+            }
+
+            matches.push({
+              page: page.file,
+              category: page.title,
+              heading: heading
+            });
+
+          }
+
+        } catch (error) {
+          console.error("Search error:", error);
+        }
+
+      }
+
+      if (matches.length === 0) {
+
+        status.innerHTML =
+          "<p>No records were found containing <strong>" +
+          keyword +
+          "</strong>.</p>";
+
+        return;
+      }
+
+      status.innerHTML =
+        "<p>Found " +
+        matches.length +
+        " matching archive page" +
+        (matches.length === 1 ? "" : "s") +
+        ".</p>";
+
+      matches.forEach(function(match) {
+
+        const article = document.createElement("article");
+
+        article.className = "archive-card";
+
+        article.innerHTML = `
+          <p class="eyebrow">${match.category}</p>
+
+          <h2>${match.heading}</h2>
+
+          <p>
+            This archive page contains material matching your search.
+          </p>
+
+          <p>
+            <a href="${match.page}">
+              View this section
+            </a>
+          </p>
+        `;
+
+        results.appendChild(article);
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
