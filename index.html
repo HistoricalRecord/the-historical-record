@@ -93,6 +93,43 @@
       color: #ffffff;
     }
 
+    /* =========================
+       SOURCE & RIGHTS NOTICE
+       ========================= */
+
+    .site-disclaimer {
+      max-width: 900px;
+      margin: 35px auto 0;
+      padding: 27px 20px 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+      text-align: center;
+    }
+
+    .site-disclaimer h3 {
+      margin: 0 0 10px;
+      color: #d6d6d6;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .site-disclaimer p {
+      max-width: 800px;
+      margin: 0 auto;
+      color: #b8b8b8;
+      font-size: 10.5px;
+      line-height: 1.7;
+    }
+
+    .site-disclaimer .copyright {
+      margin-top: 15px;
+      color: #d0d0d0;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.7px;
+    }
+
     .menu-button {
       background: #b22234;
     }
@@ -133,17 +170,45 @@
       .flag-caption {
         font-size: 11px;
       }
+
+      .site-disclaimer {
+        margin-top: 30px;
+        padding: 22px 15px 18px;
+      }
+
+      .site-disclaimer h3 {
+        font-size: 10px;
+        letter-spacing: 1.2px;
+      }
+
+      .site-disclaimer p {
+        font-size: 10px;
+        line-height: 1.65;
+      }
+
+      .site-disclaimer .copyright {
+        font-size: 9.5px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <button class="menu-button" aria-label="Open menu" aria-expanded="false">
+  <!-- MENU BUTTON -->
+
+  <button
+    class="menu-button"
+    aria-label="Open menu"
+    aria-expanded="false"
+  >
     <span></span>
     <span></span>
     <span></span>
   </button>
+
+
+  <!-- SIDE MENU -->
 
   <aside class="side-menu">
 
@@ -153,40 +218,82 @@
     </div>
 
     <nav>
-      <a href="search.html">Search the Archive</a>
-      <a href="archive.html">The Archive</a>
-      <a href="index.html">Home</a>
-<div class="menu-dropdown">
-  <button
-    class="menu-dropdown-toggle"
-    type="button"
-    aria-expanded="false"
-    aria-controls="politics-submenu"
-  >
-    <span>Politics</span>
-    <span class="menu-dropdown-arrow">▾</span>
-  </button>
 
-  <div class="menu-submenu" id="politics-submenu">
-    <a href="politics.html">Politics Home</a>
-    <a href="september-11.html">September 11, 2001</a>
-  </div>
-</div>
-      <a href="entertainment-sports.html">Entertainment / Sports</a>
-      <a href="world-events.html">World Events</a>
-      <a href="social-media.html">Social Media</a>
-      <a href="thoughts.html">Thoughts / Blog</a>
+      <a href="search.html">
+        Search the Archive
+      </a>
+
+      <a href="archive.html">
+        The Archive
+      </a>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <div class="menu-dropdown">
+
+        <button
+          class="menu-dropdown-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="politics-submenu"
+        >
+          <span>Politics</span>
+          <span class="menu-dropdown-arrow">▾</span>
+        </button>
+
+        <div
+          class="menu-submenu"
+          id="politics-submenu"
+        >
+          <a href="politics.html">
+            Politics Home
+          </a>
+
+          <a href="september-11.html">
+            September 11, 2001
+          </a>
+        </div>
+
+      </div>
+
+      <a href="entertainment-sports.html">
+        Entertainment / Sports
+      </a>
+
+      <a href="world-events.html">
+        World Events
+      </a>
+
+      <a href="social-media.html">
+        Social Media
+      </a>
+
+      <a href="thoughts.html">
+        Thoughts / Blog
+      </a>
+
     </nav>
 
   </aside>
 
+
+  <!-- MENU OVERLAY -->
+
   <div class="menu-overlay"></div>
+
+
+  <!-- HEADER -->
 
   <header class="site-header">
 
     <div class="container header-inner">
 
-      <a href="index.html" class="brand">
+      <a
+        href="index.html"
+        class="brand"
+      >
         THE HISTORICAL RECORD
       </a>
 
@@ -194,7 +301,12 @@
 
   </header>
 
+
+  <!-- MAIN CONTENT -->
+
   <main>
+
+    <!-- HERO -->
 
     <section class="hero">
 
@@ -217,15 +329,19 @@
 
     </section>
 
+
+    <!-- FLAG -->
+
     <section class="flag-section">
 
       <div class="container">
 
         <img
-  src="IMG_3902.webp"
-  alt="Flag of the United States"
-  class="flag-decal"
->
+          src="IMG_3902.webp"
+          alt="Flag of the United States"
+          class="flag-decal"
+        >
+
         <p class="flag-caption">
           PRESERVING THE RECORD OF OUR TIME
         </p>
@@ -233,6 +349,9 @@
       </div>
 
     </section>
+
+
+    <!-- ABOUT -->
 
     <section class="about-section">
 
@@ -278,6 +397,9 @@
 
   </main>
 
+
+  <!-- FOOTER -->
+
   <footer class="site-footer">
 
     <div class="container">
@@ -290,59 +412,39 @@
         A living archive of the moments that matter.
       </p>
 
+
+      <!-- SOURCE & RIGHTS NOTICE -->
+
+      <div class="site-disclaimer">
+
+        <h3>
+          Source &amp; Rights Notice
+        </h3>
+
+        <p>
+          The Historical Record is a non-commercial historical archive created
+          for informational and educational purposes. Sources and media are
+          credited where applicable. The Historical Record does not claim
+          ownership of photographs, videos, trademarks, names, or other
+          copyrighted material belonging to their respective owners. Embedded
+          media remains the property of its respective creators and rights
+          holders.
+        </p>
+
+        <p class="copyright">
+          THE HISTORICAL RECORD &copy; 2026
+        </p>
+
+      </div>
+
     </div>
 
   </footer>
 
+
+  <!-- SITE SCRIPT -->
+
   <script src="script.js"></script>
-/* =========================
-   SOURCE & RIGHTS NOTICE
-   ========================= */
 
-.site-disclaimer {
-  max-width: 900px;
-  margin: 55px auto 0;
-  padding: 28px 20px 22px;
-  border-top: 1px solid #d8d8d8;
-  text-align: center;
-  color: #777;
-}
-
-.site-disclaimer h3 {
-  margin: 0 0 10px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  color: #555;
-}
-
-.site-disclaimer p {
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: 11px;
-  line-height: 1.7;
-  color: #777;
-}
-
-.site-disclaimer .copyright {
-  margin-top: 16px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  color: #666;
-}
-
-@media (max-width: 600px) {
-  .site-disclaimer {
-    margin-top: 40px;
-    padding: 24px 16px 20px;
-  }
-
-  .site-disclaimer p {
-    font-size: 10.5px;
-    line-height: 1.65;
-  }
-}
 </body>
 </html>
