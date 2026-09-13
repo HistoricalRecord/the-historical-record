@@ -1,0 +1,2376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Internet Culture Archive | The Historical Record</title>
+
+<meta name="description"
+content="The Historical Record archive of viral videos, memes, MySpace, YouTube, Vine, Snapchat, Reddit, Twitter, Instagram, Facebook and internet culture from 2004 onward.">
+
+<style>
+:root{
+  --navy:#11183f;
+  --blue:#263c9b;
+  --bright-blue:#4168d5;
+  --purple:#7345a7;
+  --pink:#e94d9e;
+  --cyan:#32bfd1;
+  --yellow:#ffe45c;
+  --green:#4dcc7a;
+  --paper:#fff;
+  --cream:#fffdf5;
+  --text:#202334;
+  --muted:#666b7c;
+  --line:#c9cee1;
+  --shadow:0 7px 18px rgba(20,30,90,.18);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.55;
+
+  background-color:#dce4ff;
+
+  background-image:
+    radial-gradient(circle at 10% 15%,rgba(255,255,255,.7) 0 2px,transparent 3px),
+    radial-gradient(circle at 80% 65%,rgba(255,255,255,.55) 0 2px,transparent 3px),
+    linear-gradient(135deg,#d8e1ff,#f7d9ef 50%,#d7f6fa);
+
+  background-size:55px 55px,71px 71px,100% 100%;
+}
+
+a{
+  color:var(--blue);
+}
+
+a:hover{
+  color:var(--pink);
+}
+
+img{
+  max-width:100%;
+}
+
+/* TOP BAR */
+
+.top-strip{
+  background:var(--navy);
+  color:white;
+  text-align:center;
+  padding:7px 12px;
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:1.4px;
+  border-bottom:3px solid var(--pink);
+}
+
+/* HEADER */
+
+.site-header{
+  max-width:1200px;
+  margin:20px auto 0;
+  padding:0 15px;
+}
+
+.profile-header{
+  position:relative;
+  overflow:hidden;
+
+  padding:30px;
+
+  color:white;
+
+  background:
+    linear-gradient(135deg,#121c51,#304eb5 48%,#9a4eaa);
+
+  border:4px solid white;
+
+  box-shadow:
+    0 0 0 2px #6977b8,
+    var(--shadow);
+}
+
+.profile-header:before{
+  content:"";
+  position:absolute;
+  width:280px;
+  height:280px;
+  right:-100px;
+  top:-140px;
+  border-radius:50%;
+  background:rgba(255,255,255,.12);
+}
+
+.profile-header:after{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  right:90px;
+  bottom:-130px;
+  border-radius:50%;
+  background:rgba(255,228,92,.14);
+}
+
+.header-content{
+  position:relative;
+  z-index:2;
+}
+
+.kicker{
+  font-size:11px;
+  letter-spacing:2px;
+  font-weight:bold;
+  text-transform:uppercase;
+  color:#dbe3ff;
+}
+
+.profile-header h1{
+  margin:6px 0;
+  font-size:clamp(38px,7vw,72px);
+  line-height:.95;
+  text-shadow:3px 3px 0 rgba(0,0,0,.22);
+}
+
+.tagline{
+  max-width:850px;
+  margin:17px 0 0;
+  font-size:18px;
+  color:#f3f5ff;
+}
+
+/* NAV */
+
+.retro-nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px;
+
+  background:white;
+
+  padding:8px;
+
+  border:2px solid #aeb6d4;
+
+  box-shadow:var(--shadow);
+}
+
+.retro-nav a{
+  padding:8px 12px;
+
+  background:#e9edff;
+
+  border:1px solid #bcc5e1;
+
+  text-decoration:none;
+
+  font-size:12px;
+  font-weight:bold;
+}
+
+.retro-nav a:hover{
+  background:var(--pink);
+  color:white;
+}
+
+/* PAGE */
+
+.page{
+  max-width:1200px;
+  margin:15px auto 60px;
+  padding:0 15px;
+}
+
+.layout{
+  display:grid;
+  grid-template-columns:255px 1fr;
+  gap:15px;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+  align-self:start;
+  position:sticky;
+  top:15px;
+}
+
+.sidebar-box{
+  background:white;
+  border:2px solid #aeb6d4;
+  box-shadow:var(--shadow);
+  margin-bottom:15px;
+}
+
+.sidebar-title{
+  padding:10px 12px;
+  color:white;
+
+  background:
+    linear-gradient(90deg,var(--blue),var(--purple));
+
+  font-size:13px;
+  font-weight:bold;
+}
+
+.sidebar-body{
+  padding:13px;
+  font-size:13px;
+}
+
+.sidebar-body a{
+  display:block;
+  padding:6px 0;
+  border-bottom:1px dotted #cfd3e2;
+  text-decoration:none;
+}
+
+.online{
+  display:inline-block;
+  width:10px;
+  height:10px;
+  margin-right:5px;
+
+  border-radius:50%;
+
+  background:var(--green);
+
+  box-shadow:0 0 7px var(--green);
+}
+
+/* CONTENT */
+
+.content{
+  min-width:0;
+}
+
+.intro-card,
+.source-box{
+  background:white;
+  border:2px solid var(--line);
+  box-shadow:var(--shadow);
+  padding:28px;
+  margin-bottom:18px;
+}
+
+.intro-card h2{
+  margin-top:0;
+  color:var(--navy);
+  font-size:30px;
+}
+
+.intro-card p{
+  color:var(--muted);
+}
+
+/* SECTIONS */
+
+.archive-section{
+  margin-bottom:24px;
+}
+
+.section-title{
+  padding:14px 18px;
+  margin-bottom:13px;
+
+  color:white;
+
+  background:
+    linear-gradient(90deg,var(--navy),var(--blue));
+
+  border:2px solid #0a1235;
+
+  box-shadow:
+    3px 3px 0 rgba(115,69,167,.25);
+}
+
+.section-title h2{
+  margin:0;
+  font-size:25px;
+}
+
+.section-title p{
+  margin:3px 0 0;
+  color:#dce4ff;
+  font-size:13px;
+}
+
+/* ERA CARDS */
+
+.era-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.era-card{
+  background:white;
+  border:2px solid var(--line);
+  padding:20px;
+  box-shadow:3px 4px 0 rgba(38,60,155,.12);
+}
+
+.era-year{
+  color:var(--pink);
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:1px;
+}
+
+.era-card h3{
+  margin:4px 0 8px;
+  color:var(--navy);
+}
+
+.era-card p{
+  color:var(--muted);
+}
+
+/* VIDEO GRID */
+
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+.video-card{
+  overflow:hidden;
+  background:white;
+  border:2px solid var(--line);
+  box-shadow:var(--shadow);
+}
+
+.video-frame{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  background:#080808;
+}
+
+.video-frame iframe{
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.video-info{
+  padding:17px;
+}
+
+.video-year{
+  color:var(--pink);
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:1px;
+}
+
+.video-info h3{
+  margin:3px 0 6px;
+  color:var(--navy);
+}
+
+.video-info p{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* MEMES */
+
+.meme-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.meme-card{
+  overflow:hidden;
+  background:white;
+  border:2px solid var(--line);
+  box-shadow:4px 5px 0 rgba(115,69,167,.12);
+}
+
+.meme-image{
+  height:225px;
+  background:#e8ecff;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  overflow:hidden;
+}
+
+.meme-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.meme-info{
+  padding:15px;
+}
+
+.meme-date{
+  color:var(--pink);
+  font-size:10px;
+  font-weight:bold;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.meme-info h3{
+  margin:3px 0;
+  color:var(--navy);
+}
+
+.meme-info p{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* TEXT MEMES */
+
+.text-meme{
+  height:225px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:20px;
+
+  text-align:center;
+
+  color:white;
+
+  font-size:26px;
+  font-weight:900;
+  line-height:1.1;
+}
+
+.blue{
+  background:linear-gradient(135deg,#16265e,#4967ca);
+}
+
+.pink{
+  background:linear-gradient(135deg,#a42e72,#ed68b1);
+}
+
+.yellow{
+  background:linear-gradient(135deg,#d9ae00,#ffed82);
+  color:#222;
+}
+
+.cyan{
+  background:linear-gradient(135deg,#13798d,#63dce9);
+}
+
+/* VINE */
+
+.vine-banner{
+  padding:25px;
+
+  background:
+    linear-gradient(135deg,#101010,#28352d);
+
+  color:white;
+
+  border-left:7px solid #00bf8f;
+
+  margin-bottom:15px;
+}
+
+.vine-banner h3{
+  margin-top:0;
+  color:#6de4bc;
+}
+
+.vine-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.vine-card{
+  background:white;
+  border:2px solid var(--line);
+  padding:18px;
+}
+
+.vine-card h3{
+  margin-top:0;
+  color:#154536;
+}
+
+.vine-card p{
+  color:var(--muted);
+}
+
+.vine-link{
+  display:inline-block;
+  padding:8px 12px;
+
+  background:#00a87b;
+  color:white;
+
+  text-decoration:none;
+
+  font-size:11px;
+  font-weight:bold;
+}
+
+/* SNAPCHAT */
+
+.snapchat-section{
+  padding:25px;
+
+  background:
+    linear-gradient(135deg,#fff9b8,#fff);
+
+  border:3px solid #111;
+
+  box-shadow:var(--shadow);
+}
+
+.snapchat-title{
+  color:#111;
+  font-size:32px;
+  font-weight:900;
+
+  text-shadow:2px 2px 0 #ffe400;
+}
+
+.snap-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-top:20px;
+}
+
+.snap-box{
+  padding:16px 10px;
+  text-align:center;
+  background:white;
+  border:2px solid #222;
+  font-weight:bold;
+}
+
+.snap-box small{
+  display:block;
+  margin-top:3px;
+  color:#666;
+  font-weight:normal;
+}
+
+/* PLATFORM GRID */
+
+.platform-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.platform{
+  padding:18px 10px;
+
+  text-align:center;
+
+  background:white;
+
+  border:2px solid var(--line);
+
+  box-shadow:
+    3px 3px 0 rgba(38,60,155,.1);
+
+  font-weight:bold;
+}
+
+.platform small{
+  display:block;
+  margin-top:4px;
+  color:var(--muted);
+  font-weight:normal;
+  font-size:11px;
+}
+
+/* TIMELINE */
+
+.timeline{
+  border-left:4px solid var(--pink);
+  padding-left:22px;
+}
+
+.timeline-entry{
+  position:relative;
+
+  margin-bottom:13px;
+  padding:18px;
+
+  background:white;
+
+  border:2px solid var(--line);
+
+  box-shadow:3px 4px 0 rgba(38,60,155,.1);
+}
+
+.timeline-entry:before{
+  content:"";
+
+  position:absolute;
+
+  left:-33px;
+  top:21px;
+
+  width:13px;
+  height:13px;
+
+  background:var(--pink);
+
+  border:4px solid #dce4ff;
+
+  border-radius:50%;
+}
+
+.timeline-entry strong{
+  color:var(--blue);
+}
+
+/* NOTE */
+
+.archive-note{
+  padding:18px;
+
+  background:#fff9d5;
+
+  border:2px solid #e5c944;
+
+  color:#554b16;
+
+  margin-bottom:15px;
+}
+
+/* FOOTER */
+
+footer{
+  max-width:1200px;
+  margin:0 auto 25px;
+  padding:25px;
+
+  background:var(--navy);
+  color:white;
+
+  text-align:center;
+
+  border:3px solid white;
+
+  box-shadow:
+    0 0 0 2px #6977b8,
+    var(--shadow);
+}
+
+footer p{
+  margin:5px 0;
+}
+
+.footer-small{
+  color:#bbc5e3;
+  font-size:11px;
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+
+  .layout{
+    grid-template-columns:1fr;
+  }
+
+  .sidebar{
+    position:static;
+  }
+
+  .meme-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .platform-grid,
+  .snap-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:650px){
+
+  .profile-header{
+    padding:23px 18px;
+  }
+
+  .profile-header h1{
+    font-size:43px;
+  }
+
+  .layout{
+    display:block;
+  }
+
+  .sidebar{
+    margin-bottom:15px;
+  }
+
+  .era-grid,
+  .video-grid,
+  .meme-grid,
+  .vine-grid{
+    grid-template-columns:1fr;
+  }
+
+  .platform-grid,
+  .snap-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .retro-nav{
+    overflow-x:auto;
+    flex-wrap:nowrap;
+  }
+
+  .retro-nav a{
+    white-space:nowrap;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="top-strip">
+  THE HISTORICAL RECORD • INTERNET CULTURE ARCHIVE • 2004–2026
+</div>
+
+
+<header class="site-header">
+
+  <div class="profile-header">
+
+    <div class="header-content">
+
+      <div class="kicker">
+        THE HISTORICAL RECORD
+      </div>
+
+      <h1>
+        Internet Culture
+      </h1>
+
+      <p class="tagline">
+        The videos, memes, websites, jokes, personalities and strange
+        little moments that defined the internet.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <nav class="retro-nav">
+
+    <a href="#eras">ERAS</a>
+    <a href="#early-web">EARLY WEB</a>
+    <a href="#youtube">YOUTUBE</a>
+    <a href="#memes">MEMES</a>
+    <a href="#vine">VINE</a>
+    <a href="#snapchat">SNAPCHAT</a>
+    <a href="#social">SOCIAL MEDIA</a>
+    <a href="#modern">MODERN</a>
+    <a href="#timeline">TIMELINE</a>
+
+  </nav>
+
+</header>
+
+
+<main class="page">
+
+
+<div class="layout">
+
+
+<aside class="sidebar">
+
+
+  <div class="sidebar-box">
+
+    <div class="sidebar-title">
+      INTERNET ARCHIVE
+    </div>
+
+    <div class="sidebar-body">
+
+      <strong>
+        <span class="online"></span>
+        ARCHIVE ONLINE
+      </strong>
+
+      <p>
+        A chronological collection of internet culture
+        from the early viral web through the modern
+        short-form era.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="sidebar-box">
+
+    <div class="sidebar-title">
+      JUMP TO
+    </div>
+
+    <div class="sidebar-body">
+
+      <a href="#eras">Internet Eras</a>
+      <a href="#early-web">Early Viral Web</a>
+      <a href="#youtube">YouTube</a>
+      <a href="#memes">Picture Memes</a>
+      <a href="#vine">Vine</a>
+      <a href="#snapchat">Snapchat</a>
+      <a href="#social">Social Platforms</a>
+      <a href="#modern">Modern Internet</a>
+      <a href="#timeline">Timeline</a>
+
+    </div>
+
+  </div>
+
+
+  <div class="sidebar-box">
+
+    <div class="sidebar-title">
+      THE OLD INTERNET
+    </div>
+
+    <div class="sidebar-body">
+
+      <a href="#myspace">MySpace</a>
+      <a href="#youtube">YouTube</a>
+      <a href="#reddit">Reddit</a>
+      <a href="#twitter">Twitter</a>
+      <a href="#instagram">Instagram</a>
+      <a href="#vine">Vine</a>
+      <a href="#snapchat">Snapchat</a>
+      <a href="#modern">TikTok</a>
+
+    </div>
+
+  </div>
+
+
+</aside>
+
+
+<section class="content">
+
+
+<div class="intro-card">
+
+  <h2>
+    Welcome to the Internet Time Capsule
+  </h2>
+
+  <p>
+    Before everything was an algorithm, somebody had to send you a link.
+    A strange Flash animation could travel through forums. A webcam
+    video could suddenly become famous. A photograph could become a
+    meme overnight.
+  </p>
+
+  <p>
+    This archive follows the evolution of online culture through the
+    videos, photographs, jokes, personalities, platforms and communities
+    that became part of everyday life on the internet.
+  </p>
+
+  <div class="archive-note">
+    <strong>Archive note:</strong>
+    Some original platforms no longer exist. When an original upload
+    is unavailable, this archive identifies preserved copies rather than
+    presenting a reupload as the original source.
+  </div>
+
+</div>
+
+
+<!-- ERAS -->
+
+<section class="archive-section" id="eras">
+
+<div class="section-title">
+  <h2>The Eras of Internet Culture</h2>
+  <p>From webcam videos and forums to algorithmic short-form media.</p>
+</div>
+
+
+<div class="era-grid">
+
+
+<article class="era-card">
+
+  <div class="era-year">2004–2008</div>
+
+  <h3>The Viral Web</h3>
+
+  <p>
+    Newgrounds, Flash animation, forums, email chains,
+    MySpace and the earliest generation of viral webcam videos.
+  </p>
+
+</article>
+
+
+<article class="era-card">
+
+  <div class="era-year">2005–2012</div>
+
+  <h3>The YouTube Explosion</h3>
+
+  <p>
+    YouTube transforms ordinary people, strange videos,
+    music clips and accidental moments into global phenomena.
+  </p>
+
+</article>
+
+
+<article class="era-card">
+
+  <div class="era-year">2008–2015</div>
+
+  <h3>The Meme Explosion</h3>
+
+  <p>
+    Image macros, LOLcats, rage comics, reaction images
+    and recognizable meme characters become universal online language.
+  </p>
+
+</article>
+
+
+<article class="era-card">
+
+  <div class="era-year">2013–2017</div>
+
+  <h3>The Vine Era</h3>
+
+  <p>
+    Six-second videos create a completely new form of
+    comedy, celebrity and catchphrase.
+  </p>
+
+</article>
+
+
+<article class="era-card">
+
+  <div class="era-year">2011–2019</div>
+
+  <h3>Social Media Becomes Culture</h3>
+
+  <p>
+    Twitter, Reddit, Instagram, Snapchat, Tumblr and Facebook
+    make online culture increasingly immediate and participatory.
+  </p>
+
+</article>
+
+
+<article class="era-card">
+
+  <div class="era-year">2020–2026</div>
+
+  <h3>The Algorithmic Internet</h3>
+
+  <p>
+    TikTok, livestreaming, short-form video, reaction culture,
+    remix culture and increasingly rapid meme cycles.
+  </p>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+<!-- EARLY WEB -->
+
+<section class="archive-section" id="early-web">
+
+<div class="section-title">
+  <h2>The Early Viral Web</h2>
+  <p>Before the modern social-media machine.</p>
+</div>
+
+
+<div class="video-grid">
+
+
+<article class="video-card">
+
+<div class="video-frame">
+
+<iframe
+src="https://www.youtube.com/embed/Cqd1Gvq-RBY"
+title="Numa Numa"
+loading="lazy"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen>
+</iframe>
+
+</div>
+
+<div class="video-info">
+
+<div class="video-year">2004</div>
+
+<h3>Numa Numa</h3>
+
+<p>
+Gary Brolsma's webcam performance became one of the earliest
+globally recognizable viral videos. It originally appeared on
+Newgrounds before YouTube existed.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="video-card">
+
+<div class="video-frame">
+
+<iframe
+src="https://www.youtube.com/embed/dMH0bHeiRNg"
+title="Evolution of Dance"
+loading="lazy"
+allowfullscreen>
+</iframe>
+
+</div>
+
+<div class="video-info">
+
+<div class="video-year">2006</div>
+
+<h3>Evolution of Dance</h3>
+
+<p>
+Judson Laipply's dance medley became one of YouTube's earliest
+massive hits and demonstrated the enormous potential of user-uploaded video.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="video-card">
+
+<div class="video-frame">
+
+<iframe
+src="https://www.youtube.com/embed/EwTZ2xpQwpA"
+title="Chocolate Rain"
+loading="lazy"
+allowfullscreen>
+</iframe>
+
+</div>
+
+<div class="video-info">
+
+<div class="video-year">2007</div>
+
+<h3>Chocolate Rain</h3>
+
+<p>
+Tay Zonday's unusual song became one of early YouTube's
+most recognizable viral performances.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="video-card">
+
+<div class="video-frame">
+
+<iframe
+src="https://www.youtube.com/embed/_OBlgSz8sSM"
+title="Charlie Bit My Finger"
+loading="lazy"
+allowfullscreen>
+</iframe>
+
+</div>
+
+<div class="video-info">
+
+<div class="video-year">2007</div>
+
+<h3>Charlie Bit My Finger</h3>
+
+<p>
+An ordinary family video became one of the defining viral
+videos of early YouTube.
+</p>
+
+</div>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+<!-- YOUTUBE -->
+
+<section class="archive-section" id="youtube">
+
+<div class="section-title">
+  <h2>The YouTube Explosion</h2>
+  <p>When everybody suddenly had a camera and somewhere to upload it.</p>
+</div>
+
+
+<div class="video-grid">
+
+
+<article class="video-card">
+
+<div class="video-frame">
+
+<iframe
+src="https://www.youtube.com/embed/oHg5SJYRHA0"
+title="Rickroll"
+loading="lazy"
+allowfullscreen>
+</iframe>
+
+</div>
+
+<div class="video-info">
+
+<div class="video-year">2007</div>
+
+<h3>Rickroll</h3>
+
+<p>
+The classic bait-and-switch internet prank became one of
+the longest-lived jokes in online history.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="video-card">
+
+<div class="video-frame">
+
+<iframe
+src="https://www.youtube.com/embed/hMtZfW2z9dw"
+title="Bed Intruder"
+loading="lazy"
+allowfullscreen>
+</iframe>
+
+</div>
+
+<div class="video-info">
+
+<div class="video-year">2010</div>
+
+<h3>Bed Intruder</h3>
+
+<p>
+An Alabama television interview became an Auto-Tuned
+viral phenomenon and a Billboard-charting novelty song.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="video-card">
+
+<div class="video-frame">
+
+<iframe
+src="https://www.youtube.com/embed/OQSNhk5ICTI"
+title="Nyan Cat"
+loading="lazy"
+allowfullscreen>
+</iframe>
+
+</div>
+
+<div class="video-info">
+
+<div class="video-year">2011</div>
+
+<h3>Nyan Cat</h3>
+
+<p>
+Pixel art, a looping song and endless repetition became
+one of the signature symbols of early 2010s internet culture.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="video-card">
+
+<div class="video-frame">
+
+<iframe
+src="https://www.youtube.com/embed/9bZkp7q19f0"
+title="Gangnam Style"
+loading="lazy"
+allowfullscreen>
+</iframe>
+
+</div>
+
+<div class="video-info">
+
+<div class="video-year">2012</div>
+
+<h3>Gangnam Style</h3>
+
+<p>
+Psy's music video became the first YouTube video to reach
+one billion views and became a worldwide internet phenomenon.
+</p>
+
+</div>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+<!-- MEMES -->
+
+<section class="archive-section" id="memes">
+
+<div class="section-title">
+  <h2>Picture Memes</h2>
+  <p>The photographs, screenshots and image formats that became internet vocabulary.</p>
+</div>
+
+
+<div class="meme-grid">
+
+
+<article class="meme-card">
+
+<div class="text-meme blue">
+  LOLCATS
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2007–2009</div>
+
+<h3>LOLcats</h3>
+
+<p>
+Cats plus deliberately misspelled captions became one of
+the defining image formats of the early social web.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="meme-card">
+
+<div class="text-meme pink">
+  SUCCESS<br>KID
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2007</div>
+
+<h3>Success Kid</h3>
+
+<p>
+Sammy Griner's beach photograph became a universal image
+for small victories and improbable successes.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="meme-card">
+
+<div class="text-meme yellow">
+  BAD LUCK<br>BRIAN
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2012</div>
+
+<h3>Bad Luck Brian</h3>
+
+<p>
+A yearbook photograph became one of the most recognizable
+image-macro templates of the early 2010s.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="meme-card">
+
+<div class="text-meme cyan">
+  GRUMPY<br>CAT
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2012</div>
+
+<h3>Grumpy Cat</h3>
+
+<p>
+Tardar Sauce became one of the most recognizable animals
+in internet history.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="meme-card">
+
+<div class="text-meme blue">
+  DOGE<br>SUCH WOW
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2013</div>
+
+<h3>Doge</h3>
+
+<p>
+A Shiba Inu photograph paired with broken English became
+one of the defining meme languages of the decade.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="meme-card">
+
+<div class="text-meme pink">
+  THIS IS<br>FINE
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2013</div>
+
+<h3>This Is Fine</h3>
+
+<p>
+KC Green's comic became a shorthand for calmly accepting
+an obviously disastrous situation.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="meme-card">
+
+<div class="text-meme yellow">
+  DISTRACTED<br>BOYFRIEND
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2017</div>
+
+<h3>Distracted Boyfriend</h3>
+
+<p>
+A stock photograph became one of the most adaptable meme
+templates of the late 2010s.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="meme-card">
+
+<div class="text-meme cyan">
+  EXPANDING<br>BRAIN
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2017</div>
+
+<h3>Expanding Brain</h3>
+
+<p>
+A four-panel image format became a popular way to represent
+increasingly absurd levels of intelligence.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="meme-card">
+
+<div class="text-meme blue">
+  IS THIS<br>A PIGEON?
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2018</div>
+
+<h3>Is This a Pigeon?</h3>
+
+<p>
+A screenshot from an anime became a universal format for
+mistaking one thing for another.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="meme-card">
+
+<div class="text-meme pink">
+  WOMAN<br>YELLING<br>AT A CAT
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2019</div>
+
+<h3>Woman Yelling at a Cat</h3>
+
+<p>
+A two-image reaction format became one of the most recognizable
+memes of the late 2010s.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="meme-card">
+
+<div class="text-meme yellow">
+  SURPRISED<br>PIKACHU
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2018</div>
+
+<h3>Surprised Pikachu</h3>
+
+<p>
+The reaction image became shorthand for being shocked by
+an entirely predictable result.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="meme-card">
+
+<div class="text-meme cyan">
+  STONKS
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2019</div>
+
+<h3>Stonks</h3>
+
+<p>
+A surreal corporate meme became a shorthand for questionable
+financial decisions and internet irony.
+</p>
+
+</div>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+<!-- VINE -->
+
+<section class="archive-section" id="vine">
+
+<div class="section-title">
+  <h2>Vine</h2>
+  <p>Six seconds changed online comedy.</p>
+</div>
+
+
+<div class="vine-banner">
+
+<h3>The Vine Era • 2013–2017</h3>
+
+<p>
+Vine's six-second limit forced creators to build jokes around
+timing, repetition and instantly recognizable catchphrases.
+The platform disappeared, but its language survived.
+</p>
+
+</div>
+
+
+<div class="vine-grid">
+
+
+<article class="vine-card">
+
+<h3>Road Work Ahead</h3>
+
+<p>
+"Road work ahead? Uh, yeah, I sure hope it does."
+One of the defining Vine-era exchanges.
+</p>
+
+<a class="vine-link"
+href="https://www.youtube.com/results?search_query=Road+Work+Ahead+Vine"
+target="_blank">
+WATCH PRESERVED COPIES
+</a>
+
+</article>
+
+
+<article class="vine-card">
+
+<h3>What Are Those?</h3>
+
+<p>
+Brandon Moore's improvised question became an internet
+catchphrase that escaped Vine entirely.
+</p>
+
+<a class="vine-link"
+href="https://www.youtube.com/results?search_query=What+Are+Those+Vine+Brandon+Moore"
+target="_blank">
+WATCH PRESERVED COPIES
+</a>
+
+</article>
+
+
+<article class="vine-card">
+
+<h3>Hi, Welcome to Chili's</h3>
+
+<p>
+Adam Perkins' famous Vine became one of the most
+recognizable lines of the platform's history.
+</p>
+
+<a class="vine-link"
+href="https://www.youtube.com/results?search_query=Adam+Perkins+Welcome+to+Chilis+Vine"
+target="_blank">
+WATCH PRESERVED COPIES
+</a>
+
+</article>
+
+
+<article class="vine-card">
+
+<h3>It's Wednesday, My Dudes</h3>
+
+<p>
+A bizarre frog costume, a scream and a phrase that
+became a recurring internet ritual.
+</p>
+
+<a class="vine-link"
+href="https://www.youtube.com/results?search_query=Its+Wednesday+My+Dudes+Vine"
+target="_blank">
+WATCH PRESERVED COPIES
+</a>
+
+</article>
+
+
+<article class="vine-card">
+
+<h3>Look at All Those Chickens</h3>
+
+<p>
+One of the most instantly recognizable Vine reactions.
+</p>
+
+<a class="vine-link"
+href="https://www.youtube.com/results?search_query=Look+at+all+those+chickens+Vine"
+target="_blank">
+WATCH PRESERVED COPIES
+</a>
+
+</article>
+
+
+<article class="vine-card">
+
+<h3>They Were Roommates</h3>
+
+<p>
+A Vine-era phrase that became a lasting part of
+online slang and reaction culture.
+</p>
+
+<a class="vine-link"
+href="https://www.youtube.com/results?search_query=And+They+Were+Roommates+Vine"
+target="_blank">
+WATCH PRESERVED COPIES
+</a>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+<!-- SNAPCHAT -->
+
+<section class="archive-section" id="snapchat">
+
+<div class="section-title">
+  <h2>Snapchat</h2>
+  <p>Disappearing posts, filters, stories and a new kind of online identity.</p>
+</div>
+
+
+<div class="snapchat-section">
+
+<div class="snapchat-title">
+  👻 SNAPCHAT ERA
+</div>
+
+<p>
+Snapchat changed the expectation that everything posted online
+had to remain permanently visible. Stories, lenses, streaks and
+filters created an entirely different form of internet culture.
+</p>
+
+
+<div class="snap-grid">
+
+<div class="snap-box">
+STORIES
+<small>2013</small>
+</div>
+
+<div class="snap-box">
+LENSES
+<small>2015</small>
+</div>
+
+<div class="snap-box">
+STREAKS
+<small>2016</small>
+</div>
+
+<div class="snap-box">
+SPOTLIGHT
+<small>2020</small>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SOCIAL PLATFORMS -->
+
+<section class="archive-section" id="social">
+
+<div class="section-title">
+  <h2>When Social Media Became the Culture</h2>
+  <p>The platforms that changed how internet culture was created and shared.</p>
+</div>
+
+
+<div class="platform-grid">
+
+
+<div class="platform" id="myspace">
+  MySpace
+  <small>Profiles • Music • Top 8</small>
+</div>
+
+
+<div class="platform">
+  YouTube
+  <small>Video • Creators • Comments</small>
+</div>
+
+
+<div class="platform" id="reddit">
+  Reddit
+  <small>Communities • Threads • AMAs</small>
+</div>
+
+
+<div class="platform" id="twitter">
+  Twitter
+  <small>Real-time conversation</small>
+</div>
+
+
+<div class="platform" id="instagram">
+  Instagram
+  <small>Photos • Stories • Reels</small>
+</div>
+
+
+<div class="platform">
+  Facebook
+  <small>Feeds • Groups • Sharing</small>
+</div>
+
+
+<div class="platform">
+  Tumblr
+  <small>Fandom • GIFs • Text</small>
+</div>
+
+
+<div class="platform">
+  Snapchat
+  <small>Stories • Lenses</small>
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- MODERN -->
+
+<section class="archive-section" id="modern">
+
+<div class="section-title">
+  <h2>The Modern Internet</h2>
+  <p>Short-form video, livestreams, algorithms and rapidly accelerating meme cycles.</p>
+</div>
+
+
+<div class="meme-grid">
+
+
+<article class="meme-card">
+
+<div class="text-meme yellow">
+  HOW IT<br>
+  STARTED<br>
+  HOW IT'S<br>
+  GOING
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2020</div>
+
+<h3>How It Started / How It's Going</h3>
+
+<p>
+A pandemic-era format for comparing beginnings and current situations.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="meme-card">
+
+<div class="text-meme blue">
+  COFFIN<br>
+  DANCE
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2020</div>
+
+<h3>Coffin Dance</h3>
+
+<p>
+A Ghanaian pallbearing group became the centerpiece of a
+globally recognizable pandemic-era meme.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="meme-card">
+
+<div class="text-meme pink">
+  AMONG US<br>
+  SUS
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2020</div>
+
+<h3>Among Us</h3>
+
+<p>
+A multiplayer game became a massive source of memes,
+slang and reaction culture.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="meme-card">
+
+<div class="text-meme cyan">
+  CORN<br>
+  KID
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2022</div>
+
+<h3>Corn Kid</h3>
+
+<p>
+A joyful interview about corn became one of the major
+feel-good viral moments of the TikTok era.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="meme-card">
+
+<div class="text-meme yellow">
+  GRIMACE<br>
+  SHAKE
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2023</div>
+
+<h3>Grimace Shake</h3>
+
+<p>
+A promotional drink became the centerpiece of a surreal
+TikTok horror-comedy trend.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="meme-card">
+
+<div class="text-meme blue">
+  SKIBIDI<br>
+  TOILET
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2023</div>
+
+<h3>Skibidi Toilet</h3>
+
+<p>
+A surreal animated series became a major example of
+algorithm-driven youth internet culture.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="meme-card">
+
+<div class="text-meme pink">
+  GIRL<br>
+  DINNER
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2023</div>
+
+<h3>Girl Dinner</h3>
+
+<p>
+A TikTok phrase and food trend spread into mainstream
+conversation and media coverage.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="meme-card">
+
+<div class="text-meme cyan">
+  ROMAN<br>
+  EMPIRE
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2023</div>
+
+<h3>Roman Empire Trend</h3>
+
+<p>
+A TikTok question about how often men think about the Roman
+Empire became a widespread social-media phenomenon.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="meme-card">
+
+<div class="text-meme yellow">
+  HAWK<br>
+  TUAH
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2024</div>
+
+<h3>Hawk Tuah</h3>
+
+<p>
+A street-interview clip became one of the most recognizable
+viral moments of 2024.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="meme-card">
+
+<div class="text-meme pink">
+  DEMURE
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2024</div>
+
+<h3>Very Demure, Very Mindful</h3>
+
+<p>
+Jools Lebron's TikTok phrase rapidly entered mainstream
+internet vocabulary.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="meme-card">
+
+<div class="text-meme cyan">
+  MOO<br>
+  DENG
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2024</div>
+
+<h3>Moo Deng</h3>
+
+<p>
+A baby pygmy hippopotamus became an international social-media
+celebrity and meme subject.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="meme-card">
+
+<div class="text-meme blue">
+  BRAINROT<br>
+  ERA
+</div>
+
+<div class="meme-info">
+
+<div class="meme-date">2025–2026</div>
+
+<h3>Italian Brainrot</h3>
+
+<p>
+AI-assisted absurdist characters, synthetic voices and surreal
+short-form videos became a defining contemporary meme format.
+</p>
+
+</div>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+<!-- TIMELINE -->
+
+<section class="archive-section" id="timeline">
+
+<div class="section-title">
+  <h2>Internet Culture Timeline</h2>
+  <p>A quick chronological record.</p>
+</div>
+
+
+<div class="timeline">
+
+
+<div class="timeline-entry">
+<strong>2004</strong>
+Numa Numa spreads through Newgrounds and the early viral web.
+</div>
+
+
+<div class="timeline-entry">
+<strong>2005</strong>
+YouTube launches.
+</div>
+
+
+<div class="timeline-entry">
+<strong>2006</strong>
+Evolution of Dance becomes one of the defining early YouTube hits.
+</div>
+
+
+<div class="timeline-entry">
+<strong>2007</strong>
+Chocolate Rain, Rickrolling, Keyboard Cat and Charlie Bit My Finger
+become major internet touchstones.
+</div>
+
+
+<div class="timeline-entry">
+<strong>2008</strong>
+LOLcats, rage comics and image macros become increasingly widespread.
+</div>
+
+
+<div class="timeline-entry">
+<strong>2009</strong>
+David After Dentist and other ordinary-person videos demonstrate
+the power of YouTube virality.
+</div>
+
+
+<div class="timeline-entry">
+<strong>2010</strong>
+Twitter, Facebook and YouTube increasingly overlap with mainstream culture.
+</div>
+
+
+<div class="timeline-entry">
+<strong>2011</strong>
+Nyan Cat and Rebecca Black become major examples of rapid online virality.
+</div>
+
+
+<div class="timeline-entry">
+<strong>2012</strong>
+Gangnam Style, Grumpy Cat and image memes dominate internet culture.
+</div>
+
+
+<div class="timeline-entry">
+<strong>2013</strong>
+Vine launches and creates an entirely new six-second comedy language.
+</div>
+
+
+<div class="timeline-entry">
+<strong>2014</strong>
+Snapchat becomes a major platform for younger internet users.
+</div>
+
+
+<div class="timeline-entry">
+<strong>2015</strong>
+Instagram, Twitter and Snapchat increasingly shape mainstream meme culture.
+</div>
+
+
+<div class="timeline-entry">
+<strong>2016</strong>
+Vine and Snapchat reach enormous cultural influence.
+</div>
+
+
+<div class="timeline-entry">
+<strong>2017</strong>
+Distracted Boyfriend and other highly adaptable image templates dominate meme culture.
+</div>
+
+
+<div class="timeline-entry">
+<strong>2018</strong>
+Musical.ly merges into the emerging TikTok ecosystem.
+</div>
+
+
+<div class="timeline-entry">
+<strong>2019</strong>
+TikTok becomes increasingly influential worldwide.
+</div>
+
+
+<div class="timeline-entry">
+<strong>2020</strong>
+COVID-19 accelerates TikTok, livestreaming, gaming and meme culture.
+</div>
+
+
+<div class="timeline-entry">
+<strong>2021</strong>
+Short-form video becomes a dominant cultural format.
+</div>
+
+
+<div class="timeline-entry">
+<strong>2022</strong>
+TikTok trends increasingly cross into music, advertising,
+television and mainstream news.
+</div>
+
+
+<div class="timeline-entry">
+<strong>2023</strong>
+Grimace Shake, Skibidi Toilet and other surreal formats demonstrate
+the speed of modern meme cycles.
+</div>
+
+
+<div class="timeline-entry">
+<strong>2024</strong>
+Hawk Tuah, Moo Deng, demure and other phenomena demonstrate how
+quickly a single clip can become a worldwide cultural reference.
+</div>
+
+
+<div class="timeline-entry">
+<strong>2025–2026</strong>
+AI-generated imagery, synthetic voices, livestream culture,
+brainrot formats and increasingly rapid meme cycles become intertwined.
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- SOURCES -->
+
+<section class="archive-section">
+
+<div class="section-title">
+  <h2>Archive Sources</h2>
+  <p>Places used to trace the history of internet culture.</p>
+</div>
+
+
+<div class="source-box">
+
+<h3>Research & Preservation</h3>
+
+<ul>
+
+<li>
+<a href="https://www.youtube.com/" target="_blank">
+YouTube
+</a>
+— surviving creator uploads and preserved video.
+</li>
+
+<li>
+<a href="https://knowyourmeme.com/" target="_blank">
+Know Your Meme
+</a>
+— meme origins, dates, spread and cultural documentation.
+</li>
+
+<li>
+<a href="https://commons.wikimedia.org/" target="_blank">
+Wikimedia Commons
+</a>
+— documented photographs and openly licensed media.
+</li>
+
+<li>
+<a href="https://www.reddit.com/" target="_blank">
+Reddit
+</a>
+— community archives, discussions and surviving references.
+</li>
+
+<li>
+<a href="https://web.archive.org/" target="_blank">
+Internet Archive / Wayback Machine
+</a>
+— historical versions of websites and pages that no longer exist.
+</li>
+
+</ul>
+
+
+<p>
+The archive distinguishes between original material, preserved copies,
+reuploads and historical references whenever that information can be
+established.
+</p>
+
+</div>
+
+</section>
+
+
+</section>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<p>
+<strong>THE HISTORICAL RECORD</strong>
+</p>
+
+<p>
+Internet Culture Archive • 2004–2026
+</p>
+
+<p class="footer-small">
+Third-party videos, photographs, trademarks and other media remain
+the property of their respective creators and rights holders.
+This archive documents internet history and does not claim ownership
+of third-party material.
+</p>
+
+</footer>
+
+
+</body>
+</html>
