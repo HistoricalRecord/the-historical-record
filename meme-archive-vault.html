@@ -2,672 +2,178 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Historical Memes | The Historical Record</title>
 
+  <link rel="stylesheet" href="style.css">
+
   <style>
+    /*
+      HISTORICAL MEMES
+      --------------------------------------------------
+      The site's existing navigation/header/footer remain
+      controlled by style.css.
 
-    /* =========================================================
-       HISTORICAL MEMES
-       Old-web / 2007-inspired red and white visual language
-       ========================================================= */
+      This page adds a compact red-and-white archive
+      treatment inspired by the visual simplicity of
+      early video-sharing websites without copying
+      YouTube branding.
+    */
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
+    .meme-page {
       background: #f5f5f5;
-      color: #222;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 14px;
+      min-height: 100vh;
     }
 
-    a {
-      color: #0645ad;
-    }
-
-    /* =========================================================
-       SITE HEADER
-       ========================================================= */
-
-    .site-header {
+    .meme-hero {
       background: #ffffff;
-      border-bottom: 5px solid #cc0000;
-      box-shadow: 0 1px 4px rgba(0,0,0,.18);
-      position: relative;
-      z-index: 20;
+      border-top: 5px solid #cc0000;
+      border-bottom: 1px solid #cccccc;
+      padding: 35px 0 30px;
     }
 
-    .header-inner {
-      width: min(1180px, calc(100% - 30px));
-      margin: 0 auto;
-      min-height: 76px;
-      display: flex;
-      align-items: center;
+    .meme-hero h1 {
+      color: #222222;
+      margin-bottom: 10px;
     }
 
-    .brand {
-      color: #c40000;
-      text-decoration: none;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 28px;
-      font-weight: bold;
-      letter-spacing: -1px;
-      text-transform: uppercase;
-    }
-
-    .brand span {
-      color: #333;
-    }
-
-    /* =========================================================
-       HAMBURGER
-       ========================================================= */
-
-    .menu-button {
-      position: fixed;
-      top: 17px;
-      left: 15px;
-      z-index: 1001;
-
-      width: 42px;
-      height: 42px;
-
-      border: 1px solid #aaa;
-      border-radius: 3px;
-
-      background: #fff;
-
-      cursor: pointer;
-
-      box-shadow: 0 1px 4px rgba(0,0,0,.2);
-    }
-
-    .menu-button span {
-      display: block;
-      width: 21px;
-      height: 3px;
-      margin: 4px auto;
-      background: #444;
-    }
-
-    /* =========================================================
-       SIDE MENU
-       ========================================================= */
-
-    .side-menu {
-      position: fixed;
-      top: 0;
-      left: -330px;
-
-      width: 310px;
-      height: 100vh;
-
-      z-index: 1000;
-
-      overflow-y: auto;
-
-      background: #fff;
-
-      border-right: 5px solid #c90000;
-
-      box-shadow: 5px 0 15px rgba(0,0,0,.25);
-
-      transition: left .25s ease;
-    }
-
-    body.menu-open .side-menu {
-      left: 0;
-    }
-
-    .menu-header {
-      padding: 28px 22px 20px;
-
-      background: #cc0000;
-      color: white;
-
-      border-bottom: 1px solid #990000;
-    }
-
-    .menu-header h2 {
-      margin: 0 0 6px;
-
-      font-size: 21px;
-      line-height: 1.2;
-    }
-
-    .menu-header p {
-      margin: 0;
-
-      font-size: 12px;
-
-      text-transform: uppercase;
-      letter-spacing: 1px;
-
-      opacity: .9;
-    }
-
-    .side-menu nav {
-      padding: 15px 0 30px;
-    }
-
-    .side-menu nav > a,
-    .menu-dropdown-toggle {
-      display: block;
-
-      width: 100%;
-
-      padding: 13px 20px;
-
-      color: #222;
-
-      background: white;
-
-      border: 0;
-      border-bottom: 1px solid #ddd;
-
-      text-align: left;
-
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 14px;
-
-      text-decoration: none;
-
-      cursor: pointer;
-    }
-
-    .side-menu nav > a:hover,
-    .menu-dropdown-toggle:hover {
-      background: #f5f5f5;
-      color: #c00000;
-    }
-
-    .menu-dropdown-toggle {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .menu-dropdown-arrow {
-      color: #c00000;
-      font-weight: bold;
-    }
-
-    .menu-submenu {
-      display: none;
-      background: #f7f7f7;
-    }
-
-    .menu-dropdown.open .menu-submenu {
-      display: block;
-    }
-
-    .menu-submenu a {
-      display: block;
-
-      padding: 10px 20px 10px 35px;
-
-      border-bottom: 1px solid #ddd;
-
-      color: #444;
-
-      text-decoration: none;
-
-      font-size: 13px;
-    }
-
-    .menu-submenu a:hover {
-      color: #c00000;
-      background: #eee;
-    }
-
-    .menu-overlay {
-      position: fixed;
-      inset: 0;
-
-      z-index: 999;
-
-      display: none;
-
-      background: rgba(0,0,0,.4);
-    }
-
-    body.menu-open .menu-overlay {
-      display: block;
-    }
-
-    /* =========================================================
-       MAIN
-       ========================================================= */
-
-    main {
-      min-height: 70vh;
-    }
-
-    .hero {
-      background:
-        linear-gradient(
-          to bottom,
-          #ffffff 0%,
-          #ffffff 75%,
-          #eeeeee 100%
-        );
-
-      border-bottom: 1px solid #ccc;
-
-      padding: 38px 0 30px;
-    }
-
-    .container {
-      width: min(1180px, calc(100% - 30px));
-      margin: 0 auto;
-    }
-
-    .hero .container {
-      padding-left: 55px;
-    }
-
-    .eyebrow {
-      margin: 0 0 8px;
-
-      color: #c00000;
-
-      font-size: 11px;
-      font-weight: bold;
-
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-    }
-
-    .hero h1 {
-      margin: 0;
-
-      color: #333;
-
-      font-family: Arial, Helvetica, sans-serif;
-
-      font-size: clamp(30px, 5vw, 48px);
-      line-height: 1;
-
-      letter-spacing: -1.5px;
-    }
-
-    .hero-text {
+    .meme-hero .hero-text {
       max-width: 760px;
-
-      margin: 15px 0 0;
-
-      color: #555;
-
-      font-size: 15px;
-      line-height: 1.5;
     }
 
-    /* =========================================================
-       OLD-WEB NAV STRIP
-       ========================================================= */
-
-    .archive-strip {
-      background: #cc0000;
-      border-top: 1px solid #a00000;
-      border-bottom: 1px solid #8d0000;
+    .meme-section {
+      padding: 30px 0 50px;
     }
 
-    .archive-strip-inner {
-      width: min(1180px, calc(100% - 30px));
-      margin: 0 auto;
-
-      min-height: 42px;
-
+    .meme-list {
       display: flex;
-      align-items: center;
-      gap: 0;
-
-      overflow-x: auto;
+      flex-direction: column;
+      gap: 18px;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
-    .archive-strip a {
-      display: inline-block;
-
-      padding: 12px 17px;
-
-      color: #fff;
-
-      border-right: 1px solid rgba(255,255,255,.3);
-
-      font-size: 12px;
-      font-weight: bold;
-
-      text-decoration: none;
-
-      white-space: nowrap;
-    }
-
-    .archive-strip a:hover {
-      background: #a90000;
-    }
-
-    /* =========================================================
-       VIDEO ARCHIVE
-       ========================================================= */
-
-    .records-section {
-      padding: 30px 0 60px;
-    }
-
-    .archive-heading {
-      margin-bottom: 18px;
-
-      padding: 13px 15px;
-
-      background: #fff;
-
-      border: 1px solid #ccc;
-      border-left: 5px solid #c90000;
-
+    .meme-card {
+      background: #ffffff;
+      border: 1px solid #cccccc;
+      border-top: 4px solid #cc0000;
+      padding: 15px;
       box-shadow: 0 1px 2px rgba(0,0,0,.08);
     }
 
-    .archive-heading strong {
-      display: block;
-
-      color: #333;
-
-      font-size: 16px;
+    .meme-card-header {
+      margin-bottom: 10px;
     }
 
-    .archive-heading small {
-      display: block;
-
-      margin-top: 4px;
-
-      color: #777;
-
-      font-size: 12px;
-    }
-
-    /* =========================================================
-       VIDEO LIST
-       ========================================================= */
-
-    .video-list {
-      display: grid;
-
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-
-      gap: 18px;
-    }
-
-    .video-card {
-      background: #fff;
-
-      border: 1px solid #cfcfcf;
-
-      box-shadow: 0 1px 3px rgba(0,0,0,.13);
-
-      overflow: hidden;
-    }
-
-    .video-card:hover {
-      border-color: #aaa;
-    }
-
-    .video-heading {
-      min-height: 76px;
-
-      padding: 11px 13px 10px;
-
-      border-bottom: 1px solid #ddd;
-
-      background:
-        linear-gradient(
-          to bottom,
-          #fff 0%,
-          #f6f6f6 100%
-        );
-    }
-
-    .video-number {
-      float: left;
-
-      margin-right: 9px;
-
-      min-width: 28px;
-      height: 28px;
-
-      line-height: 28px;
-
-      text-align: center;
-
-      background: #c90000;
-
-      color: #fff;
-
+    .meme-number {
+      color: #cc0000;
       font-size: 12px;
       font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 5px;
     }
 
-    .video-title {
+    .meme-title {
+      color: #111111;
+      font-size: 19px;
+      line-height: 1.3;
+      margin: 0 0 5px;
+    }
+
+    .meme-uploader {
+      color: #666666;
+      font-size: 13px;
       margin: 0;
-
-      color: #0645ad;
-
-      font-size: 15px;
-      font-weight: bold;
-
-      line-height: 1.25;
     }
 
-    .video-uploader {
-      margin: 5px 0 0;
+    /*
+      IMPORTANT:
+      The actual YouTube iframe is NOT loaded until the
+      visitor clicks the video.
 
-      color: #777;
+      This prevents dozens of YouTube players from loading
+      simultaneously.
+    */
 
-      font-size: 11px;
-    }
-
-    .video-uploader strong {
-      color: #444;
-    }
-
-    /* =========================================================
-       LAZY VIDEO
-       ========================================================= */
-
-    .video-frame {
+    .lazy-video {
       position: relative;
-
-      width: 100%;
-
+      width: 50%;
+      max-width: 480px;
+      min-width: 280px;
       aspect-ratio: 16 / 9;
-
-      background: #111;
-
+      background: #eeeeee;
+      border: 1px solid #bbbbbb;
       overflow: hidden;
+      cursor: pointer;
+      margin-top: 12px;
     }
 
-    .video-frame iframe {
+    .lazy-video img {
       display: block;
-
       width: 100%;
       height: 100%;
-
-      border: 0;
+      object-fit: cover;
     }
 
-    .video-placeholder {
+    .lazy-video .play-button {
       position: absolute;
-      inset: 0;
-
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 58px;
+      height: 42px;
+      border-radius: 8px;
+      background: #cc0000;
+      color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-
-      background:
-        linear-gradient(
-          135deg,
-          #202020,
-          #080808
-        );
-
-      color: #fff;
-
-      cursor: pointer;
+      font-size: 24px;
+      line-height: 1;
+      box-shadow: 0 2px 5px rgba(0,0,0,.35);
     }
 
-    .video-placeholder-inner {
-      text-align: center;
+    .lazy-video:hover .play-button {
+      background: #990000;
     }
 
-    .play-button {
-      width: 62px;
-      height: 44px;
-
-      margin: 0 auto 10px;
-
-      border-radius: 9px;
-
-      background: #c90000;
-
-      position: relative;
-
-      box-shadow: 0 2px 7px rgba(0,0,0,.45);
+    .lazy-video iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
     }
 
-    .play-button::after {
-      content: "";
-
-      position: absolute;
-
-      top: 12px;
-      left: 25px;
-
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid transparent;
-      border-left: 16px solid #fff;
-    }
-
-    .video-placeholder-text {
-      font-size: 11px;
-
-      color: #ddd;
-
-      text-transform: uppercase;
-      letter-spacing: .8px;
-    }
-
-    .video-meta {
-      padding: 8px 12px;
-
-      background: #fafafa;
-
-      border-top: 1px solid #ddd;
-
-      color: #777;
-
-      font-size: 11px;
-    }
-
-    .video-meta a {
-      color: #0645ad;
-
-      text-decoration: none;
-    }
-
-    .video-meta a:hover {
-      text-decoration: underline;
-    }
-
-    /* =========================================================
-       FOOTER
-       ========================================================= */
-
-    .site-footer {
-      padding: 28px 0 35px;
-
-      background: #333;
-
-      border-top: 5px solid #c90000;
-
-      color: #ddd;
-    }
-
-    .site-footer p {
-      margin: 5px 0;
-
+    .meme-source {
+      margin-top: 8px;
       font-size: 12px;
     }
 
-    .site-footer p:first-child {
-      color: #fff;
-
-      font-size: 14px;
-      font-weight: bold;
+    .meme-source a {
+      color: #cc0000;
     }
 
-    /* =========================================================
-       RESPONSIVE
-       ========================================================= */
-
-    @media (max-width: 800px) {
-
-      .video-list {
-        grid-template-columns: 1fr;
+    @media (max-width: 700px) {
+      .lazy-video {
+        width: 100%;
+        min-width: 0;
       }
 
-      .brand {
-        font-size: 22px;
-      }
-
-      .hero .container {
-        padding-left: 55px;
+      .meme-card {
+        padding: 12px;
       }
     }
-
-    @media (max-width: 500px) {
-
-      .header-inner {
-        min-height: 68px;
-      }
-
-      .hero {
-        padding-top: 30px;
-      }
-
-      .hero h1 {
-        font-size: 34px;
-      }
-
-      .video-heading {
-        min-height: 70px;
-      }
-    }
-
   </style>
 </head>
 
 <body>
 
-  <!-- =======================================================
-       MENU BUTTON
-       ======================================================= -->
-
   <button
     class="menu-button"
     aria-label="Open menu"
     aria-expanded="false"
-    type="button"
   >
     <span></span>
     <span></span>
@@ -675,20 +181,11 @@
   </button>
 
 
-  <!-- =======================================================
-       HISTORICAL RECORD SIDE MENU
-       ======================================================= -->
-
   <aside class="side-menu">
 
     <div class="menu-header">
-
       <h2>The Historical Record</h2>
-
-      <p>
-        Archive Navigation
-      </p>
-
+      <p>Archive Navigation</p>
     </div>
 
     <nav>
@@ -714,10 +211,7 @@
           aria-controls="politics-submenu"
         >
           <span>Politics</span>
-
-          <span class="menu-dropdown-arrow">
-            ▾
-          </span>
+          <span class="menu-dropdown-arrow">▾</span>
         </button>
 
         <div
@@ -765,10 +259,6 @@
   <div class="menu-overlay"></div>
 
 
-  <!-- =======================================================
-       HEADER
-       ======================================================= -->
-
   <header class="site-header">
 
     <div class="container header-inner">
@@ -777,7 +267,7 @@
         href="index.html"
         class="brand"
       >
-        HISTORICAL <span>MEMES</span>
+        THE HISTORICAL RECORD
       </a>
 
     </div>
@@ -785,18 +275,14 @@
   </header>
 
 
-  <!-- =======================================================
-       MAIN
-       ======================================================= -->
+  <main class="meme-page">
 
-  <main>
-
-    <section class="hero">
+    <section class="meme-hero">
 
       <div class="container">
 
         <p class="eyebrow">
-          THE HISTORICAL RECORD • SOCIAL MEDIA
+          SOCIAL MEDIA
         </p>
 
         <h1>
@@ -804,8 +290,8 @@
         </h1>
 
         <p class="hero-text">
-          An archive of memorable internet videos, viral clips,
-          classic memes, and pieces of early online culture.
+          A collection of viral videos, internet classics, memes,
+          and memorable moments from the early years of online video.
         </p>
 
       </div>
@@ -813,71 +299,1936 @@
     </section>
 
 
-    <!-- =====================================================
-         OLD-WEB RED NAVIGATION STRIP
-         ===================================================== -->
-
-    <div class="archive-strip">
-
-      <div class="archive-strip-inner">
-
-        <a href="index.html">
-          HOME
-        </a>
-
-        <a href="social-media.html">
-          SOCIAL MEDIA
-        </a>
-
-        <a href="meme-archive-vault.html">
-          MEME ARCHIVE
-        </a>
-
-        <a href="archive.html">
-          THE ARCHIVE
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         VIDEO ARCHIVE
-         ===================================================== -->
-
-    <section
-      class="records-section"
-      id="videos"
-    >
+    <section class="meme-section">
 
       <div class="container">
 
-        <div class="archive-heading">
-
-          <strong>
-            HISTORICAL MEMES VIDEO ARCHIVE
-          </strong>
-
-          <small>
-            Videos are loaded only as they approach the screen.
-            Select a video to begin playback.
-          </small>
-
-        </div>
+        <div class="meme-list">
 
 
-        <div
-          class="video-list"
-          id="video-list"
-        >
+          <!-- =====================================================
+               VIDEO 1 REMOVED
+               Original #1:
+               KmtzQCSh6xk
+               ===================================================== -->
 
-          <!--
-            Video cards are generated below by JavaScript.
 
-            This keeps the HTML considerably smaller and prevents
-            dozens of YouTube iframes from loading simultaneously.
-          -->
+          <!-- =====================================================
+               VIDEO 2
+               ===================================================== -->
+
+          <article class="meme-card">
+
+            <div class="meme-card-header">
+
+              <p class="meme-number">
+                MEME VIDEO 01
+              </p>
+
+              <h2 class="meme-title">
+                Video Archive Record
+              </h2>
+
+              <p class="meme-uploader">
+                Uploader: YouTube archive record
+              </p>
+
+            </div>
+
+            <div
+              class="lazy-video"
+              data-video-id="ILtz5nX3_fc"
+              role="button"
+              tabindex="0"
+              aria-label="Play archived YouTube video"
+            >
+
+              <img
+                src="https://i.ytimg.com/vi/ILtz5nX3_fc/hqdefault.jpg"
+                alt="YouTube video thumbnail"
+                loading="lazy"
+              >
+
+              <span class="play-button">
+                ▶
+              </span>
+
+            </div>
+
+            <p class="meme-source">
+              <a
+                href="https://www.youtube.com/watch?v=ILtz5nX3_fc"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View original YouTube record
+              </a>
+            </p>
+
+          </article>
+
+
+          <!-- =====================================================
+               VIDEO 3
+               ===================================================== -->
+
+          <article class="meme-card">
+
+            <div class="meme-card-header">
+
+              <p class="meme-number">
+                MEME VIDEO 02
+              </p>
+
+              <h2 class="meme-title">
+                Video Archive Record
+              </h2>
+
+              <p class="meme-uploader">
+                Uploader: YouTube archive record
+              </p>
+
+            </div>
+
+            <div
+              class="lazy-video"
+              data-video-id="WqSTXuJeTks"
+              role="button"
+              tabindex="0"
+              aria-label="Play archived YouTube video"
+            >
+
+              <img
+                src="https://i.ytimg.com/vi/WqSTXuJeTks/hqdefault.jpg"
+                alt="YouTube video thumbnail"
+                loading="lazy"
+              >
+
+              <span class="play-button">
+                ▶
+              </span>
+
+            </div>
+
+            <p class="meme-source">
+              <a
+                href="https://www.youtube.com/watch?v=WqSTXuJeTks"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View original YouTube record
+              </a>
+            </p>
+
+          </article>
+
+
+          <!-- =====================================================
+               VIDEO 4 REMOVED
+               Original #4:
+               a1Y73sPHKxw
+               ===================================================== -->
+
+
+          <!-- =====================================================
+               REMAINING VIDEOS
+               ===================================================== -->
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 03</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="mfhBM_Yay6w" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/mfhBM_Yay6w/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+
+            <p class="meme-source">
+              <a href="https://www.youtube.com/watch?v=mfhBM_Yay6w" target="_blank" rel="noopener noreferrer">
+                View original YouTube record
+              </a>
+            </p>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 04</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="93hq0YU3Gqk" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/93hq0YU3Gqk/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+
+            <p class="meme-source">
+              <a href="https://www.youtube.com/watch?v=93hq0YU3Gqk" target="_blank" rel="noopener noreferrer">
+                View original YouTube record
+              </a>
+            </p>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 05</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="BEtIoGQxqQs" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/BEtIoGQxqQs/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+
+            <p class="meme-source">
+              <a href="https://www.youtube.com/watch?v=BEtIoGQxqQs" target="_blank" rel="noopener noreferrer">
+                View original YouTube record
+              </a>
+            </p>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 06</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="LeAltgu_pbM" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/LeAltgu_pbM/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+
+            <p class="meme-source">
+              <a href="https://www.youtube.com/watch?v=LeAltgu_pbM" target="_blank" rel="noopener noreferrer">
+                View original YouTube record
+              </a>
+            </p>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 07</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="aBfUFr9SBY0" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/aBfUFr9SBY0/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+
+            <p class="meme-source">
+              <a href="https://www.youtube.com/watch?v=aBfUFr9SBY0" target="_blank" rel="noopener noreferrer">
+                View original YouTube record
+              </a>
+            </p>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 08</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="D2kJZOfq7zk" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/D2kJZOfq7zk/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+
+            <p class="meme-source">
+              <a href="https://www.youtube.com/watch?v=D2kJZOfq7zk" target="_blank" rel="noopener noreferrer">
+                View original YouTube record
+              </a>
+            </p>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 09</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="UMf40daefsI" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/UMf40daefsI/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+
+            <p class="meme-source">
+              <a href="https://www.youtube.com/watch?v=UMf40daefsI" target="_blank" rel="noopener noreferrer">
+                View original YouTube record
+              </a>
+            </p>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 10</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="O61Do03ZCjw" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/O61Do03ZCjw/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+
+            <p class="meme-source">
+              <a href="https://www.youtube.com/watch?v=O61Do03ZCjw" target="_blank" rel="noopener noreferrer">
+                View original YouTube record
+              </a>
+            </p>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 11</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="D1R-jKKp3NA" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/D1R-jKKp3NA/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+
+            <p class="meme-source">
+              <a href="https://www.youtube.com/watch?v=D1R-jKKp3NA" target="_blank" rel="noopener noreferrer">
+                View original YouTube record
+              </a>
+            </p>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 12</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="tw5EsYzyGWI" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/tw5EsYzyGWI/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+
+            <p class="meme-source">
+              <a href="https://www.youtube.com/watch?v=tw5EsYzyGWI" target="_blank" rel="noopener noreferrer">
+                View original YouTube record
+              </a>
+            </p>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 13</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="O4rfQSgkZOE" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/O4rfQSgkZOE/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+
+            <p class="meme-source">
+              <a href="https://www.youtube.com/watch?v=O4rfQSgkZOE" target="_blank" rel="noopener noreferrer">
+                View original YouTube record
+              </a>
+            </p>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 14</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="Y93xTChHV_0" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/Y93xTChHV_0/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+
+            <p class="meme-source">
+              <a href="https://www.youtube.com/watch?v=Y93xTChHV_0" target="_blank" rel="noopener noreferrer">
+                View original YouTube record
+              </a>
+            </p>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 15</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="OKI-5MHUkKY" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/OKI-5MHUkKY/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+
+            <p class="meme-source">
+              <a href="https://www.youtube.com/watch?v=OKI-5MHUkKY" target="_blank" rel="noopener noreferrer">
+                View original YouTube record
+              </a>
+            </p>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 16</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="5RDER307OKI" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/5RDER307OKI/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+
+            <p class="meme-source">
+              <a href="https://www.youtube.com/watch?v=5RDER307OKI" target="_blank" rel="noopener noreferrer">
+                View original YouTube record
+              </a>
+            </p>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 17</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="ISV1bt8-TDg" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/ISV1bt8-TDg/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+
+            <p class="meme-source">
+              <a href="https://www.youtube.com/watch?v=ISV1bt8-TDg" target="_blank" rel="noopener noreferrer">
+                View original YouTube record
+              </a>
+            </p>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 18</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="b_NQCTbvRnM" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/b_NQCTbvRnM/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+
+            <p class="meme-source">
+              <a href="https://www.youtube.com/watch?v=b_NQCTbvRnM" target="_blank" rel="noopener noreferrer">
+                View original YouTube record
+              </a>
+            </p>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 19</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="uEE3akeFeQU" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/uEE3akeFeQU/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+
+            <p class="meme-source">
+              <a href="https://www.youtube.com/watch?v=uEE3akeFeQU" target="_blank" rel="noopener noreferrer">
+                View original YouTube record
+              </a>
+            </p>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 20</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="7zH4Jb-6BZs" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/7zH4Jb-6BZs/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+
+            <p class="meme-source">
+              <a href="https://www.youtube.com/watch?v=7zH4Jb-6BZs" target="_blank" rel="noopener noreferrer">
+                View original YouTube record
+              </a>
+            </p>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 21</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="vzz704zeI4U" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/vzz704zeI4U/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+
+            <p class="meme-source">
+              <a href="https://www.youtube.com/watch?v=vzz704zeI4U" target="_blank" rel="noopener noreferrer">
+                View original YouTube record
+              </a>
+            </p>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 22</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="QpgJyYBTq84" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/QpgJyYBTq84/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+
+            <p class="meme-source">
+              <a href="https://www.youtube.com/watch?v=QpgJyYBTq84" target="_blank" rel="noopener noreferrer">
+                View original YouTube record
+              </a>
+            </p>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 23</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="mBxBzmhHTww" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/mBxBzmhHTww/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+
+            <p class="meme-source">
+              <a href="https://www.youtube.com/watch?v=mBxBzmhHTww" target="_blank" rel="noopener noreferrer">
+                View original YouTube record
+              </a>
+            </p>
+          </article>
+
+
+          <!-- =====================================================
+               ADDITIONAL ARCHIVE RECORDS
+               ===================================================== -->
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 24</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="Q5im0Ssyyus" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/Q5im0Ssyyus/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 25</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="CsGYh8AacgY" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/CsGYh8AacgY/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 26</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="s8MDNFaGfT4" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/s8MDNFaGfT4/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 27</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="Z3ZAGBL6UBA" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/Z3ZAGBL6UBA/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 28</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="qItugh-fFgg" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/qItugh-fFgg/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 29</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="jNQXAC9IVRw" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/jNQXAC9IVRw/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 30</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="hMtZfW2z9dw" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/hMtZfW2z9dw/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 31</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="fbGkxcY7YFU" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/fbGkxcY7YFU/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 32</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="MtN1YnoL46Q" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/MtN1YnoL46Q/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 33</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="Tx1XIm6q4r4" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/Tx1XIm6q4r4/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 34</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="EIyohCQqGck" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/EIyohCQqGck/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 35</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="2EcBClUGl5Q" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/2EcBClUGl5Q/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 36</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="oavMtUWDBTM" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/oavMtUWDBTM/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 37</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="YnopHCL1Jk8" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/YnopHCL1Jk8/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 38</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="k85mRPqvMbE" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/k85mRPqvMbE/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 39</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="astISOttCQ0" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/astISOttCQ0/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 40</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="ykwqXuMPsoc" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/ykwqXuMPsoc/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 41</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="NoHRBvtUV_g" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/NoHRBvtUV_g/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 42</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="ZN5PoW7_kdA" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/ZN5PoW7_kdA/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 43</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="QFCSXr6qnv4" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/QFCSXr6qnv4/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 44</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="R5Nz8p3EP7A" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/R5Nz8p3EP7A/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 45</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="9FXMYsMvs1A" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/9FXMYsMvs1A/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 46</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="aoEtd6HONEk" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/aoEtd6HONEk/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 47</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="IY9YNF5MMQo" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/IY9YNF5MMQo/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 48</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="UmPmpUTr22c" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/UmPmpUTr22c/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 49</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="HRPwMBAtfTY" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/HRPwMBAtfTY/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 50</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="d8CeSGlQQnM" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/d8CeSGlQQnM/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 51</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="Lt1u6N7lueM" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/Lt1u6N7lueM/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 52</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="EShUeudtaFg" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/EShUeudtaFg/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 53</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="TIoD7Uj7MUo" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/TIoD7Uj7MUo/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 54</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="f4FuOi9rvKw" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/f4FuOi9rvKw/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 55</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="9KSGUVcNfZM" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/9KSGUVcNfZM/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 56</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="R9dRuaTOyBY" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/R9dRuaTOyBY/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 57</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="wsZ7013yHiw" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/wsZ7013yHiw/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 58</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="LzxCJzM4xLo" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/LzxCJzM4xLo/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 59</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="dEI7oX0XxJw" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/dEI7oX0XxJw/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 60</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="x2Icz8xF174" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/x2Icz8xF174/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 61</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="HKst22Y2hgA" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/HKst22Y2hgA/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 62</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="IdyXKJ8NcNI" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/IdyXKJ8NcNI/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 63</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="vnkRvx3-j-k" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/vnkRvx3-j-k/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 64</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="9edByCiaLbY" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/9edByCiaLbY/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 65</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="DoskJt_UVG8" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/DoskJt_UVG8/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 66</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="gLMo7_VXU_s" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/gLMo7_VXU_s/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 67</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="eaNI18GAxXs" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/eaNI18GAxXs/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 68</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="sdnJxDmJNmA" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/sdnJxDmJNmA/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 69</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="I15sK7dNMOM" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/I15sK7dNMOM/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 70</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="W-3DWBv0CvU" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/W-3DWBv0CvU/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 71</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="sHi6LCx6Lx8" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/sHi6LCx6Lx8/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 72</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="IxX_QHay02M" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/IxX_QHay02M/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 73</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="SMWi7CLoZ2Q" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/SMWi7CLoZ2Q/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 74</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="msSc7Mv0QHY" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/msSc7Mv0QHY/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 75</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="OzKY5YHnOTg" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/OzKY5YHnOTg/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 76</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="_quu68XXHEs" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/_quu68XXHEs/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 77</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="gavT_q9CLME" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/gavT_q9CLME/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 78</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="3qwU1LQZA5g" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/3qwU1LQZA5g/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 79</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="zTL4T_NVGhY" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/zTL4T_NVGhY/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 80</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="AsFCSvqsqFA" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/AsFCSvqsqFA/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 81</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="xzpndHtdl9A" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/xzpndHtdl9A/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 82</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="5vRlJrkxsqo" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/5vRlJrkxsqo/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 83</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="wAUK9hVgmNI" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/wAUK9hVgmNI/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 84</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="z_mhFOyLQBg" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/z_mhFOyLQBg/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 85</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="YCeQLeQiRP4" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/YCeQLeQiRP4/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 86</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="V_OVxxIvqVw" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/V_OVxxIvqVw/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 87</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="r3-Y31ONZuI" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/r3-Y31ONZuI/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 88</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="xaPepCVepCg" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/xaPepCVepCg/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 89</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="IJmIGC0nwK0" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/IJmIGC0nwK0/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 90</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="ZZ5LpwO-An4" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/ZZ5LpwO-An4/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 91</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="czhd1eHv6ac" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/czhd1eHv6ac/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 92</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="lg5WKsVnEA4" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/lg5WKsVnEA4/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 93</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="lgh68Swuak0" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/lgh68Swuak0/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 94</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="rbE53XUtVw0" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/rbE53XUtVw0/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 95</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="Ou6uXU0KFss" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/Ou6uXU0KFss/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 96</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="6f7pgA0riU8" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/6f7pgA0riU8/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 97</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="otCpCn0l4Wo" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/otCpCn0l4Wo/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 98</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="AMrSGMF4PZo" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/AMrSGMF4PZo/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 99</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="7eKv4BEujFU" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/7eKv4BEujFU/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 100</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="bjwgt1kRqEU" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/bjwgt1kRqEU/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 101</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="rmn7oV9bBRU" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/rmn7oV9bBRU/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 102</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="65e06P6Rhf4" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/65e06P6Rhf4/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 103</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="p8f-dwURY20" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/p8f-dwURY20/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 104</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="8kjY9sKdHlY" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/8kjY9sKdHlY/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 105</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="InklyF13qjU" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/InklyF13qjU/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 106</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="AUl4F8M8bxM" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/AUl4F8M8bxM/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 107</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="S4pk8jsk9h4" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/S4pk8jsk9h4/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 108</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="RV6aLIQgmYg" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/RV6aLIQgmYg/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 109</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="Z0NlmumRuVE" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/Z0NlmumRuVE/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 110</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="2zw-XgAko_E" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/2zw-XgAko_E/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 111</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="NsaSG-0U4mU" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/NsaSG-0U4mU/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 112</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="o7zqouVuFZY" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/o7zqouVuFZY/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 113</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="ykz_dbpYRPU" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/ykz_dbpYRPU/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 114</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="NOpS4qGILyY" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/NOpS4qGILyY/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 115</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="GsWGqDzygDs" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/GsWGqDzygDs/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 116</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="Q0IL0S0vTGw" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/Q0IL0S0vTGw/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 117</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="JAVV2jbjKTQ" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/JAVV2jbjKTQ/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 118</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="dxjLh3lZumY" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/dxjLh3lZumY/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 119</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="oBnVNpG97Z4" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/oBnVNpG97Z4/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 120</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="Mh4f9AYRCZY" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/Mh4f9AYRCZY/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
+
+          <article class="meme-card">
+            <div class="meme-card-header">
+              <p class="meme-number">MEME VIDEO 121</p>
+              <h2 class="meme-title">Video Archive Record</h2>
+              <p class="meme-uploader">Uploader: YouTube archive record</p>
+            </div>
+
+            <div class="lazy-video" data-video-id="pNbN5Mk_sZw" role="button" tabindex="0" aria-label="Play archived YouTube video">
+              <img src="https://i.ytimg.com/vi/pNbN5Mk_sZw/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy">
+              <span class="play-button">▶</span>
+            </div>
+          </article>
+
 
         </div>
 
@@ -887,10 +2238,6 @@
 
   </main>
 
-
-  <!-- =======================================================
-       FOOTER
-       ======================================================= -->
 
   <footer class="site-footer">
 
@@ -909,1257 +2256,86 @@
   </footer>
 
 
+  <script src="script.js"></script>
+
+
   <script>
+    /*
+      LAZY YOUTUBE PLAYER
 
-    /* =========================================================
-       MENU
-       ========================================================= */
+      Nothing from youtube.com is loaded when the page opens.
 
-    const menuButton =
-      document.querySelector(".menu-button");
+      Each video initially displays only its thumbnail.
+      The YouTube iframe is created after the visitor clicks.
 
-    const menuOverlay =
-      document.querySelector(".menu-overlay");
+      This is substantially lighter than putting 100+
+      YouTube iframes directly into the document.
+    */
 
-    const dropdown =
-      document.querySelector(".menu-dropdown");
+    document.addEventListener("DOMContentLoaded", function () {
 
-    const dropdownButton =
-      document.querySelector(".menu-dropdown-toggle");
+      const videos = document.querySelectorAll(".lazy-video");
 
+      videos.forEach(function (video) {
 
-    function closeMenu() {
+        function loadVideo() {
 
-      document.body.classList.remove("menu-open");
+          if (video.dataset.loaded === "true") {
+            return;
+          }
 
-      menuButton.setAttribute(
-        "aria-expanded",
-        "false"
-      );
+          const videoId = video.dataset.videoId;
 
-    }
+          if (!videoId) {
+            return;
+          }
 
+          video.dataset.loaded = "true";
 
-    function toggleMenu() {
+          const iframe = document.createElement("iframe");
 
-      const open =
-        document.body.classList.toggle("menu-open");
+          iframe.src =
+            "https://www.youtube.com/embed/" +
+            encodeURIComponent(videoId) +
+            "?rel=0&modestbranding=1";
 
-      menuButton.setAttribute(
-        "aria-expanded",
-        open ? "true" : "false"
-      );
+          iframe.title = "Archived YouTube video";
 
-    }
+          iframe.loading = "lazy";
 
+          iframe.allow =
+            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
 
-    menuButton.addEventListener(
-      "click",
-      toggleMenu
-    );
+          iframe.allowFullscreen = true;
 
+          video.innerHTML = "";
 
-    menuOverlay.addEventListener(
-      "click",
-      closeMenu
-    );
-
-
-    dropdownButton.addEventListener(
-      "click",
-      function () {
-
-        const open =
-          dropdown.classList.toggle("open");
-
-        dropdownButton.setAttribute(
-          "aria-expanded",
-          open ? "true" : "false"
-        );
-
-      }
-    );
-
-
-    /* =========================================================
-       VIDEO DATA
-
-       Videos #1 and #4 from the supplied original list have
-       intentionally been removed.
-
-       Titles and uploader names are retrieved automatically
-       from YouTube's oEmbed endpoint when possible.
-       ========================================================= */
-
-    const videos = [
-
-      /* Original #2 */
-      {
-        id: "ILtz5nX3_fc"
-      },
-
-      /* Original #3 */
-      {
-        id: "WqSTXuJeTks"
-      },
-
-      {
-        id: "mfhBM_Yay6w"
-      },
-
-      {
-        id: "93hq0YU3Gqk"
-      },
-
-      {
-        id: "BEtIoGQxqQs"
-      },
-
-      {
-        id: "LeAltgu_pbM"
-      },
-
-      {
-        id: "aBfUFr9SBY0"
-      },
-
-      {
-        id: "D2kJZOfq7zk"
-      },
-
-      {
-        id: "UMf40daefsI"
-      },
-
-      {
-        id: "O61Do03ZCjw"
-      },
-
-      {
-        id: "D1R-jKKp3NA"
-      },
-
-      {
-        id: "tw5EsYzyGWI"
-      },
-
-      {
-        id: "O4rfQSgkZOE"
-      },
-
-      {
-        id: "Y93xTChHV_0"
-      },
-
-      {
-        id: "OKI-5MHUkKY"
-      },
-
-      {
-        id: "5RDER307OKI"
-      },
-
-      {
-        id: "ISV1bt8-TDg"
-      },
-
-      {
-        id: "b_NQCTbvRnM"
-      },
-
-      {
-        id: "uEE3akeFeQU"
-      },
-
-      {
-        id: "7zH4Jb-6BZs"
-      },
-
-      {
-        id: "vzz704zeI4U"
-      },
-
-      {
-        id: "QpgJyYBTq84"
-      },
-
-      {
-        id: "mBxBzmhHTww"
-      },
-
-      {
-        id: "Q5im0Ssyyus"
-      },
-
-      {
-        id: "CsGYh8AacgY"
-      },
-
-      {
-        id: "s8MDNFaGfT4"
-      },
-
-      {
-        id: "Z3ZAGBL6UBA"
-      },
-
-      {
-        id: "qItugh-fFgg"
-      },
-
-      {
-        id: "jNQXAC9IVRw"
-      },
-
-      {
-        id: "hMtZfW2z9dw"
-      },
-
-      {
-        id: "fbGkxcY7YFU"
-      },
-
-      {
-        id: "MtN1YnoL46Q"
-      },
-
-      {
-        id: "Tx1XIm6q4r4"
-      },
-
-      {
-        id: "EIyohCQqGck"
-      },
-
-      {
-        id: "2EcBClUGl5Q"
-      },
-
-      {
-        id: "oavMtUWDBTM"
-      },
-
-      {
-        id: "YnopHCL1Jk8"
-      },
-
-      {
-        id: "k85mRPqvMbE"
-      },
-
-      {
-        id: "astISOttCQ0"
-      },
-
-      {
-        id: "ykwqXuMPsoc"
-      },
-
-      {
-        id: "NoHRBvtUV_g"
-      },
-
-      {
-        id: "ZN5PoW7_kdA"
-      },
-
-      {
-        id: "QFCSXr6qnv4"
-      },
-
-      {
-        id: "R5Nz8p3EP7A"
-      },
-
-      {
-        id: "9FXMYsMvs1A"
-      },
-
-      {
-        id: "aoEtd6HONEk"
-      },
-
-      {
-        id: "IY9YNF5MMQo"
-      },
-
-      {
-        id: "UmPmpUTr22c"
-      },
-
-      {
-        id: "HRPwMBAtfTY"
-      },
-
-      {
-        id: "d8CeSGlQQnM"
-      },
-
-      {
-        id: "Lt1u6N7lueM"
-      },
-
-      {
-        id: "EShUeudtaFg"
-      },
-
-      {
-        id: "TIoD7Uj7MUo"
-      },
-
-      {
-        id: "f4FuOi9rvKw"
-      },
-
-      {
-        id: "9KSGUVcNfZM"
-      },
-
-      {
-        id: "R9dRuaTOyBY"
-      },
-
-      {
-        id: "wsZ7013yHiw"
-      },
-
-      {
-        id: "LzxCJzM4xLo"
-      },
-
-      {
-        id: "dEI7oX0XxJw"
-      },
-
-      {
-        id: "x2Icz8xF174"
-      },
-
-      {
-        id: "HKst22Y2hgA"
-      },
-
-      {
-        id: "IdyXKJ8NcNI"
-      },
-
-      {
-        id: "vnkRvx3-j-k"
-      },
-
-      {
-        id: "9edByCiaLbY"
-      },
-
-      {
-        id: "DoskJt_UVG8"
-      },
-
-      {
-        id: "gLMo7_VXU_s"
-      },
-
-      {
-        id: "eaNI18GAxXs"
-      },
-
-      {
-        id: "sdnJxDmJNmA"
-      },
-
-      {
-        id: "I15sK7dNMOM"
-      },
-
-      {
-        id: "W-3DWBv0CvU"
-      },
-
-      {
-        id: "sHi6LCx6Lx8"
-      },
-
-      {
-        id: "IxX_QHay02M"
-      },
-
-      {
-        id: "SMWi7CLoZ2Q"
-      },
-
-      {
-        id: "msSc7Mv0QHY"
-      },
-
-      {
-        id: "OzKY5YHnOTg"
-      },
-
-      {
-        id: "_quu68XXHEs"
-      },
-
-      {
-        id: "gavT_q9CLME"
-      },
-
-      {
-        id: "3qwU1LQZA5g"
-      },
-
-      {
-        id: "zTL4T_NVGhY"
-      },
-
-      {
-        id: "AsFCSvqsqFA"
-      },
-
-      {
-        id: "xzpndHtdl9A"
-      },
-
-      {
-        id: "5vRlJrkxsqo"
-      },
-
-      {
-        id: "wAUK9hVgmNI"
-      },
-
-      {
-        id: "z_mhFOyLQBg"
-      },
-
-      {
-        id: "YCeQLeQiRP4"
-      },
-
-      {
-        id: "V_OVxxIvqVw"
-      },
-
-      {
-        id: "r3-Y31ONZuI"
-      },
-
-      {
-        id: "xaPepCVepCg"
-      },
-
-      {
-        id: "IJmIGC0nwK0"
-      },
-
-      {
-        id: "ZZ5LpwO-An4"
-      },
-
-      {
-        id: "czhd1eHv6ac"
-      },
-
-      {
-        id: "lg5WKsVnEA4"
-      },
-
-      {
-        id: "lgh68Swuak0"
-      },
-
-      {
-        id: "rbE53XUtVw0"
-      },
-
-      {
-        id: "Ou6uXU0KFss"
-      },
-
-      {
-        id: "6f7pgA0riU8"
-      },
-
-      {
-        id: "otCpCn0l4Wo"
-      },
-
-      {
-        id: "AMrSGMF4PZo"
-      },
-
-      {
-        id: "7eKv4BEujFU"
-      },
-
-      {
-        id: "bjwgt1kRqEU"
-      },
-
-      {
-        id: "rmn7oV9bBRU"
-      },
-
-      {
-        id: "65e06P6Rhf4"
-      },
-
-      {
-        id: "p8f-dwURY20"
-      },
-
-      {
-        id: "8kjY9sKdHlY"
-      },
-
-      {
-        id: "InklyF13qjU"
-      },
-
-      {
-        id: "AUl4F8M8bxM"
-      },
-
-      {
-        id: "S4pk8jsk9h4"
-      },
-
-      {
-        id: "RV6aLIQgmYg"
-      },
-
-      {
-        id: "Z0NlmumRuVE"
-      },
-
-      {
-        id: "2zw-XgAko_E"
-      },
-
-      {
-        id: "NsaSG-0U4mU"
-      },
-
-      {
-        id: "o7zqouVuFZY"
-      },
-
-      {
-        id: "ykz_dbpYRPU"
-      },
-
-      {
-        id: "NOpS4qGILyY"
-      },
-
-      {
-        id: "GsWGqDzygDs"
-      },
-
-      {
-        id: "Q0IL0S0vTGw"
-      },
-
-      {
-        id: "JAVV2jbjKTQ"
-      },
-
-      {
-        id: "dxjLh3lZumY"
-      },
-
-      {
-        id: "oBnVNpG97Z4"
-      },
-
-      {
-        id: "Mh4f9AYRCZY"
-      },
-
-      {
-        id: "pNbN5Mk_sZw"
-      },
-
-
-      /* Classic / additional supplied videos */
-
-      {
-        id: "Cqd1Gvq-RBY"
-      },
-
-      {
-        id: "dMH0bHeiRNg"
-      },
-
-      {
-        id: "EwTZ2xpQwpA"
-      },
-
-      {
-        id: "txqiwrbYGrs"
-      },
-
-      {
-        id: "dQw4w9WgXcQ"
-      },
-
-      {
-        id: "2yJgwwDcgV8"
-      },
-
-      {
-        id: "9bZkp7q19f0"
-      },
-
-      {
-        id: "HPPj6viIBmU"
-      },
-
-      {
-        id: "wCF3ywukQYA"
-      },
-
-      {
-        id: "UjCdB5p2v0Y"
-      },
-
-      {
-        id: "OQSNhk5ICTI"
-      },
-
-      {
-        id: "hooKVstzbz0"
-      },
-
-      {
-        id: "3HjIljJd-o0"
-      },
-
-      {
-        id: "CMNry4PE93Y"
-      },
-
-      {
-        id: "aMS0O3kknvk"
-      },
-
-      {
-        id: "zVNTdWbVBgc"
-      },
-
-      {
-        id: "7WmMcqp670s"
-      },
-
-      {
-        id: "W45DRy7M1no"
-      },
-
-      {
-        id: "6B26asyGKDo"
-      },
-
-      {
-        id: "6bVa6jn4rpE"
-      },
-
-      {
-        id: "40uMbKjSBwU"
-      },
-
-      {
-        id: "5jwETfUw0TE"
-      },
-
-      {
-        id: "cBC1moosff0"
-      },
-
-      {
-        id: "bx4kwzUn2Bg"
-      },
-
-      {
-        id: "oHg5SJYRHA0"
-      },
-
-      {
-        id: "EwKpaD8g_gY"
-      },
-
-      {
-        id: "dmzDB8EHRxg"
-      },
-
-      {
-        id: "e3mG_gvaimo"
-      },
-
-      {
-        id: "EoLjddNcnYU"
-      },
-
-      {
-        id: "H6ly9KGuVTk"
-      },
-
-      {
-        id: "k0CJwbayisw"
-      },
-
-      {
-        id: "vo3qLUki5L8"
-      },
-
-      {
-        id: "1lQ3FGxpEU0"
-      },
-
-      {
-        id: "nwP3TeK-fPs"
-      },
-
-      {
-        id: "tGmmQ688Fkk"
-      },
-
-      {
-        id: "vHH1W1_f-6Y"
-      },
-
-      {
-        id: "hD8MPMTcvd8"
-      },
-
-      {
-        id: "RtfmTOv_kgA"
-      },
-
-      {
-        id: "VslKGGpl4Xc"
-      },
-
-      {
-        id: "ocd_GDed5qg"
-      },
-
-      {
-        id: "nUpNvmymAzM"
-      },
-
-      {
-        id: "0eOiL5dqP-I"
-      },
-
-      {
-        id: "3FS8_l_i81Q"
-      },
-
-      {
-        id: "4ZYziZg8LBc"
-      }
-
-    ];
-
-
-    /* =========================================================
-       CREATE VIDEO CARD
-       ========================================================= */
-
-    const videoList =
-      document.getElementById("video-list");
-
-
-    function createVideoCard(video, number) {
-
-      const card =
-        document.createElement("article");
-
-      card.className =
-        "video-card";
-
-      card.dataset.videoId =
-        video.id;
-
-
-      const heading =
-        document.createElement("div");
-
-      heading.className =
-        "video-heading";
-
-
-      const numberElement =
-        document.createElement("div");
-
-      numberElement.className =
-        "video-number";
-
-      numberElement.textContent =
-        number;
-
-
-      const title =
-        document.createElement("h2");
-
-      title.className =
-        "video-title";
-
-      title.textContent =
-        "Loading video title…";
-
-
-      const uploader =
-        document.createElement("p");
-
-      uploader.className =
-        "video-uploader";
-
-      uploader.innerHTML =
-        "<strong>Uploader:</strong> Loading…";
-
-
-      heading.appendChild(
-        numberElement
-      );
-
-      heading.appendChild(
-        title
-      );
-
-      heading.appendChild(
-        uploader
-      );
-
-
-      const frame =
-        document.createElement("div");
-
-      frame.className =
-        "video-frame";
-
-
-      const placeholder =
-        document.createElement("div");
-
-      placeholder.className =
-        "video-placeholder";
-
-      placeholder.innerHTML = `
-        <div class="video-placeholder-inner">
-
-          <div class="play-button"></div>
-
-          <div class="video-placeholder-text">
-            Click to load video
-          </div>
-
-        </div>
-      `;
-
-
-      frame.appendChild(
-        placeholder
-      );
-
-
-      const meta =
-        document.createElement("div");
-
-      meta.className =
-        "video-meta";
-
-      meta.innerHTML = `
-        <a
-          href="https://www.youtube.com/watch?v=${encodeURIComponent(video.id)}"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Open this video on YouTube
-        </a>
-      `;
-
-
-      card.appendChild(
-        heading
-      );
-
-      card.appendChild(
-        frame
-      );
-
-      card.appendChild(
-        meta
-      );
-
-
-      placeholder.addEventListener(
-        "click",
-        function () {
-
-          loadVideo(
-            card,
-            video.id
-          );
-
-        },
-        {
-          once: true
-        }
-      );
-
-
-      return card;
-
-    }
-
-
-    /* =========================================================
-       LOAD YOUTUBE IFRAME
-       ========================================================= */
-
-    function loadVideo(card, id) {
-
-      const frame =
-        card.querySelector(".video-frame");
-
-      if (
-        frame.dataset.loaded === "true"
-      ) {
-        return;
-      }
-
-      frame.dataset.loaded =
-        "true";
-
-
-      const iframe =
-        document.createElement("iframe");
-
-
-      /*
-        youtube-nocookie is used so the embedded player does
-        not use normal YouTube cookies where possible.
-      */
-
-      iframe.src =
-        "https://www.youtube-nocookie.com/embed/" +
-        encodeURIComponent(id) +
-        "?rel=0";
-
-
-      iframe.title =
-        card.querySelector(".video-title").textContent;
-
-
-      iframe.loading =
-        "lazy";
-
-
-      iframe.allow =
-        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-
-
-      iframe.allowFullscreen =
-        true;
-
-
-      const placeholder =
-        frame.querySelector(
-          ".video-placeholder"
-        );
-
-
-      if (placeholder) {
-        placeholder.remove();
-      }
-
-
-      frame.appendChild(
-        iframe
-      );
-
-    }
-
-
-    /* =========================================================
-       CREATE ALL CARDS
-       ========================================================= */
-
-    videos.forEach(
-      function (video, index) {
-
-        const card =
-          createVideoCard(
-            video,
-            index + 1
-          );
-
-        videoList.appendChild(
-          card
-        );
-
-      }
-    );
-
-
-    /* =========================================================
-       YOUTUBE METADATA
-
-       YouTube's oEmbed endpoint returns the video's actual
-       public title and channel/uploader name.
-
-       This does NOT load the video itself.
-
-       Therefore hundreds of metadata requests do not create
-       hundreds of YouTube players.
-       ========================================================= */
-
-    async function loadMetadata(card) {
-
-      const id =
-        card.dataset.videoId;
-
-
-      const title =
-        card.querySelector(
-          ".video-title"
-        );
-
-
-      const uploader =
-        card.querySelector(
-          ".video-uploader"
-        );
-
-
-      try {
-
-        const response =
-          await fetch(
-            "https://www.youtube.com/oembed?url=" +
-            encodeURIComponent(
-              "https://www.youtube.com/watch?v=" + id
-            ) +
-            "&format=json"
-          );
-
-
-        if (!response.ok) {
-          throw new Error(
-            "Metadata unavailable"
-          );
-        }
-
-
-        const data =
-          await response.json();
-
-
-        if (data.title) {
-
-          title.textContent =
-            data.title;
+          video.appendChild(iframe);
 
         }
 
 
-        if (data.author_name) {
-
-          uploader.innerHTML =
-            "<strong>Uploader:</strong> " +
-            escapeHtml(
-              data.author_name
-            );
-
-        }
-
-      } catch (error) {
-
-        /*
-          If YouTube blocks the metadata request or the video
-          no longer exposes oEmbed information, the archive
-          remains usable.
-        */
-
-        title.textContent =
-          "YouTube Video";
+        video.addEventListener("click", loadVideo);
 
 
-        uploader.innerHTML =
-          "<strong>Uploader:</strong> " +
-          "Information unavailable";
+        video.addEventListener("keydown", function (event) {
 
-      }
+          if (
+            event.key === "Enter" ||
+            event.key === " "
+          ) {
 
-    }
+            event.preventDefault();
 
+            loadVideo();
 
-    /* =========================================================
-       ESCAPE HTML
-       ========================================================= */
+          }
 
-    function escapeHtml(value) {
+        });
 
-      return String(value)
-        .replace(
-          /&/g,
-          "&amp;"
-        )
-        .replace(
-          /</g,
-          "&lt;"
-        )
-        .replace(
-          />/g,
-          "&gt;"
-        )
-        .replace(
-          /"/g,
-          "&quot;"
-        )
-        .replace(
-          /'/g,
-          "&#039;"
-        );
+      });
 
-    }
-
-
-    /* =========================================================
-       LOAD TITLES/UPLOADERS
-
-       Metadata is loaded separately from the actual players.
-
-       This is intentionally lightweight.
-       ========================================================= */
-
-    document
-      .querySelectorAll(".video-card")
-      .forEach(
-        function (card) {
-
-          loadMetadata(card);
-
-        }
-      );
-
-
-    /* =========================================================
-       LAZY EMBED
-
-       When a card gets close to the viewport, we prepare it.
-
-       IMPORTANT:
-       We do NOT automatically insert an iframe.
-
-       The user clicks the card's play area before the actual
-       YouTube player is created.
-
-       This prevents the page from attempting to load dozens
-       of simultaneous YouTube players.
-       ========================================================= */
-
-    const lazyObserver =
-      new IntersectionObserver(
-        function (entries) {
-
-          entries.forEach(
-            function (entry) {
-
-              if (
-                entry.isIntersecting
-              ) {
-
-                const card =
-                  entry.target;
-
-
-                /*
-                  We intentionally don't call loadVideo()
-                  here. The placeholder stays visible until
-                  the visitor chooses to play the video.
-                */
-
-                card.classList.add(
-                  "near-screen"
-                );
-
-              }
-
-            }
-          );
-
-        },
-        {
-          rootMargin:
-            "500px 0px"
-        }
-      );
-
-
-    document
-      .querySelectorAll(".video-card")
-      .forEach(
-        function (card) {
-
-          lazyObserver.observe(
-            card
-          );
-
-        }
-      );
-
-
-    /* =========================================================
-       KEYBOARD ACCESSIBILITY
-
-       Enter/Space on the placeholder loads the video.
-       ========================================================= */
-
-    document
-      .querySelectorAll(".video-placeholder")
-      .forEach(
-        function (placeholder) {
-
-          placeholder.setAttribute(
-            "tabindex",
-            "0"
-          );
-
-
-          placeholder.setAttribute(
-            "role",
-            "button"
-          );
-
-
-          placeholder.setAttribute(
-            "aria-label",
-            "Load and play video"
-          );
-
-
-          placeholder.addEventListener(
-            "keydown",
-            function (event) {
-
-              if (
-                event.key === "Enter" ||
-                event.key === " "
-              ) {
-
-                event.preventDefault();
-
-                placeholder.click();
-
-              }
-
-            }
-          );
-
-        }
-      );
-
+    });
   </script>
 
 </body>
