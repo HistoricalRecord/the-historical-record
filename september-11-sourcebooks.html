@@ -12,12 +12,20 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background: #f5f5f5;
   color: #222;
   line-height: 1.7;
+}
+
+a {
+  color: inherit;
 }
 
 /* =========================
@@ -53,7 +61,7 @@ body {
 }
 
 /* =========================
-   MENU BUTTON
+   MENU
 ========================= */
 
 .menu-button {
@@ -66,9 +74,9 @@ body {
   cursor: pointer;
 }
 
-/* =========================
-   SIDE MENU
-========================= */
+.menu-button:hover {
+  background: #921b2b;
+}
 
 .side-menu {
   position: fixed;
@@ -119,7 +127,7 @@ body {
 }
 
 .menu-section {
-  margin-top: 15px;
+  margin-top: 18px;
   margin-bottom: 5px;
   color: #bfc9df;
   font-size: 12px;
@@ -140,7 +148,7 @@ body {
 }
 
 /* =========================
-   MAIN CONTENT
+   MAIN
 ========================= */
 
 main {
@@ -203,7 +211,7 @@ main {
 }
 
 /* =========================
-   QUICK NAVIGATION
+   QUICK NAV
 ========================= */
 
 .quick-nav {
@@ -240,7 +248,7 @@ main {
 }
 
 /* =========================
-   SECTION
+   SECTIONS
 ========================= */
 
 .section {
@@ -265,7 +273,7 @@ main {
 }
 
 /* =========================
-   FEATURED REPORT
+   REPORT CARD
 ========================= */
 
 .report-card {
@@ -291,6 +299,10 @@ main {
   font-size: 13px;
   margin-bottom: 15px;
 }
+
+/* =========================
+   BUTTONS
+========================= */
 
 .button-row {
   display: flex;
@@ -322,6 +334,16 @@ main {
   background: #921b2b;
 }
 
+.button.light {
+  background: #eef2f8;
+  color: #0b1f4d;
+  border: 1px solid #cfd7e5;
+}
+
+.button.light:hover {
+  background: #dfe6f2;
+}
+
 /* =========================
    SOURCEBOOK CARDS
 ========================= */
@@ -336,7 +358,6 @@ main {
   background: white;
   border: 1px solid #d7d7d7;
   padding: 23px;
-  position: relative;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
@@ -418,7 +439,7 @@ main {
 .reading-step {
   display: flex;
   gap: 15px;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .reading-step:last-child {
@@ -439,6 +460,22 @@ main {
 
 .reading-step strong {
   color: #0b1f4d;
+}
+
+/* =========================
+   NOTE BOX
+========================= */
+
+.note-box {
+  background: #fff8e8;
+  border: 1px solid #e4cf9c;
+  border-left: 5px solid #b8860b;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.note-box strong {
+  color: #654c00;
 }
 
 /* =========================
@@ -494,6 +531,27 @@ footer p {
 
 @media (max-width: 650px) {
 
+  .site-header {
+    padding: 18px 15px;
+  }
+
+  .site-title {
+    font-size: 19px;
+  }
+
+  .site-subtitle {
+    font-size: 11px;
+  }
+
+  .menu-button {
+    padding: 9px 12px;
+    font-size: 14px;
+  }
+
+  main {
+    padding: 25px 15px 50px;
+  }
+
   .hero {
     padding: 25px;
   }
@@ -514,8 +572,16 @@ footer p {
     margin-top: 15px;
   }
 
-  .site-title {
-    font-size: 20px;
+  .button-row {
+    flex-direction: column;
+  }
+
+  .button-row .button {
+    text-align: center;
+  }
+
+  .reading-step {
+    gap: 12px;
   }
 
 }
@@ -531,7 +597,9 @@ footer p {
 
 <aside class="side-menu" id="sideMenu">
 
-  <button class="close-menu" onclick="closeMenu()">Close Menu</button>
+  <button class="close-menu" onclick="closeMenu()">
+    Close Menu
+  </button>
 
   <h2>The Historical Record</h2>
 
@@ -545,18 +613,35 @@ footer p {
 
   <a href="politics.html">Politics Home</a>
   <a href="september-11.html">September 11, 2001</a>
-  <a href="september-11-sourcebooks.html">9/11 Sourcebooks & Documents</a>
+  <a href="september-11-sourcebooks.html">
+    9/11 Sourcebooks & Documents
+  </a>
 
   <div class="menu-section">Other Sections</div>
 
-  <a href="entertainment-sports.html">Entertainment / Sports</a>
-  <a href="world-events.html">World Events</a>
-  <a href="social-media.html">Social Media</a>
-  <a href="thoughts.html">Thoughts / Blog</a>
+  <a href="entertainment-sports.html">
+    Entertainment / Sports
+  </a>
+
+  <a href="world-events.html">
+    World Events
+  </a>
+
+  <a href="social-media.html">
+    Social Media
+  </a>
+
+  <a href="thoughts.html">
+    Thoughts / Blog
+  </a>
 
 </aside>
 
-<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+<div
+  class="menu-overlay"
+  id="menuOverlay"
+  onclick="closeMenu()">
+</div>
 
 
 <!-- =========================
@@ -568,12 +653,23 @@ footer p {
   <div class="header-inner">
 
     <div>
-      <h1 class="site-title">THE HISTORICAL RECORD</h1>
-      <p class="site-subtitle">A Personal Digital Archive</p>
+
+      <h1 class="site-title">
+        THE HISTORICAL RECORD
+      </h1>
+
+      <p class="site-subtitle">
+        A Personal Digital Archive
+      </p>
+
     </div>
 
-    <button class="menu-button" onclick="openMenu()">
+    <button
+      class="menu-button"
+      onclick="openMenu()">
+
       ☰ Menu
+
     </button>
 
   </div>
@@ -587,16 +683,30 @@ footer p {
 
 <main>
 
+  <!-- BREADCRUMB -->
+
   <div class="breadcrumb">
-    <a href="index.html">Home</a>
+
+    <a href="index.html">
+      Home
+    </a>
+
     &nbsp; / &nbsp;
-    <a href="september-11.html">September 11, 2001</a>
+
+    <a href="september-11.html">
+      September 11, 2001
+    </a>
+
     &nbsp; / &nbsp;
+
     Sourcebooks & Documents
+
   </div>
 
 
-  <!-- HERO -->
+  <!-- =========================
+       HERO
+  ========================= -->
 
   <section class="hero">
 
@@ -609,20 +719,24 @@ footer p {
     </h1>
 
     <p>
-      A guided collection of primary-source material, government records,
-      historical documents, the 9/11 Commission Report, and archival research
-      relating to the September 11, 2001 terrorist attacks and the events
-      surrounding them.
+      A structured guide to primary-source material, government records,
+      declassified documents, archival collections, and major official
+      reports relating to the September 11, 2001 terrorist attacks and
+      the historical events surrounding them.
     </p>
 
   </section>
 
 
-  <!-- QUICK NAVIGATION -->
+  <!-- =========================
+       QUICK NAVIGATION
+  ========================= -->
 
   <section class="quick-nav">
 
-    <h2>Start Here</h2>
+    <h2>
+      Start Here
+    </h2>
 
     <div class="quick-links">
 
@@ -632,6 +746,10 @@ footer p {
 
       <a href="#sourcebooks">
         Sourcebooks
+      </a>
+
+      <a href="#taliban">
+        Taliban File
       </a>
 
       <a href="#later-documents">
@@ -655,7 +773,9 @@ footer p {
        COMMISSION REPORT
   ========================= -->
 
-  <section class="section" id="commission-report">
+  <section
+    class="section"
+    id="commission-report">
 
     <div class="section-heading">
 
@@ -664,7 +784,7 @@ footer p {
       </h2>
 
       <p>
-        The central official government report on the September 11 attacks.
+        The principal official U.S. Government report on the September 11 attacks.
       </p>
 
     </div>
@@ -673,8 +793,8 @@ footer p {
     <div class="report-card">
 
       <div class="report-meta">
-        Final Report • National Commission on Terrorist Attacks Upon the United States
-        • July 22, 2004
+        Final Report • National Commission on Terrorist Attacks Upon
+        the United States • July 22, 2004
       </div>
 
       <h3>
@@ -683,20 +803,20 @@ footer p {
 
       <p>
         The National Commission on Terrorist Attacks Upon the United States
-        was created to prepare a full and complete account of the circumstances
-        surrounding the September 11, 2001 terrorist attacks, including
-        preparedness for and the immediate response to the attacks.
+        was established to create a full and complete account of the
+        circumstances surrounding the September 11, 2001 terrorist attacks,
+        including preparedness for and the immediate response to the attacks.
       </p>
 
       <p>
-        The report also contains recommendations intended to help protect the
-        United States against future terrorist attacks.
+        The Commission also made recommendations intended to help protect
+        the United States against future terrorist attacks.
       </p>
 
       <p>
-        The official U.S. Government edition contains the complete report,
-        including the thirteen principal chapters, appendices, notes,
-        illustrations, tables, commission members, and staff information.
+        The edition provided by the U.S. Government Publishing Office is
+        designated as the official U.S. Government edition of the Commission's
+        final report.
       </p>
 
       <div class="button-row">
@@ -705,18 +825,30 @@ footer p {
           class="button red"
           href="https://www.govinfo.gov/content/pkg/GPO-911REPORT/pdf/GPO-911REPORT.pdf"
           target="_blank"
-          rel="noopener noreferrer"
-        >
-          Open Full 9/11 Commission Report PDF
+          rel="noopener noreferrer">
+
+          Open Full Commission Report PDF
+
         </a>
 
         <a
           class="button"
+          href="https://www.govinfo.gov/features/911-commission-report"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Official GovInfo Page
+
+        </a>
+
+        <a
+          class="button light"
           href="https://www.9-11commission.gov/report/"
           target="_blank"
-          rel="noopener noreferrer"
-        >
-          Commission Report Archive
+          rel="noopener noreferrer">
+
+          Commission Archive
+
         </a>
 
       </div>
@@ -730,7 +862,9 @@ footer p {
        SOURCEBOOKS
   ========================= -->
 
-  <section class="section" id="sourcebooks">
+  <section
+    class="section"
+    id="sourcebooks">
 
     <div class="section-heading">
 
@@ -739,7 +873,7 @@ footer p {
       </h2>
 
       <p>
-        The National Security Archive's original sourcebook collection.
+        The National Security Archive's original collection of primary-source material.
       </p>
 
     </div>
@@ -761,18 +895,18 @@ footer p {
         </h3>
 
         <p>
-          The first volume focuses on primary sources concerning U.S.
-          terrorism policy, including intelligence material, terrorism
-          assessments, government reports, policy directives, and records
-          concerning earlier terrorist attacks.
+          Primary-source material concerning U.S. terrorism policy,
+          intelligence assessments, previous terrorist attacks,
+          government reports, and policy directives.
         </p>
 
         <a
-          href="https://nsarchive.gwu.edu/node/4917"
+          href="https://nsarchive.gwu.edu/postings/briefing-books"
           target="_blank"
-          rel="noopener noreferrer"
-        >
-          Open Volume I at the National Security Archive →
+          rel="noopener noreferrer">
+
+          Open National Security Archive →
+
         </a>
 
       </article>
@@ -791,17 +925,17 @@ footer p {
         </h3>
 
         <p>
-          A collection examining the Soviet war in Afghanistan, Soviet
-          policymaking, military operations, U.S. involvement, and lessons
-          drawn from the conflict.
+          Declassified records and historical material concerning Soviet
+          policymaking, military operations, and the war in Afghanistan.
         </p>
 
         <a
           href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB57/"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
+
           Open Volume II →
+
         </a>
 
       </article>
@@ -820,16 +954,17 @@ footer p {
         </h3>
 
         <p>
-          Documents concerning the Nixon administration's 1969 decision to
-          end U.S. offensive biological and chemical weapons programs.
+          Documents concerning the Nixon administration's 1969 decision
+          to end U.S. offensive biological and chemical weapons programs.
         </p>
 
         <a
           href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB58/"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
+
           Open Volume III →
+
         </a>
 
       </article>
@@ -848,17 +983,18 @@ footer p {
         </h3>
 
         <p>
-          Secret U.S. government records concerning King Zahir Shah's
-          Afghanistan during the final years of his reign from 1970 through
-          1973.
+          Formerly secret U.S. government documents concerning King Zahir
+          Shah's Afghanistan during the final years of his reign,
+          1970 through 1973.
         </p>
 
         <a
           href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB59/"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
+
           Open Volume IV →
+
         </a>
 
       </article>
@@ -877,17 +1013,17 @@ footer p {
         </h3>
 
         <p>
-          U.S. intelligence records concerning the deadly 1979 anthrax
-          outbreak at Sverdlovsk and the controversy surrounding the Soviet
-          biological weapons program.
+          U.S. intelligence records concerning the 1979 anthrax outbreak
+          at Sverdlovsk and the Soviet biological weapons program.
         </p>
 
         <a
           href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB61/"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
+
           Open Volume V →
+
         </a>
 
       </article>
@@ -906,17 +1042,18 @@ footer p {
         </h3>
 
         <p>
-          Background material concerning U.S. special operations forces,
-          military strategy, and the developing hunt for Osama bin Laden
-          in Afghanistan.
+          Background material concerning special operations and U.S.
+          strategy in the developing effort to locate and pursue
+          Osama bin Laden.
         </p>
 
         <a
           href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB63/index.html"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
+
           Open Volume VI →
+
         </a>
 
       </article>
@@ -935,22 +1072,36 @@ footer p {
         </h3>
 
         <p>
-          A collection of declassified U.S. records concerning the rise of
-          the Taliban, Pakistan's involvement, U.S. dealings with the Taliban,
-          Afghanistan, and the relationship between the Taliban and Osama bin
-          Laden.
+          Declassified records concerning the Taliban, Afghanistan,
+          Pakistan, U.S. diplomatic efforts, and the Taliban's
+          relationship with Osama bin Laden.
         </p>
 
         <a
           href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB97/index.htm"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
+
           Open Volume VII →
+
         </a>
 
       </article>
 
+    </div>
+
+
+    <div class="note-box">
+
+      <strong>
+        Research note:
+      </strong>
+
+      The National Security Archive describes these collections as
+      sourcebooks bringing together primary-source documentation and
+      related historical material. The original Archive pages should
+      be consulted for the complete collection, document descriptions,
+      and archival context.
 
     </div>
 
@@ -958,19 +1109,21 @@ footer p {
 
 
   <!-- =========================
-       TALIBAN UPDATES
+       TALIBAN FILE
   ========================= -->
 
-  <section class="section">
+  <section
+    class="section"
+    id="taliban">
 
     <div class="section-heading">
 
       <h2>
-        Taliban File Updates
+        Taliban File & Later Updates
       </h2>
 
       <p>
-        Additional records published after the original Volume VII collection.
+        Additional National Security Archive collections connected to the Taliban File.
       </p>
 
     </div>
@@ -984,12 +1137,12 @@ footer p {
         <div>
 
           <h3>
-            Pakistan's Support for the Taliban
+            Taliban File Part II
           </h3>
 
           <p>
-            Documents concerning Pakistani financial and military support for
-            the Taliban during the 1990s.
+            Documents concerning U.S. efforts to persuade the Taliban
+            to expel Osama bin Laden.
           </p>
 
         </div>
@@ -998,9 +1151,10 @@ footer p {
           class="button"
           href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB97/index2.htm"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
+
           View Archive
+
         </a>
 
       </article>
@@ -1011,12 +1165,12 @@ footer p {
         <div>
 
           <h3>
-            U.S. Efforts to Have the Taliban Expel Bin Laden
+            Taliban File Part III
           </h3>
 
           <p>
-            Records concerning repeated U.S. approaches to the Taliban over
-            Osama bin Laden.
+            Documents concerning Pakistani support for the Taliban
+            during the 1990s.
           </p>
 
         </div>
@@ -1025,9 +1179,10 @@ footer p {
           class="button"
           href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB97/index3.htm"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
+
           View Archive
+
         </a>
 
       </article>
@@ -1038,12 +1193,12 @@ footer p {
         <div>
 
           <h3>
-            Mullah Omar Called Washington in 1998
+            Taliban File Part IV
           </h3>
 
           <p>
-            Newly released documents concerning contacts between the Taliban
-            and the United States.
+            Documents concerning contacts between Mullah Omar and
+            Washington in 1998.
           </p>
 
         </div>
@@ -1052,9 +1207,10 @@ footer p {
           class="button"
           href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB134/index.htm"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
+
           View Archive
+
         </a>
 
       </article>
@@ -1069,8 +1225,8 @@ footer p {
           </h3>
 
           <p>
-            Additional records concerning pre-9/11 U.S. attempts to drive
-            bin Laden from Afghanistan.
+            Additional records concerning U.S. attempts before September
+            11 to have the Taliban remove bin Laden from Afghanistan.
           </p>
 
         </div>
@@ -1079,9 +1235,10 @@ footer p {
           class="button"
           href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB134/index2.htm"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
+
           View Archive
+
         </a>
 
       </article>
@@ -1092,20 +1249,21 @@ footer p {
 
 
   <!-- =========================
-       ADDITIONAL DOCUMENTS
+       LATER DOCUMENTS
   ========================= -->
 
-  <section class="section" id="later-documents">
+  <section
+    class="section"
+    id="later-documents">
 
     <div class="section-heading">
 
       <h2>
-        Additional 9/11 Documents
+        Later 9/11 Document Releases
       </h2>
 
       <p>
-        Later National Security Archive releases that expand upon the
-        historical record.
+        Additional National Security Archive publications and records.
       </p>
 
     </div>
@@ -1123,8 +1281,8 @@ footer p {
           </h3>
 
           <p>
-            A declassified document central to the historical debate over
-            the Bush administration's pre-9/11 terrorism policy.
+            A declassified document concerning the Bush administration's
+            pre-9/11 terrorism policy.
           </p>
 
         </div>
@@ -1133,9 +1291,10 @@ footer p {
           class="button"
           href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB147/index.htm"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
+
           View Document
+
         </a>
 
       </article>
@@ -1150,8 +1309,8 @@ footer p {
           </h3>
 
           <p>
-            A staff report concerning failures within the Federal Aviation
-            Administration in the period surrounding the attacks.
+            A staff report concerning Federal Aviation Administration
+            failures in the period surrounding the attacks.
           </p>
 
         </div>
@@ -1160,9 +1319,10 @@ footer p {
           class="button"
           href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB148/index.htm"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
+
           View Document
+
         </a>
 
       </article>
@@ -1173,13 +1333,12 @@ footer p {
         <div>
 
           <h3>
-            FAA Believed Flight 175 Was Heading Toward New York
+            FAA Believed the Second 9/11 Plane Was Heading Toward New York
           </h3>
 
           <p>
-            FAA records providing additional detail about the response to
-            United Airlines Flight 175 and the confusion surrounding the
-            developing attacks.
+            Released records concerning the developing response to
+            the hijacking of United Airlines Flight 175.
           </p>
 
         </div>
@@ -1188,9 +1347,10 @@ footer p {
           class="button"
           href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB165/index.htm"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
+
           View Document
+
         </a>
 
       </article>
@@ -1205,7 +1365,7 @@ footer p {
           </h3>
 
           <p>
-            A National Security Archive collection concerning government
+            National Security Archive material concerning government
             records and information about the four hijacked flights.
           </p>
 
@@ -1213,11 +1373,12 @@ footer p {
 
         <a
           class="button"
-          href="https://nsarchive.gwu.edu/briefing-book-sourcebook/2001-09-21/september-11th-sourcebooks"
+          href="https://nsarchive.gwu.edu/events/september-11-terrorist-attacks-2001?page=1"
           target="_blank"
-          rel="noopener noreferrer"
-        >
-          View Source Collection
+          rel="noopener noreferrer">
+
+          View Collection
+
         </a>
 
       </article>
@@ -1232,23 +1393,23 @@ footer p {
           </h3>
 
           <p>
-            Records concerning the air-ground communications associated with
-            the hijacked flights.
+            Records concerning the air traffic control communications
+            associated with the four hijacked flights.
           </p>
 
         </div>
 
         <a
           class="button"
-          href="https://nsarchive.gwu.edu/briefing-book-sourcebook/2001-09-21/september-11th-sourcebooks"
+          href="https://nsarchive.gwu.edu/events/september-11-terrorist-attacks-2001?page=1"
           target="_blank"
-          rel="noopener noreferrer"
-        >
-          View Source Collection
+          rel="noopener noreferrer">
+
+          View Collection
+
         </a>
 
       </article>
-
 
     </div>
 
@@ -1256,10 +1417,72 @@ footer p {
 
 
   <!-- =========================
-       READING ORDER
+       ORIGINAL ARCHIVE
   ========================= -->
 
-  <section class="section" id="reading-guide">
+  <section class="section">
+
+    <div class="section-heading">
+
+      <h2>
+        The Complete National Security Archive Collection
+      </h2>
+
+      <p>
+        Go directly to the original sourcebook page.
+      </p>
+
+    </div>
+
+
+    <div class="report-card">
+
+      <h3>
+        The September 11th Sourcebooks
+      </h3>
+
+      <p>
+        The National Security Archive's original page brings together
+        the Sourcebooks and the subsequent Taliban File updates and
+        9/11-related document releases.
+      </p>
+
+      <div class="button-row">
+
+        <a
+          class="button red"
+          href="https://nsarchive.gwu.edu/briefing-book-sourcebook/2001-09-11/september-11th-sourcebooks"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Open Original Sourcebook Page
+
+        </a>
+
+        <a
+          class="button light"
+          href="https://nsarchive.gwu.edu/postings/sourcebooks"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Browse All Sourcebooks
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       READING GUIDE
+  ========================= -->
+
+  <section
+    class="section"
+    id="reading-guide">
 
     <div class="section-heading">
 
@@ -1268,7 +1491,7 @@ footer p {
       </h2>
 
       <p>
-        A simple way to work through the material without getting buried.
+        A simple path through a large collection of historical records.
       </p>
 
     </div>
@@ -1279,16 +1502,22 @@ footer p {
 
       <div class="reading-step">
 
-        <div class="step-number">1</div>
+        <div class="step-number">
+          1
+        </div>
 
         <div>
-          <strong>Start with the 9/11 Commission Report.</strong>
+
+          <strong>
+            Start with the 9/11 Commission Report.
+          </strong>
 
           <br>
 
-          Read the official government account first. This gives the reader
-          the broad chronology, findings, failures, responses, and
-          recommendations before moving into individual documents.
+          Begin with the official government report to establish
+          the broad chronology, findings, preparedness issues,
+          immediate response, and recommendations.
+
         </div>
 
       </div>
@@ -1296,15 +1525,22 @@ footer p {
 
       <div class="reading-step">
 
-        <div class="step-number">2</div>
+        <div class="step-number">
+          2
+        </div>
 
         <div>
-          <strong>Move to Volume I: Terrorism and U.S. Policy.</strong>
+
+          <strong>
+            Read Volume I: Terrorism and U.S. Policy.
+          </strong>
 
           <br>
 
-          This provides background on terrorism policy and the U.S. government's
-          understanding of terrorism before September 11.
+          Move into the National Security Archive's primary-source
+          material concerning U.S. terrorism policy and earlier
+          terrorist attacks.
+
         </div>
 
       </div>
@@ -1312,15 +1548,22 @@ footer p {
 
       <div class="reading-step">
 
-        <div class="step-number">3</div>
+        <div class="step-number">
+          3
+        </div>
 
         <div>
-          <strong>Read the Afghanistan material.</strong>
+
+          <strong>
+            Read the Afghanistan background.
+          </strong>
 
           <br>
 
-          Volumes II and IV provide historical background on Afghanistan,
-          including the Soviet war and the political history of the country.
+          Volumes II and IV provide historical material concerning
+          Afghanistan, including the Soviet war and the political
+          history of the country.
+
         </div>
 
       </div>
@@ -1328,15 +1571,22 @@ footer p {
 
       <div class="reading-step">
 
-        <div class="step-number">4</div>
+        <div class="step-number">
+          4
+        </div>
 
         <div>
-          <strong>Move into the hunt for bin Laden.</strong>
+
+          <strong>
+            Study the hunt for bin Laden.
+          </strong>
 
           <br>
 
-          Volume VI provides background on U.S. special operations and the
-          developing effort to locate and pursue bin Laden.
+          Volume VI provides background concerning U.S. special
+          operations and strategy related to the effort to locate
+          and pursue bin Laden.
+
         </div>
 
       </div>
@@ -1344,16 +1594,22 @@ footer p {
 
       <div class="reading-step">
 
-        <div class="step-number">5</div>
+        <div class="step-number">
+          5
+        </div>
 
         <div>
-          <strong>Study the Taliban File.</strong>
+
+          <strong>
+            Study the Taliban File.
+          </strong>
 
           <br>
 
-          Volume VII and its later updates document the Taliban's rise,
-          relations with Pakistan, U.S. diplomatic efforts, and the
-          Taliban's relationship with bin Laden.
+          Volume VII and its later updates document records concerning
+          the Taliban, Pakistan, U.S. diplomatic efforts, Afghanistan,
+          and bin Laden.
+
         </div>
 
       </div>
@@ -1361,20 +1617,24 @@ footer p {
 
       <div class="reading-step">
 
-        <div class="step-number">6</div>
+        <div class="step-number">
+          6
+        </div>
 
         <div>
-          <strong>Finish with the later 9/11 document releases.</strong>
+
+          <strong>
+            Finish with the later document releases.
+          </strong>
 
           <br>
 
-          These records can be used alongside the Commission Report to compare
-          the official narrative with the underlying government records and
-          later-released documentation.
+          These additional publications can be examined alongside
+          the Commission Report and the original sourcebooks.
+
         </div>
 
       </div>
-
 
     </div>
 
@@ -1382,10 +1642,12 @@ footer p {
 
 
   <!-- =========================
-       OFFICIAL SOURCE
+       SOURCES
   ========================= -->
 
-  <section class="section" id="sources">
+  <section
+    class="section"
+    id="sources">
 
     <div class="section-heading">
 
@@ -1394,11 +1656,13 @@ footer p {
       </h2>
 
       <p>
-        The original institutions and collections behind this page.
+        Original institutions and collections represented on this page.
       </p>
 
     </div>
 
+
+    <!-- NATIONAL SECURITY ARCHIVE -->
 
     <div class="credit-box">
 
@@ -1407,32 +1671,40 @@ footer p {
       </h3>
 
       <p>
-        The September 11th Sourcebooks are a collection published by the
-        National Security Archive at The George Washington University.
-        The collection brings together primary-source documentation and
-        related historical records concerning terrorism, U.S. policy,
-        Afghanistan, the Taliban, al-Qaeda, and the September 11 attacks.
+        The National Security Archive at The George Washington University
+        maintains the September 11th Sourcebooks and related collections
+        of declassified and historical records.
       </p>
 
       <p>
-        The original source collection should always be consulted when
-        researching or using any individual document.
+        The Archive describes its Sourcebooks as in-depth collections
+        bringing together related postings and documents to make selected
+        historical subjects easier to research.
       </p>
 
       <p>
+
         <a
-          href="https://nsarchive.gwu.edu/briefing-book-sourcebook/2001-09-21/september-11th-sourcebooks"
+          href="https://nsarchive.gwu.edu/briefing-book-sourcebook/2001-09-11/september-11th-sourcebooks"
           target="_blank"
-          rel="noopener noreferrer"
-        >
-          Visit the National Security Archive's September 11th Sourcebooks →
+          rel="noopener noreferrer">
+
+          Visit the Original September 11th Sourcebooks →
+
         </a>
+
       </p>
 
       <p>
-        <strong>Archive credit:</strong>
-        National Security Archive, The George Washington University,
+
+        <strong>
+          Archive:
+        </strong>
+
+        National Security Archive,
+        The George Washington University,
         Washington, D.C.
+
       </p>
 
     </div>
@@ -1440,39 +1712,54 @@ footer p {
 
     <br>
 
+
+    <!-- GOVINFO -->
 
     <div class="credit-box">
 
       <h3>
-        9/11 Commission
+        U.S. Government Publishing Office / GovInfo
       </h3>
 
       <p>
-        The National Commission on Terrorist Attacks Upon the United States
-        was an independent, bipartisan commission established by Congress
-        and the President in 2002. Its final report was released on July 22,
-        2004.
+        GovInfo preserves the official U.S. Government edition of the
+        9/11 Commission's final report.
       </p>
 
       <p>
-        The official government edition of the report is preserved through
-        the U.S. Government Publishing Office's GovInfo system.
+        The Commission's final report was issued on July 22, 2004.
+        GovInfo identifies this edition as the only official U.S.
+        Government edition of the final report.
       </p>
 
       <p>
+
         <a
           href="https://www.govinfo.gov/features/911-commission-report"
           target="_blank"
-          rel="noopener noreferrer"
-        >
-          Visit the official GovInfo 9/11 Commission Report page →
+          rel="noopener noreferrer">
+
+          Visit the Official GovInfo Commission Report Page →
+
         </a>
+
       </p>
 
       <p>
-        <strong>Government report:</strong>
-        Final Report of the National Commission on Terrorist Attacks Upon
-        the United States, July 22, 2004.
+
+        <strong>
+          Full PDF:
+        </strong>
+
+        <a
+          href="https://www.govinfo.gov/content/pkg/GPO-911REPORT/pdf/GPO-911REPORT.pdf"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Open the Complete Official Government PDF
+
+        </a>
+
       </p>
 
     </div>
@@ -1480,6 +1767,8 @@ footer p {
 
     <br>
 
+
+    <!-- ABOUT PAGE -->
 
     <div class="credit-box">
 
@@ -1488,29 +1777,36 @@ footer p {
       </h3>
 
       <p>
-        This page is part of <strong>The Historical Record</strong>, an
-        independent personal historical archive. It is intended to organize
-        and make historical source material easier to locate and understand.
+        This page is part of <strong>The Historical Record</strong>,
+        an independent personal digital archive.
       </p>
 
       <p>
-        The Historical Record does not claim ownership of the third-party
-        source materials linked from this page. Original documents, reports,
-        photographs, websites, and other materials remain associated with
-        their respective archives, agencies, authors, publishers, and
-        institutions.
+        Its purpose is to organize historical source material into a
+        readable research path while preserving direct links to the
+        institutions and archives that maintain the original material.
       </p>
 
       <p>
-        Whenever possible, readers are directed back to the original source
-        so that the complete context and original archival record remain
-        available.
+        The Historical Record does not claim ownership of third-party
+        documents, reports, photographs, websites, recordings, or other
+        materials linked from this page.
+      </p>
+
+      <p>
+        Original materials remain associated with their respective
+        archives, agencies, authors, publishers, and institutions.
+      </p>
+
+      <p>
+        Readers are encouraged to consult the original source pages for
+        complete context, document descriptions, archival information,
+        and any materials that may have been added or updated.
       </p>
 
     </div>
 
   </section>
-
 
 </main>
 
@@ -1522,7 +1818,9 @@ footer p {
 <footer>
 
   <p>
-    <strong>THE HISTORICAL RECORD</strong>
+    <strong>
+      THE HISTORICAL RECORD
+    </strong>
   </p>
 
   <p>
@@ -1530,8 +1828,8 @@ footer p {
   </p>
 
   <p class="footer-small">
-    Independent personal archive • Sources credited and linked to their
-    original institutions
+    Independent personal archive •
+    Original sources credited and linked
   </p>
 
 </footer>
@@ -1544,13 +1842,31 @@ footer p {
 <script>
 
 function openMenu() {
-  document.getElementById("sideMenu").classList.add("open");
-  document.getElementById("menuOverlay").classList.add("show");
+
+  document
+    .getElementById("sideMenu")
+    .classList
+    .add("open");
+
+  document
+    .getElementById("menuOverlay")
+    .classList
+    .add("show");
+
 }
 
 function closeMenu() {
-  document.getElementById("sideMenu").classList.remove("open");
-  document.getElementById("menuOverlay").classList.remove("show");
+
+  document
+    .getElementById("sideMenu")
+    .classList
+    .remove("open");
+
+  document
+    .getElementById("menuOverlay")
+    .classList
+    .remove("show");
+
 }
 
 </script>
