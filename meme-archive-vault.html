@@ -1,837 +1,840 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Historical Memes | The Historical Record</title>
+
+  <style>
+
+    /* =========================================================
+       HISTORICAL MEMES
+       Old-web / 2007-inspired red and white visual language
+       ========================================================= */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #f5f5f5;
+      color: #222;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+
+    a {
+      color: #0645ad;
+    }
+
+    /* =========================================================
+       SITE HEADER
+       ========================================================= */
 
-<title>Meme Archive Vault | The Historical Record</title>
+    .site-header {
+      background: #ffffff;
+      border-bottom: 5px solid #cc0000;
+      box-shadow: 0 1px 4px rgba(0,0,0,.18);
+      position: relative;
+      z-index: 20;
+    }
 
-<style>
-/* =========================================================
-   THE HISTORICAL RECORD
-   MEME ARCHIVE VAULT
-   2007-INSPIRED ARCHIVE DESIGN
-   ========================================================= */
+    .header-inner {
+      width: min(1180px, calc(100% - 30px));
+      margin: 0 auto;
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+    }
 
-* {
-  box-sizing: border-box;
-}
+    .brand {
+      color: #c40000;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+    }
 
-html {
-  scroll-behavior: smooth;
-}
+    .brand span {
+      color: #333;
+    }
 
-body {
-  margin: 0;
-  background: #eeeeee;
-  color: #222;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-}
+    /* =========================================================
+       HAMBURGER
+       ========================================================= */
 
-/* =========================================================
-   SIDEBAR
-   ========================================================= */
+    .menu-button {
+      position: fixed;
+      top: 17px;
+      left: 15px;
+      z-index: 1001;
 
-.menu-button {
-  position: fixed;
-  top: 14px;
-  left: 14px;
-  z-index: 1001;
+      width: 42px;
+      height: 42px;
 
-  width: 44px;
-  height: 40px;
+      border: 1px solid #aaa;
+      border-radius: 3px;
 
-  border: 1px solid #777;
-  border-radius: 3px;
+      background: #fff;
 
-  background: #ffffff;
+      cursor: pointer;
 
-  cursor: pointer;
+      box-shadow: 0 1px 4px rgba(0,0,0,.2);
+    }
 
-  box-shadow: 0 1px 3px rgba(0,0,0,.25);
-}
+    .menu-button span {
+      display: block;
+      width: 21px;
+      height: 3px;
+      margin: 4px auto;
+      background: #444;
+    }
 
-.menu-button span {
-  display: block;
-  width: 22px;
-  height: 3px;
-  margin: 4px auto;
-  background: #333;
-}
+    /* =========================================================
+       SIDE MENU
+       ========================================================= */
 
-.side-menu {
-  position: fixed;
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -330px;
 
-  top: 0;
-  left: -310px;
+      width: 310px;
+      height: 100vh;
 
-  width: 300px;
-  height: 100vh;
+      z-index: 1000;
 
-  z-index: 1000;
+      overflow-y: auto;
 
-  overflow-y: auto;
+      background: #fff;
 
-  background: #181818;
-  color: #fff;
+      border-right: 5px solid #c90000;
 
-  box-shadow: 4px 0 12px rgba(0,0,0,.35);
+      box-shadow: 5px 0 15px rgba(0,0,0,.25);
 
-  transition: left .25s ease;
-}
+      transition: left .25s ease;
+    }
 
-.side-menu.open {
-  left: 0;
-}
+    body.menu-open .side-menu {
+      left: 0;
+    }
 
-.menu-header {
-  padding: 28px 22px 20px;
+    .menu-header {
+      padding: 28px 22px 20px;
 
-  background:
-    linear-gradient(
-      to bottom,
-      #b40000 0%,
-      #8c0000 100%
-    );
+      background: #cc0000;
+      color: white;
 
-  border-bottom: 1px solid #550000;
-}
+      border-bottom: 1px solid #990000;
+    }
 
-.menu-header h2 {
-  margin: 0 0 5px;
+    .menu-header h2 {
+      margin: 0 0 6px;
 
-  font-size: 20px;
-  line-height: 1.2;
-}
+      font-size: 21px;
+      line-height: 1.2;
+    }
 
-.menu-header p {
-  margin: 0;
+    .menu-header p {
+      margin: 0;
 
-  color: #ddd;
+      font-size: 12px;
 
-  font-size: 12px;
-}
+      text-transform: uppercase;
+      letter-spacing: 1px;
 
-.side-menu nav {
-  padding: 10px 0 30px;
-}
+      opacity: .9;
+    }
 
-.side-menu nav > a,
-.menu-dropdown-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    .side-menu nav {
+      padding: 15px 0 30px;
+    }
 
-  width: 100%;
+    .side-menu nav > a,
+    .menu-dropdown-toggle {
+      display: block;
 
-  padding: 13px 20px;
+      width: 100%;
 
-  border: 0;
-  border-bottom: 1px solid #333;
+      padding: 13px 20px;
 
-  background: transparent;
+      color: #222;
 
-  color: #eee;
+      background: white;
 
-  font: inherit;
-  text-align: left;
-  text-decoration: none;
+      border: 0;
+      border-bottom: 1px solid #ddd;
 
-  cursor: pointer;
-}
+      text-align: left;
 
-.side-menu nav > a:hover,
-.menu-dropdown-toggle:hover {
-  background: #333;
-  color: #fff;
-}
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
 
-.menu-dropdown-arrow {
-  color: #aaa;
-}
+      text-decoration: none;
 
-.menu-submenu {
-  display: none;
+      cursor: pointer;
+    }
 
-  background: #101010;
-}
+    .side-menu nav > a:hover,
+    .menu-dropdown-toggle:hover {
+      background: #f5f5f5;
+      color: #c00000;
+    }
 
-.menu-submenu.open {
-  display: block;
-}
+    .menu-dropdown-toggle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.menu-submenu a {
-  display: block;
+    .menu-dropdown-arrow {
+      color: #c00000;
+      font-weight: bold;
+    }
 
-  padding: 11px 20px 11px 35px;
+    .menu-submenu {
+      display: none;
+      background: #f7f7f7;
+    }
 
-  color: #ccc;
+    .menu-dropdown.open .menu-submenu {
+      display: block;
+    }
 
-  border-bottom: 1px solid #282828;
+    .menu-submenu a {
+      display: block;
 
-  text-decoration: none;
+      padding: 10px 20px 10px 35px;
 
-  font-size: 13px;
-}
+      border-bottom: 1px solid #ddd;
 
-.menu-submenu a:hover {
-  background: #292929;
-  color: #fff;
-}
+      color: #444;
 
-.menu-overlay {
-  display: none;
+      text-decoration: none;
 
-  position: fixed;
+      font-size: 13px;
+    }
 
-  inset: 0;
+    .menu-submenu a:hover {
+      color: #c00000;
+      background: #eee;
+    }
 
-  z-index: 999;
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
 
-  background: rgba(0,0,0,.45);
-}
+      z-index: 999;
 
-.menu-overlay.open {
-  display: block;
-}
+      display: none;
 
-/* =========================================================
-   SITE HEADER
-   ========================================================= */
+      background: rgba(0,0,0,.4);
+    }
 
-.site-header {
-  min-height: 68px;
+    body.menu-open .menu-overlay {
+      display: block;
+    }
 
-  background: #ffffff;
+    /* =========================================================
+       MAIN
+       ========================================================= */
 
-  border-bottom: 1px solid #c8c8c8;
+    main {
+      min-height: 70vh;
+    }
 
-  box-shadow: 0 1px 2px rgba(0,0,0,.08);
-}
+    .hero {
+      background:
+        linear-gradient(
+          to bottom,
+          #ffffff 0%,
+          #ffffff 75%,
+          #eeeeee 100%
+        );
 
-.header-inner {
-  max-width: 1160px;
+      border-bottom: 1px solid #ccc;
 
-  margin: 0 auto;
+      padding: 38px 0 30px;
+    }
 
-  padding: 20px 20px 18px;
+    .container {
+      width: min(1180px, calc(100% - 30px));
+      margin: 0 auto;
+    }
 
-  text-align: center;
-}
+    .hero .container {
+      padding-left: 55px;
+    }
 
-.brand {
-  color: #a40000;
+    .eyebrow {
+      margin: 0 0 8px;
 
-  font-size: 21px;
-  font-weight: bold;
+      color: #c00000;
 
-  letter-spacing: 2px;
+      font-size: 11px;
+      font-weight: bold;
 
-  text-decoration: none;
-}
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
 
-.brand:hover {
-  text-decoration: underline;
-}
+    .hero h1 {
+      margin: 0;
 
-/* =========================================================
-   HERO
-   ========================================================= */
+      color: #333;
 
-.hero {
-  background: #f7f7f7;
+      font-family: Arial, Helvetica, sans-serif;
 
-  border-bottom: 1px solid #ccc;
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1;
 
-  padding: 28px 20px 25px;
-}
+      letter-spacing: -1.5px;
+    }
 
-.container {
-  width: min(1160px, calc(100% - 40px));
+    .hero-text {
+      max-width: 760px;
 
-  margin: 0 auto;
-}
+      margin: 15px 0 0;
 
-.eyebrow {
-  margin: 0 0 8px;
+      color: #555;
 
-  color: #a00000;
+      font-size: 15px;
+      line-height: 1.5;
+    }
 
-  font-size: 11px;
-  font-weight: bold;
+    /* =========================================================
+       OLD-WEB NAV STRIP
+       ========================================================= */
 
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
+    .archive-strip {
+      background: #cc0000;
+      border-top: 1px solid #a00000;
+      border-bottom: 1px solid #8d0000;
+    }
 
-.hero h1 {
-  margin: 0 0 10px;
+    .archive-strip-inner {
+      width: min(1180px, calc(100% - 30px));
+      margin: 0 auto;
 
-  color: #222;
+      min-height: 42px;
 
-  font-family: Georgia, "Times New Roman", serif;
+      display: flex;
+      align-items: center;
+      gap: 0;
 
-  font-size: 35px;
-  line-height: 1.15;
-}
+      overflow-x: auto;
+    }
 
-.hero-text {
-  max-width: 850px;
+    .archive-strip a {
+      display: inline-block;
 
-  margin: 0;
+      padding: 12px 17px;
 
-  color: #555;
+      color: #fff;
 
-  font-size: 15px;
-  line-height: 1.6;
-}
+      border-right: 1px solid rgba(255,255,255,.3);
 
-/* =========================================================
-   ARCHIVE CONTROLS
-   ========================================================= */
+      font-size: 12px;
+      font-weight: bold;
 
-.archive-controls {
-  margin-top: 20px;
+      text-decoration: none;
 
-  padding: 12px;
+      white-space: nowrap;
+    }
 
-  background: #dedede;
+    .archive-strip a:hover {
+      background: #a90000;
+    }
 
-  border: 1px solid #bcbcbc;
+    /* =========================================================
+       VIDEO ARCHIVE
+       ========================================================= */
 
-  box-shadow:
-    inset 0 1px 0 #fff,
-    0 1px 2px rgba(0,0,0,.08);
-}
+    .records-section {
+      padding: 30px 0 60px;
+    }
 
-.search-row {
-  display: flex;
-  gap: 8px;
-}
+    .archive-heading {
+      margin-bottom: 18px;
 
-.search-row input {
-  flex: 1;
+      padding: 13px 15px;
 
-  min-width: 0;
+      background: #fff;
 
-  padding: 10px;
+      border: 1px solid #ccc;
+      border-left: 5px solid #c90000;
 
-  border: 1px solid #999;
+      box-shadow: 0 1px 2px rgba(0,0,0,.08);
+    }
 
-  background: #fff;
+    .archive-heading strong {
+      display: block;
 
-  color: #222;
+      color: #333;
 
-  font: inherit;
-}
+      font-size: 16px;
+    }
 
-.search-row button {
-  padding: 10px 16px;
+    .archive-heading small {
+      display: block;
 
-  border: 1px solid #720000;
+      margin-top: 4px;
 
-  background: linear-gradient(
-    to bottom,
-    #c90000,
-    #930000
-  );
+      color: #777;
 
-  color: white;
+      font-size: 12px;
+    }
 
-  font-weight: bold;
+    /* =========================================================
+       VIDEO LIST
+       ========================================================= */
 
-  cursor: pointer;
-}
+    .video-list {
+      display: grid;
 
-.search-row button:hover {
-  background: linear-gradient(
-    to bottom,
-    #df0000,
-    #a00000
-  );
-}
+      grid-template-columns: repeat(2, minmax(0, 1fr));
 
-.filter-row {
-  display: flex;
+      gap: 18px;
+    }
 
-  flex-wrap: wrap;
+    .video-card {
+      background: #fff;
 
-  gap: 7px;
+      border: 1px solid #cfcfcf;
 
-  margin-top: 10px;
-}
+      box-shadow: 0 1px 3px rgba(0,0,0,.13);
 
-.filter-button {
-  padding: 7px 10px;
+      overflow: hidden;
+    }
 
-  border: 1px solid #999;
+    .video-card:hover {
+      border-color: #aaa;
+    }
 
-  background: #fff;
+    .video-heading {
+      min-height: 76px;
 
-  color: #333;
+      padding: 11px 13px 10px;
 
-  cursor: pointer;
+      border-bottom: 1px solid #ddd;
 
-  font-size: 12px;
-}
+      background:
+        linear-gradient(
+          to bottom,
+          #fff 0%,
+          #f6f6f6 100%
+        );
+    }
 
-.filter-button:hover,
-.filter-button.active {
-  background: #9c0000;
+    .video-number {
+      float: left;
 
-  border-color: #6d0000;
+      margin-right: 9px;
 
-  color: #fff;
-}
+      min-width: 28px;
+      height: 28px;
 
-.archive-count {
-  margin-top: 10px;
+      line-height: 28px;
 
-  color: #555;
+      text-align: center;
 
-  font-size: 12px;
-}
+      background: #c90000;
 
-/* =========================================================
-   RECORD AREA
-   ========================================================= */
+      color: #fff;
 
-.records-section {
-  padding: 25px 0 50px;
-}
+      font-size: 12px;
+      font-weight: bold;
+    }
 
-.archive-heading {
-  margin: 0 0 15px;
+    .video-title {
+      margin: 0;
 
-  padding-bottom: 8px;
+      color: #0645ad;
 
-  border-bottom: 3px solid #a00000;
+      font-size: 15px;
+      font-weight: bold;
 
-  color: #333;
+      line-height: 1.25;
+    }
 
-  font-family: Georgia, "Times New Roman", serif;
+    .video-uploader {
+      margin: 5px 0 0;
 
-  font-size: 23px;
-}
+      color: #777;
 
-/* =========================================================
-   VIDEO GRID
-   ========================================================= */
+      font-size: 11px;
+    }
 
-.video-grid {
-  display: grid;
+    .video-uploader strong {
+      color: #444;
+    }
 
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
+    /* =========================================================
+       LAZY VIDEO
+       ========================================================= */
 
-  gap: 15px;
-}
+    .video-frame {
+      position: relative;
 
-.video-card {
-  background: #fff;
+      width: 100%;
 
-  border: 1px solid #bdbdbd;
+      aspect-ratio: 16 / 9;
 
-  box-shadow:
-    0 1px 3px rgba(0,0,0,.12);
+      background: #111;
 
-  overflow: hidden;
-}
+      overflow: hidden;
+    }
 
-.video-card.hidden {
-  display: none;
-}
+    .video-frame iframe {
+      display: block;
 
-.video-top {
-  padding: 7px 9px;
+      width: 100%;
+      height: 100%;
 
-  background:
-    linear-gradient(
-      to bottom,
-      #f9f9f9,
-      #e8e8e8
-    );
+      border: 0;
+    }
 
-  border-bottom: 1px solid #ccc;
-}
+    .video-placeholder {
+      position: absolute;
+      inset: 0;
 
-.video-era {
-  display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-  padding: 3px 6px;
+      background:
+        linear-gradient(
+          135deg,
+          #202020,
+          #080808
+        );
 
-  background: #9d0000;
+      color: #fff;
 
-  color: white;
+      cursor: pointer;
+    }
 
-  font-size: 9px;
-  font-weight: bold;
+    .video-placeholder-inner {
+      text-align: center;
+    }
 
-  letter-spacing: .5px;
-}
+    .play-button {
+      width: 62px;
+      height: 44px;
 
-.video-number {
-  float: right;
+      margin: 0 auto 10px;
 
-  color: #777;
+      border-radius: 9px;
 
-  font-size: 10px;
+      background: #c90000;
 
-  line-height: 18px;
-}
+      position: relative;
 
-/* =========================================================
-   VIDEO PLAYER PLACEHOLDER
-   ========================================================= */
+      box-shadow: 0 2px 7px rgba(0,0,0,.45);
+    }
 
-.video-player {
-  position: relative;
+    .play-button::after {
+      content: "";
 
-  width: 100%;
+      position: absolute;
 
-  aspect-ratio: 16 / 9;
+      top: 12px;
+      left: 25px;
 
-  background:
-    linear-gradient(
-      135deg,
-      #222 0%,
-      #111 50%,
-      #292929 100%
-    );
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 16px solid #fff;
+    }
 
-  overflow: hidden;
-}
+    .video-placeholder-text {
+      font-size: 11px;
 
-.video-player iframe {
-  display: block;
+      color: #ddd;
 
-  width: 100%;
-  height: 100%;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+    }
 
-  border: 0;
-}
+    .video-meta {
+      padding: 8px 12px;
 
-.load-video {
-  position: absolute;
+      background: #fafafa;
 
-  inset: 0;
+      border-top: 1px solid #ddd;
 
-  display: flex;
+      color: #777;
 
-  align-items: center;
-  justify-content: center;
+      font-size: 11px;
+    }
 
-  flex-direction: column;
+    .video-meta a {
+      color: #0645ad;
 
-  padding: 15px;
+      text-decoration: none;
+    }
 
-  background:
-    radial-gradient(
-      circle at center,
-      #333 0%,
-      #111 70%
-    );
+    .video-meta a:hover {
+      text-decoration: underline;
+    }
 
-  color: white;
+    /* =========================================================
+       FOOTER
+       ========================================================= */
 
-  cursor: pointer;
-}
+    .site-footer {
+      padding: 28px 0 35px;
 
-.load-video:hover {
-  background:
-    radial-gradient(
-      circle at center,
-      #444 0%,
-      #111 70%
-    );
-}
+      background: #333;
 
-.play-button {
-  width: 62px;
-  height: 62px;
+      border-top: 5px solid #c90000;
 
-  margin-bottom: 9px;
+      color: #ddd;
+    }
 
-  border-radius: 50%;
+    .site-footer p {
+      margin: 5px 0;
 
-  background: #b00000;
+      font-size: 12px;
+    }
 
-  border: 3px solid #fff;
+    .site-footer p:first-child {
+      color: #fff;
 
-  box-shadow: 0 2px 7px rgba(0,0,0,.6);
+      font-size: 14px;
+      font-weight: bold;
+    }
 
-  position: relative;
-}
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
 
-.play-button::after {
-  content: "";
+    @media (max-width: 800px) {
 
-  position: absolute;
+      .video-list {
+        grid-template-columns: 1fr;
+      }
 
-  left: 24px;
-  top: 17px;
+      .brand {
+        font-size: 22px;
+      }
 
-  width: 0;
-  height: 0;
+      .hero .container {
+        padding-left: 55px;
+      }
+    }
 
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
-  border-left: 18px solid white;
-}
+    @media (max-width: 500px) {
 
-.load-video span {
-  font-size: 12px;
+      .header-inner {
+        min-height: 68px;
+      }
 
-  color: #ddd;
-}
+      .hero {
+        padding-top: 30px;
+      }
 
-.video-info {
-  padding: 10px 11px 12px;
-}
+      .hero h1 {
+        font-size: 34px;
+      }
 
-.video-title {
-  min-height: 38px;
+      .video-heading {
+        min-height: 70px;
+      }
+    }
 
-  margin: 0 0 7px;
-
-  color: #123c70;
-
-  font-size: 14px;
-  line-height: 1.35;
-  font-weight: bold;
-}
-
-.video-title.loading {
-  color: #777;
-  font-style: italic;
-}
-
-.video-meta {
-  margin: 0;
-
-  color: #777;
-
-  font-size: 11px;
-  line-height: 1.5;
-}
-
-.video-meta strong {
-  color: #555;
-}
-
-.video-link {
-  display: inline-block;
-
-  margin-top: 8px;
-
-  color: #8d0000;
-
-  font-size: 11px;
-
-  text-decoration: underline;
-}
-
-.video-link:hover {
-  color: #d00000;
-}
-
-.video-error {
-  margin-top: 7px;
-
-  color: #9b0000;
-
-  font-size: 11px;
-}
-
-/* =========================================================
-   EMPTY STATE
-   ========================================================= */
-
-.no-results {
-  display: none;
-
-  padding: 35px 20px;
-
-  background: #fff;
-
-  border: 1px solid #ccc;
-
-  color: #666;
-
-  text-align: center;
-}
-
-.no-results.show {
-  display: block;
-}
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-.site-footer {
-  padding: 30px 20px;
-
-  background: #222;
-
-  border-top: 4px solid #990000;
-
-  color: #ccc;
-
-  text-align: center;
-}
-
-.site-footer p {
-  margin: 5px 0;
-}
-
-.site-footer p:first-child {
-  color: #fff;
-
-  font-weight: bold;
-
-  letter-spacing: 1px;
-}
-
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
-
-@media (max-width: 900px) {
-
-  .video-grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-  }
-
-}
-
-@media (max-width: 620px) {
-
-  .header-inner {
-    padding-left: 70px;
-    text-align: left;
-  }
-
-  .brand {
-    font-size: 17px;
-  }
-
-  .hero h1 {
-    font-size: 28px;
-  }
-
-  .video-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .search-row {
-    flex-direction: column;
-  }
-
-  .search-row button {
-    width: 100%;
-  }
-
-}
-
-/* =========================================================
-   REDUCE MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  html {
-    scroll-behavior: auto;
-  }
-
-  .side-menu {
-    transition: none;
-  }
-
-}
-</style>
+  </style>
 </head>
 
 <body>
 
-<!-- =======================================================
-     MENU BUTTON
-     ======================================================= -->
+  <!-- =======================================================
+       MENU BUTTON
+       ======================================================= -->
 
-<button
-  class="menu-button"
-  id="menuButton"
-  aria-label="Open menu"
-  aria-expanded="false"
->
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
-
-
-<!-- =======================================================
-     SIDE MENU
-     ======================================================= -->
-
-<aside class="side-menu" id="sideMenu">
-
-  <div class="menu-header">
-
-    <h2>The Historical Record</h2>
-
-    <p>Archive Navigation</p>
-
-  </div>
-
-  <nav>
-
-    <!-- HOME IS EXPLICITLY INCLUDED -->
-
-    <a href="search.html">
-      Search the Archive
-    </a>
-
-    <a href="archive.html">
-      The Archive
-    </a>
-
-    <a href="index.html">
-      Home
-    </a>
+  <button
+    class="menu-button"
+    aria-label="Open menu"
+    aria-expanded="false"
+    type="button"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
 
-    <div class="menu-dropdown">
+  <!-- =======================================================
+       HISTORICAL RECORD SIDE MENU
+       ======================================================= -->
 
-      <button
-        class="menu-dropdown-toggle"
-        id="politicsToggle"
-        type="button"
-        aria-expanded="false"
+  <aside class="side-menu">
+
+    <div class="menu-header">
+
+      <h2>The Historical Record</h2>
+
+      <p>
+        Archive Navigation
+      </p>
+
+    </div>
+
+    <nav>
+
+      <a href="search.html">
+        Search the Archive
+      </a>
+
+      <a href="archive.html">
+        The Archive
+      </a>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <div class="menu-dropdown">
+
+        <button
+          class="menu-dropdown-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="politics-submenu"
+        >
+          <span>Politics</span>
+
+          <span class="menu-dropdown-arrow">
+            ▾
+          </span>
+        </button>
+
+        <div
+          class="menu-submenu"
+          id="politics-submenu"
+        >
+
+          <a href="politics.html">
+            Politics Home
+          </a>
+
+          <a href="september-11.html">
+            September 11, 2001
+          </a>
+
+          <a href="september-11-sourcebooks.html">
+            9/11 Sourcebooks &amp; Documents
+          </a>
+
+        </div>
+
+      </div>
+
+      <a href="entertainment-sports.html">
+        Entertainment / Sports
+      </a>
+
+      <a href="world-events.html">
+        World Events
+      </a>
+
+      <a href="social-media.html">
+        Social Media
+      </a>
+
+      <a href="thoughts.html">
+        Thoughts / Blog
+      </a>
+
+    </nav>
+
+  </aside>
+
+
+  <div class="menu-overlay"></div>
+
+
+  <!-- =======================================================
+       HEADER
+       ======================================================= -->
+
+  <header class="site-header">
+
+    <div class="container header-inner">
+
+      <a
+        href="index.html"
+        class="brand"
       >
+        HISTORICAL <span>MEMES</span>
+      </a>
 
-        <span>Politics</span>
+    </div>
 
-        <span class="menu-dropdown-arrow">
-          ▾
-        </span>
+  </header>
 
-      </button>
 
-      <div class="menu-submenu" id="politicsSubmenu">
+  <!-- =======================================================
+       MAIN
+       ======================================================= -->
 
-        <a href="politics.html">
-          Politics Home
+  <main>
+
+    <section class="hero">
+
+      <div class="container">
+
+        <p class="eyebrow">
+          THE HISTORICAL RECORD • SOCIAL MEDIA
+        </p>
+
+        <h1>
+          Historical Memes
+        </h1>
+
+        <p class="hero-text">
+          An archive of memorable internet videos, viral clips,
+          classic memes, and pieces of early online culture.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         OLD-WEB RED NAVIGATION STRIP
+         ===================================================== -->
+
+    <div class="archive-strip">
+
+      <div class="archive-strip-inner">
+
+        <a href="index.html">
+          HOME
         </a>
 
-        <a href="september-11.html">
-          September 11, 2001
+        <a href="social-media.html">
+          SOCIAL MEDIA
         </a>
 
-        <a href="september-11-sourcebooks.html">
-          9/11 Sourcebooks &amp; Documents
+        <a href="meme-archive-vault.html">
+          MEME ARCHIVE
+        </a>
+
+        <a href="archive.html">
+          THE ARCHIVE
         </a>
 
       </div>
@@ -839,1979 +842,1325 @@ body {
     </div>
 
 
-    <a href="entertainment-sports.html">
-      Entertainment / Sports
-    </a>
+    <!-- =====================================================
+         VIDEO ARCHIVE
+         ===================================================== -->
 
-    <a href="world-events.html">
-      World Events
-    </a>
-
-    <a href="social-media.html">
-      Social Media
-    </a>
-
-    <a href="thoughts.html">
-      Thoughts / Blog
-    </a>
-
-  </nav>
-
-</aside>
-
-<div class="menu-overlay" id="menuOverlay"></div>
-
-
-<!-- =======================================================
-     HEADER
-     ======================================================= -->
-
-<header class="site-header">
-
-  <div class="container header-inner">
-
-    <a
-      href="index.html"
-      class="brand"
+    <section
+      class="records-section"
+      id="videos"
     >
-      THE HISTORICAL RECORD
-    </a>
 
-  </div>
+      <div class="container">
 
-</header>
+        <div class="archive-heading">
 
+          <strong>
+            HISTORICAL MEMES VIDEO ARCHIVE
+          </strong>
 
-<!-- =======================================================
-     MAIN
-     ======================================================= -->
-
-<main>
-
-
-  <!-- =====================================================
-       HERO
-       ===================================================== -->
-
-  <section class="hero">
-
-    <div class="container">
-
-      <p class="eyebrow">
-        SOCIAL MEDIA ARCHIVE • MEMES • VIRAL VIDEO
-      </p>
-
-      <h1>
-        Meme Archive Vault
-      </h1>
-
-      <p class="hero-text">
-        A historical collection of viral videos, internet culture,
-        memes, clips, animations, songs, remixes, and other videos
-        that helped define the online era.
-      </p>
-
-
-      <!-- =================================================
-           SEARCH / FILTER
-           ================================================= -->
-
-      <div class="archive-controls">
-
-        <div class="search-row">
-
-          <input
-            type="search"
-            id="videoSearch"
-            placeholder="Search the meme archive..."
-            aria-label="Search the meme archive"
-          >
-
-          <button
-            type="button"
-            id="clearSearch"
-          >
-            Clear
-          </button>
-
-        </div>
-
-
-        <div class="filter-row">
-
-          <button
-            class="filter-button active"
-            data-filter="all"
-            type="button"
-          >
-            ALL
-          </button>
-
-          <button
-            class="filter-button"
-            data-filter="2005-2009"
-            type="button"
-          >
-            2005–2009
-          </button>
-
-          <button
-            class="filter-button"
-            data-filter="2010-2014"
-            type="button"
-          >
-            2010–2014
-          </button>
-
-          <button
-            class="filter-button"
-            data-filter="2015-2019"
-            type="button"
-          >
-            2015–2019
-          </button>
-
-          <button
-            class="filter-button"
-            data-filter="2020-present"
-            type="button"
-          >
-            2020–PRESENT
-          </button>
-
-          <button
-            class="filter-button"
-            data-filter="archive"
-            type="button"
-          >
-            ARCHIVE / UNKNOWN
-          </button>
+          <small>
+            Videos are loaded only as they approach the screen.
+            Select a video to begin playback.
+          </small>
 
         </div>
 
 
         <div
-          class="archive-count"
-          id="archiveCount"
+          class="video-list"
+          id="video-list"
         >
-          Loading archive...
+
+          <!--
+            Video cards are generated below by JavaScript.
+
+            This keeps the HTML considerably smaller and prevents
+            dozens of YouTube iframes from loading simultaneously.
+          -->
+
         </div>
 
       </div>
 
-    </div>
+    </section>
 
-  </section>
+  </main>
 
 
-  <!-- =====================================================
-       RECORDS
-       ===================================================== -->
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
 
-  <section class="records-section">
+  <footer class="site-footer">
 
     <div class="container">
 
-      <h2 class="archive-heading">
-        Video Records
-      </h2>
-
-      <div
-        class="video-grid"
-        id="videoGrid"
-      >
-      </div>
-
-      <div
-        class="no-results"
-        id="noResults"
-      >
-        No videos matched your search.
-      </div>
-
-    </div>
-
-  </section>
-
-</main>
-
-
-<!-- =======================================================
-     FOOTER
-     ======================================================= -->
-
-<footer class="site-footer">
-
-  <div class="container">
-
-    <p>
-      THE HISTORICAL RECORD
-    </p>
-
-    <p>
-      Meme Archive Vault
-    </p>
-
-    <p>
-      A living archive of the moments that matter.
-    </p>
-
-  </div>
-
-</footer>
-
-
-<script>
-
-/* =========================================================
-   VIDEO ARCHIVE
-   =========================================================
-
-   Videos 1 and 4 from the original supplied list have
-   deliberately been removed:
-
-   KmtzQCSh6xk
-   a1Y73sPHKxw
-
-   The archive uses lazy-loading. A YouTube iframe is not
-   created until the visitor clicks WATCH VIDEO.
-
-   This prevents the browser from attempting to load dozens
-   of YouTube players simultaneously.
-   ========================================================= */
-
-const videos = [
-
-  /* -------------------------------------------------------
-     ORIGINAL FIRST GROUP
-     ------------------------------------------------------- */
-
-  {
-    id: "ILtz5nX3_fc",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "WqSTXuJeTks",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "mfhBM_Yay6w",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "93hq0YU3Gqk",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "BEtIoGQxqQs",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "LeAltgu_pbM",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "aBfUFr9SBY0",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "D2kJZOfq7zk",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "UMf40daefsI",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "O61Do03ZCjw",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "D1R-jKKp3NA",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "tw5EsYzyGWI",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "O4rfQSgkZOE",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "Y93xTChHV_0",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "OKI-5MHUkKY",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "5RDER307OKI",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "ISV1bt8-TDg",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "b_NQCTbvRnM",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "uEE3akeFeQU",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "7zH4Jb-6BZs",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "vzz704zeI4U",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "QpgJyYBTq84",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "mBxBzmhHTww",
-    era: "archive",
-    year: "Archive"
-  },
-
-
-  /* -------------------------------------------------------
-     ORIGINAL SECOND GROUP
-     ------------------------------------------------------- */
-
-  {
-    id: "Q5im0Ssyyus",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "CsGYh8AacgY",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "s8MDNFaGfT4",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "Z3ZAGBL6UBA",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "qItugh-fFgg",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "jNQXAC9IVRw",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "hMtZfW2z9dw",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "fbGkxcY7YFU",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "MtN1YnoL46Q",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "Tx1XIm6q4r4",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "EIyohCQqGck",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "2EcBClUGl5Q",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "oavMtUWDBTM",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "YnopHCL1Jk8",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "k85mRPqvMbE",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "astISOttCQ0",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "ykwqXuMPsoc",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "NoHRBvtUV_g",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "ZN5PoW7_kdA",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "QFCSXr6qnv4",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "R5Nz8p3EP7A",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "9FXMYsMvs1A",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "aoEtd6HONEk",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "IY9YNF5MMQo",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "UmPmpUTr22c",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "HRPwMBAtfTY",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "d8CeSGlQQnM",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "Lt1u6N7lueM",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "EShUeudtaFg",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "TIoD7Uj7MUo",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "f4FuOi9rvKw",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "9KSGUVcNfZM",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "R9dRuaTOyBY",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "wsZ7013yHiw",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "LzxCJzM4xLo",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "dEI7oX0XxJw",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "x2Icz8xF174",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "HKst22Y2hgA",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "IdyXKJ8NcNI",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "vnkRvx3-j-k",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "9edByCiaLbY",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "DoskJt_UVG8",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "gLMo7_VXU_s",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "eaNI18GAxXs",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "sdnJxDmJNmA",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "I15sK7dNMOM",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "W-3DWBv0CvU",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "sHi6LCx6Lx8",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "IxX_QHay02M",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "SMWi7CLoZ2Q",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "msSc7Mv0QHY",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "OzKY5YHnOTg",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "_quu68XXHEs",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "gavT_q9CLME",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "3qwU1LQZA5g",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "zTL4T_NVGhY",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "AsFCSvqsqFA",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "xzpndHtdl9A",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "5vRlJrkxsqo",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "wAUK9hVgmNI",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "z_mhFOyLQBg",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "YCeQLeQiRP4",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "V_OVxxIvqVw",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "r3-Y31ONZuI",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "xaPepCVepCg",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "IJmIGC0nwK0",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "ZZ5LpwO-An4",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "czhd1eHv6ac",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "lg5WKsVnEA4",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "lgh68Swuak0",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "rbE53XUtVw0",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "Ou6uXU0KFss",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "6f7pgA0riU8",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "otCpCn0l4Wo",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "AMrSGMF4PZo",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "7eKv4BEujFU",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "bjwgt1kRqEU",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "rmn7oV9bBRU",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "65e06P6Rhf4",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "p8f-dwURY20",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "8kjY9sKdHlY",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "InklyF13qjU",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "AUl4F8M8bxM",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "S4pk8jsk9h4",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "RV6aLIQgmYg",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "Z0NlmumRuVE",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "2zw-XgAko_E",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "NsaSG-0U4mU",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "o7zqouVuFZY",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "ykz_dbpYRPU",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "NOpS4qGILyY",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "GsWGqDzygDs",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "Q0IL0S0vTGw",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "JAVV2jbjKTQ",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "dxjLh3lZumY",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "oBnVNpG97Z4",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "Mh4f9AYRCZY",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "pNbN5Mk_sZw",
-    era: "archive",
-    year: "Archive"
-  },
-
-
-  /* -------------------------------------------------------
-     CLASSIC INTERNET / MEME GROUP
-     ------------------------------------------------------- */
-
-  {
-    id: "Cqd1Gvq-RBY",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "dMH0bHeiRNg",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "EwTZ2xpQwpA",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "txqiwrbYGrs",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "dQw4w9WgXcQ",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "2yJgwwDcgV8",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "9bZkp7q19f0",
-    era: "2010-2014",
-    year: "2010–2014"
-  },
-
-  {
-    id: "HPPj6viIBmU",
-    era: "2010-2014",
-    year: "2010–2014"
-  },
-
-  {
-    id: "wCF3ywukQYA",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "UjCdB5p2v0Y",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "OQSNhk5ICTI",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "hooKVstzbz0",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "3HjIljJd-o0",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "CMNry4PE93Y",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "aMS0O3kknvk",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "zVNTdWbVBgc",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "7WmMcqp670s",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "W45DRy7M1no",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "6B26asyGKDo",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "6bVa6jn4rpE",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "40uMbKjSBwU",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "5jwETfUw0TE",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "cBC1moosff0",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "bx4kwzUn2Bg",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "oHg5SJYRHA0",
-    era: "2005-2009",
-    year: "2005–2009"
-  },
-
-  {
-    id: "EwKpaD8g_gY",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "dmzDB8EHRxg",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "e3mG_gvaimo",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "EoLjddNcnYU",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "H6ly9KGuVTk",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "k0CJwbayisw",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "vo3qLUki5L8",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "1lQ3FGxpEU0",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "nwP3TeK-fPs",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "tGmmQ688Fkk",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "vHH1W1_f-6Y",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "hD8MPMTcvd8",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "RtfmTOv_kgA",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "VslKGGpl4Xc",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "ocd_GDed5qg",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "nUpNvmymAzM",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "0eOiL5dqP-I",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "3FS8_l_i81Q",
-    era: "archive",
-    year: "Archive"
-  },
-
-  {
-    id: "4ZYziZg8LBc",
-    era: "archive",
-    year: "Archive"
-  }
-
-];
-
-
-/* =========================================================
-   STATE
-   ========================================================= */
-
-let currentFilter = "all";
-let currentSearch = "";
-
-
-/* =========================================================
-   ELEMENTS
-   ========================================================= */
-
-const videoGrid =
-  document.getElementById("videoGrid");
-
-const archiveCount =
-  document.getElementById("archiveCount");
-
-const noResults =
-  document.getElementById("noResults");
-
-const searchInput =
-  document.getElementById("videoSearch");
-
-const clearSearch =
-  document.getElementById("clearSearch");
-
-
-/* =========================================================
-   ERA LABEL
-   ========================================================= */
-
-function eraLabel(era) {
-
-  if (era === "2005-2009") {
-    return "2005–2009";
-  }
-
-  if (era === "2010-2014") {
-    return "2010–2014";
-  }
-
-  if (era === "2015-2019") {
-    return "2015–2019";
-  }
-
-  if (era === "2020-present") {
-    return "2020–Present";
-  }
-
-  return "ARCHIVE";
-
-}
-
-
-/* =========================================================
-   CREATE VIDEO CARD
-   ========================================================= */
-
-function createVideoCard(video, index) {
-
-  const article =
-    document.createElement("article");
-
-  article.className = "video-card";
-
-  article.dataset.era = video.era;
-
-  article.dataset.videoId = video.id;
-
-  article.dataset.index = index + 1;
-
-
-  article.innerHTML = `
-
-    <div class="video-top">
-
-      <span class="video-era">
-        ${eraLabel(video.era)}
-      </span>
-
-      <span class="video-number">
-        RECORD ${String(index + 1).padStart(3, "0")}
-      </span>
-
-    </div>
-
-
-    <div class="video-player">
-
-      <div
-        class="load-video"
-        role="button"
-        tabindex="0"
-        aria-label="Load and play video"
-      >
-
-        <div class="play-button"></div>
-
-        <span>
-          WATCH VIDEO
-        </span>
-
-      </div>
-
-    </div>
-
-
-    <div class="video-info">
-
-      <h3 class="video-title loading">
-        Loading title…
-      </h3>
-
-      <p class="video-meta">
-        <strong>Uploader:</strong>
-        <span class="video-uploader">
-          Loading…
-        </span>
+      <p>
+        THE HISTORICAL RECORD
       </p>
 
-      <p class="video-meta">
-        <strong>Archive period:</strong>
-        ${video.year}
+      <p>
+        A living archive of the moments that matter.
       </p>
-
-      <a
-        class="video-link"
-        href="https://www.youtube.com/watch?v=${video.id}"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        View source on YouTube →
-      </a>
-
-      <div class="video-error"></div>
 
     </div>
 
-  `;
+  </footer>
 
 
-  const loadButton =
-    article.querySelector(".load-video");
+  <script>
+
+    /* =========================================================
+       MENU
+       ========================================================= */
+
+    const menuButton =
+      document.querySelector(".menu-button");
+
+    const menuOverlay =
+      document.querySelector(".menu-overlay");
+
+    const dropdown =
+      document.querySelector(".menu-dropdown");
+
+    const dropdownButton =
+      document.querySelector(".menu-dropdown-toggle");
 
 
-  function loadVideo() {
+    function closeMenu() {
 
-    if (
-      article.dataset.loaded === "true"
-    ) {
-      return;
+      document.body.classList.remove("menu-open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
     }
 
 
-    article.dataset.loaded = "true";
+    function toggleMenu() {
+
+      const open =
+        document.body.classList.toggle("menu-open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        open ? "true" : "false"
+      );
+
+    }
 
 
-    const player =
-      article.querySelector(".video-player");
+    menuButton.addEventListener(
+      "click",
+      toggleMenu
+    );
 
 
-    player.innerHTML = "";
+    menuOverlay.addEventListener(
+      "click",
+      closeMenu
+    );
 
 
-    const iframe =
-      document.createElement("iframe");
+    dropdownButton.addEventListener(
+      "click",
+      function () {
+
+        const open =
+          dropdown.classList.toggle("open");
+
+        dropdownButton.setAttribute(
+          "aria-expanded",
+          open ? "true" : "false"
+        );
+
+      }
+    );
 
 
-    iframe.src =
-      "https://www.youtube.com/embed/" +
-      encodeURIComponent(video.id) +
-      "?rel=0&modestbranding=1&playsinline=1";
+    /* =========================================================
+       VIDEO DATA
+
+       Videos #1 and #4 from the supplied original list have
+       intentionally been removed.
+
+       Titles and uploader names are retrieved automatically
+       from YouTube's oEmbed endpoint when possible.
+       ========================================================= */
+
+    const videos = [
+
+      /* Original #2 */
+      {
+        id: "ILtz5nX3_fc"
+      },
+
+      /* Original #3 */
+      {
+        id: "WqSTXuJeTks"
+      },
+
+      {
+        id: "mfhBM_Yay6w"
+      },
+
+      {
+        id: "93hq0YU3Gqk"
+      },
+
+      {
+        id: "BEtIoGQxqQs"
+      },
+
+      {
+        id: "LeAltgu_pbM"
+      },
+
+      {
+        id: "aBfUFr9SBY0"
+      },
+
+      {
+        id: "D2kJZOfq7zk"
+      },
+
+      {
+        id: "UMf40daefsI"
+      },
+
+      {
+        id: "O61Do03ZCjw"
+      },
+
+      {
+        id: "D1R-jKKp3NA"
+      },
+
+      {
+        id: "tw5EsYzyGWI"
+      },
+
+      {
+        id: "O4rfQSgkZOE"
+      },
+
+      {
+        id: "Y93xTChHV_0"
+      },
+
+      {
+        id: "OKI-5MHUkKY"
+      },
+
+      {
+        id: "5RDER307OKI"
+      },
+
+      {
+        id: "ISV1bt8-TDg"
+      },
+
+      {
+        id: "b_NQCTbvRnM"
+      },
+
+      {
+        id: "uEE3akeFeQU"
+      },
+
+      {
+        id: "7zH4Jb-6BZs"
+      },
+
+      {
+        id: "vzz704zeI4U"
+      },
+
+      {
+        id: "QpgJyYBTq84"
+      },
+
+      {
+        id: "mBxBzmhHTww"
+      },
+
+      {
+        id: "Q5im0Ssyyus"
+      },
+
+      {
+        id: "CsGYh8AacgY"
+      },
+
+      {
+        id: "s8MDNFaGfT4"
+      },
+
+      {
+        id: "Z3ZAGBL6UBA"
+      },
+
+      {
+        id: "qItugh-fFgg"
+      },
+
+      {
+        id: "jNQXAC9IVRw"
+      },
+
+      {
+        id: "hMtZfW2z9dw"
+      },
+
+      {
+        id: "fbGkxcY7YFU"
+      },
+
+      {
+        id: "MtN1YnoL46Q"
+      },
+
+      {
+        id: "Tx1XIm6q4r4"
+      },
+
+      {
+        id: "EIyohCQqGck"
+      },
+
+      {
+        id: "2EcBClUGl5Q"
+      },
+
+      {
+        id: "oavMtUWDBTM"
+      },
+
+      {
+        id: "YnopHCL1Jk8"
+      },
+
+      {
+        id: "k85mRPqvMbE"
+      },
+
+      {
+        id: "astISOttCQ0"
+      },
+
+      {
+        id: "ykwqXuMPsoc"
+      },
+
+      {
+        id: "NoHRBvtUV_g"
+      },
+
+      {
+        id: "ZN5PoW7_kdA"
+      },
+
+      {
+        id: "QFCSXr6qnv4"
+      },
+
+      {
+        id: "R5Nz8p3EP7A"
+      },
+
+      {
+        id: "9FXMYsMvs1A"
+      },
+
+      {
+        id: "aoEtd6HONEk"
+      },
+
+      {
+        id: "IY9YNF5MMQo"
+      },
+
+      {
+        id: "UmPmpUTr22c"
+      },
+
+      {
+        id: "HRPwMBAtfTY"
+      },
+
+      {
+        id: "d8CeSGlQQnM"
+      },
+
+      {
+        id: "Lt1u6N7lueM"
+      },
+
+      {
+        id: "EShUeudtaFg"
+      },
+
+      {
+        id: "TIoD7Uj7MUo"
+      },
+
+      {
+        id: "f4FuOi9rvKw"
+      },
+
+      {
+        id: "9KSGUVcNfZM"
+      },
+
+      {
+        id: "R9dRuaTOyBY"
+      },
+
+      {
+        id: "wsZ7013yHiw"
+      },
+
+      {
+        id: "LzxCJzM4xLo"
+      },
+
+      {
+        id: "dEI7oX0XxJw"
+      },
+
+      {
+        id: "x2Icz8xF174"
+      },
+
+      {
+        id: "HKst22Y2hgA"
+      },
+
+      {
+        id: "IdyXKJ8NcNI"
+      },
+
+      {
+        id: "vnkRvx3-j-k"
+      },
+
+      {
+        id: "9edByCiaLbY"
+      },
+
+      {
+        id: "DoskJt_UVG8"
+      },
+
+      {
+        id: "gLMo7_VXU_s"
+      },
+
+      {
+        id: "eaNI18GAxXs"
+      },
+
+      {
+        id: "sdnJxDmJNmA"
+      },
+
+      {
+        id: "I15sK7dNMOM"
+      },
+
+      {
+        id: "W-3DWBv0CvU"
+      },
+
+      {
+        id: "sHi6LCx6Lx8"
+      },
+
+      {
+        id: "IxX_QHay02M"
+      },
+
+      {
+        id: "SMWi7CLoZ2Q"
+      },
+
+      {
+        id: "msSc7Mv0QHY"
+      },
+
+      {
+        id: "OzKY5YHnOTg"
+      },
+
+      {
+        id: "_quu68XXHEs"
+      },
+
+      {
+        id: "gavT_q9CLME"
+      },
+
+      {
+        id: "3qwU1LQZA5g"
+      },
+
+      {
+        id: "zTL4T_NVGhY"
+      },
+
+      {
+        id: "AsFCSvqsqFA"
+      },
+
+      {
+        id: "xzpndHtdl9A"
+      },
+
+      {
+        id: "5vRlJrkxsqo"
+      },
+
+      {
+        id: "wAUK9hVgmNI"
+      },
+
+      {
+        id: "z_mhFOyLQBg"
+      },
+
+      {
+        id: "YCeQLeQiRP4"
+      },
+
+      {
+        id: "V_OVxxIvqVw"
+      },
+
+      {
+        id: "r3-Y31ONZuI"
+      },
+
+      {
+        id: "xaPepCVepCg"
+      },
+
+      {
+        id: "IJmIGC0nwK0"
+      },
+
+      {
+        id: "ZZ5LpwO-An4"
+      },
+
+      {
+        id: "czhd1eHv6ac"
+      },
+
+      {
+        id: "lg5WKsVnEA4"
+      },
+
+      {
+        id: "lgh68Swuak0"
+      },
+
+      {
+        id: "rbE53XUtVw0"
+      },
+
+      {
+        id: "Ou6uXU0KFss"
+      },
+
+      {
+        id: "6f7pgA0riU8"
+      },
+
+      {
+        id: "otCpCn0l4Wo"
+      },
+
+      {
+        id: "AMrSGMF4PZo"
+      },
+
+      {
+        id: "7eKv4BEujFU"
+      },
+
+      {
+        id: "bjwgt1kRqEU"
+      },
+
+      {
+        id: "rmn7oV9bBRU"
+      },
+
+      {
+        id: "65e06P6Rhf4"
+      },
+
+      {
+        id: "p8f-dwURY20"
+      },
+
+      {
+        id: "8kjY9sKdHlY"
+      },
+
+      {
+        id: "InklyF13qjU"
+      },
+
+      {
+        id: "AUl4F8M8bxM"
+      },
+
+      {
+        id: "S4pk8jsk9h4"
+      },
+
+      {
+        id: "RV6aLIQgmYg"
+      },
+
+      {
+        id: "Z0NlmumRuVE"
+      },
+
+      {
+        id: "2zw-XgAko_E"
+      },
+
+      {
+        id: "NsaSG-0U4mU"
+      },
+
+      {
+        id: "o7zqouVuFZY"
+      },
+
+      {
+        id: "ykz_dbpYRPU"
+      },
+
+      {
+        id: "NOpS4qGILyY"
+      },
+
+      {
+        id: "GsWGqDzygDs"
+      },
+
+      {
+        id: "Q0IL0S0vTGw"
+      },
+
+      {
+        id: "JAVV2jbjKTQ"
+      },
+
+      {
+        id: "dxjLh3lZumY"
+      },
+
+      {
+        id: "oBnVNpG97Z4"
+      },
+
+      {
+        id: "Mh4f9AYRCZY"
+      },
+
+      {
+        id: "pNbN5Mk_sZw"
+      },
 
 
-    iframe.title =
-      "Archived video";
+      /* Classic / additional supplied videos */
+
+      {
+        id: "Cqd1Gvq-RBY"
+      },
+
+      {
+        id: "dMH0bHeiRNg"
+      },
+
+      {
+        id: "EwTZ2xpQwpA"
+      },
+
+      {
+        id: "txqiwrbYGrs"
+      },
+
+      {
+        id: "dQw4w9WgXcQ"
+      },
+
+      {
+        id: "2yJgwwDcgV8"
+      },
+
+      {
+        id: "9bZkp7q19f0"
+      },
+
+      {
+        id: "HPPj6viIBmU"
+      },
+
+      {
+        id: "wCF3ywukQYA"
+      },
+
+      {
+        id: "UjCdB5p2v0Y"
+      },
+
+      {
+        id: "OQSNhk5ICTI"
+      },
+
+      {
+        id: "hooKVstzbz0"
+      },
+
+      {
+        id: "3HjIljJd-o0"
+      },
+
+      {
+        id: "CMNry4PE93Y"
+      },
+
+      {
+        id: "aMS0O3kknvk"
+      },
+
+      {
+        id: "zVNTdWbVBgc"
+      },
+
+      {
+        id: "7WmMcqp670s"
+      },
+
+      {
+        id: "W45DRy7M1no"
+      },
+
+      {
+        id: "6B26asyGKDo"
+      },
+
+      {
+        id: "6bVa6jn4rpE"
+      },
+
+      {
+        id: "40uMbKjSBwU"
+      },
+
+      {
+        id: "5jwETfUw0TE"
+      },
+
+      {
+        id: "cBC1moosff0"
+      },
+
+      {
+        id: "bx4kwzUn2Bg"
+      },
+
+      {
+        id: "oHg5SJYRHA0"
+      },
+
+      {
+        id: "EwKpaD8g_gY"
+      },
+
+      {
+        id: "dmzDB8EHRxg"
+      },
+
+      {
+        id: "e3mG_gvaimo"
+      },
+
+      {
+        id: "EoLjddNcnYU"
+      },
+
+      {
+        id: "H6ly9KGuVTk"
+      },
+
+      {
+        id: "k0CJwbayisw"
+      },
+
+      {
+        id: "vo3qLUki5L8"
+      },
+
+      {
+        id: "1lQ3FGxpEU0"
+      },
+
+      {
+        id: "nwP3TeK-fPs"
+      },
+
+      {
+        id: "tGmmQ688Fkk"
+      },
+
+      {
+        id: "vHH1W1_f-6Y"
+      },
+
+      {
+        id: "hD8MPMTcvd8"
+      },
+
+      {
+        id: "RtfmTOv_kgA"
+      },
+
+      {
+        id: "VslKGGpl4Xc"
+      },
+
+      {
+        id: "ocd_GDed5qg"
+      },
+
+      {
+        id: "nUpNvmymAzM"
+      },
+
+      {
+        id: "0eOiL5dqP-I"
+      },
+
+      {
+        id: "3FS8_l_i81Q"
+      },
+
+      {
+        id: "4ZYziZg8LBc"
+      }
+
+    ];
 
 
-    iframe.loading =
-      "lazy";
+    /* =========================================================
+       CREATE VIDEO CARD
+       ========================================================= */
+
+    const videoList =
+      document.getElementById("video-list");
 
 
-    iframe.allow =
-      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    function createVideoCard(video, number) {
+
+      const card =
+        document.createElement("article");
+
+      card.className =
+        "video-card";
+
+      card.dataset.videoId =
+        video.id;
 
 
-    iframe.allowFullscreen =
-      true;
+      const heading =
+        document.createElement("div");
+
+      heading.className =
+        "video-heading";
 
 
-    player.appendChild(iframe);
+      const numberElement =
+        document.createElement("div");
 
-  }
+      numberElement.className =
+        "video-number";
+
+      numberElement.textContent =
+        number;
 
 
-  loadButton.addEventListener(
-    "click",
-    loadVideo
-  );
+      const title =
+        document.createElement("h2");
+
+      title.className =
+        "video-title";
+
+      title.textContent =
+        "Loading video title…";
 
 
-  loadButton.addEventListener(
-    "keydown",
-    function(event) {
+      const uploader =
+        document.createElement("p");
+
+      uploader.className =
+        "video-uploader";
+
+      uploader.innerHTML =
+        "<strong>Uploader:</strong> Loading…";
+
+
+      heading.appendChild(
+        numberElement
+      );
+
+      heading.appendChild(
+        title
+      );
+
+      heading.appendChild(
+        uploader
+      );
+
+
+      const frame =
+        document.createElement("div");
+
+      frame.className =
+        "video-frame";
+
+
+      const placeholder =
+        document.createElement("div");
+
+      placeholder.className =
+        "video-placeholder";
+
+      placeholder.innerHTML = `
+        <div class="video-placeholder-inner">
+
+          <div class="play-button"></div>
+
+          <div class="video-placeholder-text">
+            Click to load video
+          </div>
+
+        </div>
+      `;
+
+
+      frame.appendChild(
+        placeholder
+      );
+
+
+      const meta =
+        document.createElement("div");
+
+      meta.className =
+        "video-meta";
+
+      meta.innerHTML = `
+        <a
+          href="https://www.youtube.com/watch?v=${encodeURIComponent(video.id)}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open this video on YouTube
+        </a>
+      `;
+
+
+      card.appendChild(
+        heading
+      );
+
+      card.appendChild(
+        frame
+      );
+
+      card.appendChild(
+        meta
+      );
+
+
+      placeholder.addEventListener(
+        "click",
+        function () {
+
+          loadVideo(
+            card,
+            video.id
+          );
+
+        },
+        {
+          once: true
+        }
+      );
+
+
+      return card;
+
+    }
+
+
+    /* =========================================================
+       LOAD YOUTUBE IFRAME
+       ========================================================= */
+
+    function loadVideo(card, id) {
+
+      const frame =
+        card.querySelector(".video-frame");
 
       if (
-        event.key === "Enter" ||
-        event.key === " "
+        frame.dataset.loaded === "true"
       ) {
-
-        event.preventDefault();
-
-        loadVideo();
-
+        return;
       }
 
-    }
-  );
+      frame.dataset.loaded =
+        "true";
 
 
-  return article;
+      const iframe =
+        document.createElement("iframe");
 
-}
+
+      /*
+        youtube-nocookie is used so the embedded player does
+        not use normal YouTube cookies where possible.
+      */
+
+      iframe.src =
+        "https://www.youtube-nocookie.com/embed/" +
+        encodeURIComponent(id) +
+        "?rel=0";
 
 
-/* =========================================================
-   RENDER ARCHIVE
-   ========================================================= */
+      iframe.title =
+        card.querySelector(".video-title").textContent;
 
-function renderArchive() {
 
-  videoGrid.innerHTML = "";
+      iframe.loading =
+        "lazy";
 
-  videos.forEach(
-    function(video, index) {
 
-      videoGrid.appendChild(
-        createVideoCard(
-          video,
-          index
-        )
+      iframe.allow =
+        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+
+
+      iframe.allowFullscreen =
+        true;
+
+
+      const placeholder =
+        frame.querySelector(
+          ".video-placeholder"
+        );
+
+
+      if (placeholder) {
+        placeholder.remove();
+      }
+
+
+      frame.appendChild(
+        iframe
       );
 
     }
-  );
 
-  loadMetadata();
 
-  filterArchive();
+    /* =========================================================
+       CREATE ALL CARDS
+       ========================================================= */
 
-}
+    videos.forEach(
+      function (video, index) {
 
+        const card =
+          createVideoCard(
+            video,
+            index + 1
+          );
 
-/* =========================================================
-   FETCH REAL YOUTUBE TITLE / UPLOADER
-   =========================================================
-
-   YouTube's oEmbed endpoint provides the video's public
-   title and author without requiring a YouTube API key.
-
-   The player itself remains unloaded until clicked.
-   ========================================================= */
-
-async function loadMetadata() {
-
-  const cards =
-    Array.from(
-      document.querySelectorAll(".video-card")
-    );
-
-
-  /*
-   * Small batches prevent hundreds of metadata requests
-   * from being launched at exactly the same moment.
-   */
-
-  const batchSize = 5;
-
-
-  for (
-    let i = 0;
-    i < cards.length;
-    i += batchSize
-  ) {
-
-    const batch =
-      cards.slice(
-        i,
-        i + batchSize
-      );
-
-
-    await Promise.all(
-      batch.map(
-        async function(card) {
-
-          const id =
-            card.dataset.videoId;
-
-
-          const title =
-            card.querySelector(".video-title");
-
-
-          const uploader =
-            card.querySelector(".video-uploader");
-
-
-          const error =
-            card.querySelector(".video-error");
-
-
-          try {
-
-            const response =
-              await fetch(
-                "https://www.youtube.com/oembed?url=" +
-                encodeURIComponent(
-                  "https://www.youtube.com/watch?v=" + id
-                ) +
-                "&format=json"
-              );
-
-
-            if (!response.ok) {
-              throw new Error(
-                "Metadata request failed"
-              );
-            }
-
-
-            const data =
-              await response.json();
-
-
-            if (data.title) {
-
-              title.textContent =
-                data.title;
-
-              title.classList.remove(
-                "loading"
-              );
-
-            }
-
-
-            if (data.author_name) {
-
-              uploader.textContent =
-                data.author_name;
-
-            }
-
-
-            card.dataset.searchText =
-              (
-                (data.title || "") +
-                " " +
-                (data.author_name || "") +
-                " " +
-                id
-              ).toLowerCase();
-
-
-          }
-
-          catch (err) {
-
-            title.textContent =
-              "Video Record " + id;
-
-            title.classList.remove(
-              "loading"
-            );
-
-            uploader.textContent =
-              "YouTube";
-
-            card.dataset.searchText =
-              id.toLowerCase();
-
-            error.textContent =
-              "Title metadata could not be loaded. The source video remains available.";
-
-          }
-
-        }
-      )
-    );
-
-
-    /*
-     * Give the browser a moment between batches.
-     */
-
-    await new Promise(
-      function(resolve) {
-        setTimeout(
-          resolve,
-          80
-        );
-      }
-    );
-
-
-    filterArchive();
-
-  }
-
-}
-
-
-/* =========================================================
-   FILTER
-   ========================================================= */
-
-function filterArchive() {
-
-  const cards =
-    Array.from(
-      document.querySelectorAll(".video-card")
-    );
-
-
-  let visible =
-    0;
-
-
-  cards.forEach(
-    function(card) {
-
-      const matchesEra =
-        currentFilter === "all" ||
-        card.dataset.era === currentFilter;
-
-
-      const searchText =
-        (
-          card.dataset.searchText ||
-          (
-            card.dataset.videoId +
-            " " +
-            card.innerText
-          )
-        ).toLowerCase();
-
-
-      const matchesSearch =
-        !currentSearch ||
-        searchText.includes(
-          currentSearch
-        );
-
-
-      const show =
-        matchesEra &&
-        matchesSearch;
-
-
-      if (show) {
-
-        card.classList.remove(
-          "hidden"
-        );
-
-        visible++;
-
-      }
-
-      else {
-
-        card.classList.add(
-          "hidden"
+        videoList.appendChild(
+          card
         );
 
       }
-
-    }
-  );
+    );
 
 
-  noResults.classList.toggle(
-    "show",
-    visible === 0
-  );
+    /* =========================================================
+       YOUTUBE METADATA
+
+       YouTube's oEmbed endpoint returns the video's actual
+       public title and channel/uploader name.
+
+       This does NOT load the video itself.
+
+       Therefore hundreds of metadata requests do not create
+       hundreds of YouTube players.
+       ========================================================= */
+
+    async function loadMetadata(card) {
+
+      const id =
+        card.dataset.videoId;
 
 
-  archiveCount.textContent =
-    visible +
-    " of " +
-    cards.length +
-    " video records shown";
-
-}
+      const title =
+        card.querySelector(
+          ".video-title"
+        );
 
 
-/* =========================================================
-   SEARCH
-   ========================================================= */
-
-searchInput.addEventListener(
-  "input",
-  function() {
-
-    currentSearch =
-      searchInput.value
-        .trim()
-        .toLowerCase();
+      const uploader =
+        card.querySelector(
+          ".video-uploader"
+        );
 
 
-    filterArchive();
+      try {
 
-  }
-);
-
-
-clearSearch.addEventListener(
-  "click",
-  function() {
-
-    searchInput.value = "";
-
-    currentSearch = "";
-
-    filterArchive();
-
-    searchInput.focus();
-
-  }
-);
-
-
-/* =========================================================
-   ERA FILTER BUTTONS
-   ========================================================= */
-
-document
-  .querySelectorAll(".filter-button")
-  .forEach(
-    function(button) {
-
-      button.addEventListener(
-        "click",
-        function() {
-
-          document
-            .querySelectorAll(
-              ".filter-button"
-            )
-            .forEach(
-              function(item) {
-                item.classList.remove(
-                  "active"
-                );
-              }
-            );
-
-
-          button.classList.add(
-            "active"
+        const response =
+          await fetch(
+            "https://www.youtube.com/oembed?url=" +
+            encodeURIComponent(
+              "https://www.youtube.com/watch?v=" + id
+            ) +
+            "&format=json"
           );
 
 
-          currentFilter =
-            button.dataset.filter;
+        if (!response.ok) {
+          throw new Error(
+            "Metadata unavailable"
+          );
+        }
 
 
-          filterArchive();
+        const data =
+          await response.json();
+
+
+        if (data.title) {
+
+          title.textContent =
+            data.title;
+
+        }
+
+
+        if (data.author_name) {
+
+          uploader.innerHTML =
+            "<strong>Uploader:</strong> " +
+            escapeHtml(
+              data.author_name
+            );
+
+        }
+
+      } catch (error) {
+
+        /*
+          If YouTube blocks the metadata request or the video
+          no longer exposes oEmbed information, the archive
+          remains usable.
+        */
+
+        title.textContent =
+          "YouTube Video";
+
+
+        uploader.innerHTML =
+          "<strong>Uploader:</strong> " +
+          "Information unavailable";
+
+      }
+
+    }
+
+
+    /* =========================================================
+       ESCAPE HTML
+       ========================================================= */
+
+    function escapeHtml(value) {
+
+      return String(value)
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+        .replace(
+          /</g,
+          "&lt;"
+        )
+        .replace(
+          />/g,
+          "&gt;"
+        )
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+        .replace(
+          /'/g,
+          "&#039;"
+        );
+
+    }
+
+
+    /* =========================================================
+       LOAD TITLES/UPLOADERS
+
+       Metadata is loaded separately from the actual players.
+
+       This is intentionally lightweight.
+       ========================================================= */
+
+    document
+      .querySelectorAll(".video-card")
+      .forEach(
+        function (card) {
+
+          loadMetadata(card);
 
         }
       );
 
-    }
-  );
+
+    /* =========================================================
+       LAZY EMBED
+
+       When a card gets close to the viewport, we prepare it.
+
+       IMPORTANT:
+       We do NOT automatically insert an iframe.
+
+       The user clicks the card's play area before the actual
+       YouTube player is created.
+
+       This prevents the page from attempting to load dozens
+       of simultaneous YouTube players.
+       ========================================================= */
+
+    const lazyObserver =
+      new IntersectionObserver(
+        function (entries) {
+
+          entries.forEach(
+            function (entry) {
+
+              if (
+                entry.isIntersecting
+              ) {
+
+                const card =
+                  entry.target;
 
 
-/* =========================================================
-   SIDEBAR
-   ========================================================= */
+                /*
+                  We intentionally don't call loadVideo()
+                  here. The placeholder stays visible until
+                  the visitor chooses to play the video.
+                */
 
-const menuButton =
-  document.getElementById(
-    "menuButton"
-  );
+                card.classList.add(
+                  "near-screen"
+                );
 
-const sideMenu =
-  document.getElementById(
-    "sideMenu"
-  );
+              }
 
-const menuOverlay =
-  document.getElementById(
-    "menuOverlay"
-  );
+            }
+          );
 
-
-function openMenu() {
-
-  sideMenu.classList.add(
-    "open"
-  );
-
-  menuOverlay.classList.add(
-    "open"
-  );
-
-  menuButton.setAttribute(
-    "aria-expanded",
-    "true"
-  );
-
-}
-
-
-function closeMenu() {
-
-  sideMenu.classList.remove(
-    "open"
-  );
-
-  menuOverlay.classList.remove(
-    "open"
-  );
-
-  menuButton.setAttribute(
-    "aria-expanded",
-    "false"
-  );
-
-}
-
-
-menuButton.addEventListener(
-  "click",
-  function() {
-
-    const isOpen =
-      sideMenu.classList.contains(
-        "open"
+        },
+        {
+          rootMargin:
+            "500px 0px"
+        }
       );
 
 
-    if (isOpen) {
-      closeMenu();
-    }
+    document
+      .querySelectorAll(".video-card")
+      .forEach(
+        function (card) {
 
-    else {
-      openMenu();
-    }
+          lazyObserver.observe(
+            card
+          );
 
-  }
-);
-
-
-menuOverlay.addEventListener(
-  "click",
-  closeMenu
-);
-
-
-/* =========================================================
-   POLITICS DROPDOWN
-   ========================================================= */
-
-const politicsToggle =
-  document.getElementById(
-    "politicsToggle"
-  );
-
-const politicsSubmenu =
-  document.getElementById(
-    "politicsSubmenu"
-  );
-
-
-politicsToggle.addEventListener(
-  "click",
-  function() {
-
-    const open =
-      politicsSubmenu.classList.toggle(
-        "open"
+        }
       );
 
 
-    politicsToggle.setAttribute(
-      "aria-expanded",
-      String(open)
-    );
+    /* =========================================================
+       KEYBOARD ACCESSIBILITY
 
-  }
-);
+       Enter/Space on the placeholder loads the video.
+       ========================================================= */
 
+    document
+      .querySelectorAll(".video-placeholder")
+      .forEach(
+        function (placeholder) {
 
-/* =========================================================
-   ESCAPE CLOSES MENU
-   ========================================================= */
-
-document.addEventListener(
-  "keydown",
-  function(event) {
-
-    if (
-      event.key === "Escape"
-    ) {
-
-      closeMenu();
-
-    }
-
-  }
-);
+          placeholder.setAttribute(
+            "tabindex",
+            "0"
+          );
 
 
-/* =========================================================
-   START
-   ========================================================= */
+          placeholder.setAttribute(
+            "role",
+            "button"
+          );
 
-renderArchive();
 
-</script>
+          placeholder.setAttribute(
+            "aria-label",
+            "Load and play video"
+          );
+
+
+          placeholder.addEventListener(
+            "keydown",
+            function (event) {
+
+              if (
+                event.key === "Enter" ||
+                event.key === " "
+              ) {
+
+                event.preventDefault();
+
+                placeholder.click();
+
+              }
+
+            }
+          );
+
+        }
+      );
+
+  </script>
 
 </body>
 </html>
