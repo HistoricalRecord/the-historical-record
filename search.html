@@ -121,257 +121,155 @@
 
   <script>
 
-    const const archivePages = [
-  {
-    file: "iran-nuclear-program.html",
-    title: "Iran's Nuclear Program and the International Nuclear Crisis",
-    category: "World Events",
-    date: "September 13, 2026"
-  },
-  {
-    file: "index.html",
-    title: "The Historical Record",
-    category: "Home",
-    date: ""
-  },
-  {
-    file: "politics.html",
-    title: "Politics",
-    category: "Politics",
-    date: ""
-  },
-  {
-    file: "entertainment-sports.html",
-    title: "Entertainment / Sports",
-    category: "Entertainment / Sports",
-    date: ""
-  },
-  {
-    file: "world-events.html",
-    title: "World Events",
-    category: "World Events",
-    date: ""
-  },
-  {
-    file: "social-media.html",
-    title: "Social Media",
-    category: "Social Media",
-    date: ""
-  },
-  {
-    file: "thoughts.html",
-    title: "Thoughts / Blog",
-    category: "Thoughts / Blog",
-    date: ""
-  }
-];
-    const form = document.getElementById("search-form");
-    const input = document.getElementById("search-input");
-    const results = document.getElementById("search-results");
-    const status = document.getElementById("search-status");
+    /*
+      INDIVIDUAL ARCHIVE RECORDS
 
-    function createExcerpt(text, keyword) {
+      Every new historical record can be added here later.
+    */
 
-      const cleanText = text
-        .replace(/\s+/g, " ")
-        .trim();
+    const archiveRecords = [
 
-      const lowerText = cleanText.toLowerCase();
-      const position = lowerText.indexOf(keyword);
+      {
+        file: "iran-nuclear-program.html",
 
-      if (position === -1) {
-        return cleanText.substring(0, 220) + "...";
+        title:
+          "Iran's Nuclear Program and the International Nuclear Crisis",
+
+        category:
+          "World Events",
+
+        date:
+          "September 13, 2026",
+
+        description:
+          "The International Atomic Energy Agency's board referred Iran to the United Nations Security Council over concerns surrounding Iran's nuclear program. The development marked a significant escalation in the long-running international dispute over Iran's nuclear activities."
       }
 
-      let start = Math.max(0, position - 100);
-      let end = Math.min(
-        cleanText.length,
-        position + keyword.length + 140
-      );
+    ];
 
-      let excerpt = cleanText.substring(start, end);
 
-      if (start > 0) {
-        excerpt = "..." + excerpt;
-      }
+    const form =
+      document.getElementById("search-form");
 
-      if (end < cleanText.length) {
-        excerpt = excerpt + "...";
-      }
+    const input =
+      document.getElementById("search-input");
 
-      return excerpt;
-    }
+    const results =
+      document.getElementById("search-results");
 
-    form.addEventListener("submit", async function(event) {
+    const status =
+      document.getElementById("search-status");
 
-      event.preventDefault();
 
-      const keyword = input.value.trim().toLowerCase();
+    form.addEventListener(
+      "submit",
+      function(event) {
 
-      results.innerHTML = "";
-      status.innerHTML = "";
+        event.preventDefault();
 
-      if (!keyword) {
+        const keyword =
+          input.value.trim().toLowerCase();
 
-        status.innerHTML =
-          "<p>Please enter a keyword to search the archive.</p>";
+        results.innerHTML = "";
 
-        return;
-      }
+        status.innerHTML = "";
 
-      status.innerHTML =
-        "<p>Searching the archive...</p>";
 
-      const matches = [];
+        if (!keyword) {
 
-      for (const page of archivePages) {
+          status.innerHTML =
+            "<p>Please enter a keyword to search the archive.</p>";
 
-        try {
-
-          const response = await fetch(page.file);
-
-          if (!response.ok) {
-            continue;
-          }
-
-          const html = await response.text();
-
-          const parser = new DOMParser();
-
-          const documentPage =
-            parser.parseFromString(html, "text/html");
-
-          const pageText =
-            documentPage.body.innerText
-              .replace(/\s+/g, " ")
-              .trim();
-
-          const lowerText =
-            pageText.toLowerCase();
-
-          if (lowerText.includes(keyword)) {
-
-            const headings =
-              Array.from(
-                documentPage.querySelectorAll("h1, h2, h3")
-              );
-
-            let heading = page.title;
-
-            for (const element of headings) {
-
-              const headingText =
-                element.textContent.trim();
-
-              if (
-                headingText.toLowerCase().includes(keyword)
-              ) {
-                heading = headingText;
-                break;
-              }
-
-            }
-
-            const dateElement =
-              documentPage.querySelector(".eyebrow");
-
-            let date = "";
-
-            if (dateElement) {
-              const dateText =
-                dateElement.textContent.trim();
-
-              if (
-                dateText.includes("2026") ||
-                dateText.includes("2025") ||
-                dateText.includes("2024")
-              ) {
-                date = dateText;
-              }
-            }
-
-            const excerpt =
-              createExcerpt(pageText, keyword);
-
-            matches.push({
-              page: page.file,
-              category: page.title,
-              heading: heading,
-              date: date,
-              excerpt: excerpt
-            });
-
-          }
-
-        } catch (error) {
-
-          console.error(
-            "Search error:",
-            error
-          );
-
+          return;
         }
 
-      }
 
-      if (matches.length === 0) {
+        const matches =
+          archiveRecords.filter(function(record) {
+
+            const searchableText = (
+
+              record.title +
+              " " +
+              record.category +
+              " " +
+              record.date +
+              " " +
+              record.description
+
+            ).toLowerCase();
+
+            return searchableText.includes(keyword);
+
+          });
+
+
+        if (matches.length === 0) {
+
+          status.innerHTML =
+            "<p>No records were found containing <strong>" +
+            keyword +
+            "</strong>.</p>";
+
+          return;
+        }
+
 
         status.innerHTML =
-          "<p>No records were found containing <strong>" +
-          keyword +
-          "</strong>.</p>";
+          "<p>Found " +
+          matches.length +
+          " matching " +
+          (matches.length === 1
+            ? "record."
+            : "records.") +
+          "</p>";
 
-        return;
+
+        matches.forEach(function(record) {
+
+          const article =
+            document.createElement("article");
+
+          article.className =
+            "archive-card";
+
+
+          article.innerHTML = `
+
+            <p class="eyebrow">
+              ${record.category}
+            </p>
+
+            <h2>
+              ${record.title}
+            </h2>
+
+            <p>
+              <strong>
+                ${record.date}
+              </strong>
+            </p>
+
+            <p>
+              ${record.description}
+            </p>
+
+            <p>
+              <a href="${record.file}">
+                View Record →
+              </a>
+            </p>
+
+          `;
+
+
+          results.appendChild(article);
+
+        });
+
       }
 
-      status.innerHTML =
-        "<p>Found " +
-        matches.length +
-        " matching archive " +
-        (matches.length === 1 ? "record." : "records.") +
-        "</p>";
-
-      matches.forEach(function(match) {
-
-        const article =
-          document.createElement("article");
-
-        article.className =
-          "archive-card";
-
-        article.innerHTML = `
-
-          <p class="eyebrow">
-            ${match.category}
-          </p>
-
-          <h2>
-            ${match.heading}
-          </h2>
-
-          ${
-            match.date
-              ? `<p><strong>${match.date}</strong></p>`
-              : ""
-          }
-
-          <p>
-            ${match.excerpt}
-          </p>
-
-          <p>
-            <a href="${match.page}">
-              View Record →
-            </a>
-          </p>
-
-        `;
-
-        results.appendChild(article);
-
-      });
-
-    });
+    );
 
   </script>
 
