@@ -4,78 +4,102 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>September 11, 2001 | The Historical Record</title>
+<title>September 11, 2001 | Memorial, Voices & Historical Archive | The Historical Record</title>
 
-<meta name="description" content="A comprehensive historical archive of September 11, 2001, including the victims, photographs, timeline, testimony, audio, video, recovery workers, government records and primary sources.">
+<meta name="description"
+content="A comprehensive historical archive documenting September 11, 2001 through the people who were killed, their photographs and memories, survivors, responders, witnesses, the events of the day, recovery workers, oral histories, government records and primary sources.">
 
 <style>
-:root{
-  --navy:#081936;
-  --navy2:#0d2854;
-  --blue:#174477;
-  --red:#a91f32;
-  --red2:#7e1525;
-  --gold:#b99a55;
-  --cream:#f4f2ed;
-  --white:#fff;
-  --ink:#17191d;
-  --muted:#626974;
-  --line:#d7d9dd;
-  --soft:#eceef1;
+
+:root {
+  --navy:#0b1f4d;
+  --navy-dark:#06122b;
+  --blue:#17356f;
+  --red:#a71930;
+  --red-dark:#821425;
+  --cream:#f5f3ee;
+  --paper:#ffffff;
+  --gray:#60656d;
+  --dark-gray:#34383e;
+  --border:#d6d9de;
+  --gold:#b69b5b;
+  --black:#111;
+  --soft-blue:#edf1f7;
   --shadow:0 8px 25px rgba(0,0,0,.08);
 }
 
-*{box-sizing:border-box}
-
-html{
-  scroll-behavior:smooth;
-  scroll-padding-top:30px;
+* {
+  box-sizing:border-box;
 }
 
-body{
+html {
+  scroll-behavior:smooth;
+}
+
+body {
   margin:0;
   background:var(--cream);
-  color:var(--ink);
+  color:#24272b;
   font-family:Arial,Helvetica,sans-serif;
-  line-height:1.65;
+  line-height:1.7;
 }
 
-body.menu-open{overflow:hidden}
+body.menu-open {
+  overflow:hidden;
+}
 
-a{
+a {
   color:var(--red);
   text-decoration:none;
 }
 
-a:hover{text-decoration:underline}
+a:hover {
+  text-decoration:underline;
+}
 
-button,input{
+button,
+input {
   font:inherit;
 }
 
-img{
-  max-width:100%;
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.skip-link {
+  position:fixed;
+  left:-9999px;
+  top:10px;
+  z-index:9000;
+  background:#fff;
+  color:var(--navy);
+  padding:12px 18px;
+  border:2px solid var(--red);
 }
 
-/* =========================
-   SIDE MENU
-========================= */
+.skip-link:focus {
+  left:10px;
+}
 
-.menu-button{
+/* =========================================================
+   SIDE MENU
+========================================================= */
+
+.menu-button {
   position:fixed;
   top:18px;
   left:18px;
-  z-index:5000;
+  z-index:5001;
   width:50px;
   height:50px;
   border:0;
   border-radius:4px;
   background:var(--red);
-  box-shadow:0 4px 18px rgba(0,0,0,.3);
   cursor:pointer;
+  box-shadow:0 4px 18px rgba(0,0,0,.3);
 }
 
-.menu-button span{
+.menu-button span {
   display:block;
   width:26px;
   height:3px;
@@ -83,440 +107,634 @@ img{
   background:#fff;
 }
 
-.menu-overlay{
+.side-menu {
   position:fixed;
-  inset:0;
-  z-index:4000;
-  background:rgba(3,12,29,.72);
-  display:none;
-}
-
-.menu-overlay.open{display:block}
-
-.side-menu{
-  position:fixed;
-  left:-360px;
   top:0;
-  bottom:0;
-  width:330px;
+  left:-350px;
+  width:320px;
   max-width:88vw;
+  height:100vh;
+  height:100dvh;
   background:#fff;
-  z-index:4500;
-  overflow-y:auto;
   border-right:5px solid var(--red);
-  box-shadow:8px 0 30px rgba(0,0,0,.3);
+  z-index:5000;
+  overflow-y:auto;
   transition:left .3s ease;
+  box-shadow:8px 0 30px rgba(0,0,0,.28);
 }
 
-.side-menu.open{left:0}
+.side-menu.open {
+  left:0;
+}
 
-.menu-header{
-  padding:34px 25px;
+.menu-header {
   background:var(--navy);
   color:#fff;
+  padding:34px 25px;
   border-bottom:5px solid var(--red);
 }
 
-.menu-header h2{
+.menu-header h2 {
   margin:0;
   font-size:22px;
 }
 
-.menu-header p{
-  margin:7px 0 0;
-  color:#dce4ef;
+.menu-header p {
+  margin:6px 0 0;
+  color:#d9dfeb;
   font-size:13px;
 }
 
-.menu-label{
-  padding:20px 25px 7px;
-  color:#747b86;
+.side-menu nav {
+  padding:12px 0 45px;
+}
+
+.menu-label {
+  padding:18px 25px 7px;
+  color:#737983;
   font-size:11px;
   font-weight:bold;
-  text-transform:uppercase;
   letter-spacing:1.5px;
+  text-transform:uppercase;
 }
 
-.side-menu a{
+.side-menu nav a {
   display:block;
-  padding:13px 25px;
-  border-bottom:1px solid #dddfe3;
+  padding:14px 25px;
   color:var(--navy);
-  font-size:15px;
+  border-bottom:1px solid #dfe2e7;
+  font-size:16px;
 }
 
-.side-menu a:hover{
+.side-menu nav a:hover {
   background:#f3f4f6;
   color:var(--red);
   text-decoration:none;
 }
 
-/* =========================
+.menu-overlay {
+  position:fixed;
+  inset:0;
+  background:rgba(5,15,35,.72);
+  z-index:4999;
+  display:none;
+}
+
+.menu-overlay.open {
+  display:block;
+}
+
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
-.hero{
-  min-height:560px;
-  padding:135px 20px 90px;
-  color:#fff;
-  text-align:center;
+header {
   background:
-    linear-gradient(rgba(5,17,39,.93),rgba(5,17,39,.96)),
-    radial-gradient(circle at center,#284d83,#07142e);
-  border-bottom:7px solid var(--red);
+    linear-gradient(
+      rgba(6,18,43,.96),
+      rgba(11,31,77,.96)
+    );
+  color:#fff;
+  padding:115px 20px 78px;
+  text-align:center;
+  border-bottom:6px solid var(--red);
 }
 
-.hero-inner{
-  max-width:1050px;
-  margin:auto;
-}
-
-.hero-kicker{
-  margin:0 0 18px;
-  color:#dce5f1;
+header .eyebrow {
+  margin:0 0 15px;
+  color:#dce3ef;
   font-size:13px;
   font-weight:bold;
-  letter-spacing:4px;
+  letter-spacing:3px;
 }
 
-.hero h1{
+header h1 {
   margin:0;
-  font-size:clamp(42px,8vw,82px);
-  line-height:1;
+  font-size:clamp(40px,8vw,78px);
+  line-height:1.05;
 }
 
-.hero-date{
-  margin:20px 0 0;
-  color:#e8edf5;
-  font-size:22px;
-}
-
-.hero p{
-  max-width:850px;
-  margin:28px auto 0;
-  color:#dce3ee;
+header p {
+  max-width:900px;
+  margin:25px auto 0;
+  color:#e5e9f0;
   font-size:18px;
 }
 
-/* =========================
-   GENERAL
-========================= */
-
-.container{
-  width:min(1160px,calc(100% - 34px));
-  margin:auto;
-}
-
-.section{
-  padding:70px 0;
-}
-
-.section-title{
-  margin-bottom:32px;
-  padding-bottom:16px;
-  border-bottom:4px solid var(--red);
-}
-
-.section-title h2{
-  margin:0;
-  color:var(--navy);
-  font-size:34px;
-  line-height:1.2;
-}
-
-.section-title p{
-  margin:7px 0 0;
-  color:var(--muted);
-}
-
-.card{
-  background:#fff;
-  border:1px solid var(--line);
-  box-shadow:var(--shadow);
-}
-
-/* =========================
+/* =========================================================
    INTRO
-========================= */
+========================================================= */
 
-.intro{
-  max-width:950px;
+.archive-intro {
+  max-width:1000px;
   margin:auto;
-  padding:70px 20px 30px;
+  padding:65px 20px 40px;
   text-align:center;
 }
 
-.intro h2{
-  color:var(--navy);
-  font-size:35px;
+.archive-intro h2 {
   margin:0 0 18px;
+  color:var(--navy);
+  font-size:36px;
 }
 
-.intro p{
-  color:#40464f;
+.archive-intro p {
+  margin:0;
+  color:#42474e;
   font-size:17px;
 }
 
-/* =========================
+/* =========================================================
    STATISTICS
-========================= */
+========================================================= */
 
-.stats{
+.memorial-stats {
+  max-width:1120px;
+  margin:0 auto 55px;
+  padding:0 20px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:1px;
-  background:var(--line);
-  margin:30px auto 20px;
+  background:var(--border);
 }
 
-.stat{
+.stat {
+  background:var(--navy);
+  color:#fff;
   padding:27px 15px;
   text-align:center;
-  color:#fff;
-  background:var(--navy);
 }
 
-.stat-number{
+.stat-number {
   display:block;
-  font-size:36px;
+  font-size:34px;
   font-weight:bold;
-  line-height:1;
+  line-height:1.1;
 }
 
-.stat-label{
+.stat-label {
   display:block;
-  margin-top:10px;
-  color:#dce4ef;
+  margin-top:7px;
+  color:#dce3ef;
   font-size:13px;
 }
 
-/* =========================
-   VICTIM ARCHIVE
-========================= */
+/* =========================================================
+   SECTIONS
+========================================================= */
 
-.victim-controls{
-  position:sticky;
-  top:0;
-  z-index:100;
-  padding:15px;
-  margin-bottom:25px;
-  background:rgba(244,242,237,.96);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--line);
+.archive-section {
+  max-width:1180px;
+  margin:0 auto;
+  padding:38px 20px 75px;
 }
 
-.victim-search{
-  width:100%;
-  padding:15px 17px;
-  border:1px solid #aeb3bb;
-  background:#fff;
-  color:#111;
-  font-size:17px;
+.section-heading {
+  margin-bottom:30px;
+  padding-bottom:15px;
+  border-bottom:4px solid var(--red);
 }
 
-.letters{
-  display:flex;
-  flex-wrap:wrap;
-  gap:6px;
-  margin-top:12px;
-}
-
-.letters button{
-  min-width:35px;
-  padding:7px 9px;
-  border:1px solid #c7cbd1;
-  background:#fff;
-  color:var(--navy);
-  cursor:pointer;
-  border-radius:2px;
-}
-
-.letters button:hover{
-  background:var(--navy);
-  color:#fff;
-}
-
-.victim-count{
-  margin:15px 0 0;
-  color:var(--muted);
-  font-size:13px;
-}
-
-.victim-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
-}
-
-.victim-card{
-  overflow:hidden;
-  background:#fff;
-  border:1px solid var(--line);
-  box-shadow:0 4px 15px rgba(0,0,0,.06);
-  scroll-margin-top:110px;
-}
-
-.victim-photo{
-  width:100%;
-  aspect-ratio:1/1;
-  display:block;
-  object-fit:cover;
-  background:#dfe2e6;
-}
-
-.victim-photo.loading{
-  object-fit:contain;
-  padding:28px;
-  opacity:.75;
-}
-
-.victim-info{
-  padding:15px;
-}
-
-.victim-name{
+.section-heading h2 {
   margin:0;
   color:var(--navy);
-  font-size:17px;
-  line-height:1.3;
+  font-size:32px;
+  line-height:1.25;
 }
 
-.victim-panel{
-  margin-top:7px;
-  color:var(--red);
-  font-size:12px;
+.section-heading p {
+  margin:7px 0 0;
+  color:var(--gray);
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.button {
+  display:inline-block;
+  padding:11px 17px;
+  background:var(--navy);
+  color:#fff;
+  border-radius:2px;
   font-weight:bold;
+  font-size:14px;
 }
 
-.victim-source{
-  display:block;
-  margin-top:9px;
-  font-size:11px;
-  color:#747a83;
+.button:hover {
+  background:var(--blue);
+  color:#fff;
+  text-decoration:none;
 }
 
-.no-results{
-  display:none;
-  padding:30px;
-  background:#fff;
-  border:1px solid var(--line);
-  text-align:center;
-}
-
-.archive-loading{
-  padding:45px;
-  text-align:center;
-  background:#fff;
-  border:1px solid var(--line);
-  color:var(--muted);
-}
-
-/* =========================
-   TIMELINE
-========================= */
-
-.timeline{
-  position:relative;
-  border-left:4px solid var(--red);
-  margin-left:12px;
-  padding-left:30px;
-}
-
-.timeline-entry{
-  position:relative;
-  margin-bottom:20px;
-  padding:24px;
-  background:#fff;
-  border:1px solid var(--line);
-  box-shadow:0 4px 14px rgba(0,0,0,.05);
-}
-
-.timeline-entry:before{
-  content:"";
-  position:absolute;
-  width:15px;
-  height:15px;
-  left:-40px;
-  top:27px;
-  border:4px solid var(--cream);
-  border-radius:50%;
+.button.red {
   background:var(--red);
 }
 
-.timeline-time{
-  color:var(--red);
-  font-size:13px;
-  font-weight:bold;
-  letter-spacing:.5px;
+.button.red:hover {
+  background:var(--red-dark);
 }
 
-.timeline-entry h3{
+.button.light {
+  background:#edf0f4;
+  color:var(--navy);
+}
+
+/* =========================================================
+   MEMORIAL INTRO PANEL
+========================================================= */
+
+.memorial-panel {
+  background:var(--navy);
+  color:#fff;
+  padding:42px;
+  border-top:5px solid var(--red);
+  box-shadow:var(--shadow);
+}
+
+.memorial-panel h3 {
+  margin-top:0;
+  font-size:29px;
+}
+
+.memorial-panel p {
+  color:#e3e8f0;
+}
+
+/* =========================================================
+   VICTIM ROLL
+========================================================= */
+
+.victim-roll-shell {
+  background:#fff;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+}
+
+.victim-roll-top {
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+  padding:18px;
+}
+
+.alphabet {
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.alphabet button {
+  min-width:36px;
+  padding:8px 9px;
+  border:1px solid var(--border);
+  background:#f4f5f7;
+  color:var(--navy);
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.alphabet button:hover {
+  background:var(--navy);
+  color:#fff;
+}
+
+.victim-count {
+  margin-top:12px;
+  color:var(--gray);
+  font-size:13px;
+}
+
+.victim-roll {
+  padding:20px;
+}
+
+.victim-letter {
+  margin:28px 0 10px;
+  padding:10px 12px;
+  color:#fff;
+  background:var(--navy);
+  border-left:5px solid var(--red);
+  font-size:22px;
+  font-weight:bold;
+}
+
+.victim-list {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:0 20px;
+}
+
+.victim-row {
+  display:grid;
+  grid-template-columns:56px 1fr auto;
+  align-items:center;
+  gap:12px;
+  min-height:70px;
+  border-bottom:1px solid #e4e6e9;
+}
+
+.victim-thumb {
+  width:50px;
+  height:58px;
+  border-radius:2px;
+  overflow:hidden;
+  background:#e3e6eb;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.victim-thumb img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.victim-thumb.missing {
+  background:
+    linear-gradient(135deg,#dfe3e9,#f5f6f8);
+}
+
+.victim-thumb.missing span {
+  font-size:19px;
+  color:#8a9099;
+}
+
+.victim-name {
+  color:#1c2c4d;
+  font-weight:bold;
+}
+
+.victim-panel {
+  color:#7b8088;
+  font-size:11px;
+  white-space:nowrap;
+}
+
+.victim-source {
+  color:var(--red);
+  font-size:12px;
+}
+
+/* =========================================================
+   PORTRAIT WALL
+========================================================= */
+
+.portrait-intro {
+  background:#111b32;
+  color:#fff;
+  padding:35px;
+  margin-bottom:25px;
+}
+
+.portrait-intro h3 {
+  margin-top:0;
+  font-size:27px;
+}
+
+.portrait-intro p {
+  color:#dfe5ee;
+}
+
+.portrait-wall {
+  display:grid;
+  grid-template-columns:repeat(8,1fr);
+  gap:3px;
+  background:#111;
+  padding:3px;
+}
+
+.portrait-tile {
+  position:relative;
+  aspect-ratio:1/1;
+  background:#dfe3e8;
+  overflow:hidden;
+}
+
+.portrait-tile img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .25s ease;
+}
+
+.portrait-tile:hover img {
+  transform:scale(1.04);
+}
+
+.portrait-tile .portrait-name {
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:18px 7px 7px;
+  color:#fff;
+  font-size:10px;
+  line-height:1.2;
+  background:linear-gradient(transparent,rgba(0,0,0,.85));
+  opacity:0;
+  transition:opacity .2s ease;
+}
+
+.portrait-tile:hover .portrait-name {
+  opacity:1;
+}
+
+/* =========================================================
+   VICTIM PROFILE STREAM
+========================================================= */
+
+.profile-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.profile-card {
+  background:#fff;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.profile-image {
+  aspect-ratio:4/3;
+  background:#e4e7eb;
+  overflow:hidden;
+}
+
+.profile-image img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.profile-content {
+  padding:20px;
+}
+
+.profile-content h3 {
+  margin:0 0 5px;
+  color:var(--navy);
+}
+
+.profile-meta {
+  color:var(--gray);
+  font-size:13px;
+}
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline {
+  border-left:4px solid var(--red);
+  padding-left:28px;
+}
+
+.timeline-item {
+  position:relative;
+  margin-bottom:18px;
+  padding:22px;
+  background:#fff;
+  border:1px solid var(--border);
+  box-shadow:0 3px 10px rgba(0,0,0,.04);
+}
+
+.timeline-item::before {
+  content:"";
+  position:absolute;
+  left:-39px;
+  top:24px;
+  width:18px;
+  height:18px;
+  background:var(--red);
+  border:4px solid var(--cream);
+  border-radius:50%;
+}
+
+.timeline-time {
+  color:var(--red);
+  font-weight:bold;
+  font-size:13px;
+}
+
+.timeline-item h3 {
   margin:4px 0 8px;
   color:var(--navy);
-  font-size:22px;
 }
 
-.timeline-entry p{
-  margin:0;
-  color:#444a52;
-}
+/* =========================================================
+   COLLECTION CARDS
+========================================================= */
 
-/* =========================
-   AUDIO
-========================= */
-
-.audio-grid{
+.collection-grid {
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:20px;
 }
 
-.audio-card{
-  padding:25px;
+.collection-card {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:27px;
+  box-shadow:0 3px 12px rgba(0,0,0,.04);
 }
 
-.audio-card h3{
-  margin:0 0 7px;
+.collection-card h3 {
+  margin-top:0;
   color:var(--navy);
 }
 
-.audio-card p{
-  color:var(--muted);
+.collection-card p {
+  color:#4c5158;
 }
 
-.audio-card audio{
+.source-type {
+  color:var(--red);
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:1.3px;
+  text-transform:uppercase;
+}
+
+/* =========================================================
+   AUDIO
+========================================================= */
+
+.audio-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.audio-card {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:25px;
+  box-shadow:var(--shadow);
+}
+
+.audio-card h3 {
+  margin-top:0;
+  color:var(--navy);
+}
+
+.audio-card p {
+  color:#50555c;
+}
+
+.audio-card audio {
   width:100%;
   margin-top:12px;
 }
 
-.audio-meta{
-  margin-top:9px;
-  font-size:11px;
-  color:#737982;
-}
-
-/* =========================
-   VIDEO
-========================= */
-
-.video-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:25px;
-}
-
-.video-card{
-  padding:12px;
-}
-
-.video-frame{
-  position:relative;
+.embedded-player {
   width:100%;
-  aspect-ratio:16/9;
+  min-height:390px;
+  border:1px solid var(--border);
+  background:#111;
+}
+
+.player-note {
+  margin-top:9px;
+  color:#777d85;
+  font-size:12px;
+}
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+.video-grid {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:28px;
+}
+
+.video-record {
+  background:#fff;
+  padding:14px;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+}
+
+.video-wrapper {
+  position:relative;
+  height:0;
+  padding-bottom:56.25%;
+  overflow:hidden;
   background:#000;
 }
 
-.video-frame iframe{
+.video-wrapper iframe {
   position:absolute;
   inset:0;
   width:100%;
@@ -524,262 +742,279 @@ img{
   border:0;
 }
 
-/* =========================
-   PORTRAIT / PEOPLE FEATURE
-========================= */
+/* =========================================================
+   HEALTH / RECOVERY
+========================================================= */
 
-.people-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+.health-panel {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:34px;
+  box-shadow:var(--shadow);
 }
 
-.people-card{
-  overflow:hidden;
-}
-
-.people-card img{
-  width:100%;
-  aspect-ratio:4/3;
-  object-fit:cover;
-  display:block;
-}
-
-.people-card-content{
-  padding:22px;
-}
-
-.people-card h3{
-  margin:0 0 8px;
-  color:var(--navy);
-}
-
-/* =========================
-   TEXT PANELS
-========================= */
-
-.dark-panel{
-  padding:40px;
-  background:linear-gradient(135deg,#07152f,#102d5d);
-  color:#fff;
-  border-top:6px solid var(--red);
-}
-
-.dark-panel h3{
+.health-panel h3 {
   margin-top:0;
-  font-size:28px;
+  color:var(--navy);
+  font-size:27px;
 }
 
-.dark-panel p{
-  color:#dce4ee;
+.health-highlight {
+  margin:25px 0;
+  padding:22px;
+  background:#f0f2f5;
+  border-left:5px solid var(--red);
 }
 
-.highlight{
-  margin-top:25px;
-  padding:20px;
-  background:rgba(255,255,255,.07);
-  border-left:4px solid var(--gold);
-}
-
-/* =========================
-   COLLECTIONS
-========================= */
-
-.collection-grid{
+.health-grid {
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:20px;
-}
-
-.collection-card{
-  padding:26px;
-}
-
-.collection-card h3{
-  margin:0 0 9px;
-  color:var(--navy);
-}
-
-.collection-card p{
-  color:#4d535c;
-}
-
-.source-label{
-  margin-bottom:8px;
-  color:var(--red);
-  font-size:11px;
-  font-weight:bold;
-  text-transform:uppercase;
-  letter-spacing:1.3px;
-}
-
-.button{
-  display:inline-block;
-  margin-top:10px;
-  padding:10px 15px;
-  background:var(--navy);
-  color:#fff;
-  font-size:13px;
-  font-weight:bold;
-}
-
-.button:hover{
-  background:var(--blue);
-  color:#fff;
-  text-decoration:none;
-}
-
-.button.red{
-  background:var(--red);
-}
-
-.button.red:hover{
-  background:var(--red2);
-}
-
-/* =========================
-   RESEARCH
-========================= */
-
-.research-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
   gap:18px;
 }
 
-.research-card{
-  padding:24px;
+.health-card {
+  border:1px solid var(--border);
+  padding:20px;
 }
 
-.research-card h3{
-  margin:0 0 8px;
+.health-card h4 {
+  margin-top:0;
   color:var(--navy);
 }
 
-.research-card p{
-  color:#555b63;
+/* =========================================================
+   IMMIGRANT WORKERS
+========================================================= */
+
+.immigrant-section {
+  background:linear-gradient(135deg,#101a30,#0b1f4d);
+  color:#fff;
+  padding:42px;
+  border-top:6px solid var(--red);
 }
 
-/* =========================
-   SOURCE DIRECTORY
-========================= */
+.immigrant-section h3 {
+  margin-top:0;
+  font-size:29px;
+}
 
-.sources{
+.immigrant-section p {
+  color:#e0e6ef;
+}
+
+.immigrant-facts {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:rgba(255,255,255,.14);
+  margin-top:28px;
+}
+
+.immigrant-fact {
+  background:rgba(255,255,255,.05);
+  padding:20px;
+}
+
+.immigrant-fact strong {
+  display:block;
+  margin-bottom:6px;
+}
+
+/* =========================================================
+   GOVERNMENT RECORDS / SOURCES
+========================================================= */
+
+.source-list {
   display:grid;
   gap:12px;
 }
 
-.source-row{
-  padding:20px;
+.source-entry {
   background:#fff;
-  border:1px solid var(--line);
+  border:1px solid var(--border);
+  padding:21px 24px;
 }
 
-.source-row h3{
+.source-entry h3 {
   margin:0 0 5px;
   color:var(--navy);
+  font-size:18px;
 }
 
-.source-row p{
-  margin:0;
-  color:var(--muted);
+.source-entry p {
+  margin:0 0 7px;
+  color:var(--gray);
   font-size:14px;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* =========================================================
+   ARCHIVE NOTE
+========================================================= */
 
-footer{
-  padding:45px 20px;
-  text-align:center;
-  background:var(--navy);
+.archive-note {
+  background:#f0f1f3;
+  border:1px solid #cdd1d6;
+  padding:25px;
+  color:#454a50;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+  background:var(--navy-dark);
   color:#fff;
+  text-align:center;
+  padding:45px 20px;
   border-top:6px solid var(--red);
 }
 
-footer p{
-  margin:5px 0;
-}
-
-.footer-small{
+.footer-small {
   max-width:850px;
-  margin:15px auto 0!important;
-  color:#c9d2df;
+  margin:15px auto 0;
+  color:#c4ccda;
   font-size:12px;
 }
 
-/* =========================
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading {
+  padding:35px;
+  text-align:center;
+  color:var(--gray);
+}
+
+.loading strong {
+  display:block;
+  margin-bottom:5px;
+  color:var(--navy);
+}
+
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
-@media(max-width:1000px){
-  .victim-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
+@media (max-width:900px) {
 
-  .people-grid,
-  .research-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-@media(max-width:750px){
-  .stats{
+  .memorial-stats {
     grid-template-columns:repeat(2,1fr);
   }
 
-  .victim-grid{
+  .profile-grid {
     grid-template-columns:repeat(2,1fr);
   }
 
-  .audio-grid,
-  .video-grid,
+  .portrait-wall {
+    grid-template-columns:repeat(5,1fr);
+  }
+
+  .victim-list {
+    grid-template-columns:1fr;
+  }
+
   .collection-grid,
-  .people-grid,
-  .research-grid{
+  .audio-grid,
+  .health-grid {
     grid-template-columns:1fr;
   }
 
-  .dark-panel{
-    padding:28px 22px;
+  .immigrant-facts {
+    grid-template-columns:1fr;
   }
 }
 
-@media(max-width:480px){
-  .victim-grid{
-    grid-template-columns:1fr;
+@media (max-width:600px) {
+
+  header {
+    padding:100px 18px 55px;
   }
 
-  .hero{
-    padding:115px 18px 65px;
-  }
-
-  .hero p{
+  header p {
     font-size:16px;
   }
 
-  .section{
-    padding:50px 0;
+  .archive-section {
+    padding-left:15px;
+    padding-right:15px;
+  }
+
+  .memorial-stats {
+    margin-left:15px;
+    margin-right:15px;
+    padding:0;
+  }
+
+  .stat-number {
+    font-size:27px;
+  }
+
+  .memorial-panel,
+  .immigrant-section,
+  .health-panel {
+    padding:25px 20px;
+  }
+
+  .portrait-wall {
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .profile-grid {
+    grid-template-columns:1fr;
+  }
+
+  .timeline {
+    padding-left:20px;
+  }
+
+  .timeline-item::before {
+    left:-31px;
+  }
+
+  .victim-row {
+    grid-template-columns:50px 1fr;
+  }
+
+  .victim-panel {
+    display:none;
+  }
+
+  .alphabet {
+    gap:4px;
+  }
+
+  .alphabet button {
+    min-width:31px;
+    padding:6px 7px;
   }
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- =========================
-     SIDE NAVIGATION
-========================= -->
+<a class="skip-link" href="#main-content">
+Skip to main content
+</a>
+
+<!-- =========================================================
+     SIDE MENU
+========================================================= -->
 
 <button
   class="menu-button"
   id="menuButton"
-  aria-label="Open archive navigation"
-  aria-expanded="false">
+  aria-label="Open menu"
+  aria-expanded="false"
+  type="button">
+
   <span></span>
   <span></span>
   <span></span>
+
 </button>
 
 <div class="menu-overlay" id="menuOverlay"></div>
@@ -788,1096 +1023,792 @@ footer p{
 
   <div class="menu-header">
     <h2>The Historical Record</h2>
-    <p>September 11, 2001</p>
+    <p>September 11, 2001 Memorial & Archive</p>
   </div>
 
-  <div class="menu-label">Archive</div>
+  <nav>
 
-  <a href="#top">Home</a>
-  <a href="#victims">Victims</a>
-  <a href="#portraits">Portraits & People</a>
-  <a href="#timeline">September 11 Timeline</a>
-  <a href="#voices">Voices & Oral Histories</a>
-  <a href="#audio">Audio Archive</a>
-  <a href="#videos">Video Archive</a>
-  <a href="#photographs">Photographic Record</a>
-  <a href="#recovery">Rescue & Recovery</a>
-  <a href="#immigrant-workers">Immigrant Workers</a>
-  <a href="#health">Long-Term Health</a>
-  <a href="#government">Government Records</a>
-  <a href="#sources">Sources</a>
+    <div class="menu-label">The Archive</div>
 
-  <div class="menu-label">External Archive</div>
+    <a href="index.html">Home</a>
+    <a href="search.html">Search the Archive</a>
+    <a href="archive.html">The Archive</a>
 
-  <a
-    href="https://www.911memorial.org/visit/memorial/names-911-memorial"
-    target="_blank"
-    rel="noopener noreferrer">
-    Official Memorial Names
-  </a>
+    <div class="menu-label">September 11</div>
 
-  <a
-    href="https://collection.911memorial.org/"
-    target="_blank"
-    rel="noopener noreferrer">
-    9/11 Memorial Collection
-  </a>
+    <a href="#top">September 11, 2001</a>
+    <a href="#memorial">The Memorial</a>
+    <a href="#victims">Victims</a>
+    <a href="#portraits">Faces & Photographs</a>
+    <a href="#timeline">Full Timeline</a>
+    <a href="#voices">Voices & Oral Histories</a>
+    <a href="#recovery">Recovery & Health</a>
+    <a href="#immigrant-workers">Immigrant Workers</a>
+    <a href="#government-records">Government Records</a>
+    <a href="#videos">Video Record</a>
+    <a href="#audio">Audio Record</a>
+    <a href="#sources">Sources</a>
 
-  <a
-    href="https://www.loc.gov/"
-    target="_blank"
-    rel="noopener noreferrer">
-    Library of Congress
-  </a>
+    <div class="menu-label">Other Sections</div>
 
-  <a
-    href="https://www.archives.gov/research/9-11"
-    target="_blank"
-    rel="noopener noreferrer">
-    National Archives
-  </a>
+    <a href="entertainment-sports.html">Entertainment / Sports</a>
+    <a href="world-events.html">World Events</a>
+    <a href="social-media.html">Social Media</a>
+    <a href="thoughts.html">Thoughts / Blog</a>
+
+  </nav>
 
 </aside>
 
-<!-- =========================
+<!-- =========================================================
      HERO
-========================= -->
+========================================================= -->
 
-<header class="hero" id="top">
+<header id="top">
 
-  <div class="hero-inner">
+  <p class="eyebrow">
+    THE HISTORICAL RECORD • SEPTEMBER 11, 2001
+  </p>
 
-    <p class="hero-kicker">
-      THE HISTORICAL RECORD
-    </p>
+  <h1>
+    September 11, 2001
+  </h1>
 
-    <h1>
-      September 11, 2001
-    </h1>
-
-    <div class="hero-date">
-      A historical archive of the day, the people and the aftermath
-    </div>
-
-    <p>
-      A living record bringing together the people who were killed,
-      their photographs and memories, the events of the day, voices of
-      survivors and responders, contemporary media, government records,
-      recovery work and the continuing history of September 11.
-    </p>
-
-  </div>
+  <p>
+    A living historical record of the people, events, voices,
+    photographs, evidence and aftermath of September 11.
+  </p>
 
 </header>
 
-<main>
+<main id="main-content">
 
-<!-- =========================
+<!-- =========================================================
      INTRO
-========================= -->
+========================================================= -->
 
-<section class="intro">
+<section class="archive-intro">
 
   <h2>
-    September 11, 2001
+    September 11, preserved in one place
   </h2>
 
   <p>
-    This archive brings the historical record together on one page.
-    Names, photographs, testimony, recordings, video, documents and
-    chronology are presented together with links to the institutions
-    that preserve the underlying records.
+    This archive brings the names, faces, memories, chronology,
+    photographs, oral histories, video, audio and documentary record
+    together on this page rather than making the visitor assemble the
+    history from a collection of disconnected destinations.
   </p>
 
 </section>
 
-<!-- =========================
+<!-- =========================================================
      KEY NUMBERS
-========================= -->
+========================================================= -->
 
-<div class="container">
+<section class="memorial-stats">
 
-  <div class="stats">
-
-    <div class="stat">
-      <span class="stat-number">2,977</span>
-      <span class="stat-label">People killed on September 11, 2001</span>
-    </div>
-
-    <div class="stat">
-      <span class="stat-number">2,753</span>
-      <span class="stat-label">People killed in New York</span>
-    </div>
-
-    <div class="stat">
-      <span class="stat-number">184</span>
-      <span class="stat-label">People killed at the Pentagon</span>
-    </div>
-
-    <div class="stat">
-      <span class="stat-number">40</span>
-      <span class="stat-label">People killed aboard Flight 93</span>
-    </div>
-
+  <div class="stat">
+    <span class="stat-number">2,977</span>
+    <span class="stat-label">People killed on September 11, 2001</span>
   </div>
 
-</div>
+  <div class="stat">
+    <span class="stat-number">2,753</span>
+    <span class="stat-label">People killed in New York</span>
+  </div>
 
-<!-- =========================
-     VICTIMS
-========================= -->
+  <div class="stat">
+    <span class="stat-number">184</span>
+    <span class="stat-label">People killed at the Pentagon</span>
+  </div>
 
-<section class="section" id="victims">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <h2>
-        The Victims
-      </h2>
-
-      <p>
-        The names as inscribed on the National September 11 Memorial.
-      </p>
-
-    </div>
-
-    <div class="victim-controls">
-
-      <input
-        id="victimSearch"
-        class="victim-search"
-        type="search"
-        placeholder="Search the names..."
-        aria-label="Search victim names">
-
-      <div class="letters" id="letterNav">
-
-        <button data-letter="ALL">ALL</button>
-        <button data-letter="A">A</button>
-        <button data-letter="B">B</button>
-        <button data-letter="C">C</button>
-        <button data-letter="D">D</button>
-        <button data-letter="E">E</button>
-        <button data-letter="F">F</button>
-        <button data-letter="G">G</button>
-        <button data-letter="H">H</button>
-        <button data-letter="I">I</button>
-        <button data-letter="J">J</button>
-        <button data-letter="K">K</button>
-        <button data-letter="L">L</button>
-        <button data-letter="M">M</button>
-        <button data-letter="N">N</button>
-        <button data-letter="O">O</button>
-        <button data-letter="P">P</button>
-        <button data-letter="Q">Q</button>
-        <button data-letter="R">R</button>
-        <button data-letter="S">S</button>
-        <button data-letter="T">T</button>
-        <button data-letter="U">U</button>
-        <button data-letter="V">V</button>
-        <button data-letter="W">W</button>
-        <button data-letter="Y">Y</button>
-        <button data-letter="Z">Z</button>
-
-      </div>
-
-      <div class="victim-count" id="victimCount">
-        Loading the Memorial directory...
-      </div>
-
-    </div>
-
-    <div
-      id="victimLoading"
-      class="archive-loading">
-      Loading the official Memorial names...
-    </div>
-
-    <div
-      id="victimGrid"
-      class="victim-grid"
-      aria-live="polite">
-    </div>
-
-    <div
-      id="noResults"
-      class="no-results">
-      No matching name was found.
-    </div>
-
+  <div class="stat">
+    <span class="stat-number">40</span>
+    <span class="stat-label">People killed aboard Flight 93</span>
   </div>
 
 </section>
 
-<!-- =========================
-     PORTRAITS
-========================= -->
+<!-- =========================================================
+     MEMORIAL
+========================================================= -->
 
-<section class="section" id="portraits">
+<section class="archive-section" id="memorial">
 
-  <div class="container">
-
-    <div class="section-title">
-
-      <h2>
-        Portraits & People
-      </h2>
-
-      <p>
-        The Memorial Museum's In Memoriam exhibition preserves portrait
-        photographs of the people killed on September 11 and in the 1993
-        World Trade Center bombing.
-      </p>
-
-    </div>
-
-    <div class="dark-panel">
-
-      <h3>
-        The portrait record
-      </h3>
-
-      <p>
-        The National September 11 Memorial & Museum's In Memoriam exhibition
-        contains 2,983 portrait photographs honoring those killed in the
-        September 11, 2001 attacks and the February 26, 1993 World Trade
-        Center bombing.
-      </p>
-
-      <p>
-        The Memorial's portrait project has also documented the search for
-        photographs that were initially unavailable. The Museum reported
-        that the portraits of Albert Ogletree and Antonio Dorsey Pratt were
-        ultimately found and installed in 2022.
-      </p>
-
-      <div class="highlight">
-
-        <strong>
-          The complete portrait collection belongs to the Memorial Museum.
-        </strong>
-
-        <br>
-
-        This archive links visitors to the institution's portrait collection
-        rather than copying or falsely attributing photographs whose
-        underlying rights and archival records belong elsewhere.
-
-      </div>
-
-      <a
-        class="button red"
-        href="https://www.911memorial.org/visit/museum/exhibitions/in-memoriam"
-        target="_blank"
-        rel="noopener noreferrer">
-        Open In Memoriam
-      </a>
-
-    </div>
-
+  <div class="section-heading">
+    <h2>The Memorial</h2>
+    <p>The people whose names are inscribed at the Memorial.</p>
   </div>
 
-</section>
+  <div class="memorial-panel">
 
-<!-- =========================
-     FULL TIMELINE
-========================= -->
+    <h3>2,977 people</h3>
 
-<section class="section" id="timeline">
+    <p>
+      The September 11 attacks killed 2,977 people in New York,
+      at the Pentagon and aboard United Airlines Flight 93.
+    </p>
 
-  <div class="container">
+    <p>
+      Their names are permanently inscribed around the two Memorial pools.
+      The National September 11 Memorial & Museum arranged the names using
+      relationships between victims, locations, affiliations, flight crews,
+      first responder agencies and requests from families.
+    </p>
 
-    <div class="section-title">
-
-      <h2>
-        September 11, 2001: The Day
-      </h2>
-
-      <p>
-        A detailed chronology from the early morning through the President's
-        8:30 p.m. address.
-      </p>
-
-    </div>
-
-    <div class="timeline">
-
-      <article class="timeline-entry">
-        <div class="timeline-time">5:45 a.m. EDT</div>
-        <h3>Hijackers begin moving through airport security</h3>
-        <p>
-          The first group of hijackers begins moving through security at
-          Portland International Jetport and Logan International Airport
-          as the four aircraft involved in the attacks are prepared for
-          their scheduled flights.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">6:00 a.m.</div>
-        <h3>American Airlines Flight 11 crew reports for duty</h3>
-        <p>
-          Flight 11 is scheduled to depart Boston for Los Angeles.
-          Passengers and crew begin boarding.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">6:30 a.m.</div>
-        <h3>United Airlines Flight 175 crew prepares for departure</h3>
-        <p>
-          Flight 175 is scheduled for the same Boston-to-Los Angeles route.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">7:00 a.m.</div>
-        <h3>Flight 77 and Flight 93 passengers begin boarding</h3>
-        <p>
-          American Airlines Flight 77 is scheduled from Washington Dulles
-          to Los Angeles. United Airlines Flight 93 is scheduled from
-          Newark to San Francisco.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">7:59 a.m.</div>
-        <h3>American Airlines Flight 11 departs Boston</h3>
-        <p>
-          Flight 11 takes off from Boston Logan International Airport
-          carrying passengers and crew bound for Los Angeles.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">8:14 a.m.</div>
-        <h3>United Airlines Flight 175 departs Boston</h3>
-        <p>
-          Flight 175 leaves Logan Airport for Los Angeles.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">8:20 a.m.</div>
-        <h3>American Airlines Flight 77 departs Washington Dulles</h3>
-        <p>
-          Flight 77 leaves Dulles International Airport for Los Angeles.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">8:24 a.m.</div>
-        <h3>Hijacker communication is transmitted</h3>
-        <p>
-          Air traffic controllers receive an unintended transmission
-          associated with the hijacking of Flight 11.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">8:37 a.m.</div>
-        <h3>Boston Center contacts the military</h3>
-        <p>
-          Boston Center contacts the Northeast Air Defense Sector regarding
-          the hijacked aircraft.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">8:42 a.m.</div>
-        <h3>United Airlines Flight 93 departs Newark</h3>
-        <p>
-          Flight 93 leaves Newark International Airport for San Francisco,
-          approximately 40 minutes behind schedule.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">8:46:40 a.m.</div>
-        <h3>Flight 11 strikes the North Tower</h3>
-        <p>
-          American Airlines Flight 11 strikes the North Tower of the World
-          Trade Center between floors 93 and 99.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">8:50 a.m.</div>
-        <h3>President Bush is informed of the first crash</h3>
-        <p>
-          President George W. Bush is informed that an aircraft has struck
-          the World Trade Center while he is visiting Emma E. Booker
-          Elementary School in Sarasota, Florida.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">9:02:59 a.m.</div>
-        <h3>Flight 175 strikes the South Tower</h3>
-        <p>
-          United Airlines Flight 175 strikes the South Tower between
-          floors 77 and 85.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">9:05 a.m.</div>
-        <h3>The President is informed of the second impact</h3>
-        <p>
-          Andrew Card informs President Bush that a second aircraft has
-          struck the World Trade Center and that the United States is under
-          attack.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">9:25 a.m.</div>
-        <h3>The FAA halts all domestic departures</h3>
-        <p>
-          The Federal Aviation Administration issues a nationwide ground
-          stop for departures.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">9:30 a.m.</div>
-        <h3>President Bush speaks from Sarasota</h3>
-        <p>
-          The President announces that the United States is dealing with
-          an apparent terrorist attack and orders the full resources of
-          the federal government toward the response.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">9:37:46 a.m.</div>
-        <h3>Flight 77 strikes the Pentagon</h3>
-        <p>
-          American Airlines Flight 77 crashes into the Pentagon in
-          Arlington, Virginia.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">9:42 a.m.</div>
-        <h3>The FAA orders aircraft nationwide to land</h3>
-        <p>
-          The FAA orders all airborne civilian aircraft in the United States
-          to land at the nearest suitable airport.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">9:59 a.m.</div>
-        <h3>The South Tower collapses</h3>
-        <p>
-          The South Tower of the World Trade Center collapses after burning
-          for less than an hour following the impact of Flight 175.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">10:03:11 a.m.</div>
-        <h3>Flight 93 crashes near Shanksville</h3>
-        <p>
-          United Airlines Flight 93 crashes in a field near Shanksville,
-          Pennsylvania, after passengers and crew attempt to regain control
-          of the aircraft.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">10:15 a.m.</div>
-        <h3>A portion of the Pentagon collapses</h3>
-        <p>
-          A damaged section of the Pentagon collapses as emergency personnel
-          continue working inside and around the building.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">10:28 a.m.</div>
-        <h3>The North Tower collapses</h3>
-        <p>
-          The North Tower collapses approximately 102 minutes after Flight 11
-          struck the building.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">11:00 a.m.</div>
-        <h3>New York City remains in emergency response</h3>
-        <p>
-          Emergency services continue rescue, evacuation and recovery efforts
-          throughout Lower Manhattan.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">12:16 p.m.</div>
-        <h3>U.S. airspace is effectively cleared</h3>
-        <p>
-          The last known civilian aircraft still airborne under the nationwide
-          grounding order is directed toward landing.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">1:00 p.m.</div>
-        <h3>Federal response expands</h3>
-        <p>
-          Federal, state and local authorities continue coordinating the
-          emergency response, evacuation and investigation.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">2:51 p.m.</div>
-        <h3>President Bush arrives at Offutt Air Force Base</h3>
-        <p>
-          The President receives continuing intelligence and national-security
-          briefings while the White House coordinates the federal response.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">5:20 p.m.</div>
-        <h3>World Trade Center Building 7 collapses</h3>
-        <p>
-          Seven World Trade Center collapses after burning for hours.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">7:15 p.m.</div>
-        <h3>Evening federal briefing</h3>
-        <p>
-          Attorney General John Ashcroft, Health and Human Services Secretary
-          Tommy Thompson, Transportation Secretary Norman Mineta and FEMA
-          Director Joe Allbaugh participate in an evening briefing.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">8:30 p.m.</div>
-        <h3>The President addresses the nation</h3>
-        <p>
-          President Bush speaks from the Oval Office. He describes the attacks,
-          acknowledges the victims, explains that emergency teams are working
-          in New York and Washington, and tells the country that the federal
-          government has activated its emergency response plans.
-        </p>
-      </article>
-
-      <article class="timeline-entry">
-        <div class="timeline-time">8:35 p.m.</div>
-        <h3>The address ends</h3>
-        <p>
-          The President concludes his September 11 address to the nation.
-        </p>
-      </article>
-
-    </div>
-
-    <p style="margin-top:25px;color:#626974;font-size:13px;">
-      Chronology sources include the National Commission on Terrorist Attacks
-      Upon the United States, federal records, the George W. Bush Presidential
-      Records and the National Archives.
+    <p>
+      The official Memorial list is used by this archive as the authoritative
+      source for the spelling and ordering of the names.
     </p>
 
   </div>
 
 </section>
 
-<!-- =========================
+<!-- =========================================================
+     COMPLETE NAMES
+========================================================= -->
+
+<section class="archive-section" id="victims">
+
+  <div class="section-heading">
+
+    <h2>Every Name</h2>
+
+    <p>
+      The complete alphabetical memorial roll is displayed directly below.
+    </p>
+
+  </div>
+
+  <div class="victim-roll-shell">
+
+    <div class="victim-roll-top">
+
+      <div
+        class="alphabet"
+        id="alphabet"
+        aria-label="Jump to victim names by letter">
+      </div>
+
+      <div class="victim-count" id="victimCount">
+        Loading the complete memorial list…
+      </div>
+
+    </div>
+
+    <div
+      class="victim-roll"
+      id="victimRoll">
+
+      <div class="loading">
+        <strong>Loading the memorial names</strong>
+        The official National September 11 Memorial & Museum list is being
+        placed directly into this page.
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+     FACES
+========================================================= -->
+
+<section class="archive-section" id="portraits">
+
+  <div class="section-heading">
+
+    <h2>Faces & Photographs</h2>
+
+    <p>
+      Portraits and family photographs from the 9/11 Living Memorial.
+    </p>
+
+  </div>
+
+  <div class="portrait-intro">
+
+    <h3>
+      A portrait wall rather than a blank directory
+    </h3>
+
+    <p>
+      The National September 11 Memorial & Museum's In Memoriam exhibition
+      presents portraits of the 2,983 people honored by the Museum. VOICES
+      maintains a separate Living Memorial containing more than 87,000
+      photographs contributed by families and friends.
+    </p>
+
+    <p>
+      The gallery below retrieves individual remembrance photographs from
+      those memorial records when a corresponding portrait is available.
+      Images are loaded progressively so that thousands of records do not
+      cause the page to freeze or produce a wall of broken images.
+    </p>
+
+  </div>
+
+  <div
+    class="portrait-wall"
+    id="portraitWall">
+
+    <div class="loading">
+      Loading portraits…
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+     FEATURED VICTIM PROFILES
+========================================================= -->
+
+<section class="archive-section">
+
+  <div class="section-heading">
+
+    <h2>Selected Lives & Remembrances</h2>
+
+    <p>
+      Examples of the personal material preserved in the Living Memorial.
+    </p>
+
+  </div>
+
+  <div class="profile-grid" id="featuredProfiles">
+
+    <article class="profile-card">
+
+      <div class="profile-image">
+        <img
+          src="https://voicescenter.org/sites/default/files/victim/V00002/12RXW5KJPRGTM19QUC14D_V00002.jpg"
+          alt="Gordon M. Aamoth Jr.">
+      </div>
+
+      <div class="profile-content">
+
+        <h3>
+          Gordon M. Aamoth Jr.
+        </h3>
+
+        <div class="profile-meta">
+          Age 32 · Two World Trade Center
+        </div>
+
+        <p>
+          Investment banker at Sandler O'Neil & Partners.
+        </p>
+
+        <a
+          class="button"
+          href="https://voicescenter.org/living-memorial/victim/gordon-m-aamoth-jr"
+          target="_blank"
+          rel="noopener noreferrer">
+          Memorial record
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="profile-card">
+
+      <div class="profile-image">
+        <img
+          src="https://voicescenter.org/sites/default/files/styles/large/public/victim/V00000/"
+          alt=""
+          onerror="this.closest('.profile-image').style.display='none';">
+      </div>
+
+      <div class="profile-content">
+
+        <h3>
+          Antonio Dorsey Pratt
+        </h3>
+
+        <div class="profile-meta">
+          Age 43 · One World Trade Center
+        </div>
+
+        <p>
+          Forte Food Service food-service worker on the 101st floor of the
+          North Tower.
+        </p>
+
+        <a
+          class="button"
+          href="https://voicescenter.org/living-memorial/victim/antonio-dorsey-pratt"
+          target="_blank"
+          rel="noopener noreferrer">
+          Memorial record
+        </a>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+     FULL TIMELINE
+========================================================= -->
+
+<section class="archive-section" id="timeline">
+
+  <div class="section-heading">
+
+    <h2>September 11, 2001: The Day</h2>
+
+    <p>
+      A chronological record from the first impact through the President's
+      address to the nation that evening.
+    </p>
+
+  </div>
+
+  <div class="timeline">
+
+    <article class="timeline-item">
+      <div class="timeline-time">7:59 a.m.</div>
+      <h3>American Airlines Flight 11 departs Boston</h3>
+      <p>
+        Flight 11 leaves Boston Logan International Airport bound for Los Angeles.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">8:14 a.m.</div>
+      <h3>United Airlines Flight 175 departs Boston</h3>
+      <p>
+        Flight 175 leaves Boston Logan for Los Angeles.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">8:20 a.m.</div>
+      <h3>American Airlines Flight 77 departs Washington</h3>
+      <p>
+        Flight 77 leaves Washington Dulles International Airport for Los Angeles.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">8:42 a.m.</div>
+      <h3>United Airlines Flight 93 departs Newark</h3>
+      <p>
+        Flight 93 leaves Newark International Airport for San Francisco.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">8:46:40 a.m.</div>
+      <h3>Flight 11 strikes the North Tower</h3>
+      <p>
+        American Airlines Flight 11 crashes into floors 93 through 99 of
+        the North Tower of the World Trade Center.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">8:50 a.m.</div>
+      <h3>The President is informed</h3>
+      <p>
+        President George W. Bush is informed that a plane has struck the
+        World Trade Center while visiting Emma E. Booker Elementary School
+        in Sarasota, Florida.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">9:03:11 a.m.</div>
+      <h3>Flight 175 strikes the South Tower</h3>
+      <p>
+        United Airlines Flight 175 crashes into floors 77 through 85 of
+        the South Tower.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">9:05 a.m.</div>
+      <h3>The President is told America is under attack</h3>
+      <p>
+        White House Chief of Staff Andrew Card informs President Bush that
+        a second aircraft has struck the World Trade Center.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">9:17 a.m.</div>
+      <h3>Nationwide ground stop</h3>
+      <p>
+        The FAA orders a nationwide ground stop, preventing additional
+        aircraft from departing U.S. airports.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">9:24 a.m.</div>
+      <h3>Flight 77 is identified as hijacked</h3>
+      <p>
+        FAA personnel receive information indicating that American Airlines
+        Flight 77 has been hijacked.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">9:37:46 a.m.</div>
+      <h3>Flight 77 strikes the Pentagon</h3>
+      <p>
+        American Airlines Flight 77 crashes into the Pentagon in Arlington,
+        Virginia.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">9:42 a.m.</div>
+      <h3>Aircraft are ordered to land</h3>
+      <p>
+        The FAA orders all aircraft operating in U.S. airspace to land at
+        the nearest suitable airport.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">9:45 a.m.</div>
+      <h3>The White House is evacuated</h3>
+      <p>
+        The White House and other federal buildings are evacuated as
+        authorities respond to the attacks.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">9:59 a.m.</div>
+      <h3>The South Tower collapses</h3>
+      <p>
+        The South Tower collapses approximately 56 minutes after being
+        struck by Flight 175.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">10:03:11 a.m.</div>
+      <h3>Flight 93 crashes in Pennsylvania</h3>
+      <p>
+        United Airlines Flight 93 crashes into a field near Shanksville,
+        Pennsylvania, after passengers and crew attempt to regain control
+        of the aircraft.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">10:28 a.m.</div>
+      <h3>The North Tower collapses</h3>
+      <p>
+        The North Tower collapses approximately 102 minutes after it was
+        struck by Flight 11.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">11:00 a.m.</div>
+      <h3>Lower Manhattan is evacuated</h3>
+      <p>
+        Authorities continue the evacuation and emergency response as
+        lower Manhattan remains covered by dust and debris.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">12:15 p.m.</div>
+      <h3>U.S. commercial airspace is largely empty</h3>
+      <p>
+        The nationwide grounding of commercial aviation has transformed the
+        normally crowded American skies.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">1:00 p.m.</div>
+      <h3>The national response continues</h3>
+      <p>
+        Federal, state and local authorities coordinate emergency response,
+        aviation restrictions, security measures and recovery operations.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">1:30 p.m.</div>
+      <h3>The President speaks from Barksdale Air Force Base</h3>
+      <p>
+        President Bush tells reporters that the United States has suffered
+        an apparent terrorist attack and that the country will respond.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">2:50 p.m.</div>
+      <h3>The President arrives at Offutt Air Force Base</h3>
+      <p>
+        President Bush is transported to Strategic Air Command headquarters
+        at Offutt Air Force Base in Nebraska.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">4:30 p.m.</div>
+      <h3>The President leaves Offutt</h3>
+      <p>
+        President Bush departs Nebraska and returns toward Washington.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">7:00 p.m. onward</div>
+      <h3>Washington prepares for the President's address</h3>
+      <p>
+        The President returns to the White House as the country remains
+        under heightened security and the rescue and recovery effort
+        continues at the attack sites.
+      </p>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-time">8:30 p.m.</div>
+      <h3>The President addresses the nation</h3>
+      <p>
+        President Bush speaks from the White House, confirms that the
+        United States has suffered terrorist attacks and announces that
+        the country will pursue those responsible and those who harbor them.
+      </p>
+    </article>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
      VOICES
-========================= -->
+========================================================= -->
 
-<section class="section" id="voices">
+<section class="archive-section" id="voices">
 
-  <div class="container">
+  <div class="section-heading">
 
-    <div class="section-title">
+    <h2>Voices</h2>
 
-      <h2>
-        Voices
-      </h2>
+    <p>
+      Survivors, responders, family members and witnesses speaking about
+      what happened and what followed.
+    </p>
+
+  </div>
+
+  <div class="collection-grid">
+
+    <article class="collection-card">
+
+      <div class="source-type">VOICES</div>
+
+      <h3>9/11 Living Memorial</h3>
 
       <p>
-        Survivors, responders, family members, witnesses and people documenting
-        the aftermath in their own words.
+        The Living Memorial preserves victim remembrances, photographs,
+        family materials, stories and personal histories.
       </p>
 
-    </div>
+      <a
+        class="button red"
+        href="https://voicescenter.org/living-memorial/victim-remembrances"
+        target="_blank"
+        rel="noopener noreferrer">
+        Living Memorial
+      </a>
 
-    <div class="collection-grid">
+    </article>
 
-      <article class="collection-card card">
+    <article class="collection-card">
 
-        <div class="source-label">9/11 Memorial & Museum</div>
+      <div class="source-type">Library of Congress</div>
 
-        <h3>Oral Histories</h3>
+      <h3>Benjamin Luft Collection</h3>
 
-        <p>
-          Recorded interviews with survivors, responders, family members
-          and others whose lives were affected by September 11.
-        </p>
+      <p>
+        The Library of Congress preserves hundreds of oral histories with
+        responders and family members documenting their experiences.
+      </p>
 
-        <a
-          class="button red"
-          href="https://www.911memorial.org/learn/resources/oral-histories"
-          target="_blank"
-          rel="noopener noreferrer">
-          Explore Oral Histories
-        </a>
+      <a
+        class="button"
+        href="https://www.loc.gov/collections/benjamin-luft-collection-of-9-11-oral-histories/about-this-collection/"
+        target="_blank"
+        rel="noopener noreferrer">
+        Collection
+      </a>
 
-      </article>
-
-      <article class="collection-card card">
-
-        <div class="source-label">Library of Congress</div>
-
-        <h3>September 11 Documentary Project</h3>
-
-        <p>
-          Interviews, photographs, written accounts and recordings collected
-          from people documenting their reactions and experiences after the
-          attacks.
-        </p>
-
-        <a
-          class="button"
-          href="https://www.loc.gov/collections/september-11th-2001-documentary-project/"
-          target="_blank"
-          rel="noopener noreferrer">
-          Explore the Collection
-        </a>
-
-      </article>
-
-      <article class="collection-card card">
-
-        <div class="source-label">Library of Congress</div>
-
-        <h3>Benjamin Luft Collection</h3>
-
-        <p>
-          A major oral-history collection documenting responders, survivors,
-          family members and others connected to the World Trade Center
-          response.
-        </p>
-
-        <a
-          class="button"
-          href="https://www.loc.gov/collections/benjamin-luft-collection-of-9-11-oral-histories/"
-          target="_blank"
-          rel="noopener noreferrer">
-          Explore the Collection
-        </a>
-
-      </article>
-
-      <article class="collection-card card">
-
-        <div class="source-label">Library of Congress</div>
-
-        <h3>September 11 Web Archive</h3>
-
-        <p>
-          Websites preserved from governments, news organizations, charities,
-          schools, civic groups and individuals responding to the attacks.
-        </p>
-
-        <a
-          class="button"
-          href="https://www.loc.gov/collections/september-11-2001-web-archive/"
-          target="_blank"
-          rel="noopener noreferrer">
-          Explore the Web Archive
-        </a>
-
-      </article>
-
-    </div>
+    </article>
 
   </div>
 
 </section>
 
-<!-- =========================
+<!-- =========================================================
      AUDIO
-========================= -->
+========================================================= -->
 
-<section class="section" id="audio">
+<section class="archive-section" id="audio">
 
-  <div class="container">
+  <div class="section-heading">
 
-    <div class="section-title">
+    <h2>Audio & Oral History</h2>
 
-      <h2>
-        Audio Archive
-      </h2>
-
-      <p>
-        Playable historical recordings and official audio records.
-      </p>
-
-    </div>
-
-    <div class="audio-grid">
-
-      <article class="audio-card card">
-
-        <h3>
-          President Bush: 9:30 a.m. Remarks
-        </h3>
-
-        <p>
-          Remarks at Emma E. Booker Elementary School in Sarasota after the
-          first attacks.
-        </p>
-
-        <audio controls preload="none">
-          <source
-            src="https://georgewbush-whitehouse.archives.gov/news/releases/2001/09/audio/20010911-3.mp3"
-            type="audio/mpeg">
-        </audio>
-
-        <div class="audio-meta">
-          White House historical record
-        </div>
-
-      </article>
-
-      <article class="audio-card card">
-
-        <h3>
-          President Bush: 8:30 p.m. Address
-        </h3>
-
-        <p>
-          The President's evening address to the nation from the Oval Office.
-        </p>
-
-        <audio controls preload="none">
-          <source
-            src="https://georgewbush-whitehouse.archives.gov/news/releases/2001/09/audio/20010911-16.mp3"
-            type="audio/mpeg">
-        </audio>
-
-        <div class="audio-meta">
-          White House historical record
-        </div>
-
-      </article>
-
-      <article class="audio-card card">
-
-        <h3>
-          Library of Congress Documentary Project
-        </h3>
-
-        <p>
-          The Library of Congress preserves recordings made by people
-          documenting the immediate aftermath of September 11.
-        </p>
-
-        <a
-          class="button"
-          href="https://www.loc.gov/collections/september-11th-2001-documentary-project/"
-          target="_blank"
-          rel="noopener noreferrer">
-          Open Audio Collection
-        </a>
-
-      </article>
-
-      <article class="audio-card card">
-
-        <h3>
-          Presidential Historical Audio
-        </h3>
-
-        <p>
-          The archived White House record preserves speeches, briefings and
-          statements connected to September 11 and its aftermath.
-        </p>
-
-        <a
-          class="button"
-          href="https://georgewbush-whitehouse.archives.gov/march11/timeline/one.html"
-          target="_blank"
-          rel="noopener noreferrer">
-          Browse Audio Records
-        </a>
-
-      </article>
-
-    </div>
+    <p>
+      Listen directly from the archive page wherever the source permits
+      embedded playback.
+    </p>
 
   </div>
 
-</section>
+  <div class="audio-grid">
 
-<!-- =========================
-     VIDEOS
-========================= -->
-
-<section class="section" id="videos">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <h2>
-        Video Archive
-      </h2>
-
-      <p>
-        Contemporary footage and historical video preserved in this archive.
-      </p>
-
-    </div>
-
-    <div class="video-grid">
-
-      <article class="video-card card">
-        <div class="video-frame">
-          <iframe
-            src="https://www.youtube.com/embed/EDX1EyB2ju8"
-            title="September 11 historical video"
-            allowfullscreen>
-          </iframe>
-        </div>
-      </article>
-
-      <article class="video-card card">
-        <div class="video-frame">
-          <iframe
-            src="https://www.youtube.com/embed/AxyhIkSMCG8"
-            title="September 11 historical video"
-            allowfullscreen>
-          </iframe>
-        </div>
-      </article>
-
-      <article class="video-card card">
-        <div class="video-frame">
-          <iframe
-            src="https://www.youtube.com/embed/5F2z1GZ0DJE"
-            title="September 11 historical video"
-            allowfullscreen>
-          </iframe>
-        </div>
-      </article>
-
-      <article class="video-card card">
-        <div class="video-frame">
-          <iframe
-            src="https://www.youtube.com/embed/g6ijmcJPX9Y"
-            title="September 11 historical video"
-            allowfullscreen>
-          </iframe>
-        </div>
-      </article>
-
-      <article class="video-card card">
-        <div class="video-frame">
-          <iframe
-            src="https://www.youtube.com/embed/JF8EFyGaGDM"
-            title="September 11 historical video"
-            allowfullscreen>
-          </iframe>
-        </div>
-      </article>
-
-      <article class="video-card card">
-        <div class="video-frame">
-          <iframe
-            src="https://www.youtube.com/embed/1EXx33LhlI8"
-            title="September 11 historical video"
-            allowfullscreen>
-          </iframe>
-        </div>
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- =========================
-     PHOTOGRAPHS
-========================= -->
-
-<section class="section" id="photographs">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <h2>
-        Photographic Record
-      </h2>
-
-      <p>
-        Major photographic collections preserved by public institutions.
-      </p>
-
-    </div>
-
-    <div class="collection-grid">
-
-      <article class="collection-card card">
-
-        <div class="source-label">Library of Congress</div>
-
-        <h3>
-          September 11 Photographs
-        </h3>
-
-        <p>
-          Photographs documenting the attacks, rescue effort, World Trade
-          Center site, Pentagon, Shanksville and the aftermath.
-        </p>
-
-        <a
-          class="button"
-          href="https://www.loc.gov/exhibits/911/911-prints.html"
-          target="_blank"
-          rel="noopener noreferrer">
-          Browse Photographs
-        </a>
-
-      </article>
-
-      <article class="collection-card card">
-
-        <div class="source-label">Library of Congress</div>
-
-        <h3>
-          Ground Zero Photograph Collection
-        </h3>
-
-        <p>
-          A collection of 250 slides documenting Ground Zero during the
-          immediate aftermath of the attacks.
-        </p>
-
-        <a
-          class="button"
-          href="https://www.loc.gov/item/2002717279/"
-          target="_blank"
-          rel="noopener noreferrer">
-          View Collection
-        </a>
-
-      </article>
-
-      <article class="collection-card card">
-
-        <div class="source-label">9/11 Memorial & Museum</div>
-
-        <h3>
-          Museum Collection
-        </h3>
-
-        <p>
-          Photographs, documents, objects, moving images, recordings and
-          family materials held by the Museum.
-        </p>
-
-        <a
-          class="button red"
-          href="https://collection.911memorial.org/"
-          target="_blank"
-          rel="noopener noreferrer">
-          Search Collection
-        </a>
-
-      </article>
-
-      <article class="collection-card card">
-
-        <div class="source-label">9/11 Memorial & Museum</div>
-
-        <h3>
-          In Memoriam
-        </h3>
-
-        <p>
-          The Museum's portrait exhibition provides the largest dedicated
-          visual record of the people killed in the attacks.
-        </p>
-
-        <a
-          class="button red"
-          href="https://www.911memorial.org/visit/museum/exhibitions/in-memoriam"
-          target="_blank"
-          rel="noopener noreferrer">
-          View In Memoriam
-        </a>
-
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- =========================
-     RECOVERY
-========================= -->
-
-<section class="section" id="recovery">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <h2>
-        Rescue, Recovery & Cleanup
-      </h2>
-
-      <p>
-        The emergency continued long after the towers fell.
-      </p>
-
-    </div>
-
-    <div class="dark-panel">
+    <article class="audio-card">
 
       <h3>
-        The work after September 11
+        Library of Congress Oral History: Michael
       </h3>
 
       <p>
-        Thousands of firefighters, police officers, paramedics, construction
-        workers, engineers, sanitation workers, medical personnel,
-        volunteers, laborers, drivers and other workers participated in
-        rescue, recovery and cleanup operations.
+        Michael was a senior port captain and Director of Operations for
+        New York Waterway. His oral history describes the evacuation of
+        lower Manhattan and the months of work that followed.
       </p>
 
-      <p>
-        The operation involved searching for survivors and human remains,
-        removing debris, stabilizing structures, cleaning buildings,
-        transporting material and supporting the investigation.
-      </p>
+      <iframe
+        class="embedded-player"
+        src="https://www.loc.gov/item/afc2015048_152/"
+        title="Library of Congress Benjamin Luft oral history">
+      </iframe>
 
-      <p>
-        The health consequences of the exposure continued long after the
-        physical recovery operation ended.
-      </p>
-
-      <div class="highlight">
-        The World Trade Center Health Program now provides medical monitoring
-        and treatment for eligible responders and survivors with certified
-        9/11-related conditions.
+      <div class="player-note">
+        Embedded Library of Congress item. The source page provides the
+        original recording and transcript.
       </div>
+
+    </article>
+
+    <article class="audio-card">
+
+      <h3>
+        Library of Congress: Benjamin Luft Collection
+      </h3>
+
+      <p>
+        The collection contains hundreds of responder and family interviews
+        and is one of the major oral-history collections documenting the
+        long-term human consequences of September 11.
+      </p>
+
+      <iframe
+        class="embedded-player"
+        src="https://www.loc.gov/collections/benjamin-luft-collection-of-9-11-oral-histories/"
+        title="Library of Congress Benjamin Luft Collection">
+      </iframe>
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+     RECOVERY
+========================================================= -->
+
+<section class="archive-section" id="recovery">
+
+  <div class="section-heading">
+
+    <h2>Rescue, Recovery & Health</h2>
+
+    <p>
+      The historical record continued long after the attacks themselves.
+    </p>
+
+  </div>
+
+  <div class="health-panel">
+
+    <h3>
+      The work continued for months and the health consequences continued
+      for decades.
+    </h3>
+
+    <p>
+      Firefighters, police officers, paramedics, construction workers,
+      engineers, ironworkers, sanitation workers, volunteers, laborers,
+      cleaners and many other people worked at the World Trade Center site
+      and related locations.
+    </p>
+
+    <div class="health-highlight">
+
+      <strong>
+        World Trade Center Health Program
+      </strong>
+
+      <br>
+
+      The federal program provides medical monitoring and treatment for
+      eligible responders and survivors with certified 9/11-related
+      conditions.
+
+    </div>
+
+    <div class="health-grid">
+
+      <div class="health-card">
+        <h4>Rescue & recovery</h4>
+        <p>
+          Search, rescue, recovery of human remains, debris removal,
+          structural stabilization, transportation and cleanup continued
+          after the attacks.
+        </p>
+      </div>
+
+      <div class="health-card">
+        <h4>Long-term illness</h4>
+        <p>
+          Respiratory illnesses, cancers and other physical and mental
+          health conditions became part of the long-term historical record.
+        </p>
+      </div>
+
+      <div class="health-card">
+        <h4>Workers</h4>
+        <p>
+          The workforce included both highly visible emergency responders
+          and workers whose contributions received far less public attention.
+        </p>
+      </div>
+
+      <div class="health-card">
+        <h4>Documentation</h4>
+        <p>
+          Oral histories and official records together preserve the human
+          and institutional history of the recovery effort.
+        </p>
+      </div>
+
+    </div>
+
+    <p style="margin-top:25px">
 
       <a
         class="button red"
@@ -1887,555 +1818,554 @@ footer p{
         WTC Health Program
       </a>
 
-    </div>
+      <a
+        class="button"
+        href="https://www.vcf.gov/"
+        target="_blank"
+        rel="noopener noreferrer">
+        Victim Compensation Fund
+      </a>
+
+    </p>
 
   </div>
 
 </section>
 
-<!-- =========================
+<!-- =========================================================
      IMMIGRANT WORKERS
-========================= -->
+========================================================= -->
 
-<section class="section" id="immigrant-workers">
+<section class="archive-section" id="immigrant-workers">
 
-  <div class="container">
+  <div class="section-heading">
 
-    <div class="section-title">
+    <h2>Immigrant Workers of Ground Zero</h2>
 
-      <h2>
-        Immigrant Workers
-      </h2>
+    <p>
+      Workers whose contributions formed part of the recovery operation.
+    </p>
 
-      <p>
-        Immigrant workers were part of the rescue, recovery and cleanup
-        workforce.
-      </p>
+  </div>
 
-    </div>
+  <div class="immigrant-section">
 
-    <div class="collection-grid">
+    <h3>
+      The recovery workforce was extraordinarily diverse.
+    </h3>
 
-      <article class="collection-card card">
+    <p>
+      Immigrants, including undocumented workers, participated in cleaning,
+      demolition, debris removal and related work after the attacks.
+    </p>
 
-        <h3>
-          Work at Ground Zero
-        </h3>
+    <p>
+      Immigration status, employment arrangements, language barriers and
+      fear could complicate access to information, documentation and
+      assistance.
+    </p>
 
-        <p>
-          Immigrants participated in cleaning, demolition, debris removal,
-          transportation, food service and other work connected with the
-          recovery operation.
-        </p>
+    <div class="immigrant-facts">
 
-      </article>
+      <div class="immigrant-fact">
+        <strong>Immigrant labor</strong>
+        Immigrant workers participated in the rescue, recovery, cleaning
+        and rebuilding effort.
+      </div>
 
-      <article class="collection-card card">
+      <div class="immigrant-fact">
+        <strong>Documentation</strong>
+        Informal employment arrangements could make documenting work
+        difficult.
+      </div>
 
-        <h3>
-          Documentation & Access
-        </h3>
-
-        <p>
-          Immigration status, informal employment arrangements, language
-          barriers and fear of authorities could complicate workers'
-          ability to document their work and seek assistance.
-        </p>
-
-      </article>
-
-      <article class="collection-card card">
-
-        <h3>
-          Health Consequences
-        </h3>
-
-        <p>
-          Research has documented physical and psychological health problems
-          among immigrant rescue and recovery workers.
-        </p>
-
-      </article>
-
-      <article class="collection-card card">
-
-        <h3>
-          Federal Programs
-        </h3>
-
-        <p>
-          The World Trade Center Health Program and September 11th Victim
-          Compensation Fund have eligibility systems covering qualifying
-          responders, survivors and others.
-        </p>
-
-        <a
-          class="button"
-          href="https://www.vcf.gov/"
-          target="_blank"
-          rel="noopener noreferrer">
-          Victim Compensation Fund
-        </a>
-
-      </article>
+      <div class="immigrant-fact">
+        <strong>Health consequences</strong>
+        Immigrant workers were among the populations affected by exposure
+        to the conditions at Ground Zero.
+      </div>
 
     </div>
+
+    <p style="margin-top:25px">
+
+      <a
+        class="button red"
+        href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10100590/"
+        target="_blank"
+        rel="noopener noreferrer">
+        Peer-Reviewed Research
+      </a>
+
+      <a
+        class="button light"
+        href="https://www.vcf.gov/"
+        target="_blank"
+        rel="noopener noreferrer">
+        Compensation Fund
+      </a>
+
+    </p>
 
   </div>
 
 </section>
 
-<!-- =========================
-     HEALTH
-========================= -->
-
-<section class="section" id="health">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <h2>
-        Long-Term Health
-      </h2>
-
-      <p>
-        The physical and psychological consequences of September 11 continued
-        for decades.
-      </p>
-
-    </div>
-
-    <div class="collection-grid">
-
-      <article class="collection-card card">
-
-        <h3>
-          Respiratory Conditions
-        </h3>
-
-        <p>
-          Exposure to dust, smoke and other substances at the World Trade
-          Center site has been associated with respiratory illnesses among
-          eligible responders and survivors.
-        </p>
-
-      </article>
-
-      <article class="collection-card card">
-
-        <h3>
-          Cancer
-        </h3>
-
-        <p>
-          The World Trade Center Health Program covers numerous certified
-          cancers associated with qualifying 9/11 exposure.
-        </p>
-
-      </article>
-
-      <article class="collection-card card">
-
-        <h3>
-          Mental Health
-        </h3>
-
-        <p>
-          Post-traumatic stress disorder and other mental-health conditions
-          are included among conditions recognized by federal programs for
-          qualifying populations.
-        </p>
-
-      </article>
-
-      <article class="collection-card card">
-
-        <h3>
-          The Continuing Record
-        </h3>
-
-        <p>
-          Medical records, epidemiological studies, survivor testimony and
-          federal health programs remain part of the continuing historical
-          record.
-        </p>
-
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- =========================
+<!-- =========================================================
      GOVERNMENT RECORDS
-========================= -->
+========================================================= -->
 
-<section class="section" id="government">
+<section class="archive-section" id="government-records">
 
-  <div class="container">
+  <div class="section-heading">
 
-    <div class="section-title">
+    <h2>Government Records</h2>
 
-      <h2>
-        Government Records
-      </h2>
+    <p>
+      Primary records anchoring the historical chronology.
+    </p>
+
+  </div>
+
+  <div class="collection-grid">
+
+    <article class="collection-card">
+
+      <div class="source-type">National Archives</div>
+
+      <h3>9/11 Commission Records</h3>
 
       <p>
-        Primary records anchoring the historical reconstruction.
+        Records of the National Commission on Terrorist Attacks Upon the
+        United States.
       </p>
 
-    </div>
+      <a
+        class="button"
+        href="https://www.archives.gov/research/9-11"
+        target="_blank"
+        rel="noopener noreferrer">
+        Commission Records
+      </a>
 
-    <div class="collection-grid">
+    </article>
 
-      <article class="collection-card card">
+    <article class="collection-card">
 
-        <div class="source-label">National Archives</div>
+      <div class="source-type">U.S. Government</div>
 
-        <h3>
-          9/11 Commission Records
-        </h3>
+      <h3>9/11 Commission Report</h3>
 
-        <p>
-          Records of the National Commission on Terrorist Attacks Upon the
-          United States.
-        </p>
+      <p>
+        The final report documenting the Commission's findings and
+        recommendations.
+      </p>
 
-        <a
-          class="button"
-          href="https://www.archives.gov/research/9-11"
-          target="_blank"
-          rel="noopener noreferrer">
-          Open Records
-        </a>
+      <a
+        class="button"
+        href="https://www.govinfo.gov/content/pkg/GPO-911REPORT/pdf/GPO-911REPORT.pdf"
+        target="_blank"
+        rel="noopener noreferrer">
+        Full Report
+      </a>
 
-      </article>
+    </article>
 
-      <article class="collection-card card">
+    <article class="collection-card">
 
-        <div class="source-label">U.S. Government</div>
+      <div class="source-type">National Archives</div>
 
-        <h3>
-          9/11 Commission Report
-        </h3>
+      <h3>FAA Records</h3>
 
-        <p>
-          The final report of the National Commission on Terrorist Attacks
-          Upon the United States.
-        </p>
+      <p>
+        Federal Aviation Administration records concerning the hijacked
+        aircraft and aviation response.
+      </p>
 
-        <a
-          class="button"
-          href="https://www.govinfo.gov/content/pkg/GPO-911REPORT/pdf/GPO-911REPORT.pdf"
-          target="_blank"
-          rel="noopener noreferrer">
-          Read Report
-        </a>
+      <a
+        class="button"
+        href="https://www.archives.gov/research/foia/faa"
+        target="_blank"
+        rel="noopener noreferrer">
+        FAA Records
+      </a>
 
-      </article>
+    </article>
 
-      <article class="collection-card card">
+    <article class="collection-card">
 
-        <div class="source-label">National Archives</div>
+      <div class="source-type">Library of Congress</div>
 
-        <h3>
-          FAA Records
-        </h3>
+      <h3>September 11 Web Archive</h3>
 
-        <p>
-          Federal Aviation Administration records concerning the aircraft,
-          air traffic response and federal aviation response.
-        </p>
+      <p>
+        Websites preserved from governments, news organizations, charities,
+        civic organizations and individuals following the attacks.
+      </p>
 
-        <a
-          class="button"
-          href="https://www.archives.gov/research/foia/faa"
-          target="_blank"
-          rel="noopener noreferrer">
-          FAA Records
-        </a>
+      <a
+        class="button"
+        href="https://www.loc.gov/collections/september-11-2001-web-archive/about-this-collection/"
+        target="_blank"
+        rel="noopener noreferrer">
+        Web Archive
+      </a>
 
-      </article>
-
-      <article class="collection-card card">
-
-        <div class="source-label">National Security Archive</div>
-
-        <h3>
-          September 11 Sourcebooks
-        </h3>
-
-        <p>
-          Declassified historical documents concerning terrorism policy,
-          Afghanistan, al-Qaeda, the Taliban and the years surrounding 9/11.
-        </p>
-
-        <a
-          class="button"
-          href="https://nsarchive.gwu.edu/briefing-book-sourcebook/2001-09-21/september-11th-sourcebooks"
-          target="_blank"
-          rel="noopener noreferrer">
-          Open Sourcebooks
-        </a>
-
-      </article>
-
-    </div>
+    </article>
 
   </div>
 
 </section>
 
-<!-- =========================
-     RESEARCH
-========================= -->
+<!-- =========================================================
+     VIDEOS
+========================================================= -->
 
-<section class="section">
+<section class="archive-section" id="videos">
 
-  <div class="container">
+  <div class="section-heading">
 
-    <div class="section-title">
+    <h2>Video Record</h2>
 
-      <h2>
-        Research Collections
-      </h2>
+    <p>
+      Existing documentary footage retained directly on the page.
+    </p>
 
-    </div>
+  </div>
 
-    <div class="research-grid">
+  <div class="video-grid">
 
-      <article class="research-card card">
+    <article class="video-record">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/EDX1EyB2ju8"
+          title="September 11, 2001 video"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+    </article>
 
-        <h3>
-          Memorial & Museum
-        </h3>
+    <article class="video-record">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/AxyhIkSMCG8"
+          title="September 11, 2001 video"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+    </article>
 
-        <p>
-          Names, photographs, objects, oral histories, family materials,
-          survivor testimony and Museum collections.
-        </p>
+    <article class="video-record">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/5F2z1GZ0DJE"
+          title="September 11, 2001 video"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+    </article>
 
-        <a
-          class="button red"
-          href="https://www.911memorial.org/"
-          target="_blank"
-          rel="noopener noreferrer">
-          911 Memorial
-        </a>
+    <article class="video-record">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/g6ijmcJPX9Y"
+          title="September 11, 2001 video"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+    </article>
 
-      </article>
+    <article class="video-record">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/JF8EFyGaGDM"
+          title="September 11, 2001 video"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+    </article>
 
-      <article class="research-card card">
+    <article class="video-record">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/1EXx33LhlI8"
+          title="September 11, 2001 video"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+    </article>
 
-        <h3>
-          Library of Congress
-        </h3>
+    <article class="video-record">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/hxOGjvUXHTQ"
+          title="September 11, 2001 video"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+    </article>
 
-        <p>
-          Oral histories, photographs, documentary materials and preserved
-          web archives.
-        </p>
+    <article class="video-record">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/cm-IgjNr0p8"
+          title="September 11, 2001 video"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+    </article>
 
-        <a
-          class="button"
-          href="https://www.loc.gov/"
-          target="_blank"
-          rel="noopener noreferrer">
-          Library of Congress
-        </a>
+    <article class="video-record">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/mUhuS-mb3Rs"
+          title="September 11, 2001 video"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+    </article>
 
-      </article>
+    <article class="video-record">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/sq1OT5sh5nI"
+          title="September 11, 2001 video"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+    </article>
 
-      <article class="research-card card">
+    <article class="video-record">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/6gWkJv9rwbI"
+          title="September 11, 2001 video"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+    </article>
 
-        <h3>
-          National Archives
-        </h3>
+    <article class="video-record">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/W5oWlzltd0o"
+          title="September 11, 2001 video"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+    </article>
 
-        <p>
-          Commission records, federal records and presidential records.
-        </p>
+    <article class="video-record">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/Q5iBxva_pm8"
+          title="September 11, 2001 video"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+    </article>
 
-        <a
-          class="button"
-          href="https://www.archives.gov/"
-          target="_blank"
-          rel="noopener noreferrer">
-          National Archives
-        </a>
+    <article class="video-record">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/X5NKIS1QrbY"
+          title="September 11, 2001 video"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+    </article>
 
-      </article>
+    <article class="video-record">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/Lwr5DH0HdoQ"
+          title="September 11, 2001 video"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+    </article>
 
-    </div>
+    <article class="video-record">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/CjjkE0nYchA"
+          title="September 11, 2001 video"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+    </article>
+
+    <article class="video-record">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/FiGgO-wfEzs"
+          title="September 11, 2001 video"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+    </article>
+
+    <article class="video-record">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/RKp4MlfuSlI"
+          title="September 11, 2001 video"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+    </article>
 
   </div>
 
 </section>
 
-<!-- =========================
+<!-- =========================================================
      SOURCES
-========================= -->
+========================================================= -->
 
-<section class="section" id="sources">
+<section class="archive-section" id="sources">
 
-  <div class="container">
+  <div class="section-heading">
 
-    <div class="section-title">
+    <h2>Sources & Collections</h2>
 
-      <h2>
-        Sources
-      </h2>
+    <p>
+      The underlying institutions and collections used throughout the archive.
+    </p>
+
+  </div>
+
+  <div class="source-list">
+
+    <article class="source-entry">
+
+      <h3>
+        National September 11 Memorial & Museum
+      </h3>
 
       <p>
-        Primary institutions and historical collections used by this archive.
+        Official memorial names, memorial arrangement, In Memoriam exhibition,
+        photographs, artifacts and institutional history.
       </p>
 
-    </div>
+      <a
+        href="https://www.911memorial.org/"
+        target="_blank"
+        rel="noopener noreferrer">
+        911memorial.org
+      </a>
 
-    <div class="sources">
+    </article>
 
-      <article class="source-row">
+    <article class="source-entry">
 
-        <h3>
-          National September 11 Memorial & Museum
-        </h3>
+      <h3>
+        VOICES Center for Resilience
+      </h3>
 
-        <p>
-          Memorial names, In Memoriam portraits, Museum collection, oral
-          histories and family materials.
-        </p>
+      <p>
+        9/11 Living Memorial with victim remembrances and more than 87,000
+        photographs contributed by families and friends.
+      </p>
 
-        <a
-          href="https://www.911memorial.org/"
-          target="_blank"
-          rel="noopener noreferrer">
-          911memorial.org →
-        </a>
+      <a
+        href="https://voicescenter.org/living-memorial/victim-remembrances"
+        target="_blank"
+        rel="noopener noreferrer">
+        VOICES Living Memorial
+      </a>
 
-      </article>
+    </article>
 
-      <article class="source-row">
+    <article class="source-entry">
 
-        <h3>
-          Library of Congress
-        </h3>
+      <h3>
+        Library of Congress
+      </h3>
 
-        <p>
-          September 11 Documentary Project, photographs, oral histories and
-          September 11 Web Archive.
-        </p>
+      <p>
+        Oral histories, photographs, the September 11 Documentary Project
+        and preserved web material.
+      </p>
 
-        <a
-          href="https://www.loc.gov/"
-          target="_blank"
-          rel="noopener noreferrer">
-          loc.gov →
-        </a>
+      <a
+        href="https://www.loc.gov/"
+        target="_blank"
+        rel="noopener noreferrer">
+        loc.gov
+      </a>
 
-      </article>
+    </article>
 
-      <article class="source-row">
+    <article class="source-entry">
 
-        <h3>
-          National Archives
-        </h3>
+      <h3>
+        National Archives
+      </h3>
 
-        <p>
-          9/11 Commission records and federal records.
-        </p>
+      <p>
+        Federal records and the records of the 9/11 Commission.
+      </p>
 
-        <a
-          href="https://www.archives.gov/research/9-11"
-          target="_blank"
-          rel="noopener noreferrer">
-          archives.gov →
-        </a>
+      <a
+        href="https://www.archives.gov/research/9-11"
+        target="_blank"
+        rel="noopener noreferrer">
+        archives.gov
+      </a>
 
-      </article>
+    </article>
 
-      <article class="source-row">
+    <article class="source-entry">
 
-        <h3>
-          George W. Bush Presidential Records
-        </h3>
+      <h3>
+        Centers for Disease Control and Prevention
+      </h3>
 
-        <p>
-          Contemporary presidential statements, speeches, audio, video and
-          White House chronology.
-        </p>
+      <p>
+        World Trade Center Health Program and long-term health information.
+      </p>
 
-        <a
-          href="https://georgewbush-whitehouse.archives.gov/"
-          target="_blank"
-          rel="noopener noreferrer">
-          George W. Bush Presidential Records →
-        </a>
+      <a
+        href="https://www.cdc.gov/wtc/about.html"
+        target="_blank"
+        rel="noopener noreferrer">
+        CDC WTC Health Program
+      </a>
 
-      </article>
+    </article>
 
-      <article class="source-row">
+    <article class="source-entry">
 
-        <h3>
-          CDC World Trade Center Health Program
-        </h3>
+      <h3>
+        September 11th Victim Compensation Fund
+      </h3>
 
-        <p>
-          Federal health information concerning eligible responders and
-          survivors.
-        </p>
+      <p>
+        Federal information concerning compensation for eligible 9/11-related
+        physical harm.
+      </p>
 
-        <a
-          href="https://www.cdc.gov/wtc/"
-          target="_blank"
-          rel="noopener noreferrer">
-          cdc.gov/wtc →
-        </a>
+      <a
+        href="https://www.vcf.gov/"
+        target="_blank"
+        rel="noopener noreferrer">
+        vcf.gov
+      </a>
 
-      </article>
+    </article>
 
-      <article class="source-row">
+  </div>
 
-        <h3>
-          September 11th Victim Compensation Fund
-        </h3>
+</section>
 
-        <p>
-          Federal compensation information for eligible 9/11-related harm.
-        </p>
+<!-- =========================================================
+     ARCHIVAL PRINCIPLES
+========================================================= -->
 
-        <a
-          href="https://www.vcf.gov/"
-          target="_blank"
-          rel="noopener noreferrer">
-          vcf.gov →
-        </a>
+<section class="archive-section">
 
-      </article>
+  <div class="archive-note">
 
-      <article class="source-row">
+    <p>
+      <strong>Accuracy comes first.</strong>
+      The official Memorial names are treated as the controlling source
+      for the memorial roll. Photographs and personal materials remain
+      attributed to the institutions, families, photographers and archives
+      that preserve them.
+    </p>
 
-        <h3>
-          U.S. Environmental Protection Agency
-        </h3>
+    <p>
+      Photographs are not decorative filler. Each available image represents
+      an actual historical record connected to a person, family or collection.
+    </p>
 
-        <p>
-          Federal evaluation and historical records concerning the World Trade
-          Center response and environmental conditions.
-        </p>
-
-        <a
-          href="https://nepis.epa.gov/"
-          target="_blank"
-          rel="noopener noreferrer">
-          EPA Records →
-        </a>
-
-      </article>
-
-    </div>
+    <p>
+      Where a photograph cannot be retrieved, the page does not substitute
+      a photograph of another person.
+    </p>
 
   </div>
 
@@ -2454,512 +2384,850 @@ footer p{
   </p>
 
   <p class="footer-small">
-    An independent historical archive. The names, photographs, recordings,
-    documents and other archival materials remain the property of their
-    respective families, creators, archives and institutions. Source
-    institutions are identified wherever possible.
+    An independent historical archive. Third-party photographs, recordings,
+    documents and other materials remain the property of their respective
+    creators, families, archives and institutions.
   </p>
 
 </footer>
 
 <script>
+
 /* =========================================================
-   SIDE MENU
+   MENU
 ========================================================= */
 
-const menuButton = document.getElementById("menuButton");
-const sideMenu = document.getElementById("sideMenu");
-const menuOverlay = document.getElementById("menuOverlay");
+const menuButton =
+  document.getElementById("menuButton");
 
-function openMenu(){
+const sideMenu =
+  document.getElementById("sideMenu");
+
+const menuOverlay =
+  document.getElementById("menuOverlay");
+
+function openMenu() {
+
   sideMenu.classList.add("open");
   menuOverlay.classList.add("open");
   document.body.classList.add("menu-open");
-  menuButton.setAttribute("aria-expanded","true");
+
+  menuButton.setAttribute(
+    "aria-expanded",
+    "true"
+  );
+
 }
 
-function closeMenu(){
+function closeMenu() {
+
   sideMenu.classList.remove("open");
   menuOverlay.classList.remove("open");
   document.body.classList.remove("menu-open");
-  menuButton.setAttribute("aria-expanded","false");
+
+  menuButton.setAttribute(
+    "aria-expanded",
+    "false"
+  );
+
 }
 
-menuButton.addEventListener("click",()=>{
-  sideMenu.classList.contains("open") ? closeMenu() : openMenu();
-});
+menuButton.addEventListener(
+  "click",
+  function() {
 
-menuOverlay.addEventListener("click",closeMenu);
+    if (sideMenu.classList.contains("open")) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
 
-document.addEventListener("keydown",event=>{
-  if(event.key==="Escape") closeMenu();
-});
+  }
+);
 
-document.querySelectorAll(".side-menu a").forEach(link=>{
-  link.addEventListener("click",closeMenu);
-});
+menuOverlay.addEventListener(
+  "click",
+  closeMenu
+);
+
+document.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+
+  }
+);
+
+document
+  .querySelectorAll(".side-menu a")
+  .forEach(function(link) {
+
+    link.addEventListener(
+      "click",
+      closeMenu
+    );
+
+  });
 
 /* =========================================================
-   OFFICIAL MEMORIAL NAME DIRECTORY
+   DATA SOURCES
 ========================================================= */
+
+/*
+  The official Memorial page is used for the complete name roll.
+
+  A text-reading proxy is used because a normal static HTML page cannot
+  directly request another website's HTML when that website does not
+  provide browser CORS access.
+
+  The page itself remains the visible archive. The external source is
+  only used to retrieve the underlying archival record.
+*/
 
 const OFFICIAL_NAMES_URL =
-  "https://www.911memorial.org/visit/memorial/names-911-memorial";
+  "https://r.jina.ai/http://www.911memorial.org/visit/memorial/names-911-memorial";
 
-const READER_URL =
-  "https://r.jina.ai/" + OFFICIAL_NAMES_URL;
-
-const victimGrid =
-  document.getElementById("victimGrid");
-
-const victimLoading =
-  document.getElementById("victimLoading");
-
-const victimCount =
-  document.getElementById("victimCount");
-
-const victimSearch =
-  document.getElementById("victimSearch");
-
-const noResults =
-  document.getElementById("noResults");
-
-let victims = [];
-let activeLetter = "ALL";
-
-/*
-  This loader reads the current official Memorial directory rather than
-  maintaining a second manually typed copy of nearly 3,000 names.
-
-  The official page identifies every name and Memorial panel location.
-*/
-
-async function loadVictims(){
-
-  try{
-
-    const response = await fetch(READER_URL);
-
-    if(!response.ok){
-      throw new Error("Unable to load Memorial directory.");
-    }
-
-    const text = await response.text();
-
-    victims = parseMemorialNames(text);
-
-    if(!victims.length){
-      throw new Error("No names were parsed.");
-    }
-
-    victimLoading.style.display = "none";
-
-    renderVictims();
-
-  }catch(error){
-
-    victimLoading.innerHTML = `
-      <strong>The Memorial directory could not be loaded automatically.</strong>
-      <br><br>
-      <a
-        class="button red"
-        href="${OFFICIAL_NAMES_URL}"
-        target="_blank"
-        rel="noopener noreferrer">
-        Open Official Memorial Directory
-      </a>
-    `;
-
-    victimCount.textContent =
-      "The official Memorial directory remains the authoritative source.";
-
-  }
-
-}
+const VOICES_PROXY =
+  "https://r.jina.ai/http://voicescenter.org/living-memorial/victim/";
 
 /* =========================================================
-   PARSER
+   LETTERS
 ========================================================= */
 
-function parseMemorialNames(text){
+const LETTERS =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
-  const results = [];
+const alphabet =
+  document.getElementById("alphabet");
 
-  const lines = text
-    .split(/\r?\n/)
-    .map(line=>line.trim())
-    .filter(Boolean);
+LETTERS.forEach(function(letter) {
 
-  const panelPattern = /\b([NS]-(?:[1-9]|[1-7][0-9]))\b$/;
+  const button =
+    document.createElement("button");
 
-  let started = false;
+  button.type = "button";
+  button.textContent = letter;
 
-  for(let line of lines){
+  button.addEventListener(
+    "click",
+    function() {
 
-    if(line === "Names on the 9/11 Memorial"){
-      started = true;
-      continue;
+      const target =
+        document.getElementById(
+          "victim-letter-" + letter
+        );
+
+      if (target) {
+
+        target.scrollIntoView({
+          behavior:"smooth",
+          block:"start"
+        });
+
+      }
+
     }
+  );
 
-    if(!started) continue;
+  alphabet.appendChild(button);
 
-    if(
-      line === "9/11 Family Members" ||
-      line === "9/11 Memorial Glade"
-    ){
-      break;
-    }
+});
 
-    if(/^[A-Z]$/.test(line)) continue;
+/* =========================================================
+   NAME PARSER
+========================================================= */
 
-    const match = line.match(panelPattern);
+function cleanNameLine(line) {
 
-    if(!match) continue;
-
-    const panel = match[1];
-
-    const name = line
-      .replace(panelPattern,"")
+  let text =
+    line
+      .replace(/\u00a0/g," ")
+      .replace(/\s+/g," ")
       .trim();
 
-    if(!name) continue;
+  if (!text) {
+    return null;
+  }
 
-    /*
-      Prevent duplicated parser entries.
-    */
-    if(results.some(v=>v.name===name && v.panel===panel)){
+  /*
+    The official list uses panel addresses such as N-49 and S-68.
+  */
+
+  const match =
+    text.match(
+      /^(.+?)\s+([NS]-\d{1,2})$/
+    );
+
+  if (!match) {
+    return null;
+  }
+
+  let name =
+    match[1].trim();
+
+  const panel =
+    match[2].trim();
+
+  /*
+    The official list contains a handful of entries that wrap onto
+    multiple lines, such as victims memorialized together with an
+    unborn child. Those are handled below.
+  */
+
+  return {
+    name:name,
+    panel:panel
+  };
+
+}
+
+function parseOfficialNames(text) {
+
+  const lines =
+    text.split(/\r?\n/);
+
+  const victims = [];
+
+  for (let i = 0; i < lines.length; i++) {
+
+    const current =
+      lines[i]
+        .replace(/\u00a0/g," ")
+        .trim();
+
+    if (!current) {
       continue;
     }
 
-    results.push({
-      name,
-      panel
-    });
+    /*
+      Ignore page furniture.
+    */
 
-  }
-
-  return results;
-}
-
-/* =========================================================
-   PORTRAIT LOADER
-========================================================= */
-
-/*
-  Portraits are deliberately resolved through archival/public sources
-  rather than inventing image URLs.
-
-  Wikimedia's public API is used where an identifiable public portrait
-  exists. The Memorial Museum remains the authoritative portrait source.
-*/
-
-const imageCache = new Map();
-
-async function findPortrait(name){
-
-  if(imageCache.has(name)){
-    return imageCache.get(name);
-  }
-
-  const encoded = encodeURIComponent(name);
-
-  const api =
-    "https://en.wikipedia.org/w/api.php" +
-    "?action=query" +
-    "&generator=search" +
-    "&gsrsearch=" + encoded +
-    "&gsrnamespace=0" +
-    "&gsrlimit=1" +
-    "&prop=pageimages" +
-    "&piprop=thumbnail" +
-    "&pithumbsize=600" +
-    "&format=json" +
-    "&origin=*";
-
-  try{
-
-    const response = await fetch(api);
-
-    if(!response.ok){
-      return null;
+    if (
+      current.startsWith("#") ||
+      current === "9/11 Family Members" ||
+      current === "Image" ||
+      current === "Learn more" ||
+      current === "The Glade" ||
+      current === "The Collection"
+    ) {
+      continue;
     }
 
-    const data = await response.json();
+    const parsed =
+      cleanNameLine(current);
 
-    if(data.query && data.query.pages){
+    if (parsed) {
 
-      const pages =
-        Object.values(data.query.pages);
+      victims.push(parsed);
+      continue;
 
-      if(
-        pages[0] &&
-        pages[0].thumbnail &&
-        pages[0].thumbnail.source
-      ){
+    }
 
-        const image =
-          pages[0].thumbnail.source;
+    /*
+      Wrapped names:
+      If a line has no panel but the next line has one, combine them.
+    */
 
-        imageCache.set(name,image);
+    if (
+      i + 1 < lines.length
+    ) {
 
-        return image;
+      const next =
+        lines[i + 1]
+          .replace(/\u00a0/g," ")
+          .trim();
+
+      const nextMatch =
+        next.match(
+          /^([NS]-\d{1,2})$/
+        );
+
+      if (
+        nextMatch &&
+        current.length > 2 &&
+        !current.match(/^[A-Z]$/)
+      ) {
+
+        victims.push({
+          name:current,
+          panel:nextMatch[1]
+        });
+
+        i++;
       }
 
     }
 
-  }catch(error){}
+  }
 
-  imageCache.set(name,null);
+  /*
+    Remove accidental duplicates while preserving the official order.
+  */
 
-  return null;
+  const seen =
+    new Set();
+
+  return victims.filter(function(victim) {
+
+    const key =
+      victim.name + "|" + victim.panel;
+
+    if (seen.has(key)) {
+      return false;
+    }
+
+    seen.add(key);
+    return true;
+
+  });
+
 }
 
 /* =========================================================
-   FALLBACK PORTRAIT
+   SLUG CREATION FOR VOICES
 ========================================================= */
 
-function portraitFallback(name){
+function voicesSlug(name) {
 
-  const safeName =
-    name.replace(/[<>&"]/g,"");
+  return name
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .replace(/&/g,"and")
+    .replace(/['’]/g,"")
+    .replace(/[.,]/g,"")
+    .replace(/\b(jr|sr|ii|iii|iv|v)\b/g,"")
+    .replace(/[^a-z0-9]+/g,"-")
+    .replace(/^-+|-+$/g,"");
 
-  const svg = `
-  <svg xmlns="http://www.w3.org/2000/svg"
-       width="700"
-       height="700"
-       viewBox="0 0 700 700">
-
-    <rect width="700" height="700" fill="#dfe2e6"/>
-
-    <circle
-      cx="350"
-      cy="265"
-      r="125"
-      fill="#b8bec7"/>
-
-    <path
-      d="M145 650
-         C160 490 245 430 350 430
-         C455 430 540 490 555 650Z"
-      fill="#9da5af"/>
-
-    <text
-      x="350"
-      y="690"
-      text-anchor="middle"
-      font-family="Arial"
-      font-size="22"
-      fill="#27364d">
-      ${safeName}
-    </text>
-
-  </svg>
-  `;
-
-  return "data:image/svg+xml;charset=UTF-8," +
-    encodeURIComponent(svg);
 }
 
 /* =========================================================
-   RENDER
+   RENDER NAMES
 ========================================================= */
 
-function renderVictims(){
+function renderVictimList(victims) {
 
-  const query =
-    victimSearch.value.trim().toLowerCase();
+  const container =
+    document.getElementById("victimRoll");
 
-  const filtered =
-    victims.filter(victim=>{
+  container.innerHTML = "";
 
-      const letter =
-        victim.name.charAt(0).toUpperCase();
+  const grouped = {};
 
-      const matchesLetter =
-        activeLetter==="ALL" ||
-        letter===activeLetter;
+  victims.forEach(function(victim) {
 
-      const matchesSearch =
-        !query ||
-        victim.name.toLowerCase().includes(query) ||
-        victim.panel.toLowerCase().includes(query);
+    const letter =
+      victim.name
+        .trim()
+        .charAt(0)
+        .toUpperCase();
 
-      return matchesLetter && matchesSearch;
+    if (!grouped[letter]) {
+      grouped[letter] = [];
+    }
+
+    grouped[letter].push(victim);
+
+  });
+
+  LETTERS.forEach(function(letter) {
+
+    if (!grouped[letter]) {
+      return;
+    }
+
+    const heading =
+      document.createElement("div");
+
+    heading.className =
+      "victim-letter";
+
+    heading.id =
+      "victim-letter-" + letter;
+
+    heading.textContent =
+      letter;
+
+    container.appendChild(heading);
+
+    const list =
+      document.createElement("div");
+
+    list.className =
+      "victim-list";
+
+    grouped[letter].forEach(function(victim) {
+
+      const row =
+        document.createElement("article");
+
+      row.className =
+        "victim-row";
+
+      row.dataset.name =
+        victim.name;
+
+      row.dataset.panel =
+        victim.panel;
+
+      const thumb =
+        document.createElement("div");
+
+      thumb.className =
+        "victim-thumb missing";
+
+      thumb.innerHTML =
+        "<span>•</span>";
+
+      /*
+        Image retrieval is deferred until the row approaches
+        the viewport.
+      */
+
+      row.dataset.slug =
+        voicesSlug(victim.name);
+
+      const name =
+        document.createElement("div");
+
+      name.className =
+        "victim-name";
+
+      name.textContent =
+        victim.name;
+
+      const panel =
+        document.createElement("div");
+
+      panel.className =
+        "victim-panel";
+
+      panel.textContent =
+        victim.panel;
+
+      row.appendChild(thumb);
+      row.appendChild(name);
+      row.appendChild(panel);
+
+      list.appendChild(row);
 
     });
 
-  victimGrid.innerHTML = "";
+    container.appendChild(list);
 
-  noResults.style.display =
-    filtered.length ? "none" : "block";
+  });
 
-  victimCount.textContent =
-    `${filtered.length.toLocaleString()} of ${victims.length.toLocaleString()} names shown`;
+  document.getElementById("victimCount").textContent =
+    victims.length.toLocaleString() +
+    " names loaded from the official Memorial list.";
+
+  installLazyPortraitLoading();
+
+}
+
+/* =========================================================
+   IMAGE URL EXTRACTION
+========================================================= */
+
+function extractImageUrls(markdown) {
+
+  const urls = [];
 
   /*
-    Render in batches so the browser does not freeze while creating
-    nearly 3,000 cards.
+    Markdown images.
   */
 
-  const fragment =
-    document.createDocumentFragment();
+  const markdownPattern =
+    /!\[[^\]]*\]\((https?:\/\/[^)\s]+)\)/g;
 
-  filtered.forEach((victim,index)=>{
+  let match;
 
-    const article =
-      document.createElement("article");
+  while (
+    (match = markdownPattern.exec(markdown))
+  ) {
 
-    article.className = "victim-card";
+    urls.push(match[1]);
 
-    article.dataset.name =
-      victim.name.toLowerCase();
+  }
 
-    article.dataset.letter =
-      victim.name.charAt(0).toUpperCase();
+  /*
+    Direct VOICES image URLs can also appear in the
+    text representation.
+  */
 
-    article.id =
-      "victim-" + index;
+  const directPattern =
+    /https?:\/\/voicescenter\.org\/sites\/default\/files\/[^)\s"'<>]+/g;
 
-    const image =
-      document.createElement("img");
+  while (
+    (match = directPattern.exec(markdown))
+  ) {
 
-    image.className =
-      "victim-photo loading";
+    urls.push(match[0]);
 
-    image.alt =
-      victim.name;
+  }
 
-    image.src =
-      portraitFallback(victim.name);
+  /*
+    Clean duplicates.
+  */
 
-    const info =
+  return [
+    ...new Set(
+      urls.map(function(url) {
+        return url
+          .replace(/&amp;/g,"&")
+          .replace(/[.,;]+$/,"");
+      })
+    )
+  ];
+
+}
+
+/* =========================================================
+   LOAD ONE PORTRAIT
+========================================================= */
+
+async function loadPortraitForRow(row) {
+
+  if (
+    row.dataset.loaded === "true" ||
+    row.dataset.loading === "true"
+  ) {
+    return;
+  }
+
+  row.dataset.loading =
+    "true";
+
+  const slug =
+    row.dataset.slug;
+
+  const name =
+    row.dataset.name;
+
+  if (!slug) {
+    row.dataset.loading = "false";
+    return;
+  }
+
+  try {
+
+    const response =
+      await fetch(
+        VOICES_PROXY +
+        encodeURIComponent(slug),
+        {
+          method:"GET"
+        }
+      );
+
+    if (!response.ok) {
+      throw new Error("Unable to retrieve memorial page");
+    }
+
+    const markdown =
+      await response.text();
+
+    const images =
+      extractImageUrls(markdown);
+
+    /*
+      Filter obvious decorative or unrelated assets.
+    */
+
+    const usable =
+      images.filter(function(url) {
+
+        const lower =
+          url.toLowerCase();
+
+        return (
+          lower.endsWith(".jpg") ||
+          lower.endsWith(".jpeg") ||
+          lower.endsWith(".png") ||
+          lower.endsWith(".webp")
+        );
+
+      });
+
+    if (usable.length) {
+
+      const image =
+        document.createElement("img");
+
+      image.src =
+        usable[0];
+
+      image.alt =
+        name;
+
+      image.loading =
+        "lazy";
+
+      image.referrerPolicy =
+        "no-referrer";
+
+      const thumb =
+        row.querySelector(".victim-thumb");
+
+      thumb.classList.remove("missing");
+
+      thumb.innerHTML = "";
+
+      thumb.appendChild(image);
+
+      row.dataset.loaded =
+        "true";
+
+    }
+
+  } catch (error) {
+
+    /*
+      Leave the neutral placeholder rather than substituting
+      an unrelated photograph.
+    */
+
+  }
+
+  row.dataset.loading =
+    "false";
+
+}
+
+/* =========================================================
+   LAZY IMAGE OBSERVER
+========================================================= */
+
+function installLazyPortraitLoading() {
+
+  const rows =
+    document.querySelectorAll(
+      ".victim-row"
+    );
+
+  const observer =
+    new IntersectionObserver(
+      function(entries) {
+
+        entries.forEach(function(entry) {
+
+          if (entry.isIntersecting) {
+
+            loadPortraitForRow(
+              entry.target
+            );
+
+            observer.unobserve(
+              entry.target
+            );
+
+          }
+
+        });
+
+      },
+      {
+        rootMargin:"900px 0px"
+      }
+    );
+
+  rows.forEach(function(row) {
+
+    observer.observe(row);
+
+  });
+
+}
+
+/* =========================================================
+   PORTRAIT WALL
+========================================================= */
+
+function buildPortraitWall(victims) {
+
+  const wall =
+    document.getElementById(
+      "portraitWall"
+    );
+
+  wall.innerHTML = "";
+
+  /*
+    The wall uses the first 300 names as an immediately visible
+    visual field. The complete name roll below still contains
+    every person. As the wall loads, additional portraits are
+    populated progressively.
+  */
+
+  victims.slice(0,300).forEach(function(victim) {
+
+    const tile =
       document.createElement("div");
 
-    info.className =
-      "victim-info";
+    tile.className =
+      "portrait-tile";
 
     const name =
-      document.createElement("h3");
+      document.createElement("div");
 
     name.className =
-      "victim-name";
+      "portrait-name";
 
     name.textContent =
       victim.name;
 
-    const panel =
-      document.createElement("div");
+    const img =
+      document.createElement("img");
 
-    panel.className =
-      "victim-panel";
+    img.alt =
+      victim.name;
 
-    panel.textContent =
-      "Memorial panel " + victim.panel;
+    img.loading =
+      "lazy";
 
-    const source =
-      document.createElement("a");
+    img.referrerPolicy =
+      "no-referrer";
 
-    source.className =
-      "victim-source";
+    img.src =
+      "";
 
-    source.href =
-      OFFICIAL_NAMES_URL;
+    tile.appendChild(img);
+    tile.appendChild(name);
 
-    source.target =
-      "_blank";
+    wall.appendChild(tile);
 
-    source.rel =
-      "noopener noreferrer";
-
-    source.textContent =
-      "Verify in official Memorial directory →";
-
-    info.appendChild(name);
-    info.appendChild(panel);
-    info.appendChild(source);
-
-    article.appendChild(image);
-    article.appendChild(info);
-
-    fragment.appendChild(article);
-
-    /*
-      Attempt to resolve a public portrait.
-    */
-    findPortrait(victim.name).then(imageURL=>{
-
-      if(imageURL){
-
-        image.src =
-          imageURL;
-
-        image.classList.remove("loading");
-
-      }
-
-    });
+    loadPortraitForTile(
+      tile,
+      victim
+    );
 
   });
-
-  victimGrid.appendChild(fragment);
 
 }
 
 /* =========================================================
-   SEARCH
+   LOAD PORTRAIT TILE
 ========================================================= */
 
-victimSearch.addEventListener(
-  "input",
-  renderVictims
-);
+async function loadPortraitForTile(tile,victim) {
+
+  const slug =
+    voicesSlug(victim.name);
+
+  if (!slug) {
+    return;
+  }
+
+  try {
+
+    const response =
+      await fetch(
+        VOICES_PROXY +
+        encodeURIComponent(slug)
+      );
+
+    if (!response.ok) {
+      return;
+    }
+
+    const markdown =
+      await response.text();
+
+    const images =
+      extractImageUrls(markdown);
+
+    if (!images.length) {
+      return;
+    }
+
+    const img =
+      tile.querySelector("img");
+
+    img.src =
+      images[0];
+
+  } catch(error) {
+
+    /*
+      Leave the tile blank instead of using
+      the wrong person's face.
+    */
+
+  }
+
+}
 
 /* =========================================================
-   LETTER NAVIGATION
+   LOAD OFFICIAL NAMES
 ========================================================= */
 
-document
-  .querySelectorAll("#letterNav button")
-  .forEach(button=>{
+async function loadOfficialNames() {
 
-    button.addEventListener("click",()=>{
+  try {
 
-      activeLetter =
-        button.dataset.letter;
+    const response =
+      await fetch(
+        OFFICIAL_NAMES_URL
+      );
 
-      renderVictims();
+    if (!response.ok) {
+      throw new Error(
+        "Official names source unavailable"
+      );
+    }
 
-      if(activeLetter!=="ALL"){
+    const text =
+      await response.text();
 
-        const first =
-          document.querySelector(
-            `.victim-card[data-letter="${activeLetter}"]`
-          );
+    const victims =
+      parseOfficialNames(text);
 
-        if(first){
+    if (
+      victims.length < 2900
+    ) {
+      throw new Error(
+        "The returned memorial list was incomplete."
+      );
+    }
 
-          setTimeout(()=>{
+    renderVictimList(
+      victims
+    );
 
-            first.scrollIntoView({
-              behavior:"smooth",
-              block:"start"
-            });
+    buildPortraitWall(
+      victims
+    );
 
-          },50);
+  } catch(error) {
 
-        }
+    const roll =
+      document.getElementById(
+        "victimRoll"
+      );
 
-      }
+    roll.innerHTML = `
+      <div class="loading">
+        <strong>The memorial list could not be retrieved.</strong>
+        Please refresh the page. The archive intentionally does not
+        substitute an incomplete or unofficial victim list.
+      </div>
+    `;
 
-    });
+    document.getElementById(
+      "victimCount"
+    ).textContent =
+      "The official Memorial source could not be loaded.";
 
-  });
+  }
 
-/* =========================================================
-   START
-========================================================= */
+}
 
-loadVictims();
+loadOfficialNames();
 
 </script>
 
