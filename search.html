@@ -23,9 +23,9 @@
     </div>
 
     <nav>
-<a href="search.html">Search the Archive</a>
-<a href="archive.html">The Archive</a>
-<a href="index.html">Home</a>
+      <a href="search.html">Search the Archive</a>
+      <a href="archive.html">The Archive</a>
+      <a href="index.html">Home</a>
       <a href="politics.html">Politics</a>
       <a href="entertainment-sports.html">Entertainment / Sports</a>
       <a href="world-events.html">World Events</a>
@@ -88,7 +88,7 @@
 
     </section>
 
-    <section class="about-section">
+    <section class="records-section">
 
       <div class="container">
 
@@ -121,12 +121,6 @@
   <script src="script.js"></script>
 
   <script>
-
-    /*
-      INDIVIDUAL ARCHIVE RECORDS
-
-      Every new historical record can be added here later.
-    */
 
     const archiveRecords = [
 
@@ -232,32 +226,30 @@
             document.createElement("article");
 
           article.className =
-            "archive-card";
+            "record-card";
 
 
           article.innerHTML = `
 
-            <p class="eyebrow">
+            <p class="record-label">
               ${record.category}
             </p>
 
-            <h2>
+            <h3>
               ${record.title}
-            </h2>
+            </h3>
 
-            <p>
-              <strong>
-                ${record.date}
-              </strong>
+            <p class="record-date">
+              ${record.date}
             </p>
 
             <p>
               ${record.description}
             </p>
 
-            <p>
+            <p class="source-link">
               <a href="${record.file}">
-                View Record →
+                View Record
               </a>
             </p>
 
