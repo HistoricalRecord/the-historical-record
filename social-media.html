@@ -2,14 +2,243 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Social Media | The Historical Record</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Historical Memes | The Historical Record</title>
+
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* =========================================================
+       HISTORICAL MEMES
+       Page-specific styling.
+       The main site structure intentionally follows the
+       existing Historical Record pages.
+       ========================================================= */
+
+    .meme-page {
+      background: #ffffff;
+    }
+
+    .meme-hero {
+      border-bottom: 1px solid #d6d6d6;
+    }
+
+    .meme-hero h1 {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .meme-archive-intro {
+      max-width: 850px;
+    }
+
+    .meme-count {
+      margin-top: 18px;
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .meme-record-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    /*
+      Individual archive record.
+
+      White background, thin gray border and restrained
+      red accents keep the page visually consistent with
+      the rest of The Historical Record.
+    */
+    .meme-record {
+      background: #ffffff;
+      border: 1px solid #d2d2d2;
+      padding: 22px;
+      box-sizing: border-box;
+    }
+
+    .meme-record-label {
+      margin: 0 0 8px 0;
+      color: #b00000;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .meme-record h3 {
+      margin: 0 0 14px 0;
+      font-size: 1.35rem;
+      line-height: 1.25;
+      font-weight: 800;
+      color: #222;
+    }
+
+    /*
+      Half-size video presentation.
+
+      On desktop this intentionally does NOT stretch across
+      the entire browser window.
+    */
+    .meme-video-wrap {
+      width: 50%;
+      max-width: 560px;
+      min-width: 0;
+      margin: 18px 0 0 0;
+      background: #111;
+      border: 1px solid #c9c9c9;
+    }
+
+    .meme-video {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .meme-video img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    /*
+      The thumbnail placeholder prevents 165 YouTube iframes
+      from being created simultaneously.
+    */
+    .meme-video-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #111;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .meme-play-button {
+      width: 64px;
+      height: 46px;
+      border: 0;
+      border-radius: 8px;
+      background: #d00000;
+      color: #ffffff;
+      font-size: 25px;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    }
+
+    .meme-play-button:hover {
+      background: #a90000;
+    }
+
+    .meme-video iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .meme-meta {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid #dddddd;
+    }
+
+    .meme-title {
+      margin: 0 0 7px 0;
+      color: #222;
+      font-size: 1.05rem;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
+    .meme-uploader {
+      margin: 0;
+      color: #666;
+      font-size: 0.92rem;
+    }
+
+    .meme-uploader strong {
+      color: #333;
+    }
+
+    .meme-source {
+      margin-top: 10px;
+    }
+
+    .meme-source a {
+      color: #b00000;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .meme-source a:hover {
+      text-decoration: underline;
+    }
+
+    /*
+      Loading state.
+    */
+    .meme-loading {
+      padding: 25px;
+      text-align: center;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    /*
+      Error/fallback state if YouTube metadata cannot be
+      retrieved. The video itself remains playable.
+    */
+    .meme-metadata-fallback {
+      color: #777;
+    }
+
+    /*
+      Mobile:
+      make the video almost full width rather than literally
+      keeping the desktop 50% size on a narrow phone.
+    */
+    @media (max-width: 700px) {
+
+      .meme-record {
+        padding: 16px;
+      }
+
+      .meme-video-wrap {
+        width: 100%;
+        max-width: none;
+      }
+
+      .meme-record h3 {
+        font-size: 1.15rem;
+      }
+    }
+  </style>
 </head>
 
-<body>
+<body class="meme-page">
 
-  <button class="menu-button" aria-label="Open menu" aria-expanded="false">
+  <!-- =======================================================
+       EXISTING HISTORICAL RECORD MENU
+       ======================================================= -->
+
+  <button
+    class="menu-button"
+    aria-label="Open menu"
+    aria-expanded="false"
+  >
     <span></span>
     <span></span>
     <span></span>
@@ -23,11 +252,21 @@
     </div>
 
     <nav>
-      <a href="search.html">Search the Archive</a>
-      <a href="archive.html">The Archive</a>
-      <a href="index.html">Home</a>
+
+      <a href="search.html">
+        Search the Archive
+      </a>
+
+      <a href="archive.html">
+        The Archive
+      </a>
+
+      <a href="index.html">
+        Home
+      </a>
 
       <div class="menu-dropdown">
+
         <button
           class="menu-dropdown-toggle"
           type="button"
@@ -38,30 +277,60 @@
           <span class="menu-dropdown-arrow">▾</span>
         </button>
 
-        <div class="menu-submenu" id="politics-submenu">
-          <a href="politics.html">Politics Home</a>
-          <a href="september-11.html">September 11, 2001</a>
+        <div
+          class="menu-submenu"
+          id="politics-submenu"
+        >
+          <a href="politics.html">
+            Politics Home
+          </a>
+
+          <a href="september-11.html">
+            September 11, 2001
+          </a>
+
           <a href="september-11-sourcebooks.html">
             9/11 Sourcebooks &amp; Documents
           </a>
         </div>
+
       </div>
 
-      <a href="entertainment-sports.html">Entertainment / Sports</a>
-      <a href="world-events.html">World Events</a>
-      <a href="social-media.html">Social Media</a>
-      <a href="thoughts.html">Thoughts / Blog</a>
+      <a href="entertainment-sports.html">
+        Entertainment / Sports
+      </a>
+
+      <a href="world-events.html">
+        World Events
+      </a>
+
+      <a href="social-media.html">
+        Social Media
+      </a>
+
+      <a href="thoughts.html">
+        Thoughts / Blog
+      </a>
+
     </nav>
 
   </aside>
 
   <div class="menu-overlay"></div>
 
+
+  <!-- =======================================================
+       SITE HEADER
+       ======================================================= -->
+
   <header class="site-header">
 
     <div class="container header-inner">
 
-      <a href="index.html" class="brand">
+      <a
+        href="index.html"
+        class="brand"
+      >
         THE HISTORICAL RECORD
       </a>
 
@@ -69,54 +338,55 @@
 
   </header>
 
+
+  <!-- =======================================================
+       MAIN
+       ======================================================= -->
+
   <main>
 
-    <section class="hero">
+    <section class="hero meme-hero">
 
       <div class="container">
 
         <p class="eyebrow">
-          SOCIAL MEDIA
+          SOCIAL MEDIA • INTERNET CULTURE
         </p>
 
         <h1>
-          Social Media
+          HISTORICAL MEMES
         </h1>
 
-        <p class="hero-text">
-          This section preserves significant social media posts, screenshots,
-          discussions, statements, reactions, and other digital records that
-          may become part of the historical record.
+        <p class="hero-text meme-archive-intro">
+          A collection of viral videos, internet jokes, memorable clips,
+          and pieces of digital culture preserved as part of the
+          historical record.
+        </p>
+
+        <p
+          class="meme-count"
+          id="meme-count"
+        >
+          Loading archive...
         </p>
 
       </div>
 
     </section>
 
+
+    <!-- =====================================================
+         VIDEO ARCHIVE
+         ===================================================== -->
+
     <section class="records-section">
 
       <div class="container">
 
-        <div class="record-list">
-
-          <a href="social-media-archive.html" class="record-card" style="text-decoration: none; color: inherit; display: block;">
-
-            <p class="record-label">
-              SOCIAL MEDIA
-            </p>
-
-            <h3>
-              Social Media Records
-            </h3>
-
-            <p>
-              This section will preserve social media material documenting
-              important events, public reactions, statements, and moments
-              captured online.
-            </p>
-
-          </a>
-
+        <div
+          class="meme-record-list"
+          id="meme-record-list"
+        >
         </div>
 
       </div>
@@ -124,6 +394,11 @@
     </section>
 
   </main>
+
+
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
 
   <footer class="site-footer">
 
@@ -141,7 +416,861 @@
 
   </footer>
 
+
+  <!-- =======================================================
+       EXISTING SITE SCRIPT
+       ======================================================= -->
+
   <script src="script.js"></script>
+
+
+  <!-- =======================================================
+       HISTORICAL MEMES SCRIPT
+       ======================================================= -->
+
+  <script>
+
+    /*
+     * =======================================================
+     * VIDEO ARCHIVE
+     *
+     * These are the YouTube videos supplied for this page.
+     *
+     * The malformed IDs from the previous list:
+     *
+     *   J—aiyznGQ
+     *   *OBlgSz8sSM
+     *
+     * have intentionally NOT been included because they are
+     * not valid YouTube video IDs.
+     *
+     * Playlists and archive.viner.co have also intentionally
+     * NOT been included because this page is for individual
+     * videos only.
+     *
+     * WqSTXuJeTks appeared twice in the supplied list and is
+     * included only once.
+     * =======================================================
+     */
+
+    const memeVideos = [
+
+      "ILtz5nX3_fc",
+      "WqSTXuJeTks",
+      "mfhBM_Yay6w",
+      "93hq0YU3Gqk",
+      "BEtIoGQxqQs",
+      "LeAltgu_pbM",
+      "aBfUFr9SBY0",
+      "D2kJZOfq7zk",
+      "UMf40daefsI",
+      "O61Do03ZCjw",
+      "D1R-jKKp3NA",
+      "tw5EsYzyGWI",
+      "O4rfQSgkZOE",
+      "Y93xTChHV_0",
+      "OKI-5MHUkKY",
+      "5RDER307OKI",
+      "ISV1bt8-TDg",
+      "b_NQCTbvRnM",
+      "uEE3akeFeQU",
+      "7zH4Jb-6BZs",
+      "vzz704zeI4U",
+      "QpgJyYBTq84",
+      "mBxBzmhHTww",
+
+      "Q5im0Ssyyus",
+      "CsGYh8AacgY",
+      "s8MDNFaGfT4",
+      "Z3ZAGBL6UBA",
+      "qItugh-fFgg",
+      "jNQXAC9IVRw",
+      "hMtZfW2z9dw",
+      "fbGkxcY7YFU",
+      "MtN1YnoL46Q",
+      "Tx1XIm6q4r4",
+      "EIyohCQqGck",
+      "2EcBClUGl5Q",
+      "oavMtUWDBTM",
+      "YnopHCL1Jk8",
+      "k85mRPqvMbE",
+      "astISOttCQ0",
+      "ykwqXuMPsoc",
+      "NoHRBvtUV_g",
+      "ZN5PoW7_kdA",
+      "QFCSXr6qnv4",
+      "R5Nz8p3EP7A",
+      "9FXMYsMvs1A",
+      "aoEtd6HONEk",
+      "IY9YNF5MMQo",
+      "UmPmpUTr22c",
+      "HRPwMBAtfTY",
+      "d8CeSGlQQnM",
+      "Lt1u6N7lueM",
+      "EShUeudtaFg",
+      "TIoD7Uj7MUo",
+      "f4FuOi9rvKw",
+      "9KSGUVcNfZM",
+      "R9dRuaTOyBY",
+      "wsZ7013yHiw",
+      "LzxCJzM4xLo",
+      "dEI7oX0XxJw",
+      "x2Icz8xF174",
+      "HKst22Y2hgA",
+      "IdyXKJ8NcNI",
+      "vnkRvx3-j-k",
+      "9edByCiaLbY",
+      "DoskJt_UVG8",
+      "gLMo7_VXU_s",
+      "eaNI18GAxXs",
+      "sdnJxDmJNmA",
+      "I15sK7dNMOM",
+      "W-3DWBv0CvU",
+      "sHi6LCx6Lx8",
+      "IxX_QHay02M",
+      "SMWi7CLoZ2Q",
+      "msSc7Mv0QHY",
+      "OzKY5YHnOTg",
+      "_quu68XXHEs",
+      "gavT_q9CLME",
+      "3qwU1LQZA5g",
+      "zTL4T_NVGhY",
+      "AsFCSvqsqFA",
+      "xzpndHtdl9A",
+      "5vRlJrkxsqo",
+      "wAUK9hVgmNI",
+      "z_mhFOyLQBg",
+      "YCeQLeQiRP4",
+      "V_OVxxIvqVw",
+      "r3-Y31ONZuI",
+      "xaPepCVepCg",
+      "IJmIGC0nwK0",
+      "ZZ5LpwO-An4",
+      "czhd1eHv6ac",
+      "lg5WKsVnEA4",
+      "lgh68Swuak0",
+      "rbE53XUtVw0",
+      "Ou6uXU0KFss",
+      "6f7pgA0riU8",
+      "otCpCn0l4Wo",
+      "AMrSGMF4PZo",
+      "7eKv4BEujFU",
+      "bjwgt1kRqEU",
+      "rmn7oV9bBRU",
+      "65e06P6Rhf4",
+      "p8f-dwURY20",
+      "8kjY9sKdHlY",
+      "InklyF13qjU",
+      "AUl4F8M8bxM",
+      "S4pk8jsk9h4",
+      "RV6aLIQgmYg",
+      "Z0NlmumRuVE",
+      "2zw-XgAko_E",
+      "NsaSG-0U4mU",
+      "o7zqouVuFZY",
+      "ykz_dbpYRPU",
+      "NOpS4qGILyY",
+      "GsWGqDzygDs",
+      "Q0IL0S0vTGw",
+      "JAVV2jbjKTQ",
+      "dxjLh3lZumY",
+      "oBnVNpG97Z4",
+      "Mh4f9AYRCZY",
+      "pNbN5Mk_sZw",
+
+      "Cqd1Gvq-RBY",
+      "dMH0bHeiRNg",
+      "EwTZ2xpQwpA",
+      "txqiwrbYGrs",
+      "dQw4w9WgXcQ",
+      "2yJgwwDcgV8",
+      "9bZkp7q19f0",
+      "HPPj6viIBmU",
+      "wCF3ywukQYA",
+      "UjCdB5p2v0Y",
+      "OQSNhk5ICTI",
+      "hooKVstzbz0",
+      "3HjIljJd-o0",
+      "CMNry4PE93Y",
+      "aMS0O3kknvk",
+      "zVNTdWbVBgc",
+      "7WmMcqp670s",
+      "W45DRy7M1no",
+      "6B26asyGKDo",
+      "6bVa6jn4rpE",
+      "40uMbKjSBwU",
+      "5jwETfUw0TE",
+      "cBC1moosff0",
+      "bx4kwzUn2Bg",
+
+      "oHg5SJYRHA0",
+      "EwKpaD8g_gY",
+      "dmzDB8EHRxg",
+
+      "e3mG_gvaimo",
+      "EoLjddNcnYU",
+      "H6ly9KGuVTk",
+      "k0CJwbayisw",
+      "vo3qLUki5L8",
+      "1lQ3FGxpEU0",
+      "nwP3TeK-fPs",
+      "tGmmQ688Fkk",
+      "vHH1W1_f-6Y",
+
+      "hD8MPMTcvd8",
+      "RtfmTOv_kgA",
+      "VslKGGpl4Xc",
+      "ocd_GDed5qg",
+      "nUpNvmymAzM",
+      "0eOiL5dqP-I",
+      "3FS8_l_i81Q",
+      "4ZYziZg8LBc"
+
+    ];
+
+
+    /*
+     * =======================================================
+     * DOM REFERENCES
+     * =======================================================
+     */
+
+    const archive =
+      document.getElementById("meme-record-list");
+
+    const count =
+      document.getElementById("meme-count");
+
+
+    /*
+     * =======================================================
+     * ARCHIVE COUNT
+     * =======================================================
+     */
+
+    count.textContent =
+      memeVideos.length +
+      " historical videos preserved in this collection.";
+
+
+    /*
+     * =======================================================
+     * CREATE ONE ARCHIVE RECORD
+     * =======================================================
+     */
+
+    function createMemeRecord(videoId, index) {
+
+      const article =
+        document.createElement("article");
+
+      article.className =
+        "meme-record";
+
+      article.dataset.videoId =
+        videoId;
+
+
+      /*
+       * Label
+       */
+
+      const label =
+        document.createElement("p");
+
+      label.className =
+        "meme-record-label";
+
+      label.textContent =
+        "INTERNET VIDEO RECORD " +
+        String(index + 1).padStart(3, "0");
+
+
+      /*
+       * Temporary heading.
+       *
+       * YouTube's actual title will replace this once
+       * metadata has been retrieved.
+       */
+
+      const heading =
+        document.createElement("h3");
+
+      heading.className =
+        "meme-title";
+
+      heading.textContent =
+        "Loading video title…";
+
+
+      /*
+       * Video wrapper
+       */
+
+      const videoWrap =
+        document.createElement("div");
+
+      videoWrap.className =
+        "meme-video-wrap";
+
+
+      /*
+       * Video area
+       */
+
+      const video =
+        document.createElement("div");
+
+      video.className =
+        "meme-video";
+
+      video.dataset.videoId =
+        videoId;
+
+
+      /*
+       * YouTube thumbnail.
+       *
+       * This is dramatically lighter than putting an iframe
+       * for every video into the page at once.
+       */
+
+      const thumbnail =
+        document.createElement("img");
+
+      thumbnail.src =
+        "https://i.ytimg.com/vi/" +
+        encodeURIComponent(videoId) +
+        "/hqdefault.jpg";
+
+      thumbnail.alt =
+        "Thumbnail for archived video";
+
+      thumbnail.loading =
+        "lazy";
+
+      thumbnail.decoding =
+        "async";
+
+
+      /*
+       * Play button
+       */
+
+      const playButton =
+        document.createElement("button");
+
+      playButton.type =
+        "button";
+
+      playButton.className =
+        "meme-play-button";
+
+      playButton.setAttribute(
+        "aria-label",
+        "Play archived video"
+      );
+
+      playButton.innerHTML =
+        "▶";
+
+
+      /*
+       * Overlay
+       */
+
+      const placeholder =
+        document.createElement("div");
+
+      placeholder.className =
+        "meme-video-placeholder";
+
+      placeholder.appendChild(
+        playButton
+      );
+
+
+      /*
+       * Add thumbnail and overlay.
+       */
+
+      video.appendChild(
+        thumbnail
+      );
+
+      video.appendChild(
+        placeholder
+      );
+
+      videoWrap.appendChild(
+        video
+      );
+
+
+      /*
+       * Metadata area
+       */
+
+      const meta =
+        document.createElement("div");
+
+      meta.className =
+        "meme-meta";
+
+
+      /*
+       * Uploader
+       */
+
+      const uploader =
+        document.createElement("p");
+
+      uploader.className =
+        "meme-uploader";
+
+      uploader.innerHTML =
+        "<strong>Uploader:</strong> " +
+        '<span class="uploader-name">Loading…</span>';
+
+
+      /*
+       * Source link
+       */
+
+      const source =
+        document.createElement("p");
+
+      source.className =
+        "meme-source";
+
+      source.innerHTML =
+        '<a href="https://www.youtube.com/watch?v=' +
+        encodeURIComponent(videoId) +
+        '" target="_blank" rel="noopener noreferrer">' +
+        "View on YouTube" +
+        "</a>";
+
+
+      /*
+       * Put metadata together.
+       */
+
+      meta.appendChild(
+        uploader
+      );
+
+      meta.appendChild(
+        source
+      );
+
+
+      /*
+       * Put record together.
+       */
+
+      article.appendChild(
+        label
+      );
+
+      article.appendChild(
+        heading
+      );
+
+      article.appendChild(
+        videoWrap
+      );
+
+      article.appendChild(
+        meta
+      );
+
+
+      /*
+       * Save useful references on the record.
+       */
+
+      article._heading =
+        heading;
+
+      article._uploader =
+        uploader.querySelector(
+          ".uploader-name"
+        );
+
+      article._video =
+        video;
+
+
+      /*
+       * Play on click.
+       */
+
+      function playVideo() {
+        loadIframe(video);
+      }
+
+      playButton.addEventListener(
+        "click",
+        playVideo
+      );
+
+      thumbnail.addEventListener(
+        "click",
+        playVideo
+      );
+
+
+      /*
+       * Return complete record.
+       */
+
+      return article;
+    }
+
+
+    /*
+     * =======================================================
+     * LOAD ACTUAL YOUTUBE PLAYER
+     *
+     * This is the important performance optimization.
+     *
+     * The browser does NOT create 165 YouTube iframes at
+     * initial page load.
+     *
+     * Instead, a lightweight thumbnail is shown.
+     *
+     * The iframe is created when:
+     *
+     *   1. the user clicks the video, OR
+     *   2. the video approaches the viewport.
+     * =======================================================
+     */
+
+    function loadIframe(videoElement) {
+
+      if (
+        videoElement.dataset.loaded === "true"
+      ) {
+        return;
+      }
+
+      const videoId =
+        videoElement.dataset.videoId;
+
+      if (!videoId) {
+        return;
+      }
+
+      videoElement.dataset.loaded =
+        "true";
+
+
+      /*
+       * Remove thumbnail and overlay.
+       */
+
+      videoElement.innerHTML =
+        "";
+
+
+      /*
+       * Create YouTube iframe.
+       */
+
+      const iframe =
+        document.createElement("iframe");
+
+      iframe.src =
+        "https://www.youtube-nocookie.com/embed/" +
+        encodeURIComponent(videoId) +
+        "?rel=0&modestbranding=1";
+
+      iframe.title =
+        "Archived historical video";
+
+      iframe.loading =
+        "lazy";
+
+      iframe.allow =
+        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+
+      iframe.allowFullscreen =
+        true;
+
+      iframe.referrerPolicy =
+        "strict-origin-when-cross-origin";
+
+
+      /*
+       * Add player.
+       */
+
+      videoElement.appendChild(
+        iframe
+      );
+    }
+
+
+    /*
+     * =======================================================
+     * LOAD YOUTUBE METADATA
+     *
+     * YouTube's oEmbed endpoint supplies the video's:
+     *
+     *   - actual title
+     *   - uploader/channel name
+     *
+     * No API key is required for this metadata request.
+     * =======================================================
+     */
+
+    async function loadMetadata(article) {
+
+      const videoId =
+        article.dataset.videoId;
+
+      const endpoint =
+        "https://www.youtube.com/oembed?url=" +
+        encodeURIComponent(
+          "https://www.youtube.com/watch?v=" +
+          videoId
+        ) +
+        "&format=json";
+
+      try {
+
+        const response =
+          await fetch(
+            endpoint,
+            {
+              method: "GET"
+            }
+          );
+
+        if (!response.ok) {
+          throw new Error(
+            "Metadata request failed"
+          );
+        }
+
+        const data =
+          await response.json();
+
+
+        /*
+         * Actual YouTube title.
+         */
+
+        if (data.title) {
+
+          article._heading.textContent =
+            data.title;
+
+        } else {
+
+          article._heading.textContent =
+            "YouTube video";
+
+        }
+
+
+        /*
+         * Actual uploader/channel.
+         */
+
+        if (data.author_name) {
+
+          article._uploader.textContent =
+            data.author_name;
+
+        } else {
+
+          article._uploader.textContent =
+            "Uploader unavailable";
+
+        }
+
+      } catch (error) {
+
+        /*
+         * Metadata can occasionally be unavailable for
+         * deleted, private, age-restricted, or otherwise
+         * inaccessible videos.
+         *
+         * The actual video card remains present.
+         */
+
+        article._heading.textContent =
+          "YouTube video";
+
+        article._uploader.textContent =
+          "Uploader unavailable";
+
+      }
+
+    }
+
+
+    /*
+     * =======================================================
+     * BUILD ARCHIVE
+     * =======================================================
+     */
+
+    const records =
+      [];
+
+
+    memeVideos.forEach(
+      function(videoId, index) {
+
+        const article =
+          createMemeRecord(
+            videoId,
+            index
+          );
+
+        archive.appendChild(
+          article
+        );
+
+        records.push(
+          article
+        );
+
+      }
+    );
+
+
+    /*
+     * =======================================================
+     * LAZY METADATA + LAZY PLAYERS
+     *
+     * Only videos near the user's screen get processed.
+     * =======================================================
+     */
+
+    const observer =
+      new IntersectionObserver(
+        function(entries) {
+
+          entries.forEach(
+            function(entry) {
+
+              if (!entry.isIntersecting) {
+                return;
+              }
+
+              const article =
+                entry.target;
+
+
+              /*
+               * Retrieve title/uploader.
+               */
+
+              if (
+                article.dataset.metadataLoaded !==
+                "true"
+              ) {
+
+                article.dataset.metadataLoaded =
+                  "true";
+
+                loadMetadata(
+                  article
+                );
+
+              }
+
+
+              /*
+               * Load the actual YouTube iframe
+               * when the card gets reasonably close
+               * to the viewport.
+               */
+
+              const video =
+                article._video;
+
+              if (
+                video &&
+                video.dataset.loaded !== "true"
+              ) {
+
+                loadIframe(
+                  video
+                );
+
+              }
+
+
+              /*
+               * Once processed, this individual record
+               * no longer needs observation.
+               */
+
+              observer.unobserve(
+                article
+              );
+
+            }
+          );
+
+        },
+        {
+          root: null,
+
+          /*
+           * Start processing shortly before the
+           * video reaches the screen.
+           */
+
+          rootMargin:
+            "500px 0px 500px 0px",
+
+          threshold:
+            0.01
+        }
+      );
+
+
+    /*
+     * Observe every record.
+     */
+
+    records.forEach(
+      function(article) {
+
+        observer.observe(
+          article
+        );
+
+      }
+    );
+
+
+    /*
+     * =======================================================
+     * EXTRA MOBILE PERFORMANCE PROTECTION
+     *
+     * If a browser is very constrained, the browser's own
+     * lazy-loading behavior still applies to the iframe.
+     * =======================================================
+     */
+
+    if (
+      "loading" in HTMLIFrameElement.prototype
+    ) {
+
+      /*
+       * Native iframe lazy loading is already enabled
+       * by iframe.loading = "lazy".
+       */
+
+    }
+
+  </script>
 
 </body>
 </html>
