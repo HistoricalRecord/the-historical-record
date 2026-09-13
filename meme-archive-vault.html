@@ -1,1206 +1,2309 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jonathon A. Bender - Meme Archive Vault</title>
-  <style>
-    :root {
-      --shadow: 4px 4px 0px #000;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    * {
-      box-sizing: border-box;
-    }
+<title>Meme Archive Vault | The Historical Record</title>
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #f0f0f0;
-      color: #111;
-      margin: 0;
-      padding: 20px;
-    }
+<style>
+/* =========================================================
+   THE HISTORICAL RECORD
+   MEME ARCHIVE VAULT
+   2007-STYLE YOUTUBE INSPIRED DESIGN
+   ========================================================= */
 
-    .main-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      background: #fff;
-      border: 3px solid #000;
-      padding: 20px;
-      box-shadow: var(--shadow);
-    }
+* {
+  box-sizing: border-box;
+}
 
-    .archive-section {
-      margin-bottom: 30px;
-    }
+html {
+  background: #ffffff;
+}
 
-    .section-title {
-      padding: 10px 15px;
-      color: white;
-      font-weight: bold;
-    }
+body {
+  margin: 0;
+  background: #ffffff;
+  color: #222;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
 
-    .section-title h2 {
-      margin: 0 0 5px 0;
-      font-size: 22px;
-    }
+/* ---------------------------------------------------------
+   HEADER
+   --------------------------------------------------------- */
 
-    .section-title p {
-      margin: 0;
-      font-size: 12px;
-      opacity: 0.9;
-    }
+.site-header {
+  height: 74px;
+  border-bottom: 1px solid #ccc;
+  background: linear-gradient(#ffffff, #eeeeee);
+}
 
-    /* Common video container sizing helper for responsive embeds */
-    .video-frame {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-      height: 0;
-      background: #000;
-      border: 1px solid #ccc;
-    }
+.header-inner {
+  width: 960px;
+  max-width: calc(100% - 24px);
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    .video-frame iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
+.brand {
+  color: #111;
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
 
-    /* --- EARLY YOUTUBE RETRO ARCHIVE SKIN --- */
-    .yt-archive-section {
-      background: #fbfbfb;
-      padding: 15px;
-      border: 2px solid #ccc;
-      box-shadow: var(--shadow);
-    }
+.brand span {
+  color: #cc0000;
+}
 
-    .yt-archive-header {
-      background: linear-gradient(90deg, #cc181e, #222) !important;
-      border: 2px solid #000 !important;
-    }
+/* ---------------------------------------------------------
+   OLD YOUTUBE NAVIGATION
+   --------------------------------------------------------- */
 
-    .yt-retro-container {
-      background: #ffffff;
-      border: 1px solid #d3d3d3;
-      padding: 12px;
-    }
+.youtube-bar {
+  background: #333;
+  border-bottom: 3px solid #cc0000;
+}
 
-    .yt-retro-topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #eeeeee;
-      border: 1px solid #ccc;
-      padding: 8px 12px;
-      margin-bottom: 15px;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+.youtube-bar-inner {
+  width: 960px;
+  max-width: calc(100% - 24px);
+  margin: 0 auto;
+  min-height: 35px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
 
-    .yt-retro-logo {
-      font-size: 20px;
-      font-weight: 900;
-      letter-spacing: -1px;
-    }
+.youtube-bar a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 9px 13px;
+  font-weight: bold;
+  border-right: 1px solid #555;
+}
 
-    .yt-box-red {
-      background: #cc181e;
-      color: #fff;
-      padding: 2px 4px;
-    }
+.youtube-bar a:hover {
+  background: #555;
+}
 
-    .yt-box-black {
-      color: #222;
-    }
+/* ---------------------------------------------------------
+   PAGE
+   --------------------------------------------------------- */
 
-    .beta-tag {
-      color: #666;
-      font-size: 10px;
-      letter-spacing: 0px;
-      margin-left: 5px;
-    }
+.page {
+  width: 960px;
+  max-width: calc(100% - 24px);
+  margin: 18px auto 50px;
+}
 
-    .yt-retro-stats {
-      font-size: 11px;
-      color: #444;
-      font-weight: bold;
-    }
+/* ---------------------------------------------------------
+   ARCHIVE HEADER
+   --------------------------------------------------------- */
 
-    .yt-vault-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-    }
+.archive-header {
+  border: 1px solid #bbb;
+  background: #f4f4f4;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
 
-    .yt-embed-card {
-      background: #fff;
-      border: 1px solid #ccc;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
-      padding: 8px;
-    }
+.archive-header h1 {
+  margin: 0 0 5px;
+  font-size: 24px;
+  color: #333;
+}
 
-    .yt-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 6px;
-      padding-top: 4px;
-      border-top: 1px dotted #e0e0e0;
-      font-size: 11px;
-      color: #333;
-    }
+.archive-header p {
+  margin: 0;
+  color: #666;
+  line-height: 1.5;
+}
 
-    .yt-views {
-      color: #666;
-      font-size: 10px;
-    }
+/* ---------------------------------------------------------
+   SEARCH
+   --------------------------------------------------------- */
 
-    @media(max-width: 950px) {
-      .yt-vault-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
+.search-panel {
+  border: 1px solid #bbb;
+  background: #eee;
+  padding: 10px;
+  margin-bottom: 14px;
+}
 
-    @media(max-width: 600px) {
-      .yt-vault-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+.search-row {
+  display: flex;
+  gap: 7px;
+}
+
+#searchInput {
+  flex: 1;
+  min-width: 0;
+  height: 34px;
+  border: 1px solid #999;
+  padding: 7px 9px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  background: #fff;
+}
+
+#searchInput:focus {
+  outline: none;
+  border-color: #cc0000;
+}
+
+.search-button {
+  height: 34px;
+  border: 1px solid #999;
+  background: linear-gradient(#fff, #ddd);
+  padding: 0 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background: #ddd;
+}
+
+/* ---------------------------------------------------------
+   FILTERS
+   --------------------------------------------------------- */
+
+.filter-panel {
+  border: 1px solid #ccc;
+  background: #fafafa;
+  padding: 9px;
+  margin-bottom: 14px;
+}
+
+.filter-label {
+  display: inline-block;
+  margin-right: 7px;
+  font-weight: bold;
+  color: #555;
+}
+
+.filter-button {
+  display: inline-block;
+  border: 1px solid #aaa;
+  background: #fff;
+  color: #333;
+  padding: 5px 9px;
+  margin: 2px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.filter-button:hover,
+.filter-button.active {
+  color: #fff;
+  background: #cc0000;
+  border-color: #990000;
+}
+
+/* ---------------------------------------------------------
+   RESULTS BAR
+   --------------------------------------------------------- */
+
+.results-bar {
+  background: #eee;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 7px 9px;
+  margin-bottom: 12px;
+  color: #555;
+}
+
+.results-bar strong {
+  color: #222;
+}
+
+/* ---------------------------------------------------------
+   VIDEO GRID
+   --------------------------------------------------------- */
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 13px;
+}
+
+.video-card {
+  border: 1px solid #bbb;
+  background: #fff;
+  padding: 7px;
+  min-width: 0;
+}
+
+.video-card:hover {
+  border-color: #888;
+}
+
+.thumbnail-button {
+  display: block;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.thumbnail-button img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-overlay {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 38px;
+  background: rgba(190, 0, 0, 0.92);
+  border-radius: 7px;
+}
+
+.play-overlay::after {
+  content: "";
+  position: absolute;
+  left: 21px;
+  top: 10px;
+  border-left: 15px solid white;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+}
+
+.video-title {
+  margin: 8px 2px 3px;
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: bold;
+  color: #0033aa;
+}
+
+.video-title.loading {
+  color: #777;
+}
+
+.video-meta {
+  margin: 0 2px;
+  color: #777;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.video-era {
+  display: inline-block;
+  margin: 6px 2px 1px;
+  padding: 2px 5px;
+  background: #eee;
+  border: 1px solid #ccc;
+  color: #555;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.watch-link {
+  display: inline-block;
+  margin: 5px 2px 1px;
+  color: #0033aa;
+  text-decoration: underline;
+  font-size: 11px;
+}
+
+/* ---------------------------------------------------------
+   PLAYER MODAL
+   --------------------------------------------------------- */
+
+.player-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 10000;
+}
+
+.player-modal.open {
+  display: flex;
+}
+
+.player-window {
+  width: 900px;
+  max-width: 100%;
+  background: #eee;
+  border: 1px solid #111;
+  box-shadow: 0 5px 30px rgba(0,0,0,.7);
+}
+
+.player-header {
+  min-height: 40px;
+  background: linear-gradient(#444, #222);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 9px;
+}
+
+.player-header-title {
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.close-player {
+  width: 28px;
+  height: 26px;
+  border: 1px solid #777;
+  background: #333;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-player:hover {
+  background: #990000;
+}
+
+.player-content {
+  background: #000;
+  aspect-ratio: 16 / 9;
+}
+
+.player-content iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.player-info {
+  background: white;
+  border-top: 1px solid #bbb;
+  padding: 9px 11px;
+}
+
+.player-info h2 {
+  margin: 0 0 4px;
+  font-size: 17px;
+}
+
+.player-info p {
+  margin: 0;
+  color: #666;
+  font-size: 12px;
+}
+
+/* ---------------------------------------------------------
+   EMPTY RESULTS
+   --------------------------------------------------------- */
+
+.no-results {
+  display: none;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  padding: 30px;
+  text-align: center;
+  color: #666;
+}
+
+.no-results.show {
+  display: block;
+}
+
+/* ---------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------- */
+
+.site-footer {
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid #ccc;
+  color: #777;
+  font-size: 11px;
+  text-align: center;
+}
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 760px) {
+
+  .site-header {
+    height: auto;
+  }
+
+  .header-inner {
+    padding: 14px 0;
+  }
+
+  .brand {
+    font-size: 18px;
+  }
+
+  .youtube-bar-inner {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .youtube-bar a {
+    display: inline-block;
+  }
+
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-row {
+    flex-direction: column;
+  }
+
+  .search-button {
+    width: 100%;
+  }
+
+  .player-modal {
+    padding: 8px;
+  }
+}
+</style>
 </head>
+
 <body>
 
-<div class="main-container">
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      THE <span>HISTORICAL</span> RECORD
+    </a>
+  </div>
+</header>
 
-  <!-- EARLY YOUTUBE MEME ARCHIVE SECTION -->
-  <section class="archive-section yt-archive-section" id="youtube-archive">
+<nav class="youtube-bar">
+  <div class="youtube-bar-inner">
+    <a href="index.html">Home</a>
+    <a href="archive.html">Archive</a>
+    <a href="social-media.html">Social Media</a>
+    <a href="meme-archive-vault.html">Meme Vault</a>
+  </div>
+</nav>
 
-    <div class="section-title yt-archive-header">
-      <h2>YouTube Archive Vault (2005–2012 Era)</h2>
-      <p>The complete collection of classic viral bookmarks, historical video memes, and legendary uploads—embedded and watchable.</p>
+<main class="page">
+
+  <section class="archive-header">
+    <h1>Meme Archive Vault</h1>
+    <p>
+      A historical collection of viral videos, internet memes, classic
+      YouTube moments and online culture from the early web through the
+      modern social-media era.
+    </p>
+  </section>
+
+  <section class="search-panel">
+    <div class="search-row">
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="Search the Meme Archive..."
+        autocomplete="off"
+      >
+      <button class="search-button" type="button" id="searchButton">
+        Search
+      </button>
     </div>
+  </section>
 
-    <div class="yt-retro-container">
+  <section class="filter-panel">
 
-      <!-- YOUTUBE TOP BAR / SEARCH MOCK -->
-      <div class="yt-retro-topbar">
-        <div class="yt-retro-logo">
-          <span class="yt-box-red">You</span><span class="yt-box-black">Tube</span> <small class="beta-tag"><b>BROADCAST YOURSELF.</b></small>
-        </div>
-        <div class="yt-retro-stats">
-          <span>Videos (166)</span> | <span>Channels</span> | <span>Community</span>
-        </div>
-      </div>
+    <span class="filter-label">ERA:</span>
 
-      <!-- VIDEO VAULT GRID (ALL 166 VIDEOS EMBEDDED) -->
-      <div class="yt-vault-grid">
+    <button class="filter-button active" data-era="all">
+      ALL
+    </button>
 
-        <!-- 1 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/KmtzQCSh6xk" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #001</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
+    <button class="filter-button" data-era="2005-2009">
+      2005–2009
+    </button>
 
-        <!-- 2 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/ILtz5nX3_fc" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #002</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
+    <button class="filter-button" data-era="2010-2014">
+      2010–2014
+    </button>
 
-        <!-- 3 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/WqSTXuJeTks" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #003</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
+    <button class="filter-button" data-era="2015-2019">
+      2015–2019
+    </button>
 
-        <!-- 4 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/a1Y73sPHKxw" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #004</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
+    <button class="filter-button" data-era="2020-2024">
+      2020–2024
+    </button>
 
-        <!-- 5 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/mfhBM_Yay6w" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #005</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
+    <button class="filter-button" data-era="2025-present">
+      2025–PRESENT
+    </button>
 
-        <!-- 6 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/93hq0YU3Gqk" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #006</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 7 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/BEtIoGQxqQs" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #007</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 8 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/LeAltgu_pbM" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #008</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 9 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/aBfUFr9SBY0" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #009</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 10 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/D2kJZOfq7zk" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #010</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 11 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/UMf40daefsI" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #011</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 12 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/O61Do03ZCjw" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #012</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 13 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/D1R-jKKp3NA" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #013</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 14 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/tw5EsYzyGWI" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #014</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 15 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/O4rfQSgkZOE" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #015</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 16 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/Y93xTChHV_0" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #016</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 17 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/OKI-5MHUkKY" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #017</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 18 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/5RDER307OKI" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #018</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 19 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/ISV1bt8-TDg" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #019</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 20 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/b_NQCTbvRnM" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #020</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 21 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/uEE3akeFeQU" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #021</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 22 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/7zH4Jb-6BZs" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #022</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 23 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/vzz704zeI4U" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #023</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 24 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/QpgJyYBTq84" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #024</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 25 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/mBxBzmhHTww" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #025</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 26 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/Q5im0Ssyyus" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #026</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 27 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/CsGYh8AacgY" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #027</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 28 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/s8MDNFaGfT4" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #028</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 29 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/Z3ZAGBL6UBA" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #029</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 30 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/qItugh-fFgg" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #030</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 31 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/jNQXAC9IVRw" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #031</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 32 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/hMtZfW2z9dw" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #032</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 33 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/fbGkxcY7YFU" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #033</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 34 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/MtN1YnoL46Q" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #034</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 35 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/Tx1XIm6q4r4" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #035</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 36 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/EIyohCQqGck" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #036</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 37 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/2EcBClUGl5Q" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #037</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 38 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/oavMtUWDBTM" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #038</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 39 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/YnopHCL1Jk8" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #039</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 40 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/k85mRPqvMbE" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #040</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 41 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/astISOttCQ0" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #041</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 42 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/ykwqXuMPsoc" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #042</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 43 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/NoHRBvtUV_g" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #043</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 44 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/ZN5PoW7_kdA" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #044</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 45 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/QFCSXr6qnv4" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #045</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 46 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/R5Nz8p3EP7A" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #046</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 47 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/9FXMYsMvs1A" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #047</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 48 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/aoEtd6HONEk" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #048</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 49 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/IY9YNF5MMQo" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #049</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 50 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/UmPmpUTr22c" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #050</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 51 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/HRPwMBAtfTY" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #051</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 52 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/d8CeSGlQQnM" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #052</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 53 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/Lt1u6N7lueM" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #053</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 54 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/EShUeudtaFg" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #054</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 55 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/TIoD7Uj7MUo" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #055</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 56 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/f4FuOi9rvKw" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #056</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 57 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/9KSGUVcNfZM" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #057</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 58 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/R9dRuaTOyBY" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #058</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 59 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/wsZ7013yHiw" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #059</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 60 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/LzxCJzM4xLo" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #060</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 61 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/dEI7oX0XxJw" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #061</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 62 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/x2Icz8xF174" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #062</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 63 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/HKst22Y2hgA" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #063</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 64 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/IdyXKJ8NcNI" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #064</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 65 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/vnkRvx3-j-k" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #065</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 66 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/9edByCiaLbY" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #066</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 67 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/DoskJt_UVG8" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #067</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 68 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/gLMo7_VXU_s" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #068</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 69 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/eaNI18GAxXs" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #069</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 70 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/sdnJxDmJNmA" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #070</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 71 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/I15sK7dNMOM" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #071</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 72 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/W-3DWBv0CvU" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #072</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 73 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/sHi6LCx6Lx8" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #073</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 74 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/IxX_QHay02M" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #074</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 75 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/SMWi7CLoZ2Q" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #075</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 76 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/msSc7Mv0QHY" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #076</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 77 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/OzKY5YHnOTg" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #077</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 78 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/_quu68XXHEs" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #078</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 79 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/gavT_q9CLME" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #079</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 80 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/3qwU1LQZA5g" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #080</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 81 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/zTL4T_NVGhY" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #081</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 82 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/AsFCSvqsqFA" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #082</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 83 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/xzpndHtdl9A" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #083</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 84 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/5vRlJrkxsqo" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #084</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 85 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/wAUK9hVgmNI" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #085</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 86 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/z_mhFOyLQBg" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #086</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 87 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/YCeQLeQiRP4" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #087</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 88 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/V_OVxxIvqVw" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #088</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 89 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/r3-Y31ONZuI" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #089</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 90 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/xaPepCVepCg" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #090</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 91 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/IJmIGC0nwK0" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #091</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 92 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/ZZ5LpwO-An4" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #092</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 93 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/czhd1eHv6ac" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #093</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 94 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/lg5WKsVnEA4" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #094</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 95 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/lgh68Swuak0" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #095</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 96 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/rbE53XUtVw0" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #096</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 97 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/Ou6uXU0KFss" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #097</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 98 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/6f7pgA0riU8" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #098</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 99 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/otCpCn0l4Wo" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #099</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 100 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/AMrSGMF4PZo" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #100</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 101 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/7eKv4BEujFU" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #101</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 102 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/bjwgt1kRqEU" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #102</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 103 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/rmn7oV9bBRU" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #103</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 104 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/65e06P6Rhf4" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #104</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 105 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/p8f-dwURY20" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #105</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 106 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/8kjY9sKdHlY" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #106</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 107 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/InklyF13qjU" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #107</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 108 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/AUl4F8M8bxM" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #108</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 109 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/S4pk8jsk9h4" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #109</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 110 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/RV6aLIQgmYg" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #110</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 111 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/Z0NlmumRuVE" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #111</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 112 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/2zw-XgAko_E" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #112</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 113 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/NsaSG-0U4mU" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #113</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 114 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/o7zqouVuFZY" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #114</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 115 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/ykz_dbpYRPU" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #115</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 116 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/NOpS4qGILyY" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #116</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 117 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/GsWGqDzygDs" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #117</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 118 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/Q0IL0S0vTGw" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #118</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 119 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/JAVV2jbjKTQ" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #119</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 120 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/dxjLh3lZumY" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #120</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 121 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/oBnVNpG97Z4" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #121</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 122 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/Mh4f9AYRCZY" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #122</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 123 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/pNbN5Mk_sZw" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #123</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 124 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/Cqd1Gvq-RBY" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #124</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 125 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/dMH0bHeiRNg" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #125</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 126 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/EwTZ2xpQwpA" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #126</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 127 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #127</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 128 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/2yJgwwDcgV8" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #128</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 129 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/9bZkp7q19f0" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #129</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 130 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/HPPj6viIBmU" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #130</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 131 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/wCF3ywukQYA" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #131</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 132 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/UjCdB5p2v0Y" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #132</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 133 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/OQSNhk5ICTI" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #133</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 134 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/hooKVstzbz0" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #134</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 135 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/3HjIljJd-o0" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #135</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 136 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/CMNry4PE93Y" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #136</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 137 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/aMS0O3kknvk" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #137</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 138 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/zVNTdWbVBgc" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #138</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 139 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/7WmMcqp670s" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #139</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 140 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/W45DRy7M1no" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #140</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 141 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/6B26asyGKDo" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #141</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 142 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/6bVa6jn4rpE" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #142</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 143 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/40uMbKjSBwU" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #143</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 144 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/5jwETfUw0TE" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #144</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 145 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/cBC1moosff0" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #145</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 146 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/bx4kwzUn2Bg" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #146</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 147 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/oHg5SJYRHA0" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #147</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 148 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/EwKpaD8g_gY" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #148</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 149 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/dmzDB8EHRxg" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #149</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 150 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/e3mG_gvaimo" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #150</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 151 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/EoLjddNcnYU" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #151</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 152 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/H6ly9KGuVTk" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #152</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 153 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/k0CJwbayisw" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #153</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 154 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/vo3qLUki5L8" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #154</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 155 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/1lQ3FGxpEU0" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #155</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 156 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/nwP3TeK-fPs" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #156</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 157 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/tGmmQ688Fkk" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #157</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 158 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/vHH1W1_f-6Y" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #158</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 159 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/hD8MPMTcvd8" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #159</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 160 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/RtfmTOv_kgA" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #160</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 161 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/VslKGGpl4Xc" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #161</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 162 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/ocd_GDed5qg" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #162</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 163 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/nUpNvmymAzM" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #163</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 164 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/0eOiL5dqP-I" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #164</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 165 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/3FS8_l_i81Q" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #165</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-        <!-- 166 -->
-        <div class="yt-embed-card">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/4ZYziZg8LBc" title="Archive Video" loading="lazy" allowfullscreen></iframe></div>
-          <div class="yt-meta"><strong>Entry #166</strong><span class="yt-views">Viewed: Classic</span></div>
-        </div>
-
-      </div>
-
-    </div>
+    <button class="filter-button" data-era="unknown">
+      UNDATED / ARCHIVAL
+    </button>
 
   </section>
 
+  <div class="results-bar">
+    Showing <strong id="resultCount">0</strong> archive entries
+  </div>
+
+  <section id="videoGrid" class="video-grid"></section>
+
+  <div id="noResults" class="no-results">
+    No archive entries match your search.
+  </div>
+
+  <footer class="site-footer">
+    <div>
+      THE HISTORICAL RECORD
+    </div>
+    <div>
+      Meme Archive Vault — A living archive of internet culture.
+    </div>
+  </footer>
+
+</main>
+
+<!-- =======================================================
+     SINGLE LAZY YOUTUBE PLAYER
+     ======================================================= -->
+
+<div
+  class="player-modal"
+  id="playerModal"
+  aria-hidden="true"
+>
+
+  <div class="player-window">
+
+    <div class="player-header">
+
+      <div
+        class="player-header-title"
+        id="playerHeaderTitle"
+      >
+        Meme Archive Video
+      </div>
+
+      <button
+        class="close-player"
+        id="closePlayer"
+        type="button"
+        aria-label="Close video"
+      >
+        X
+      </button>
+
+    </div>
+
+    <div
+      class="player-content"
+      id="playerContent"
+    ></div>
+
+    <div class="player-info">
+
+      <h2 id="playerTitle">
+        Loading...
+      </h2>
+
+      <p id="playerUploader">
+        YouTube Archive
+      </p>
+
+    </div>
+
+  </div>
+
 </div>
+
+<script>
+/* =========================================================
+   MEME ARCHIVE DATABASE
+   =========================================================
+
+   IMPORTANT:
+   - Only the YouTube thumbnail is loaded initially.
+   - The iframe is NOT created until the user clicks PLAY.
+   - This prevents hundreds of YouTube players from loading.
+   ========================================================= */
+
+const videos = [
+
+  /* -------------------------------------------------------
+     EARLY INTERNET / CLASSIC YOUTUBE
+     ------------------------------------------------------- */
+
+  {
+    id: "KmtzQCSh6xk",
+    era: "2005-2009"
+  },
+
+  {
+    id: "ILtz5nX3_fc",
+    era: "2005-2009"
+  },
+
+  {
+    id: "WqSTXuJeTks",
+    era: "2005-2009"
+  },
+
+  {
+    id: "a1Y73sPHKxw",
+    era: "2005-2009"
+  },
+
+  {
+    id: "mfhBM_Yay6w",
+    era: "2005-2009"
+  },
+
+  {
+    id: "93hq0YU3Gqk",
+    era: "2005-2009"
+  },
+
+  {
+    id: "BEtIoGQxqQs",
+    era: "2005-2009"
+  },
+
+  {
+    id: "LeAltgu_pbM",
+    era: "2005-2009"
+  },
+
+  {
+    id: "aBfUFr9SBY0",
+    era: "2005-2009"
+  },
+
+  {
+    id: "D2kJZOfq7zk",
+    era: "2005-2009"
+  },
+
+  {
+    id: "UMf40daefsI",
+    era: "2005-2009"
+  },
+
+  {
+    id: "O61Do03ZCjw",
+    era: "2005-2009"
+  },
+
+  {
+    id: "D1R-jKKp3NA",
+    era: "2005-2009"
+  },
+
+  {
+    id: "tw5EsYzyGWI",
+    era: "2005-2009"
+  },
+
+  {
+    id: "O4rfQSgkZOE",
+    era: "2005-2009"
+  },
+
+  {
+    id: "Y93xTChHV_0",
+    era: "2005-2009"
+  },
+
+  {
+    id: "OKI-5MHUkKY",
+    era: "2005-2009"
+  },
+
+  {
+    id: "5RDER307OKI",
+    era: "2005-2009"
+  },
+
+  {
+    id: "ISV1bt8-TDg",
+    era: "2005-2009"
+  },
+
+  {
+    id: "b_NQCTbvRnM",
+    era: "2005-2009"
+  },
+
+  {
+    id: "uEE3akeFeQU",
+    era: "2005-2009"
+  },
+
+  {
+    id: "7zH4Jb-6BZs",
+    era: "2005-2009"
+  },
+
+  {
+    id: "vzz704zeI4U",
+    era: "2005-2009"
+  },
+
+  {
+    id: "QpgJyYBTq84",
+    era: "2005-2009"
+  },
+
+  {
+    id: "mBxBzmhHTww",
+    era: "2005-2009"
+  },
+
+  {
+    id: "Q5im0Ssyyus",
+    era: "2005-2009"
+  },
+
+  {
+    id: "CsGYh8AacgY",
+    era: "2005-2009"
+  },
+
+  {
+    id: "s8MDNFaGfT4",
+    era: "2005-2009"
+  },
+
+  {
+    id: "Z3ZAGBL6UBA",
+    era: "2005-2009"
+  },
+
+  {
+    id: "qItugh-fFgg",
+    era: "2005-2009"
+  },
+
+  {
+    id: "jNQXAC9IVRw",
+    era: "2005-2009"
+  },
+
+  {
+    id: "hMtZfW2z9dw",
+    era: "2005-2009"
+  },
+
+  {
+    id: "fbGkxcY7YFU",
+    era: "2005-2009"
+  },
+
+  {
+    id: "MtN1YnoL46Q",
+    era: "2005-2009"
+  },
+
+  {
+    id: "Tx1XIm6q4r4",
+    era: "2005-2009"
+  },
+
+  {
+    id: "EIyohCQqGck",
+    era: "2005-2009"
+  },
+
+  {
+    id: "2EcBClUGl5Q",
+    era: "2005-2009"
+  },
+
+  {
+    id: "oavMtUWDBTM",
+    era: "2005-2009"
+  },
+
+  {
+    id: "YnopHCL1Jk8",
+    era: "2005-2009"
+  },
+
+  {
+    id: "k85mRPqvMbE",
+    era: "2005-2009"
+  },
+
+  {
+    id: "astISOttCQ0",
+    era: "2005-2009"
+  },
+
+  {
+    id: "ykwqXuMPsoc",
+    era: "2005-2009"
+  },
+
+  {
+    id: "NoHRBvtUV_g",
+    era: "2005-2009"
+  },
+
+  {
+    id: "ZN5PoW7_kdA",
+    era: "2005-2009"
+  },
+
+  {
+    id: "QFCSXr6qnv4",
+    era: "2005-2009"
+  },
+
+  {
+    id: "R5Nz8p3EP7A",
+    era: "2005-2009"
+  },
+
+  {
+    id: "9FXMYsMvs1A",
+    era: "2005-2009"
+  },
+
+  {
+    id: "aoEtd6HONEk",
+    era: "2005-2009"
+  },
+
+  {
+    id: "IY9YNF5MMQo",
+    era: "2005-2009"
+  },
+
+  {
+    id: "UmPmpUTr22c",
+    era: "2005-2009"
+  },
+
+  {
+    id: "HRPwMBAtfTY",
+    era: "2005-2009"
+  },
+
+  {
+    id: "d8CeSGlQQnM",
+    era: "2005-2009"
+  },
+
+  {
+    id: "Lt1u6N7lueM",
+    era: "2005-2009"
+  },
+
+  {
+    id: "EShUeudtaFg",
+    era: "2005-2009"
+  },
+
+  {
+    id: "TIoD7Uj7MUo",
+    era: "2005-2009"
+  },
+
+  {
+    id: "f4FuOi9rvKw",
+    era: "2005-2009"
+  },
+
+  {
+    id: "9KSGUVcNfZM",
+    era: "2005-2009"
+  },
+
+  {
+    id: "R9dRuaTOyBY",
+    era: "2005-2009"
+  },
+
+  {
+    id: "wsZ7013yHiw",
+    era: "2005-2009"
+  },
+
+  {
+    id: "LzxCJzM4xLo",
+    era: "2005-2009"
+  },
+
+  {
+    id: "dEI7oX0XxJw",
+    era: "2005-2009"
+  },
+
+  {
+    id: "x2Icz8xF174",
+    era: "2005-2009"
+  },
+
+  {
+    id: "HKst22Y2hgA",
+    era: "2005-2009"
+  },
+
+  {
+    id: "IdyXKJ8NcNI",
+    era: "2005-2009"
+  },
+
+  {
+    id: "vnkRvx3-j-k",
+    era: "2005-2009"
+  },
+
+  {
+    id: "9edByCiaLbY",
+    era: "2005-2009"
+  },
+
+  {
+    id: "DoskJt_UVG8",
+    era: "2005-2009"
+  },
+
+  {
+    id: "gLMo7_VXU_s",
+    era: "2005-2009"
+  },
+
+  {
+    id: "eaNI18GAxXs",
+    era: "2005-2009"
+  },
+
+  {
+    id: "sdnJxDmJNmA",
+    era: "2005-2009"
+  },
+
+  {
+    id: "I15sK7dNMOM",
+    era: "2005-2009"
+  },
+
+  {
+    id: "W-3DWBv0CvU",
+    era: "2005-2009"
+  },
+
+  {
+    id: "sHi6LCx6Lx8",
+    era: "2005-2009"
+  },
+
+  {
+    id: "IxX_QHay02M",
+    era: "2005-2009"
+  },
+
+  {
+    id: "SMWi7CLoZ2Q",
+    era: "2005-2009"
+  },
+
+  {
+    id: "msSc7Mv0QHY",
+    era: "2005-2009"
+  },
+
+  {
+    id: "OzKY5YHnOTg",
+    era: "2005-2009"
+  },
+
+  {
+    id: "_quu68XXHEs",
+    era: "2005-2009"
+  },
+
+  {
+    id: "gavT_q9CLME",
+    era: "2005-2009"
+  },
+
+  {
+    id: "3qwU1LQZA5g",
+    era: "2005-2009"
+  },
+
+  {
+    id: "zTL4T_NVGhY",
+    era: "2005-2009"
+  },
+
+  {
+    id: "AsFCSvqsqFA",
+    era: "2005-2009"
+  },
+
+  {
+    id: "xzpndHtdl9A",
+    era: "2005-2009"
+  },
+
+  {
+    id: "5vRlJrkxsqo",
+    era: "2005-2009"
+  },
+
+  {
+    id: "wAUK9hVgmNI",
+    era: "2005-2009"
+  },
+
+  {
+    id: "z_mhFOyLQBg",
+    era: "2005-2009"
+  },
+
+  {
+    id: "YCeQLeQiRP4",
+    era: "2005-2009"
+  },
+
+  {
+    id: "V_OVxxIvqVw",
+    era: "2005-2009"
+  },
+
+  {
+    id: "r3-Y31ONZuI",
+    era: "2005-2009"
+  },
+
+  {
+    id: "xaPepCVepCg",
+    era: "2005-2009"
+  },
+
+  {
+    id: "IJmIGC0nwK0",
+    era: "2005-2009"
+  },
+
+  {
+    id: "ZZ5LpwO-An4",
+    era: "2005-2009"
+  },
+
+  {
+    id: "czhd1eHv6ac",
+    era: "2005-2009"
+  },
+
+  {
+    id: "lg5WKsVnEA4",
+    era: "2005-2009"
+  },
+
+  {
+    id: "lgh68Swuak0",
+    era: "2005-2009"
+  },
+
+  {
+    id: "rbE53XUtVw0",
+    era: "2005-2009"
+  },
+
+  {
+    id: "Ou6uXU0KFss",
+    era: "2005-2009"
+  },
+
+  {
+    id: "6f7pgA0riU8",
+    era: "2005-2009"
+  },
+
+  {
+    id: "otCpCn0l4Wo",
+    era: "2005-2009"
+  },
+
+  {
+    id: "AMrSGMF4PZo",
+    era: "2005-2009"
+  },
+
+  {
+    id: "7eKv4BEujFU",
+    era: "2005-2009"
+  },
+
+  {
+    id: "bjwgt1kRqEU",
+    era: "2005-2009"
+  },
+
+  {
+    id: "rmn7oV9bBRU",
+    era: "2005-2009"
+  },
+
+  {
+    id: "65e06P6Rhf4",
+    era: "2005-2009"
+  },
+
+  {
+    id: "p8f-dwURY20",
+    era: "2005-2009"
+  },
+
+  {
+    id: "8kjY9sKdHlY",
+    era: "2005-2009"
+  },
+
+  {
+    id: "InklyF13qjU",
+    era: "2005-2009"
+  },
+
+  {
+    id: "AUl4F8M8bxM",
+    era: "2005-2009"
+  },
+
+  {
+    id: "S4pk8jsk9h4",
+    era: "2005-2009"
+  },
+
+  {
+    id: "RV6aLIQgmYg",
+    era: "2005-2009"
+  },
+
+  {
+    id: "Z0NlmumRuVE",
+    era: "2005-2009"
+  },
+
+  {
+    id: "2zw-XgAko_E",
+    era: "2005-2009"
+  },
+
+  {
+    id: "NsaSG-0U4mU",
+    era: "2005-2009"
+  },
+
+  {
+    id: "o7zqouVuFZY",
+    era: "2005-2009"
+  },
+
+  {
+    id: "ykz_dbpYRPU",
+    era: "2005-2009"
+  },
+
+  {
+    id: "NOpS4qGILyY",
+    era: "2005-2009"
+  },
+
+  {
+    id: "GsWGqDzygDs",
+    era: "2005-2009"
+  },
+
+  {
+    id: "Q0IL0S0vTGw",
+    era: "2005-2009"
+  },
+
+  {
+    id: "JAVV2jbjKTQ",
+    era: "2005-2009"
+  },
+
+  {
+    id: "dxjLh3lZumY",
+    era: "2005-2009"
+  },
+
+  {
+    id: "oBnVNpG97Z4",
+    era: "2005-2009"
+  },
+
+  {
+    id: "Mh4f9AYRCZY",
+    era: "2005-2009"
+  },
+
+  {
+    id: "pNbN5Mk_sZw",
+    era: "2005-2009"
+  },
+
+  /* -------------------------------------------------------
+     CLASSIC MEME / YOUTUBE CULTURE
+     ------------------------------------------------------- */
+
+  {
+    id: "Cqd1Gvq-RBY",
+    era: "2005-2009"
+  },
+
+  {
+    id: "dMH0bHeiRNg",
+    era: "2005-2009"
+  },
+
+  {
+    id: "EwTZ2xpQwpA",
+    era: "2005-2009"
+  },
+
+  {
+    id: "txqiwrbYGrs",
+    era: "2005-2009"
+  },
+
+  {
+    id: "dQw4w9WgXcQ",
+    era: "2005-2009"
+  },
+
+  {
+    id: "2yJgwwDcgV8",
+    era: "2005-2009"
+  },
+
+  {
+    id: "9bZkp7q19f0",
+    era: "2010-2014"
+  },
+
+  {
+    id: "HPPj6viIBmU",
+    era: "2010-2014"
+  },
+
+  {
+    id: "wCF3ywukQYA",
+    era: "2010-2014"
+  },
+
+  {
+    id: "UjCdB5p2v0Y",
+    era: "2010-2014"
+  },
+
+  {
+    id: "OQSNhk5ICTI",
+    era: "2010-2014"
+  },
+
+  {
+    id: "hooKVstzbz0",
+    era: "2010-2014"
+  },
+
+  {
+    id: "3HjIljJd-o0",
+    era: "2010-2014"
+  },
+
+  {
+    id: "CMNry4PE93Y",
+    era: "2010-2014"
+  },
+
+  {
+    id: "aMS0O3kknvk",
+    era: "2010-2014"
+  },
+
+  {
+    id: "zVNTdWbVBgc",
+    era: "2010-2014"
+  },
+
+  {
+    id: "7WmMcqp670s",
+    era: "2010-2014"
+  },
+
+  {
+    id: "W45DRy7M1no",
+    era: "2010-2014"
+  },
+
+  {
+    id: "6B26asyGKDo",
+    era: "2010-2014"
+  },
+
+  {
+    id: "6bVa6jn4rpE",
+    era: "2010-2014"
+  },
+
+  {
+    id: "40uMbKjSBwU",
+    era: "2010-2014"
+  },
+
+  {
+    id: "5jwETfUw0TE",
+    era: "2010-2014"
+  },
+
+  {
+    id: "cBC1moosff0",
+    era: "2010-2014"
+  },
+
+  {
+    id: "bx4kwzUn2Bg",
+    era: "2010-2014"
+  },
+
+  {
+    id: "oHg5SJYRHA0",
+    era: "2005-2009"
+  },
+
+  {
+    id: "EwKpaD8g_gY",
+    era: "2010-2014"
+  },
+
+  {
+    id: "dmzDB8EHRxg",
+    era: "2010-2014"
+  },
+
+  {
+    id: "e3mG_gvaimo",
+    era: "2010-2014"
+  },
+
+  {
+    id: "EoLjddNcnYU",
+    era: "2010-2014"
+  },
+
+  {
+    id: "H6ly9KGuVTk",
+    era: "2010-2014"
+  },
+
+  {
+    id: "k0CJwbayisw",
+    era: "2010-2014"
+  },
+
+  {
+    id: "vo3qLUki5L8",
+    era: "2010-2014"
+  },
+
+  {
+    id: "1lQ3FGxpEU0",
+    era: "2010-2014"
+  },
+
+  {
+    id: "nwP3TeK-fPs",
+    era: "2010-2014"
+  },
+
+  {
+    id: "tGmmQ688Fkk",
+    era: "2010-2014"
+  },
+
+  {
+    id: "vHH1W1_f-6Y",
+    era: "2010-2014"
+  },
+
+  {
+    id: "hD8MPMTcvd8",
+    era: "2010-2014"
+  },
+
+  {
+    id: "RtfmTOv_kgA",
+    era: "2010-2014"
+  },
+
+  {
+    id: "VslKGGpl4Xc",
+    era: "2010-2014"
+  },
+
+  {
+    id: "ocd_GDed5qg",
+    era: "2010-2014"
+  },
+
+  {
+    id: "nUpNvmymAzM",
+    era: "2010-2014"
+  },
+
+  {
+    id: "0eOiL5dqP-I",
+    era: "2010-2014"
+  },
+
+  {
+    id: "3FS8_l_i81Q",
+    era: "2010-2014"
+  },
+
+  {
+    id: "4ZYziZg8LBc",
+    era: "2010-2014"
+  }
+
+];
+
+
+/* =========================================================
+   PLAYLIST ARCHIVE
+   ========================================================= */
+
+const playlists = [
+
+  "PL5195C63220485BB0",
+
+  "PLuHpa9z1euozERVdgjOzmojkhtvfOYo37",
+
+  "PLFfq2zuXmglYg1xZWcqJPYFzbYQ0IsMOK",
+
+  "PLkeXz0DZcDd7SW4AMerLSUtdEFL1upmBG",
+
+  "PLhgE-KfyN0C4dRwJtsCPqOpx7W8fp-XUV",
+
+  "PLCfMD1K9OJITm2dhp7syYs39Y_84KrT7R",
+
+  "PLPRKNvOzzAaLfQhh5dU2eeGv582w4GBmn",
+
+  "PL2jHVPKvXlrex71v8mKaE9a2mLeHdxU0W",
+
+  "PLmZTDWJGfRq186RpKxf_lx2Pyg33x-own",
+
+  "PLq82Fk7WJGlrTSo0bLawt920-VIlR_0VO",
+
+  "PLThoPrDquuS86fcz6LyKS8fnBjAxHCbyd",
+
+  "PLqtT59f5AZnzSXMWGytwlB1d6-lpq8eU3",
+
+  "PLyz6BXNjHfKLWAAiIFGyy1xwRzAu31VGe",
+
+  "PL1UMAsBG0_wdg3B7CvzP-VaqusOV6hrB_",
+
+  "PLQr2nv0XfV_hWPQrHNtFZlcdSwFoqcPAM",
+
+  "PLaJOWVF8I3YgEOJ6Au1J4aeYAu_gRXtkv",
+
+  "PLxtsiJ7jrWcGK6Wr-JEMgS34FWrFUxiIQ",
+
+  "PLt3omiv65003jwMMbQcSnkUzMe2nTjSNP",
+
+  "PLbuOo8kouBIenQyN78TLNNmfS4WvKs7LK",
+
+  "PLEOt99uyIdAz_NO9dM78VyME9QT7fj3k3"
+
+];
+
+
+/* =========================================================
+   STATE
+   ========================================================= */
+
+let activeEra = "all";
+let searchTerm = "";
+
+const titleCache = {};
+
+
+/* =========================================================
+   DOM
+   ========================================================= */
+
+const grid = document.getElementById("videoGrid");
+const resultCount = document.getElementById("resultCount");
+const noResults = document.getElementById("noResults");
+const searchInput = document.getElementById("searchInput");
+
+const playerModal = document.getElementById("playerModal");
+const playerContent = document.getElementById("playerContent");
+const playerTitle = document.getElementById("playerTitle");
+const playerHeaderTitle = document.getElementById("playerHeaderTitle");
+const playerUploader = document.getElementById("playerUploader");
+const closePlayer = document.getElementById("closePlayer");
+
+
+/* =========================================================
+   YOUTUBE TITLE / UPLOADER LOADING
+   =========================================================
+
+   YouTube's oEmbed endpoint supplies the current title and
+   uploader without requiring an API key.
+
+   This means the HTML does NOT need hundreds of manually
+   typed titles.
+   ========================================================= */
+
+async function loadYouTubeInfo(video, card) {
+
+  if (titleCache[video.id]) {
+
+    applyVideoInfo(
+      video,
+      card,
+      titleCache[video.id]
+    );
+
+    return;
+  }
+
+  try {
+
+    const url =
+      "https://www.youtube.com/oembed" +
+      "?url=" +
+      encodeURIComponent(
+        "https://www.youtube.com/watch?v=" + video.id
+      ) +
+      "&format=json";
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error("oEmbed request failed");
+    }
+
+    const data = await response.json();
+
+    titleCache[video.id] = {
+      title: data.title || "Untitled YouTube Video",
+      uploader: data.author_name || "YouTube"
+    };
+
+    applyVideoInfo(
+      video,
+      card,
+      titleCache[video.id]
+    );
+
+  } catch (error) {
+
+    const titleElement =
+      card.querySelector(".video-title");
+
+    titleElement.textContent =
+      "YouTube Video";
+
+    titleElement.classList.remove("loading");
+
+  }
+
+}
+
+
+function applyVideoInfo(video, card, info) {
+
+  const titleElement =
+    card.querySelector(".video-title");
+
+  const metaElement =
+    card.querySelector(".video-meta");
+
+  titleElement.textContent =
+    info.title;
+
+  titleElement.classList.remove("loading");
+
+  metaElement.textContent =
+    info.uploader;
+}
+
+
+/* =========================================================
+   ERA LABEL
+   ========================================================= */
+
+function eraLabel(era) {
+
+  if (era === "2005-2009") {
+    return "2005–2009";
+  }
+
+  if (era === "2010-2014") {
+    return "2010–2014";
+  }
+
+  if (era === "2015-2019") {
+    return "2015–2019";
+  }
+
+  if (era === "2020-2024") {
+    return "2020–2024";
+  }
+
+  if (era === "2025-present") {
+    return "2025–PRESENT";
+  }
+
+  return "ARCHIVAL";
+}
+
+
+/* =========================================================
+   CREATE CARD
+   ========================================================= */
+
+function createVideoCard(video, index) {
+
+  const card =
+    document.createElement("article");
+
+  card.className = "video-card";
+
+  card.dataset.videoId =
+    video.id;
+
+  card.dataset.era =
+    video.era;
+
+  card.dataset.search =
+    video.id.toLowerCase();
+
+
+  const thumbnailButton =
+    document.createElement("button");
+
+  thumbnailButton.className =
+    "thumbnail-button";
+
+  thumbnailButton.type =
+    "button";
+
+  thumbnailButton.setAttribute(
+    "aria-label",
+    "Play YouTube video"
+  );
+
+
+  const thumbnail =
+    document.createElement("img");
+
+  thumbnail.loading =
+    "lazy";
+
+  thumbnail.decoding =
+    "async";
+
+  thumbnail.alt =
+    "YouTube video thumbnail";
+
+  thumbnail.src =
+    "https://i.ytimg.com/vi/" +
+    video.id +
+    "/hqdefault.jpg";
+
+
+  const playOverlay =
+    document.createElement("span");
+
+  playOverlay.className =
+    "play-overlay";
+
+
+  thumbnailButton.appendChild(
+    thumbnail
+  );
+
+  thumbnailButton.appendChild(
+    playOverlay
+  );
+
+
+  const title =
+    document.createElement("div");
+
+  title.className =
+    "video-title loading";
+
+  title.textContent =
+    "Loading YouTube title...";
+
+
+  const meta =
+    document.createElement("div");
+
+  meta.className =
+    "video-meta";
+
+  meta.textContent =
+    "Loading uploader...";
+
+
+  const era =
+    document.createElement("span");
+
+  era.className =
+    "video-era";
+
+  era.textContent =
+    eraLabel(video.era);
+
+
+  const watchLink =
+    document.createElement("a");
+
+  watchLink.className =
+    "watch-link";
+
+  watchLink.href =
+    "https://www.youtube.com/watch?v=" +
+    video.id;
+
+  watchLink.target =
+    "_blank";
+
+  watchLink.rel =
+    "noopener noreferrer";
+
+  watchLink.textContent =
+    "Watch on YouTube";
+
+
+  card.appendChild(
+    thumbnailButton
+  );
+
+  card.appendChild(
+    title
+  );
+
+  card.appendChild(
+    meta
+  );
+
+  card.appendChild(
+    era
+  );
+
+  card.appendChild(
+    document.createElement("br")
+  );
+
+  card.appendChild(
+    watchLink
+  );
+
+
+  thumbnailButton.addEventListener(
+    "click",
+    function() {
+
+      openPlayer(video);
+
+    }
+  );
+
+
+  /*
+   * Fetch title independently.
+   * It does NOT create an iframe.
+   */
+
+  loadYouTubeInfo(
+    video,
+    card
+  );
+
+
+  return card;
+}
+
+
+/* =========================================================
+   RENDER ARCHIVE
+   ========================================================= */
+
+function renderArchive() {
+
+  grid.innerHTML = "";
+
+  const normalizedSearch =
+    searchTerm.trim().toLowerCase();
+
+
+  const filtered =
+    videos.filter(function(video) {
+
+      const matchesEra =
+        activeEra === "all" ||
+        video.era === activeEra;
+
+
+      const cached =
+        titleCache[video.id];
+
+      const title =
+        cached
+          ? cached.title.toLowerCase()
+          : "";
+
+
+      const uploader =
+        cached
+          ? cached.uploader.toLowerCase()
+          : "";
+
+
+      const matchesSearch =
+        !normalizedSearch ||
+        video.id.toLowerCase().includes(
+          normalizedSearch
+        ) ||
+        title.includes(
+          normalizedSearch
+        ) ||
+        uploader.includes(
+          normalizedSearch
+        );
+
+
+      return (
+        matchesEra &&
+        matchesSearch
+      );
+
+    });
+
+
+  resultCount.textContent =
+    filtered.length;
+
+
+  noResults.classList.toggle(
+    "show",
+    filtered.length === 0
+  );
+
+
+  const fragment =
+    document.createDocumentFragment();
+
+
+  filtered.forEach(
+    function(video, index) {
+
+      fragment.appendChild(
+        createVideoCard(
+          video,
+          index
+        )
+      );
+
+    }
+  );
+
+
+  grid.appendChild(
+    fragment
+  );
+}
+
+
+/* =========================================================
+   OPEN PLAYER
+   ========================================================= */
+
+function openPlayer(video) {
+
+  /*
+   * Destroy whatever iframe existed previously.
+   * This guarantees only one YouTube player exists.
+   */
+
+  playerContent.innerHTML = "";
+
+
+  const iframe =
+    document.createElement("iframe");
+
+
+  iframe.src =
+    "https://www.youtube.com/embed/" +
+    encodeURIComponent(video.id) +
+    "?autoplay=1&rel=0";
+
+
+  iframe.title =
+    "YouTube video player";
+
+
+  iframe.allow =
+    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+
+
+  iframe.allowFullscreen =
+    true;
+
+
+  iframe.loading =
+    "eager";
+
+
+  playerContent.appendChild(
+    iframe
+  );
+
+
+  const cached =
+    titleCache[video.id];
+
+
+  if (cached) {
+
+    playerTitle.textContent =
+      cached.title;
+
+    playerHeaderTitle.textContent =
+      cached.title;
+
+    playerUploader.textContent =
+      cached.uploader;
+
+  } else {
+
+    playerTitle.textContent =
+      "YouTube Video";
+
+    playerHeaderTitle.textContent =
+      "YouTube Video";
+
+    playerUploader.textContent =
+      "Loading uploader...";
+
+
+    /*
+     * Fetch metadata while the player is open.
+     */
+
+    fetch(
+      "https://www.youtube.com/oembed" +
+      "?url=" +
+      encodeURIComponent(
+        "https://www.youtube.com/watch?v=" +
+        video.id
+      ) +
+      "&format=json"
+    )
+    .then(function(response) {
+
+      if (!response.ok) {
+        throw new Error(
+          "Metadata request failed"
+        );
+      }
+
+      return response.json();
+
+    })
+    .then(function(data) {
+
+      titleCache[video.id] = {
+
+        title:
+          data.title ||
+          "YouTube Video",
+
+        uploader:
+          data.author_name ||
+          "YouTube"
+
+      };
+
+
+      playerTitle.textContent =
+        titleCache[video.id].title;
+
+      playerHeaderTitle.textContent =
+        titleCache[video.id].title;
+
+      playerUploader.textContent =
+        titleCache[video.id].uploader;
+
+
+      /*
+       * Update visible card titles after
+       * metadata becomes available.
+       */
+
+      const cards =
+        document.querySelectorAll(
+          '.video-card[data-video-id="' +
+          video.id +
+          '"]'
+        );
+
+
+      cards.forEach(
+        function(card) {
+
+          applyVideoInfo(
+            video,
+            card,
+            titleCache[video.id]
+          );
+
+        }
+      );
+
+    })
+    .catch(function() {
+
+      playerTitle.textContent =
+        "YouTube Video";
+
+      playerUploader.textContent =
+        "YouTube";
+
+    });
+
+  }
+
+
+  playerModal.classList.add(
+    "open"
+  );
+
+  playerModal.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+
+  document.body.style.overflow =
+    "hidden";
+}
+
+
+/* =========================================================
+   CLOSE PLAYER
+   ========================================================= */
+
+function closeVideoPlayer() {
+
+  /*
+   * Removing the iframe stops playback.
+   */
+
+  playerContent.innerHTML =
+    "";
+
+  playerModal.classList.remove(
+    "open"
+  );
+
+  playerModal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  document.body.style.overflow =
+    "";
+}
+
+
+closePlayer.addEventListener(
+  "click",
+  closeVideoPlayer
+);
+
+
+playerModal.addEventListener(
+  "click",
+  function(event) {
+
+    if (
+      event.target ===
+      playerModal
+    ) {
+
+      closeVideoPlayer();
+
+    }
+
+  }
+);
+
+
+document.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (
+      event.key === "Escape" &&
+      playerModal.classList.contains("open")
+    ) {
+
+      closeVideoPlayer();
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+function performSearch() {
+
+  searchTerm =
+    searchInput.value;
+
+  renderArchive();
+
+}
+
+
+searchInput.addEventListener(
+  "input",
+  performSearch
+);
+
+
+document.getElementById(
+  "searchButton"
+).addEventListener(
+  "click",
+  performSearch
+);
+
+
+/* =========================================================
+   ERA FILTER
+   ========================================================= */
+
+document.querySelectorAll(
+  ".filter-button"
+).forEach(
+  function(button) {
+
+    button.addEventListener(
+      "click",
+      function() {
+
+        document.querySelectorAll(
+          ".filter-button"
+        ).forEach(
+          function(item) {
+
+            item.classList.remove(
+              "active"
+            );
+
+          }
+        );
+
+
+        button.classList.add(
+          "active"
+        );
+
+
+        activeEra =
+          button.dataset.era;
+
+
+        renderArchive();
+
+      }
+    );
+
+  }
+);
+
+
+/* =========================================================
+   INITIAL RENDER
+   ========================================================= */
+
+renderArchive();
+
+
+/* =========================================================
+   OPTIONAL PLAYLIST REFERENCE
+   =========================================================
+
+   The playlists supplied for the archive are intentionally
+   NOT embedded automatically.
+
+   Embedding a playlist can cause YouTube to load additional
+   resources and defeat the lightweight archive design.
+
+   The playlist IDs remain stored above and can be used later
+   for a dedicated playlist section.
+   ========================================================= */
+
+console.log(
+  "Meme Archive Vault loaded:",
+  videos.length,
+  "videos"
+);
+
+console.log(
+  "Archived playlist references:",
+  playlists.length
+);
+
+</script>
 
 </body>
 </html>
