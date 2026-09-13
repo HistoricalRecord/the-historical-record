@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Historical Record is an independent digital archive of historically significant videos, posts, photographs, documents, and primary sources.">
+  <title>The Historical Record</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="#">THE HISTORICAL RECORD</a>
+
+    <nav>
+      <a href="#archive">Archive</a>
+      <a href="#about">About</a>
+      <a href="#submit">Submit</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container">
+
+    <p class="eyebrow">DIGITAL HISTORY ARCHIVE</p>
+
+    <h1>Remember what happened.</h1>
+
+    <p class="hero-copy">
+      A collection of videos, social posts, photographs, documents,
+      and firsthand records preserved because they matter to history.
+    </p>
+
+    <a class="button" href="#archive">
+      Explore the archive
+    </a>
+
+  </div>
+</section>
+
+
+<section id="archive" class="container archive">
+
+  <div class="section-heading">
+
+    <div>
+      <p class="eyebrow">THE COLLECTION</p>
+      <h2>Featured records</h2>
+    </div>
+
+    <input
+      id="search"
+      type="search"
+      placeholder="Search the archive..."
+      aria-label="Search archive"
+    >
+
+  </div>
+
+
+  <div id="cards" class="cards">
+
+    <article class="card" data-search="9/11 september 11 attacks 2001 news">
+
+      <div class="embed">
+        <iframe
+          src="https://www.youtube.com/embed/VIDEO_ID_HERE"
+          title="Historical video"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="card-body">
+
+        <span class="tag">Video</span>
+
+        <h3>September 11, 2001</h3>
+
+        <p>
+          A placeholder entry for a historically significant
+          broadcast or recording.
+        </p>
+
+        <small>
+          September 11, 2001 · United States
+        </small>
+
+      </div>
+
+    </article>
+
+
+    <article
+      class="card"
+      data-search="historic social media post election protest announcement">
+
+      <div class="post-placeholder">
+
+        <span>Social post embed</span>
+
+        <p>
+          Paste an official post's embed code here.
+        </p>
+
+      </div>
+
+      <div class="card-body">
+
+        <span class="tag">Social Post</span>
+
+        <h3>A moment captured online</h3>
+
+        <p>
+          Use this space for an important post, statement,
+          announcement, or firsthand account.
+        </p>
+
+        <small>
+          DATE · LOCATION
+        </small>
+
+      </div>
+
+    </article>
+
+
+    <article
+      class="card"
+      data-search="document photograph archive">
+
+      <div class="image-placeholder">
+        PHOTO / DOCUMENT
+      </div>
+
+      <div class="card-body">
+
+        <span class="tag">Document</span>
+
+        <h3>An important primary source</h3>
+
+        <p>
+          Add photographs, scans, public-domain documents,
+          or links to archival material.
+        </p>
+
+        <small>
+          DATE · SOURCE
+        </small>
+
+      </div>
+
+    </article>
+
+  </div>
+
+  <p id="no-results" class="no-results" hidden>
+    No records match your search.
+  </p>
+
+</section>
+
+
+<section id="about" class="about">
+
+  <div class="container narrow">
+
+    <p class="eyebrow">ABOUT THE PROJECT</p>
+
+    <h2>
+      Preserving the record, one moment at a time.
+    </h2>
+
+    <p>
+      The Historical Record is designed as a public-facing collection
+      of material that helps document important moments. Each entry
+      should identify its date, source, location when known, and enough
+      context for visitors to understand what they are seeing.
+    </p>
+
+    <p>
+      This site does not claim to replace museums, libraries, archives,
+      or scholarly sources. Whenever possible, link visitors to the
+      original source and preserve the surrounding context.
+    </p>
+
+  </div>
+
+</section>
+
+
+<section id="submit" class="container submit">
+
+  <p class="eyebrow">BUILD THE ARCHIVE</p>
+
+  <h2>Want to add a record?</h2>
+
+  <p>
+    Add your contact information or submission instructions here.
+    For a simple first version, you can collect submissions through
+    a free Google Form and link it from this section.
+  </p>
+
+  <a class="button secondary" href="mailto:YOUR_EMAIL_HERE">
+    Submit a record
+  </a>
+
+</section>
+
+</main>
+
+
+<footer>
+
+  <div class="container footer-inner">
+
+    <span>
+      © 2026 The Historical Record
+    </span>
+
+    <span>
+      Independent digital archive
+    </span>
+
+  </div>
+
+</footer>
+
+
+<script>
+
+const search = document.getElementById("search");
+
+const cards = [
+  ...document.querySelectorAll(".card")
+];
+
+const noResults =
+  document.getElementById("no-results");
+
+search.addEventListener("input", () => {
+
+  const term =
+    search.value.toLowerCase().trim();
+
+  let visible = 0;
+
+  cards.forEach(card => {
+
+    const match =
+      !term ||
+      card.dataset.search.includes(term);
+
+    card.hidden = !match;
+
+    if (match) {
+      visible++;
+    }
+
+  });
+
+  noResults.hidden =
+    visible !== 0;
+
+});
+
+</script>
+
+</body>
+</html>
