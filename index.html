@@ -11,7 +11,7 @@
   <style>
     body {
       background: #f8f8f8;
-      color: #17213b;
+      color: #0b1f4d;
     }
 
     .site-header {
@@ -35,14 +35,8 @@
       text-align: center;
     }
 
-    .hero .eyebrow {
-      color: #ffffff;
-    }
-
-    .hero h1 {
-      color: #ffffff;
-    }
-
+    .hero .eyebrow,
+    .hero h1,
     .hero-text {
       color: #ffffff;
     }
@@ -55,6 +49,7 @@
 
     .flag-decal {
       position: relative;
+      width: 100%;
       max-width: 850px;
       height: 300px;
       margin: 0 auto;
@@ -88,21 +83,33 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 42%;
+      width: 40%;
       height: 54%;
-      background: #0b1f4d;
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      grid-template-rows: repeat(5, 1fr);
-      place-items: center;
-      padding: 12px;
+      background: #3c3b6e;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 10px 18px;
       box-sizing: border-box;
     }
 
-    .flag-union span {
+    .star-row {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      flex: 1;
+    }
+
+    .star-row span {
       color: #ffffff;
-      font-size: 18px;
+      font-size: 15px;
       line-height: 1;
+    }
+
+    .star-row.five {
+      padding-left: 8%;
+      padding-right: 8%;
     }
 
     .flag-caption {
@@ -118,13 +125,15 @@
       background: #ffffff;
       border-top: 1px solid #d5dbea;
       border-bottom: 1px solid #d5dbea;
+      color: #0b1f4d;
     }
 
     .about-section .eyebrow {
       color: #b22234;
     }
 
-    .about-section h2 {
+    .about-section h2,
+    .about-section p {
       color: #0b1f4d;
     }
 
@@ -171,8 +180,12 @@
         height: 190px;
       }
 
-      .flag-union span {
-        font-size: 10px;
+      .flag-union {
+        padding: 6px 10px;
+      }
+
+      .star-row span {
+        font-size: 9px;
       }
 
       .flag-caption {
@@ -270,40 +283,52 @@
           </div>
 
           <div class="flag-union">
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
 
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
+            <div class="star-row six">
+              <span>★</span><span>★</span><span>★</span>
+              <span>★</span><span>★</span><span>★</span>
+            </div>
 
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
+            <div class="star-row five">
+              <span>★</span><span>★</span><span>★</span>
+              <span>★</span><span>★</span>
+            </div>
 
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
+            <div class="star-row six">
+              <span>★</span><span>★</span><span>★</span>
+              <span>★</span><span>★</span><span>★</span>
+            </div>
 
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
+            <div class="star-row five">
+              <span>★</span><span>★</span><span>★</span>
+              <span>★</span><span>★</span>
+            </div>
+
+            <div class="star-row six">
+              <span>★</span><span>★</span><span>★</span>
+              <span>★</span><span>★</span><span>★</span>
+            </div>
+
+            <div class="star-row five">
+              <span>★</span><span>★</span><span>★</span>
+              <span>★</span><span>★</span>
+            </div>
+
+            <div class="star-row six">
+              <span>★</span><span>★</span><span>★</span>
+              <span>★</span><span>★</span><span>★</span>
+            </div>
+
+            <div class="star-row five">
+              <span>★</span><span>★</span><span>★</span>
+              <span>★</span><span>★</span>
+            </div>
+
+            <div class="star-row six">
+              <span>★</span><span>★</span><span>★</span>
+              <span>★</span><span>★</span><span>★</span>
+            </div>
+
           </div>
 
         </div>
