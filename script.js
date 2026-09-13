@@ -23,19 +23,21 @@ document.addEventListener("DOMContentLoaded", function () {
       --muted: #5e6675;
     }
 
+
     /* =====================================================
-       BASIC PAGE COLORS
+       PAGE
        ===================================================== */
 
-    html,
+    html {
+      background: #f8f8f8 !important;
+    }
+
     body {
       background: #f8f8f8 !important;
       color: #18284a !important;
-    }
-
-    body {
       margin: 0;
     }
+
 
     /* =====================================================
        HEADER
@@ -51,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .site-header a {
       color: #ffffff !important;
     }
+
 
     /* =====================================================
        HERO
@@ -77,8 +80,9 @@ document.addEventListener("DOMContentLoaded", function () {
       color: #ffffff !important;
     }
 
+
     /* =====================================================
-       MAIN CONTENT
+       CONTENT
        ===================================================== */
 
     .records-section,
@@ -105,6 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
       color: #b22234 !important;
     }
 
+
     /* =====================================================
        RECORD CARDS
        ===================================================== */
@@ -112,8 +117,10 @@ document.addEventListener("DOMContentLoaded", function () {
     .record-card {
       background: #ffffff !important;
       color: #18284a !important;
+
       border: 1px solid #d5dbea !important;
       border-top: 5px solid #b22234 !important;
+
       box-shadow:
         0 8px 24px rgba(11, 31, 77, 0.12) !important;
     }
@@ -134,6 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
       color: #8f1b2b !important;
     }
 
+
     /* =====================================================
        LINKS
        ===================================================== */
@@ -145,6 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
     a:hover {
       color: #8f1b2b;
     }
+
 
     /* =====================================================
        HAMBURGER BUTTON
@@ -160,6 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
       background: #8f1b2b !important;
     }
 
+
     /* =====================================================
        SIDE MENU
        ===================================================== */
@@ -167,26 +177,33 @@ document.addEventListener("DOMContentLoaded", function () {
     .side-menu {
       background: #ffffff !important;
       color: #0b1f4d !important;
+
       border-right: 5px solid #b22234 !important;
 
-      /* IMPORTANT:
-         Allow the entire menu to scroll */
-      overflow-y: auto !important;
-      overflow-x: hidden !important;
+      position: fixed !important;
 
-      /* Modern iPhone scrolling */
-      -webkit-overflow-scrolling: touch !important;
+      top: 0 !important;
+      bottom: 0 !important;
+      left: 0 !important;
 
-      /* Never let the menu become taller
-         than the visible screen */
+      height: 100vh !important;
+      height: 100dvh !important;
+
       max-height: 100vh !important;
       max-height: 100dvh !important;
 
-      /* Make sure the bottom item has room */
-      padding-bottom: 30px !important;
-
       box-sizing: border-box !important;
+
+      overflow-x: hidden !important;
+      overflow-y: auto !important;
+
+      overscroll-behavior: contain !important;
+
+      z-index: 1000 !important;
+
+      padding-bottom: 40px !important;
     }
+
 
     /* =====================================================
        MENU HEADER
@@ -202,17 +219,28 @@ document.addEventListener("DOMContentLoaded", function () {
       color: #ffffff !important;
     }
 
+
     /* =====================================================
-       MENU LINKS
+       MENU NAVIGATION
        ===================================================== */
 
     .side-menu nav {
-      padding-bottom: 30px !important;
+      display: block !important;
+      width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
     }
 
     .side-menu nav a {
+      display: block !important;
+
+      width: 100% !important;
+
+      box-sizing: border-box !important;
+
       background: #ffffff !important;
       color: #0b1f4d !important;
+
       border-bottom: 1px solid #d5dbea !important;
     }
 
@@ -221,35 +249,44 @@ document.addEventListener("DOMContentLoaded", function () {
       color: #ffffff !important;
     }
 
+
     /* =====================================================
        POLITICS DROPDOWN
        ===================================================== */
 
     .menu-dropdown {
+      display: block !important;
+      width: 100% !important;
+
       background: #ffffff !important;
     }
 
     .menu-dropdown-toggle {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      width: 100% !important;
+
+      display: flex !important;
+
+      justify-content: space-between !important;
+      align-items: center !important;
+
+      box-sizing: border-box !important;
 
       background: #ffffff !important;
       color: #0b1f4d !important;
 
-      border: none;
-      border-bottom: 1px solid #d5dbea;
+      border: none !important;
+      border-bottom: 1px solid #d5dbea !important;
 
-      padding: 15px 20px;
+      padding: 15px 20px !important;
 
       font: inherit;
       font-weight: 600;
 
       text-align: left;
+
       cursor: pointer;
 
-      box-sizing: border-box;
+      flex-shrink: 0 !important;
     }
 
     .menu-dropdown-toggle:hover {
@@ -262,24 +299,41 @@ document.addEventListener("DOMContentLoaded", function () {
       transition: transform 0.2s ease;
     }
 
-    .menu-dropdown.open .menu-dropdown-arrow {
+    .menu-dropdown.open
+    .menu-dropdown-arrow {
       transform: rotate(180deg);
     }
 
+
+    /* =====================================================
+       POLITICS SUBMENU
+       ===================================================== */
+
     .menu-submenu {
       display: none;
+
+      width: 100%;
+
       background: #f8f8f8 !important;
     }
 
-    .menu-dropdown.open .menu-submenu {
+    .menu-dropdown.open
+    .menu-submenu {
       display: block;
     }
 
     .menu-submenu a {
-      display: block;
+      display: block !important;
+
+      width: 100% !important;
+
+      box-sizing: border-box !important;
+
       padding-left: 35px !important;
+
       background: #f8f8f8 !important;
       color: #0b1f4d !important;
+
       border-bottom: 1px solid #d5dbea !important;
     }
 
@@ -288,13 +342,17 @@ document.addEventListener("DOMContentLoaded", function () {
       color: #ffffff !important;
     }
 
+
     /* =====================================================
-       MENU OVERLAY
+       OVERLAY
        ===================================================== */
 
     .menu-overlay {
       background: rgba(11, 31, 77, 0.65) !important;
+
+      z-index: 999 !important;
     }
+
 
     /* =====================================================
        FOOTER
@@ -303,6 +361,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .site-footer {
       background: #0b1f4d !important;
       color: #ffffff !important;
+
       border-top: 5px solid #b22234 !important;
     }
 
@@ -313,6 +372,7 @@ document.addEventListener("DOMContentLoaded", function () {
       color: #ffffff !important;
     }
 
+
     /* =====================================================
        SEARCH
        ===================================================== */
@@ -322,6 +382,7 @@ document.addEventListener("DOMContentLoaded", function () {
     textarea {
       background: #ffffff !important;
       color: #18284a !important;
+
       border: 1px solid #b7c0d4 !important;
     }
 
@@ -332,49 +393,26 @@ document.addEventListener("DOMContentLoaded", function () {
       border-color: #b22234 !important;
     }
 
+
     /* =====================================================
-       IPHONE / MOBILE MENU FIX
+       MOBILE
        ===================================================== */
 
     @media (max-width: 700px) {
 
       .side-menu {
-        height: 100vh !important;
+        top: 0 !important;
+        bottom: 0 !important;
+
         height: 100dvh !important;
 
-        max-height: 100vh !important;
         max-height: 100dvh !important;
 
-        overflow-y: scroll !important;
+        overflow-y: auto !important;
         overflow-x: hidden !important;
 
-        -webkit-overflow-scrolling: touch !important;
+        overscroll-behavior: contain !important;
 
-        overscroll-behavior-y: contain !important;
-
-        padding-bottom: 50px !important;
-      }
-
-      .side-menu nav {
-        padding-bottom: 50px !important;
-      }
-
-    }
-
-    /* =====================================================
-       SHORT SCREEN / LANDSCAPE FIX
-       ===================================================== */
-
-    @media (max-height: 700px) {
-
-      .side-menu {
-        height: 100vh !important;
-        height: 100dvh !important;
-
-        max-height: 100vh !important;
-        max-height: 100dvh !important;
-
-        overflow-y: scroll !important;
         padding-bottom: 60px !important;
       }
 
@@ -401,11 +439,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function setMenu(open) {
 
-    if (!menuButton || !sideMenu || !menuOverlay) {
+    if (!menuButton ||
+        !sideMenu ||
+        !menuOverlay) {
       return;
     }
 
-    sideMenu.classList.toggle("open", open);
+    sideMenu.classList.toggle(
+      "open",
+      open
+    );
 
     menuOverlay.classList.toggle(
       "show",
@@ -428,6 +471,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ? "Close menu"
         : "Open menu"
     );
+
   }
 
 
@@ -442,7 +486,9 @@ document.addEventListener("DOMContentLoaded", function () {
       function () {
 
         const isOpen =
-          sideMenu.classList.contains("open");
+          sideMenu.classList.contains(
+            "open"
+          );
 
         setMenu(!isOpen);
 
@@ -460,6 +506,9 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 
+    /* Close menu after selecting
+       a navigation link */
+
     sideMenu
       .querySelectorAll("a")
       .forEach(function (link) {
@@ -474,6 +523,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
       });
+
   }
 
 
