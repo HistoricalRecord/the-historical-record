@@ -1,14 +1,16 @@
 :root {
-  --paper: #f2ede3;
-  --paper-light: #fbf8f1;
-  --ink: #252525;
-  --muted: #6d685f;
-  --burgundy: #6b2636;
-  --green: #29463f;
-  --green-dark: #1c302c;
-  --gold: #b08a4a;
-  --line: #d2c5b1;
-  --shadow: 0 8px 24px rgba(45, 35, 24, 0.08);
+  --paper: #ffffff;
+  --paper-light: #f8f9fc;
+  --ink: #17213b;
+  --muted: #4f5d75;
+
+  --navy: #0b1f4d;
+  --blue: #163b78;
+  --red: #b22234;
+  --red-dark: #8f1d2c;
+
+  --line: #cbd3e1;
+  --shadow: 0 8px 24px rgba(11, 31, 77, 0.10);
 }
 
 * {
@@ -27,22 +29,24 @@ body {
   line-height: 1.7;
 }
 
-/* Subtle paper texture */
+/* Subtle texture */
 
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.16;
+  opacity: 0.08;
+
   background:
     repeating-linear-gradient(
       0deg,
-      rgba(90, 70, 40, 0.025) 0,
-      rgba(90, 70, 40, 0.025) 1px,
+      rgba(11, 31, 77, 0.025) 0,
+      rgba(11, 31, 77, 0.025) 1px,
       transparent 1px,
       transparent 4px
     );
+
   z-index: 999;
 }
 
@@ -55,12 +59,15 @@ a {
   margin: 0 auto;
 }
 
-/* Header */
+
+/* ================================
+   HEADER
+   ================================ */
 
 .site-header {
-  background: var(--green-dark);
-  color: #f8f1e5;
-  border-bottom: 4px solid var(--gold);
+  background: var(--navy);
+  color: #ffffff;
+  border-bottom: 4px solid var(--red);
 }
 
 .header-inner {
@@ -73,7 +80,7 @@ a {
 }
 
 .brand {
-  color: #f8f1e5;
+  color: #ffffff;
   text-decoration: none;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.15rem;
@@ -88,10 +95,10 @@ a {
 }
 
 .nav a {
-  color: #f8f1e5;
+  color: #ffffff;
   text-decoration: none;
   padding: 7px 10px;
-  border: 1px solid rgba(248, 241, 229, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   font-size: 0.76rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -99,21 +106,25 @@ a {
 }
 
 .nav a:hover {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--green-dark);
+  background: var(--red);
+  border-color: var(--red);
+  color: #ffffff;
 }
 
-/* Hero areas */
+
+/* ================================
+   HERO AREAS
+   ================================ */
 
 .hero,
 .page-hero {
   background:
     linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.45),
-      rgba(222, 211, 192, 0.18)
+      #ffffff,
+      #eef2f8
     );
+
   border-bottom: 1px solid var(--line);
 }
 
@@ -127,7 +138,7 @@ a {
 
 .eyebrow {
   margin: 0 0 12px;
-  color: var(--burgundy);
+  color: var(--red);
   font-size: 0.76rem;
   font-weight: bold;
   letter-spacing: 0.18em;
@@ -137,7 +148,7 @@ a {
 .hero h1,
 .page-hero h1 {
   margin: 0 0 18px;
-  color: var(--green-dark);
+  color: var(--navy);
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2.7rem, 8vw, 5.6rem);
   line-height: 1;
@@ -151,7 +162,10 @@ a {
   font-size: 1.08rem;
 }
 
-/* Sections */
+
+/* ================================
+   SECTIONS
+   ================================ */
 
 .archive-section,
 .records-section,
@@ -166,7 +180,7 @@ a {
 
 .section-heading h2 {
   margin: 0 0 12px;
-  color: var(--green-dark);
+  color: var(--navy);
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2rem, 5vw, 3.2rem);
   line-height: 1.1;
@@ -177,7 +191,10 @@ a {
   color: var(--muted);
 }
 
-/* Category cards */
+
+/* ================================
+   CATEGORY CARDS
+   ================================ */
 
 .category-grid {
   display: grid;
@@ -191,9 +208,12 @@ a {
   min-height: 210px;
   padding: 30px;
   overflow: hidden;
+
   background: var(--paper-light);
+
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
+
   text-decoration: none;
   transition: 0.2s ease;
 }
@@ -203,21 +223,25 @@ a {
   position: absolute;
   top: 0;
   left: 0;
+
   width: 100%;
   height: 5px;
-  background: var(--burgundy);
+
+  background: var(--red);
 }
 
 .category-card:hover {
   transform: translateY(-3px);
-  border-color: var(--gold);
-  box-shadow: 0 12px 30px rgba(45, 35, 24, 0.13);
+  border-color: var(--blue);
+  box-shadow: 0 12px 30px rgba(11, 31, 77, 0.16);
 }
 
 .category-number {
   display: block;
   margin-bottom: 10px;
-  color: var(--gold);
+
+  color: var(--red);
+
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.5rem;
   font-weight: bold;
@@ -225,7 +249,9 @@ a {
 
 .category-card h3 {
   margin: 0 0 10px;
-  color: var(--green);
+
+  color: var(--navy);
+
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.65rem;
   line-height: 1.2;
@@ -236,7 +262,10 @@ a {
   color: var(--muted);
 }
 
-/* Record cards */
+
+/* ================================
+   RECORD CARDS
+   ================================ */
 
 .record-list {
   display: grid;
@@ -246,15 +275,20 @@ a {
 .record-card {
   position: relative;
   padding: 30px;
+
   background: var(--paper-light);
+
   border: 1px solid var(--line);
-  border-left: 5px solid var(--burgundy);
+  border-left: 5px solid var(--red);
+
   box-shadow: var(--shadow);
 }
 
 .record-label {
   margin-bottom: 8px;
-  color: var(--burgundy);
+
+  color: var(--red);
+
   font-size: 0.74rem;
   font-weight: bold;
   letter-spacing: 0.13em;
@@ -263,7 +297,9 @@ a {
 
 .record-card h3 {
   margin: 0 0 8px;
-  color: var(--green-dark);
+
+  color: var(--navy);
+
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.7rem;
   line-height: 1.25;
@@ -275,26 +311,36 @@ a {
 
 .record-date {
   margin: 0 0 15px;
-  color: var(--gold) !important;
+
+  color: var(--blue) !important;
+
   font-family: Georgia, "Times New Roman", serif;
   font-weight: bold;
   letter-spacing: 0.05em;
 }
 
-/* Media placeholders */
+
+/* ================================
+   MEDIA
+   ================================ */
 
 .media-placeholder {
   margin-top: 24px;
   padding: 24px;
-  background: #f5f0e6;
+
+  background: #eef2f8;
+
   border: 1px dashed var(--line);
+
   text-align: center;
 }
 
 .media-placeholder strong {
   display: block;
   margin-bottom: 6px;
-  color: var(--burgundy);
+
+  color: var(--red);
+
   font-family: Georgia, "Times New Roman", serif;
   letter-spacing: 0.08em;
 }
@@ -309,55 +355,273 @@ a {
 }
 
 .source-link a {
-  color: var(--burgundy);
+  color: var(--red);
   font-weight: bold;
 }
 
-/* About section */
+.source-link a:hover {
+  color: var(--blue);
+}
+
+
+/* ================================
+   ABOUT SECTION
+   ================================ */
 
 .about-section {
-  background: var(--green);
-  color: #f5eee2;
+  background: var(--navy);
+  color: #ffffff;
 }
 
 .about-section .eyebrow {
-  color: #d7b56d;
+  color: #ffffff;
 }
 
 .about-section h2 {
   margin: 0 0 18px;
-  color: #f8f1e5;
+
+  color: #ffffff;
+
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2rem, 5vw, 3.2rem);
 }
 
 .about-section p {
   max-width: 780px;
-  color: #e4dacb;
+  color: #e2e8f2;
 }
 
-/* Footer */
+
+/* ================================
+   FOOTER
+   ================================ */
 
 .site-footer {
   padding: 32px 0;
-  background: var(--green-dark);
-  color: #e9dfcf;
-  border-top: 4px solid var(--gold);
+
+  background: var(--navy);
+  color: #ffffff;
+
+  border-top: 4px solid var(--red);
 }
 
 .site-footer p {
   margin: 4px 0;
+  color: #ffffff;
 }
 
 .site-footer a {
-  color: #e9dfcf;
+  color: #ffffff;
 }
 
 .site-footer a:hover {
-  color: #d7b56d;
+  color: #dce7f8;
 }
 
-/* Mobile */
+
+/* ================================
+   HAMBURGER ARCHIVE MENU
+   ================================ */
+
+.menu-button {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+
+  z-index: 1002;
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  background: var(--red);
+
+  border: 2px solid #ffffff;
+
+  cursor: pointer;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+}
+
+.menu-button span {
+  display: block;
+
+  width: 23px;
+  height: 2px;
+
+  background: #ffffff;
+}
+
+.menu-button:hover {
+  background: var(--blue);
+}
+
+
+/* Sliding sidebar */
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 310px;
+  max-width: 85vw;
+  height: 100vh;
+
+  z-index: 1001;
+
+  background: var(--navy);
+  color: #ffffff;
+
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+
+  box-shadow: 8px 0 30px rgba(0, 0, 0, 0.25);
+
+  overflow-y: auto;
+}
+
+.side-menu.open {
+  transform: translateX(0);
+}
+
+
+/* Menu heading */
+
+.menu-header {
+  padding: 75px 28px 25px;
+
+  background: var(--navy);
+
+  border-bottom: 4px solid var(--red);
+}
+
+.menu-header h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+.menu-header p {
+  margin: 8px 0 0;
+
+  color: #cbd6e8;
+
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+
+/* Menu links */
+
+.side-menu nav {
+  padding: 15px 0 30px;
+}
+
+.side-menu a {
+  display: block;
+
+  padding: 17px 28px;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 1.15rem;
+
+  transition: 0.2s ease;
+}
+
+.side-menu a:hover {
+  padding-left: 35px;
+
+  background: var(--red);
+
+  color: #ffffff;
+}
+
+
+/* Overlay */
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 1000;
+
+  background: rgba(5, 15, 35, 0.60);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.3s ease;
+}
+
+.menu-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* Prevent scrolling while menu is open */
+
+body.menu-open {
+  overflow: hidden;
+}
+
+
+/* Hide old navigation */
+
+.site-header .nav {
+  display: none;
+}
+
+
+/* Give header room for hamburger */
+
+.site-header {
+  padding-left: 78px;
+}
+
+
+/* ================================
+   SOCIAL MEDIA IMAGES
+   ================================ */
+
+.social-record img {
+  display: block;
+
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+
+  margin: 20px auto;
+
+  border-radius: 6px;
+
+  border: 1px solid var(--line);
+}
+
+
+/* ================================
+   MOBILE
+   ================================ */
 
 @media (max-width: 760px) {
 
@@ -416,180 +680,6 @@ a {
   .record-card h3 {
     font-size: 1.45rem;
   }
-}
-/* ================================
-   HAMBURGER ARCHIVE MENU
-   ================================ */
-
-.menu-button {
-  position: fixed;
-  top: 18px;
-  left: 18px;
-  z-index: 1002;
-
-  width: 48px;
-  height: 48px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-
-  background: var(--green-dark);
-  border: 2px solid var(--gold);
-  cursor: pointer;
-
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
-}
-
-.menu-button span {
-  display: block;
-  width: 23px;
-  height: 2px;
-  background: #f8f1e5;
-}
-
-.menu-button:hover {
-  background: var(--burgundy);
-}
-
-
-/* Sliding sidebar */
-
-.side-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  width: 310px;
-  max-width: 85vw;
-  height: 100vh;
-
-  z-index: 1001;
-
-  background: var(--green-dark);
-  color: #f8f1e5;
-
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
-
-  box-shadow: 8px 0 30px rgba(0, 0, 0, 0.25);
-
-  overflow-y: auto;
-}
-
-.side-menu.open {
-  transform: translateX(0);
-}
-
-
-/* Menu heading */
-
-.menu-header {
-  padding: 75px 28px 25px;
-
-  border-bottom: 1px solid rgba(248, 241, 229, 0.2);
-}
-
-.menu-header h2 {
-  margin: 0;
-
-  color: #f8f1e5;
-
-  font-family: Georgia, "Times New Roman", serif;
-
-  font-size: 1.8rem;
-  line-height: 1.2;
-}
-
-.menu-header p {
-  margin: 8px 0 0;
-
-  color: #cfc5b5;
-
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-
-/* Menu links */
-
-.side-menu nav {
-  padding: 15px 0 30px;
-}
-
-.side-menu a {
-  display: block;
-
-  padding: 17px 28px;
-
-  color: #f8f1e5;
-  text-decoration: none;
-
-  border-bottom: 1px solid rgba(248, 241, 229, 0.1);
-
-  font-family: Georgia, "Times New Roman", serif;
-
-  font-size: 1.15rem;
-
-  transition: 0.2s ease;
-}
-
-.side-menu a:hover {
-  padding-left: 35px;
-
-  background: var(--burgundy);
-
-  color: #ffffff;
-}
-
-
-/* Overlay */
-
-.menu-overlay {
-  position: fixed;
-  inset: 0;
-
-  z-index: 1000;
-
-  background: rgba(20, 20, 16, 0.55);
-
-  opacity: 0;
-  visibility: hidden;
-
-  transition: 0.3s ease;
-}
-
-.menu-overlay.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-
-/* Prevent scrolling while menu is open */
-
-body.menu-open {
-  overflow: hidden;
-}
-
-
-/* Hide the old navigation */
-
-.site-header .nav {
-  display: none;
-}
-
-
-/* Give the header room for the hamburger */
-
-.site-header {
-  padding-left: 78px;
-}
-
-
-@media (max-width: 760px) {
 
   .menu-button {
     top: 14px;
@@ -606,13 +696,4 @@ body.menu-open {
   .side-menu {
     width: 285px;
   }
-
-}
-.social-record img {
-  display: block;
-  width: 100%;
-  max-width: 700px;
-  height: auto;
-  margin: 20px auto;
-  border-radius: 6px;
 }
