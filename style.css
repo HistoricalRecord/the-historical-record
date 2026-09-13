@@ -1,26 +1,21 @@
 :root {
-  --paper: #ffffff;
-  --paper-light: #f8f9fc;
-  --ink: #17213b;
-  --muted: #4f5d75;
-
-  --navy: #0b1f4d;
-  --blue: #163b78;
-  --red: #b22234;
-  --red-dark: #8f1d2c;
-
-  --line: #cbd3e1;
-  --shadow: 0 8px 24px rgba(11, 31, 77, 0.10);
+  --paper: #f2ede3;
+  --paper-light: #fbf8f1;
+  --ink: #252525;
+  --muted: #6d685f;
+  --burgundy: #6b2636;
+  --green: #29463f;
+  --green-dark: #1c302c;
+  --gold: #b08a4a;
+  --line: #d2c5b1;
+  --shadow: 0 8px 24px rgba(45, 35, 24, 0.08);
 }
-
 * {
   box-sizing: border-box;
 }
-
 html {
   scroll-behavior: smooth;
 }
-
 body {
   margin: 0;
   background: var(--paper);
@@ -28,48 +23,38 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.7;
 }
-
-/* Subtle texture */
-
+/* Subtle paper texture */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.08;
-
+  opacity: 0.16;
   background:
     repeating-linear-gradient(
       0deg,
-      rgba(11, 31, 77, 0.025) 0,
-      rgba(11, 31, 77, 0.025) 1px,
+      rgba(90, 70, 40, 0.025) 0,
+      rgba(90, 70, 40, 0.025) 1px,
       transparent 1px,
       transparent 4px
     );
-
   z-index: 999;
 }
-
 a {
   color: inherit;
 }
-
 .container {
   width: min(1100px, calc(100% - 36px));
   margin: 0 auto;
 }
-
-
 /* ================================
    HEADER
    ================================ */
-
 .site-header {
-  background: var(--navy);
-  color: #ffffff;
-  border-bottom: 4px solid var(--red);
+  background: var(--green-dark);
+  color: #f8f1e5;
+  border-bottom: 4px solid var(--gold);
 }
-
 .header-inner {
   display: flex;
   align-items: center;
@@ -78,622 +63,531 @@ a {
   padding: 18px 0;
   flex-wrap: wrap;
 }
-
 .brand {
-  color: #ffffff;
+  color: #f8f1e5;
   text-decoration: none;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.15rem;
   font-weight: bold;
   letter-spacing: 0.08em;
 }
-
 .nav {
   display: flex;
   gap: 7px;
   flex-wrap: wrap;
 }
-
 .nav a {
-  color: #ffffff;
+  color: #f8f1e5;
   text-decoration: none;
   padding: 7px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(248, 241, 229, 0.28);
   font-size: 0.76rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   transition: 0.2s ease;
 }
-
 .nav a:hover {
-  background: var(--red);
-  border-color: var(--red);
-  color: #ffffff;
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--green-dark);
 }
-
-
 /* ================================
-   HERO AREAS
+   HERO
    ================================ */
-
 .hero,
 .page-hero {
   background:
     linear-gradient(
       135deg,
-      #ffffff,
-      #eef2f8
+      rgba(255, 255, 255, 0.45),
+      rgba(222, 211, 192, 0.18)
     );
-
   border-bottom: 1px solid var(--line);
 }
-
 .hero {
   padding: 85px 0 80px;
 }
-
 .page-hero {
   padding: 60px 0 55px;
 }
-
 .eyebrow {
   margin: 0 0 12px;
-  color: var(--red);
+  color: var(--burgundy);
   font-size: 0.76rem;
   font-weight: bold;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
-
 .hero h1,
 .page-hero h1 {
   margin: 0 0 18px;
-  color: var(--navy);
+  color: var(--green-dark);
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2.7rem, 8vw, 5.6rem);
   line-height: 1;
   letter-spacing: -0.03em;
 }
-
 .hero-text {
   max-width: 740px;
   margin: 0;
   color: var(--muted);
   font-size: 1.08rem;
 }
-
-
 /* ================================
    SECTIONS
    ================================ */
-
 .archive-section,
 .records-section,
 .about-section {
   padding: 72px 0;
 }
-
 .section-heading {
   max-width: 760px;
   margin-bottom: 34px;
 }
-
 .section-heading h2 {
   margin: 0 0 12px;
-  color: var(--navy);
+  color: var(--green-dark);
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2rem, 5vw, 3.2rem);
   line-height: 1.1;
 }
-
 .section-heading p {
   margin: 0;
   color: var(--muted);
 }
-
-
 /* ================================
    CATEGORY CARDS
    ================================ */
-
 .category-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
-
 .category-card {
   position: relative;
   display: block;
   min-height: 210px;
   padding: 30px;
   overflow: hidden;
-
   background: var(--paper-light);
-
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
-
   text-decoration: none;
   transition: 0.2s ease;
 }
-
 .category-card::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-
   width: 100%;
   height: 5px;
-
-  background: var(--red);
+  background: var(--burgundy);
 }
-
 .category-card:hover {
   transform: translateY(-3px);
-  border-color: var(--blue);
-  box-shadow: 0 12px 30px rgba(11, 31, 77, 0.16);
+  border-color: var(--gold);
+  box-shadow: 0 12px 30px rgba(45, 35, 24, 0.13);
 }
-
 .category-number {
   display: block;
   margin-bottom: 10px;
-
-  color: var(--red);
-
+  color: var(--gold);
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.5rem;
   font-weight: bold;
 }
-
 .category-card h3 {
   margin: 0 0 10px;
-
-  color: var(--navy);
-
+  color: var(--green);
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.65rem;
   line-height: 1.2;
 }
-
 .category-card p {
   margin: 0;
   color: var(--muted);
 }
-
-
 /* ================================
    RECORD CARDS
    ================================ */
-
 .record-list {
   display: grid;
   gap: 24px;
 }
-
 .record-card {
   position: relative;
   padding: 30px;
-
   background: var(--paper-light);
-
   border: 1px solid var(--line);
-  border-left: 5px solid var(--red);
-
+  border-left: 5px solid var(--burgundy);
   box-shadow: var(--shadow);
 }
-
 .record-label {
   margin-bottom: 8px;
-
-  color: var(--red);
-
+  color: var(--burgundy);
   font-size: 0.74rem;
   font-weight: bold;
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
-
 .record-card h3 {
   margin: 0 0 8px;
-
-  color: var(--navy);
-
+  color: var(--green-dark);
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.7rem;
   line-height: 1.25;
 }
-
 .record-card p {
   color: var(--muted);
 }
-
 .record-date {
   margin: 0 0 15px;
-
-  color: var(--blue) !important;
-
+  color: var(--gold) !important;
   font-family: Georgia, "Times New Roman", serif;
   font-weight: bold;
   letter-spacing: 0.05em;
 }
-
-
 /* ================================
-   MEDIA
+   MEDIA PLACEHOLDERS
    ================================ */
-
 .media-placeholder {
   margin-top: 24px;
   padding: 24px;
-
-  background: #eef2f8;
-
+  background: #f5f0e6;
   border: 1px dashed var(--line);
-
   text-align: center;
 }
-
 .media-placeholder strong {
   display: block;
   margin-bottom: 6px;
-
-  color: var(--red);
-
+  color: var(--burgundy);
   font-family: Georgia, "Times New Roman", serif;
   letter-spacing: 0.08em;
 }
-
 .media-placeholder p {
   margin: 0;
   font-size: 0.92rem;
 }
-
 .source-link {
   margin-top: 22px;
 }
-
 .source-link a {
-  color: var(--red);
+  color: var(--burgundy);
   font-weight: bold;
 }
-
-.source-link a:hover {
-  color: var(--blue);
-}
-
-
 /* ================================
    ABOUT SECTION
    ================================ */
-
 .about-section {
-  background: var(--navy);
-  color: #ffffff;
+  background: var(--green);
+  color: #f5eee2;
 }
-
 .about-section .eyebrow {
-  color: #ffffff;
+  color: #d7b56d;
 }
-
 .about-section h2 {
   margin: 0 0 18px;
-
-  color: #ffffff;
-
+  color: #f8f1e5;
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2rem, 5vw, 3.2rem);
 }
-
 .about-section p {
   max-width: 780px;
-  color: #e2e8f2;
+  color: #e4dacb;
 }
-
-
 /* ================================
    FOOTER
    ================================ */
-
 .site-footer {
   padding: 32px 0;
-
-  background: var(--navy);
-  color: #ffffff;
-
-  border-top: 4px solid var(--red);
+  background: var(--green-dark);
+  color: #e9dfcf;
+  border-top: 4px solid var(--gold);
 }
-
 .site-footer p {
   margin: 4px 0;
-  color: #ffffff;
 }
-
 .site-footer a {
-  color: #ffffff;
+  color: #e9dfcf;
 }
-
 .site-footer a:hover {
-  color: #dce7f8;
+  color: #d7b56d;
 }
-
-
 /* ================================
    HAMBURGER ARCHIVE MENU
    ================================ */
-
 .menu-button {
   position: fixed;
   top: 18px;
   left: 18px;
-
   z-index: 1002;
-
   width: 48px;
   height: 48px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   gap: 5px;
-
-  background: var(--red);
-
-  border: 2px solid #ffffff;
-
+  background: var(--green-dark);
+  border: 2px solid var(--gold);
   cursor: pointer;
-
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  transition: 0.2s ease;
 }
-
 .menu-button span {
   display: block;
-
   width: 23px;
   height: 2px;
-
-  background: #ffffff;
+  background: #f8f1e5;
 }
-
 .menu-button:hover {
-  background: var(--blue);
+  background: var(--burgundy);
 }
-
-
-/* Sliding sidebar */
-
+/* ================================
+   SLIDING SIDEBAR
+   ================================ */
 .side-menu {
   position: fixed;
   top: 0;
   left: 0;
-
   width: 310px;
   max-width: 85vw;
   height: 100vh;
-
   z-index: 1001;
-
-  background: var(--navy);
-  color: #ffffff;
-
+  background: var(--green-dark);
+  color: #f8f1e5;
   transform: translateX(-100%);
   transition: transform 0.3s ease;
-
   box-shadow: 8px 0 30px rgba(0, 0, 0, 0.25);
-
   overflow-y: auto;
 }
-
 .side-menu.open {
   transform: translateX(0);
 }
-
-
-/* Menu heading */
-
+/* ================================
+   MENU HEADING
+   ================================ */
 .menu-header {
   padding: 75px 28px 25px;
-
-  background: var(--navy);
-
-  border-bottom: 4px solid var(--red);
+  border-bottom: 1px solid rgba(248, 241, 229, 0.2);
 }
-
 .menu-header h2 {
   margin: 0;
-
-  color: #ffffff;
-
+  color: #f8f1e5;
   font-family: Georgia, "Times New Roman", serif;
-
   font-size: 1.8rem;
   line-height: 1.2;
 }
-
 .menu-header p {
   margin: 8px 0 0;
-
-  color: #cbd6e8;
-
+  color: #cfc5b5;
   font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-
-
-/* Menu links */
-
+/* ================================
+   MENU LINKS
+   ================================ */
 .side-menu nav {
   padding: 15px 0 30px;
 }
-
-.side-menu a {
+.side-menu nav a {
   display: block;
-
   padding: 17px 28px;
-
-  color: #ffffff;
-
+  color: #f8f1e5;
   text-decoration: none;
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-
+  border-bottom: 1px solid rgba(248, 241, 229, 0.1);
   font-family: Georgia, "Times New Roman", serif;
-
   font-size: 1.15rem;
-
   transition: 0.2s ease;
 }
-
-.side-menu a:hover {
+.side-menu nav a:hover {
   padding-left: 35px;
-
-  background: var(--red);
-
+  background: var(--burgundy);
   color: #ffffff;
 }
-
-
-/* Overlay */
-
+/* ================================
+   POLITICS SUBMENU
+   ================================ */
+.menu-dropdown {
+  width: 100%;
+}
+.menu-dropdown-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 17px 28px;
+  background: transparent;
+  color: #f8f1e5;
+  border: 0;
+  border-bottom: 1px solid rgba(248, 241, 229, 0.1);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.15rem;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.menu-dropdown-toggle:hover {
+  background: var(--burgundy);
+  color: #ffffff;
+}
+.menu-dropdown-arrow {
+  display: inline-block;
+  margin-left: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  transition: transform 0.25s ease;
+}
+.menu-dropdown.open .menu-dropdown-arrow {
+  transform: rotate(180deg);
+}
+/* Hidden submenu */
+.menu-submenu {
+  max-height: 0;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.12);
+  transition:
+    max-height 0.3s ease,
+    opacity 0.3s ease;
+  opacity: 0;
+}
+/* Visible submenu */
+.menu-dropdown.open .menu-submenu {
+  max-height: 300px;
+  opacity: 1;
+}
+/* Submenu links */
+.menu-submenu a {
+  padding: 14px 28px 14px 48px !important;
+  background: rgba(0, 0, 0, 0.08);
+  color: #ddd4c6 !important;
+  border-bottom: 1px solid rgba(248, 241, 229, 0.08) !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 0.95rem !important;
+  transition: 0.2s ease;
+}
+.menu-submenu a::before {
+  content: "•";
+  margin-right: 9px;
+  color: var(--gold);
+}
+.menu-submenu a:hover {
+  padding-left: 55px !important;
+  background: var(--burgundy);
+  color: #ffffff !important;
+}
+/* ================================
+   MENU OVERLAY
+   ================================ */
 .menu-overlay {
   position: fixed;
   inset: 0;
-
   z-index: 1000;
-
-  background: rgba(5, 15, 35, 0.60);
-
+  background: rgba(20, 20, 16, 0.55);
   opacity: 0;
   visibility: hidden;
-
   transition: 0.3s ease;
 }
-
 .menu-overlay.show {
   opacity: 1;
   visibility: visible;
 }
-
-
-/* Prevent scrolling while menu is open */
-
+/* ================================
+   PREVENT SCROLLING
+   ================================ */
 body.menu-open {
   overflow: hidden;
 }
-
-
-/* Hide old navigation */
-
+/* ================================
+   HIDE OLD NAVIGATION
+   ================================ */
 .site-header .nav {
   display: none;
 }
-
-
-/* Give header room for hamburger */
-
+/* Give the header room for hamburger */
 .site-header {
   padding-left: 78px;
 }
-
-
 /* ================================
    SOCIAL MEDIA IMAGES
    ================================ */
-
 .social-record img {
   display: block;
-
   width: 100%;
   max-width: 700px;
   height: auto;
-
   margin: 20px auto;
-
   border-radius: 6px;
-
-  border: 1px solid var(--line);
 }
-
-
 /* ================================
    MOBILE
    ================================ */
-
 @media (max-width: 760px) {
-
   .container {
     width: min(100% - 26px, 1100px);
   }
-
   .header-inner {
     align-items: flex-start;
   }
-
   .brand {
     width: 100%;
   }
-
   .nav {
     width: 100%;
   }
-
   .nav a {
     font-size: 0.7rem;
     padding: 6px 8px;
   }
-
   .hero {
     padding: 62px 0 55px;
   }
-
   .page-hero {
     padding: 48px 0 45px;
   }
-
   .hero h1,
   .page-hero h1 {
     font-size: 3rem;
   }
-
   .archive-section,
   .records-section,
   .about-section {
     padding: 52px 0;
   }
-
   .category-grid {
     grid-template-columns: 1fr;
   }
-
   .category-card {
     min-height: 0;
   }
-
   .record-card {
     padding: 23px;
   }
-
   .record-card h3 {
     font-size: 1.45rem;
   }
-
+  .side-menu {
+    width: 285px;
+  }
   .menu-button {
     top: 14px;
     left: 14px;
-
     width: 44px;
     height: 44px;
   }
-
   .site-header {
     padding-left: 70px;
   }
-
-  .side-menu {
-    width: 285px;
+  .menu-dropdown-toggle {
+    padding: 16px 24px;
+  }
+  .menu-submenu a {
+    padding-left: 44px !important;
+  }
+  .menu-submenu a:hover {
+    padding-left: 51px !important;
   }
 }
