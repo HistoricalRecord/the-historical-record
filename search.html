@@ -153,6 +153,38 @@
     const results = document.getElementById("search-results");
     const status = document.getElementById("search-status");
 
+    function createExcerpt(text, keyword) {
+
+      const cleanText = text
+        .replace(/\s+/g, " ")
+        .trim();
+
+      const lowerText = cleanText.toLowerCase();
+      const position = lowerText.indexOf(keyword);
+
+      if (position === -1) {
+        return cleanText.substring(0, 220) + "...";
+      }
+
+      let start = Math.max(0, position - 100);
+      let end = Math.min(
+        cleanText.length,
+        position + keyword.length + 140
+      );
+
+      let excerpt = cleanText.substring(start, end);
+
+      if (start > 0) {
+        excerpt = "..." + excerpt;
+      }
+
+      if (end < cleanText.length) {
+        excerpt = excerpt + "...";
+      }
+
+      return excerpt;
+    }
+
     form.addEventListener("submit", async function(event) {
 
       event.preventDefault();
@@ -163,8 +195,10 @@
       status.innerHTML = "";
 
       if (!keyword) {
+
         status.innerHTML =
           "<p>Please enter a keyword to search the archive.</p>";
+
         return;
       }
 
@@ -190,10 +224,15 @@
           const documentPage =
             parser.parseFromString(html, "text/html");
 
-          const text =
-            documentPage.body.innerText.toLowerCase();
+          const pageText =
+            documentPage.body.innerText
+              .replace(/\s+/g, " ")
+              .trim();
 
-          if (text.includes(keyword)) {
+          const lowerText =
+            pageText.toLowerCase();
+
+          if (lowerText.includes(keyword)) {
 
             const headings =
               Array.from(
@@ -204,21 +243,45 @@
 
             for (const element of headings) {
 
+              const headingText =
+                element.textContent.trim();
+
               if (
-                element.textContent
-                  .toLowerCase()
-                  .includes(keyword)
+                headingText.toLowerCase().includes(keyword)
               ) {
-                heading = element.textContent.trim();
+                heading = headingText;
                 break;
               }
 
             }
 
+            const dateElement =
+              documentPage.querySelector(".eyebrow");
+
+            let date = "";
+
+            if (dateElement) {
+              const dateText =
+                dateElement.textContent.trim();
+
+              if (
+                dateText.includes("2026") ||
+                dateText.includes("2025") ||
+                dateText.includes("2024")
+              ) {
+                date = dateText;
+              }
+            }
+
+            const excerpt =
+              createExcerpt(pageText, keyword);
+
             matches.push({
               page: page.file,
               category: page.title,
-              heading: heading
+              heading: heading,
+              date: date,
+              excerpt: excerpt
             });
 
           }
@@ -247,9 +310,9 @@
       status.innerHTML =
         "<p>Found " +
         matches.length +
-        " matching archive page" +
-        (matches.length === 1 ? "" : "s") +
-        ".</p>";
+        " matching archive " +
+        (matches.length === 1 ? "record." : "records.") +
+        "</p>";
 
       matches.forEach(function(match) {
 
@@ -260,6 +323,7 @@
           "archive-card";
 
         article.innerHTML = `
+
           <p class="eyebrow">
             ${match.category}
           </p>
@@ -268,15 +332,22 @@
             ${match.heading}
           </h2>
 
+          ${
+            match.date
+              ? `<p><strong>${match.date}</strong></p>`
+              : ""
+          }
+
           <p>
-            This archive page contains material matching your search.
+            ${match.excerpt}
           </p>
 
           <p>
             <a href="${match.page}">
-              View this section
+              View Record →
             </a>
           </p>
+
         `;
 
         results.appendChild(article);
