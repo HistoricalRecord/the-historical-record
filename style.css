@@ -778,3 +778,43 @@ body.menu-open {
   }
 
 }
+/* =========================================================
+   CONSISTENT SIDEBAR FONT
+   ========================================================= */
+
+.side-menu,
+.side-menu *,
+.side-menu a,
+.side-menu button,
+.menu-header,
+.menu-header h2,
+.menu-header p,
+.side-menu nav,
+.side-menu nav a,
+.menu-dropdown,
+.menu-dropdown-toggle,
+.menu-submenu,
+.menu-submenu a {
+  font-family: inherit !important;
+}
+
+/* Make the dropdown button use the same font as the links */
+
+.menu-dropdown-toggle {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+/* Keep all sidebar text consistent */
+
+.side-menu {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+.side-menu a,
+.side-menu button {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif !important;
+}
