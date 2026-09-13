@@ -3,49 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>World Events | The Historical Record</title>
-
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+  <button class="menu-button" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <aside class="side-menu">
+
+    <div class="menu-header">
+      <h2>The Historical Record</h2>
+      <p>Archive Navigation</p>
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="politics.html">Politics</a>
+      <a href="entertainment-sports.html">Entertainment / Sports</a>
+      <a href="world-events.html">World Events</a>
+      <a href="social-media.html">Social Media</a>
+      <a href="thoughts.html">Thoughts / Blog</a>
+    </nav>
+
+  </aside>
+
+  <div class="menu-overlay"></div>
+
   <header class="site-header">
+
     <div class="container header-inner">
 
-      <a href="index.html" class="site-title">
-        The Historical Record
+      <a href="index.html" class="brand">
+        THE HISTORICAL RECORD
       </a>
 
-      <button class="menu-toggle" aria-label="Open navigation menu">
-        ☰
-      </button>
-
     </div>
+
   </header>
-
-  <nav class="side-menu">
-
-    <div class="side-menu-header">
-      <span>Archive</span>
-      <button class="menu-close" aria-label="Close navigation menu">
-        ×
-      </button>
-    </div>
-
-    <a href="index.html">Home</a>
-    <a href="politics.html">Politics</a>
-    <a href="entertainment-sports.html">Entertainment / Sports</a>
-    <a href="world-events.html">World Events</a>
-    <a href="social-media.html">Social Media</a>
-    <a href="thoughts.html">Thoughts / Blog</a>
-
-  </nav>
 
   <main>
 
-    <section class="archive-section">
+    <section class="hero">
 
       <div class="container">
 
@@ -57,16 +61,17 @@
           World Events
         </h1>
 
-        <p>
-          This section contains photographs, documents, videos, articles, social media posts, and other records documenting significant events around the world.
+        <p class="hero-text">
+          This section contains photographs, documents, videos, articles,
+          social media posts, and other records documenting significant events
+          around the world.
         </p>
 
       </div>
 
     </section>
 
-
-    <section class="archive-section">
+    <section class="about-section">
 
       <div class="container">
 
@@ -81,11 +86,16 @@
           </h2>
 
           <p>
-            The International Atomic Energy Agency's board referred Iran to the United Nations Security Council over concerns surrounding Iran's nuclear program. The development marked a significant escalation in the long-running international dispute over Iran's nuclear activities.
+            The International Atomic Energy Agency's board referred Iran to the
+            United Nations Security Council over concerns surrounding Iran's
+            nuclear program. The development marked a significant escalation
+            in the long-running international dispute over Iran's nuclear
+            activities.
           </p>
 
           <p>
-            This record preserves reporting and social-media material documenting the situation as it unfolded.
+            This record preserves reporting and social-media material
+            documenting the situation as it unfolded.
           </p>
 
           <p>
@@ -104,7 +114,8 @@
           </h3>
 
           <p>
-            Screenshots from X documenting public discussion and reaction to the event.
+            Screenshots from X documenting public discussion and reaction to
+            the event.
           </p>
 
           <div class="social-record">
@@ -118,12 +129,13 @@
             </p>
 
             <img src="IMG_3899.jpeg"
-     alt="Screenshot from X documenting discussion surrounding Iran's nuclear program"
-     style="display:block; width:100%; max-width:600px; height:auto; margin:20px auto;">
+                 alt="Screenshot from X documenting discussion surrounding Iran's nuclear program"
+                 style="display:block; width:100%; max-width:600px; height:auto; margin:20px auto;">
 
-<img src="IMG_3900.jpeg"
-     alt="Screenshot from X documenting discussion surrounding Iran's nuclear program"
-     style="display:block; width:100%; max-width:600px; height:auto; margin:20px auto;">
+            <img src="IMG_3900.jpeg"
+                 alt="Screenshot from X documenting discussion surrounding Iran's nuclear program"
+                 style="display:block; width:100%; max-width:600px; height:auto; margin:20px auto;">
+
           </div>
 
         </article>
@@ -133,6 +145,22 @@
     </section>
 
   </main>
+
+  <footer class="site-footer">
+
+    <div class="container">
+
+      <p>
+        THE HISTORICAL RECORD
+      </p>
+
+      <p>
+        A living archive of the moments that matter.
+      </p>
+
+    </div>
+
+  </footer>
 
   <script src="script.js"></script>
 
