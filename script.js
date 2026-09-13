@@ -2,18 +2,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* =========================================================
      THE HISTORICAL RECORD
-     Global Site Theme + Navigation
+     Global Theme + Navigation
      ========================================================= */
-
-  /* ---------------------------------------------------------
-     FORCE THE PATRIOTIC SITE THEME
-     --------------------------------------------------------- */
 
   const themeStyle = document.createElement("style");
 
   themeStyle.id = "historical-record-theme";
 
   themeStyle.textContent = `
+
     :root {
       --blue: #0b1f4d;
       --blue-light: #163b78;
@@ -26,6 +23,10 @@ document.addEventListener("DOMContentLoaded", function () {
       --muted: #5e6675;
     }
 
+    /* =====================================================
+       BASIC PAGE COLORS
+       ===================================================== */
+
     html,
     body {
       background: #f8f8f8 !important;
@@ -36,7 +37,9 @@ document.addEventListener("DOMContentLoaded", function () {
       margin: 0;
     }
 
-    /* HEADER */
+    /* =====================================================
+       HEADER
+       ===================================================== */
 
     .site-header {
       background: #0b1f4d !important;
@@ -49,7 +52,9 @@ document.addEventListener("DOMContentLoaded", function () {
       color: #ffffff !important;
     }
 
-    /* HERO */
+    /* =====================================================
+       HERO
+       ===================================================== */
 
     .hero {
       background:
@@ -72,24 +77,17 @@ document.addEventListener("DOMContentLoaded", function () {
       color: #ffffff !important;
     }
 
-    /* GENERAL SECTIONS */
-
-    .records-section,
-    .archive-section,
-    .content-section,
-    .about-section,
-    main {
-      color: #18284a;
-    }
+    /* =====================================================
+       MAIN CONTENT
+       ===================================================== */
 
     .records-section,
     .archive-section,
     .content-section,
     .about-section {
       background: #ffffff !important;
+      color: #18284a !important;
     }
-
-    /* HEADINGS */
 
     h1,
     h2,
@@ -102,21 +100,22 @@ document.addEventListener("DOMContentLoaded", function () {
       color: #18284a;
     }
 
-    /* EYEBROWS */
-
     .eyebrow,
     .record-label {
       color: #b22234 !important;
     }
 
-    /* RECORD CARDS */
+    /* =====================================================
+       RECORD CARDS
+       ===================================================== */
 
     .record-card {
       background: #ffffff !important;
       color: #18284a !important;
       border: 1px solid #d5dbea !important;
       border-top: 5px solid #b22234 !important;
-      box-shadow: 0 8px 24px rgba(11, 31, 77, 0.12) !important;
+      box-shadow:
+        0 8px 24px rgba(11, 31, 77, 0.12) !important;
     }
 
     .record-card h3 {
@@ -135,7 +134,9 @@ document.addEventListener("DOMContentLoaded", function () {
       color: #8f1b2b !important;
     }
 
-    /* LINKS */
+    /* =====================================================
+       LINKS
+       ===================================================== */
 
     a {
       color: #b22234;
@@ -145,7 +146,9 @@ document.addEventListener("DOMContentLoaded", function () {
       color: #8f1b2b;
     }
 
-    /* HAMBURGER BUTTON */
+    /* =====================================================
+       HAMBURGER BUTTON
+       ===================================================== */
 
     .menu-button {
       background: #b22234 !important;
@@ -157,13 +160,37 @@ document.addEventListener("DOMContentLoaded", function () {
       background: #8f1b2b !important;
     }
 
-    /* SIDE MENU */
+    /* =====================================================
+       SIDE MENU
+       ===================================================== */
 
     .side-menu {
       background: #ffffff !important;
       color: #0b1f4d !important;
       border-right: 5px solid #b22234 !important;
+
+      /* IMPORTANT:
+         Allow the entire menu to scroll */
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+
+      /* Modern iPhone scrolling */
+      -webkit-overflow-scrolling: touch !important;
+
+      /* Never let the menu become taller
+         than the visible screen */
+      max-height: 100vh !important;
+      max-height: 100dvh !important;
+
+      /* Make sure the bottom item has room */
+      padding-bottom: 30px !important;
+
+      box-sizing: border-box !important;
     }
+
+    /* =====================================================
+       MENU HEADER
+       ===================================================== */
 
     .menu-header {
       background: #0b1f4d !important;
@@ -173,6 +200,14 @@ document.addEventListener("DOMContentLoaded", function () {
     .menu-header h2,
     .menu-header p {
       color: #ffffff !important;
+    }
+
+    /* =====================================================
+       MENU LINKS
+       ===================================================== */
+
+    .side-menu nav {
+      padding-bottom: 30px !important;
     }
 
     .side-menu nav a {
@@ -186,7 +221,9 @@ document.addEventListener("DOMContentLoaded", function () {
       color: #ffffff !important;
     }
 
-    /* POLITICS DROPDOWN */
+    /* =====================================================
+       POLITICS DROPDOWN
+       ===================================================== */
 
     .menu-dropdown {
       background: #ffffff !important;
@@ -211,6 +248,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       text-align: left;
       cursor: pointer;
+
+      box-sizing: border-box;
     }
 
     .menu-dropdown-toggle:hover {
@@ -249,13 +288,17 @@ document.addEventListener("DOMContentLoaded", function () {
       color: #ffffff !important;
     }
 
-    /* OVERLAY */
+    /* =====================================================
+       MENU OVERLAY
+       ===================================================== */
 
     .menu-overlay {
       background: rgba(11, 31, 77, 0.65) !important;
     }
 
-    /* FOOTER */
+    /* =====================================================
+       FOOTER
+       ===================================================== */
 
     .site-footer {
       background: #0b1f4d !important;
@@ -270,13 +313,9 @@ document.addEventListener("DOMContentLoaded", function () {
       color: #ffffff !important;
     }
 
-    /* BUTTONS */
-
-    button {
-      font-family: inherit;
-    }
-
-    /* SEARCH */
+    /* =====================================================
+       SEARCH
+       ===================================================== */
 
     input,
     select,
@@ -293,21 +332,54 @@ document.addEventListener("DOMContentLoaded", function () {
       border-color: #b22234 !important;
     }
 
-    /* MOBILE */
+    /* =====================================================
+       IPHONE / MOBILE MENU FIX
+       ===================================================== */
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
 
-      .hero {
-        background:
-          linear-gradient(
-            135deg,
-            #0b1f4d 0%,
-            #163b78 55%,
-            #b22234 100%
-          ) !important;
+      .side-menu {
+        height: 100vh !important;
+        height: 100dvh !important;
+
+        max-height: 100vh !important;
+        max-height: 100dvh !important;
+
+        overflow-y: scroll !important;
+        overflow-x: hidden !important;
+
+        -webkit-overflow-scrolling: touch !important;
+
+        overscroll-behavior-y: contain !important;
+
+        padding-bottom: 50px !important;
+      }
+
+      .side-menu nav {
+        padding-bottom: 50px !important;
       }
 
     }
+
+    /* =====================================================
+       SHORT SCREEN / LANDSCAPE FIX
+       ===================================================== */
+
+    @media (max-height: 700px) {
+
+      .side-menu {
+        height: 100vh !important;
+        height: 100dvh !important;
+
+        max-height: 100vh !important;
+        max-height: 100dvh !important;
+
+        overflow-y: scroll !important;
+        padding-bottom: 60px !important;
+      }
+
+    }
+
   `;
 
   document.head.appendChild(themeStyle);
@@ -317,9 +389,15 @@ document.addEventListener("DOMContentLoaded", function () {
      HAMBURGER MENU
      ========================================================= */
 
-  const menuButton = document.querySelector(".menu-button");
-  const sideMenu = document.querySelector(".side-menu");
-  const menuOverlay = document.querySelector(".menu-overlay");
+  const menuButton =
+    document.querySelector(".menu-button");
+
+  const sideMenu =
+    document.querySelector(".side-menu");
+
+  const menuOverlay =
+    document.querySelector(".menu-overlay");
+
 
   function setMenu(open) {
 
@@ -328,8 +406,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     sideMenu.classList.toggle("open", open);
-    menuOverlay.classList.toggle("show", open);
-    document.body.classList.toggle("menu-open", open);
+
+    menuOverlay.classList.toggle(
+      "show",
+      open
+    );
+
+    document.body.classList.toggle(
+      "menu-open",
+      open
+    );
 
     menuButton.setAttribute(
       "aria-expanded",
@@ -338,32 +424,54 @@ document.addEventListener("DOMContentLoaded", function () {
 
     menuButton.setAttribute(
       "aria-label",
-      open ? "Close menu" : "Open menu"
+      open
+        ? "Close menu"
+        : "Open menu"
     );
   }
 
-  if (menuButton && sideMenu && menuOverlay) {
 
-    menuButton.addEventListener("click", function () {
+  if (
+    menuButton &&
+    sideMenu &&
+    menuOverlay
+  ) {
 
-      const isOpen =
-        sideMenu.classList.contains("open");
+    menuButton.addEventListener(
+      "click",
+      function () {
 
-      setMenu(!isOpen);
+        const isOpen =
+          sideMenu.classList.contains("open");
 
-    });
+        setMenu(!isOpen);
 
-    menuOverlay.addEventListener("click", function () {
-      setMenu(false);
-    });
+      }
+    );
+
+
+    menuOverlay.addEventListener(
+      "click",
+      function () {
+
+        setMenu(false);
+
+      }
+    );
+
 
     sideMenu
       .querySelectorAll("a")
       .forEach(function (link) {
 
-        link.addEventListener("click", function () {
-          setMenu(false);
-        });
+        link.addEventListener(
+          "click",
+          function () {
+
+            setMenu(false);
+
+          }
+        );
 
       });
   }
@@ -374,65 +482,91 @@ document.addEventListener("DOMContentLoaded", function () {
      ========================================================= */
 
   const dropdowns =
-    document.querySelectorAll(".menu-dropdown");
+    document.querySelectorAll(
+      ".menu-dropdown"
+    );
 
-  dropdowns.forEach(function (dropdown) {
 
-    const toggle =
-      dropdown.querySelector(".menu-dropdown-toggle");
+  dropdowns.forEach(
+    function (dropdown) {
 
-    if (!toggle) {
-      return;
+      const toggle =
+        dropdown.querySelector(
+          ".menu-dropdown-toggle"
+        );
+
+      if (!toggle) {
+        return;
+      }
+
+
+      toggle.addEventListener(
+        "click",
+        function () {
+
+          const isOpen =
+            dropdown.classList.contains(
+              "open"
+            );
+
+          dropdown.classList.toggle(
+            "open",
+            !isOpen
+          );
+
+          toggle.setAttribute(
+            "aria-expanded",
+            String(!isOpen)
+          );
+
+        }
+      );
+
     }
-
-    toggle.addEventListener("click", function () {
-
-      const isOpen =
-        dropdown.classList.contains("open");
-
-      dropdown.classList.toggle(
-        "open",
-        !isOpen
-      );
-
-      toggle.setAttribute(
-        "aria-expanded",
-        String(!isOpen)
-      );
-
-    });
-
-  });
+  );
 
 
   /* =========================================================
      ESCAPE KEY
      ========================================================= */
 
-  document.addEventListener("keydown", function (event) {
+  document.addEventListener(
+    "keydown",
+    function (event) {
 
-    if (event.key !== "Escape") {
-      return;
-    }
-
-    dropdowns.forEach(function (dropdown) {
-
-      dropdown.classList.remove("open");
-
-      const toggle =
-        dropdown.querySelector(".menu-dropdown-toggle");
-
-      if (toggle) {
-        toggle.setAttribute(
-          "aria-expanded",
-          "false"
-        );
+      if (event.key !== "Escape") {
+        return;
       }
 
-    });
 
-    setMenu(false);
+      dropdowns.forEach(
+        function (dropdown) {
 
-  });
+          dropdown.classList.remove(
+            "open"
+          );
+
+          const toggle =
+            dropdown.querySelector(
+              ".menu-dropdown-toggle"
+            );
+
+          if (toggle) {
+
+            toggle.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+          }
+
+        }
+      );
+
+
+      setMenu(false);
+
+    }
+  );
 
 });
