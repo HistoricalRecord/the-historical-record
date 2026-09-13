@@ -3,2294 +3,3811 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>September 11, 2001 | Memorial, Voices & Historical Archive | The Historical Record</title>
+<title>September 11, 2001 | The Historical Record</title>
+<meta name="description" content="An independent historical archive documenting September 11, 2001 through names, people, photographs, a detailed chronology, testimony, primary records, recovery work, health consequences and remembrance.">
+
 <style>
-/* =========================================================
-   THE HISTORICAL RECORD
-   SEPTEMBER 11, 2001
-   MEMORIAL + HISTORICAL ARCHIVE
-========================================================= */
-:root {
-  --navy: #0b1f4d;
-  --navy-dark: #07142f;
-  --blue: #17356f;
-  --red: #b22234;
-  --red-dark: #8e1828;
-  --cream: #f7f5f0;
-  --paper: #ffffff;
-  --gray: #5b616b;
-  --light-gray: #e8e8e8;
-  --border: #d4d7dc;
-  --gold: #b59b5b;
-  --black: #111111;
+:root{
+  --navy:#081b3d;
+  --navy2:#102b5b;
+  --red:#a51d2d;
+  --red2:#7f1622;
+  --cream:#f4f1eb;
+  --paper:#fff;
+  --ink:#1b1d21;
+  --muted:#5e6570;
+  --line:#d7d9dd;
+  --gold:#b39a5a;
+  --soft:#eef1f5;
+  --black:#090b0f;
 }
-* {
-  box-sizing: border-box;
+
+*{
+  box-sizing:border-box;
 }
-html {
-  scroll-behavior: smooth;
+
+html{
+  scroll-behavior:smooth;
 }
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--cream);
-  color: #222;
-  line-height: 1.75;
+
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font:16px/1.72 Arial,Helvetica,sans-serif;
 }
-body.menu-open {
-  overflow: hidden;
+
+body.lock{
+  overflow:hidden;
 }
-a {
-  color: var(--red);
-  text-decoration: none;
+
+a{
+  color:var(--red);
+  text-decoration:none;
 }
-a:hover {
-  text-decoration: underline;
+
+a:hover{
+  text-decoration:underline;
 }
+
 button,
-input,
-select {
-  font: inherit;
-}
-/* =========================================================
-   ACCESSIBILITY
-========================================================= */
-.skip-link {
-  position: fixed;
-  left: -9999px;
-  top: 10px;
-  z-index: 5000;
-  background: white;
-  color: var(--navy);
-  padding: 12px 18px;
-  border: 2px solid var(--red);
-}
-.skip-link:focus {
-  left: 10px;
-}
-/* =========================================================
-   MENU BUTTON
-========================================================= */
-.menu-button {
-  position: fixed;
-  top: 18px;
-  left: 18px;
-  z-index: 2001;
-  width: 48px;
-  height: 48px;
-  border: none;
-  border-radius: 4px;
-  background: var(--red);
-  cursor: pointer;
-  box-shadow: 0 3px 12px rgba(0,0,0,.25);
-}
-.menu-button span {
-  display: block;
-  width: 25px;
-  height: 3px;
-  margin: 5px auto;
-  background: white;
-}
-/* =========================================================
-   SIDE MENU
-========================================================= */
-.side-menu {
-  position: fixed;
-  top: 0;
-  left: -340px;
-  bottom: 0;
-  width: 310px;
-  max-width: 88vw;
-  height: 100vh;
-  height: 100dvh;
-  background: white;
-  border-right: 5px solid var(--red);
-  z-index: 2000;
-  overflow-y: auto;
-  transition: left .3s ease;
-  box-shadow: 6px 0 25px rgba(0,0,0,.25);
-}
-.side-menu.open {
-  left: 0;
-}
-.menu-header {
-  background: var(--navy);
-  color: white;
-  padding: 32px 25px;
-  border-bottom: 5px solid var(--red);
-}
-.menu-header h2 {
-  margin: 0;
-  font-size: 22px;
-}
-.menu-header p {
-  margin: 5px 0 0;
-  color: #dbe2ef;
-  font-size: 13px;
-}
-.side-menu nav {
-  padding: 15px 0 50px;
-}
-.side-menu nav a {
-  display: block;
-  padding: 14px 25px;
-  color: var(--navy);
-  border-bottom: 1px solid #d5dbea;
-  font-size: 16px;
-}
-.side-menu nav a:hover {
-  color: var(--red);
-  background: #f5f5f5;
-  text-decoration: none;
-}
-.menu-label {
-  padding: 18px 25px 7px;
-  color: #707782;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-weight: bold;
-}
-.menu-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1999;
-  background: rgba(7,20,47,.7);
-  display: none;
-}
-.menu-overlay.open {
-  display: block;
-}
-/* =========================================================
-   HERO
-========================================================= */
-header {
-  background: linear-gradient(
-    rgba(7,20,47,.94),
-    rgba(7,20,47,.96)
-  );
-  color: white;
-  padding: 105px 20px 70px;
-  border-bottom: 6px solid var(--red);
-  text-align: center;
-}
-header .eyebrow {
-  color: #dfe5f1;
-  font-size: 13px;
-  font-weight: bold;
-  letter-spacing: 3px;
-  margin: 0 0 16px;
-}
-header h1 {
-  margin: 0;
-  font-size: clamp(38px, 8vw, 72px);
-  line-height: 1.08;
-}
-header p {
-  max-width: 850px;
-  margin: 22px auto 0;
-  font-size: 18px;
-  color: #e4e8ef;
-}
-/* =========================================================
-   ARCHIVE INTRO
-========================================================= */
-.archive-intro {
-  max-width: 950px;
-  margin: auto;
-  padding: 65px 20px 35px;
-  text-align: center;
-}
-.archive-intro h2 {
-  margin: 0 0 16px;
-  color: var(--navy);
-  font-size: 34px;
-}
-.archive-intro p {
-  margin: 0 auto;
-  color: #3f4349;
-  font-size: 17px;
-}
-/* =========================================================
-   MEMORIAL STATISTICS
-========================================================= */
-.memorial-stats {
-  max-width: 1100px;
-  margin: 0 auto 50px;
-  padding: 0 20px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: var(--border);
-}
-.stat {
-  background: var(--navy);
-  color: white;
-  text-align: center;
-  padding: 25px 15px;
-}
-.stat-number {
-  display: block;
-  font-size: 34px;
-  font-weight: bold;
-  line-height: 1.1;
-}
-.stat-label {
-  display: block;
-  margin-top: 7px;
-  color: #d7deeb;
-  font-size: 13px;
-}
-/* =========================================================
-   SECTION
-========================================================= */
-.archive-section {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 35px 20px 70px;
-}
-.section-heading {
-  margin-bottom: 30px;
-  padding-bottom: 14px;
-  border-bottom: 4px solid var(--red);
-}
-.section-heading h2 {
-  margin: 0;
-  color: var(--navy);
-  font-size: 31px;
-  line-height: 1.25;
-}
-.section-heading p {
-  margin: 6px 0 0;
-  color: var(--gray);
-}
-/* =========================================================
-   MEMORIAL INTRO
-========================================================= */
-.memorial-panel {
-  background: var(--navy);
-  color: white;
-  padding: 40px;
-  border-top: 5px solid var(--red);
-}
-.memorial-panel h3 {
-  margin-top: 0;
-  font-size: 27px;
-}
-.memorial-panel p {
-  color: #e3e8f0;
-}
-/* =========================================================
-   OFFICIAL NAME DIRECTORY
-========================================================= */
-.memorial-name-directory {
-  background: white;
-  border: 1px solid var(--border);
-  box-shadow: 0 4px 16px rgba(0,0,0,.06);
-}
-.name-directory-header {
-  background: var(--navy);
-  color: white;
-  padding: 36px;
-  border-top: 6px solid var(--red);
-}
-.directory-label {
-  display: block;
-  color: #cfd8e8;
-  font-size: 11px;
-  font-weight: bold;
-  letter-spacing: 1.8px;
-  margin-bottom: 10px;
-}
-.name-directory-header h3 {
-  margin: 0;
-  font-size: 29px;
-  line-height: 1.25;
-}
-.name-directory-header p {
-  max-width: 800px;
-  margin: 14px 0 0;
-  color: #e1e6ef;
-  font-size: 16px;
-}
-.name-directory-body {
-  padding: 32px;
-}
-.name-directory-body h3 {
-  color: var(--navy);
-  margin-top: 0;
-  font-size: 24px;
-}
-.name-directory-body p {
-  color: #454a52;
-}
-.name-directory-notice {
-  margin: 25px 0;
-  padding: 22px;
-  background: #f2f4f7;
-  border-left: 5px solid var(--navy);
-}
-.name-directory-notice strong {
-  display: block;
-  color: var(--navy);
-  font-size: 18px;
-  margin-bottom: 6px;
-}
-.name-directory-notice p {
-  margin: 0;
-  color: #4b5159;
-  font-size: 14px;
-}
-.name-directory-categories {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  margin: 25px 0;
-}
-.name-category {
-  border: 1px solid var(--border);
-  padding: 20px;
-  background: #fafafa;
-}
-.name-category h4 {
-  margin: 0 0 7px;
-  color: var(--navy);
-}
-.name-category p {
-  margin: 0;
-  color: var(--gray);
-  font-size: 14px;
-}
-.name-directory-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 25px;
-}
-.name-directory-source {
-  margin-top: 30px;
-  padding-top: 22px;
-  border-top: 1px solid var(--border);
-}
-.name-directory-source strong {
-  color: var(--navy);
-}
-.name-directory-source p {
-  margin: 5px 0 8px;
-  color: var(--gray);
-  font-size: 14px;
-}
-/* =========================================================
-   BUTTONS
-========================================================= */
-.button {
-  display: inline-block;
-  padding: 11px 17px;
-  background: var(--navy);
-  color: white;
-  font-weight: bold;
-  font-size: 14px;
-  border-radius: 2px;
-}
-.button:hover {
-  background: var(--blue);
-  color: white;
-  text-decoration: none;
-}
-.button.red {
-  background: var(--red);
-}
-.button.red:hover {
-  background: var(--red-dark);
-}
-.button.light {
-  background: #eef1f5;
-  color: var(--navy);
-}
-.button.light:hover {
-  background: #dfe4ec;
-}
-/* =========================================================
-   PEOPLE / STORIES
-========================================================= */
-.story-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-.story-card {
-  background: white;
-  border: 1px solid var(--border);
-  border-top: 5px solid var(--navy);
-  padding: 25px;
-}
-.story-card h3 {
-  margin-top: 0;
-  color: var(--navy);
-  font-size: 21px;
-}
-.story-card p {
-  color: #4a4f56;
-}
-/* =========================================================
-   SOURCE COLLECTIONS
-========================================================= */
-.collection-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-.collection-card {
-  background: white;
-  border: 1px solid var(--border);
-  padding: 25px;
-}
-.collection-card h3 {
-  margin-top: 0;
-  color: var(--navy);
-}
-.collection-card .source-type {
-  color: var(--red);
-  font-weight: bold;
-  font-size: 12px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-/* =========================================================
-   TIMELINE
-========================================================= */
-.timeline {
-  border-left: 4px solid var(--red);
-  padding-left: 28px;
-}
-.timeline-item {
-  position: relative;
-  background: white;
-  border: 1px solid var(--border);
-  margin-bottom: 20px;
-  padding: 23px;
-}
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  left: -39px;
-  top: 25px;
-  width: 18px;
-  height: 18px;
-  background: var(--red);
-  border: 4px solid var(--cream);
-  border-radius: 50%;
-}
-.timeline-time {
-  color: var(--red);
-  font-weight: bold;
-  font-size: 13px;
-}
-.timeline-item h3 {
-  margin: 5px 0 8px;
-  color: var(--navy);
-}
-/* =========================================================
-   RECOVERY / HEALTH
-========================================================= */
-.health-panel {
-  background: #fff;
-  border: 1px solid var(--border);
-  padding: 32px;
-}
-.health-panel h3 {
-  color: var(--navy);
-  margin-top: 0;
-  font-size: 25px;
-}
-.health-highlight {
-  margin: 25px 0;
-  padding: 22px;
-  border-left: 5px solid var(--red);
-  background: #f3f4f6;
-}
-.health-highlight strong {
-  color: var(--navy);
-}
-.health-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-  margin-top: 25px;
-}
-.health-card {
-  border: 1px solid var(--border);
-  padding: 20px;
-}
-.health-card h4 {
-  color: var(--navy);
-  margin-top: 0;
-}
-/* =========================================================
-   IMMIGRANT WORKERS
-========================================================= */
-.immigrant-section {
-  background: linear-gradient(
-    135deg,
-    #111b32,
-    #0b1f4d
-  );
-  color: white;
-  padding: 42px;
-  border-top: 6px solid var(--red);
-}
-.immigrant-section h3 {
-  margin-top: 0;
-  font-size: 29px;
-}
-.immigrant-section p {
-  color: #e0e6ef;
-}
-.immigrant-facts {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: rgba(255,255,255,.15);
-  margin-top: 28px;
-}
-.immigrant-fact {
-  background: rgba(255,255,255,.05);
-  padding: 20px;
-}
-.immigrant-fact strong {
-  display: block;
-  color: white;
-  margin-bottom: 6px;
-}
-.immigrant-source-note {
-  margin-top: 28px;
-  font-size: 13px;
-  color: #ccd5e4;
-}
-/* =========================================================
-   VIDEOS
-========================================================= */
-.video-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 30px;
-}
-.video-record {
-  background: white;
-  padding: 15px;
-  border: 1px solid var(--border);
-  box-shadow: 0 4px 12px rgba(0,0,0,.07);
-}
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  background: #000;
-}
-.video-wrapper iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-/* =========================================================
-   AUDIO / ORAL HISTORIES
-========================================================= */
-.audio-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-}
-.audio-card {
-  background: white;
-  border: 1px solid var(--border);
-  padding: 22px;
-}
-.audio-card h3 {
-  color: var(--navy);
-  margin-top: 0;
-}
-.audio-card audio {
-  width: 100%;
-  margin-top: 12px;
-}
-/* =========================================================
-   ARTICLES
-========================================================= */
-.article-record {
-  background: white;
-  padding: 30px;
-  border-left: 6px solid var(--red);
-  box-shadow: 0 4px 12px rgba(0,0,0,.07);
-}
-.article-record h3 {
-  margin-top: 0;
-  color: var(--navy);
-  font-size: 26px;
-}
-.article-record p {
-  color: #444;
-}
-/* =========================================================
-   SOCIAL RECORDS
-========================================================= */
-.social-record {
-  background: white;
-  padding: 25px;
-  margin-bottom: 25px;
-  border-top: 5px solid var(--navy);
-  box-shadow: 0 4px 12px rgba(0,0,0,.06);
-}
-.social-record h3 {
-  margin-top: 0;
-  color: var(--navy);
-}
-/* =========================================================
-   RESEARCH GUIDE
-========================================================= */
-.research-guide {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-}
-.research-step {
-  background: white;
-  border: 1px solid var(--border);
-  padding: 23px;
-}
-.research-number {
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--navy);
-  color: white;
-  font-weight: bold;
-  border-radius: 50%;
-  margin-bottom: 12px;
-}
-.research-step h3 {
-  color: var(--navy);
-  margin: 0 0 8px;
-}
-/* =========================================================
-   SOURCE LIST
-========================================================= */
-.source-list {
-  display: grid;
-  gap: 12px;
-}
-.source-entry {
-  background: white;
-  border: 1px solid var(--border);
-  padding: 20px 23px;
-}
-.source-entry h3 {
-  margin: 0 0 6px;
-  color: var(--navy);
-  font-size: 18px;
-}
-.source-entry p {
-  margin: 0;
-  color: var(--gray);
-  font-size: 14px;
-}
-.source-entry a {
-  display: inline-block;
-  margin-top: 8px;
-}
-/* =========================================================
-   ARCHIVAL ETHICS
-========================================================= */
-.archive-note {
-  background: #f0f1f3;
-  border: 1px solid #cfd3d8;
-  padding: 24px;
-  font-size: 14px;
-  color: #454a50;
-}
-/* =========================================================
-   FOOTER
-========================================================= */
-footer {
-  background: var(--navy-dark);
-  color: white;
-  text-align: center;
-  padding: 40px 20px;
-  border-top: 6px solid var(--red);
-}
-footer p {
-  margin: 6px 0;
-}
-.footer-small {
-  color: #c5ccda;
-  font-size: 12px;
-  max-width: 800px;
-  margin: 14px auto 0 !important;
-}
-/* =========================================================
-   MOBILE
-========================================================= */
-@media (max-width: 850px) {
-  .memorial-stats {
-    grid-template-columns: repeat(2, 1fr);
+input{
+  font:inherit;
+}
+
+/* ACCESSIBILITY */
+
+.skip{
+  position:fixed;
+  left:-9999px;
+  top:10px;
+  z-index:9999;
+  background:#fff;
+  padding:10px 15px;
+  border:2px solid var(--red);
+}
+
+.skip:focus{
+  left:10px;
+}
+
+/* SIDE MENU */
+
+.menu-btn{
+  position:fixed;
+  left:18px;
+  top:18px;
+  z-index:3000;
+  width:50px;
+  height:50px;
+  border:0;
+  border-radius:4px;
+  background:var(--red);
+  box-shadow:0 4px 18px #0004;
+  cursor:pointer;
+}
+
+.menu-btn i{
+  display:block;
+  width:25px;
+  height:3px;
+  background:#fff;
+  margin:5px auto;
+}
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:#07142fcc;
+  z-index:2998;
+  display:none;
+}
+
+.overlay.on{
+  display:block;
+}
+
+.side{
+  position:fixed;
+  left:-355px;
+  top:0;
+  bottom:0;
+  width:330px;
+  max-width:90vw;
+  background:#fff;
+  border-right:5px solid var(--red);
+  z-index:2999;
+  overflow:auto;
+  transition:left .28s ease;
+  box-shadow:8px 0 30px #0004;
+}
+
+.side.on{
+  left:0;
+}
+
+.side-head{
+  background:var(--navy);
+  color:#fff;
+  padding:32px 25px;
+  border-bottom:5px solid var(--red);
+}
+
+.side-head h2{
+  margin:0;
+  font-size:22px;
+}
+
+.side-head p{
+  margin:4px 0 0;
+  color:#dbe3f0;
+  font-size:13px;
+}
+
+.side nav{
+  padding:12px 0 45px;
+}
+
+.side nav a{
+  display:block;
+  padding:12px 25px;
+  color:var(--navy);
+  border-bottom:1px solid #dfe2e7;
+}
+
+.side nav a:hover{
+  background:#f3f5f8;
+  color:var(--red);
+  text-decoration:none;
+}
+
+.menu-label{
+  padding:18px 25px 7px;
+  color:#777f8b;
+  font-size:11px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  font-weight:700;
+}
+
+/* HEADER */
+
+header{
+  background:linear-gradient(135deg,#07142f,#123469);
+  color:#fff;
+  text-align:center;
+  padding:112px 20px 72px;
+  border-bottom:6px solid var(--red);
+}
+
+.eyebrow{
+  letter-spacing:3px;
+  font-size:12px;
+  font-weight:700;
+  color:#d9e0ed;
+  margin:0 0 14px;
+}
+
+header h1{
+  font-size:clamp(42px,8vw,78px);
+  line-height:1.05;
+  margin:0;
+}
+
+header p{
+  max-width:900px;
+  margin:23px auto 0;
+  color:#e2e7ef;
+  font-size:18px;
+}
+
+/* GENERAL */
+
+.wrap{
+  max-width:1180px;
+  margin:auto;
+}
+
+.intro{
+  max-width:960px;
+  text-align:center;
+  margin:auto;
+  padding:64px 20px 35px;
+}
+
+.intro h2{
+  font-size:35px;
+  color:var(--navy);
+  margin:0 0 14px;
+}
+
+.intro p{
+  font-size:17px;
+  color:#444b54;
+  margin:0;
+}
+
+/* STATISTICS */
+
+.stats{
+  max-width:1120px;
+  margin:0 auto 55px;
+  padding:0 20px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--line);
+}
+
+.stat{
+  background:var(--navy);
+  color:#fff;
+  text-align:center;
+  padding:25px 14px;
+}
+
+.stat b{
+  display:block;
+  font-size:34px;
+  line-height:1.1;
+}
+
+.stat span{
+  display:block;
+  color:#d9e1ed;
+  font-size:13px;
+  margin-top:7px;
+}
+
+/* SECTIONS */
+
+.section{
+  padding:36px 20px 78px;
+  max-width:1180px;
+  margin:auto;
+}
+
+.heading{
+  border-bottom:4px solid var(--red);
+  padding-bottom:14px;
+  margin-bottom:28px;
+}
+
+.heading h2{
+  margin:0;
+  color:var(--navy);
+  font-size:31px;
+  line-height:1.25;
+}
+
+.heading p{
+  margin:6px 0 0;
+  color:var(--muted);
+}
+
+/* SOURCE BARS */
+
+.sourcebar{
+  background:#e9edf2;
+  border:1px solid #ccd2d9;
+  padding:12px 15px;
+  margin-top:20px;
+  color:#4a5058;
+  font-size:13px;
+}
+
+.sourcebar strong{
+  color:var(--navy);
+}
+
+.sourcebar a{
+  margin-right:14px;
+}
+
+/* PANELS */
+
+.panel{
+  background:#fff;
+  border:1px solid var(--line);
+  padding:30px;
+  box-shadow:0 4px 14px #0000000b;
+}
+
+.dark{
+  background:var(--navy);
+  color:#fff;
+  border:0;
+}
+
+.dark p{
+  color:#dce3ed;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:22px;
+}
+
+.callout{
+  border-left:5px solid var(--gold);
+  background:#ffffff12;
+  padding:18px;
+  margin-top:22px;
+}
+
+/* FACES */
+
+.faces{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.face{
+  background:#fff;
+  border:1px solid var(--line);
+  box-shadow:0 5px 18px #0000000d;
+  overflow:hidden;
+}
+
+.face img{
+  width:100%;
+  height:285px;
+  object-fit:cover;
+  display:block;
+  background:#ddd;
+}
+
+.face .pad{
+  padding:18px;
+}
+
+.face h3{
+  margin:0 0 5px;
+  color:var(--navy);
+  font-size:20px;
+}
+
+.face p{
+  margin:6px 0;
+  color:#50565f;
+  font-size:14px;
+}
+
+.credit{
+  font-size:12px;
+  color:#6b727c;
+  border-top:1px solid var(--line);
+  margin-top:12px;
+  padding-top:10px;
+}
+
+.credit a{
+  display:block;
+  margin-top:4px;
+}
+
+/* NAMES */
+
+.names-shell{
+  background:#fff;
+  border:1px solid var(--line);
+  padding:12px;
+}
+
+.names-shell iframe{
+  display:block;
+  width:100%;
+  height:780px;
+  border:0;
+  background:#f1f3f5;
+}
+
+.fallback{
+  padding:15px;
+  background:#f0f2f5;
+  margin-top:10px;
+  color:#4b525c;
+  font-size:14px;
+}
+
+.name-search{
+  display:flex;
+  gap:10px;
+  margin:18px 0;
+}
+
+.name-search input{
+  flex:1;
+  padding:13px;
+  border:1px solid #b8bec7;
+}
+
+.name-search button{
+  background:var(--navy);
+  color:#fff;
+  border:0;
+  padding:0 18px;
+  cursor:pointer;
+}
+
+/* TIMELINE */
+
+.timeline{
+  position:relative;
+  border-left:4px solid var(--red);
+  padding-left:27px;
+}
+
+.event{
+  position:relative;
+  background:#fff;
+  border:1px solid var(--line);
+  padding:20px 22px;
+  margin:0 0 17px;
+  box-shadow:0 3px 12px #00000009;
+}
+
+.event:before{
+  content:"";
+  position:absolute;
+  left:-39px;
+  top:24px;
+  width:17px;
+  height:17px;
+  border-radius:50%;
+  background:var(--red);
+  border:4px solid var(--cream);
+}
+
+.time{
+  font-weight:800;
+  color:var(--red);
+  font-size:13px;
+  letter-spacing:.3px;
+}
+
+.event h3{
+  margin:4px 0 7px;
+  color:var(--navy);
+  font-size:20px;
+}
+
+.event p{
+  margin:0;
+  color:#444b54;
+}
+
+.event .event-source{
+  margin-top:12px;
+  padding-top:9px;
+  border-top:1px solid #e2e4e7;
+  font-size:12px;
+  color:#69717b;
+}
+
+.event .event-source a{
+  margin-right:12px;
+}
+
+/* GRIDS */
+
+.grid2{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.grid3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  padding:23px;
+}
+
+.card h3{
+  color:var(--navy);
+  margin:0 0 8px;
+}
+
+.card p{
+  color:#4c535c;
+}
+
+.tag{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1.2px;
+  color:var(--red);
+  font-weight:700;
+}
+
+/* PHOTOS */
+
+.photo-wide{
+  width:100%;
+  max-height:530px;
+  object-fit:cover;
+  border:1px solid var(--line);
+}
+
+/* VIDEOS */
+
+.video{
+  background:#fff;
+  border:1px solid var(--line);
+  padding:12px;
+}
+
+.video-box{
+  position:relative;
+  height:0;
+  padding-bottom:56.25%;
+  background:#000;
+  overflow:hidden;
+}
+
+.video-box iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* SOURCES */
+
+.source-list{
+  display:grid;
+  gap:12px;
+}
+
+.source{
+  background:#fff;
+  border:1px solid var(--line);
+  padding:18px 21px;
+}
+
+.source h3{
+  margin:0 0 5px;
+  color:var(--navy);
+}
+
+.source p{
+  margin:0;
+  color:#555d67;
+  font-size:14px;
+}
+
+/* NOTICES */
+
+.notice{
+  background:#f0f2f4;
+  border:1px solid #cbd0d6;
+  padding:22px;
+  color:#454b53;
+}
+
+.notice p:first-child{
+  margin-top:0;
+}
+
+/* FOOTER */
+
+footer{
+  background:var(--navy);
+  color:#fff;
+  text-align:center;
+  border-top:6px solid var(--red);
+  padding:42px 20px;
+}
+
+.small{
+  max-width:850px;
+  margin:14px auto 0;
+  color:#c7cfdb;
+  font-size:12px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .faces{
+    grid-template-columns:repeat(2,1fr);
   }
-  .story-grid,
-  .collection-grid,
-  .health-grid,
-  .audio-grid,
-  .research-guide,
-  .name-directory-categories {
-    grid-template-columns: 1fr;
+
+  .hero-grid,
+  .grid2{
+    grid-template-columns:1fr;
   }
-  .immigrant-facts {
-    grid-template-columns: 1fr;
+
+  .grid3{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
   }
 }
-@media (max-width: 650px) {
-  header {
-    padding: 100px 18px 55px;
+
+@media(max-width:620px){
+
+  header{
+    padding:100px 17px 55px;
   }
-  header p {
-    font-size: 16px;
+
+  header p{
+    font-size:16px;
   }
-  .archive-section {
-    padding-left: 16px;
-    padding-right: 16px;
+
+  .section{
+    padding:30px 15px 60px;
   }
-  .memorial-stats {
-    margin-left: 16px;
-    margin-right: 16px;
-    padding: 0;
+
+  .faces,
+  .grid2,
+  .grid3{
+    grid-template-columns:1fr;
   }
-  .stat-number {
-    font-size: 27px;
+
+  .stats{
+    margin-left:15px;
+    margin-right:15px;
+    padding:0;
   }
-  .memorial-panel,
-  .immigrant-section {
-    padding: 26px 20px;
+
+  .stat b{
+    font-size:28px;
   }
-  .name-directory-header {
-    padding: 27px 20px;
+
+  .panel{
+    padding:22px;
   }
-  .name-directory-header h3 {
-    font-size: 24px;
+
+  .names-shell iframe{
+    height:650px;
   }
-  .name-directory-body {
-    padding: 22px 20px;
+
+  .timeline{
+    padding-left:19px;
   }
-  .name-directory-actions {
-    display: block;
+
+  .event:before{
+    left:-31px;
   }
-  .name-directory-actions .button {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-    text-align: center;
+
+  .name-search{
+    display:block;
   }
-  .timeline {
-    padding-left: 20px;
+
+  .name-search input{
+    width:100%;
+    margin-bottom:10px;
   }
-  .timeline-item::before {
-    left: -31px;
-  }
-  .victim-actions {
-    display: block;
-  }
-  .victim-actions .button {
-    display: block;
-    margin-bottom: 10px;
-    text-align: center;
+
+  .name-search button{
+    width:100%;
+    padding:12px;
   }
 }
 </style>
 </head>
+
 <body>
-<a class="skip-link" href="#main-content">
+
+<a class="skip" href="#main">
   Skip to main content
 </a>
-<!-- =========================================================
-     MENU
-========================================================= -->
+
+<button
+  class="menu-btn"
+  id="menuBtn"
+  aria-label="Open archive menu"
+  aria-expanded="false">
+
+  <i></i>
+  <i></i>
+  <i></i>
+
 </button>
-<div class="menu-overlay" id="menuOverlay"></div>
-<aside class="side-menu" id="sideMenu">
-  <div class="menu-header">
-<h2>
-  The Historical Record
-</h2>
-<p>
-  September 11, 2001 Memorial & Archive
-</p>
+
+<div class="overlay" id="overlay"></div>
+
+<aside class="side" id="side">
+
+  <div class="side-head">
+    <h2>The Historical Record</h2>
+    <p>September 11, 2001 • Memorial & Historical Archive</p>
   </div>
+
   <nav>
-<div class="menu-label">
-  The Archive
-</div>
-<a href="index.html">
-  Home
-</a>
-<a href="search.html">
-  Search the Archive
-</a>
-<a href="archive.html">
-  The Archive
-</a>
-<div class="menu-label">
-  September 11
-</div>
-<a href="september-11.html">
-  September 11, 2001
-</a>
-<a href="september-11-sourcebooks.html">
-  Sourcebooks & Research
-</a>
-<div class="menu-label">
-  Other Sections
-</div>
-<a href="entertainment-sports.html">
-  Entertainment / Sports
-</a>
-<a href="world-events.html">
-  World Events
-</a>
-<a href="social-media.html">
-  Social Media
-</a>
-<a href="thoughts.html">
-  Thoughts / Blog
-</a>
+
+    <div class="menu-label">
+      Archive
+    </div>
+
+    <a href="#top">Home</a>
+    <a href="#memorial">Memorial</a>
+    <a href="#names">Victim Names</a>
+    <a href="#faces">Faces & Families</a>
+
+    <div class="menu-label">
+      September 11
+    </div>
+
+    <a href="#timeline">Detailed Chronology</a>
+    <a href="#flights">The Four Flights</a>
+    <a href="#response">Emergency Response</a>
+    <a href="#pentagon">Pentagon</a>
+    <a href="#flight93">Flight 93</a>
+
+    <div class="menu-label">
+      Aftermath
+    </div>
+
+    <a href="#recovery">Recovery & Cleanup</a>
+    <a href="#health">Long-Term Health</a>
+    <a href="#immigrant">Immigrant Workers</a>
+    <a href="#memorialization">Remembrance</a>
+
+    <div class="menu-label">
+      Primary Material
+    </div>
+
+    <a href="#voices">Oral Histories</a>
+    <a href="#photographs">Photographs</a>
+    <a href="#videos">Video Archive</a>
+    <a href="#records">Government Records</a>
+    <a href="#sources">Source Directory</a>
+
   </nav>
+
 </aside>
-<!-- =========================================================
-     HEADER
-========================================================= -->
-<header>
+
+<header id="top">
+
   <p class="eyebrow">
-    THE HISTORICAL RECORD • MEMORIAL & ARCHIVE
+    THE HISTORICAL RECORD • SEPTEMBER 11, 2001
   </p>
+
   <h1>
     September 11, 2001
   </h1>
+
   <p>
-    Remembering the people, preserving the voices, examining the evidence,
-    and documenting the lives touched by September 11 and its aftermath.
+    A single-page memorial and historical archive bringing names,
+    people, chronology, testimony, photographs, primary records
+    and the long aftermath together in one place.
   </p>
+
 </header>
-<main id="main-content">
-<!-- =========================================================
-     INTRODUCTION
-========================================================= -->
-<section class="archive-intro">
+
+<main id="main">
+
+<section class="intro">
+
   <h2>
-    A Place for the Historical Record
+    An archive designed to be read here
   </h2>
+
   <p>
-    This page brings together the historical record of September 11, 2001
-    in one place. It preserves the names of those killed, the experiences
-    of survivors and responders, the work of people who came to the site
-    afterward, contemporary media, oral histories, photographs, government
-    records, and the long aftermath of the attacks.
+    This page keeps the historical material together rather than sending
+    visitors from page to page. External institutions are identified
+    directly beneath the material they document so readers can verify
+    evidence without losing the context of the archive.
   </p>
+
 </section>
-<!-- =========================================================
-     KEY NUMBERS
-========================================================= -->
-<section
-  class="memorial-stats"
-  aria-label="September 11 memorial statistics">
+
+<section class="stats" aria-label="Key figures">
+
   <div class="stat">
-    <span class="stat-number">2,977</span>
-    <span class="stat-label">
-      People killed on September 11, 2001
-    </span>
+    <b>2,977</b>
+    <span>people killed on September 11, 2001</span>
   </div>
+
   <div class="stat">
-    <span class="stat-number">2,753</span>
-    <span class="stat-label">
-      People killed in New York
-    </span>
+    <b>2,753</b>
+    <span>people killed in New York</span>
   </div>
+
   <div class="stat">
-    <span class="stat-number">184</span>
-    <span class="stat-label">
-      People killed at the Pentagon
-    </span>
+    <b>184</b>
+    <span>people killed at the Pentagon</span>
   </div>
+
   <div class="stat">
-    <span class="stat-number">40</span>
-    <span class="stat-label">
-      People killed aboard Flight 93
-    </span>
+    <b>40</b>
+    <span>passengers and crew killed on Flight 93</span>
   </div>
+
 </section>
-<!-- =========================================================
-     MEMORIAL
-========================================================= -->
-<section class="archive-section" id="memorial">
-  <div class="section-heading">
-<h2>
-  The Memorial
-</h2>
-<p>
-  The people killed in the September 11 attacks are commemorated at the
-  National September 11 Memorial.
-</p>
+
+<section class="section" id="memorial">
+
+  <div class="heading">
+    <h2>The Memorial</h2>
+    <p>The people killed on September 11, 2001</p>
   </div>
-  <div class="memorial-panel">
-<h3>
-  2,977 lives
-</h3>
-<p>
-  The September 11 attacks killed 2,977 people. The victims included
-  office workers, firefighters, police officers, emergency medical
-  personnel, airline crews, passengers, restaurant workers, maintenance
-  workers, visitors and people who happened to be where the attacks
-  occurred.
-</p>
-<p>
-  The National September 11 Memorial & Museum preserves the names,
-  portraits, personal effects, biographies, remembrances and oral
-  histories associated with the people killed in the attacks.
-</p>
-<p>
-  The Memorial's official name directory provides the authoritative
-  spelling and location of the names inscribed on the bronze parapets.
-</p>
-  </div>
-</section>
-<!-- =========================================================
-     OFFICIAL NAME DIRECTORY
-========================================================= -->
-<section class="archive-section" id="names">
-  <div class="section-heading">
-<h2>
-  The Names of the Victims
-</h2>
-<p>
-  The official National September 11 Memorial & Museum name directory.
-</p>
-  </div>
-  <div class="memorial-name-directory">
-<div class="name-directory-header">
-  <span class="directory-label">
-    NATIONAL SEPTEMBER 11 MEMORIAL & MUSEUM
-  </span>
-  <h3>
-    Names on the 9/11 Memorial
-  </h3>
-  <p>
-    The Memorial's official directory provides the names as they appear
-    on the bronze parapets and identifies the Memorial panel where each
-    name is inscribed.
-  </p>
-</div>
-<div class="name-directory-body">
-  <h3>
-    Official Memorial Name Directory
-  </h3>
-  <p>
-    The National September 11 Memorial & Museum maintains the official
-    directory of the names inscribed on the Memorial. The directory
-    contains the names and the corresponding Memorial panel locations.
-  </p>
-  <div class="name-directory-notice">
-    <strong>
-      Why the official directory is used
-    </strong>
-    <p>
-      The names are reproduced here through the Memorial's official
-      directory rather than through a separately typed database. This
-      keeps spelling, punctuation and Memorial panel information tied
-      to the institution responsible for the bronze inscriptions.
-    </p>
-  </div>
-  <div class="name-directory-categories">
-    <div class="name-category">
-      <h4>
-        North Pool
-      </h4>
+
+  <div class="hero-grid">
+
+    <div class="panel dark">
+
+      <h3>
+        2,977 people
+      </h3>
+
       <p>
-        Names associated with the North Tower, American Airlines
-        Flight 11 and the February 26, 1993 World Trade Center bombing.
+        The National September 11 Memorial & Museum identifies 2,977
+        people killed as a direct result of the September 11 attacks.
+        They came from many countries, professions, families and
+        communities.
       </p>
-    </div>
-    <div class="name-category">
-      <h4>
-        South Pool
-      </h4>
+
       <p>
-        Names associated with the South Tower, United Airlines Flight 175,
-        the Pentagon, American Airlines Flight 77, United Airlines Flight
-        93 and designated first responders.
+        The victims included office workers, firefighters, police officers,
+        emergency medical personnel, airline crews, passengers, restaurant
+        workers, maintenance workers, visitors and people who happened
+        to be in the affected locations.
       </p>
+
+      <div class="callout">
+
+        <strong>
+          The Memorial preserves their names and the historical record
+          surrounding their lives and deaths.
+        </strong>
+
+      </div>
+
     </div>
+
+    <div class="panel">
+
+      <h3>
+        The memorial record
+      </h3>
+
+      <p>
+        The Memorial's name directory establishes the official spelling
+        and placement of the names inscribed around the pools.
+      </p>
+
+      <p>
+        The Museum's In Memoriam exhibition preserves portrait photographs,
+        personal artifacts, biographical information and remembrance
+        materials.
+      </p>
+
+      <a
+        class="button"
+        href="https://www.911memorial.org/visit/memorial/names-911-memorial"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Official names directory
+
+      </a>
+
+    </div>
+
   </div>
-  <div class="name-directory-actions">
-    <a
-      class="button red"
-      href="https://www.911memorial.org/visit/memorial/names-911-memorial"
-      target="_blank"
-      rel="noopener noreferrer">
-      Open Official Names Directory
-    </a>
-    <a
-      class="button"
-      href="https://names.911memorial.org/"
-      target="_blank"
-      rel="noopener noreferrer">
-      Open Memorial Name Finder
-    </a>
-    <a
-      class="button light"
-      href="https://www.911memorial.org/911-faqs"
-      target="_blank"
-      rel="noopener noreferrer">
-      Memorial Name FAQ
-    </a>
-  </div>
-  <div class="name-directory-source">
-    <strong>
-      Official source
-    </strong>
-    <p>
-      National September 11 Memorial & Museum.
-    </p>
+
+  <div class="sourcebar">
+
+    <strong>Sources:</strong>
+
     <a
       href="https://www.911memorial.org/visit/memorial/names-911-memorial"
       target="_blank"
       rel="noopener noreferrer">
-      911memorial.org — Names on the 9/11 Memorial →
+      National September 11 Memorial & Museum
     </a>
+
+    <a
+      href="https://www.911memorial.org/visit/museum/exhibitions/in-memoriam"
+      target="_blank"
+      rel="noopener noreferrer">
+      In Memoriam
+    </a>
+
   </div>
-</div>
-  </div>
+
 </section>
-<!-- =========================================================
-     PORTRAITS
-========================================================= -->
-<section class="archive-section" id="portraits">
-  <div class="section-heading">
-<h2>
-  The Faces Behind the Names
-</h2>
-<p>
-  Portraits, family photographs, biographies, artifacts and remembrance.
-</p>
+
+<section class="section" id="names">
+
+  <div class="heading">
+
+    <h2>
+      The Names of the Victims
+    </h2>
+
+    <p>
+      Official Memorial directory
+    </p>
+
   </div>
-  <div class="story-grid">
-<article class="story-card">
-  <h3>
-    In Memoriam
-  </h3>
-  <p>
-    The 9/11 Memorial Museum's In Memoriam exhibition honors the 2,977
-    people killed in the September 11, 2001 attacks and the six people
-    killed in the February 26, 1993 World Trade Center bombing. The
-    exhibition presents 2,983 portrait photographs.
-  </p>
-  <a
-    class="button"
-    href="https://www.911memorial.org/visit/museum/exhibitions/in-memoriam"
-    target="_blank"
-    rel="noopener noreferrer">
-    Visit In Memoriam
-  </a>
-</article>
-<article class="story-card">
-  <h3>
-    Portrait Collection
-  </h3>
-  <p>
-    The Memorial Museum has maintained an extensive effort to collect
-    portrait photographs so that the people represented in the exhibition
-    can be remembered through photographs as well as their names.
-  </p>
-  <a
-    class="button"
-    href="https://www.911memorial.org/connect/blog/long-sought-photos-911-victims-added-memorial-portrait-wall"
-    target="_blank"
-    rel="noopener noreferrer">
-    Read About the Portrait Search
-  </a>
-</article>
-<article class="story-card">
-  <h3>
-    Family Photographs & Personal Memory
-  </h3>
-  <p>
-    The Museum's collection includes photographs, personal objects,
-    recordings and remembrances donated by families, friends and
-    colleagues. These materials document the lives people lived before
-    September 11.
-  </p>
-  <a
-    class="button"
-    href="https://collection.911memorial.org/"
-    target="_blank"
-    rel="noopener noreferrer">
-    Explore the Collection
-  </a>
-</article>
-<article class="story-card">
-  <h3>
-    Family Collections
-  </h3>
-  <p>
-    Families can contribute photographs, personal mementos, video,
-    audio recordings and other materials relating to loved ones to
-    the Museum's permanent collection.
-  </p>
-  <a
-    class="button"
-    href="https://www.911memorial.org/connect/family-members"
-    target="_blank"
-    rel="noopener noreferrer">
-    Family Collection Information
-  </a>
-</article>
+
+  <div class="names-shell">
+
+    <div class="name-search">
+
+      <input
+        id="victimSearch"
+        type="search"
+        placeholder="Search this page for a name">
+
+      <button
+        type="button"
+        onclick="searchVictim()">
+
+        Find name
+
+      </button>
+
+    </div>
+
+    <iframe
+      src="https://www.911memorial.org/visit/memorial/names-911-memorial"
+      title="National September 11 Memorial victim names directory"
+      loading="lazy">
+    </iframe>
+
+    <div class="fallback">
+
+      <strong>
+        Official directory:
+      </strong>
+
+      If the Memorial's interactive directory is blocked by your browser,
+      use the official directory directly.
+
+      <br><br>
+
+      <a
+        href="https://www.911memorial.org/visit/memorial/names-911-memorial"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Open the National September 11 Memorial name directory
+
+      </a>
+
+    </div>
+
   </div>
+
+  <div class="sourcebar">
+
+    <strong>Source:</strong>
+
+    <a
+      href="https://www.911memorial.org/visit/memorial/names-911-memorial"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      National September 11 Memorial & Museum
+
+    </a>
+
+  </div>
+
 </section>
-<!-- =========================================================
-     VOICES
-========================================================= -->
-<section class="archive-section" id="voices">
-  <div class="section-heading">
-<h2>
-  Voices
-</h2>
-<p>
-  Survivors, family members, responders, workers and witnesses telling
-  their own stories.
-</p>
+
+<section class="section" id="faces">
+
+  <div class="heading">
+
+    <h2>
+      Faces & Families
+    </h2>
+
+    <p>
+      Portraits and personal remembrance
+    </p>
+
   </div>
-  <div class="collection-grid">
-<article class="collection-card">
-  <div class="source-type">
-    9/11 Memorial & Museum
+
+  <div class="faces">
+
+    <article class="face">
+
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Todd_Beamer_senior_portrait.jpg"
+        alt="Todd Beamer senior portrait"
+        loading="lazy">
+
+      <div class="pad">
+
+        <h3>
+          Todd Beamer
+        </h3>
+
+        <p>
+          Passenger aboard United Airlines Flight 93.
+          Beamer and other passengers attempted to regain control
+          of the aircraft after learning what had happened elsewhere.
+        </p>
+
+        <div class="credit">
+
+          Portrait source: Wikimedia Commons.
+
+          <a
+            href="https://commons.wikimedia.org/wiki/File:Todd_Beamer_senior_portrait.jpg"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Image record and licensing information
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+    <article class="face">
+
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Mark_Bingham_senior_portrait.jpg"
+        alt="Mark Bingham senior portrait"
+        loading="lazy">
+
+      <div class="pad">
+
+        <h3>
+          Mark Bingham
+        </h3>
+
+        <p>
+          Passenger aboard United Airlines Flight 93.
+          Bingham participated in the passenger effort to retake the aircraft.
+        </p>
+
+        <div class="credit">
+
+          Portrait source: Wikimedia Commons.
+
+          <a
+            href="https://commons.wikimedia.org/wiki/File:Mark_Bingham_senior_portrait.jpg"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Image record and licensing information
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+    <article class="face">
+
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/7/7e/United_93_memorial.jpg"
+        alt="United Flight 93 Memorial"
+        loading="lazy">
+
+      <div class="pad">
+
+        <h3>
+          Flight 93
+        </h3>
+
+        <p>
+          The passengers and crew of Flight 93 fought to regain control
+          of the aircraft before it crashed near Shanksville, Pennsylvania.
+        </p>
+
+        <div class="credit">
+
+          Image source: Wikimedia Commons.
+
+          <a
+            href="https://commons.wikimedia.org/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Wikimedia Commons
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+    <article class="face">
+
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/2/2f/9-11_memorial.jpg"
+        alt="September 11 memorial"
+        loading="lazy">
+
+      <div class="pad">
+
+        <h3>
+          The Memorial
+        </h3>
+
+        <p>
+          The names of those killed are inscribed around the reflecting pools
+          at the World Trade Center site.
+        </p>
+
+        <div class="credit">
+
+          Image source: Wikimedia Commons.
+
+          <a
+            href="https://commons.wikimedia.org/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Wikimedia Commons
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </article>
+
   </div>
-  <h3>
-    Oral Histories
-  </h3>
-  <p>
-    The Memorial Museum's oral history collection preserves recorded
-    interviews with responders, survivors, family members and others
-    affected by the attacks.
-  </p>
-  <a
-    class="button"
-    href="https://www.911memorial.org/learn/resources/oral-histories"
-    target="_blank"
-    rel="noopener noreferrer">
-    Explore Oral Histories
-  </a>
-</article>
-<article class="collection-card">
-  <div class="source-type">
-    Library of Congress
+
+  <div class="sourcebar">
+
+    <strong>Additional institutional material:</strong>
+
+    <a
+      href="https://www.911memorial.org/visit/museum/exhibitions/in-memoriam"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      In Memoriam
+
+    </a>
+
+    <a
+      href="https://collection.911memorial.org/"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      9/11 Memorial Museum Collection
+
+    </a>
+
   </div>
-  <h3>
-    Benjamin Luft Collection
-  </h3>
-  <p>
-    The Library of Congress preserves interviews with responders and
-    family members, including firefighters, police officers, construction
-    workers, ironworkers, paramedics, volunteers and others.
-  </p>
-  <a
-    class="button"
-    href="https://www.loc.gov/collections/benjamin-luft-collection-of-9-11-oral-histories/about-this-collection/"
-    target="_blank"
-    rel="noopener noreferrer">
-    Visit the Collection
-  </a>
-</article>
-<article class="collection-card">
-  <div class="source-type">
-    Library of Congress
-  </div>
-  <h3>
-    September 11 Documentary Project
-  </h3>
-  <p>
-    The Library of Congress preserves interviews, photographs, written
-    narratives and other reactions collected after the attacks.
-  </p>
-  <a
-    class="button"
-    href="https://guides.loc.gov/public-memory-folklife/digital-collections"
-    target="_blank"
-    rel="noopener noreferrer">
-    Explore the Project
-  </a>
-</article>
-<article class="collection-card">
-  <div class="source-type">
-    Library of Congress
-  </div>
-  <h3>
-    September 11 Web Archive
-  </h3>
-  <p>
-    The Library of Congress preserved websites created by governments,
-    news organizations, charities, civic groups, schools, individuals
-    and organizations around the world in the aftermath of the attacks.
-  </p>
-  <a
-    class="button"
-    href="https://www.loc.gov/collections/september-11-2001-web-archive/about-this-collection/"
-    target="_blank"
-    rel="noopener noreferrer">
-    Visit the Web Archive
-  </a>
-</article>
-  </div>
+
 </section>
-<!-- =========================================================
-     PHOTOGRAPHIC RECORD
-========================================================= -->
-<section class="archive-section" id="photographs">
-  <div class="section-heading">
-<h2>
-  The Photographic Record
-</h2>
-<p>
-  Images documenting the attacks, rescue effort, aftermath and public memory.
-</p>
+
+<section class="section" id="timeline">
+
+  <div class="heading">
+
+    <h2>
+      September 11, 2001: Detailed Chronology
+    </h2>
+
+    <p>
+      A documented chronology from the early morning through the President's
+      address to the nation at 8:30 p.m.
+    </p>
+
   </div>
-  <div class="collection-grid">
-<article class="collection-card">
-  <h3>
-    Library of Congress: September 11 Photographs
-  </h3>
-  <p>
-    The Library of Congress preserves extensive photographic material
-    documenting the attacks, the World Trade Center site, rescue
-    operations, memorials, Shanksville and the Pentagon.
-  </p>
-  <a
-    class="button"
-    href="https://loc.gov/exhibits/911/911-prints.html"
-    target="_blank"
-    rel="noopener noreferrer">
-    Browse the Collection
-  </a>
-</article>
-<article class="collection-card">
-  <h3>
-    Ground Zero Images
-  </h3>
-  <p>
-    The Library of Congress preserves a collection of slides documenting
-    Ground Zero during the immediate aftermath of the attacks.
-  </p>
-  <a
-    class="button"
-    href="https://www.loc.gov/item/2002717279/"
-    target="_blank"
-    rel="noopener noreferrer">
-    View the Collection
-  </a>
-</article>
-<article class="collection-card">
-  <h3>
-    9/11 Memorial Collection
-  </h3>
-  <p>
-    The Memorial Museum's collection includes photographs, documents,
-    artifacts, moving images and oral testimony donated or acquired
-    as part of its permanent historical record.
-  </p>
-  <a
-    class="button"
-    href="https://collection.911memorial.org/"
-    target="_blank"
-    rel="noopener noreferrer">
-    Search the Collection
-  </a>
-</article>
-<article class="collection-card">
-  <h3>
-    Make History
-  </h3>
-  <p>
-    The Memorial Museum's Make History archive preserves photographs,
-    videos and stories contributed by people who experienced September 11
-    and its aftermath.
-  </p>
-  <a
-    class="button"
-    href="https://www.911memorial.org/connect/blog/online-database-photos-reflect-911-aftermath"
-    target="_blank"
-    rel="noopener noreferrer">
-    Learn About Make History
-  </a>
-</article>
-  </div>
-</section>
-<!-- =========================================================
-     DAY OF ATTACK TIMELINE
-========================================================= -->
-<section class="archive-section" id="timeline">
-  <div class="section-heading">
-<h2>
-  September 11: A Chronological Record
-</h2>
-<p>
-  A concise chronology to orient the deeper source material.
-</p>
-  </div>
+
   <div class="timeline">
-<article class="timeline-item">
-  <div class="timeline-time">
-    Morning
+
+    <article class="event">
+
+      <div class="time">
+        5:33 a.m. EDT
+      </div>
+
+      <h3>
+        Mohamed Atta and Abdul Aziz al Omari depart Portland
+      </h3>
+
+      <p>
+        Mohamed Atta and Abdul Aziz al Omari boarded a Colgan Air flight
+        from Portland, Maine, to Boston Logan International Airport as part
+        of the movements preceding the hijacking of American Airlines Flight 11.
+      </p>
+
+      <div class="event-source">
+
+        Sources:
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch1.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission, Chapter 1
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        6:00 a.m. EDT
+      </div>
+
+      <h3>
+        Portland to Boston
+      </h3>
+
+      <p>
+        Atta and al Omari traveled from Portland to Boston Logan International
+        Airport. They were among the hijackers who would board Flight 11.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch1.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        7:59 a.m. EDT
+      </div>
+
+      <h3>
+        American Airlines Flight 11 departs Boston
+      </h3>
+
+      <p>
+        American Airlines Flight 11 departed Boston Logan International
+        Airport for Los Angeles with 92 people aboard.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch1.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        8:14 a.m. EDT
+      </div>
+
+      <h3>
+        United Airlines Flight 175 departs Boston
+      </h3>
+
+      <p>
+        United Airlines Flight 175 departed Boston Logan International
+        Airport for Los Angeles with 65 people aboard.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch1.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        8:20 a.m. EDT
+      </div>
+
+      <h3>
+        American Airlines Flight 77 departs Dulles
+      </h3>
+
+      <p>
+        American Airlines Flight 77 departed Washington Dulles International
+        Airport for Los Angeles with 64 people aboard.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch1.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        8:24 a.m. EDT
+      </div>
+
+      <h3>
+        Suspicious transmission from Flight 11
+      </h3>
+
+      <p>
+        Boston Center heard a transmission from Flight 11 that indicated
+        a hijacking was underway. Controllers began trying to establish
+        the aircraft's position and status.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch1.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission, Chapter 1
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        8:25–8:32 a.m. EDT
+      </div>
+
+      <h3>
+        FAA begins receiving reports of a hijacking
+      </h3>
+
+      <p>
+        Boston Center managers began notifying the FAA chain of command
+        that American 11 had been hijacked and was heading toward New York.
+        The Command Center was notified at approximately 8:28.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch1.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        8:42 a.m. EDT
+      </div>
+
+      <h3>
+        United Airlines Flight 93 departs Newark
+      </h3>
+
+      <p>
+        United Airlines Flight 93 departed Newark International Airport
+        for San Francisco after a delay.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch1.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        8:46:40 a.m. EDT
+      </div>
+
+      <h3>
+        American Airlines Flight 11 strikes the North Tower
+      </h3>
+
+      <p>
+        Flight 11 crashed into floors 93 through 99 of the North Tower
+        of the World Trade Center. The impact immediately killed hundreds
+        of people and trapped many others above the impact zone.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch9.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission, Chapter 9
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        8:48–8:50 a.m.
+      </div>
+
+      <h3>
+        New York emergency response begins
+      </h3>
+
+      <p>
+        New York City's Office of Emergency Management began activating
+        its emergency operations structure. Fire, police, medical and
+        other agencies began mobilizing.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch9.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission, Chapter 9
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        8:55 a.m.
+      </div>
+
+      <h3>
+        President Bush receives initial information in Florida
+      </h3>
+
+      <p>
+        President George W. Bush was preparing to visit an elementary school
+        in Sarasota, Florida. National Security Advisor Condoleezza Rice
+        spoke with him before he entered the classroom.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/archive/hearing12/9-11Commission_Hearing_2004-06-17.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission hearing
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        9:03:11 a.m. EDT
+      </div>
+
+      <h3>
+        United Airlines Flight 175 strikes the South Tower
+      </h3>
+
+      <p>
+        Flight 175 struck floors 77 through 85 of the South Tower.
+        The second impact made clear to observers that the first crash
+        had not been an accident.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch9.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission, Chapter 9
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        Approximately 9:05 a.m.
+      </div>
+
+      <h3>
+        President Bush is told America is under attack
+      </h3>
+
+      <p>
+        Chief of Staff Andrew Card informed President Bush that a second
+        aircraft had struck the South Tower and that America was under attack.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/archive/hearing12/9-11Commission_Hearing_2004-06-17.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission hearing
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        9:20 a.m.
+      </div>
+
+      <h3>
+        FAA establishes a hijacking conference
+      </h3>
+
+      <p>
+        FAA headquarters established a conference involving several agencies
+        as officials attempted to understand the unfolding attacks.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch1.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        Approximately 9:25 a.m.
+      </div>
+
+      <h3>
+        White House video conference begins
+      </h3>
+
+      <p>
+        Richard Clarke initiated a White House video conference involving
+        federal agencies and officials attempting to establish what was
+        happening and how the government should respond.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch1.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        9:37:46 a.m.
+      </div>
+
+      <h3>
+        American Airlines Flight 77 strikes the Pentagon
+      </h3>
+
+      <p>
+        Flight 77 struck the western side of the Pentagon in Arlington,
+        Virginia. The aircraft carried 64 people and 125 people inside
+        the Pentagon were killed.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch9.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission, Chapter 9
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        9:37–9:40 a.m.
+      </div>
+
+      <h3>
+        Emergency operations intensify in Washington
+      </h3>
+
+      <p>
+        The Pentagon attack triggered emergency actions across the capital.
+        Vice President Cheney was moved into the underground Presidential
+        Emergency Operations Center.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch1.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        9:45 a.m.
+      </div>
+
+      <h3>
+        White House and federal buildings evacuated
+      </h3>
+
+      <p>
+        Federal facilities in Washington were evacuated as officials
+        attempted to protect the government from additional attacks.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch1.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        9:59 a.m.
+      </div>
+
+      <h3>
+        South Tower collapses
+      </h3>
+
+      <p>
+        The South Tower collapsed approximately 56 minutes after it was
+        struck by Flight 175. The collapse destroyed much of the structure
+        and created an enormous cloud of dust and debris.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch9.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission, Chapter 9
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        10:03:11 a.m.
+      </div>
+
+      <h3>
+        United Airlines Flight 93 crashes in Pennsylvania
+      </h3>
+
+      <p>
+        Flight 93 crashed in a field near Shanksville, Pennsylvania.
+        Passengers and crew had learned that other hijacked aircraft
+        had struck targets and attempted to regain control of the plane.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch9.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        10:28:25 a.m.
+      </div>
+
+      <h3>
+        North Tower collapses
+      </h3>
+
+      <p>
+        The North Tower collapsed 102 minutes after Flight 11 struck it.
+        The collapse brought the immediate destruction of both Twin Towers
+        and dramatically changed the rescue operation.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch9.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission, Chapter 9
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        10:30 a.m.
+      </div>
+
+      <h3>
+        Air traffic restrictions expand nationwide
+      </h3>
+
+      <p>
+        The FAA and federal authorities continued shutting down the national
+        airspace system as the country responded to the possibility of
+        additional attacks.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch1.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        Late morning
+      </div>
+
+      <h3>
+        Rescue and recovery operations continue
+      </h3>
+
+      <p>
+        Firefighters, police officers, emergency medical personnel,
+        construction workers, volunteers and others continued working
+        at the World Trade Center, Pentagon and Flight 93 crash site.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch9.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission, Chapter 9
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        Afternoon
+      </div>
+
+      <h3>
+        The country begins confronting the scale of the attacks
+      </h3>
+
+      <p>
+        The federal government continued emergency coordination while
+        authorities worked to establish what had happened, locate survivors,
+        secure critical infrastructure and determine who was responsible.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch10.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission, Chapter 10
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        Late afternoon
+      </div>
+
+      <h3>
+        President Bush returns toward Washington
+      </h3>
+
+      <p>
+        After remaining away from Washington for much of the day for security
+        reasons, President Bush ordered Air Force One back toward Andrews
+        Air Force Base and then returned to the White House.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch10.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission, Chapter 10
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        7:15 p.m.
+      </div>
+
+      <h3>
+        Federal officials brief the public
+      </h3>
+
+      <p>
+        A White House archive records a major evening press briefing by
+        Attorney General John Ashcroft, Secretary of Health and Human
+        Services Tommy Thompson, Secretary of Transportation Norman Mineta
+        and FEMA Director Joe Allbaugh.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://georgewbush-whitehouse.archives.gov/march11/timeline/text/oneb.html"
+          target="_blank"
+          rel="noopener noreferrer">
+          George W. Bush White House Archives
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        8:30 p.m.
+      </div>
+
+      <h3>
+        President Bush addresses the nation
+      </h3>
+
+      <p>
+        President George W. Bush addressed the American people from the
+        White House. He spoke about the victims, the attacks, the response,
+        the search for those responsible and the country's determination
+        to respond.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://georgewbush-whitehouse.archives.gov/news/releases/2001/09/20010911-16.html"
+          target="_blank"
+          rel="noopener noreferrer">
+          Full archived address
+        </a>
+
+        <a
+          href="https://911commission.gov/report/911Report_Ch10.htm"
+          target="_blank"
+          rel="noopener noreferrer">
+          9/11 Commission
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="event">
+
+      <div class="time">
+        8:35 p.m.
+      </div>
+
+      <h3>
+        The address ends
+      </h3>
+
+      <p>
+        The White House transcript records the conclusion of the President's
+        address at 8:35 p.m. The day continued after the speech with
+        further meetings of the National Security Council.
+      </p>
+
+      <div class="event-source">
+
+        <a
+          href="https://georgewbush-whitehouse.archives.gov/news/releases/2001/09/20010911-16.html"
+          target="_blank"
+          rel="noopener noreferrer">
+          White House archived transcript
+        </a>
+
+      </div>
+
+    </article>
+
   </div>
-  <h3>
-    Four commercial aircraft are hijacked
-  </h3>
-  <p>
-    Nineteen al-Qaeda terrorists hijacked four commercial aircraft.
-    American Airlines Flight 11 and United Airlines Flight 175 were
-    flown toward the World Trade Center. American Airlines Flight 77
-    was flown toward the Pentagon. United Airlines Flight 93 crashed
-    in Pennsylvania after passengers and crew attempted to regain
-    control of the aircraft.
-  </p>
-</article>
-<article class="timeline-item">
-  <div class="timeline-time">
-    World Trade Center
+
+  <div class="sourcebar">
+
+    <strong>Chronology sources:</strong>
+
+    <a
+      href="https://911commission.gov/report/911Report_Ch1.htm"
+      target="_blank"
+      rel="noopener noreferrer">
+      9/11 Commission Chapter 1
+    </a>
+
+    <a
+      href="https://911commission.gov/report/911Report_Ch9.htm"
+      target="_blank"
+      rel="noopener noreferrer">
+      9/11 Commission Chapter 9
+    </a>
+
+    <a
+      href="https://911commission.gov/report/911Report_Ch10.htm"
+      target="_blank"
+      rel="noopener noreferrer">
+      9/11 Commission Chapter 10
+    </a>
+
+    <a
+      href="https://georgewbush-whitehouse.archives.gov/march11/timeline/text/oneb.html"
+      target="_blank"
+      rel="noopener noreferrer">
+      White House timeline
+    </a>
+
   </div>
-  <h3>
-    The Twin Towers are struck
-  </h3>
-  <p>
-    The attacks on the World Trade Center created an unfolding emergency
-    involving thousands of civilians, firefighters, police officers,
-    emergency medical personnel, workers and people attempting to escape.
-  </p>
-</article>
-<article class="timeline-item">
-  <div class="timeline-time">
-    Pentagon
-  </div>
-  <h3>
-    Flight 77 strikes the Pentagon
-  </h3>
-  <p>
-    American Airlines Flight 77 struck the Pentagon in Arlington,
-    Virginia, killing people aboard the aircraft and inside the building.
-  </p>
-</article>
-<article class="timeline-item">
-  <div class="timeline-time">
-    Pennsylvania
-  </div>
-  <h3>
-    Flight 93 crashes near Shanksville
-  </h3>
-  <p>
-    Passengers and crew on Flight 93 learned through telephone calls
-    that other hijacked aircraft had struck targets. They attempted
-    to retake the aircraft before it crashed in an open field near
-    Shanksville, Pennsylvania.
-  </p>
-</article>
-<article class="timeline-item">
-  <div class="timeline-time">
-    Later that morning
-  </div>
-  <h3>
-    The World Trade Center towers collapse
-  </h3>
-  <p>
-    The North and South Towers ultimately collapsed after the aircraft
-    impacts and resulting fires severely damaged the structures.
-  </p>
-</article>
-  </div>
+
 </section>
-<!-- =========================================================
-     RECOVERY WORKERS
-========================================================= -->
-<section class="archive-section" id="recovery">
-  <div class="section-heading">
-<h2>
-  The Rescue, Recovery and Cleanup
-</h2>
-<p>
-  The story continued long after September 11.
-</p>
-  </div>
-  <div class="health-panel">
-<h3>
-  The people who went into the ruins
-</h3>
-<p>
-  Thousands of people worked or volunteered at the World Trade Center
-  site and related locations after the attacks. They included firefighters,
-  police officers, paramedics, construction workers, ironworkers,
-  demolition specialists, sanitation workers, engineers, medical
-  personnel, volunteers and many others.
-</p>
-<p>
-  The recovery operation also depended upon people whose work received
-  less public attention, including cleaners, food-service workers,
-  laborers, drivers and subcontracted workers involved in the enormous
-  cleanup operation.
-</p>
-<div class="health-highlight">
-  <strong>
-    The aftermath continued long after the fires went out.
-  </strong>
-  <br>
-  Dust and debris exposure became a major long-term public-health issue.
-  The federal World Trade Center Health Program provides medical
-  monitoring and treatment for certified 9/11-related conditions to
-  eligible responders and survivors.
-</div>
-<div class="health-grid">
-  <div class="health-card">
-    <h4>
-      Rescue & Recovery
-    </h4>
+
+<section class="section" id="flights">
+
+  <div class="heading">
+
+    <h2>
+      The Four Flights
+    </h2>
+
     <p>
-      The work at Ground Zero included searching for survivors and human
-      remains, stabilizing structures, removing debris, cleaning buildings,
-      transporting material and supporting the recovery operation.
+      The aircraft, passengers and crews
     </p>
+
   </div>
-  <div class="health-card">
-    <h4>
-      Long-Term Illness
-    </h4>
+
+  <div class="grid2">
+
+    <article class="card">
+
+      <div class="tag">
+        American Airlines 11
+      </div>
+
+      <h3>
+        Flight 11
+      </h3>
+
+      <p>
+        Departed Boston for Los Angeles. It was hijacked and struck
+        the North Tower of the World Trade Center at 8:46:40 a.m.
+      </p>
+
+      <a
+        class="button"
+        href="https://911commission.gov/report/911Report_Ch1.htm"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Commission record
+
+      </a>
+
+    </article>
+
+    <article class="card">
+
+      <div class="tag">
+        United Airlines 175
+      </div>
+
+      <h3>
+        Flight 175
+      </h3>
+
+      <p>
+        Departed Boston for Los Angeles and struck the South Tower
+        at 9:03:11 a.m.
+      </p>
+
+      <a
+        class="button"
+        href="https://911commission.gov/report/911Report_Ch1.htm"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Commission record
+
+      </a>
+
+    </article>
+
+    <article class="card">
+
+      <div class="tag">
+        American Airlines 77
+      </div>
+
+      <h3>
+        Flight 77
+      </h3>
+
+      <p>
+        Departed Washington Dulles for Los Angeles and struck the
+        Pentagon at 9:37:46 a.m.
+      </p>
+
+      <a
+        class="button"
+        href="https://911commission.gov/report/911Report_Ch1.htm"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Commission record
+
+      </a>
+
+    </article>
+
+    <article class="card">
+
+      <div class="tag">
+        United Airlines 93
+      </div>
+
+      <h3>
+        Flight 93
+      </h3>
+
+      <p>
+        Departed Newark for San Francisco and crashed near Shanksville,
+        Pennsylvania at 10:03:11 a.m.
+      </p>
+
+      <a
+        class="button"
+        href="https://911commission.gov/report/911Report_Ch1.htm"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Commission record
+
+      </a>
+
+    </article>
+
+  </div>
+
+  <div class="sourcebar">
+
+    <strong>Source:</strong>
+
+    <a
+      href="https://911commission.gov/report/911Report_Ch1.htm"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      National Commission on Terrorist Attacks Upon the United States
+
+    </a>
+
+  </div>
+
+</section>
+
+<section class="section" id="response">
+
+  <div class="heading">
+
+    <h2>
+      Emergency Response
+    </h2>
+
     <p>
-      The WTC Health Program identifies and treats certified conditions
-      associated with 9/11 exposure, including respiratory conditions,
-      cancers and other physical and mental health conditions.
+      Firefighters, police, emergency medical personnel and civilians
     </p>
+
   </div>
-  <div class="health-card">
-    <h4>
-      Documentation Matters
-    </h4>
+
+  <div class="grid3">
+
+    <article class="card">
+
+      <h3>
+        FDNY
+      </h3>
+
+      <p>
+        Firefighters and officers responded to the World Trade Center
+        despite the enormous scale and rapidly changing conditions.
+      </p>
+
+    </article>
+
+    <article class="card">
+
+      <h3>
+        NYPD
+      </h3>
+
+      <p>
+        Police officers assisted evacuation, emergency response,
+        perimeter control and rescue operations.
+      </p>
+
+    </article>
+
+    <article class="card">
+
+      <h3>
+        Emergency Medical Personnel
+      </h3>
+
+      <p>
+        Paramedics, emergency medical technicians, doctors, nurses and
+        other medical personnel responded to the disaster.
+      </p>
+
+    </article>
+
+  </div>
+
+  <div class="sourcebar">
+
+    <strong>Source:</strong>
+
+    <a
+      href="https://911commission.gov/report/911Report_Ch9.htm"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      9/11 Commission, Chapter 9
+
+    </a>
+
+  </div>
+
+</section>
+
+<section class="section" id="pentagon">
+
+  <div class="heading">
+
+    <h2>
+      The Pentagon
+    </h2>
+
     <p>
-      Eligibility systems require evidence concerning where a person
-      worked, what they did, when they were there and other information
-      relevant to a covered claim.
+      September 11 in Arlington, Virginia
     </p>
+
   </div>
-  <div class="health-card">
-    <h4>
-      First-Person Testimony
-    </h4>
+
+  <div class="panel">
+
+    <h3>
+      American Airlines Flight 77
+    </h3>
+
     <p>
-      Oral histories preserve experiences that official records alone
-      cannot fully convey, including the experiences of survivors,
-      responders, workers and family members.
+      At 9:37:46 a.m., Flight 77 struck the western side of the Pentagon.
+      The aircraft carried 64 people. Another 125 people inside the Pentagon
+      were killed.
     </p>
+
+    <p>
+      The response involved military personnel, firefighters, police,
+      medical workers, federal officials and civilians who assisted
+      colleagues and others inside the building.
+    </p>
+
   </div>
-</div>
-<p style="margin-top:25px;">
-  <a
-    class="button red"
-    href="https://www.cdc.gov/wtc/about.html"
-    target="_blank"
-    rel="noopener noreferrer">
-    WTC Health Program
-  </a>
-  <a
-    class="button"
-    href="https://www.cdc.gov/wtc/eligiblegroups.html"
-    target="_blank"
-    rel="noopener noreferrer">
-    Eligibility Information
-  </a>
-</p>
+
+  <div class="sourcebar">
+
+    <strong>Sources:</strong>
+
+    <a
+      href="https://911commission.gov/report/911Report_Ch9.htm"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      9/11 Commission Chapter 9
+
+    </a>
+
+    <a
+      href="https://www.archives.gov/research/9-11"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      National Archives
+
+    </a>
+
   </div>
+
 </section>
-<!-- =========================================================
-     IMMIGRANT AND UNDOCUMENTED WORKERS
-========================================================= -->
-<section class="archive-section" id="immigrant-workers">
-  <div class="section-heading">
-<h2>
-  The Immigrant Workers of Ground Zero
-</h2>
-<p>
-  Workers from many backgrounds participated in the recovery and cleanup.
-</p>
+
+<section class="section" id="flight93">
+
+  <div class="heading">
+
+    <h2>
+      Flight 93
+    </h2>
+
+    <p>
+      The passengers and crew near Shanksville
+    </p>
+
   </div>
-  <div class="immigrant-section">
-<h3>
-  Immigrant workers were part of the recovery operation.
-</h3>
-<p>
-  The recovery operation depended on a large and diverse workforce.
-  Among those workers were immigrants, including undocumented workers,
-  who performed cleaning, demolition, debris-removal and related jobs
-  around Ground Zero.
-</p>
-<p>
-  Immigration status could make an already dangerous situation more
-  complicated. Some workers feared government authorities or retaliation
-  by employers. Some had informal employment arrangements and limited
-  documentation. Research also identified barriers to health care,
-  workers' compensation and other systems intended to assist people
-  affected by the work.
-</p>
-<p>
-  This should not be simplified into the claim that no health care or
-  compensation existed. The Victim Compensation Fund did not categorically
-  exclude applicants because of immigration status, and the World Trade
-  Center Health Program serves eligible responders and survivors.
-  The historical record includes the barriers some immigrant workers
-  faced in learning about, documenting eligibility for and accessing
-  these systems.
-</p>
-<div class="immigrant-facts">
-  <div class="immigrant-fact">
-    <strong>
-      Immigrant labor
-    </strong>
-    Immigrants performed important rescue, recovery, cleaning and
-    rebuilding work after the attacks.
+
+  <div class="panel">
+
+    <h3>
+      The passenger response
+    </h3>
+
+    <p>
+      Passengers and crew learned through telephone calls that other
+      hijacked aircraft had struck the World Trade Center and Pentagon.
+      They organized an attempt to regain control of their aircraft.
+    </p>
+
+    <p>
+      The aircraft crashed in a field near Shanksville, Pennsylvania
+      at 10:03:11 a.m.
+    </p>
+
   </div>
-  <div class="immigrant-fact">
-    <strong>
-      Documentation barriers
-    </strong>
-    Informal employment and fear could make it difficult for workers
-    to document where and when they had worked.
+
+  <div class="sourcebar">
+
+    <strong>Sources:</strong>
+
+    <a
+      href="https://911commission.gov/report/911Report_Ch9.htm"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      9/11 Commission Chapter 9
+
+    </a>
+
+    <a
+      href="https://www.nps.gov/flni/index.htm"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      Flight 93 National Memorial
+
+    </a>
+
   </div>
-  <div class="immigrant-fact">
-    <strong>
-      Health consequences
-    </strong>
-    Research documented health concerns among immigrant workers,
-    including respiratory illness and difficulties obtaining care.
-  </div>
-</div>
-<p class="immigrant-source-note">
-  Research basis:
-  U.S. Environmental Protection Agency evaluation of the response to
-  the World Trade Center collapse; peer-reviewed research concerning
-  immigrant rescue and recovery workers; and current federal information
-  concerning health and compensation programs.
-</p>
-<p style="margin-top:25px;">
-  <a
-    class="button red"
-    href="https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P101C8ZJ.TXT"
-    target="_blank"
-    rel="noopener noreferrer">
-    EPA Evaluation
-  </a>
-  <a
-    class="button light"
-    href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10100590/"
-    target="_blank"
-    rel="noopener noreferrer">
-    Peer-Reviewed Research
-  </a>
-  <a
-    class="button light"
-    href="https://www.vcf.gov/policy/eligibility-criteria-and-deadlines"
-    target="_blank"
-    rel="noopener noreferrer">
-    Victim Compensation Fund
-  </a>
-</p>
-  </div>
+
 </section>
-<!-- =========================================================
-     GOVERNMENT RECORDS
-========================================================= -->
-<section class="archive-section" id="government-records">
-  <div class="section-heading">
-<h2>
-  Government Records
-</h2>
-<p>
-  Primary records should anchor historical interpretation.
-</p>
+
+<section class="section" id="voices">
+
+  <div class="heading">
+
+    <h2>
+      Voices and Oral Histories
+    </h2>
+
+    <p>
+      First-person accounts preserved by historical institutions
+    </p>
+
   </div>
-  <div class="collection-grid">
-<article class="collection-card">
-  <div class="source-type">
-    National Archives
+
+  <div class="grid2">
+
+    <article class="card">
+
+      <div class="tag">
+        9/11 Memorial Museum
+      </div>
+
+      <h3>
+        Oral Histories
+      </h3>
+
+      <p>
+        The Memorial Museum's oral history collection preserves testimony
+        from survivors, responders, family members and others affected
+        by September 11.
+      </p>
+
+      <a
+        class="button"
+        href="https://www.911memorial.org/learn/resources/oral-histories"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Memorial oral histories
+
+      </a>
+
+    </article>
+
+    <article class="card">
+
+      <div class="tag">
+        Library of Congress
+      </div>
+
+      <h3>
+        Benjamin Luft Collection
+      </h3>
+
+      <p>
+        The Library of Congress preserves interviews with responders,
+        family members, construction workers, firefighters, police,
+        paramedics and others.
+      </p>
+
+      <a
+        class="button"
+        href="https://www.loc.gov/collections/benjamin-luft-collection-of-9-11-oral-histories/about-this-collection/"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Library of Congress
+
+      </a>
+
+    </article>
+
+    <article class="card">
+
+      <div class="tag">
+        Library of Congress
+      </div>
+
+      <h3>
+        September 11 Documentary Project
+      </h3>
+
+      <p>
+        Interviews, photographs, written narratives and reactions
+        collected after the attacks.
+      </p>
+
+      <a
+        class="button"
+        href="https://guides.loc.gov/public-memory-folklife/digital-collections"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Documentary Project
+
+      </a>
+
+    </article>
+
+    <article class="card">
+
+      <div class="tag">
+        Library of Congress
+      </div>
+
+      <h3>
+        September 11 Web Archive
+      </h3>
+
+      <p>
+        Preserved websites document how governments, organizations,
+        newsrooms and individuals responded online.
+      </p>
+
+      <a
+        class="button"
+        href="https://www.loc.gov/collections/september-11-2001-web-archive/about-this-collection/"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Web Archive
+
+      </a>
+
+    </article>
+
   </div>
-  <h3>
-    9/11 Commission Records
-  </h3>
-  <p>
-    The National Archives preserves the records of the independent,
-    bipartisan 9/11 Commission, including commission series and
-    memorandums for the record.
-  </p>
-  <a
-    class="button"
-    href="https://www.archives.gov/research/9-11"
-    target="_blank"
-    rel="noopener noreferrer">
-    Open Commission Records
-  </a>
-</article>
-<article class="collection-card">
-  <div class="source-type">
-    National Archives
+
+  <div class="sourcebar">
+
+    <strong>Sources:</strong>
+
+    <a
+      href="https://www.loc.gov/"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      Library of Congress
+
+    </a>
+
+    <a
+      href="https://www.911memorial.org/"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      National September 11 Memorial & Museum
+
+    </a>
+
   </div>
-  <h3>
-    FAA Records
-  </h3>
-  <p>
-    The National Archives holds FAA records relating to the attacks,
-    including textual, audio and electronic files concerning Flights
-    11, 175, 77 and 93 and the federal response.
-  </p>
-  <a
-    class="button"
-    href="https://www.archives.gov/research/foia/faa"
-    target="_blank"
-    rel="noopener noreferrer">
-    Open FAA Records
-  </a>
-</article>
-<article class="collection-card">
-  <div class="source-type">
-    U.S. Government
-  </div>
-  <h3>
-    9/11 Commission Report
-  </h3>
-  <p>
-    The final report of the National Commission on Terrorist Attacks
-    Upon the United States provides the Commission's comprehensive
-    account and recommendations.
-  </p>
-  <a
-    class="button"
-    href="https://www.govinfo.gov/content/pkg/GPO-911REPORT/pdf/GPO-911REPORT.pdf"
-    target="_blank"
-    rel="noopener noreferrer">
-    Read the Full Report
-  </a>
-</article>
-<article class="collection-card">
-  <div class="source-type">
-    National Security Archive
-  </div>
-  <h3>
-    September 11 Sourcebooks
-  </h3>
-  <p>
-    The National Security Archive's declassified-document collections
-    provide historical records relating to terrorism, U.S. policy,
-    Afghanistan, the Taliban and bin Laden.
-  </p>
-  <a
-    class="button"
-    href="https://nsarchive.gwu.edu/briefing-book-sourcebook/2001-09-21/september-11th-sourcebooks"
-    target="_blank"
-    rel="noopener noreferrer">
-    Open Sourcebooks
-  </a>
-</article>
-  </div>
+
 </section>
-<!-- =========================================================
-     VIDEOS
-========================================================= -->
-<section class="archive-section" id="videos">
-  <div class="section-heading">
-<h2>
-  Videos Already Preserved in This Archive
-</h2>
-<p>
-  Existing video records retained from the previous version of this page.
-</p>
+
+<section class="section" id="photographs">
+
+  <div class="heading">
+
+    <h2>
+      The Photographic Record
+    </h2>
+
+    <p>
+      Photographs as historical documents
+    </p>
+
   </div>
-  <div class="video-grid">
-<article class="video-record">
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/EDX1EyB2ju8"
-      title="September 11, 2001 video"
-      allowfullscreen>
-    </iframe>
+
+  <div class="panel">
+
+    <h3>
+      Images preserve what written records cannot
+    </h3>
+
+    <p>
+      Photographs document the attacks, evacuation, rescue operations,
+      destruction, memorials and the recovery operation. They also preserve
+      visual evidence of places and people that changed dramatically
+      during and after September 11.
+    </p>
+
+    <p>
+      The Library of Congress preserves extensive September 11 photographic
+      collections, including material from Ground Zero, the Pentagon,
+      Shanksville and memorial activities.
+    </p>
+
   </div>
-</article>
-<article class="video-record">
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/AxyhIkSMCG8"
-      title="September 11, 2001 video"
-      allowfullscreen>
-    </iframe>
+
+  <div class="grid2" style="margin-top:20px;">
+
+    <article class="card">
+
+      <h3>
+        Library of Congress
+      </h3>
+
+      <p>
+        September 11 photographic collections and exhibition material.
+      </p>
+
+      <a
+        class="button"
+        href="https://loc.gov/exhibits/911/911-prints.html"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Browse photographs
+
+      </a>
+
+    </article>
+
+    <article class="card">
+
+      <h3>
+        250 Ground Zero Images
+      </h3>
+
+      <p>
+        A collection of slides documenting Ground Zero during the
+        first hours of the response.
+      </p>
+
+      <a
+        class="button"
+        href="https://www.loc.gov/item/2002717279/"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        View collection
+
+      </a>
+
+    </article>
+
   </div>
-</article>
-<article class="video-record">
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/5F2z1GZ0DJE"
-      title="September 11, 2001 video"
-      allowfullscreen>
-    </iframe>
+
+  <div class="sourcebar">
+
+    <strong>Sources:</strong>
+
+    <a
+      href="https://loc.gov/exhibits/911/911-prints.html"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      Library of Congress
+
+    </a>
+
+    <a
+      href="https://www.loc.gov/item/2002717279/"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      Library of Congress Ground Zero collection
+
+    </a>
+
   </div>
-</article>
-<article class="video-record">
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/g6ijmcJPX9Y"
-      title="September 11, 2001 video"
-      allowfullscreen>
-    </iframe>
-  </div>
-</article>
-<article class="video-record">
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/JF8EFyGaGDM"
-      title="September 11, 2001 video"
-      allowfullscreen>
-    </iframe>
-  </div>
-</article>
-<article class="video-record">
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/1EXx33LhlI8"
-      title="September 11, 2001 video"
-      allowfullscreen>
-    </iframe>
-  </div>
-</article>
-<article class="video-record">
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/hxOGjvUXHTQ"
-      title="September 11, 2001 live video"
-      allowfullscreen>
-    </iframe>
-  </div>
-</article>
-<article class="video-record">
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/cm-IgjNr0p8"
-      title="September 11, 2001 video"
-      allowfullscreen>
-    </iframe>
-  </div>
-</article>
-<article class="video-record">
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/mUhuS-mb3Rs"
-      title="September 11, 2001 video"
-      allowfullscreen>
-    </iframe>
-  </div>
-</article>
-<article class="video-record">
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/sq1OT5sh5nI"
-      title="September 11, 2001 video"
-      allowfullscreen>
-    </iframe>
-  </div>
-</article>
-<article class="video-record">
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/6gWkJv9rwbI"
-      title="September 11, 2001 video"
-      allowfullscreen>
-    </iframe>
-  </div>
-</article>
-<article class="video-record">
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/W5oWlzltd0o"
-      title="September 11, 2001 video"
-      allowfullscreen>
-    </iframe>
-  </div>
-</article>
-<article class="video-record">
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/Q5iBxva_pm8"
-      title="September 11, 2001 video"
-      allowfullscreen>
-    </iframe>
-  </div>
-</article>
-<article class="video-record">
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/X5NKIS1QrbY"
-      title="September 11, 2001 video"
-      allowfullscreen>
-    </iframe>
-  </div>
-</article>
-<article class="video-record">
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/Lwr5DH0HdoQ"
-      title="September 11, 2001 video"
-      allowfullscreen>
-    </iframe>
-  </div>
-</article>
-<article class="video-record">
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/CjjkE0nYchA"
-      title="September 11, 2001 video"
-      allowfullscreen>
-    </iframe>
-  </div>
-</article>
-<article class="video-record">
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/FiGgO-wfEzs"
-      title="September 11, 2001 video"
-      allowfullscreen>
-    </iframe>
-  </div>
-</article>
-<article class="video-record">
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/RKp4MlfuSlI"
-      title="September 11, 2001 video"
-      allowfullscreen>
-    </iframe>
-  </div>
-</article>
-  </div>
+
 </section>
-<!-- =========================================================
-     CONTEMPORARY & ANNIVERSARY COVERAGE
-========================================================= -->
-<section class="archive-section" id="article">
-  <div class="section-heading">
-<h2>
-  Contemporary & Anniversary Coverage
-</h2>
+
+<section class="section" id="recovery">
+
+  <div class="heading">
+
+    <h2>
+      Rescue, Recovery and Cleanup
+    </h2>
+
+    <p>
+      The work continued long after September 11
+    </p>
+
   </div>
-  <article class="article-record">
-<h3>
-  25 years after Sept. 11 attacks, America reflects and remembers
-</h3>
-<p>
-  CBS News coverage documenting the 25th anniversary of the September 11
-  attacks and the continuing process of remembrance.
-</p>
-<a
-  class="button red"
-  href="https://www.cbsnews.com/live-updates/september-11-terrorist-attacks-25-years-memorial-2026-09-11/#post-update-514a0bc7"
-  target="_blank"
-  rel="noopener noreferrer">
-  Read Coverage
-</a>
-  </article>
+
+  <div class="panel">
+
+    <h3>
+      The people who worked at Ground Zero
+    </h3>
+
+    <p>
+      Thousands of firefighters, police officers, paramedics, construction
+      workers, engineers, laborers, sanitation workers, volunteers and
+      others worked at the World Trade Center site and related locations.
+    </p>
+
+    <p>
+      Their work included searching for survivors and human remains,
+      stabilizing structures, removing debris, cleaning buildings,
+      transporting material and supporting the recovery effort.
+    </p>
+
+    <p>
+      The work exposed many people to dust, smoke and other hazardous
+      materials, with consequences that continued for years.
+    </p>
+
+  </div>
+
+  <div class="sourcebar">
+
+    <strong>Sources:</strong>
+
+    <a
+      href="https://911commission.gov/report/911Report_Ch9.htm"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      9/11 Commission
+
+    </a>
+
+    <a
+      href="https://www.cdc.gov/wtc/about.html"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      CDC World Trade Center Health Program
+
+    </a>
+
+    <a
+      href="https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P101C8ZJ.TXT"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      EPA evaluation
+
+    </a>
+
+  </div>
+
 </section>
-<!-- =========================================================
-     EXISTING SOCIAL MEDIA RECORDS
-========================================================= -->
-<section class="archive-section" id="social-record">
-  <div class="section-heading">
-<h2>
-  Existing Social Media Records
-</h2>
-<p>
-  Existing posts preserved from the previous version of the archive.
-</p>
+
+<section class="section" id="health">
+
+  <div class="heading">
+
+    <h2>
+      Long-Term Health
+    </h2>
+
+    <p>
+      The consequences of September 11 continued for decades
+    </p>
+
   </div>
-  <article class="social-record">
-<h3>
-  911 Revisionist
-</h3>
-<blockquote class="twitter-tweet">
-  <a href="https://x.com/911Revisionist/status/2097794422905958615">
-    View this post on X
-  </a>
-</blockquote>
-  </article>
-  <article class="social-record">
-<h3>
-  Fox News Politics
-</h3>
-<blockquote class="twitter-tweet">
-  <a href="https://x.com/foxnewspolitics/status/2098536712939127193">
-    View this post on X
-  </a>
-</blockquote>
-  </article>
-  <article class="social-record">
-<h3>
-  25 Years Ago Live
-</h3>
-<blockquote class="twitter-tweet">
-  <a href="https://x.com/25yearsagolive/status/2098450668931756481">
-    View this post on X
-  </a>
-</blockquote>
-  </article>
+
+  <div class="grid2">
+
+    <article class="card">
+
+      <h3>
+        Respiratory illness
+      </h3>
+
+      <p>
+        Exposure to dust and other substances at the World Trade Center
+        and other response locations has been associated with respiratory
+        conditions recognized by the World Trade Center Health Program.
+      </p>
+
+    </article>
+
+    <article class="card">
+
+      <h3>
+        Cancer
+      </h3>
+
+      <p>
+        The WTC Health Program provides monitoring and treatment for
+        certified cancers associated with qualifying 9/11 exposure.
+      </p>
+
+    </article>
+
+    <article class="card">
+
+      <h3>
+        Mental health
+      </h3>
+
+      <p>
+        Psychological consequences affected responders, survivors,
+        families and communities and remain part of the health history
+        of September 11.
+      </p>
+
+    </article>
+
+    <article class="card">
+
+      <h3>
+        Federal health program
+      </h3>
+
+      <p>
+        The World Trade Center Health Program provides medical monitoring
+        and treatment to eligible responders and survivors.
+      </p>
+
+      <a
+        class="button"
+        href="https://www.cdc.gov/wtc/about.html"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        WTC Health Program
+
+      </a>
+
+    </article>
+
+  </div>
+
+  <div class="sourcebar">
+
+    <strong>Sources:</strong>
+
+    <a
+      href="https://www.cdc.gov/wtc/about.html"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      CDC
+
+    </a>
+
+    <a
+      href="https://www.vcf.gov/"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      Victim Compensation Fund
+
+    </a>
+
+  </div>
+
 </section>
-<!-- =========================================================
-     RESEARCH GUIDE
-========================================================= -->
-<section class="archive-section" id="research">
-  <div class="section-heading">
-<h2>
-  How to Use This Archive
-</h2>
-<p>
-  A path for readers who want to go deeper.
-</p>
+
+<section class="section" id="immigrant">
+
+  <div class="heading">
+
+    <h2>
+      Immigrant Workers
+    </h2>
+
+    <p>
+      Workers whose contributions and experiences are part of the aftermath
+    </p>
+
   </div>
-  <div class="research-guide">
-<article class="research-step">
-  <div class="research-number">1</div>
-  <h3>
-    Begin with the names
-  </h3>
-  <p>
-    The Memorial directory provides the official names and Memorial
-    panel locations for the people killed in the attacks.
-  </p>
-</article>
-<article class="research-step">
-  <div class="research-number">2</div>
-  <h3>
-    Listen to people
-  </h3>
-  <p>
-    Oral histories preserve experiences that cannot be reduced to a
-    chronology or government report.
-  </p>
-</article>
-<article class="research-step">
-  <div class="research-number">3</div>
-  <h3>
-    Examine photographs
-  </h3>
-  <p>
-    Study images as historical documents. Identify who created them,
-    when, where and under what archival or copyright conditions.
-  </p>
-</article>
-<article class="research-step">
-  <div class="research-number">4</div>
-  <h3>
-    Read primary records
-  </h3>
-  <p>
-    Use the Commission records, FAA records, government reports and
-    declassified documents to establish chronology and institutional
-    decision-making.
-  </p>
-</article>
-<article class="research-step">
-  <div class="research-number">5</div>
-  <h3>
-    Study the aftermath
-  </h3>
-  <p>
-    September 11 did not end on September 11. The recovery operation,
-    illnesses, compensation systems, immigration questions, wars,
-    memorialization and family grief continued for decades.
-  </p>
-</article>
-<article class="research-step">
-  <div class="research-number">6</div>
-  <h3>
-    Compare sources
-  </h3>
-  <p>
-    When sources disagree, preserve the disagreement and identify the
-    evidence rather than silently choosing whichever account is most
-    convenient.
-  </p>
-</article>
+
+  <div class="panel">
+
+    <h3>
+      Work, immigration and access to assistance
+    </h3>
+
+    <p>
+      Immigrant workers participated in cleanup, construction, food service,
+      transportation, debris removal and other forms of work connected with
+      the recovery effort.
+    </p>
+
+    <p>
+      Immigration status could create additional barriers for some workers,
+      including concerns about documentation, employment relationships,
+      access to information and willingness to interact with authorities.
+    </p>
+
+    <p>
+      These experiences are documented in government investigations,
+      academic research and oral histories.
+    </p>
+
   </div>
+
+  <div class="sourcebar">
+
+    <strong>Sources:</strong>
+
+    <a
+      href="https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P101C8ZJ.TXT"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      EPA evaluation
+
+    </a>
+
+    <a
+      href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10100590/"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      Peer-reviewed research
+
+    </a>
+
+    <a
+      href="https://www.vcf.gov/policy/eligibility-criteria-and-deadlines"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      Victim Compensation Fund
+
+    </a>
+
+  </div>
+
 </section>
-<!-- =========================================================
-     SOURCE DIRECTORY
-========================================================= -->
-<section class="archive-section" id="sources">
-  <div class="section-heading">
-<h2>
-  Primary Sources & Research Institutions
-</h2>
-<p>
-  The institutions that preserve the underlying historical record.
-</p>
+
+<section class="section" id="videos">
+
+  <div class="heading">
+
+    <h2>
+      Video Archive
+    </h2>
+
+    <p>
+      Existing video records retained from the previous version
+    </p>
+
   </div>
+
+  <div class="grid2">
+
+    <article class="video">
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/EDX1EyB2ju8" title="September 11, 2001 video" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="video">
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/AxyhIkSMCG8" title="September 11, 2001 video" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="video">
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/5F2z1GZ0DJE" title="September 11, 2001 video" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="video">
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/g6ijmcJPX9Y" title="September 11, 2001 video" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="video">
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/JF8EFyGaGDM" title="September 11, 2001 video" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="video">
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/1EXx33LhlI8" title="September 11, 2001 video" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="video">
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/hxOGjvUXHTQ" title="September 11, 2001 live video" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="video">
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/cm-IgjNr0p8" title="September 11, 2001 video" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="video">
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/mUhuS-mb3Rs" title="September 11, 2001 video" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="video">
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/sq1OT5sh5nI" title="September 11, 2001 video" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="video">
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/6gWkJv9rwbI" title="September 11, 2001 video" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="video">
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/W5oWlzltd0o" title="September 11, 2001 video" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="video">
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/Q5iBxva_pm8" title="September 11, 2001 video" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="video">
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/X5NKIS1QrbY" title="September 11, 2001 video" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="video">
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/Lwr5DH0HdoQ" title="September 11, 2001 video" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="video">
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/CjjkE0nYchA" title="September 11, 2001 video" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="video">
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/FiGgO-wfEzs" title="September 11, 2001 video" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="video">
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/RKp4MlfuSlI" title="September 11, 2001 video" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="sourcebar">
+
+    <strong>Archive note:</strong>
+
+    These embeds were supplied in the prior version of the page.
+    Individual video titles and provenance should be audited before
+    formal institutional publication.
+
+  </div>
+
+</section>
+
+<section class="section" id="records">
+
+  <div class="heading">
+
+    <h2>
+      Government and Primary Records
+    </h2>
+
+    <p>
+      Evidence behind the chronology and aftermath
+    </p>
+
+  </div>
+
+  <div class="grid2">
+
+    <article class="card">
+
+      <div class="tag">
+        National Archives
+      </div>
+
+      <h3>
+        9/11 Commission Records
+      </h3>
+
+      <p>
+        Commission records, hearings, staff statements and the final report.
+      </p>
+
+      <a
+        class="button"
+        href="https://www.archives.gov/research/9-11"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        National Archives
+
+      </a>
+
+    </article>
+
+    <article class="card">
+
+      <div class="tag">
+        FAA / National Archives
+      </div>
+
+      <h3>
+        FAA Records
+      </h3>
+
+      <p>
+        Federal aviation records relating to the hijacked flights and response.
+      </p>
+
+      <a
+        class="button"
+        href="https://www.archives.gov/research/foia/faa"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        FAA records
+
+      </a>
+
+    </article>
+
+    <article class="card">
+
+      <div class="tag">
+        GovInfo
+      </div>
+
+      <h3>
+        9/11 Commission Report
+      </h3>
+
+      <p>
+        The official federal publication of the Commission's final report.
+      </p>
+
+      <a
+        class="button"
+        href="https://www.govinfo.gov/content/pkg/GPO-911REPORT/pdf/GPO-911REPORT.pdf"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Read the report
+
+      </a>
+
+    </article>
+
+    <article class="card">
+
+      <div class="tag">
+        National Security Archive
+      </div>
+
+      <h3>
+        Declassified Sourcebooks
+      </h3>
+
+      <p>
+        Declassified historical records concerning terrorism, Afghanistan,
+        al-Qaeda and U.S. policy.
+      </p>
+
+      <a
+        class="button"
+        href="https://nsarchive.gwu.edu/briefing-book-sourcebook/2001-09-21/september-11th-sourcebooks"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Sourcebooks
+
+      </a>
+
+    </article>
+
+  </div>
+
+  <div class="sourcebar">
+
+    <strong>Sources:</strong>
+
+    <a
+      href="https://www.archives.gov/research/9-11"
+      target="_blank"
+      rel="noopener noreferrer">
+      National Archives
+    </a>
+
+    <a
+      href="https://www.govinfo.gov/"
+      target="_blank"
+      rel="noopener noreferrer">
+      GovInfo
+    </a>
+
+    <a
+      href="https://nsarchive.gwu.edu/"
+      target="_blank"
+      rel="noopener noreferrer">
+      National Security Archive
+    </a>
+
+  </div>
+
+</section>
+
+<section class="section" id="memorialization">
+
+  <div class="heading">
+
+    <h2>
+      Memory and Memorialization
+    </h2>
+
+    <p>
+      How families, institutions and communities have preserved the record
+    </p>
+
+  </div>
+
+  <div class="grid2">
+
+    <article class="card">
+
+      <h3>
+        In Memoriam
+      </h3>
+
+      <p>
+        The Museum's exhibition presents portraits, personal artifacts,
+        profiles and recorded remembrances connected to the victims of
+        September 11, 2001 and February 26, 1993.
+      </p>
+
+      <a
+        class="button"
+        href="https://www.911memorial.org/visit/museum/exhibitions/in-memoriam"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        In Memoriam
+
+      </a>
+
+    </article>
+
+    <article class="card">
+
+      <h3>
+        Family materials
+      </h3>
+
+      <p>
+        Families have contributed photographs, personal objects, recordings
+        and other materials to the Museum's permanent collection.
+      </p>
+
+      <a
+        class="button"
+        href="https://www.911memorial.org/connect/family-members"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Family collection information
+
+      </a>
+
+    </article>
+
+    <article class="card">
+
+      <h3>
+        The Museum Collection
+      </h3>
+
+      <p>
+        The collection contains historical artifacts and records documenting
+        victims, survivors, responders, response and long-term repercussions.
+      </p>
+
+      <a
+        class="button"
+        href="https://collection.911memorial.org/"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Search the collection
+
+      </a>
+
+    </article>
+
+    <article class="card">
+
+      <h3>
+        Library of Congress
+      </h3>
+
+      <p>
+        The Library preserves photographs, oral histories, websites and public
+        reactions documenting how people experienced and remembered September 11.
+      </p>
+
+      <a
+        class="button"
+        href="https://www.loc.gov/"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Library of Congress
+
+      </a>
+
+    </article>
+
+  </div>
+
+  <div class="sourcebar">
+
+    <strong>Sources:</strong>
+
+    <a
+      href="https://www.911memorial.org/visit/museum/exhibitions/in-memoriam"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      9/11 Memorial In Memoriam
+
+    </a>
+
+    <a
+      href="https://collection.911memorial.org/"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      Museum Collection
+
+    </a>
+
+    <a
+      href="https://www.loc.gov/"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      Library of Congress
+
+    </a>
+
+  </div>
+
+</section>
+
+<section class="section" id="sources">
+
+  <div class="heading">
+
+    <h2>
+      Master Source Directory
+    </h2>
+
+    <p>
+      Primary and institutional sources used throughout this page
+    </p>
+
+  </div>
+
   <div class="source-list">
-<article class="source-entry">
-  <h3>
-    National September 11 Memorial & Museum
-  </h3>
-  <p>
-    Memorial names, oral histories, photographs, artifacts, family
-    materials, survivor testimony and the permanent museum collection.
-  </p>
-  <a
-    href="https://www.911memorial.org/"
-    target="_blank"
-    rel="noopener noreferrer">
-    911memorial.org →
-  </a>
-</article>
-<article class="source-entry">
-  <h3>
-    National Archives and Records Administration
-  </h3>
-  <p>
-    9/11 Commission records and federal records, including FAA materials.
-  </p>
-  <a
-    href="https://www.archives.gov/research/9-11"
-    target="_blank"
-    rel="noopener noreferrer">
-    archives.gov →
-  </a>
-</article>
-<article class="source-entry">
-  <h3>
-    Library of Congress
-  </h3>
-  <p>
-    Photographic collections, oral histories, the September 11 Documentary
-    Project and the September 11 Web Archive.
-  </p>
-  <a
-    href="https://www.loc.gov/"
-    target="_blank"
-    rel="noopener noreferrer">
-    loc.gov →
-  </a>
-</article>
-<article class="source-entry">
-  <h3>
-    GovInfo
-  </h3>
-  <p>
-    Official U.S. Government Publishing Office access to the 9/11
-    Commission Report.
-  </p>
-  <a
-    href="https://www.govinfo.gov/features/911-commission-report"
-    target="_blank"
-    rel="noopener noreferrer">
-    govinfo.gov →
-  </a>
-</article>
-<article class="source-entry">
-  <h3>
-    Centers for Disease Control and Prevention
-  </h3>
-  <p>
-    World Trade Center Health Program information concerning eligibility,
-    covered conditions, treatment and the long-term health consequences
-    of 9/11 exposure.
-  </p>
-  <a
-    href="https://www.cdc.gov/wtc/about.html"
-    target="_blank"
-    rel="noopener noreferrer">
-    cdc.gov/wtc →
-  </a>
-</article>
-<article class="source-entry">
-  <h3>
-    September 11th Victim Compensation Fund
-  </h3>
-  <p>
-    Federal information concerning eligibility, presence requirements
-    and compensation for eligible 9/11-related physical harm.
-  </p>
-  <a
-    href="https://www.vcf.gov/"
-    target="_blank"
-    rel="noopener noreferrer">
-    vcf.gov →
-  </a>
-</article>
-<article class="source-entry">
-  <h3>
-    National Security Archive
-  </h3>
-  <p>
-    Declassified historical records concerning terrorism policy,
-    Afghanistan, the Taliban, al-Qaeda and the years preceding 9/11.
-  </p>
-  <a
-    href="https://nsarchive.gwu.edu/briefing-book-sourcebook/2001-09-21/september-11th-sourcebooks"
-    target="_blank"
-    rel="noopener noreferrer">
-    nsarchive.gwu.edu →
-  </a>
-</article>
-<article class="source-entry">
-  <h3>
-    U.S. Environmental Protection Agency
-  </h3>
-  <p>
-    Evaluation of the federal response to the World Trade Center collapse,
-    including occupational health concerns and the experience of workers.
-  </p>
-  <a
-    href="https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P101C8ZJ.TXT"
-    target="_blank"
-    rel="noopener noreferrer">
-    EPA report →
-  </a>
-</article>
+
+    <article class="source">
+
+      <h3>
+        National September 11 Memorial & Museum
+      </h3>
+
+      <p>
+        Names, Memorial, In Memoriam, oral histories, family materials
+        and museum collection.
+      </p>
+
+      <a
+        href="https://www.911memorial.org/"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        911memorial.org
+
+      </a>
+
+    </article>
+
+    <article class="source">
+
+      <h3>
+        9/11 Memorial Museum Collection
+      </h3>
+
+      <p>
+        Artifacts, photographs, first-person testimony and historical records.
+      </p>
+
+      <a
+        href="https://collection.911memorial.org/"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        collection.911memorial.org
+
+      </a>
+
+    </article>
+
+    <article class="source">
+
+      <h3>
+        National Commission on Terrorist Attacks Upon the United States
+      </h3>
+
+      <p>
+        Detailed chronology and official findings, including Chapters 1 and 9.
+      </p>
+
+      <a
+        href="https://911commission.gov/report/index.htm"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        911commission.gov/report
+
+      </a>
+
+    </article>
+
+    <article class="source">
+
+      <h3>
+        National Archives and Records Administration
+      </h3>
+
+      <p>
+        9/11 Commission records and federal records.
+      </p>
+
+      <a
+        href="https://www.archives.gov/research/9-11"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        archives.gov/research/9-11
+
+      </a>
+
+    </article>
+
+    <article class="source">
+
+      <h3>
+        George W. Bush White House Archives
+      </h3>
+
+      <p>
+        Archived presidential timeline and the 8:30 p.m. September 11 address.
+      </p>
+
+      <a
+        href="https://georgewbush-whitehouse.archives.gov/news/releases/2001/09/20010911-16.html"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Archived White House address
+
+      </a>
+
+    </article>
+
+    <article class="source">
+
+      <h3>
+        GovInfo / Office of the Federal Register
+      </h3>
+
+      <p>
+        Official federal publication and government records.
+      </p>
+
+      <a
+        href="https://www.govinfo.gov/"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        GovInfo
+
+      </a>
+
+    </article>
+
+    <article class="source">
+
+      <h3>
+        Library of Congress
+      </h3>
+
+      <p>
+        Photographs, oral histories, Documentary Project and September 11
+        Web Archive.
+      </p>
+
+      <a
+        href="https://www.loc.gov/"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        loc.gov
+
+      </a>
+
+    </article>
+
+    <article class="source">
+
+      <h3>
+        CDC World Trade Center Health Program
+      </h3>
+
+      <p>
+        Long-term medical monitoring and treatment for eligible responders
+        and survivors.
+      </p>
+
+      <a
+        href="https://www.cdc.gov/wtc/about.html"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        cdc.gov/wtc
+
+      </a>
+
+    </article>
+
+    <article class="source">
+
+      <h3>
+        September 11th Victim Compensation Fund
+      </h3>
+
+      <p>
+        Federal information on eligibility and compensation.
+      </p>
+
+      <a
+        href="https://www.vcf.gov/"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        vcf.gov
+
+      </a>
+
+    </article>
+
+    <article class="source">
+
+      <h3>
+        U.S. Environmental Protection Agency
+      </h3>
+
+      <p>
+        Evaluation of the response to the World Trade Center collapse.
+      </p>
+
+      <a
+        href="https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P101C8ZJ.TXT"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        EPA report
+
+      </a>
+
+    </article>
+
+    <article class="source">
+
+      <h3>
+        National Security Archive
+      </h3>
+
+      <p>
+        Declassified historical sourcebooks relating to terrorism and
+        U.S. policy.
+      </p>
+
+      <a
+        href="https://nsarchive.gwu.edu/briefing-book-sourcebook/2001-09-21/september-11th-sourcebooks"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        National Security Archive
+
+      </a>
+
+    </article>
+
   </div>
+
 </section>
-<!-- =========================================================
-     ARCHIVAL PRINCIPLES
-========================================================= -->
-<section class="archive-section" id="archival-principles">
-  <div class="section-heading">
-<h2>
-  Archival Principles
-</h2>
+
+<section class="section" id="ethics">
+
+  <div class="heading">
+
+    <h2>
+      Archival Standards
+    </h2>
+
+    <p>
+      How this page handles sensitive historical material
+    </p>
+
   </div>
-  <div class="archive-note">
-<p>
-  <strong>Accuracy comes before completeness.</strong>
-  A historical archive should never fill an empty space with an
-  invented fact, photograph, quotation, biography or attribution.
-</p>
-<p>
-  <strong>Sources remain attached to their evidence.</strong>
-  When a photograph, recording, document or quotation comes from another
-  institution, this archive identifies the institution and links back
-  to the original collection.
-</p>
-<p>
-  <strong>Names and records should be presented accurately.</strong>
-  Names, photographs, biographies and family remembrances should be
-  handled with care, context and accurate attribution.
-</p>
-<p>
-  <strong>Historical uncertainty is allowed.</strong>
-  If researchers do not know something, the archive should say that
-  it is unknown rather than inventing an answer.
-</p>
-<p>
-  <strong>Graphic material requires context.</strong>
-  Images of death, destruction and human remains should never be used
-  merely for shock value. Where such material is included elsewhere
-  in the archive, it should be clearly identified and presented for
-  historical purposes.
-</p>
+
+  <div class="notice">
+
+    <p>
+      <strong>Accuracy.</strong>
+      Facts are tied to identifiable sources. Unknown information is not
+      filled with guesses.
+    </p>
+
+    <p>
+      <strong>Names and biographies.</strong>
+      Names are reproduced from the Memorial's official directory.
+      Biographical claims should be checked against reliable archival
+      material before being added.
+    </p>
+
+    <p>
+      <strong>Photographs.</strong>
+      Images are shown with visible credit and a link to the image record
+      or source. Copyright and family permissions remain with the applicable
+      rights holders.
+    </p>
+
+    <p>
+      <strong>Graphic material.</strong>
+      Images of death, human remains or severe destruction should be included
+      only when their historical purpose is clear and with appropriate
+      warning and context.
+    </p>
+
+    <p>
+      <strong>Source visibility.</strong>
+      Every major section carries its sources directly underneath the
+      material so the archive remains readable as a single page while
+      evidence stays visible.
+    </p>
+
   </div>
+
 </section>
+
 </main>
-<!-- =========================================================
-     FOOTER
-========================================================= -->
+
 <footer>
-  <p>
-    <strong>THE HISTORICAL RECORD</strong>
-  </p>
+
+  <strong>
+    THE HISTORICAL RECORD
+  </strong>
+
   <p>
     September 11, 2001
   </p>
-  <p class="footer-small">
-    An independent personal historical archive preserving names, memories,
-    testimony, media and primary-source research. Third-party materials
-    remain the property of their respective creators, families, archives,
-    institutions and rights holders.
+
+  <p class="small">
+    Independent personal historical archive. Third-party materials remain
+    the property of their respective creators, families, archives,
+    institutions and rights holders. This page is not affiliated with
+    the National September 11 Memorial & Museum, the U.S. Government,
+    the Library of Congress or any other institution named above.
   </p>
+
 </footer>
-<script async src="https://platform.twitter.com/widgets.js"></script>
+
 <script>
-/* =========================================================
-   MENU
-========================================================= */
-const menuButton =
-  document.getElementById("menuButton");
-const sideMenu =
-  document.getElementById("sideMenu");
-const menuOverlay =
-  document.getElementById("menuOverlay");
-function openMenu() {
-  sideMenu.classList.add("open");
-  menuOverlay.classList.add("open");
-  document.body.classList.add("menu-open");
-  menuButton.setAttribute(
-    "aria-expanded",
-    "true"
+
+const btn =
+  document.getElementById('menuBtn');
+
+const side =
+  document.getElementById('side');
+
+const overlay =
+  document.getElementById('overlay');
+
+function closeMenu(){
+
+  side.classList.remove('on');
+
+  overlay.classList.remove('on');
+
+  document.body.classList.remove('lock');
+
+  btn.setAttribute(
+    'aria-expanded',
+    'false'
   );
-  menuButton.setAttribute(
-    "aria-label",
-    "Close menu"
-  );
+
 }
-function closeMenu() {
-  sideMenu.classList.remove("open");
-  menuOverlay.classList.remove("open");
-  document.body.classList.remove("menu-open");
-  menuButton.setAttribute(
-    "aria-expanded",
-    "false"
+
+function openMenu(){
+
+  side.classList.add('on');
+
+  overlay.classList.add('on');
+
+  document.body.classList.add('lock');
+
+  btn.setAttribute(
+    'aria-expanded',
+    'true'
   );
-  menuButton.setAttribute(
-    "aria-label",
-    "Open menu"
-  );
+
 }
-menuButton.addEventListener(
-  "click",
-  function() {
-    if (
-      sideMenu.classList.contains("open")
-    ) {
+
+btn.addEventListener(
+  'click',
+  function(){
+
+    if(
+      side.classList.contains('on')
+    ){
+
       closeMenu();
-    } else {
+
+    }else{
+
       openMenu();
+
     }
+
   }
 );
-menuOverlay.addEventListener(
-  "click",
+
+overlay.addEventListener(
+  'click',
   closeMenu
 );
+
 document.addEventListener(
-  "keydown",
-  function(event) {
-    if (event.key === "Escape") {
+  'keydown',
+  function(e){
+
+    if(e.key === 'Escape'){
       closeMenu();
     }
+
   }
 );
-/* =========================================================
-   CLOSE MENU AFTER INTERNAL NAVIGATION
-========================================================= */
+
 document
-  .querySelectorAll(".side-menu a")
-  .forEach(function(link) {
-    link.addEventListener(
-      "click",
+  .querySelectorAll('.side a')
+  .forEach(function(a){
+
+    a.addEventListener(
+      'click',
       closeMenu
     );
+
   });
+
+function searchVictim(){
+
+  const input =
+    document.getElementById('victimSearch');
+
+  const query =
+    input.value.trim();
+
+  if(!query){
+    return;
+  }
+
+  /*
+    The official Memorial directory is loaded
+    in a separate iframe. Browsers do not allow
+    this page to search the contents of a
+    cross-origin iframe.
+
+    We therefore open the official directory
+    in a new tab and use the browser's own
+    search functionality there.
+  */
+
+  window.open(
+    'https://www.911memorial.org/visit/memorial/names-911-memorial',
+    '_blank',
+    'noopener,noreferrer'
+  );
+
+}
+
 </script>
+
 </body>
 </html>
