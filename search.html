@@ -3,39 +3,270 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Search the Archive | The Historical Record</title>
+
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      background: #f8f8f8;
+      color: #0b1f4d;
+    }
+
+    .site-header {
+      background: #0b1f4d;
+      border-bottom: 5px solid #b22234;
+    }
+
+    .brand {
+      color: #ffffff;
+    }
+
+    .hero {
+      background: linear-gradient(
+        135deg,
+        #0b1f4d 0%,
+        #163b78 55%,
+        #b22234 100%
+      );
+      color: #ffffff;
+      padding: 70px 0;
+    }
+
+    .hero .eyebrow,
+    .hero h1,
+    .hero-text {
+      color: #ffffff;
+    }
+
+    #search-form {
+      display: flex;
+      gap: 10px;
+      margin-top: 30px;
+      max-width: 800px;
+    }
+
+    #search-input {
+      flex: 1;
+      min-width: 0;
+      padding: 15px 18px;
+      border: 2px solid #d5dbea;
+      border-radius: 4px;
+      background: #ffffff;
+      color: #0b1f4d;
+      font-size: 1rem;
+    }
+
+    #search-input:focus {
+      outline: none;
+      border-color: #b22234;
+    }
+
+    #search-form button {
+      padding: 15px 25px;
+      border: 0;
+      border-radius: 4px;
+      background: #b22234;
+      color: #ffffff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #search-form button:hover {
+      background: #8f1b2a;
+    }
+
+    .search-section {
+      padding: 60px 0;
+      background: #f8f8f8;
+    }
+
+    #search-status {
+      margin-bottom: 25px;
+      color: #0b1f4d;
+      font-weight: bold;
+    }
+
+    .search-result {
+      margin-bottom: 25px;
+      padding: 28px;
+      background: #ffffff;
+      border: 1px solid #d5dbea;
+      border-left: 5px solid #b22234;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .search-result .result-category {
+      margin: 0 0 8px;
+      color: #b22234;
+      font-size: 0.75rem;
+      font-weight: bold;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .search-result h2 {
+      margin: 0 0 8px;
+      color: #0b1f4d;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.25;
+    }
+
+    .search-result .result-date {
+      margin: 0 0 15px;
+      color: #555;
+      font-weight: bold;
+    }
+
+    .search-result p {
+      color: #333;
+      line-height: 1.7;
+    }
+
+    .search-result a {
+      color: #b22234;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .search-result a:hover {
+      text-decoration: underline;
+    }
+
+    .no-results {
+      padding: 25px;
+      background: #ffffff;
+      border-left: 5px solid #0b1f4d;
+      color: #333;
+    }
+
+    .site-footer {
+      background: #0b1f4d;
+      color: #ffffff;
+      border-top: 5px solid #b22234;
+    }
+
+    .site-footer p {
+      color: #ffffff;
+    }
+
+    .menu-button {
+      background: #b22234;
+    }
+
+    .side-menu {
+      background: #ffffff;
+      border-right: 5px solid #b22234;
+    }
+
+    .menu-header {
+      background: #0b1f4d;
+      color: #ffffff;
+    }
+
+    .side-menu nav a {
+      color: #0b1f4d;
+      border-bottom: 1px solid #d5dbea;
+    }
+
+    .side-menu nav a:hover {
+      background: #b22234;
+      color: #ffffff;
+    }
+
+    @media (max-width: 600px) {
+
+      .hero {
+        padding: 55px 0;
+      }
+
+      #search-form {
+        flex-direction: column;
+      }
+
+      #search-form button {
+        width: 100%;
+      }
+
+      .search-result {
+        padding: 22px;
+      }
+
+    }
+  </style>
 </head>
 
 <body>
 
-  <button class="menu-button" aria-label="Open menu" aria-expanded="false">
+  <button
+    class="menu-button"
+    aria-label="Open menu"
+    aria-expanded="false">
+
     <span></span>
     <span></span>
     <span></span>
+
   </button>
+
 
   <aside class="side-menu">
 
     <div class="menu-header">
-      <h2>The Historical Record</h2>
-      <p>Archive Navigation</p>
+
+      <h2>
+        The Historical Record
+      </h2>
+
+      <p>
+        Archive Navigation
+      </p>
+
     </div>
 
+
     <nav>
-      <a href="search.html">Search the Archive</a>
-      <a href="archive.html">The Archive</a>
-      <a href="index.html">Home</a>
-      <a href="politics.html">Politics</a>
-      <a href="entertainment-sports.html">Entertainment / Sports</a>
-      <a href="world-events.html">World Events</a>
-      <a href="social-media.html">Social Media</a>
-      <a href="thoughts.html">Thoughts / Blog</a>
+
+      <a href="search.html">
+        Search the Archive
+      </a>
+
+      <a href="archive.html">
+        The Archive
+      </a>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="politics.html">
+        Politics
+      </a>
+
+      <a href="entertainment-sports.html">
+        Entertainment / Sports
+      </a>
+
+      <a href="world-events.html">
+        World Events
+      </a>
+
+      <a href="social-media.html">
+        Social Media
+      </a>
+
+      <a href="thoughts.html">
+        Thoughts / Blog
+      </a>
+
     </nav>
 
   </aside>
 
+
   <div class="menu-overlay"></div>
+
 
   <header class="site-header">
 
@@ -48,6 +279,7 @@
     </div>
 
   </header>
+
 
   <main>
 
@@ -64,16 +296,18 @@
         </h1>
 
         <p class="hero-text">
-          Search articles, records, events, posts, and other material
-          preserved throughout The Historical Record.
+          Search articles, records, events, posts, videos, photographs,
+          documents, and other material preserved throughout
+          The Historical Record.
         </p>
+
 
         <form id="search-form">
 
           <input
             type="search"
             id="search-input"
-            placeholder="Enter a keyword..."
+            placeholder="Search by subject, person, event, date, keyword..."
             aria-label="Search the archive"
             autocomplete="off"
           >
@@ -88,7 +322,8 @@
 
     </section>
 
-    <section class="records-section">
+
+    <section class="search-section">
 
       <div class="container">
 
@@ -101,6 +336,7 @@
     </section>
 
   </main>
+
 
   <footer class="site-footer">
 
@@ -118,9 +354,31 @@
 
   </footer>
 
+
   <script src="script.js"></script>
 
+
   <script>
+
+    /*
+      ==========================================
+      THE HISTORICAL RECORD SEARCH DATABASE
+      ==========================================
+
+      Add new records here as the archive grows.
+
+      The search engine looks through:
+
+      - title
+      - category
+      - date
+      - description
+      - keywords
+
+      Keywords are NOT displayed to visitors.
+      They simply make the record easier to find.
+    */
+
 
     const archiveRecords = [
 
@@ -137,20 +395,268 @@
           "September 13, 2026",
 
         description:
-          "The International Atomic Energy Agency's board referred Iran to the United Nations Security Council over concerns surrounding Iran's nuclear program. The development marked a significant escalation in the long-running international dispute over Iran's nuclear activities."
+          "The International Atomic Energy Agency's board referred Iran to the United Nations Security Council over concerns surrounding Iran's nuclear program. The development marked a significant escalation in the long-running international dispute over Iran's nuclear activities.",
+
+        keywords: [
+
+          "Iran",
+          "Iran nuclear program",
+          "Iran nuclear weapons",
+          "Iran nuclear crisis",
+          "nuclear",
+          "nuclear weapons",
+          "nuclear program",
+          "IAEA",
+          "International Atomic Energy Agency",
+          "United Nations",
+          "UN",
+          "United Nations Security Council",
+          "Security Council",
+          "Middle East",
+          "international relations",
+          "international crisis"
+
+        ]
+
+      },
+
+
+      {
+        file: "politics.html",
+
+        title:
+          "September 11, 2001: Historical Media Archive",
+
+        category:
+          "Politics",
+
+        date:
+          "September 11, 2001",
+
+        description:
+          "A collection of video footage, reporting, documentaries, social media posts, and other historical media relating to September 11, 2001 and its aftermath.",
+
+        keywords: [
+
+          "September 11",
+          "September 11 2001",
+          "9/11",
+          "9 11",
+          "September Eleventh",
+          "September 11 attacks",
+          "9/11 attacks",
+          "terrorist attacks",
+          "terrorism",
+          "World Trade Center",
+          "World Trade Center attacks",
+          "Twin Towers",
+          "Twin Towers attacks",
+          "New York City",
+          "New York",
+          "Manhattan",
+          "Pentagon",
+          "Flight 93",
+          "United Airlines Flight 93",
+          "American Airlines",
+          "airplane attacks",
+          "hijacked planes",
+          "al-Qaeda",
+          "Osama bin Laden",
+          "George W. Bush",
+          "terrorism",
+          "Afghanistan",
+          "Iraq",
+          "War on Terror",
+          "War on Terrorism",
+          "Ground Zero",
+          "9/11 memorial",
+          "September 11 anniversary",
+          "25th anniversary",
+          "historical footage",
+          "news coverage",
+          "news footage",
+          "documentary",
+          "historical media"
+
+        ]
+
+      },
+
+
+      {
+        file: "politics.html",
+
+        title:
+          "25 years after Sept. 11 attacks, America reflects and remembers",
+
+        category:
+          "Politics",
+
+        date:
+          "September 11, 2026",
+
+        description:
+          "CBS News coverage and reporting marking the 25th anniversary of the September 11 attacks.",
+
+        keywords: [
+
+          "September 11",
+          "September 11 2001",
+          "9/11",
+          "9 11",
+          "September Eleventh",
+          "25 years",
+          "25th anniversary",
+          "September 11 anniversary",
+          "CBS News",
+          "America",
+          "United States",
+          "terrorist attacks",
+          "terrorism",
+          "World Trade Center",
+          "Twin Towers",
+          "Pentagon",
+          "Flight 93",
+          "New York City",
+          "memorial",
+          "remembrance",
+          "history",
+          "historical record"
+
+        ]
+
+      },
+
+
+      {
+        file: "politics.html",
+
+        title:
+          "911 Revisionist X Post",
+
+        category:
+          "Social Media",
+
+        date:
+          "September 2026",
+
+        description:
+          "An archived X post from 911 Revisionist preserved as part of the September 11 historical media collection.",
+
+        keywords: [
+
+          "September 11",
+          "September 11 2001",
+          "9/11",
+          "9 11",
+          "September Eleventh",
+          "911 Revisionist",
+          "X",
+          "Twitter",
+          "social media",
+          "September 11 attacks",
+          "World Trade Center",
+          "Twin Towers",
+          "historical media"
+
+        ]
+
+      },
+
+
+      {
+        file: "politics.html",
+
+        title:
+          "Fox News Politics X Post",
+
+        category:
+          "Social Media",
+
+        date:
+          "September 2026",
+
+        description:
+          "An archived X post from Fox News Politics preserved as part of the September 11 historical media collection.",
+
+        keywords: [
+
+          "September 11",
+          "September 11 2001",
+          "9/11",
+          "9 11",
+          "September Eleventh",
+          "Fox News",
+          "Fox News Politics",
+          "X",
+          "Twitter",
+          "social media",
+          "September 11 attacks",
+          "World Trade Center",
+          "Twin Towers",
+          "historical media"
+
+        ]
+
+      },
+
+
+      {
+        file: "politics.html",
+
+        title:
+          "25 Years Ago Live X Post",
+
+        category:
+          "Social Media",
+
+        date:
+          "September 2026",
+
+        description:
+          "An archived X post from 25 Years Ago Live preserved as part of the September 11 historical media collection.",
+
+        keywords: [
+
+          "September 11",
+          "September 11 2001",
+          "9/11",
+          "9 11",
+          "September Eleventh",
+          "25 Years Ago Live",
+          "25 years",
+          "25th anniversary",
+          "X",
+          "Twitter",
+          "social media",
+          "September 11 attacks",
+          "historical media"
+
+        ]
+
       }
 
     ];
 
 
+    /*
+      ==========================================
+      SEARCH FUNCTION
+      ==========================================
+    */
+
+
     const form =
       document.getElementById("search-form");
+
 
     const input =
       document.getElementById("search-input");
 
+
     const results =
       document.getElementById("search-results");
+
 
     const status =
       document.getElementById("search-status");
@@ -162,8 +668,12 @@
 
         event.preventDefault();
 
+
         const keyword =
-          input.value.trim().toLowerCase();
+          input.value
+            .trim()
+            .toLowerCase();
+
 
         results.innerHTML = "";
 
@@ -173,41 +683,68 @@
         if (!keyword) {
 
           status.innerHTML =
-            "<p>Please enter a keyword to search the archive.</p>";
+            '<div class="no-results">' +
+            'Please enter a keyword to search the archive.' +
+            '</div>';
 
           return;
+
         }
+
+
+        /*
+          Search through ALL searchable fields.
+        */
 
 
         const matches =
           archiveRecords.filter(function(record) {
 
-            const searchableText = (
 
-              record.title +
-              " " +
-              record.category +
-              " " +
-              record.date +
-              " " +
-              record.description
+            const searchableText = [
 
-            ).toLowerCase();
+              record.title,
+
+              record.category,
+
+              record.date,
+
+              record.description,
+
+              record.keywords.join(" ")
+
+            ]
+              .join(" ")
+              .toLowerCase();
+
 
             return searchableText.includes(keyword);
 
           });
 
 
+        /*
+          No results
+        */
+
+
         if (matches.length === 0) {
 
           status.innerHTML =
-            "<p>No records were found containing <strong>" +
-            keyword +
-            "</strong>.</p>";
+            '<div class="no-results">' +
+            'No records were found containing <strong>' +
+            escapeHtml(keyword) +
+            '</strong>.' +
+            '</div>';
 
           return;
+
         }
+
+
+        /*
+          Results found
+        */
 
 
         status.innerHTML =
@@ -222,34 +759,36 @@
 
         matches.forEach(function(record) {
 
+
           const article =
             document.createElement("article");
 
+
           article.className =
-            "record-card";
+            "search-result";
 
 
           article.innerHTML = `
 
-            <p class="record-label">
-              ${record.category}
+            <p class="result-category">
+              ${escapeHtml(record.category)}
             </p>
 
-            <h3>
-              ${record.title}
-            </h3>
+            <h2>
+              ${escapeHtml(record.title)}
+            </h2>
 
-            <p class="record-date">
-              ${record.date}
+            <p class="result-date">
+              ${escapeHtml(record.date)}
             </p>
 
             <p>
-              ${record.description}
+              ${escapeHtml(record.description)}
             </p>
 
-            <p class="source-link">
-              <a href="${record.file}">
-                View Record
+            <p>
+              <a href="${escapeHtml(record.file)}">
+                View Record →
               </a>
             </p>
 
@@ -261,8 +800,34 @@
         });
 
       }
-
     );
+
+
+    /*
+      ==========================================
+      BASIC HTML ESCAPING
+      ==========================================
+
+      Prevents searchable text from being
+      interpreted as HTML.
+    */
+
+
+    function escapeHtml(value) {
+
+      return String(value)
+
+        .replace(/&/g, "&amp;")
+
+        .replace(/</g, "&lt;")
+
+        .replace(/>/g, "&gt;")
+
+        .replace(/"/g, "&quot;")
+
+        .replace(/'/g, "&#039;");
+
+    }
 
   </script>
 
