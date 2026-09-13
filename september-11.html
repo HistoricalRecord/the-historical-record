@@ -270,6 +270,165 @@
     .back-link a {
       font-weight: bold;
     }
+    /* =========================================================
+   SEPTEMBER 11 PAGE SIDEBAR OVERRIDE
+   ========================================================= */
+
+.side-menu {
+  position: fixed !important;
+
+  top: 0 !important;
+  left: -320px !important;
+  bottom: 0 !important;
+
+  width: 280px !important;
+  max-width: 85vw !important;
+
+  height: 100vh !important;
+  height: 100dvh !important;
+
+  box-sizing: border-box !important;
+
+  background: #ffffff !important;
+
+  border-right: 5px solid #b22234 !important;
+
+  z-index: 1000 !important;
+
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+
+  touch-action: pan-y !important;
+
+  transition: left 0.3s ease !important;
+
+  -webkit-overflow-scrolling: auto !important;
+}
+
+.side-menu.open {
+  left: 0 !important;
+
+  overflow-y: auto !important;
+  touch-action: pan-y !important;
+}
+
+/* Menu navigation */
+
+.side-menu nav {
+  display: block !important;
+
+  width: 100% !important;
+
+  padding: 20px 0 60px !important;
+  margin: 0 !important;
+
+  overflow: visible !important;
+
+  touch-action: pan-y !important;
+}
+
+.side-menu nav a {
+  display: block !important;
+
+  width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  padding: 15px 25px !important;
+
+  background: #ffffff !important;
+
+  color: #0b1f4d !important;
+
+  font-family: Arial, Helvetica, sans-serif !important;
+
+  font-size: 16px !important;
+
+  font-weight: 500 !important;
+
+  line-height: 1.5 !important;
+
+  border-bottom: 1px solid #d5dbea !important;
+
+  touch-action: pan-y !important;
+}
+
+/* Politics dropdown */
+
+.menu-dropdown {
+  width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  background: #ffffff !important;
+}
+
+.menu-dropdown-toggle {
+  width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  display: flex !important;
+
+  justify-content: space-between !important;
+  align-items: center !important;
+
+  padding: 15px 25px !important;
+
+  background: #ffffff !important;
+
+  color: #0b1f4d !important;
+
+  border: none !important;
+
+  border-bottom: 1px solid #d5dbea !important;
+
+  font-family: Arial, Helvetica, sans-serif !important;
+
+  font-size: 16px !important;
+
+  font-weight: 500 !important;
+
+  line-height: 1.5 !important;
+
+  touch-action: pan-y !important;
+}
+
+.menu-submenu {
+  width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  background: #f8f8f8 !important;
+}
+
+.menu-submenu a {
+  padding-left: 40px !important;
+
+  background: #f8f8f8 !important;
+
+  color: #0b1f4d !important;
+}
+
+/* Overlay */
+
+.menu-overlay {
+  position: fixed !important;
+
+  inset: 0 !important;
+
+  z-index: 999 !important;
+
+  background: rgba(11, 31, 77, 0.65) !important;
+}
+
+/* Prevent the page behind the menu from scrolling */
+
+body.menu-open {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
+}
   </style>
 </head>
 
