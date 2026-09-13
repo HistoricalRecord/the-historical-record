@@ -23,14 +23,13 @@
     </div>
 
     <nav>
-  <a href="search.html">Search the Archive</a>
-  <a href="index.html">Home</a>
+      <a href="search.html">Search the Archive</a>
+      <a href="index.html">Home</a>
       <a href="politics.html">Politics</a>
       <a href="entertainment-sports.html">Entertainment / Sports</a>
       <a href="world-events.html">World Events</a>
       <a href="social-media.html">Social Media</a>
       <a href="thoughts.html">Thoughts / Blog</a>
-      <a href="search.html">Search the Archive</a>
     </nav>
 
   </aside>
@@ -164,11 +163,13 @@
       status.innerHTML = "";
 
       if (!keyword) {
-        status.innerHTML = "<p>Please enter a keyword to search the archive.</p>";
+        status.innerHTML =
+          "<p>Please enter a keyword to search the archive.</p>";
         return;
       }
 
-      status.innerHTML = "<p>Searching the archive...</p>";
+      status.innerHTML =
+        "<p>Searching the archive...</p>";
 
       const matches = [];
 
@@ -185,22 +186,28 @@
           const html = await response.text();
 
           const parser = new DOMParser();
-          const documentPage = parser.parseFromString(html, "text/html");
 
-          const text = documentPage.body.innerText.toLowerCase();
+          const documentPage =
+            parser.parseFromString(html, "text/html");
+
+          const text =
+            documentPage.body.innerText.toLowerCase();
 
           if (text.includes(keyword)) {
 
-            const headings = Array.from(
-              documentPage.querySelectorAll("h1, h2, h3")
-            );
+            const headings =
+              Array.from(
+                documentPage.querySelectorAll("h1, h2, h3")
+              );
 
             let heading = page.title;
 
             for (const element of headings) {
 
               if (
-                element.textContent.toLowerCase().includes(keyword)
+                element.textContent
+                  .toLowerCase()
+                  .includes(keyword)
               ) {
                 heading = element.textContent.trim();
                 break;
@@ -217,7 +224,12 @@
           }
 
         } catch (error) {
-          console.error("Search error:", error);
+
+          console.error(
+            "Search error:",
+            error
+          );
+
         }
 
       }
@@ -241,14 +253,20 @@
 
       matches.forEach(function(match) {
 
-        const article = document.createElement("article");
+        const article =
+          document.createElement("article");
 
-        article.className = "archive-card";
+        article.className =
+          "archive-card";
 
         article.innerHTML = `
-          <p class="eyebrow">${match.category}</p>
+          <p class="eyebrow">
+            ${match.category}
+          </p>
 
-          <h2>${match.heading}</h2>
+          <h2>
+            ${match.heading}
+          </h2>
 
           <p>
             This archive page contains material matching your search.
