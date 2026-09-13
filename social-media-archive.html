@@ -4,2373 +4,1521 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Internet Culture Archive | The Historical Record</title>
-
-<meta name="description"
-content="The Historical Record archive of viral videos, memes, MySpace, YouTube, Vine, Snapchat, Reddit, Twitter, Instagram, Facebook and internet culture from 2004 onward.">
+<title>Meme Archive Vault | The Historical Record</title>
 
 <style>
-:root{
-  --navy:#11183f;
-  --blue:#263c9b;
-  --bright-blue:#4168d5;
-  --purple:#7345a7;
-  --pink:#e94d9e;
-  --cyan:#32bfd1;
-  --yellow:#ffe45c;
-  --green:#4dcc7a;
-  --paper:#fff;
-  --cream:#fffdf5;
-  --text:#202334;
-  --muted:#666b7c;
-  --line:#c9cee1;
-  --shadow:0 7px 18px rgba(20,30,90,.18);
-}
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  margin:0;
-  color:var(--text);
-  font-family:Arial,Helvetica,sans-serif;
-  line-height:1.55;
-
-  background-color:#dce4ff;
-
-  background-image:
-    radial-gradient(circle at 10% 15%,rgba(255,255,255,.7) 0 2px,transparent 3px),
-    radial-gradient(circle at 80% 65%,rgba(255,255,255,.55) 0 2px,transparent 3px),
-    linear-gradient(135deg,#d8e1ff,#f7d9ef 50%,#d7f6fa);
-
-  background-size:55px 55px,71px 71px,100% 100%;
-}
-
-a{
-  color:var(--blue);
-}
-
-a:hover{
-  color:var(--pink);
-}
-
-img{
-  max-width:100%;
-}
-
-/* TOP BAR */
-
-.top-strip{
-  background:var(--navy);
-  color:white;
-  text-align:center;
-  padding:7px 12px;
-  font-size:11px;
-  font-weight:bold;
-  letter-spacing:1.4px;
-  border-bottom:3px solid var(--pink);
-}
-
-/* HEADER */
-
-.site-header{
-  max-width:1200px;
-  margin:20px auto 0;
-  padding:0 15px;
-}
-
-.profile-header{
-  position:relative;
-  overflow:hidden;
-
-  padding:30px;
-
-  color:white;
-
-  background:
-    linear-gradient(135deg,#121c51,#304eb5 48%,#9a4eaa);
-
-  border:4px solid white;
-
-  box-shadow:
-    0 0 0 2px #6977b8,
-    var(--shadow);
-}
-
-.profile-header:before{
-  content:"";
-  position:absolute;
-  width:280px;
-  height:280px;
-  right:-100px;
-  top:-140px;
-  border-radius:50%;
-  background:rgba(255,255,255,.12);
-}
-
-.profile-header:after{
-  content:"";
-  position:absolute;
-  width:180px;
-  height:180px;
-  right:90px;
-  bottom:-130px;
-  border-radius:50%;
-  background:rgba(255,228,92,.14);
-}
-
-.header-content{
-  position:relative;
-  z-index:2;
-}
-
-.kicker{
-  font-size:11px;
-  letter-spacing:2px;
-  font-weight:bold;
-  text-transform:uppercase;
-  color:#dbe3ff;
-}
-
-.profile-header h1{
-  margin:6px 0;
-  font-size:clamp(38px,7vw,72px);
-  line-height:.95;
-  text-shadow:3px 3px 0 rgba(0,0,0,.22);
-}
-
-.tagline{
-  max-width:850px;
-  margin:17px 0 0;
-  font-size:18px;
-  color:#f3f5ff;
-}
-
-/* NAV */
-
-.retro-nav{
-  display:flex;
-  flex-wrap:wrap;
-  gap:5px;
-
-  background:white;
-
-  padding:8px;
-
-  border:2px solid #aeb6d4;
-
-  box-shadow:var(--shadow);
-}
-
-.retro-nav a{
-  padding:8px 12px;
-
-  background:#e9edff;
-
-  border:1px solid #bcc5e1;
-
-  text-decoration:none;
-
-  font-size:12px;
-  font-weight:bold;
-}
-
-.retro-nav a:hover{
-  background:var(--pink);
-  color:white;
-}
-
-/* PAGE */
-
-.page{
-  max-width:1200px;
-  margin:15px auto 60px;
-  padding:0 15px;
-}
-
-.layout{
-  display:grid;
-  grid-template-columns:255px 1fr;
-  gap:15px;
-}
-
-/* SIDEBAR */
-
-.sidebar{
-  align-self:start;
-  position:sticky;
-  top:15px;
-}
-
-.sidebar-box{
-  background:white;
-  border:2px solid #aeb6d4;
-  box-shadow:var(--shadow);
-  margin-bottom:15px;
-}
-
-.sidebar-title{
-  padding:10px 12px;
-  color:white;
-
-  background:
-    linear-gradient(90deg,var(--blue),var(--purple));
-
-  font-size:13px;
-  font-weight:bold;
-}
-
-.sidebar-body{
-  padding:13px;
-  font-size:13px;
-}
-
-.sidebar-body a{
-  display:block;
-  padding:6px 0;
-  border-bottom:1px dotted #cfd3e2;
-  text-decoration:none;
-}
-
-.online{
-  display:inline-block;
-  width:10px;
-  height:10px;
-  margin-right:5px;
-
-  border-radius:50%;
+/* =========================================================
+   MEME ARCHIVE VAULT
+   2007-STYLE YOUTUBE INSPIRED ARCHIVE
+   ========================================================= */
 
-  background:var(--green);
-
-  box-shadow:0 0 7px var(--green);
-}
-
-/* CONTENT */
-
-.content{
-  min-width:0;
-}
-
-.intro-card,
-.source-box{
-  background:white;
-  border:2px solid var(--line);
-  box-shadow:var(--shadow);
-  padding:28px;
-  margin-bottom:18px;
-}
-
-.intro-card h2{
-  margin-top:0;
-  color:var(--navy);
-  font-size:30px;
-}
-
-.intro-card p{
-  color:var(--muted);
-}
-
-/* SECTIONS */
-
-.archive-section{
-  margin-bottom:24px;
-}
-
-.section-title{
-  padding:14px 18px;
-  margin-bottom:13px;
-
-  color:white;
-
-  background:
-    linear-gradient(90deg,var(--navy),var(--blue));
-
-  border:2px solid #0a1235;
-
-  box-shadow:
-    3px 3px 0 rgba(115,69,167,.25);
+* {
+  box-sizing: border-box;
 }
 
-.section-title h2{
-  margin:0;
-  font-size:25px;
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.section-title p{
-  margin:3px 0 0;
-  color:#dce4ff;
-  font-size:13px;
+body {
+  background: #ffffff;
+  color: #333333;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
 }
 
-/* ERA CARDS */
+/* ---------------------------------------------------------
+   TOP YOUTUBE-STYLE BAR
+   --------------------------------------------------------- */
 
-.era-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
+.topbar {
+  height: 54px;
+  border-bottom: 1px solid #cccccc;
+  background: linear-gradient(#ffffff, #eeeeee);
 }
 
-.era-card{
-  background:white;
-  border:2px solid var(--line);
-  padding:20px;
-  box-shadow:3px 4px 0 rgba(38,60,155,.12);
+.topbar-inner {
+  width: 980px;
+  max-width: calc(100% - 24px);
+  height: 54px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.era-year{
-  color:var(--pink);
-  font-size:11px;
-  font-weight:bold;
-  letter-spacing:1px;
+.youtube-logo {
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: -2px;
+  color: #cc0000;
+  white-space: nowrap;
 }
 
-.era-card h3{
-  margin:4px 0 8px;
-  color:var(--navy);
+.youtube-logo span {
+  color: #333333;
 }
 
-.era-card p{
-  color:var(--muted);
+.search-box {
+  flex: 1;
+  display: flex;
+  max-width: 500px;
 }
 
-/* VIDEO GRID */
-
-.video-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-}
-
-.video-card{
-  overflow:hidden;
-  background:white;
-  border:2px solid var(--line);
-  box-shadow:var(--shadow);
-}
-
-.video-frame{
-  position:relative;
-  width:100%;
-  aspect-ratio:16/9;
-  background:#080808;
-}
-
-.video-frame iframe{
-  width:100%;
-  height:100%;
-  border:0;
+.search-box input {
+  flex: 1;
+  height: 30px;
+  border: 1px solid #999999;
+  border-right: 0;
+  padding: 5px 8px;
+  font-size: 13px;
 }
 
-.video-info{
-  padding:17px;
+.search-box button {
+  height: 30px;
+  padding: 0 15px;
+  border: 1px solid #888888;
+  background: linear-gradient(#ffffff, #dddddd);
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.video-year{
-  color:var(--pink);
-  font-size:11px;
-  font-weight:bold;
-  letter-spacing:1px;
+.search-box button:hover {
+  background: #eeeeee;
 }
 
-.video-info h3{
-  margin:3px 0 6px;
-  color:var(--navy);
+.archive-link {
+  color: #333333;
+  text-decoration: none;
+  font-size: 11px;
+  white-space: nowrap;
 }
 
-.video-info p{
-  margin:0;
-  color:var(--muted);
-  font-size:13px;
+.archive-link:hover {
+  color: #cc0000;
+  text-decoration: underline;
 }
 
-/* MEMES */
-
-.meme-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-}
+/* ---------------------------------------------------------
+   PAGE
+   --------------------------------------------------------- */
 
-.meme-card{
-  overflow:hidden;
-  background:white;
-  border:2px solid var(--line);
-  box-shadow:4px 5px 0 rgba(115,69,167,.12);
+.page {
+  width: 980px;
+  max-width: calc(100% - 24px);
+  margin: 12px auto 40px;
 }
 
-.meme-image{
-  height:225px;
-  background:#e8ecff;
+/* ---------------------------------------------------------
+   HEADER
+   --------------------------------------------------------- */
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  overflow:hidden;
+.archive-header {
+  border: 1px solid #cccccc;
+  background: #f5f5f5;
+  padding: 14px 16px;
+  margin-bottom: 10px;
 }
 
-.meme-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
+.archive-header h1 {
+  margin: 0 0 4px;
+  font-size: 24px;
+  color: #333333;
 }
 
-.meme-info{
-  padding:15px;
+.archive-header p {
+  margin: 0;
+  color: #666666;
 }
 
-.meme-date{
-  color:var(--pink);
-  font-size:10px;
-  font-weight:bold;
-  letter-spacing:1px;
-  text-transform:uppercase;
+.archive-header .red {
+  color: #cc0000;
+  font-weight: bold;
 }
 
-.meme-info h3{
-  margin:3px 0;
-  color:var(--navy);
-}
+/* ---------------------------------------------------------
+   CONTROLS
+   --------------------------------------------------------- */
 
-.meme-info p{
-  color:var(--muted);
-  font-size:13px;
+.controls {
+  border: 1px solid #cccccc;
+  background: #eeeeee;
+  padding: 8px;
+  margin-bottom: 12px;
 }
-
-/* TEXT MEMES */
-
-.text-meme{
-  height:225px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
 
-  padding:20px;
-
-  text-align:center;
-
-  color:white;
-
-  font-size:26px;
-  font-weight:900;
-  line-height:1.1;
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
 }
 
-.blue{
-  background:linear-gradient(135deg,#16265e,#4967ca);
+.controls label {
+  font-weight: bold;
+  color: #555555;
 }
 
-.pink{
-  background:linear-gradient(135deg,#a42e72,#ed68b1);
+.controls select,
+.controls input {
+  height: 29px;
+  border: 1px solid #999999;
+  background: white;
+  padding: 4px 7px;
+  font-size: 12px;
 }
 
-.yellow{
-  background:linear-gradient(135deg,#d9ae00,#ffed82);
-  color:#222;
+.controls input {
+  min-width: 260px;
 }
 
-.cyan{
-  background:linear-gradient(135deg,#13798d,#63dce9);
+.stats {
+  margin-top: 7px;
+  color: #666666;
+  font-size: 11px;
 }
-
-/* VINE */
-
-.vine-banner{
-  padding:25px;
 
-  background:
-    linear-gradient(135deg,#101010,#28352d);
+/* ---------------------------------------------------------
+   CATEGORY NAVIGATION
+   --------------------------------------------------------- */
 
-  color:white;
-
-  border-left:7px solid #00bf8f;
-
-  margin-bottom:15px;
+.category-bar {
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
 }
 
-.vine-banner h3{
-  margin-top:0;
-  color:#6de4bc;
+.category-bar a {
+  display: inline-block;
+  padding: 5px 9px;
+  margin-right: 3px;
+  color: #0033cc;
+  text-decoration: none;
+  border: 1px solid transparent;
 }
 
-.vine-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
+.category-bar a:hover,
+.category-bar a.active {
+  color: #ffffff;
+  background: #cc0000;
+  border-color: #990000;
 }
 
-.vine-card{
-  background:white;
-  border:2px solid var(--line);
-  padding:18px;
-}
+/* ---------------------------------------------------------
+   VIDEO GRID
+   --------------------------------------------------------- */
 
-.vine-card h3{
-  margin-top:0;
-  color:#154536;
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
 }
 
-.vine-card p{
-  color:var(--muted);
+.video-card {
+  border: 1px solid #cccccc;
+  background: #ffffff;
+  padding: 7px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.08);
 }
-
-.vine-link{
-  display:inline-block;
-  padding:8px 12px;
 
-  background:#00a87b;
-  color:white;
-
-  text-decoration:none;
-
-  font-size:11px;
-  font-weight:bold;
+.video-card:hover {
+  border-color: #999999;
 }
-
-/* SNAPCHAT */
-
-.snapchat-section{
-  padding:25px;
-
-  background:
-    linear-gradient(135deg,#fff9b8,#fff);
 
-  border:3px solid #111;
-
-  box-shadow:var(--shadow);
+.video-player {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #111111;
+  overflow: hidden;
 }
-
-.snapchat-title{
-  color:#111;
-  font-size:32px;
-  font-weight:900;
 
-  text-shadow:2px 2px 0 #ffe400;
+.video-player iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
-.snap-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
-  margin-top:20px;
+.video-meta {
+  padding: 7px 2px 2px;
 }
 
-.snap-box{
-  padding:16px 10px;
-  text-align:center;
-  background:white;
-  border:2px solid #222;
-  font-weight:bold;
+.video-title {
+  margin: 0 0 5px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #0033cc;
+  font-weight: bold;
 }
 
-.snap-box small{
-  display:block;
-  margin-top:3px;
-  color:#666;
-  font-weight:normal;
+.video-title a {
+  color: #0033cc;
+  text-decoration: none;
 }
 
-/* PLATFORM GRID */
-
-.platform-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
+.video-title a:hover {
+  text-decoration: underline;
 }
-
-.platform{
-  padding:18px 10px;
-
-  text-align:center;
 
-  background:white;
-
-  border:2px solid var(--line);
-
-  box-shadow:
-    3px 3px 0 rgba(38,60,155,.1);
-
-  font-weight:bold;
+.video-info {
+  color: #777777;
+  font-size: 11px;
+  line-height: 16px;
 }
 
-.platform small{
-  display:block;
-  margin-top:4px;
-  color:var(--muted);
-  font-weight:normal;
-  font-size:11px;
+.video-info strong {
+  color: #555555;
 }
 
-/* TIMELINE */
-
-.timeline{
-  border-left:4px solid var(--pink);
-  padding-left:22px;
+.video-era {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 2px 5px;
+  background: #eeeeee;
+  border: 1px solid #cccccc;
+  color: #666666;
+  font-size: 10px;
 }
-
-.timeline-entry{
-  position:relative;
 
-  margin-bottom:13px;
-  padding:18px;
-
-  background:white;
-
-  border:2px solid var(--line);
-
-  box-shadow:3px 4px 0 rgba(38,60,155,.1);
+.video-id {
+  color: #aaaaaa;
+  font-size: 9px;
+  margin-top: 4px;
+  word-break: break-all;
 }
-
-.timeline-entry:before{
-  content:"";
-
-  position:absolute;
 
-  left:-33px;
-  top:21px;
-
-  width:13px;
-  height:13px;
-
-  background:var(--pink);
-
-  border:4px solid #dce4ff;
-
-  border-radius:50%;
-}
+/* ---------------------------------------------------------
+   LOADING / ERROR
+   --------------------------------------------------------- */
 
-.timeline-entry strong{
-  color:var(--blue);
+.loading {
+  color: #888888;
+  font-style: italic;
 }
 
-/* NOTE */
-
-.archive-note{
-  padding:18px;
-
-  background:#fff9d5;
-
-  border:2px solid #e5c944;
-
-  color:#554b16;
-
-  margin-bottom:15px;
+.metadata-error {
+  color: #aa0000;
 }
 
-/* FOOTER */
+/* ---------------------------------------------------------
+   NO RESULTS
+   --------------------------------------------------------- */
 
-footer{
-  max-width:1200px;
-  margin:0 auto 25px;
-  padding:25px;
-
-  background:var(--navy);
-  color:white;
-
-  text-align:center;
-
-  border:3px solid white;
-
-  box-shadow:
-    0 0 0 2px #6977b8,
-    var(--shadow);
+.no-results {
+  display: none;
+  border: 1px solid #cccccc;
+  background: #f7f7f7;
+  padding: 25px;
+  text-align: center;
+  color: #777777;
 }
 
-footer p{
-  margin:5px 0;
-}
+/* ---------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------- */
 
-.footer-small{
-  color:#bbc5e3;
-  font-size:11px;
+.footer {
+  margin-top: 30px;
+  padding-top: 12px;
+  border-top: 1px solid #cccccc;
+  color: #888888;
+  font-size: 10px;
+  line-height: 16px;
 }
 
-/* MOBILE */
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
 
-@media(max-width:950px){
+@media (max-width: 800px) {
 
-  .layout{
-    grid-template-columns:1fr;
+  .topbar-inner {
+    gap: 8px;
   }
 
-  .sidebar{
-    position:static;
+  .youtube-logo {
+    font-size: 19px;
   }
 
-  .meme-grid{
-    grid-template-columns:repeat(2,1fr);
+  .archive-link {
+    display: none;
   }
 
-  .platform-grid,
-  .snap-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-@media(max-width:650px){
-
-  .profile-header{
-    padding:23px 18px;
-  }
-
-  .profile-header h1{
-    font-size:43px;
-  }
-
-  .layout{
-    display:block;
-  }
-
-  .sidebar{
-    margin-bottom:15px;
-  }
-
-  .era-grid,
-  .video-grid,
-  .meme-grid,
-  .vine-grid{
-    grid-template-columns:1fr;
-  }
-
-  .platform-grid,
-  .snap-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .retro-nav{
-    overflow-x:auto;
-    flex-wrap:nowrap;
-  }
-
-  .retro-nav a{
-    white-space:nowrap;
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
 }
 
+@media (max-width: 540px) {
+
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-box input {
+    min-width: 0;
+  }
+
+  .controls input {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .controls-row {
+    display: block;
+  }
+
+  .controls-row > * {
+    margin-bottom: 5px;
+  }
+
+}
+
+/* ---------------------------------------------------------
+   OLD YOUTUBE DETAILS
+   --------------------------------------------------------- */
+
+a {
+  outline: none;
+}
+
+::selection {
+  background: #cc0000;
+  color: #ffffff;
+}
 </style>
 </head>
 
-
 <body>
 
+<!-- =======================================================
+     TOP BAR
+     ======================================================= -->
 
-<div class="top-strip">
-  THE HISTORICAL RECORD • INTERNET CULTURE ARCHIVE • 2004–2026
+<div class="topbar">
+  <div class="topbar-inner">
+
+    <div class="youtube-logo">
+      You<span>Tube</span>
+    </div>
+
+    <div class="search-box">
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="Search the Meme Archive..."
+        autocomplete="off"
+      >
+      <button type="button" id="searchButton">Search</button>
+    </div>
+
+    <a href="social-media.html" class="archive-link">
+      ← Social Media Archive
+    </a>
+
+  </div>
 </div>
 
 
-<header class="site-header">
+<!-- =======================================================
+     MAIN PAGE
+     ======================================================= -->
 
-  <div class="profile-header">
+<div class="page">
 
-    <div class="header-content">
+  <header class="archive-header">
 
-      <div class="kicker">
-        THE HISTORICAL RECORD
-      </div>
+    <h1>Meme Archive Vault</h1>
 
-      <h1>
-        Internet Culture
-      </h1>
+    <p>
+      <span class="red">THE HISTORICAL RECORD</span>
+      — Viral Videos, Internet Memes &amp; Digital Culture
+    </p>
 
-      <p class="tagline">
-        The videos, memes, websites, jokes, personalities and strange
-        little moments that defined the internet.
-      </p>
+    <p style="margin-top:6px;">
+      A chronological collection of videos that helped define Internet culture.
+    </p>
+
+  </header>
+
+
+  <!-- =====================================================
+       CONTROLS
+       ===================================================== -->
+
+  <section class="controls">
+
+    <div class="controls-row">
+
+      <label for="eraFilter">
+        Era:
+      </label>
+
+      <select id="eraFilter">
+        <option value="all">All Eras</option>
+        <option value="2005-2009">2005–2009</option>
+        <option value="2010-2014">2010–2014</option>
+        <option value="2015-2019">2015–2019</option>
+        <option value="2020-2024">2020–2024</option>
+        <option value="2025-2029">2025–2029</option>
+        <option value="unknown">Date Unknown</option>
+      </select>
+
+      <label for="sortFilter">
+        Sort:
+      </label>
+
+      <select id="sortFilter">
+        <option value="default">Archive Order</option>
+        <option value="title">Title A–Z</option>
+        <option value="uploader">Uploader A–Z</option>
+        <option value="oldest">Oldest First</option>
+        <option value="newest">Newest First</option>
+      </select>
 
     </div>
 
-  </div>
+    <div class="stats" id="stats">
+      Loading archive...
+    </div>
+
+  </section>
 
 
-  <nav class="retro-nav">
+  <!-- =====================================================
+       QUICK ERA NAVIGATION
+       ===================================================== -->
 
-    <a href="#eras">ERAS</a>
-    <a href="#early-web">EARLY WEB</a>
-    <a href="#youtube">YOUTUBE</a>
-    <a href="#memes">MEMES</a>
-    <a href="#vine">VINE</a>
-    <a href="#snapchat">SNAPCHAT</a>
-    <a href="#social">SOCIAL MEDIA</a>
-    <a href="#modern">MODERN</a>
-    <a href="#timeline">TIMELINE</a>
+  <nav class="category-bar">
+
+    <a href="#" class="active" data-era="all">
+      All
+    </a>
+
+    <a href="#" data-era="2005-2009">
+      2005–2009
+    </a>
+
+    <a href="#" data-era="2010-2014">
+      2010–2014
+    </a>
+
+    <a href="#" data-era="2015-2019">
+      2015–2019
+    </a>
+
+    <a href="#" data-era="2020-2024">
+      2020–2024
+    </a>
+
+    <a href="#" data-era="unknown">
+      Date Unknown
+    </a>
 
   </nav>
 
-</header>
 
+  <!-- =====================================================
+       VIDEO ARCHIVE
+       ===================================================== -->
 
-<main class="page">
+  <main>
 
+    <div class="video-grid" id="videoGrid"></div>
 
-<div class="layout">
-
-
-<aside class="sidebar">
-
-
-  <div class="sidebar-box">
-
-    <div class="sidebar-title">
-      INTERNET ARCHIVE
+    <div class="no-results" id="noResults">
+      No videos matched your search.
     </div>
 
-    <div class="sidebar-body">
+  </main>
 
-      <strong>
-        <span class="online"></span>
-        ARCHIVE ONLINE
-      </strong>
 
-      <p>
-        A chronological collection of internet culture
-        from the early viral web through the modern
-        short-form era.
-      </p>
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer class="footer">
+
+    <strong>The Historical Record — Meme Archive Vault</strong><br>
+
+    This archive preserves links to publicly available YouTube videos.
+    Video playback is provided by YouTube's embedded player.
+    Titles and uploader information are requested from YouTube when available.
+
+    <br><br>
+
+    The archive does not host or reproduce the videos themselves.
+
+  </footer>
+
+</div>
+
+
+<!-- =======================================================
+     ARCHIVE JAVASCRIPT
+     ======================================================= -->
+
+<script>
+
+/*
+ * =========================================================
+ * VIDEO DATABASE
+ * =========================================================
+ *
+ * Each entry contains the original YouTube URL supplied
+ * for the archive.
+ *
+ * YouTube metadata is loaded automatically.
+ *
+ * We intentionally do NOT invent titles, uploaders, or
+ * upload dates.
+ *
+ * YouTube's oEmbed service supplies title + uploader.
+ *
+ * =========================================================
+ */
+
+const videos = [
+
+  { url: "https://www.youtube.com/watch?v=KmtzQCSh6xk" },
+  { url: "https://www.youtube.com/watch?v=ILtz5nX3_fc" },
+  { url: "https://www.youtube.com/watch?v=WqSTXuJeTks" },
+  { url: "https://www.youtube.com/watch?v=a1Y73sPHKxw" },
+  { url: "https://www.youtube.com/watch?v=mfhBM_Yay6w" },
+  { url: "https://www.youtube.com/watch?v=93hq0YU3Gqk" },
+  { url: "https://www.youtube.com/watch?v=BEtIoGQxqQs" },
+  { url: "https://www.youtube.com/watch?v=LeAltgu_pbM" },
+  { url: "https://www.youtube.com/watch?v=aBfUFr9SBY0" },
+  { url: "https://www.youtube.com/watch?v=D2kJZOfq7zk" },
+  { url: "https://www.youtube.com/watch?v=UMf40daefsI" },
+  { url: "https://www.youtube.com/watch?v=O61Do03ZCjw" },
+  { url: "https://www.youtube.com/watch?v=D1R-jKKp3NA" },
+  { url: "https://www.youtube.com/watch?v=tw5EsYzyGWI" },
+  { url: "https://www.youtube.com/watch?v=O4rfQSgkZOE" },
+  { url: "https://www.youtube.com/watch?v=Y93xTChHV_0" },
+  { url: "https://www.youtube.com/watch?v=OKI-5MHUkKY" },
+  { url: "https://www.youtube.com/watch?v=5RDER307OKI" },
+  { url: "https://www.youtube.com/watch?v=ISV1bt8-TDg" },
+  { url: "https://www.youtube.com/watch?v=b_NQCTbvRnM" },
+  { url: "https://www.youtube.com/watch?v=uEE3akeFeQU" },
+  { url: "https://www.youtube.com/watch?v=7zH4Jb-6BZs" },
+  { url: "https://www.youtube.com/watch?v=vzz704zeI4U" },
+  { url: "https://www.youtube.com/watch?v=QpgJyYBTq84" },
+  { url: "https://www.youtube.com/watch?v=mBxBzmhHTww" },
+
+  { url: "https://www.youtube.com/watch?v=Q5im0Ssyyus" },
+  { url: "https://www.youtube.com/watch?v=CsGYh8AacgY" },
+  { url: "https://www.youtube.com/watch?v=s8MDNFaGfT4" },
+  { url: "https://www.youtube.com/watch?v=Z3ZAGBL6UBA" },
+  { url: "https://www.youtube.com/watch?v=qItugh-fFgg" },
+  { url: "https://www.youtube.com/watch?v=jNQXAC9IVRw" },
+  { url: "https://www.youtube.com/watch?v=hMtZfW2z9dw" },
+  { url: "https://www.youtube.com/watch?v=fbGkxcY7YFU" },
+  { url: "https://www.youtube.com/watch?v=MtN1YnoL46Q" },
+  { url: "https://www.youtube.com/watch?v=Tx1XIm6q4r4" },
+  { url: "https://www.youtube.com/watch?v=EIyohCQqGck" },
+  { url: "https://www.youtube.com/watch?v=2EcBClUGl5Q" },
+  { url: "https://www.youtube.com/watch?v=oavMtUWDBTM" },
+  { url: "https://www.youtube.com/watch?v=YnopHCL1Jk8" },
+  { url: "https://www.youtube.com/watch?v=k85mRPqvMbE" },
+  { url: "https://www.youtube.com/watch?v=astISOttCQ0" },
+  { url: "https://www.youtube.com/watch?v=ykwqXuMPsoc" },
+  { url: "https://www.youtube.com/watch?v=NoHRBvtUV_g" },
+  { url: "https://www.youtube.com/watch?v=ZN5PoW7_kdA" },
+  { url: "https://www.youtube.com/watch?v=QFCSXr6qnv4" },
+  { url: "https://www.youtube.com/watch?v=R5Nz8p3EP7A" },
+  { url: "https://www.youtube.com/watch?v=9FXMYsMvs1A" },
+  { url: "https://www.youtube.com/watch?v=aoEtd6HONEk" },
+  { url: "https://www.youtube.com/watch?v=IY9YNF5MMQo" },
+  { url: "https://www.youtube.com/watch?v=UmPmpUTr22c" },
+  { url: "https://www.youtube.com/watch?v=HRPwMBAtfTY" },
+  { url: "https://www.youtube.com/watch?v=d8CeSGlQQnM" },
+  { url: "https://www.youtube.com/watch?v=Lt1u6N7lueM" },
+  { url: "https://www.youtube.com/watch?v=EShUeudtaFg" },
+  { url: "https://www.youtube.com/watch?v=TIoD7Uj7MUo" },
+  { url: "https://www.youtube.com/watch?v=f4FuOi9rvKw" },
+  { url: "https://www.youtube.com/watch?v=9KSGUVcNfZM" },
+  { url: "https://www.youtube.com/watch?v=R9dRuaTOyBY" },
+  { url: "https://www.youtube.com/watch?v=wsZ7013yHiw" },
+  { url: "https://www.youtube.com/watch?v=LzxCJzM4xLo" },
+  { url: "https://www.youtube.com/watch?v=dEI7oX0XxJw" },
+  { url: "https://www.youtube.com/watch?v=x2Icz8xF174" },
+  { url: "https://www.youtube.com/watch?v=HKst22Y2hgA" },
+  { url: "https://www.youtube.com/watch?v=IdyXKJ8NcNI" },
+  { url: "https://www.youtube.com/watch?v=vnkRvx3-j-k" },
+  { url: "https://www.youtube.com/watch?v=9edByCiaLbY" },
+  { url: "https://www.youtube.com/watch?v=DoskJt_UVG8" },
+  { url: "https://www.youtube.com/watch?v=gLMo7_VXU_s" },
+  { url: "https://www.youtube.com/watch?v=eaNI18GAxXs" },
+  { url: "https://www.youtube.com/watch?v=sdnJxDmJNmA" },
+  { url: "https://www.youtube.com/watch?v=I15sK7dNMOM" },
+  { url: "https://www.youtube.com/watch?v=W-3DWBv0CvU" },
+  { url: "https://www.youtube.com/watch?v=sHi6LCx6Lx8" },
+  { url: "https://www.youtube.com/watch?v=IxX_QHay02M" },
+  { url: "https://www.youtube.com/watch?v=SMWi7CLoZ2Q" },
+  { url: "https://www.youtube.com/watch?v=msSc7Mv0QHY" },
+  { url: "https://www.youtube.com/watch?v=OzKY5YHnOTg" },
+  { url: "https://www.youtube.com/watch?v=_quu68XXHEs" },
+  { url: "https://www.youtube.com/watch?v=gavT_q9CLME" },
+  { url: "https://www.youtube.com/watch?v=3qwU1LQZA5g" },
+  { url: "https://www.youtube.com/watch?v=zTL4T_NVGhY" },
+  { url: "https://www.youtube.com/watch?v=AsFCSvqsqFA" },
+  { url: "https://www.youtube.com/watch?v=xzpndHtdl9A" },
+  { url: "https://www.youtube.com/watch?v=5vRlJrkxsqo" },
+  { url: "https://www.youtube.com/watch?v=wAUK9hVgmNI" },
+  { url: "https://www.youtube.com/watch?v=z_mhFOyLQBg" },
+  { url: "https://www.youtube.com/watch?v=YCeQLeQiRP4" },
+  { url: "https://www.youtube.com/watch?v=V_OVxxIvqVw" },
+  { url: "https://www.youtube.com/watch?v=r3-Y31ONZuI" },
+  { url: "https://www.youtube.com/watch?v=xaPepCVepCg" },
+  { url: "https://www.youtube.com/watch?v=IJmIGC0nwK0" },
+  { url: "https://www.youtube.com/watch?v=ZZ5LpwO-An4" },
+  { url: "https://www.youtube.com/watch?v=czhd1eHv6ac" },
+  { url: "https://www.youtube.com/watch?v=lg5WKsVnEA4" },
+  { url: "https://www.youtube.com/watch?v=lgh68Swuak0" },
+  { url: "https://www.youtube.com/watch?v=rbE53XUtVw0" },
+  { url: "https://www.youtube.com/watch?v=Ou6uXU0KFss" },
+  { url: "https://www.youtube.com/watch?v=6f7pgA0riU8" },
+  { url: "https://www.youtube.com/watch?v=otCpCn0l4Wo" },
+  { url: "https://www.youtube.com/watch?v=AMrSGMF4PZo" },
+  { url: "https://www.youtube.com/watch?v=7eKv4BEujFU" },
+  { url: "https://www.youtube.com/watch?v=bjwgt1kRqEU" },
+  { url: "https://www.youtube.com/watch?v=rmn7oV9bBRU" },
+  { url: "https://www.youtube.com/watch?v=65e06P6Rhf4" },
+  { url: "https://www.youtube.com/watch?v=p8f-dwURY20" },
+  { url: "https://www.youtube.com/watch?v=8kjY9sKdHlY" },
+  { url: "https://www.youtube.com/watch?v=InklyF13qjU" },
+  { url: "https://www.youtube.com/watch?v=AUl4F8M8bxM" },
+  { url: "https://www.youtube.com/watch?v=S4pk8jsk9h4" },
+  { url: "https://www.youtube.com/watch?v=RV6aLIQgmYg" },
+  { url: "https://www.youtube.com/watch?v=Z0NlmumRuVE" },
+  { url: "https://www.youtube.com/watch?v=2zw-XgAko_E" },
+  { url: "https://www.youtube.com/watch?v=NsaSG-0U4mU" },
+  { url: "https://www.youtube.com/watch?v=o7zqouVuFZY" },
+  { url: "https://www.youtube.com/watch?v=ykz_dbpYRPU" },
+  { url: "https://www.youtube.com/watch?v=NOpS4qGILyY" },
+  { url: "https://www.youtube.com/watch?v=GsWGqDzygDs" },
+  { url: "https://www.youtube.com/watch?v=Q0IL0S0vTGw" },
+  { url: "https://www.youtube.com/watch?v=JAVV2jbjKTQ" },
+  { url: "https://www.youtube.com/watch?v=dxjLh3lZumY" },
+  { url: "https://www.youtube.com/watch?v=oBnVNpG97Z4" },
+  { url: "https://www.youtube.com/watch?v=Mh4f9AYRCZY" },
+  { url: "https://www.youtube.com/watch?v=pNbN5Mk_sZw" },
+
+  { url: "https://www.youtube.com/watch?v=Cqd1Gvq-RBY" },
+
+  /*
+   * These two supplied IDs contain unusual characters.
+   * They are preserved exactly as supplied.
+   */
+  { url: "https://www.youtube.com/watch?v=J—aiyznGQ" },
+  { url: "https://www.youtube.com/watch?v=*OBlgSz8sSM" },
+
+  { url: "https://www.youtube.com/watch?v=dMH0bHeiRNg" },
+  { url: "https://www.youtube.com/watch?v=EwTZ2xpQwpA" },
+  { url: "https://www.youtube.com/watch?v=txqiwrbYGrs" },
+  { url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" },
+  { url: "https://www.youtube.com/watch?v=2yJgwwDcgV8" },
+  { url: "https://www.youtube.com/watch?v=9bZkp7q19f0" },
+  { url: "https://www.youtube.com/watch?v=HPPj6viIBmU" },
+  { url: "https://www.youtube.com/watch?v=wCF3ywukQYA" },
+  { url: "https://www.youtube.com/watch?v=UjCdB5p2v0Y" },
+  { url: "https://www.youtube.com/watch?v=OQSNhk5ICTI" },
+  { url: "https://www.youtube.com/watch?v=hooKVstzbz0" },
+  { url: "https://www.youtube.com/watch?v=3HjIljJd-o0" },
+  { url: "https://www.youtube.com/watch?v=CMNry4PE93Y" },
+  { url: "https://www.youtube.com/watch?v=aMS0O3kknvk" },
+  { url: "https://www.youtube.com/watch?v=zVNTdWbVBgc" },
+  { url: "https://www.youtube.com/watch?v=7WmMcqp670s" },
+  { url: "https://www.youtube.com/watch?v=W45DRy7M1no" },
+  { url: "https://www.youtube.com/watch?v=6B26asyGKDo" },
+  { url: "https://www.youtube.com/watch?v=6bVa6jn4rpE" },
+  { url: "https://www.youtube.com/watch?v=40uMbKjSBwU" },
+  { url: "https://www.youtube.com/watch?v=5jwETfUw0TE" },
+  { url: "https://www.youtube.com/watch?v=cBC1moosff0" },
+  { url: "https://www.youtube.com/watch?v=bx4kwzUn2Bg" },
+  { url: "https://www.youtube.com/watch?v=oHg5SJYRHA0" },
+
+  { url: "https://www.youtube.com/watch?v=EwKpaD8g_gY" },
+  { url: "https://www.youtube.com/watch?v=dmzDB8EHRxg" },
+
+  { url: "https://www.youtube.com/watch?v=e3mG_gvaimo" },
+  { url: "https://www.youtube.com/watch?v=EoLjddNcnYU" },
+  { url: "https://www.youtube.com/watch?v=H6ly9KGuVTk" },
+  { url: "https://www.youtube.com/watch?v=k0CJwbayisw" },
+  { url: "https://www.youtube.com/watch?v=vo3qLUki5L8" },
+  { url: "https://www.youtube.com/watch?v=1lQ3FGxpEU0" },
+  { url: "https://www.youtube.com/watch?v=nwP3TeK-fPs" },
+  { url: "https://www.youtube.com/watch?v=tGmmQ688Fkk" },
+  { url: "https://www.youtube.com/watch?v=vHH1W1_f-6Y" },
+
+  { url: "https://www.youtube.com/watch?v=hD8MPMTcvd8" },
+
+  { url: "https://www.youtube.com/watch?v=RtfmTOv_kgA" },
+  { url: "https://www.youtube.com/watch?v=VslKGGpl4Xc" },
+  { url: "https://www.youtube.com/watch?v=ocd_GDed5qg" },
+  { url: "https://www.youtube.com/watch?v=nUpNvmymAzM" },
+  { url: "https://www.youtube.com/watch?v=0eOiL5dqP-I" },
+  { url: "https://www.youtube.com/watch?v=3FS8_l_i81Q" },
+  { url: "https://www.youtube.com/watch?v=4ZYziZg8LBc" }
+
+];
+
+
+/* =========================================================
+   REMOVE DUPLICATES
+   ========================================================= */
+
+const uniqueVideos = [];
+
+const seenIds = new Set();
+
+videos.forEach(video => {
+
+  const id = getVideoId(video.url);
+
+  if (!id) {
+    return;
+  }
+
+  if (seenIds.has(id)) {
+    return;
+  }
+
+  seenIds.add(id);
+
+  uniqueVideos.push({
+    ...video,
+    id,
+    title: "",
+    uploader: "",
+    uploadDate: "",
+    era: "unknown"
+  });
+
+});
+
+
+/* =========================================================
+   GET VIDEO ID
+   ========================================================= */
+
+function getVideoId(url) {
+
+  try {
+
+    const parsed = new URL(url);
+
+    if (parsed.hostname.includes("youtube.com")) {
+
+      return parsed.searchParams.get("v");
+
+    }
+
+    if (parsed.hostname === "youtu.be") {
+
+      return parsed.pathname.substring(1);
+
+    }
+
+  } catch (error) {
+
+    return null;
+
+  }
+
+  return null;
+}
+
+
+/* =========================================================
+   HTML ESCAPE
+   ========================================================= */
+
+function escapeHTML(value) {
+
+  return String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================================================
+   ERA FROM DATE
+   ========================================================= */
+
+function determineEra(dateString) {
+
+  if (!dateString) {
+    return "unknown";
+  }
+
+  const year = parseInt(
+    String(dateString).substring(0, 4),
+    10
+  );
+
+  if (!year) {
+    return "unknown";
+  }
+
+  if (year >= 2005 && year <= 2009) {
+    return "2005-2009";
+  }
+
+  if (year >= 2010 && year <= 2014) {
+    return "2010-2014";
+  }
+
+  if (year >= 2015 && year <= 2019) {
+    return "2015-2019";
+  }
+
+  if (year >= 2020 && year <= 2024) {
+    return "2020-2024";
+  }
+
+  if (year >= 2025 && year <= 2029) {
+    return "2025-2029";
+  }
+
+  return "unknown";
+}
+
+
+/* =========================================================
+   FORMAT DATE
+   ========================================================= */
+
+function formatDate(dateString) {
+
+  if (!dateString) {
+    return "Upload date unavailable";
+  }
+
+  const date = new Date(dateString);
+
+  if (Number.isNaN(date.getTime())) {
+    return escapeHTML(dateString);
+  }
+
+  return date.toLocaleDateString(
+    "en-US",
+    {
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    }
+  );
+
+}
+
+
+/* =========================================================
+   CARD CREATION
+   ========================================================= */
+
+function createCard(video) {
+
+  const card = document.createElement("article");
+
+  card.className = "video-card";
+
+  card.dataset.id = video.id;
+
+  card.dataset.title =
+    video.title.toLowerCase();
+
+  card.dataset.uploader =
+    video.uploader.toLowerCase();
+
+  card.dataset.era =
+    video.era;
+
+  card.innerHTML = `
+
+    <div class="video-player">
+
+      <iframe
+        src="https://www.youtube.com/embed/${encodeURIComponent(video.id)}"
+        title="${escapeHTML(video.title || "YouTube video")}"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
 
     </div>
 
-  </div>
+    <div class="video-meta">
 
+      <h2 class="video-title">
 
-  <div class="sidebar-box">
+        <a
+          href="${escapeHTML(video.url)}"
+          target="_blank"
+          rel="noopener noreferrer">
 
-    <div class="sidebar-title">
-      JUMP TO
+          <span class="loading">
+            Loading YouTube title...
+          </span>
+
+        </a>
+
+      </h2>
+
+      <div class="video-info">
+
+        <div>
+          <strong>Uploader:</strong>
+          <span class="uploader loading">
+            Loading...
+          </span>
+        </div>
+
+        <div>
+          <strong>Original upload:</strong>
+          <span class="upload-date">
+            Upload date unavailable
+          </span>
+        </div>
+
+        <div>
+          <span class="video-era">
+            Date unknown
+          </span>
+        </div>
+
+        <div class="video-id">
+          Video ID: ${escapeHTML(video.id)}
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="sidebar-body">
+  `;
 
-      <a href="#eras">Internet Eras</a>
-      <a href="#early-web">Early Viral Web</a>
-      <a href="#youtube">YouTube</a>
-      <a href="#memes">Picture Memes</a>
-      <a href="#vine">Vine</a>
-      <a href="#snapchat">Snapchat</a>
-      <a href="#social">Social Platforms</a>
-      <a href="#modern">Modern Internet</a>
-      <a href="#timeline">Timeline</a>
+  return card;
+}
 
-    </div>
 
-  </div>
+/* =========================================================
+   RENDER
+   ========================================================= */
 
+const videoGrid =
+  document.getElementById("videoGrid");
 
-  <div class="sidebar-box">
+const noResults =
+  document.getElementById("noResults");
 
-    <div class="sidebar-title">
-      THE OLD INTERNET
-    </div>
+const stats =
+  document.getElementById("stats");
 
-    <div class="sidebar-body">
 
-      <a href="#myspace">MySpace</a>
-      <a href="#youtube">YouTube</a>
-      <a href="#reddit">Reddit</a>
-      <a href="#twitter">Twitter</a>
-      <a href="#instagram">Instagram</a>
-      <a href="#vine">Vine</a>
-      <a href="#snapchat">Snapchat</a>
-      <a href="#modern">TikTok</a>
+function renderVideos(list) {
 
-    </div>
+  videoGrid.innerHTML = "";
 
-  </div>
+  if (!list.length) {
 
+    noResults.style.display = "block";
 
-</aside>
+    return;
 
+  }
 
-<section class="content">
+  noResults.style.display = "none";
 
+  const fragment =
+    document.createDocumentFragment();
 
-<div class="intro-card">
+  list.forEach(video => {
 
-  <h2>
-    Welcome to the Internet Time Capsule
-  </h2>
+    fragment.appendChild(
+      createCard(video)
+    );
 
-  <p>
-    Before everything was an algorithm, somebody had to send you a link.
-    A strange Flash animation could travel through forums. A webcam
-    video could suddenly become famous. A photograph could become a
-    meme overnight.
-  </p>
+  });
 
-  <p>
-    This archive follows the evolution of online culture through the
-    videos, photographs, jokes, personalities, platforms and communities
-    that became part of everyday life on the internet.
-  </p>
+  videoGrid.appendChild(fragment);
 
-  <div class="archive-note">
-    <strong>Archive note:</strong>
-    Some original platforms no longer exist. When an original upload
-    is unavailable, this archive identifies preserved copies rather than
-    presenting a reupload as the original source.
-  </div>
+}
 
-</div>
 
+/* =========================================================
+   LOAD YOUTUBE METADATA
+   =========================================================
+   
+   YouTube's oEmbed endpoint provides:
+   
+   - title
+   - uploader/channel
+   
+   It does not provide original upload date.
+   Therefore the date field remains honest instead of
+   displaying invented information.
+   ========================================================= */
 
-<!-- ERAS -->
+async function loadMetadata(video, card) {
 
-<section class="archive-section" id="eras">
+  const titleElement =
+    card.querySelector(".video-title a");
 
-<div class="section-title">
-  <h2>The Eras of Internet Culture</h2>
-  <p>From webcam videos and forums to algorithmic short-form media.</p>
-</div>
+  const uploaderElement =
+    card.querySelector(".uploader");
 
+  const eraElement =
+    card.querySelector(".video-era");
 
-<div class="era-grid">
+  try {
 
+    const endpoint =
+      "https://www.youtube.com/oembed" +
+      "?url=" +
+      encodeURIComponent(video.url) +
+      "&format=json";
 
-<article class="era-card">
+    const response =
+      await fetch(endpoint);
 
-  <div class="era-year">2004–2008</div>
+    if (!response.ok) {
+      throw new Error("Metadata unavailable");
+    }
 
-  <h3>The Viral Web</h3>
+    const data =
+      await response.json();
 
-  <p>
-    Newgrounds, Flash animation, forums, email chains,
-    MySpace and the earliest generation of viral webcam videos.
-  </p>
+    video.title =
+      data.title || "Untitled YouTube Video";
 
-</article>
+    video.uploader =
+      data.author_name || "Unknown uploader";
 
+    titleElement.textContent =
+      video.title;
 
-<article class="era-card">
+    titleElement.classList.remove(
+      "loading"
+    );
 
-  <div class="era-year">2005–2012</div>
+    uploaderElement.textContent =
+      video.uploader;
 
-  <h3>The YouTube Explosion</h3>
+    uploaderElement.classList.remove(
+      "loading"
+    );
 
-  <p>
-    YouTube transforms ordinary people, strange videos,
-    music clips and accidental moments into global phenomena.
-  </p>
+    /*
+     * The oEmbed response does not expose the
+     * original YouTube upload date.
+     */
 
-</article>
+    video.uploadDate = "";
 
+    video.era = "unknown";
 
-<article class="era-card">
+    eraElement.textContent =
+      "Date unknown";
 
-  <div class="era-year">2008–2015</div>
+    card.dataset.title =
+      video.title.toLowerCase();
 
-  <h3>The Meme Explosion</h3>
+    card.dataset.uploader =
+      video.uploader.toLowerCase();
 
-  <p>
-    Image macros, LOLcats, rage comics, reaction images
-    and recognizable meme characters become universal online language.
-  </p>
+    card.dataset.era =
+      video.era;
 
-</article>
+  } catch (error) {
 
+    titleElement.textContent =
+      "YouTube video";
 
-<article class="era-card">
+    titleElement.classList.remove(
+      "loading"
+    );
 
-  <div class="era-year">2013–2017</div>
+    uploaderElement.textContent =
+      "Metadata unavailable";
 
-  <h3>The Vine Era</h3>
+    uploaderElement.classList.remove(
+      "loading"
+    );
 
-  <p>
-    Six-second videos create a completely new form of
-    comedy, celebrity and catchphrase.
-  </p>
+    uploaderElement.classList.add(
+      "metadata-error"
+    );
 
-</article>
+  }
 
+}
 
-<article class="era-card">
 
-  <div class="era-year">2011–2019</div>
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
 
-  <h3>Social Media Becomes Culture</h3>
+renderVideos(uniqueVideos);
 
-  <p>
-    Twitter, Reddit, Instagram, Snapchat, Tumblr and Facebook
-    make online culture increasingly immediate and participatory.
-  </p>
 
-</article>
+/* =========================================================
+   LOAD ALL METADATA
+   ========================================================= */
 
+async function loadAllMetadata() {
 
-<article class="era-card">
+  const cards =
+    Array.from(
+      document.querySelectorAll(".video-card")
+    );
 
-  <div class="era-year">2020–2026</div>
+  /*
+   * Small batches prevent the browser from firing
+   * hundreds of requests simultaneously.
+   */
 
-  <h3>The Algorithmic Internet</h3>
+  const batchSize = 6;
 
-  <p>
-    TikTok, livestreaming, short-form video, reaction culture,
-    remix culture and increasingly rapid meme cycles.
-  </p>
+  for (
+    let i = 0;
+    i < uniqueVideos.length;
+    i += batchSize
+  ) {
 
-</article>
+    const batch =
+      uniqueVideos.slice(
+        i,
+        i + batchSize
+      );
 
+    await Promise.all(
 
-</div>
+      batch.map(
+        (video, index) => {
 
-</section>
+          const card =
+            cards[i + index];
 
+          return loadMetadata(
+            video,
+            card
+          );
 
-<!-- EARLY WEB -->
+        }
+      )
 
-<section class="archive-section" id="early-web">
+    );
 
-<div class="section-title">
-  <h2>The Early Viral Web</h2>
-  <p>Before the modern social-media machine.</p>
-</div>
+    updateStats();
 
+  }
 
-<div class="video-grid">
+  applyFilters();
 
+}
 
-<article class="video-card">
 
-<div class="video-frame">
+loadAllMetadata();
 
-<iframe
-src="https://www.youtube.com/embed/Cqd1Gvq-RBY"
-title="Numa Numa"
-loading="lazy"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen>
-</iframe>
 
-</div>
+/* =========================================================
+   SEARCH + FILTER
+   ========================================================= */
 
-<div class="video-info">
+const searchInput =
+  document.getElementById("searchInput");
 
-<div class="video-year">2004</div>
+const searchButton =
+  document.getElementById("searchButton");
 
-<h3>Numa Numa</h3>
+const eraFilter =
+  document.getElementById("eraFilter");
 
-<p>
-Gary Brolsma's webcam performance became one of the earliest
-globally recognizable viral videos. It originally appeared on
-Newgrounds before YouTube existed.
-</p>
+const sortFilter =
+  document.getElementById("sortFilter");
 
-</div>
 
-</article>
+function applyFilters() {
 
+  const search =
+    searchInput.value
+      .trim()
+      .toLowerCase();
 
-<article class="video-card">
+  const selectedEra =
+    eraFilter.value;
 
-<div class="video-frame">
+  let filtered =
+    uniqueVideos.filter(video => {
 
-<iframe
-src="https://www.youtube.com/embed/dMH0bHeiRNg"
-title="Evolution of Dance"
-loading="lazy"
-allowfullscreen>
-</iframe>
+      const searchable = (
 
-</div>
+        video.title +
+        " " +
+        video.uploader +
+        " " +
+        video.id
 
-<div class="video-info">
+      ).toLowerCase();
 
-<div class="video-year">2006</div>
+      const matchesSearch =
+        !search ||
+        searchable.includes(search);
 
-<h3>Evolution of Dance</h3>
+      const matchesEra =
+        selectedEra === "all" ||
+        video.era === selectedEra;
 
-<p>
-Judson Laipply's dance medley became one of YouTube's earliest
-massive hits and demonstrated the enormous potential of user-uploaded video.
-</p>
+      return (
+        matchesSearch &&
+        matchesEra
+      );
 
-</div>
+    });
 
-</article>
 
+  /* -------------------------------------------------------
+     SORT
+     ------------------------------------------------------- */
 
-<article class="video-card">
+  switch (sortFilter.value) {
 
-<div class="video-frame">
+    case "title":
 
-<iframe
-src="https://www.youtube.com/embed/EwTZ2xpQwpA"
-title="Chocolate Rain"
-loading="lazy"
-allowfullscreen>
-</iframe>
+      filtered.sort(
+        (a, b) =>
+          a.title.localeCompare(
+            b.title
+          )
+      );
 
-</div>
+      break;
 
-<div class="video-info">
 
-<div class="video-year">2007</div>
+    case "uploader":
 
-<h3>Chocolate Rain</h3>
+      filtered.sort(
+        (a, b) =>
+          a.uploader.localeCompare(
+            b.uploader
+          )
+      );
 
-<p>
-Tay Zonday's unusual song became one of early YouTube's
-most recognizable viral performances.
-</p>
+      break;
 
-</div>
 
-</article>
+    case "oldest":
 
+      filtered.sort(
+        (a, b) =>
+          getTimestamp(a) -
+          getTimestamp(b)
+      );
 
-<article class="video-card">
+      break;
 
-<div class="video-frame">
 
-<iframe
-src="https://www.youtube.com/embed/_OBlgSz8sSM"
-title="Charlie Bit My Finger"
-loading="lazy"
-allowfullscreen>
-</iframe>
+    case "newest":
 
-</div>
+      filtered.sort(
+        (a, b) =>
+          getTimestamp(b) -
+          getTimestamp(a)
+      );
 
-<div class="video-info">
+      break;
 
-<div class="video-year">2007</div>
+  }
 
-<h3>Charlie Bit My Finger</h3>
 
-<p>
-An ordinary family video became one of the defining viral
-videos of early YouTube.
-</p>
+  renderFiltered(filtered);
 
-</div>
+  updateStats(filtered.length);
 
-</article>
+}
 
 
-</div>
+function getTimestamp(video) {
 
-</section>
+  if (!video.uploadDate) {
+    return 0;
+  }
 
+  const time =
+    new Date(
+      video.uploadDate
+    ).getTime();
 
-<!-- YOUTUBE -->
+  return Number.isNaN(time)
+    ? 0
+    : time;
 
-<section class="archive-section" id="youtube">
+}
 
-<div class="section-title">
-  <h2>The YouTube Explosion</h2>
-  <p>When everybody suddenly had a camera and somewhere to upload it.</p>
-</div>
 
+function renderFiltered(list) {
 
-<div class="video-grid">
+  const visibleIds =
+    new Set(
+      list.map(
+        video => video.id
+      )
+    );
 
+  const cards =
+    Array.from(
+      document.querySelectorAll(
+        ".video-card"
+      )
+    );
 
-<article class="video-card">
+  cards.forEach(card => {
 
-<div class="video-frame">
+    card.style.display =
+      visibleIds.has(
+        card.dataset.id
+      )
+        ? ""
+        : "none";
 
-<iframe
-src="https://www.youtube.com/embed/oHg5SJYRHA0"
-title="Rickroll"
-loading="lazy"
-allowfullscreen>
-</iframe>
+  });
 
-</div>
+  noResults.style.display =
+    list.length === 0
+      ? "block"
+      : "none";
 
-<div class="video-info">
+}
 
-<div class="video-year">2007</div>
 
-<h3>Rickroll</h3>
+/* =========================================================
+   STATS
+   ========================================================= */
 
-<p>
-The classic bait-and-switch internet prank became one of
-the longest-lived jokes in online history.
-</p>
+function updateStats(
+  visibleCount = uniqueVideos.length
+) {
 
-</div>
+  const metadataLoaded =
+    uniqueVideos.filter(
+      video => video.title
+    ).length;
 
-</article>
+  stats.textContent =
+    `${visibleCount} video` +
+    `${visibleCount === 1 ? "" : "s"} ` +
+    `shown • ` +
+    `${uniqueVideos.length} unique videos in archive • ` +
+    `${metadataLoaded} metadata records loaded`;
 
+}
 
-<article class="video-card">
 
-<div class="video-frame">
+/* =========================================================
+   EVENTS
+   ========================================================= */
 
-<iframe
-src="https://www.youtube.com/embed/hMtZfW2z9dw"
-title="Bed Intruder"
-loading="lazy"
-allowfullscreen>
-</iframe>
+searchInput.addEventListener(
+  "input",
+  applyFilters
+);
 
-</div>
+searchButton.addEventListener(
+  "click",
+  applyFilters
+);
 
-<div class="video-info">
+eraFilter.addEventListener(
+  "change",
+  applyFilters
+);
 
-<div class="video-year">2010</div>
+sortFilter.addEventListener(
+  "change",
+  applyFilters
+);
 
-<h3>Bed Intruder</h3>
 
-<p>
-An Alabama television interview became an Auto-Tuned
-viral phenomenon and a Billboard-charting novelty song.
-</p>
+/* =========================================================
+   ENTER KEY
+   ========================================================= */
 
-</div>
+searchInput.addEventListener(
+  "keydown",
+  event => {
 
-</article>
+    if (
+      event.key === "Enter"
+    ) {
 
+      applyFilters();
 
-<article class="video-card">
+    }
 
-<div class="video-frame">
+  }
+);
 
-<iframe
-src="https://www.youtube.com/embed/OQSNhk5ICTI"
-title="Nyan Cat"
-loading="lazy"
-allowfullscreen>
-</iframe>
 
-</div>
+/* =========================================================
+   ERA NAVIGATION
+   ========================================================= */
 
-<div class="video-info">
+document
+  .querySelectorAll(
+    ".category-bar a"
+  )
+  .forEach(link => {
 
-<div class="video-year">2011</div>
+    link.addEventListener(
+      "click",
+      event => {
 
-<h3>Nyan Cat</h3>
+        event.preventDefault();
 
-<p>
-Pixel art, a looping song and endless repetition became
-one of the signature symbols of early 2010s internet culture.
-</p>
+        const era =
+          link.dataset.era;
 
-</div>
+        eraFilter.value =
+          era;
 
-</article>
+        document
+          .querySelectorAll(
+            ".category-bar a"
+          )
+          .forEach(item => {
 
+            item.classList.remove(
+              "active"
+            );
 
-<article class="video-card">
+          });
 
-<div class="video-frame">
+        link.classList.add(
+          "active"
+        );
 
-<iframe
-src="https://www.youtube.com/embed/9bZkp7q19f0"
-title="Gangnam Style"
-loading="lazy"
-allowfullscreen>
-</iframe>
+        applyFilters();
 
-</div>
+      }
+    );
 
-<div class="video-info">
+  });
 
-<div class="video-year">2012</div>
 
-<h3>Gangnam Style</h3>
+/* =========================================================
+   INITIAL STATS
+   ========================================================= */
 
-<p>
-Psy's music video became the first YouTube video to reach
-one billion views and became a worldwide internet phenomenon.
-</p>
+updateStats();
 
-</div>
-
-</article>
-
-
-</div>
-
-</section>
-
-
-<!-- MEMES -->
-
-<section class="archive-section" id="memes">
-
-<div class="section-title">
-  <h2>Picture Memes</h2>
-  <p>The photographs, screenshots and image formats that became internet vocabulary.</p>
-</div>
-
-
-<div class="meme-grid">
-
-
-<article class="meme-card">
-
-<div class="text-meme blue">
-  LOLCATS
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2007–2009</div>
-
-<h3>LOLcats</h3>
-
-<p>
-Cats plus deliberately misspelled captions became one of
-the defining image formats of the early social web.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="meme-card">
-
-<div class="text-meme pink">
-  SUCCESS<br>KID
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2007</div>
-
-<h3>Success Kid</h3>
-
-<p>
-Sammy Griner's beach photograph became a universal image
-for small victories and improbable successes.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="meme-card">
-
-<div class="text-meme yellow">
-  BAD LUCK<br>BRIAN
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2012</div>
-
-<h3>Bad Luck Brian</h3>
-
-<p>
-A yearbook photograph became one of the most recognizable
-image-macro templates of the early 2010s.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="meme-card">
-
-<div class="text-meme cyan">
-  GRUMPY<br>CAT
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2012</div>
-
-<h3>Grumpy Cat</h3>
-
-<p>
-Tardar Sauce became one of the most recognizable animals
-in internet history.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="meme-card">
-
-<div class="text-meme blue">
-  DOGE<br>SUCH WOW
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2013</div>
-
-<h3>Doge</h3>
-
-<p>
-A Shiba Inu photograph paired with broken English became
-one of the defining meme languages of the decade.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="meme-card">
-
-<div class="text-meme pink">
-  THIS IS<br>FINE
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2013</div>
-
-<h3>This Is Fine</h3>
-
-<p>
-KC Green's comic became a shorthand for calmly accepting
-an obviously disastrous situation.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="meme-card">
-
-<div class="text-meme yellow">
-  DISTRACTED<br>BOYFRIEND
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2017</div>
-
-<h3>Distracted Boyfriend</h3>
-
-<p>
-A stock photograph became one of the most adaptable meme
-templates of the late 2010s.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="meme-card">
-
-<div class="text-meme cyan">
-  EXPANDING<br>BRAIN
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2017</div>
-
-<h3>Expanding Brain</h3>
-
-<p>
-A four-panel image format became a popular way to represent
-increasingly absurd levels of intelligence.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="meme-card">
-
-<div class="text-meme blue">
-  IS THIS<br>A PIGEON?
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2018</div>
-
-<h3>Is This a Pigeon?</h3>
-
-<p>
-A screenshot from an anime became a universal format for
-mistaking one thing for another.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="meme-card">
-
-<div class="text-meme pink">
-  WOMAN<br>YELLING<br>AT A CAT
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2019</div>
-
-<h3>Woman Yelling at a Cat</h3>
-
-<p>
-A two-image reaction format became one of the most recognizable
-memes of the late 2010s.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="meme-card">
-
-<div class="text-meme yellow">
-  SURPRISED<br>PIKACHU
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2018</div>
-
-<h3>Surprised Pikachu</h3>
-
-<p>
-The reaction image became shorthand for being shocked by
-an entirely predictable result.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="meme-card">
-
-<div class="text-meme cyan">
-  STONKS
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2019</div>
-
-<h3>Stonks</h3>
-
-<p>
-A surreal corporate meme became a shorthand for questionable
-financial decisions and internet irony.
-</p>
-
-</div>
-
-</article>
-
-
-</div>
-
-</section>
-
-
-<!-- VINE -->
-
-<section class="archive-section" id="vine">
-
-<div class="section-title">
-  <h2>Vine</h2>
-  <p>Six seconds changed online comedy.</p>
-</div>
-
-
-<div class="vine-banner">
-
-<h3>The Vine Era • 2013–2017</h3>
-
-<p>
-Vine's six-second limit forced creators to build jokes around
-timing, repetition and instantly recognizable catchphrases.
-The platform disappeared, but its language survived.
-</p>
-
-</div>
-
-
-<div class="vine-grid">
-
-
-<article class="vine-card">
-
-<h3>Road Work Ahead</h3>
-
-<p>
-"Road work ahead? Uh, yeah, I sure hope it does."
-One of the defining Vine-era exchanges.
-</p>
-
-<a class="vine-link"
-href="https://www.youtube.com/results?search_query=Road+Work+Ahead+Vine"
-target="_blank">
-WATCH PRESERVED COPIES
-</a>
-
-</article>
-
-
-<article class="vine-card">
-
-<h3>What Are Those?</h3>
-
-<p>
-Brandon Moore's improvised question became an internet
-catchphrase that escaped Vine entirely.
-</p>
-
-<a class="vine-link"
-href="https://www.youtube.com/results?search_query=What+Are+Those+Vine+Brandon+Moore"
-target="_blank">
-WATCH PRESERVED COPIES
-</a>
-
-</article>
-
-
-<article class="vine-card">
-
-<h3>Hi, Welcome to Chili's</h3>
-
-<p>
-Adam Perkins' famous Vine became one of the most
-recognizable lines of the platform's history.
-</p>
-
-<a class="vine-link"
-href="https://www.youtube.com/results?search_query=Adam+Perkins+Welcome+to+Chilis+Vine"
-target="_blank">
-WATCH PRESERVED COPIES
-</a>
-
-</article>
-
-
-<article class="vine-card">
-
-<h3>It's Wednesday, My Dudes</h3>
-
-<p>
-A bizarre frog costume, a scream and a phrase that
-became a recurring internet ritual.
-</p>
-
-<a class="vine-link"
-href="https://www.youtube.com/results?search_query=Its+Wednesday+My+Dudes+Vine"
-target="_blank">
-WATCH PRESERVED COPIES
-</a>
-
-</article>
-
-
-<article class="vine-card">
-
-<h3>Look at All Those Chickens</h3>
-
-<p>
-One of the most instantly recognizable Vine reactions.
-</p>
-
-<a class="vine-link"
-href="https://www.youtube.com/results?search_query=Look+at+all+those+chickens+Vine"
-target="_blank">
-WATCH PRESERVED COPIES
-</a>
-
-</article>
-
-
-<article class="vine-card">
-
-<h3>They Were Roommates</h3>
-
-<p>
-A Vine-era phrase that became a lasting part of
-online slang and reaction culture.
-</p>
-
-<a class="vine-link"
-href="https://www.youtube.com/results?search_query=And+They+Were+Roommates+Vine"
-target="_blank">
-WATCH PRESERVED COPIES
-</a>
-
-</article>
-
-
-</div>
-
-</section>
-
-
-<!-- SNAPCHAT -->
-
-<section class="archive-section" id="snapchat">
-
-<div class="section-title">
-  <h2>Snapchat</h2>
-  <p>Disappearing posts, filters, stories and a new kind of online identity.</p>
-</div>
-
-
-<div class="snapchat-section">
-
-<div class="snapchat-title">
-  👻 SNAPCHAT ERA
-</div>
-
-<p>
-Snapchat changed the expectation that everything posted online
-had to remain permanently visible. Stories, lenses, streaks and
-filters created an entirely different form of internet culture.
-</p>
-
-
-<div class="snap-grid">
-
-<div class="snap-box">
-STORIES
-<small>2013</small>
-</div>
-
-<div class="snap-box">
-LENSES
-<small>2015</small>
-</div>
-
-<div class="snap-box">
-STREAKS
-<small>2016</small>
-</div>
-
-<div class="snap-box">
-SPOTLIGHT
-<small>2020</small>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- SOCIAL PLATFORMS -->
-
-<section class="archive-section" id="social">
-
-<div class="section-title">
-  <h2>When Social Media Became the Culture</h2>
-  <p>The platforms that changed how internet culture was created and shared.</p>
-</div>
-
-
-<div class="platform-grid">
-
-
-<div class="platform" id="myspace">
-  MySpace
-  <small>Profiles • Music • Top 8</small>
-</div>
-
-
-<div class="platform">
-  YouTube
-  <small>Video • Creators • Comments</small>
-</div>
-
-
-<div class="platform" id="reddit">
-  Reddit
-  <small>Communities • Threads • AMAs</small>
-</div>
-
-
-<div class="platform" id="twitter">
-  Twitter
-  <small>Real-time conversation</small>
-</div>
-
-
-<div class="platform" id="instagram">
-  Instagram
-  <small>Photos • Stories • Reels</small>
-</div>
-
-
-<div class="platform">
-  Facebook
-  <small>Feeds • Groups • Sharing</small>
-</div>
-
-
-<div class="platform">
-  Tumblr
-  <small>Fandom • GIFs • Text</small>
-</div>
-
-
-<div class="platform">
-  Snapchat
-  <small>Stories • Lenses</small>
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- MODERN -->
-
-<section class="archive-section" id="modern">
-
-<div class="section-title">
-  <h2>The Modern Internet</h2>
-  <p>Short-form video, livestreams, algorithms and rapidly accelerating meme cycles.</p>
-</div>
-
-
-<div class="meme-grid">
-
-
-<article class="meme-card">
-
-<div class="text-meme yellow">
-  HOW IT<br>
-  STARTED<br>
-  HOW IT'S<br>
-  GOING
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2020</div>
-
-<h3>How It Started / How It's Going</h3>
-
-<p>
-A pandemic-era format for comparing beginnings and current situations.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="meme-card">
-
-<div class="text-meme blue">
-  COFFIN<br>
-  DANCE
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2020</div>
-
-<h3>Coffin Dance</h3>
-
-<p>
-A Ghanaian pallbearing group became the centerpiece of a
-globally recognizable pandemic-era meme.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="meme-card">
-
-<div class="text-meme pink">
-  AMONG US<br>
-  SUS
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2020</div>
-
-<h3>Among Us</h3>
-
-<p>
-A multiplayer game became a massive source of memes,
-slang and reaction culture.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="meme-card">
-
-<div class="text-meme cyan">
-  CORN<br>
-  KID
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2022</div>
-
-<h3>Corn Kid</h3>
-
-<p>
-A joyful interview about corn became one of the major
-feel-good viral moments of the TikTok era.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="meme-card">
-
-<div class="text-meme yellow">
-  GRIMACE<br>
-  SHAKE
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2023</div>
-
-<h3>Grimace Shake</h3>
-
-<p>
-A promotional drink became the centerpiece of a surreal
-TikTok horror-comedy trend.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="meme-card">
-
-<div class="text-meme blue">
-  SKIBIDI<br>
-  TOILET
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2023</div>
-
-<h3>Skibidi Toilet</h3>
-
-<p>
-A surreal animated series became a major example of
-algorithm-driven youth internet culture.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="meme-card">
-
-<div class="text-meme pink">
-  GIRL<br>
-  DINNER
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2023</div>
-
-<h3>Girl Dinner</h3>
-
-<p>
-A TikTok phrase and food trend spread into mainstream
-conversation and media coverage.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="meme-card">
-
-<div class="text-meme cyan">
-  ROMAN<br>
-  EMPIRE
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2023</div>
-
-<h3>Roman Empire Trend</h3>
-
-<p>
-A TikTok question about how often men think about the Roman
-Empire became a widespread social-media phenomenon.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="meme-card">
-
-<div class="text-meme yellow">
-  HAWK<br>
-  TUAH
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2024</div>
-
-<h3>Hawk Tuah</h3>
-
-<p>
-A street-interview clip became one of the most recognizable
-viral moments of 2024.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="meme-card">
-
-<div class="text-meme pink">
-  DEMURE
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2024</div>
-
-<h3>Very Demure, Very Mindful</h3>
-
-<p>
-Jools Lebron's TikTok phrase rapidly entered mainstream
-internet vocabulary.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="meme-card">
-
-<div class="text-meme cyan">
-  MOO<br>
-  DENG
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2024</div>
-
-<h3>Moo Deng</h3>
-
-<p>
-A baby pygmy hippopotamus became an international social-media
-celebrity and meme subject.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="meme-card">
-
-<div class="text-meme blue">
-  BRAINROT<br>
-  ERA
-</div>
-
-<div class="meme-info">
-
-<div class="meme-date">2025–2026</div>
-
-<h3>Italian Brainrot</h3>
-
-<p>
-AI-assisted absurdist characters, synthetic voices and surreal
-short-form videos became a defining contemporary meme format.
-</p>
-
-</div>
-
-</article>
-
-
-</div>
-
-</section>
-
-
-<!-- TIMELINE -->
-
-<section class="archive-section" id="timeline">
-
-<div class="section-title">
-  <h2>Internet Culture Timeline</h2>
-  <p>A quick chronological record.</p>
-</div>
-
-
-<div class="timeline">
-
-
-<div class="timeline-entry">
-<strong>2004</strong>
-Numa Numa spreads through Newgrounds and the early viral web.
-</div>
-
-
-<div class="timeline-entry">
-<strong>2005</strong>
-YouTube launches.
-</div>
-
-
-<div class="timeline-entry">
-<strong>2006</strong>
-Evolution of Dance becomes one of the defining early YouTube hits.
-</div>
-
-
-<div class="timeline-entry">
-<strong>2007</strong>
-Chocolate Rain, Rickrolling, Keyboard Cat and Charlie Bit My Finger
-become major internet touchstones.
-</div>
-
-
-<div class="timeline-entry">
-<strong>2008</strong>
-LOLcats, rage comics and image macros become increasingly widespread.
-</div>
-
-
-<div class="timeline-entry">
-<strong>2009</strong>
-David After Dentist and other ordinary-person videos demonstrate
-the power of YouTube virality.
-</div>
-
-
-<div class="timeline-entry">
-<strong>2010</strong>
-Twitter, Facebook and YouTube increasingly overlap with mainstream culture.
-</div>
-
-
-<div class="timeline-entry">
-<strong>2011</strong>
-Nyan Cat and Rebecca Black become major examples of rapid online virality.
-</div>
-
-
-<div class="timeline-entry">
-<strong>2012</strong>
-Gangnam Style, Grumpy Cat and image memes dominate internet culture.
-</div>
-
-
-<div class="timeline-entry">
-<strong>2013</strong>
-Vine launches and creates an entirely new six-second comedy language.
-</div>
-
-
-<div class="timeline-entry">
-<strong>2014</strong>
-Snapchat becomes a major platform for younger internet users.
-</div>
-
-
-<div class="timeline-entry">
-<strong>2015</strong>
-Instagram, Twitter and Snapchat increasingly shape mainstream meme culture.
-</div>
-
-
-<div class="timeline-entry">
-<strong>2016</strong>
-Vine and Snapchat reach enormous cultural influence.
-</div>
-
-
-<div class="timeline-entry">
-<strong>2017</strong>
-Distracted Boyfriend and other highly adaptable image templates dominate meme culture.
-</div>
-
-
-<div class="timeline-entry">
-<strong>2018</strong>
-Musical.ly merges into the emerging TikTok ecosystem.
-</div>
-
-
-<div class="timeline-entry">
-<strong>2019</strong>
-TikTok becomes increasingly influential worldwide.
-</div>
-
-
-<div class="timeline-entry">
-<strong>2020</strong>
-COVID-19 accelerates TikTok, livestreaming, gaming and meme culture.
-</div>
-
-
-<div class="timeline-entry">
-<strong>2021</strong>
-Short-form video becomes a dominant cultural format.
-</div>
-
-
-<div class="timeline-entry">
-<strong>2022</strong>
-TikTok trends increasingly cross into music, advertising,
-television and mainstream news.
-</div>
-
-
-<div class="timeline-entry">
-<strong>2023</strong>
-Grimace Shake, Skibidi Toilet and other surreal formats demonstrate
-the speed of modern meme cycles.
-</div>
-
-
-<div class="timeline-entry">
-<strong>2024</strong>
-Hawk Tuah, Moo Deng, demure and other phenomena demonstrate how
-quickly a single clip can become a worldwide cultural reference.
-</div>
-
-
-<div class="timeline-entry">
-<strong>2025–2026</strong>
-AI-generated imagery, synthetic voices, livestream culture,
-brainrot formats and increasingly rapid meme cycles become intertwined.
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- SOURCES -->
-
-<section class="archive-section">
-
-<div class="section-title">
-  <h2>Archive Sources</h2>
-  <p>Places used to trace the history of internet culture.</p>
-</div>
-
-
-<div class="source-box">
-
-<h3>Research & Preservation</h3>
-
-<ul>
-
-<li>
-<a href="https://www.youtube.com/" target="_blank">
-YouTube
-</a>
-— surviving creator uploads and preserved video.
-</li>
-
-<li>
-<a href="https://knowyourmeme.com/" target="_blank">
-Know Your Meme
-</a>
-— meme origins, dates, spread and cultural documentation.
-</li>
-
-<li>
-<a href="https://commons.wikimedia.org/" target="_blank">
-Wikimedia Commons
-</a>
-— documented photographs and openly licensed media.
-</li>
-
-<li>
-<a href="https://www.reddit.com/" target="_blank">
-Reddit
-</a>
-— community archives, discussions and surviving references.
-</li>
-
-<li>
-<a href="https://web.archive.org/" target="_blank">
-Internet Archive / Wayback Machine
-</a>
-— historical versions of websites and pages that no longer exist.
-</li>
-
-</ul>
-
-
-<p>
-The archive distinguishes between original material, preserved copies,
-reuploads and historical references whenever that information can be
-established.
-</p>
-
-</div>
-
-</section>
-
-
-</section>
-
-</div>
-
-</main>
-
-
-<footer>
-
-<p>
-<strong>THE HISTORICAL RECORD</strong>
-</p>
-
-<p>
-Internet Culture Archive • 2004–2026
-</p>
-
-<p class="footer-small">
-Third-party videos, photographs, trademarks and other media remain
-the property of their respective creators and rights holders.
-This archive documents internet history and does not claim ownership
-of third-party material.
-</p>
-
-</footer>
-
+</script>
 
 </body>
 </html>
