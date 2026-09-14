@@ -9,30 +9,107 @@
     /* =========================================
        SELECTED VIDEOS
        ========================================= */
-    .selected-videos {
-      margin-bottom: 42px;
+    .selected-videos-section {
+      margin-bottom: 28px;
     }
-    .selected-videos-panel {
-      display: none;
-      margin-top: 28px;
+    .selected-videos-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 25px 32px;
+      background: var(--blue);
+      color: var(--white);
+      border: 1px solid var(--blue);
+      border-left: 5px solid var(--red);
+      box-shadow: var(--shadow);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: 2rem;
+      line-height: 1.2;
+      text-align: left;
+      cursor: pointer;
+      transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
     }
-    .selected-videos-panel.open {
-      display: block;
+    .selected-videos-toggle:hover {
+      background: var(--blue-light);
+      border-color: var(--red);
     }
-    .video-grid {
+    .selected-videos-toggle:focus {
+      outline: 3px solid rgba(178, 34, 52, 0.35);
+      outline-offset: 3px;
+    }
+    .selected-videos-toggle-text {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .selected-videos-label {
+      color: var(--white);
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+      font-size: 0.72rem;
+      font-weight: bold;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .selected-videos-title {
+      color: var(--white);
+    }
+    .selected-videos-arrow {
+      flex-shrink: 0;
+      margin-left: 20px;
+      color: var(--white);
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+      font-size: 1.25rem;
+      transition:
+        transform 0.25s ease;
+    }
+    .selected-videos-section.open
+    .selected-videos-arrow {
+      transform: rotate(180deg);
+    }
+    .selected-videos-content {
+      max-height: 0;
+      overflow: hidden;
+      background: var(--off-white);
+      opacity: 0;
+      transition:
+        max-height 0.45s ease,
+        opacity 0.3s ease;
+    }
+    .selected-videos-section.open
+    .selected-videos-content {
+      max-height: 20000px;
+      opacity: 1;
+    }
+    .selected-videos-inner {
+      padding: 28px 0 0;
+    }
+    .selected-video-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
       gap: 28px;
     }
-    .video-card {
-      position: relative;
+    .selected-video-card {
       background: var(--white);
       border: 1px solid var(--light-blue);
       border-left: 5px solid var(--red);
       box-shadow: var(--shadow);
       overflow: hidden;
     }
-    .video-player {
+    .selected-video-player {
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
@@ -40,13 +117,13 @@
       cursor: pointer;
       overflow: hidden;
     }
-    .video-player img {
+    .selected-video-player img {
       display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-    .video-play {
+    .selected-video-play {
       position: absolute;
       left: 50%;
       top: 50%;
@@ -58,7 +135,7 @@
       background: rgba(178, 34, 52, 0.95);
       cursor: pointer;
     }
-    .video-play::after {
+    .selected-video-play::after {
       content: "";
       position: absolute;
       left: 25px;
@@ -69,16 +146,16 @@
       border-bottom: 12px solid transparent;
       border-left: 18px solid var(--white);
     }
-    .video-player iframe {
+    .selected-video-player iframe {
       display: block;
       width: 100%;
       height: 100%;
       border: 0;
     }
-    .video-info {
+    .selected-video-info {
       padding: 22px;
     }
-    .video-label {
+    .selected-video-number {
       margin: 0 0 8px;
       color: var(--red);
       font-size: 0.72rem;
@@ -86,7 +163,7 @@
       letter-spacing: 0.13em;
       text-transform: uppercase;
     }
-    .video-title {
+    .selected-video-title {
       margin: 0;
       color: var(--blue);
       font-family:
@@ -96,69 +173,72 @@
       font-size: 1.35rem;
       line-height: 1.25;
     }
-    .video-uploader {
+    .selected-video-uploader {
       margin: 9px 0 0;
       color: var(--muted);
       font-size: 0.84rem;
     }
-    .selected-videos-toggle {
-      cursor: pointer;
-      width: 100%;
-      text-align: left;
-    }
-    .selected-videos-toggle .topic-arrow {
-      border: 0;
-      background: transparent;
-      padding: 0;
-    }
     /* =========================================
-       BACK TO TOP
+       RETURN TO TOP
        ========================================= */
-    .back-to-top {
+    .return-to-top {
       position: fixed;
       right: 22px;
       bottom: 22px;
-      z-index: 999;
-      width: 50px;
-      height: 50px;
+      z-index: 998;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 2px solid var(--white);
-      border-radius: 0;
+      width: 50px;
+      height: 50px;
       background: var(--red);
       color: var(--white);
-      font-size: 1.35rem;
-      font-weight: bold;
-      cursor: pointer;
+      border: 2px solid var(--white);
       box-shadow:
         0 5px 16px rgba(0, 0, 0, 0.25);
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+      font-size: 1.35rem;
+      font-weight: bold;
+      text-decoration: none;
       opacity: 0;
       visibility: hidden;
       transform: translateY(12px);
       transition:
-        opacity 0.2s ease,
-        visibility 0.2s ease,
-        transform 0.2s ease,
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease,
         background 0.2s ease;
     }
-    .back-to-top.show {
+    .return-to-top.show {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
     }
-    .back-to-top:hover {
+    .return-to-top:hover {
       background: var(--red-dark);
     }
-    .back-to-top:focus {
+    .return-to-top:focus {
       outline: 3px solid rgba(178, 34, 52, 0.35);
       outline-offset: 3px;
     }
+    /* =========================================
+       MOBILE
+       ========================================= */
     @media (max-width: 760px) {
-      .video-grid {
+      .selected-videos-toggle {
+        padding: 22px 24px;
+        font-size: 1.6rem;
+      }
+      .selected-video-grid {
         grid-template-columns: 1fr;
       }
-      .back-to-top {
+      .selected-videos-inner {
+        padding-top: 22px;
+      }
+      .return-to-top {
         right: 14px;
         bottom: 14px;
         width: 46px;
@@ -187,8 +267,12 @@ type=“button”
        ========================================= -->
   <aside class="side-menu">
 <div class="menu-header">
-  <h2>The Historical Record</h2>
-  <p>Archive Navigation</p>
+  <h2>
+    The Historical Record
+  </h2>
+  <p>
+    Archive Navigation
+  </p>
 </div>
 <nav>
   <a href="search.html">
@@ -208,8 +292,12 @@ type=“button”
       aria-expanded="false"
       aria-controls="politics-submenu"
     >
-      <span>Politics</span>
-      <span class="menu-dropdown-arrow">▾</span>
+      <span>
+        Politics
+      </span>
+      <span class="menu-dropdown-arrow">
+        ▾
+      </span>
     </button>
     <div
       class="menu-submenu"
@@ -264,8 +352,10 @@ type=“button”
   <!-- =========================================
        MAIN
        ========================================= -->
-  <main>
-<!-- HERO -->
+  <main id="top">
+<!-- =========================================
+     HERO
+     ========================================= -->
 <section class="hero">
   <div class="container">
     <p class="eyebrow">
@@ -287,44 +377,50 @@ type=“button”
 <section class="records-section">
   <div class="container">
     <div class="record-list">
-      <!-- =========================================
+      <!-- =====================================
            SELECTED VIDEOS
-           ========================================= -->
-      <div class="selected-videos">
+           ===================================== -->
+      <div
+        class="selected-videos-section"
+        id="selected-videos-section"
+      >
         <button
-          class="topic-card selected-videos-toggle"
+          class="selected-videos-toggle"
           id="selected-videos-toggle"
           type="button"
           aria-expanded="false"
-          aria-controls="selected-videos-panel"
+          aria-controls="selected-videos-content"
         >
-          <span class="topic-label">
-            SELECTED VIDEOS
+          <span class="selected-videos-toggle-text">
+            <span class="selected-videos-label">
+              ENTERTAINMENT / SPORTS
+            </span>
+            <span class="selected-videos-title">
+              Selected Videos
+            </span>
           </span>
-          <h2>
-            Selected Videos
-          </h2>
-          <p>
-            A collection of selected entertainment and sports videos
-            preserved as part of The Historical Record.
-          </p>
-          <span class="topic-arrow">
-            View Selected Videos →
+          <span
+            class="selected-videos-arrow"
+            aria-hidden="true"
+          >
+            ▾
           </span>
         </button>
         <div
-          class="selected-videos-panel"
-          id="selected-videos-panel"
+          class="selected-videos-content"
+          id="selected-videos-content"
         >
-          <div
-            class="video-grid"
-            id="selected-video-grid"
-          ></div>
+          <div class="selected-videos-inner">
+            <div
+              class="selected-video-grid"
+              id="selected-video-grid"
+            ></div>
+          </div>
         </div>
       </div>
-      <!-- =========================================
+      <!-- =====================================
            KENTA KOBASHI
-           ========================================= -->
+           ===================================== -->
       <article class="record-card">
         <p class="record-label">
           SPORTS
@@ -345,9 +441,9 @@ type=“button”
           View Kenta Kobashi's Historical Profile →
         </a>
       </article>
-      <!-- =========================================
+      <!-- =====================================
            CHRIS BROWN / CONGRESSIONAL RECORD
-           ========================================= -->
+           ===================================== -->
       <article class="record-card">
         <p class="record-label">
           ENTERTAINMENT • SEPTEMBER 13, 2026
@@ -383,9 +479,9 @@ type=“button”
           </blockquote>
         </div>
       </article>
-      <!-- =========================================
+      <!-- =====================================
            CHRIS BROWN / REACTION
-           ========================================= -->
+           ===================================== -->
       <article class="record-card">
         <p class="record-label">
           ENTERTAINMENT • SEPTEMBER 14, 2026
@@ -422,9 +518,9 @@ type=“button”
           </blockquote>
         </div>
       </article>
-      <!-- =========================================
+      <!-- =====================================
            AAA TRIPLEMANIA
-           ========================================= -->
+           ===================================== -->
       <article class="record-card">
         <p class="record-label">
           SPORTS • SEPTEMBER 14, 2026
@@ -478,20 +574,20 @@ type=“button”
 </div>
   </footer>
   <!-- =========================================
-       BACK TO TOP
+       RETURN TO TOP
        ========================================= -->
 
-<button
-class=“back-to-top”
-id=“back-to-top”
-type=“button”
-aria-label=“Back to top”
-title=“Back to top”
+<a
+href=”#top”
+class=“return-to-top”
+id=“return-to-top”
+aria-label=“Return to top of page”
+title=“Return to top”
 
 ↑
-  </button>
+  </a>
   <!-- =========================================
-       X WIDGET
+       X WIDGET SCRIPT
        ========================================= -->
   <script
     async
@@ -499,7 +595,7 @@ title=“Back to top”
     charset="utf-8"
   ></script>
   <!-- =========================================
-       MAIN SITE SCRIPT
+       SITE MENU SCRIPT
        ========================================= -->
   <script src="script.js"></script>
   <!-- =========================================
@@ -524,55 +620,53 @@ title=“Back to top”
       "MKHZn4JFrXA",
       "SMEYZHB_rlE"
     ];
+    const selectedVideoGrid =
+      document.getElementById(
+        "selected-video-grid"
+      );
+    const selectedVideosSection =
+      document.getElementById(
+        "selected-videos-section"
+      );
     const selectedVideosToggle =
       document.getElementById(
         "selected-videos-toggle"
       );
-    const selectedVideosPanel =
-      document.getElementById(
-        "selected-videos-panel"
-      );
-    const videoGrid =
-      document.getElementById(
-        "selected-video-grid"
-      );
+    /*
+     * Open / close Selected Videos.
+     */
     selectedVideosToggle.addEventListener(
       "click",
       function() {
         const isOpen =
-          selectedVideosPanel.classList.toggle("open");
+          selectedVideosSection.classList.toggle(
+            "open"
+          );
         selectedVideosToggle.setAttribute(
           "aria-expanded",
           String(isOpen)
         );
-        if (isOpen) {
-          selectedVideosToggle.querySelector(
-            ".topic-arrow"
-          ).textContent =
-            "Hide Selected Videos ↑";
-          selectedVideosPanel.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-        } else {
-          selectedVideosToggle.querySelector(
-            ".topic-arrow"
-          ).textContent =
-            "View Selected Videos →";
-        }
       }
     );
-    function createVideoCard(id, index) {
+    /*
+     * Create each video card.
+     */
+    function createSelectedVideoCard(
+      id,
+      index
+    ) {
       const card =
-        document.createElement("article");
+        document.createElement(
+          "article"
+        );
       card.className =
-        "video-card";
+        "selected-video-card";
       card.innerHTML = `
         <div
-          class="video-player"
+          class="selected-video-player"
           role="button"
           tabindex="0"
-          aria-label="Play video"
+          aria-label="Play selected video"
         >
           <img
             src="https://i.ytimg.com/vi/${id}/mqdefault.jpg"
@@ -581,19 +675,19 @@ title=“Back to top”
             decoding="async"
           >
           <button
-            class="video-play"
+            class="selected-video-play"
             type="button"
             aria-label="Play video"
           ></button>
         </div>
-        <div class="video-info">
-          <p class="video-label">
+        <div class="selected-video-info">
+          <p class="selected-video-number">
             SELECTED VIDEO ${String(index + 1).padStart(2, "0")}
           </p>
-          <h3 class="video-title">
+          <h3 class="selected-video-title">
             Loading title…
           </h3>
-          <p class="video-uploader">
+          <p class="selected-video-uploader">
             <strong>Uploader:</strong>
             <span>Loading…</span>
           </p>
@@ -601,11 +695,11 @@ title=“Back to top”
       `;
       const player =
         card.querySelector(
-          ".video-player"
+          ".selected-video-player"
         );
       const playButton =
         card.querySelector(
-          ".video-play"
+          ".selected-video-play"
         );
       function playVideo() {
         if (
@@ -625,7 +719,7 @@ title=“Back to top”
           "?autoplay=1&rel=0";
         iframe.title =
           card.querySelector(
-            ".video-title"
+            ".selected-video-title"
           ).textContent;
         iframe.loading =
           "lazy";
@@ -666,22 +760,26 @@ title=“Back to top”
       );
       return card;
     }
+    /*
+     * Load the YouTube title and uploader.
+     */
     async function loadVideoMetadata(
       card,
       id
     ) {
       const title =
         card.querySelector(
-          ".video-title"
+          ".selected-video-title"
         );
       const uploader =
         card.querySelector(
-          ".video-uploader span"
+          ".selected-video-uploader span"
         );
       const endpoint =
         "https://www.youtube.com/oembed?url=" +
         encodeURIComponent(
-          "https://www.youtube.com/watch?v=" + id
+          "https://www.youtube.com/watch?v=" +
+          id
         ) +
         "&format=json";
       try {
@@ -707,10 +805,14 @@ title=“Back to top”
           "YouTube video";
       }
     }
+    /*
+     * Add all 16 videos to the
+     * Selected Videos section.
+     */
     selectedVideos.forEach(
       function(id, index) {
-        videoGrid.appendChild(
-          createVideoCard(
+        selectedVideoGrid.appendChild(
+          createSelectedVideoCard(
             id,
             index
           )
@@ -719,43 +821,42 @@ title=“Back to top”
     );
   </script>
   <!-- =========================================
-       BACK TO TOP SCRIPT
+       RETURN TO TOP SCRIPT
        ========================================= -->
   <script>
-    const backToTop =
+    const returnToTop =
       document.getElementById(
-        "back-to-top"
+        "return-to-top"
       );
-    function updateBackToTop() {
-      if (
-        window.scrollY > 500
-      ) {
-        backToTop.classList.add(
-          "show"
-        );
-      } else {
-        backToTop.classList.remove(
-          "show"
-        );
-      }
-    }
     window.addEventListener(
       "scroll",
-      updateBackToTop,
+      function() {
+        if (
+          window.scrollY > 500
+        ) {
+          returnToTop.classList.add(
+            "show"
+          );
+        } else {
+          returnToTop.classList.remove(
+            "show"
+          );
+        }
+      },
       {
         passive: true
       }
     );
-    backToTop.addEventListener(
+    returnToTop.addEventListener(
       "click",
-      function() {
+      function(event) {
+        event.preventDefault();
         window.scrollTo({
           top: 0,
           behavior: "smooth"
         });
       }
     );
-    updateBackToTop();
   </script>
 </body>
 </html>
