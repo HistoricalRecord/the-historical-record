@@ -109,12 +109,8 @@
       font-weight: 600;
       letter-spacing: 0.7px;
     }
-    /* =========================
-       SIDEBAR
-       ========================= */
     .menu-button {
       background: #b22234;
-      color: #ffffff;
     }
     .side-menu {
       background: #ffffff;
@@ -124,10 +120,6 @@
       background: #0b1f4d;
       color: #ffffff;
     }
-    .menu-header h2,
-    .menu-header p {
-      color: #ffffff;
-    }
     .side-menu nav a {
       color: #0b1f4d;
       border-bottom: 1px solid #d5dbea;
@@ -135,24 +127,6 @@
     .side-menu nav a:hover {
       background: #b22234;
       color: #ffffff;
-    }
-    .menu-dropdown-toggle {
-      color: #0b1f4d;
-      background: #ffffff;
-      border-bottom: 1px solid #d5dbea;
-    }
-    .menu-dropdown-toggle:hover {
-      background: #b22234;
-      color: #ffffff;
-    }
-    .menu-submenu {
-      background: #f1f3f8;
-    }
-    .menu-submenu a {
-      color: #0b1f4d;
-    }
-    .menu-overlay {
-      background: rgba(0, 0, 0, 0.45);
     }
     @media (max-width: 600px) {
       .hero {
@@ -186,13 +160,10 @@
   </style>
 </head>
 <body>
-  <!-- =========================
-       MENU BUTTON
-       ========================= -->
+  <!-- MENU BUTTON -->
 
 <button
 class=“menu-button”
-type=“button”
 aria-label=“Open menu”
 aria-expanded=“false”
 
@@ -200,17 +171,11 @@ aria-expanded=“false”
 <span></span>
 <span></span>
   </button>
-  <!-- =========================
-       SIDE MENU
-       ========================= -->
+  <!-- SIDE MENU -->
   <aside class="side-menu">
 <div class="menu-header">
-  <h2>
-    The Historical Record
-  </h2>
-  <p>
-    Archive Navigation
-  </p>
+  <h2>The Historical Record</h2>
+  <p>Archive Navigation</p>
 </div>
 <nav>
   <a href="search.html">
@@ -225,7 +190,6 @@ aria-expanded=“false”
   <a href="index.html">
     Home
   </a>
-  <!-- POLITICS DROPDOWN -->
   <div class="menu-dropdown">
     <button
       class="menu-dropdown-toggle"
@@ -233,12 +197,8 @@ aria-expanded=“false”
       aria-expanded="false"
       aria-controls="politics-submenu"
     >
-      <span>
-        Politics
-      </span>
-      <span class="menu-dropdown-arrow">
-        ▾
-      </span>
+      <span>Politics</span>
+      <span class="menu-dropdown-arrow">▾</span>
     </button>
     <div
       class="menu-submenu"
@@ -269,13 +229,9 @@ aria-expanded=“false”
   </a>
 </nav>
   </aside>
-  <!-- =========================
-       MENU OVERLAY
-       ========================= -->
+  <!-- MENU OVERLAY -->
   <div class="menu-overlay"></div>
-  <!-- =========================
-       HEADER
-       ========================= -->
+  <!-- HEADER -->
   <header class="site-header">
 <div class="container header-inner">
   <a
@@ -286,9 +242,7 @@ aria-expanded=“false”
   </a>
 </div>
   </header>
-  <!-- =========================
-       MAIN CONTENT
-       ========================= -->
+  <!-- MAIN CONTENT -->
   <main>
 <!-- HERO -->
 <section class="hero">
@@ -305,9 +259,7 @@ aria-expanded=“false”
     </p>
   </div>
 </section>
-<!-- =========================
-     FLAG
-     ========================= -->
+<!-- FLAG -->
 <section class="flag-section">
   <div class="container">
     <img
@@ -320,9 +272,7 @@ aria-expanded=“false”
     </p>
   </div>
 </section>
-<!-- =========================
-     ABOUT
-     ========================= -->
+<!-- ABOUT -->
 <section class="about-section">
   <div class="container">
     <p class="eyebrow">
@@ -356,9 +306,7 @@ aria-expanded=“false”
   </div>
 </section>
   </main>
-  <!-- =========================
-       FOOTER
-       ========================= -->
+  <!-- FOOTER -->
   <footer class="site-footer">
 <div class="container">
   <p>
@@ -387,9 +335,7 @@ aria-expanded=“false”
   </div>
 </div>
   </footer>
-  <!-- =========================
-       SITE SCRIPT
-       ========================= -->
+  <!-- SITE SCRIPT -->
   <script src="script.js"></script>
 </body>
 </html>
