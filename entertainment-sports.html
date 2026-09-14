@@ -9,107 +9,80 @@
     /* =========================================
        SELECTED VIDEOS
        ========================================= */
-    .selected-videos-section {
-      margin-bottom: 28px;
+    .selected-videos {
+      margin-bottom: 42px;
     }
     .selected-videos-toggle {
+      position: relative;
+      display: block;
       width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 25px 32px;
-      background: var(--blue);
-      color: var(--white);
-      border: 1px solid var(--blue);
+      min-height: 230px;
+      margin: 0;
+      padding: 32px;
+      overflow: hidden;
+      background: var(--white);
+      color: var(--text);
+      border: 1px solid var(--light-blue);
       border-left: 5px solid var(--red);
       box-shadow: var(--shadow);
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-      font-size: 2rem;
-      line-height: 1.2;
+      font: inherit;
       text-align: left;
+      appearance: none;
+      -webkit-appearance: none;
       cursor: pointer;
       transition:
-        background 0.2s ease,
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+    }
+    .selected-videos-toggle::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--red);
     }
     .selected-videos-toggle:hover {
-      background: var(--blue-light);
+      transform: translateY(-3px);
+      background: var(--white);
       border-color: var(--red);
+      box-shadow:
+        0 12px 30px rgba(11, 31, 77, 0.17);
     }
     .selected-videos-toggle:focus {
       outline: 3px solid rgba(178, 34, 52, 0.35);
       outline-offset: 3px;
     }
-    .selected-videos-toggle-text {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+    .selected-videos-toggle .topic-label,
+    .selected-videos-toggle h2,
+    .selected-videos-toggle p,
+    .selected-videos-toggle .topic-arrow {
+      pointer-events: none;
     }
-    .selected-videos-label {
-      color: var(--white);
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-      font-size: 0.72rem;
-      font-weight: bold;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+    .selected-videos-panel {
+      display: none;
+      margin-top: 28px;
     }
-    .selected-videos-title {
-      color: var(--white);
+    .selected-videos-panel.open {
+      display: block;
     }
-    .selected-videos-arrow {
-      flex-shrink: 0;
-      margin-left: 20px;
-      color: var(--white);
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-      font-size: 1.25rem;
-      transition:
-        transform 0.25s ease;
-    }
-    .selected-videos-section.open
-    .selected-videos-arrow {
-      transform: rotate(180deg);
-    }
-    .selected-videos-content {
-      max-height: 0;
-      overflow: hidden;
-      background: var(--off-white);
-      opacity: 0;
-      transition:
-        max-height 0.45s ease,
-        opacity 0.3s ease;
-    }
-    .selected-videos-section.open
-    .selected-videos-content {
-      max-height: 20000px;
-      opacity: 1;
-    }
-    .selected-videos-inner {
-      padding: 28px 0 0;
-    }
-    .selected-video-grid {
+    .video-grid {
       display: grid;
       grid-template-columns:
         repeat(2, minmax(0, 1fr));
       gap: 28px;
     }
-    .selected-video-card {
+    .video-card {
+      position: relative;
       background: var(--white);
       border: 1px solid var(--light-blue);
       border-left: 5px solid var(--red);
       box-shadow: var(--shadow);
       overflow: hidden;
     }
-    .selected-video-player {
+    .video-player {
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
@@ -117,45 +90,50 @@
       cursor: pointer;
       overflow: hidden;
     }
-    .selected-video-player img {
+    .video-player img {
       display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-    .selected-video-play {
+    .video-play {
       position: absolute;
       left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%);
+      transform:
+        translate(-50%, -50%);
       width: 62px;
       height: 62px;
       border: 0;
       border-radius: 50%;
-      background: rgba(178, 34, 52, 0.95);
+      background:
+        rgba(178, 34, 52, 0.95);
       cursor: pointer;
     }
-    .selected-video-play::after {
+    .video-play::after {
       content: "";
       position: absolute;
       left: 25px;
       top: 19px;
       width: 0;
       height: 0;
-      border-top: 12px solid transparent;
-      border-bottom: 12px solid transparent;
-      border-left: 18px solid var(--white);
+      border-top:
+        12px solid transparent;
+      border-bottom:
+        12px solid transparent;
+      border-left:
+        18px solid var(--white);
     }
-    .selected-video-player iframe {
+    .video-player iframe {
       display: block;
       width: 100%;
       height: 100%;
       border: 0;
     }
-    .selected-video-info {
+    .video-info {
       padding: 22px;
     }
-    .selected-video-number {
+    .video-label {
       margin: 0 0 8px;
       color: var(--red);
       font-size: 0.72rem;
@@ -163,7 +141,7 @@
       letter-spacing: 0.13em;
       text-transform: uppercase;
     }
-    .selected-video-title {
+    .video-title {
       margin: 0;
       color: var(--blue);
       font-family:
@@ -173,55 +151,56 @@
       font-size: 1.35rem;
       line-height: 1.25;
     }
-    .selected-video-uploader {
+    .video-uploader {
       margin: 9px 0 0;
       color: var(--muted);
       font-size: 0.84rem;
     }
     /* =========================================
-       RETURN TO TOP
+       BACK TO TOP
        ========================================= */
-    .return-to-top {
+    .back-to-top {
       position: fixed;
       right: 22px;
       bottom: 22px;
-      z-index: 998;
+      z-index: 999;
+      width: 50px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 50px;
-      height: 50px;
       background: var(--red);
       color: var(--white);
       border: 2px solid var(--white);
-      box-shadow:
-        0 5px 16px rgba(0, 0, 0, 0.25);
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+      border-radius: 0;
       font-size: 1.35rem;
       font-weight: bold;
-      text-decoration: none;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow:
+        0 5px 16px rgba(0, 0, 0, 0.25);
       opacity: 0;
       visibility: hidden;
-      transform: translateY(12px);
+      transform:
+        translateY(12px);
       transition:
-        opacity 0.25s ease,
-        visibility 0.25s ease,
-        transform 0.25s ease,
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.2s ease,
         background 0.2s ease;
     }
-    .return-to-top.show {
+    .back-to-top.show {
       opacity: 1;
       visibility: visible;
-      transform: translateY(0);
+      transform:
+        translateY(0);
     }
-    .return-to-top:hover {
+    .back-to-top:hover {
       background: var(--red-dark);
     }
-    .return-to-top:focus {
-      outline: 3px solid rgba(178, 34, 52, 0.35);
+    .back-to-top:focus {
+      outline:
+        3px solid rgba(178, 34, 52, 0.35);
       outline-offset: 3px;
     }
     /* =========================================
@@ -229,16 +208,13 @@
        ========================================= */
     @media (max-width: 760px) {
       .selected-videos-toggle {
-        padding: 22px 24px;
-        font-size: 1.6rem;
+        min-height: 0;
+        padding: 24px;
       }
-      .selected-video-grid {
+      .video-grid {
         grid-template-columns: 1fr;
       }
-      .selected-videos-inner {
-        padding-top: 22px;
-      }
-      .return-to-top {
+      .back-to-top {
         right: 14px;
         bottom: 14px;
         width: 46px;
@@ -251,13 +227,12 @@
   <!-- =========================================
        HAMBURGER
        ========================================= -->
-
 <button
-class=“menu-button”
-aria-label=“Open menu”
-aria-expanded=“false”
-type=“button”
-
+class="menu-button"
+aria-label="Open menu"
+aria-expanded="false"
+type="button"
+>
 <span></span>
 <span></span>
 <span></span>
@@ -352,7 +327,7 @@ type=“button”
   <!-- =========================================
        MAIN
        ========================================= -->
-  <main id="top">
+  <main>
 <!-- =========================================
      HERO
      ========================================= -->
@@ -377,50 +352,44 @@ type=“button”
 <section class="records-section">
   <div class="container">
     <div class="record-list">
-      <!-- =====================================
+      <!-- =========================================
            SELECTED VIDEOS
-           ===================================== -->
-      <div
-        class="selected-videos-section"
-        id="selected-videos-section"
-      >
+           ========================================= -->
+      <div class="selected-videos">
         <button
           class="selected-videos-toggle"
           id="selected-videos-toggle"
           type="button"
           aria-expanded="false"
-          aria-controls="selected-videos-content"
+          aria-controls="selected-videos-panel"
         >
-          <span class="selected-videos-toggle-text">
-            <span class="selected-videos-label">
-              ENTERTAINMENT / SPORTS
-            </span>
-            <span class="selected-videos-title">
-              Selected Videos
-            </span>
+          <span class="topic-label">
+            SELECTED VIDEOS
           </span>
-          <span
-            class="selected-videos-arrow"
-            aria-hidden="true"
-          >
-            ▾
+          <h2>
+            Selected Videos
+          </h2>
+          <p>
+            A collection of selected entertainment and sports videos
+            preserved as part of The Historical Record.
+          </p>
+          <span class="topic-arrow">
+            View Selected Videos →
           </span>
         </button>
         <div
-          class="selected-videos-content"
-          id="selected-videos-content"
+          class="selected-videos-panel"
+          id="selected-videos-panel"
         >
-          <div class="selected-videos-inner">
-            <div
-              class="selected-video-grid"
-              id="selected-video-grid"
-            ></div>
-          </div>
+          <div
+            class="video-grid"
+            id="selected-video-grid"
+          ></div>
         </div>
       </div>
-      <!-- =====================================
+      <!-- =========================================
            KENTA KOBASHI
-           ===================================== -->
+           ========================================= -->
       <article class="record-card">
         <p class="record-label">
           SPORTS
@@ -433,17 +402,17 @@ type=“button”
         </p>
         <p>
           Explore the career of Kenta Kobashi, from his beginnings in All Japan
-          Pro Wrestling to his legendary years in Pro Wrestling NOAH, his championship
-          victories, historic rivalries, major injuries, battles with cancer, and
-          his emotional retirement in 2013.
+          Pro Wrestling to his legendary years in Pro Wrestling NOAH, his
+          championship victories, historic rivalries, major injuries, battles
+          with cancer, and his emotional retirement in 2013.
         </p>
         <a href="kenta-kobashi.html">
           View Kenta Kobashi's Historical Profile →
         </a>
       </article>
-      <!-- =====================================
+      <!-- =========================================
            CHRIS BROWN / CONGRESSIONAL RECORD
-           ===================================== -->
+           ========================================= -->
       <article class="record-card">
         <p class="record-label">
           ENTERTAINMENT • SEPTEMBER 13, 2026
@@ -473,15 +442,17 @@ type=“button”
               </a>
             </p>
             &mdash; Pop Core
-            <a href="https://x.com/TheePopCore/status/2099155301828092052?ref_src=twsrc%5Etfw">
+            <a
+              href="https://x.com/TheePopCore/status/2099155301828092052?ref_src=twsrc%5Etfw"
+            >
               September 13, 2026
             </a>
           </blockquote>
         </div>
       </article>
-      <!-- =====================================
+      <!-- =========================================
            CHRIS BROWN / REACTION
-           ===================================== -->
+           ========================================= -->
       <article class="record-card">
         <p class="record-label">
           ENTERTAINMENT • SEPTEMBER 14, 2026
@@ -500,10 +471,14 @@ type=“button”
           </strong>
           <blockquote class="twitter-tweet">
             <p lang="en" dir="ltr">
-              <a href="https://x.com/RepJasmine?ref_src=twsrc%5Etfw">
+              <a
+                href="https://x.com/RepJasmine?ref_src=twsrc%5Etfw"
+              >
                 @RepJasmine
               </a>
-              <a href="https://x.com/JasmineForUS?ref_src=twsrc%5Etfw">
+              <a
+                href="https://x.com/JasmineForUS?ref_src=twsrc%5Etfw"
+              >
                 @JasmineForUS
               </a>
               in case you aren't aware of long streak of abuse!!
@@ -512,15 +487,17 @@ type=“button”
               </a>
             </p>
             &mdash; G Tyrant Daughter
-            <a href="https://x.com/jusamillenial/status/2099296147009347936?ref_src=twsrc%5Etfw">
+            <a
+              href="https://x.com/jusamillenial/status/2099296147009347936?ref_src=twsrc%5Etfw"
+            >
               September 14, 2026
             </a>
           </blockquote>
         </div>
       </article>
-      <!-- =====================================
+      <!-- =========================================
            AAA TRIPLEMANIA
-           ===================================== -->
+           ========================================= -->
       <article class="record-card">
         <p class="record-label">
           SPORTS • SEPTEMBER 14, 2026
@@ -541,7 +518,9 @@ type=“button”
               México NO DUERME 🇲🇽
               <br><br>
               Cerramos
-              <a href="https://x.com/hashtag/AAATriplemania?src=hash&amp;ref_src=twsrc%5Etfw">
+              <a
+                href="https://x.com/hashtag/AAATriplemania?src=hash&amp;ref_src=twsrc%5Etfw"
+              >
                 #AAATriplemania
               </a>
               con El Grande Americano como Megacampeón de AAA ✨
@@ -550,7 +529,9 @@ type=“button”
               </a>
             </p>
             &mdash; Lucha Libre AAA Worldwide
-            <a href="https://x.com/luchalibreaaa/status/2099352156386238761?ref_src=twsrc%5Etfw">
+            <a
+              href="https://x.com/luchalibreaaa/status/2099352156386238761?ref_src=twsrc%5Etfw"
+            >
               September 14, 2026
             </a>
           </blockquote>
@@ -574,18 +555,17 @@ type=“button”
 </div>
   </footer>
   <!-- =========================================
-       RETURN TO TOP
+       BACK TO TOP
        ========================================= -->
-
-<a
-href=”#top”
-class=“return-to-top”
-id=“return-to-top”
-aria-label=“Return to top of page”
-title=“Return to top”
-
+<button
+class="back-to-top"
+id="back-to-top"
+type="button"
+aria-label="Back to top"
+title="Back to top"
+>
 ↑
-  </a>
+  </button>
   <!-- =========================================
        X WIDGET SCRIPT
        ========================================= -->
@@ -595,7 +575,7 @@ title=“Return to top”
     charset="utf-8"
   ></script>
   <!-- =========================================
-       SITE MENU SCRIPT
+       MAIN SITE SCRIPT
        ========================================= -->
   <script src="script.js"></script>
   <!-- =========================================
@@ -620,38 +600,47 @@ title=“Return to top”
       "MKHZn4JFrXA",
       "SMEYZHB_rlE"
     ];
-    const selectedVideoGrid =
-      document.getElementById(
-        "selected-video-grid"
-      );
-    const selectedVideosSection =
-      document.getElementById(
-        "selected-videos-section"
-      );
     const selectedVideosToggle =
       document.getElementById(
         "selected-videos-toggle"
       );
-    /*
-     * Open / close Selected Videos.
-     */
+    const selectedVideosPanel =
+      document.getElementById(
+        "selected-videos-panel"
+      );
+    const videoGrid =
+      document.getElementById(
+        "selected-video-grid"
+      );
     selectedVideosToggle.addEventListener(
       "click",
       function() {
         const isOpen =
-          selectedVideosSection.classList.toggle(
+          selectedVideosPanel.classList.toggle(
             "open"
           );
         selectedVideosToggle.setAttribute(
           "aria-expanded",
           String(isOpen)
         );
+        const arrow =
+          selectedVideosToggle.querySelector(
+            ".topic-arrow"
+          );
+        if (isOpen) {
+          arrow.textContent =
+            "Hide Selected Videos ↑";
+          selectedVideosPanel.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        } else {
+          arrow.textContent =
+            "View Selected Videos →";
+        }
       }
     );
-    /*
-     * Create each video card.
-     */
-    function createSelectedVideoCard(
+    function createVideoCard(
       id,
       index
     ) {
@@ -660,13 +649,13 @@ title=“Return to top”
           "article"
         );
       card.className =
-        "selected-video-card";
+        "video-card";
       card.innerHTML = `
         <div
-          class="selected-video-player"
+          class="video-player"
           role="button"
           tabindex="0"
-          aria-label="Play selected video"
+          aria-label="Play video"
         >
           <img
             src="https://i.ytimg.com/vi/${id}/mqdefault.jpg"
@@ -675,19 +664,19 @@ title=“Return to top”
             decoding="async"
           >
           <button
-            class="selected-video-play"
+            class="video-play"
             type="button"
             aria-label="Play video"
           ></button>
         </div>
-        <div class="selected-video-info">
-          <p class="selected-video-number">
+        <div class="video-info">
+          <p class="video-label">
             SELECTED VIDEO ${String(index + 1).padStart(2, "0")}
           </p>
-          <h3 class="selected-video-title">
+          <h3 class="video-title">
             Loading title…
           </h3>
-          <p class="selected-video-uploader">
+          <p class="video-uploader">
             <strong>Uploader:</strong>
             <span>Loading…</span>
           </p>
@@ -695,11 +684,11 @@ title=“Return to top”
       `;
       const player =
         card.querySelector(
-          ".selected-video-player"
+          ".video-player"
         );
       const playButton =
         card.querySelector(
-          ".selected-video-play"
+          ".video-play"
         );
       function playVideo() {
         if (
@@ -719,7 +708,7 @@ title=“Return to top”
           "?autoplay=1&rel=0";
         iframe.title =
           card.querySelector(
-            ".selected-video-title"
+            ".video-title"
           ).textContent;
         iframe.loading =
           "lazy";
@@ -760,20 +749,17 @@ title=“Return to top”
       );
       return card;
     }
-    /*
-     * Load the YouTube title and uploader.
-     */
     async function loadVideoMetadata(
       card,
       id
     ) {
       const title =
         card.querySelector(
-          ".selected-video-title"
+          ".video-title"
         );
       const uploader =
         card.querySelector(
-          ".selected-video-uploader span"
+          ".video-uploader span"
         );
       const endpoint =
         "https://www.youtube.com/oembed?url=" +
@@ -784,7 +770,9 @@ title=“Return to top”
         "&format=json";
       try {
         const response =
-          await fetch(endpoint);
+          await fetch(
+            endpoint
+          );
         if (!response.ok) {
           throw new Error(
             "Metadata unavailable"
@@ -805,14 +793,10 @@ title=“Return to top”
           "YouTube video";
       }
     }
-    /*
-     * Add all 16 videos to the
-     * Selected Videos section.
-     */
     selectedVideos.forEach(
       function(id, index) {
-        selectedVideoGrid.appendChild(
-          createSelectedVideoCard(
+        videoGrid.appendChild(
+          createVideoCard(
             id,
             index
           )
@@ -821,42 +805,43 @@ title=“Return to top”
     );
   </script>
   <!-- =========================================
-       RETURN TO TOP SCRIPT
+       BACK TO TOP SCRIPT
        ========================================= -->
   <script>
-    const returnToTop =
+    const backToTop =
       document.getElementById(
-        "return-to-top"
+        "back-to-top"
       );
+    function updateBackToTop() {
+      if (
+        window.scrollY > 500
+      ) {
+        backToTop.classList.add(
+          "show"
+        );
+      } else {
+        backToTop.classList.remove(
+          "show"
+        );
+      }
+    }
     window.addEventListener(
       "scroll",
-      function() {
-        if (
-          window.scrollY > 500
-        ) {
-          returnToTop.classList.add(
-            "show"
-          );
-        } else {
-          returnToTop.classList.remove(
-            "show"
-          );
-        }
-      },
+      updateBackToTop,
       {
         passive: true
       }
     );
-    returnToTop.addEventListener(
+    backToTop.addEventListener(
       "click",
-      function(event) {
-        event.preventDefault();
+      function() {
         window.scrollTo({
           top: 0,
           behavior: "smooth"
         });
       }
     );
+    updateBackToTop();
   </script>
 </body>
 </html>
