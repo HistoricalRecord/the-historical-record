@@ -1,1524 +1,987 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Meme Archive Vault | The Historical Record</title>
-
-<style>
-/* =========================================================
-   MEME ARCHIVE VAULT
-   2007-STYLE YOUTUBE INSPIRED ARCHIVE
-   ========================================================= */
-
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background: #ffffff;
-  color: #333333;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-}
-
-/* ---------------------------------------------------------
-   TOP YOUTUBE-STYLE BAR
-   --------------------------------------------------------- */
-
-.topbar {
-  height: 54px;
-  border-bottom: 1px solid #cccccc;
-  background: linear-gradient(#ffffff, #eeeeee);
-}
-
-.topbar-inner {
-  width: 980px;
-  max-width: calc(100% - 24px);
-  height: 54px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.youtube-logo {
-  font-size: 25px;
-  font-weight: bold;
-  letter-spacing: -2px;
-  color: #cc0000;
-  white-space: nowrap;
-}
-
-.youtube-logo span {
-  color: #333333;
-}
-
-.search-box {
-  flex: 1;
-  display: flex;
-  max-width: 500px;
-}
-
-.search-box input {
-  flex: 1;
-  height: 30px;
-  border: 1px solid #999999;
-  border-right: 0;
-  padding: 5px 8px;
-  font-size: 13px;
-}
-
-.search-box button {
-  height: 30px;
-  padding: 0 15px;
-  border: 1px solid #888888;
-  background: linear-gradient(#ffffff, #dddddd);
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.search-box button:hover {
-  background: #eeeeee;
-}
-
-.archive-link {
-  color: #333333;
-  text-decoration: none;
-  font-size: 11px;
-  white-space: nowrap;
-}
-
-.archive-link:hover {
-  color: #cc0000;
-  text-decoration: underline;
-}
-
-/* ---------------------------------------------------------
-   PAGE
-   --------------------------------------------------------- */
-
-.page {
-  width: 980px;
-  max-width: calc(100% - 24px);
-  margin: 12px auto 40px;
-}
-
-/* ---------------------------------------------------------
-   HEADER
-   --------------------------------------------------------- */
-
-.archive-header {
-  border: 1px solid #cccccc;
-  background: #f5f5f5;
-  padding: 14px 16px;
-  margin-bottom: 10px;
-}
-
-.archive-header h1 {
-  margin: 0 0 4px;
-  font-size: 24px;
-  color: #333333;
-}
-
-.archive-header p {
-  margin: 0;
-  color: #666666;
-}
-
-.archive-header .red {
-  color: #cc0000;
-  font-weight: bold;
-}
-
-/* ---------------------------------------------------------
-   CONTROLS
-   --------------------------------------------------------- */
-
-.controls {
-  border: 1px solid #cccccc;
-  background: #eeeeee;
-  padding: 8px;
-  margin-bottom: 12px;
-}
-
-.controls-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  align-items: center;
-}
-
-.controls label {
-  font-weight: bold;
-  color: #555555;
-}
-
-.controls select,
-.controls input {
-  height: 29px;
-  border: 1px solid #999999;
-  background: white;
-  padding: 4px 7px;
-  font-size: 12px;
-}
-
-.controls input {
-  min-width: 260px;
-}
-
-.stats {
-  margin-top: 7px;
-  color: #666666;
-  font-size: 11px;
-}
-
-/* ---------------------------------------------------------
-   CATEGORY NAVIGATION
-   --------------------------------------------------------- */
-
-.category-bar {
-  border-bottom: 1px solid #cccccc;
-  margin-bottom: 12px;
-  padding-bottom: 6px;
-}
-
-.category-bar a {
-  display: inline-block;
-  padding: 5px 9px;
-  margin-right: 3px;
-  color: #0033cc;
-  text-decoration: none;
-  border: 1px solid transparent;
-}
-
-.category-bar a:hover,
-.category-bar a.active {
-  color: #ffffff;
-  background: #cc0000;
-  border-color: #990000;
-}
-
-/* ---------------------------------------------------------
-   VIDEO GRID
-   --------------------------------------------------------- */
-
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.video-card {
-  border: 1px solid #cccccc;
-  background: #ffffff;
-  padding: 7px;
-  box-shadow: 0 1px 2px rgba(0,0,0,.08);
-}
-
-.video-card:hover {
-  border-color: #999999;
-}
-
-.video-player {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #111111;
-  overflow: hidden;
-}
-
-.video-player iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.video-meta {
-  padding: 7px 2px 2px;
-}
-
-.video-title {
-  margin: 0 0 5px;
-  font-size: 14px;
-  line-height: 18px;
-  color: #0033cc;
-  font-weight: bold;
-}
-
-.video-title a {
-  color: #0033cc;
-  text-decoration: none;
-}
-
-.video-title a:hover {
-  text-decoration: underline;
-}
-
-.video-info {
-  color: #777777;
-  font-size: 11px;
-  line-height: 16px;
-}
-
-.video-info strong {
-  color: #555555;
-}
-
-.video-era {
-  display: inline-block;
-  margin-top: 5px;
-  padding: 2px 5px;
-  background: #eeeeee;
-  border: 1px solid #cccccc;
-  color: #666666;
-  font-size: 10px;
-}
-
-.video-id {
-  color: #aaaaaa;
-  font-size: 9px;
-  margin-top: 4px;
-  word-break: break-all;
-}
-
-/* ---------------------------------------------------------
-   LOADING / ERROR
-   --------------------------------------------------------- */
-
-.loading {
-  color: #888888;
-  font-style: italic;
-}
-
-.metadata-error {
-  color: #aa0000;
-}
-
-/* ---------------------------------------------------------
-   NO RESULTS
-   --------------------------------------------------------- */
-
-.no-results {
-  display: none;
-  border: 1px solid #cccccc;
-  background: #f7f7f7;
-  padding: 25px;
-  text-align: center;
-  color: #777777;
-}
-
-/* ---------------------------------------------------------
-   FOOTER
-   --------------------------------------------------------- */
-
-.footer {
-  margin-top: 30px;
-  padding-top: 12px;
-  border-top: 1px solid #cccccc;
-  color: #888888;
-  font-size: 10px;
-  line-height: 16px;
-}
-
-/* ---------------------------------------------------------
-   MOBILE
-   --------------------------------------------------------- */
-
-@media (max-width: 800px) {
-
-  .topbar-inner {
-    gap: 8px;
-  }
-
-  .youtube-logo {
-    font-size: 19px;
-  }
-
-  .archive-link {
-    display: none;
-  }
-
-  .video-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-}
-
-@media (max-width: 540px) {
-
-  .video-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .search-box input {
-    min-width: 0;
-  }
-
-  .controls input {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .controls-row {
-    display: block;
-  }
-
-  .controls-row > * {
-    margin-bottom: 5px;
-  }
-
-}
-
-/* ---------------------------------------------------------
-   OLD YOUTUBE DETAILS
-   --------------------------------------------------------- */
-
-a {
-  outline: none;
-}
-
-::selection {
-  background: #cc0000;
-  color: #ffffff;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Historical Memes | The Historical Record</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* =========================================================
+       PAGE
+    ========================================================= */
+
+    body {
+      background: #ffffff;
+    }
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    .meme-header {
+      background: #b40000;
+      border-bottom: 1px solid #8f0000;
+      padding: 42px 0 38px;
+    }
+
+    .meme-header .eyebrow {
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      margin: 0 0 10px;
+    }
+
+    .meme-header h1 {
+      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: clamp(34px, 6vw, 64px);
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      line-height: 0.98;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    .meme-header p {
+      color: #ffffff;
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 18px 0 0;
+      max-width: 720px;
+    }
+
+    /* =========================================================
+       VIDEO SECTION
+    ========================================================= */
+
+    .meme-section {
+      padding: 38px 0 50px;
+      background: #ffffff;
+    }
+
+    /*
+      FOUR COLUMNS
+      This is intentionally kept at 4 columns so the videos
+      remain small instead of becoming giant.
+    */
+
+    .meme-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+      align-items: start;
+    }
+
+    /* =========================================================
+       VIDEO CARD
+    ========================================================= */
+
+    .meme-card {
+      background: #ffffff;
+      border: 1px solid #d7d7d7;
+      box-shadow: 0 2px 7px rgba(0, 0, 0, 0.08);
+      padding: 9px;
+      min-width: 0;
+    }
+
+    /*
+      The player is ALWAYS 16:9.
+      This prevents YouTube videos from becoming huge.
+    */
+
+    .meme-player {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #111111;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .meme-player img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* =========================================================
+       PLAY BUTTON
+    ========================================================= */
+
+    .meme-play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      width: 54px;
+      height: 38px;
+
+      border: 0;
+      border-radius: 7px;
+
+      background: #cc0000;
+
+      box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.35);
+
+      cursor: pointer;
+
+      z-index: 5;
+    }
+
+    .meme-play::after {
+      content: "";
+
+      position: absolute;
+
+      left: 22px;
+      top: 10px;
+
+      width: 0;
+      height: 0;
+
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      border-left: 13px solid #ffffff;
+    }
+
+    .meme-player:hover .meme-play {
+      background: #a90000;
+    }
+
+    /* =========================================================
+       YOUTUBE IFRAME
+    ========================================================= */
+
+    .meme-player iframe {
+      position: absolute;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      border: 0;
+      display: block;
+
+      background: #000000;
+    }
+
+    /* =========================================================
+       INFORMATION
+    ========================================================= */
+
+    .meme-info {
+      padding: 10px 2px 2px;
+    }
+
+    .meme-number {
+      color: #b40000;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      margin: 0 0 5px;
+      text-transform: uppercase;
+    }
+
+    .meme-title {
+      color: #222222;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin: 0 0 5px;
+    }
+
+    .meme-uploader {
+      color: #666666;
+      font-size: 12px;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    .meme-uploader strong {
+      color: #333333;
+    }
+
+    /* =========================================================
+       LOADING STATE
+    ========================================================= */
+
+    .meme-loading {
+      position: absolute;
+      inset: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: #ffffff;
+      background: #111111;
+
+      font-size: 13px;
+      font-weight: 700;
+
+      z-index: 10;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 1100px) {
+
+      .meme-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+    }
+
+    @media (max-width: 760px) {
+
+      .meme-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .meme-header {
+        padding: 34px 0 30px;
+      }
+
+    }
+
+    @media (max-width: 500px) {
+
+      .meme-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+  </style>
 </head>
+
 
 <body>
 
-<!-- =======================================================
-     TOP BAR
-     ======================================================= -->
+  <!-- =======================================================
+       MENU BUTTON
+  ======================================================== -->
 
-<div class="topbar">
-  <div class="topbar-inner">
+  <button
+    class="menu-button"
+    aria-label="Open menu"
+    aria-expanded="false"
+    type="button"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
-    <div class="youtube-logo">
-      You<span>Tube</span>
+
+  <!-- =======================================================
+       SIDEBAR
+  ======================================================== -->
+
+  <aside class="side-menu">
+
+    <div class="menu-header">
+      <h2>The Historical Record</h2>
+      <p>Archive Navigation</p>
     </div>
 
-    <div class="search-box">
-      <input
-        type="search"
-        id="searchInput"
-        placeholder="Search the Meme Archive..."
-        autocomplete="off"
-      >
-      <button type="button" id="searchButton">Search</button>
-    </div>
+    <nav>
 
-    <a href="social-media.html" class="archive-link">
-      ← Social Media Archive
-    </a>
+      <a href="archive.html">
+        The Archive
+      </a>
 
-  </div>
-</div>
+      <a href="index.html">
+        Home
+      </a>
 
 
-<!-- =======================================================
-     MAIN PAGE
-     ======================================================= -->
+      <div class="menu-dropdown">
 
-<div class="page">
+        <button
+          class="menu-dropdown-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="politics-submenu"
+        >
+          <span>Politics</span>
+          <span class="menu-dropdown-arrow">▾</span>
+        </button>
 
-  <header class="archive-header">
 
-    <h1>Meme Archive Vault</h1>
+        <div
+          class="menu-submenu"
+          id="politics-submenu"
+        >
 
-    <p>
-      <span class="red">THE HISTORICAL RECORD</span>
-      — Viral Videos, Internet Memes &amp; Digital Culture
-    </p>
+          <a href="politics.html">
+            Politics Home
+          </a>
 
-    <p style="margin-top:6px;">
-      A chronological collection of videos that helped define Internet culture.
-    </p>
+          <a href="september-11.html">
+            September 11, 2001
+          </a>
 
-  </header>
+          <a href="september-11-sourcebooks.html">
+            9/11 Sourcebooks &amp; Documents
+          </a>
 
-
-  <!-- =====================================================
-       CONTROLS
-       ===================================================== -->
-
-  <section class="controls">
-
-    <div class="controls-row">
-
-      <label for="eraFilter">
-        Era:
-      </label>
-
-      <select id="eraFilter">
-        <option value="all">All Eras</option>
-        <option value="2005-2009">2005–2009</option>
-        <option value="2010-2014">2010–2014</option>
-        <option value="2015-2019">2015–2019</option>
-        <option value="2020-2024">2020–2024</option>
-        <option value="2025-2029">2025–2029</option>
-        <option value="unknown">Date Unknown</option>
-      </select>
-
-      <label for="sortFilter">
-        Sort:
-      </label>
-
-      <select id="sortFilter">
-        <option value="default">Archive Order</option>
-        <option value="title">Title A–Z</option>
-        <option value="uploader">Uploader A–Z</option>
-        <option value="oldest">Oldest First</option>
-        <option value="newest">Newest First</option>
-      </select>
-
-    </div>
-
-    <div class="stats" id="stats">
-      Loading archive...
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       QUICK ERA NAVIGATION
-       ===================================================== -->
-
-  <nav class="category-bar">
-
-    <a href="#" class="active" data-era="all">
-      All
-    </a>
-
-    <a href="#" data-era="2005-2009">
-      2005–2009
-    </a>
-
-    <a href="#" data-era="2010-2014">
-      2010–2014
-    </a>
-
-    <a href="#" data-era="2015-2019">
-      2015–2019
-    </a>
-
-    <a href="#" data-era="2020-2024">
-      2020–2024
-    </a>
-
-    <a href="#" data-era="unknown">
-      Date Unknown
-    </a>
-
-  </nav>
-
-
-  <!-- =====================================================
-       VIDEO ARCHIVE
-       ===================================================== -->
-
-  <main>
-
-    <div class="video-grid" id="videoGrid"></div>
-
-    <div class="no-results" id="noResults">
-      No videos matched your search.
-    </div>
-
-  </main>
-
-
-  <!-- =====================================================
-       FOOTER
-       ===================================================== -->
-
-  <footer class="footer">
-
-    <strong>The Historical Record — Meme Archive Vault</strong><br>
-
-    This archive preserves links to publicly available YouTube videos.
-    Video playback is provided by YouTube's embedded player.
-    Titles and uploader information are requested from YouTube when available.
-
-    <br><br>
-
-    The archive does not host or reproduce the videos themselves.
-
-  </footer>
-
-</div>
-
-
-<!-- =======================================================
-     ARCHIVE JAVASCRIPT
-     ======================================================= -->
-
-<script>
-
-/*
- * =========================================================
- * VIDEO DATABASE
- * =========================================================
- *
- * Each entry contains the original YouTube URL supplied
- * for the archive.
- *
- * YouTube metadata is loaded automatically.
- *
- * We intentionally do NOT invent titles, uploaders, or
- * upload dates.
- *
- * YouTube's oEmbed service supplies title + uploader.
- *
- * =========================================================
- */
-
-const videos = [
-
-  { url: "https://www.youtube.com/watch?v=KmtzQCSh6xk" },
-  { url: "https://www.youtube.com/watch?v=ILtz5nX3_fc" },
-  { url: "https://www.youtube.com/watch?v=WqSTXuJeTks" },
-  { url: "https://www.youtube.com/watch?v=a1Y73sPHKxw" },
-  { url: "https://www.youtube.com/watch?v=mfhBM_Yay6w" },
-  { url: "https://www.youtube.com/watch?v=93hq0YU3Gqk" },
-  { url: "https://www.youtube.com/watch?v=BEtIoGQxqQs" },
-  { url: "https://www.youtube.com/watch?v=LeAltgu_pbM" },
-  { url: "https://www.youtube.com/watch?v=aBfUFr9SBY0" },
-  { url: "https://www.youtube.com/watch?v=D2kJZOfq7zk" },
-  { url: "https://www.youtube.com/watch?v=UMf40daefsI" },
-  { url: "https://www.youtube.com/watch?v=O61Do03ZCjw" },
-  { url: "https://www.youtube.com/watch?v=D1R-jKKp3NA" },
-  { url: "https://www.youtube.com/watch?v=tw5EsYzyGWI" },
-  { url: "https://www.youtube.com/watch?v=O4rfQSgkZOE" },
-  { url: "https://www.youtube.com/watch?v=Y93xTChHV_0" },
-  { url: "https://www.youtube.com/watch?v=OKI-5MHUkKY" },
-  { url: "https://www.youtube.com/watch?v=5RDER307OKI" },
-  { url: "https://www.youtube.com/watch?v=ISV1bt8-TDg" },
-  { url: "https://www.youtube.com/watch?v=b_NQCTbvRnM" },
-  { url: "https://www.youtube.com/watch?v=uEE3akeFeQU" },
-  { url: "https://www.youtube.com/watch?v=7zH4Jb-6BZs" },
-  { url: "https://www.youtube.com/watch?v=vzz704zeI4U" },
-  { url: "https://www.youtube.com/watch?v=QpgJyYBTq84" },
-  { url: "https://www.youtube.com/watch?v=mBxBzmhHTww" },
-
-  { url: "https://www.youtube.com/watch?v=Q5im0Ssyyus" },
-  { url: "https://www.youtube.com/watch?v=CsGYh8AacgY" },
-  { url: "https://www.youtube.com/watch?v=s8MDNFaGfT4" },
-  { url: "https://www.youtube.com/watch?v=Z3ZAGBL6UBA" },
-  { url: "https://www.youtube.com/watch?v=qItugh-fFgg" },
-  { url: "https://www.youtube.com/watch?v=jNQXAC9IVRw" },
-  { url: "https://www.youtube.com/watch?v=hMtZfW2z9dw" },
-  { url: "https://www.youtube.com/watch?v=fbGkxcY7YFU" },
-  { url: "https://www.youtube.com/watch?v=MtN1YnoL46Q" },
-  { url: "https://www.youtube.com/watch?v=Tx1XIm6q4r4" },
-  { url: "https://www.youtube.com/watch?v=EIyohCQqGck" },
-  { url: "https://www.youtube.com/watch?v=2EcBClUGl5Q" },
-  { url: "https://www.youtube.com/watch?v=oavMtUWDBTM" },
-  { url: "https://www.youtube.com/watch?v=YnopHCL1Jk8" },
-  { url: "https://www.youtube.com/watch?v=k85mRPqvMbE" },
-  { url: "https://www.youtube.com/watch?v=astISOttCQ0" },
-  { url: "https://www.youtube.com/watch?v=ykwqXuMPsoc" },
-  { url: "https://www.youtube.com/watch?v=NoHRBvtUV_g" },
-  { url: "https://www.youtube.com/watch?v=ZN5PoW7_kdA" },
-  { url: "https://www.youtube.com/watch?v=QFCSXr6qnv4" },
-  { url: "https://www.youtube.com/watch?v=R5Nz8p3EP7A" },
-  { url: "https://www.youtube.com/watch?v=9FXMYsMvs1A" },
-  { url: "https://www.youtube.com/watch?v=aoEtd6HONEk" },
-  { url: "https://www.youtube.com/watch?v=IY9YNF5MMQo" },
-  { url: "https://www.youtube.com/watch?v=UmPmpUTr22c" },
-  { url: "https://www.youtube.com/watch?v=HRPwMBAtfTY" },
-  { url: "https://www.youtube.com/watch?v=d8CeSGlQQnM" },
-  { url: "https://www.youtube.com/watch?v=Lt1u6N7lueM" },
-  { url: "https://www.youtube.com/watch?v=EShUeudtaFg" },
-  { url: "https://www.youtube.com/watch?v=TIoD7Uj7MUo" },
-  { url: "https://www.youtube.com/watch?v=f4FuOi9rvKw" },
-  { url: "https://www.youtube.com/watch?v=9KSGUVcNfZM" },
-  { url: "https://www.youtube.com/watch?v=R9dRuaTOyBY" },
-  { url: "https://www.youtube.com/watch?v=wsZ7013yHiw" },
-  { url: "https://www.youtube.com/watch?v=LzxCJzM4xLo" },
-  { url: "https://www.youtube.com/watch?v=dEI7oX0XxJw" },
-  { url: "https://www.youtube.com/watch?v=x2Icz8xF174" },
-  { url: "https://www.youtube.com/watch?v=HKst22Y2hgA" },
-  { url: "https://www.youtube.com/watch?v=IdyXKJ8NcNI" },
-  { url: "https://www.youtube.com/watch?v=vnkRvx3-j-k" },
-  { url: "https://www.youtube.com/watch?v=9edByCiaLbY" },
-  { url: "https://www.youtube.com/watch?v=DoskJt_UVG8" },
-  { url: "https://www.youtube.com/watch?v=gLMo7_VXU_s" },
-  { url: "https://www.youtube.com/watch?v=eaNI18GAxXs" },
-  { url: "https://www.youtube.com/watch?v=sdnJxDmJNmA" },
-  { url: "https://www.youtube.com/watch?v=I15sK7dNMOM" },
-  { url: "https://www.youtube.com/watch?v=W-3DWBv0CvU" },
-  { url: "https://www.youtube.com/watch?v=sHi6LCx6Lx8" },
-  { url: "https://www.youtube.com/watch?v=IxX_QHay02M" },
-  { url: "https://www.youtube.com/watch?v=SMWi7CLoZ2Q" },
-  { url: "https://www.youtube.com/watch?v=msSc7Mv0QHY" },
-  { url: "https://www.youtube.com/watch?v=OzKY5YHnOTg" },
-  { url: "https://www.youtube.com/watch?v=_quu68XXHEs" },
-  { url: "https://www.youtube.com/watch?v=gavT_q9CLME" },
-  { url: "https://www.youtube.com/watch?v=3qwU1LQZA5g" },
-  { url: "https://www.youtube.com/watch?v=zTL4T_NVGhY" },
-  { url: "https://www.youtube.com/watch?v=AsFCSvqsqFA" },
-  { url: "https://www.youtube.com/watch?v=xzpndHtdl9A" },
-  { url: "https://www.youtube.com/watch?v=5vRlJrkxsqo" },
-  { url: "https://www.youtube.com/watch?v=wAUK9hVgmNI" },
-  { url: "https://www.youtube.com/watch?v=z_mhFOyLQBg" },
-  { url: "https://www.youtube.com/watch?v=YCeQLeQiRP4" },
-  { url: "https://www.youtube.com/watch?v=V_OVxxIvqVw" },
-  { url: "https://www.youtube.com/watch?v=r3-Y31ONZuI" },
-  { url: "https://www.youtube.com/watch?v=xaPepCVepCg" },
-  { url: "https://www.youtube.com/watch?v=IJmIGC0nwK0" },
-  { url: "https://www.youtube.com/watch?v=ZZ5LpwO-An4" },
-  { url: "https://www.youtube.com/watch?v=czhd1eHv6ac" },
-  { url: "https://www.youtube.com/watch?v=lg5WKsVnEA4" },
-  { url: "https://www.youtube.com/watch?v=lgh68Swuak0" },
-  { url: "https://www.youtube.com/watch?v=rbE53XUtVw0" },
-  { url: "https://www.youtube.com/watch?v=Ou6uXU0KFss" },
-  { url: "https://www.youtube.com/watch?v=6f7pgA0riU8" },
-  { url: "https://www.youtube.com/watch?v=otCpCn0l4Wo" },
-  { url: "https://www.youtube.com/watch?v=AMrSGMF4PZo" },
-  { url: "https://www.youtube.com/watch?v=7eKv4BEujFU" },
-  { url: "https://www.youtube.com/watch?v=bjwgt1kRqEU" },
-  { url: "https://www.youtube.com/watch?v=rmn7oV9bBRU" },
-  { url: "https://www.youtube.com/watch?v=65e06P6Rhf4" },
-  { url: "https://www.youtube.com/watch?v=p8f-dwURY20" },
-  { url: "https://www.youtube.com/watch?v=8kjY9sKdHlY" },
-  { url: "https://www.youtube.com/watch?v=InklyF13qjU" },
-  { url: "https://www.youtube.com/watch?v=AUl4F8M8bxM" },
-  { url: "https://www.youtube.com/watch?v=S4pk8jsk9h4" },
-  { url: "https://www.youtube.com/watch?v=RV6aLIQgmYg" },
-  { url: "https://www.youtube.com/watch?v=Z0NlmumRuVE" },
-  { url: "https://www.youtube.com/watch?v=2zw-XgAko_E" },
-  { url: "https://www.youtube.com/watch?v=NsaSG-0U4mU" },
-  { url: "https://www.youtube.com/watch?v=o7zqouVuFZY" },
-  { url: "https://www.youtube.com/watch?v=ykz_dbpYRPU" },
-  { url: "https://www.youtube.com/watch?v=NOpS4qGILyY" },
-  { url: "https://www.youtube.com/watch?v=GsWGqDzygDs" },
-  { url: "https://www.youtube.com/watch?v=Q0IL0S0vTGw" },
-  { url: "https://www.youtube.com/watch?v=JAVV2jbjKTQ" },
-  { url: "https://www.youtube.com/watch?v=dxjLh3lZumY" },
-  { url: "https://www.youtube.com/watch?v=oBnVNpG97Z4" },
-  { url: "https://www.youtube.com/watch?v=Mh4f9AYRCZY" },
-  { url: "https://www.youtube.com/watch?v=pNbN5Mk_sZw" },
-
-  { url: "https://www.youtube.com/watch?v=Cqd1Gvq-RBY" },
-
-  /*
-   * These two supplied IDs contain unusual characters.
-   * They are preserved exactly as supplied.
-   */
-  { url: "https://www.youtube.com/watch?v=J—aiyznGQ" },
-  { url: "https://www.youtube.com/watch?v=*OBlgSz8sSM" },
-
-  { url: "https://www.youtube.com/watch?v=dMH0bHeiRNg" },
-  { url: "https://www.youtube.com/watch?v=EwTZ2xpQwpA" },
-  { url: "https://www.youtube.com/watch?v=txqiwrbYGrs" },
-  { url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" },
-  { url: "https://www.youtube.com/watch?v=2yJgwwDcgV8" },
-  { url: "https://www.youtube.com/watch?v=9bZkp7q19f0" },
-  { url: "https://www.youtube.com/watch?v=HPPj6viIBmU" },
-  { url: "https://www.youtube.com/watch?v=wCF3ywukQYA" },
-  { url: "https://www.youtube.com/watch?v=UjCdB5p2v0Y" },
-  { url: "https://www.youtube.com/watch?v=OQSNhk5ICTI" },
-  { url: "https://www.youtube.com/watch?v=hooKVstzbz0" },
-  { url: "https://www.youtube.com/watch?v=3HjIljJd-o0" },
-  { url: "https://www.youtube.com/watch?v=CMNry4PE93Y" },
-  { url: "https://www.youtube.com/watch?v=aMS0O3kknvk" },
-  { url: "https://www.youtube.com/watch?v=zVNTdWbVBgc" },
-  { url: "https://www.youtube.com/watch?v=7WmMcqp670s" },
-  { url: "https://www.youtube.com/watch?v=W45DRy7M1no" },
-  { url: "https://www.youtube.com/watch?v=6B26asyGKDo" },
-  { url: "https://www.youtube.com/watch?v=6bVa6jn4rpE" },
-  { url: "https://www.youtube.com/watch?v=40uMbKjSBwU" },
-  { url: "https://www.youtube.com/watch?v=5jwETfUw0TE" },
-  { url: "https://www.youtube.com/watch?v=cBC1moosff0" },
-  { url: "https://www.youtube.com/watch?v=bx4kwzUn2Bg" },
-  { url: "https://www.youtube.com/watch?v=oHg5SJYRHA0" },
-
-  { url: "https://www.youtube.com/watch?v=EwKpaD8g_gY" },
-  { url: "https://www.youtube.com/watch?v=dmzDB8EHRxg" },
-
-  { url: "https://www.youtube.com/watch?v=e3mG_gvaimo" },
-  { url: "https://www.youtube.com/watch?v=EoLjddNcnYU" },
-  { url: "https://www.youtube.com/watch?v=H6ly9KGuVTk" },
-  { url: "https://www.youtube.com/watch?v=k0CJwbayisw" },
-  { url: "https://www.youtube.com/watch?v=vo3qLUki5L8" },
-  { url: "https://www.youtube.com/watch?v=1lQ3FGxpEU0" },
-  { url: "https://www.youtube.com/watch?v=nwP3TeK-fPs" },
-  { url: "https://www.youtube.com/watch?v=tGmmQ688Fkk" },
-  { url: "https://www.youtube.com/watch?v=vHH1W1_f-6Y" },
-
-  { url: "https://www.youtube.com/watch?v=hD8MPMTcvd8" },
-
-  { url: "https://www.youtube.com/watch?v=RtfmTOv_kgA" },
-  { url: "https://www.youtube.com/watch?v=VslKGGpl4Xc" },
-  { url: "https://www.youtube.com/watch?v=ocd_GDed5qg" },
-  { url: "https://www.youtube.com/watch?v=nUpNvmymAzM" },
-  { url: "https://www.youtube.com/watch?v=0eOiL5dqP-I" },
-  { url: "https://www.youtube.com/watch?v=3FS8_l_i81Q" },
-  { url: "https://www.youtube.com/watch?v=4ZYziZg8LBc" }
-
-];
-
-
-/* =========================================================
-   REMOVE DUPLICATES
-   ========================================================= */
-
-const uniqueVideos = [];
-
-const seenIds = new Set();
-
-videos.forEach(video => {
-
-  const id = getVideoId(video.url);
-
-  if (!id) {
-    return;
-  }
-
-  if (seenIds.has(id)) {
-    return;
-  }
-
-  seenIds.add(id);
-
-  uniqueVideos.push({
-    ...video,
-    id,
-    title: "",
-    uploader: "",
-    uploadDate: "",
-    era: "unknown"
-  });
-
-});
-
-
-/* =========================================================
-   GET VIDEO ID
-   ========================================================= */
-
-function getVideoId(url) {
-
-  try {
-
-    const parsed = new URL(url);
-
-    if (parsed.hostname.includes("youtube.com")) {
-
-      return parsed.searchParams.get("v");
-
-    }
-
-    if (parsed.hostname === "youtu.be") {
-
-      return parsed.pathname.substring(1);
-
-    }
-
-  } catch (error) {
-
-    return null;
-
-  }
-
-  return null;
-}
-
-
-/* =========================================================
-   HTML ESCAPE
-   ========================================================= */
-
-function escapeHTML(value) {
-
-  return String(value || "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-
-}
-
-
-/* =========================================================
-   ERA FROM DATE
-   ========================================================= */
-
-function determineEra(dateString) {
-
-  if (!dateString) {
-    return "unknown";
-  }
-
-  const year = parseInt(
-    String(dateString).substring(0, 4),
-    10
-  );
-
-  if (!year) {
-    return "unknown";
-  }
-
-  if (year >= 2005 && year <= 2009) {
-    return "2005-2009";
-  }
-
-  if (year >= 2010 && year <= 2014) {
-    return "2010-2014";
-  }
-
-  if (year >= 2015 && year <= 2019) {
-    return "2015-2019";
-  }
-
-  if (year >= 2020 && year <= 2024) {
-    return "2020-2024";
-  }
-
-  if (year >= 2025 && year <= 2029) {
-    return "2025-2029";
-  }
-
-  return "unknown";
-}
-
-
-/* =========================================================
-   FORMAT DATE
-   ========================================================= */
-
-function formatDate(dateString) {
-
-  if (!dateString) {
-    return "Upload date unavailable";
-  }
-
-  const date = new Date(dateString);
-
-  if (Number.isNaN(date.getTime())) {
-    return escapeHTML(dateString);
-  }
-
-  return date.toLocaleDateString(
-    "en-US",
-    {
-      year: "numeric",
-      month: "long",
-      day: "numeric"
-    }
-  );
-
-}
-
-
-/* =========================================================
-   CARD CREATION
-   ========================================================= */
-
-function createCard(video) {
-
-  const card = document.createElement("article");
-
-  card.className = "video-card";
-
-  card.dataset.id = video.id;
-
-  card.dataset.title =
-    video.title.toLowerCase();
-
-  card.dataset.uploader =
-    video.uploader.toLowerCase();
-
-  card.dataset.era =
-    video.era;
-
-  card.innerHTML = `
-
-    <div class="video-player">
-
-      <iframe
-        src="https://www.youtube.com/embed/${encodeURIComponent(video.id)}"
-        title="${escapeHTML(video.title || "YouTube video")}"
-        loading="lazy"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-      </iframe>
-
-    </div>
-
-    <div class="video-meta">
-
-      <h2 class="video-title">
-
-        <a
-          href="${escapeHTML(video.url)}"
-          target="_blank"
-          rel="noopener noreferrer">
-
-          <span class="loading">
-            Loading YouTube title...
-          </span>
-
-        </a>
-
-      </h2>
-
-      <div class="video-info">
-
-        <div>
-          <strong>Uploader:</strong>
-          <span class="uploader loading">
-            Loading...
-          </span>
-        </div>
-
-        <div>
-          <strong>Original upload:</strong>
-          <span class="upload-date">
-            Upload date unavailable
-          </span>
-        </div>
-
-        <div>
-          <span class="video-era">
-            Date unknown
-          </span>
-        </div>
-
-        <div class="video-id">
-          Video ID: ${escapeHTML(video.id)}
         </div>
 
       </div>
 
+
+      <a href="entertainment-sports.html">
+        Entertainment / Sports
+      </a>
+
+      <a href="world-events.html">
+        World Events
+      </a>
+
+      <a href="social-media.html">
+        Social Media
+      </a>
+
+      <a href="thoughts.html">
+        Thoughts / Blog
+      </a>
+
+    </nav>
+
+  </aside>
+
+
+  <div class="menu-overlay"></div>
+
+
+  <!-- =======================================================
+       SITE HEADER
+  ======================================================== -->
+
+  <header class="site-header">
+
+    <div class="container header-inner">
+
+      <a
+        href="index.html"
+        class="brand"
+      >
+        THE HISTORICAL RECORD
+      </a>
+
     </div>
 
-  `;
-
-  return card;
-}
+  </header>
 
 
-/* =========================================================
-   RENDER
-   ========================================================= */
+  <!-- =======================================================
+       MAIN
+  ======================================================== -->
 
-const videoGrid =
-  document.getElementById("videoGrid");
-
-const noResults =
-  document.getElementById("noResults");
-
-const stats =
-  document.getElementById("stats");
+  <main>
 
 
-function renderVideos(list) {
+    <!-- =====================================================
+         RED TITLE HEADER
+    ====================================================== -->
 
-  videoGrid.innerHTML = "";
+    <section class="meme-header">
 
-  if (!list.length) {
+      <div class="container">
 
-    noResults.style.display = "block";
+        <p class="eyebrow">
+          SOCIAL MEDIA ARCHIVE
+        </p>
 
-    return;
+        <h1>
+          HISTORICAL MEMES
+        </h1>
 
-  }
+        <p>
+          A collection of memorable internet videos preserved as part of
+          The Historical Record.
+        </p>
 
-  noResults.style.display = "none";
+      </div>
 
-  const fragment =
-    document.createDocumentFragment();
-
-  list.forEach(video => {
-
-    fragment.appendChild(
-      createCard(video)
-    );
-
-  });
-
-  videoGrid.appendChild(fragment);
-
-}
+    </section>
 
 
-/* =========================================================
-   LOAD YOUTUBE METADATA
-   =========================================================
-   
-   YouTube's oEmbed endpoint provides:
-   
-   - title
-   - uploader/channel
-   
-   It does not provide original upload date.
-   Therefore the date field remains honest instead of
-   displaying invented information.
-   ========================================================= */
+    <!-- =====================================================
+         VIDEO GRID
+    ====================================================== -->
 
-async function loadMetadata(video, card) {
+    <section class="meme-section">
 
-  const titleElement =
-    card.querySelector(".video-title a");
+      <div class="container">
 
-  const uploaderElement =
-    card.querySelector(".uploader");
+        <div
+          class="meme-grid"
+          id="meme-grid"
+        ></div>
 
-  const eraElement =
-    card.querySelector(".video-era");
+      </div>
 
-  try {
+    </section>
 
-    const endpoint =
-      "https://www.youtube.com/oembed" +
-      "?url=" +
-      encodeURIComponent(video.url) +
-      "&format=json";
+  </main>
 
-    const response =
-      await fetch(endpoint);
 
-    if (!response.ok) {
-      throw new Error("Metadata unavailable");
-    }
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
 
-    const data =
-      await response.json();
+  <footer class="site-footer">
 
-    video.title =
-      data.title || "Untitled YouTube Video";
+    <div class="container">
 
-    video.uploader =
-      data.author_name || "Unknown uploader";
+      <p>
+        THE HISTORICAL RECORD
+      </p>
 
-    titleElement.textContent =
-      video.title;
+      <p>
+        A living archive of the moments that matter.
+      </p>
 
-    titleElement.classList.remove(
-      "loading"
-    );
+    </div>
 
-    uploaderElement.textContent =
-      video.uploader;
+  </footer>
 
-    uploaderElement.classList.remove(
-      "loading"
-    );
+
+  <!-- =======================================================
+       YOUR EXISTING SITE SCRIPT
+  ======================================================== -->
+
+  <script src="script.js"></script>
+
+
+  <!-- =======================================================
+       MEME VIDEO SCRIPT
+  ======================================================== -->
+
+  <script>
 
     /*
-     * The oEmbed response does not expose the
-     * original YouTube upload date.
+     * ========================================================
+     * VIDEO LIST
+     * ========================================================
+     *
+     * All original videos plus the 10 new videos.
+     *
+     * Duplicates from the original list have been removed.
+     *
      */
 
-    video.uploadDate = "";
+    const videos = [
 
-    video.era = "unknown";
+      "dMH0bHeiRNg",
+      "_OBlgSz8sSM",
+      "ZZ5LpwO-An4",
+      "4pXfHLUlZf4",
+      "0Bmhjf0rKe8",
+      "EwTZ2xpQwpA",
+      "jNQXAC9IVRw",
+      "hMtZfW2z9dw",
+      "fbGkxcY7YFU",
+      "MtN1YnoL46Q",
+      "Tx1XIm6q4r4",
+      "oavMtUWDBTM",
+      "YnopHCL1Jk8",
+      "astISOttCQ0",
+      "ykwqXuMPsoc",
+      "NoHRBvtUV_g",
+      "ZN5PoW7_kdA",
+      "QFCSXr6qnv4",
+      "R5Nz8p3EP7A",
+      "9FXMYsMvs1A",
+      "aoEtd6HONEk",
+      "IY9YNF5MMQo",
+      "UmPmpUTr22c",
+      "HRPwMBAtfTY",
+      "d8CeSGlQQnM",
+      "Lt1u6N7lueM",
+      "EShUeudtaFg",
+      "TIoD7Uj7MUo",
+      "f4FuOi9rvKw",
+      "9KSGUVcNfZM",
 
-    eraElement.textContent =
-      "Date unknown";
+      "R9dRuaTOyBY",
+      "wsZ7013yHiw",
+      "LzxCJzM4xLo",
+      "dEI7oX0XxJw",
+      "x2Icz8xF174",
+      "HKst22Y2hgA",
+      "IdyXKJ8NcNI",
+      "vnkRvx3-j-k",
+      "9edByCiaLbY",
+      "DoskJt_UVG8",
+      "gLMo7_VXU_s",
+      "eaNI18GAxXs",
+      "sdnJxDmJNmA",
+      "I15sK7dNMOM",
+      "W-3DWBv0CvU",
+      "sHi6LCx6Lx8",
+      "IxX_QHay02M",
+      "SMWi7CLoZ2Q",
+      "msSc7Mv0QHY",
+      "OzKY5YHnOTg",
 
-    card.dataset.title =
-      video.title.toLowerCase();
+      "_quu68XXHEs",
+      "gavT_q9CLME",
+      "3qwU1LQZA5g",
+      "zTL4T_NVGhY",
+      "AsFCSvqsqFA",
+      "xzpndHtdl9A",
+      "5vRlJrkxsqo",
+      "wAUK9hVgmNI",
+      "z_mhFOyLQBg",
+      "YCeQLeQiRP4",
+      "V_OVxxIvqVw",
+      "r3-Y31ONZuI",
+      "xaPepCVepCg",
+      "IJmIGC0nwK0",
+      "czhd1eHv6ac",
+      "lg5WKsVnEA4",
+      "lgh68Swuak0",
+      "rbE53XUtVw0",
+      "Ou6uXU0KFss",
+      "6f7pgA0riU8",
 
-    card.dataset.uploader =
-      video.uploader.toLowerCase();
+      "otCpCn0l4Wo",
+      "AMrSGMF4PZo",
+      "7eKv4BEujFU",
+      "bjwgt1kRqEU",
+      "rmn7oV9bBRU",
+      "65e06P6Rhf4",
+      "p8f-dwURY20",
+      "8kjY9sKdHlY",
+      "InklyF13qjU",
+      "AUl4F8M8bxM",
+      "S4pk8jsk9h4",
+      "RV6aLIQgmYg",
+      "Z0NlmumRuVE",
+      "2zw-XgAko_E",
+      "NsaSG-0U4mU",
+      "o7zqouVuFZY",
+      "ykz_dbpYRPU",
+      "NOpS4qGILyY",
+      "GsWGqDzygDs",
+      "Q0IL0S0vTGw",
 
-    card.dataset.era =
-      video.era;
+      "JAVV2jbjKTQ",
+      "dxjLh3lZumY",
+      "oBnVNpG97Z4",
+      "Mh4f9AYRCZY",
+      "pNbN5Mk_sZw",
+      "ILtz5nX3_fc",
+      "WqSTXuJeTks",
+      "mfhBM_Yay6w",
+      "93hq0YU3Gqk",
+      "BEtIoGQxqQs",
+      "LeAltgu_pbM",
+      "aBfUFr9SBY0",
+      "D2kJZOfq7zk",
+      "UMf40daefsI",
+      "O61Do03ZCjw",
+      "D1R-jKKp3NA",
+      "tw5EsYzyG",
+      "2zOv7kvYmtg",
 
-  } catch (error) {
+      "2nYozPLpJRE",
+      "aBm_2IUn4MU",
+      "OTuMh7VDaC4",
+      "ys7pLfOVZDE",
+      "P6P_sXbQtgc",
+      "V4we8iFk-fY",
+      "eegQI9WM6mk",
+      "j03KzQDm8sk",
+      "G5QEdVMVbIw",
+      "QQEutrGhoqI",
+      "BXUhfoUJjuQ",
+      "OLpeX4RRo28",
+      "GiLMvrqI8Gc",
+      "TNW5JjiGyZw",
+      "EdvJnP5ruqA",
+      "BQw3v31s-Y8",
+      "xWcldHxHFpo",
+      "pXO76dbictU",
+      "NYilBju7Wps",
+      "uJs3qqGscMM",
+      "Yvd3aEsThbc",
 
-    titleElement.textContent =
-      "YouTube video";
+      /* ======================================================
+         10 NEW VIDEOS
+      ====================================================== */
 
-    titleElement.classList.remove(
-      "loading"
-    );
+      "nwP3TeK-fPs",
+      "tGmmQ688Fkk",
+      "EoLjddNcnYU",
+      "ay6OgCjiHq4",
+      "uE-1RPDqJAY",
+      "YP5i5-G2f3c",
+      "JImcvtJzIK8",
+      "hLYMD6R6PvU",
+      "SiMHTK15Pik",
+      "EIyixC9NsLI"
 
-    uploaderElement.textContent =
-      "Metadata unavailable";
-
-    uploaderElement.classList.remove(
-      "loading"
-    );
-
-    uploaderElement.classList.add(
-      "metadata-error"
-    );
-
-  }
-
-}
+    ];
 
 
-/* =========================================================
-   INITIALIZE
-   ========================================================= */
+    /*
+     * ========================================================
+     * GRID
+     * ========================================================
+     */
 
-renderVideos(uniqueVideos);
+    const grid =
+      document.getElementById("meme-grid");
 
 
-/* =========================================================
-   LOAD ALL METADATA
-   ========================================================= */
+    /*
+     * ========================================================
+     * CREATE CARD
+     * ========================================================
+     */
 
-async function loadAllMetadata() {
+    function createCard(id, index) {
 
-  const cards =
-    Array.from(
-      document.querySelectorAll(".video-card")
-    );
+      const card =
+        document.createElement("article");
 
-  /*
-   * Small batches prevent the browser from firing
-   * hundreds of requests simultaneously.
-   */
+      card.className =
+        "meme-card";
 
-  const batchSize = 6;
 
-  for (
-    let i = 0;
-    i < uniqueVideos.length;
-    i += batchSize
-  ) {
+      card.innerHTML = `
 
-    const batch =
-      uniqueVideos.slice(
-        i,
-        i + batchSize
+        <div
+          class="meme-player"
+          role="button"
+          tabindex="0"
+          aria-label="Play video"
+        >
+
+          <img
+            src="https://i.ytimg.com/vi/${id}/hqdefault.jpg"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          >
+
+          <button
+            class="meme-play"
+            type="button"
+            aria-label="Play video"
+          ></button>
+
+        </div>
+
+
+        <div class="meme-info">
+
+          <p class="meme-number">
+            MEME ${String(index + 1).padStart(3, "0")}
+          </p>
+
+          <h2 class="meme-title">
+            Loading title…
+          </h2>
+
+          <p class="meme-uploader">
+            <strong>Uploader:</strong>
+            <span>Loading…</span>
+          </p>
+
+        </div>
+
+      `;
+
+
+      const player =
+        card.querySelector(".meme-player");
+
+
+      const playButton =
+        card.querySelector(".meme-play");
+
+
+      /*
+       * ======================================================
+       * PLAY VIDEO
+       * ======================================================
+       */
+
+      function playVideo() {
+
+        /*
+         * Prevent creating a second iframe.
+         */
+
+        if (
+          player.dataset.loaded === "true"
+        ) {
+          return;
+        }
+
+
+        player.dataset.loaded =
+          "true";
+
+
+        /*
+         * Create the YouTube iframe.
+         *
+         * IMPORTANT:
+         * Using youtube.com/embed rather than the previous
+         * nocookie embed makes playback much more reliable.
+         */
+
+        const iframe =
+          document.createElement("iframe");
+
+
+        iframe.src =
+          "https://www.youtube.com/embed/" +
+          encodeURIComponent(id) +
+          "?autoplay=1&rel=0&modestbranding=1";
+
+
+        iframe.title =
+          card.querySelector(
+            ".meme-title"
+          ).textContent;
+
+
+        iframe.loading =
+          "lazy";
+
+
+        iframe.allow =
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+
+
+        iframe.allowFullscreen =
+          true;
+
+
+        /*
+         * Remove thumbnail and replace it
+         * with the real YouTube player.
+         */
+
+        player.replaceChildren(
+          iframe
+        );
+
+      }
+
+
+      /*
+       * Button click
+       */
+
+      playButton.addEventListener(
+        "click",
+        function(event) {
+
+          event.preventDefault();
+          event.stopPropagation();
+
+          playVideo();
+
+        }
       );
 
-    await Promise.all(
 
-      batch.map(
-        (video, index) => {
+      /*
+       * Clicking anywhere on thumbnail
+       */
 
-          const card =
-            cards[i + index];
+      player.addEventListener(
+        "click",
+        function(event) {
 
-          return loadMetadata(
-            video,
-            card
+          /*
+           * Don't run twice when clicking
+           * the actual button.
+           */
+
+          if (
+            event.target === playButton
+          ) {
+            return;
+          }
+
+          playVideo();
+
+        }
+      );
+
+
+      /*
+       * Keyboard accessibility
+       */
+
+      player.addEventListener(
+        "keydown",
+        function(event) {
+
+          if (
+            event.key === "Enter" ||
+            event.key === " "
+          ) {
+
+            event.preventDefault();
+
+            playVideo();
+
+          }
+
+        }
+      );
+
+
+      /*
+       * Get title/uploader
+       */
+
+      loadMetadata(
+        card,
+        id
+      );
+
+
+      return card;
+
+    }
+
+
+    /*
+     * ========================================================
+     * LOAD YOUTUBE TITLE
+     * ========================================================
+     */
+
+    async function loadMetadata(
+      card,
+      id
+    ) {
+
+      const title =
+        card.querySelector(
+          ".meme-title"
+        );
+
+
+      const uploader =
+        card.querySelector(
+          ".meme-uploader span"
+        );
+
+
+      const endpoint =
+        "https://www.youtube.com/oembed?url=" +
+        encodeURIComponent(
+          "https://www.youtube.com/watch?v=" +
+          id
+        ) +
+        "&format=json";
+
+
+      try {
+
+        const response =
+          await fetch(endpoint);
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Metadata unavailable"
           );
 
         }
-      )
 
-    );
 
-    updateStats();
+        const data =
+          await response.json();
 
-  }
 
-  applyFilters();
+        title.textContent =
+          data.title ||
+          "Untitled Video";
 
-}
 
+        uploader.textContent =
+          data.author_name ||
+          "Unknown uploader";
 
-loadAllMetadata();
+      }
 
+      catch (error) {
 
-/* =========================================================
-   SEARCH + FILTER
-   ========================================================= */
+        /*
+         * The video can STILL PLAY even if
+         * YouTube's title lookup fails.
+         */
 
-const searchInput =
-  document.getElementById("searchInput");
+        title.textContent =
+          "View video";
 
-const searchButton =
-  document.getElementById("searchButton");
 
-const eraFilter =
-  document.getElementById("eraFilter");
+        uploader.textContent =
+          "YouTube video";
 
-const sortFilter =
-  document.getElementById("sortFilter");
-
-
-function applyFilters() {
-
-  const search =
-    searchInput.value
-      .trim()
-      .toLowerCase();
-
-  const selectedEra =
-    eraFilter.value;
-
-  let filtered =
-    uniqueVideos.filter(video => {
-
-      const searchable = (
-
-        video.title +
-        " " +
-        video.uploader +
-        " " +
-        video.id
-
-      ).toLowerCase();
-
-      const matchesSearch =
-        !search ||
-        searchable.includes(search);
-
-      const matchesEra =
-        selectedEra === "all" ||
-        video.era === selectedEra;
-
-      return (
-        matchesSearch &&
-        matchesEra
-      );
-
-    });
-
-
-  /* -------------------------------------------------------
-     SORT
-     ------------------------------------------------------- */
-
-  switch (sortFilter.value) {
-
-    case "title":
-
-      filtered.sort(
-        (a, b) =>
-          a.title.localeCompare(
-            b.title
-          )
-      );
-
-      break;
-
-
-    case "uploader":
-
-      filtered.sort(
-        (a, b) =>
-          a.uploader.localeCompare(
-            b.uploader
-          )
-      );
-
-      break;
-
-
-    case "oldest":
-
-      filtered.sort(
-        (a, b) =>
-          getTimestamp(a) -
-          getTimestamp(b)
-      );
-
-      break;
-
-
-    case "newest":
-
-      filtered.sort(
-        (a, b) =>
-          getTimestamp(b) -
-          getTimestamp(a)
-      );
-
-      break;
-
-  }
-
-
-  renderFiltered(filtered);
-
-  updateStats(filtered.length);
-
-}
-
-
-function getTimestamp(video) {
-
-  if (!video.uploadDate) {
-    return 0;
-  }
-
-  const time =
-    new Date(
-      video.uploadDate
-    ).getTime();
-
-  return Number.isNaN(time)
-    ? 0
-    : time;
-
-}
-
-
-function renderFiltered(list) {
-
-  const visibleIds =
-    new Set(
-      list.map(
-        video => video.id
-      )
-    );
-
-  const cards =
-    Array.from(
-      document.querySelectorAll(
-        ".video-card"
-      )
-    );
-
-  cards.forEach(card => {
-
-    card.style.display =
-      visibleIds.has(
-        card.dataset.id
-      )
-        ? ""
-        : "none";
-
-  });
-
-  noResults.style.display =
-    list.length === 0
-      ? "block"
-      : "none";
-
-}
-
-
-/* =========================================================
-   STATS
-   ========================================================= */
-
-function updateStats(
-  visibleCount = uniqueVideos.length
-) {
-
-  const metadataLoaded =
-    uniqueVideos.filter(
-      video => video.title
-    ).length;
-
-  stats.textContent =
-    `${visibleCount} video` +
-    `${visibleCount === 1 ? "" : "s"} ` +
-    `shown • ` +
-    `${uniqueVideos.length} unique videos in archive • ` +
-    `${metadataLoaded} metadata records loaded`;
-
-}
-
-
-/* =========================================================
-   EVENTS
-   ========================================================= */
-
-searchInput.addEventListener(
-  "input",
-  applyFilters
-);
-
-searchButton.addEventListener(
-  "click",
-  applyFilters
-);
-
-eraFilter.addEventListener(
-  "change",
-  applyFilters
-);
-
-sortFilter.addEventListener(
-  "change",
-  applyFilters
-);
-
-
-/* =========================================================
-   ENTER KEY
-   ========================================================= */
-
-searchInput.addEventListener(
-  "keydown",
-  event => {
-
-    if (
-      event.key === "Enter"
-    ) {
-
-      applyFilters();
+      }
 
     }
 
-  }
-);
+
+    /*
+     * ========================================================
+     * RENDER EVERYTHING
+     * ========================================================
+     *
+     * No pagination.
+     *
+     * No pages 2 or 3.
+     *
+     * Every video is on this one page.
+     */
+
+    const fragment =
+      document.createDocumentFragment();
 
 
-/* =========================================================
-   ERA NAVIGATION
-   ========================================================= */
+    videos.forEach(
+      function(id, index) {
 
-document
-  .querySelectorAll(
-    ".category-bar a"
-  )
-  .forEach(link => {
-
-    link.addEventListener(
-      "click",
-      event => {
-
-        event.preventDefault();
-
-        const era =
-          link.dataset.era;
-
-        eraFilter.value =
-          era;
-
-        document
-          .querySelectorAll(
-            ".category-bar a"
+        fragment.appendChild(
+          createCard(
+            id,
+            index
           )
-          .forEach(item => {
-
-            item.classList.remove(
-              "active"
-            );
-
-          });
-
-        link.classList.add(
-          "active"
         );
-
-        applyFilters();
 
       }
     );
 
-  });
 
+    grid.appendChild(
+      fragment
+    );
 
-/* =========================================================
-   INITIAL STATS
-   ========================================================= */
-
-updateStats();
-
-</script>
+  </script>
 
 </body>
 </html>
