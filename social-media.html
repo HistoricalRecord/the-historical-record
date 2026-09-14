@@ -190,6 +190,141 @@
     }
 
     /* =========================================
+       SELECTED VIDEOS
+       ========================================= */
+
+    .selected-videos {
+      margin-bottom: 42px;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .video-card {
+      position: relative;
+
+      background: var(--white);
+
+      border: 1px solid var(--light-blue);
+
+      border-left: 5px solid var(--red);
+
+      box-shadow: var(--shadow);
+
+      overflow: hidden;
+    }
+
+    .video-player {
+      position: relative;
+
+      width: 100%;
+
+      aspect-ratio: 16 / 9;
+
+      background: #111;
+
+      cursor: pointer;
+
+      overflow: hidden;
+    }
+
+    .video-player img {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+    }
+
+    .video-play {
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+
+      width: 62px;
+      height: 62px;
+
+      border: 0;
+      border-radius: 50%;
+
+      background: rgba(178, 34, 52, 0.95);
+
+      cursor: pointer;
+    }
+
+    .video-play::after {
+      content: "";
+
+      position: absolute;
+
+      left: 25px;
+      top: 19px;
+
+      width: 0;
+      height: 0;
+
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      border-left: 18px solid var(--white);
+    }
+
+    .video-player iframe {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      border: 0;
+    }
+
+    .video-info {
+      padding: 22px;
+    }
+
+    .video-label {
+      margin: 0 0 8px;
+
+      color: var(--red);
+
+      font-size: 0.72rem;
+      font-weight: bold;
+
+      letter-spacing: 0.13em;
+
+      text-transform: uppercase;
+    }
+
+    .video-title {
+      margin: 0;
+
+      color: var(--blue);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 1.35rem;
+
+      line-height: 1.25;
+    }
+
+    .video-uploader {
+      margin: 9px 0 0;
+
+      color: var(--muted);
+
+      font-size: 0.84rem;
+    }
+
+    /* =========================================
        ARCHIVE CARDS
        ========================================= */
 
@@ -812,6 +947,10 @@
         padding: 52px 0;
       }
 
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+
       .topic-card {
         padding: 24px;
 
@@ -1074,6 +1213,17 @@
             Explore the digital material preserved in this section
             of the archive.
           </p>
+
+        </div>
+
+
+        <!-- =========================================
+             MY SELECTED VIDEOS
+             ========================================= -->
+
+        <div class="selected-videos">
+
+          <div class="video-grid" id="selected-video-grid"></div>
 
         </div>
 
@@ -1370,6 +1520,338 @@
           closeMenu();
 
         }
+
+      }
+    );
+
+  </script>
+
+
+  <!-- =========================================
+       SELECTED VIDEO SCRIPT
+       ========================================= -->
+
+  <script>
+
+    const selectedVideos = [
+
+      "Ibi0XcyvxXg",
+      "xNewd0IF2gI",
+      "59O4q_SLk4E",
+      "v_XYwd1TeH0",
+      "ilaJtPQsPvk",
+      "pI-O9v5Qtio",
+      "v9sheGfrFWs",
+      "HJMg2Dg-51A",
+      "So6ZHS_bv_0",
+      "Qhdb-CpJYlY",
+      "j-9jZMzj0Os",
+      "TkWSFoZp0UY",
+      "O2vi8R9DEfA",
+      "vrbAKFk4uhg",
+      "n_m_f-IB-h0",
+      "7ZAf1jPHyb0",
+      "CZejXeoLdKs",
+      "O7-l9IuDLNU",
+      "poywry4QZVM",
+      "7Pv2lvwjsss",
+      "s3gmxhYvRqw",
+      "7-SnZVDuFJU",
+      "oYMcymxoyh0",
+      "Dm9GkTYvzs8",
+      "xpVnRPzlP5s",
+      "Gsbj8wZ3mwU",
+      "2wP0rYk2FU4",
+      "-JjSilbDdQQ",
+      "7GQk0hm-kEI",
+      "rcLrLH_g2dk",
+      "ymcNhAgO7Pw",
+      "NwalnWcvxNI",
+      "8kvqQIdHS7g",
+      "5Za31pEeM6Q",
+      "H12qqyjskLw",
+      "U1rtoP4l_yg",
+      "djo12DqE9-4",
+      "YEEpwhTlPj8",
+      "GpMP6Nh3FvU",
+      "MamP5k2roPg",
+      "ipMIgN09aeo",
+      "sJ1cf00rq1w",
+      "-jikG2HmB9A",
+      "k0YrbE_4agM",
+      "2_iJDXTVs9o",
+      "fCFnccOBm9o",
+      "8O5TmqP7FlE",
+      "LzVMVAMu8_o",
+      "6REx5P1HGVY",
+      "YDKFV6UdSKI",
+      "1__Qg1toSSs",
+      "38KcVu5DkhA",
+      "FTAW1PvEcAk",
+      "dmV1ehLK9sI",
+      "yjpYzFtxfjU",
+      "zohg5rx5ptU",
+      "syocq98pAy8",
+      "hxdSr03ULdM",
+      "7zxgQpOZR7E",
+      "YssOkIOPBW8",
+      "tExo3ovEBWQ",
+      "HSvjAJvempE",
+      "xFIn4Oyhzhs",
+      "5599aKMzZNI",
+      "OSP3r0pnED0",
+      "RCRTgtpC-Go",
+      "fZQlJCXWK1o",
+      "AS7QowYteEQ",
+      "SbbWirY1k1k"
+
+    ];
+
+
+    const videoGrid =
+      document.getElementById(
+        "selected-video-grid"
+      );
+
+
+    function createVideoCard(id, index) {
+
+      const card =
+        document.createElement("article");
+
+      card.className =
+        "video-card";
+
+
+      card.innerHTML = `
+
+        <div
+          class="video-player"
+          role="button"
+          tabindex="0"
+          aria-label="Play video"
+        >
+
+          <img
+            src="https://i.ytimg.com/vi/${id}/mqdefault.jpg"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          >
+
+          <button
+            class="video-play"
+            type="button"
+            aria-label="Play video"
+          ></button>
+
+        </div>
+
+
+        <div class="video-info">
+
+          <p class="video-label">
+            SELECTED VIDEO ${String(index + 1).padStart(2, "0")}
+          </p>
+
+          <h3 class="video-title">
+            Loading title…
+          </h3>
+
+          <p class="video-uploader">
+            <strong>Uploader:</strong>
+            <span>Loading…</span>
+          </p>
+
+        </div>
+
+      `;
+
+
+      const player =
+        card.querySelector(
+          ".video-player"
+        );
+
+
+      const playButton =
+        card.querySelector(
+          ".video-play"
+        );
+
+
+      function playVideo() {
+
+        if (
+          player.dataset.loaded === "true"
+        ) {
+          return;
+        }
+
+
+        player.dataset.loaded = "true";
+
+
+        const iframe =
+          document.createElement(
+            "iframe"
+          );
+
+
+        iframe.src =
+          "https://www.youtube-nocookie.com/embed/" +
+          encodeURIComponent(id) +
+          "?autoplay=1&rel=0";
+
+
+        iframe.title =
+          card.querySelector(
+            ".video-title"
+          ).textContent;
+
+
+        iframe.loading = "lazy";
+
+
+        iframe.allow =
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+
+
+        iframe.allowFullscreen = true;
+
+
+        player.replaceChildren(
+          iframe
+        );
+
+      }
+
+
+      playButton.addEventListener(
+        "click",
+        function(event) {
+
+          event.stopPropagation();
+
+          playVideo();
+
+        }
+      );
+
+
+      player.addEventListener(
+        "click",
+        playVideo
+      );
+
+
+      player.addEventListener(
+        "keydown",
+        function(event) {
+
+          if (
+            event.key === "Enter" ||
+            event.key === " "
+          ) {
+
+            event.preventDefault();
+
+            playVideo();
+
+          }
+
+        }
+      );
+
+
+      loadVideoMetadata(
+        card,
+        id
+      );
+
+
+      return card;
+
+    }
+
+
+    async function loadVideoMetadata(
+      card,
+      id
+    ) {
+
+      const title =
+        card.querySelector(
+          ".video-title"
+        );
+
+
+      const uploader =
+        card.querySelector(
+          ".video-uploader span"
+        );
+
+
+      const endpoint =
+        "https://www.youtube.com/oembed?url=" +
+        encodeURIComponent(
+          "https://www.youtube.com/watch?v=" + id
+        ) +
+        "&format=json";
+
+
+      try {
+
+        const response =
+          await fetch(endpoint);
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Metadata unavailable"
+          );
+
+        }
+
+
+        const data =
+          await response.json();
+
+
+        title.textContent =
+          data.title ||
+          "Untitled Video";
+
+
+        uploader.textContent =
+          data.author_name ||
+          "Unknown uploader";
+
+
+      } catch (error) {
+
+        title.textContent =
+          "View video";
+
+
+        uploader.textContent =
+          "YouTube video";
+
+      }
+
+    }
+
+
+    selectedVideos.forEach(
+      function(id, index) {
+
+        videoGrid.appendChild(
+          createVideoCard(
+            id,
+            index
+          )
+        );
 
       }
     );
