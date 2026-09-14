@@ -13,6 +13,10 @@
       background: #ffffff;
     }
 
+    /* =========================
+       HEADER
+    ========================= */
+
     .meme-header {
       background: #b40000;
       border-bottom: 1px solid #8f0000;
@@ -46,23 +50,36 @@
       max-width: 720px;
     }
 
+    /* =========================
+       VIDEO SECTION
+    ========================= */
+
     .meme-section {
       padding: 38px 0 45px;
       background: #ffffff;
     }
 
+    /*
+      SIX VIDEOS PER ROW ON LARGE SCREENS.
+      This keeps everything on one page.
+    */
+
     .meme-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 16px;
       align-items: start;
     }
+
+    /* =========================
+       VIDEO CARD
+    ========================= */
 
     .meme-card {
       background: #ffffff;
       border: 1px solid #d7d7d7;
       box-shadow: 0 2px 7px rgba(0, 0, 0, 0.08);
-      padding: 9px;
+      padding: 7px;
       min-width: 0;
     }
 
@@ -82,41 +99,56 @@
       object-fit: cover;
     }
 
+    /* =========================
+       PLAY BUTTON
+    ========================= */
+
     .meme-play {
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      z-index: 3;
 
-      width: 54px;
-      height: 38px;
+      width: 42px;
+      height: 30px;
 
       border: 0;
-      border-radius: 7px;
+      border-radius: 6px;
+
       background: #cc0000;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+
+      box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.35);
 
       cursor: pointer;
+
+      z-index: 3;
     }
 
     .meme-play::after {
       content: "";
+
       position: absolute;
-      left: 22px;
-      top: 10px;
+
+      left: 17px;
+      top: 7px;
 
       width: 0;
       height: 0;
 
-      border-top: 9px solid transparent;
-      border-bottom: 9px solid transparent;
-      border-left: 13px solid #ffffff;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 11px solid #ffffff;
     }
 
     .meme-player:hover .meme-play {
       background: #a90000;
+      transform: translate(-50%, -50%) scale(1.05);
     }
+
+    /* =========================
+       IFRAME
+    ========================= */
 
     .meme-player iframe {
       width: 100%;
@@ -125,31 +157,43 @@
       display: block;
     }
 
+    /* =========================
+       INFORMATION
+    ========================= */
+
     .meme-info {
-      padding: 10px 2px 2px;
+      padding: 8px 2px 2px;
     }
 
     .meme-number {
       color: #b40000;
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 700;
-      letter-spacing: 0.12em;
-      margin: 0 0 5px;
+      letter-spacing: 0.10em;
+      margin: 0 0 4px;
       text-transform: uppercase;
     }
 
     .meme-title {
       color: #222222;
-      font-size: 15px;
+      font-size: 12px;
       font-weight: 700;
-      line-height: 1.3;
-      margin: 0 0 5px;
+      line-height: 1.25;
+      margin: 0 0 4px;
+
+      /*
+        Keeps cards compact.
+      */
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     .meme-uploader {
       color: #666666;
-      font-size: 12px;
-      line-height: 1.4;
+      font-size: 10px;
+      line-height: 1.3;
       margin: 0;
     }
 
@@ -157,69 +201,99 @@
       color: #333333;
     }
 
-    .pagination {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 7px;
-      margin-top: 34px;
-      flex-wrap: wrap;
+    /* =========================
+       LOADING
+    ========================= */
+
+    .loading-text {
+      color: #777777;
+      font-size: 11px;
     }
 
-    .pagination a {
-      display: inline-flex;
-      min-width: 36px;
-      height: 36px;
-      padding: 0 10px;
-      align-items: center;
-      justify-content: center;
+    /* =========================
+       RESPONSIVE
+    ========================= */
 
-      border: 1px solid #cccccc;
-      background: #ffffff;
-      color: #222222;
+    @media (max-width: 1200px) {
 
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 700;
-    }
+      .meme-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
 
-    .pagination a:hover,
-    .pagination a.active {
-      background: #b40000;
-      border-color: #b40000;
-      color: #ffffff;
     }
 
     @media (max-width: 1000px) {
+
       .meme-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
       }
+
     }
 
     @media (max-width: 760px) {
+
       .meme-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
       }
 
       .meme-header {
         padding: 34px 0 30px;
       }
+
+      .meme-header p {
+        font-size: 14px;
+      }
+
+      .meme-title {
+        font-size: 11px;
+      }
+
+      .meme-uploader {
+        font-size: 9px;
+      }
+
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 560px) {
+
+      .meme-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .meme-card {
+        padding: 6px;
+      }
+
+    }
+
+    @media (max-width: 360px) {
+
       .meme-grid {
         grid-template-columns: 1fr;
       }
 
-      .meme-card {
-        padding: 9px;
+      .meme-title {
+        font-size: 13px;
       }
+
+      .meme-uploader {
+        font-size: 10px;
+      }
+
     }
+
   </style>
 </head>
 
 <body>
+
+
+  <!-- =========================
+       MENU BUTTON
+  ========================= -->
 
   <button
     class="menu-button"
@@ -231,12 +305,23 @@
     <span></span>
   </button>
 
+
+  <!-- =========================
+       SIDE MENU
+  ========================= -->
+
   <aside class="side-menu">
 
     <div class="menu-header">
+
       <h2>The Historical Record</h2>
-      <p>Archive Navigation</p>
+
+      <p>
+        Archive Navigation
+      </p>
+
     </div>
+
 
     <nav>
 
@@ -248,6 +333,7 @@
         Home
       </a>
 
+
       <div class="menu-dropdown">
 
         <button
@@ -256,14 +342,23 @@
           aria-expanded="false"
           aria-controls="politics-submenu"
         >
-          <span>Politics</span>
-          <span class="menu-dropdown-arrow">▾</span>
+
+          <span>
+            Politics
+          </span>
+
+          <span class="menu-dropdown-arrow">
+            ▾
+          </span>
+
         </button>
+
 
         <div
           class="menu-submenu"
           id="politics-submenu"
         >
+
           <a href="politics.html">
             Politics Home
           </a>
@@ -275,9 +370,11 @@
           <a href="september-11-sourcebooks.html">
             9/11 Sourcebooks &amp; Documents
           </a>
+
         </div>
 
       </div>
+
 
       <a href="entertainment-sports.html">
         Entertainment / Sports
@@ -299,13 +396,22 @@
 
   </aside>
 
+
   <div class="menu-overlay"></div>
+
+
+  <!-- =========================
+       SITE HEADER
+  ========================= -->
 
   <header class="site-header">
 
     <div class="container header-inner">
 
-      <a href="index.html" class="brand">
+      <a
+        href="index.html"
+        class="brand"
+      >
         THE HISTORICAL RECORD
       </a>
 
@@ -313,7 +419,13 @@
 
   </header>
 
+
+  <!-- =========================
+       MAIN
+  ========================= -->
+
   <main>
+
 
     <section class="meme-header">
 
@@ -336,6 +448,7 @@
 
     </section>
 
+
     <section class="meme-section">
 
       <div class="container">
@@ -345,17 +458,16 @@
           id="meme-grid"
         ></div>
 
-        <div
-          class="pagination"
-          id="pagination"
-          aria-label="Meme pages"
-        ></div>
-
       </div>
 
     </section>
 
   </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
 
   <footer class="site-footer">
 
@@ -373,9 +485,26 @@
 
   </footer>
 
+
+  <!-- Your existing site JavaScript -->
+
   <script src="script.js"></script>
 
+
+  <!-- =========================
+       VIDEO ARCHIVE
+  ========================= -->
+
   <script>
+
+    /*
+      ALL VIDEOS
+
+      The list below contains the videos from your message.
+
+      Duplicate links have been removed so the same video
+      does not appear twice.
+    */
 
     const videos = [
 
@@ -409,6 +538,7 @@
       "TIoD7Uj7MUo",
       "f4FuOi9rvKw",
       "9KSGUVcNfZM",
+
       "R9dRuaTOyBY",
       "wsZ7013yHiw",
       "LzxCJzM4xLo",
@@ -440,6 +570,7 @@
       "z_mhFOyLQBg",
       "YCeQLeQiRP4",
       "V_OVxxIvqVw",
+
       "r3-Y31ONZuI",
       "xaPepCVepCg",
       "IJmIGC0nwK0",
@@ -470,6 +601,7 @@
       "GsWGqDzygDs",
       "Q0IL0S0vTGw",
       "JAVV2jbjKTQ",
+
       "dxjLh3lZumY",
       "oBnVNpG97Z4",
       "Mh4f9AYRCZY",
@@ -485,7 +617,9 @@
       "UMf40daefsI",
       "O61Do03ZCjw",
       "D1R-jKKp3NA",
+      "tw5EsYzyG",
       "2zOv7kvYmtg",
+
       "2nYozPLpJRE",
       "aBm_2IUn4MU",
       "OTuMh7VDaC4",
@@ -506,45 +640,43 @@
       "pXO76dbictU",
       "NYilBju7Wps",
       "uJs3qqGscMM",
-      "Yvd3aEsThbc"
+      "Yvd3aEsThbc",
+
+      /*
+        NEW VIDEOS
+      */
+
+      "nwP3TeK-fPs",
+      "tGmmQ688Fkk",
+      "EoLjddNcnYU",
+      "ay6OgCjiHq4",
+      "uE-1RPDqJAY",
+      "YP5i5-G2f3c",
+      "JImcvtJzIK8",
+      "hLYMD6R6PvU",
+      "SiMHTK15Pik",
+      "EIyixC9NsLI"
 
     ];
 
 
-    const perPage = 50;
-
-    const params =
-      new URLSearchParams(window.location.search);
-
-    let page =
-      parseInt(params.get("page") || "1", 10);
-
-    if (!Number.isFinite(page) || page < 1) {
-      page = 1;
-    }
-
-    const totalPages =
-      Math.max(
-        1,
-        Math.ceil(videos.length / perPage)
-      );
-
-    if (page > totalPages) {
-      page = totalPages;
-    }
-
+    /* =========================
+       ELEMENTS
+    ========================= */
 
     const grid =
       document.getElementById("meme-grid");
 
-    const pagination =
-      document.getElementById("pagination");
 
+    /* =========================
+       CREATE VIDEO CARD
+    ========================= */
 
     function createCard(id, index) {
 
       const card =
         document.createElement("article");
+
 
       card.className =
         "meme-card";
@@ -582,12 +714,21 @@
           </p>
 
           <h2 class="meme-title">
-            Loading title…
+            <span class="loading-text">
+              Loading title…
+            </span>
           </h2>
 
           <p class="meme-uploader">
-            <strong>Uploader:</strong>
-            <span>Loading…</span>
+
+            <strong>
+              Uploader:
+            </strong>
+
+            <span class="loading-text">
+              Loading…
+            </span>
+
           </p>
 
         </div>
@@ -598,11 +739,20 @@
       const player =
         card.querySelector(".meme-player");
 
+
       const playButton =
         card.querySelector(".meme-play");
 
 
+      /* =========================
+         PLAY VIDEO
+      ========================= */
+
       function playVideo() {
+
+        /*
+          Prevent loading the same iframe twice.
+        */
 
         if (
           player.dataset.loaded === "true"
@@ -622,13 +772,11 @@
         iframe.src =
           "https://www.youtube-nocookie.com/embed/" +
           encodeURIComponent(id) +
-          "?autoplay=1&rel=0";
+          "?autoplay=1&rel=0&modestbranding=1";
 
 
         iframe.title =
-          card.querySelector(
-            ".meme-title"
-          ).textContent;
+          "YouTube video";
 
 
         iframe.loading =
@@ -643,12 +791,20 @@
           true;
 
 
+        /*
+          Replace thumbnail with the player.
+        */
+
         player.replaceChildren(
           iframe
         );
 
       }
 
+
+      /* =========================
+         CLICK
+      ========================= */
 
       playButton.addEventListener(
         "click",
@@ -664,9 +820,28 @@
 
       player.addEventListener(
         "click",
-        playVideo
+        function(event) {
+
+          /*
+            If the iframe is already loaded,
+            don't do anything.
+          */
+
+          if (
+            event.target.tagName === "IFRAME"
+          ) {
+            return;
+          }
+
+          playVideo();
+
+        }
       );
 
+
+      /* =========================
+         KEYBOARD
+      ========================= */
 
       player.addEventListener(
         "keydown",
@@ -687,6 +862,10 @@
       );
 
 
+      /*
+        Load the title/uploader.
+      */
+
       loadMetadata(
         card,
         id
@@ -698,6 +877,10 @@
     }
 
 
+    /* =========================
+       YOUTUBE METADATA
+    ========================= */
+
     async function loadMetadata(
       card,
       id
@@ -707,6 +890,7 @@
         card.querySelector(
           ".meme-title"
         );
+
 
       const uploader =
         card.querySelector(
@@ -753,10 +937,17 @@
 
       }
 
+
       catch (error) {
+
+        /*
+          If YouTube blocks the metadata request,
+          the video itself still works.
+        */
 
         title.textContent =
           "View video";
+
 
         uploader.textContent =
           "YouTube video";
@@ -766,76 +957,21 @@
     }
 
 
-    function renderPagination() {
-
-      for (
-        let i = 1;
-        i <= totalPages;
-        i++
-      ) {
-
-        const link =
-          document.createElement("a");
-
-
-        link.href =
-          i === 1
-            ? "historical-memes.html"
-            : "historical-memes.html?page=" +
-              i;
-
-
-        link.textContent =
-          i;
-
-
-        link.className =
-          i === page
-            ? "active"
-            : "";
-
-
-        if (i === page) {
-
-          link.setAttribute(
-            "aria-current",
-            "page"
-          );
-
-        }
-
-
-        pagination.appendChild(
-          link
-        );
-
-      }
-
-    }
-
-
-    const start =
-      (page - 1) * perPage;
-
-
-    const currentVideos =
-      videos.slice(
-        start,
-        start + perPage
-      );
-
+    /* =========================
+       BUILD ALL CARDS
+    ========================= */
 
     const fragment =
       document.createDocumentFragment();
 
 
-    currentVideos.forEach(
+    videos.forEach(
       function(id, index) {
 
         fragment.appendChild(
           createCard(
             id,
-            start + index
+            index
           )
         );
 
@@ -847,8 +983,6 @@
       fragment
     );
 
-
-    renderPagination();
 
   </script>
 
