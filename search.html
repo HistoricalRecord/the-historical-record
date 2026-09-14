@@ -3,26 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Search the Archive | The Historical Record</title>
-
   <link rel="stylesheet" href="style.css">
-
   <style>
     body {
       background: #f8f8f8;
       color: #0b1f4d;
     }
-
     .site-header {
       background: #0b1f4d;
       border-bottom: 5px solid #b22234;
     }
-
     .brand {
       color: #ffffff;
     }
-
     .hero {
       background: linear-gradient(
         135deg,
@@ -33,20 +27,17 @@
       color: #ffffff;
       padding: 70px 0;
     }
-
     .hero .eyebrow,
     .hero h1,
     .hero-text {
       color: #ffffff;
     }
-
     #search-form {
       display: flex;
       gap: 10px;
       margin-top: 30px;
       max-width: 800px;
     }
-
     #search-input {
       flex: 1;
       min-width: 0;
@@ -57,12 +48,10 @@
       color: #0b1f4d;
       font-size: 1rem;
     }
-
     #search-input:focus {
       outline: none;
       border-color: #b22234;
     }
-
     #search-form button {
       padding: 15px 25px;
       border: 0;
@@ -72,22 +61,18 @@
       font-weight: bold;
       cursor: pointer;
     }
-
     #search-form button:hover {
       background: #8f1b2a;
     }
-
     .search-section {
       padding: 60px 0;
       background: #f8f8f8;
     }
-
     #search-status {
       margin-bottom: 25px;
       color: #0b1f4d;
       font-weight: bold;
     }
-
     .search-result {
       margin-bottom: 25px;
       padding: 28px;
@@ -96,7 +81,6 @@
       border-left: 5px solid #b22234;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     }
-
     .search-result .result-category {
       margin: 0 0 8px;
       color: #b22234;
@@ -105,414 +89,397 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
     }
-
     .search-result h2 {
       margin: 0 0 8px;
       color: #0b1f4d;
       font-family: Georgia, "Times New Roman", serif;
       line-height: 1.25;
     }
-
     .search-result .result-date {
       margin: 0 0 15px;
       color: #555;
       font-weight: bold;
     }
-
     .search-result p {
       color: #333;
       line-height: 1.7;
     }
-
     .search-result a {
       color: #b22234;
       font-weight: bold;
       text-decoration: none;
     }
-
     .search-result a:hover {
       text-decoration: underline;
     }
-
     .no-results {
       padding: 25px;
       background: #ffffff;
       border-left: 5px solid #0b1f4d;
       color: #333;
     }
-
     .site-footer {
       background: #0b1f4d;
       color: #ffffff;
       border-top: 5px solid #b22234;
     }
-
     .site-footer p {
       color: #ffffff;
     }
-
     .menu-button {
       background: #b22234;
     }
-
     .side-menu {
       background: #ffffff;
       border-right: 5px solid #b22234;
     }
-
     .menu-header {
       background: #0b1f4d;
       color: #ffffff;
     }
-
     .side-menu nav a {
       color: #0b1f4d;
       border-bottom: 1px solid #d5dbea;
     }
-
     .side-menu nav a:hover {
       background: #b22234;
       color: #ffffff;
     }
-
     @media (max-width: 600px) {
-
       .hero {
         padding: 55px 0;
       }
-
       #search-form {
         flex-direction: column;
       }
-
       #search-form button {
         width: 100%;
       }
-
       .search-result {
         padding: 22px;
       }
-
     }
   </style>
 </head>
-
 <body>
-
-  <button
-    class="menu-button"
-    aria-label="Open menu"
-    aria-expanded="false">
-
-    <span></span>
-    <span></span>
-    <span></span>
-
+<span></span>
+<span></span>
+<span></span>
   </button>
-
-
   <aside class="side-menu">
-
-    <div class="menu-header">
-
-      <h2>
-        The Historical Record
-      </h2>
-
-      <p>
-        Archive Navigation
-      </p>
-
+<div class="menu-header">
+  <h2>
+    The Historical Record
+  </h2>
+  <p>
+    Archive Navigation
+  </p>
+</div>
+<nav>
+  <a href="search.html">
+    Search the Archive
+  </a>
+  <a href="archive.html">
+    The Archive
+  </a>
+  <a href="index.html">
+    Home
+  </a>
+  <div class="menu-dropdown">
+    <button
+      class="menu-dropdown-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="politics-submenu"
+    >
+      <span>Politics</span>
+      <span class="menu-dropdown-arrow">▾</span>
+    </button>
+    <div class="menu-submenu" id="politics-submenu">
+      <a href="politics.html">
+        Politics Home
+      </a>
+      <a href="september-11.html">
+        September 11, 2001
+      </a>
+      <a href="september-11-sourcebooks.html">
+        9/11 Sourcebooks &amp; Documents
+      </a>
     </div>
-
-
-    <nav>
-
-      <a href="search.html">
-        Search the Archive
-      </a>
-
-      <a href="archive.html">
-        The Archive
-      </a>
-
-      <a href="index.html">
-        Home
-      </a>
-
-      <div class="menu-dropdown">
-        <button
-          class="menu-dropdown-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="politics-submenu"
-        >
-          <span>Politics</span>
-          <span class="menu-dropdown-arrow">▾</span>
-        </button>
-
-        <div class="menu-submenu" id="politics-submenu">
-
-          <a href="politics.html">
-            Politics Home
-          </a>
-
-          <a href="september-11.html">
-            September 11, 2001
-          </a>
-
-          <a href="september-11-sourcebooks.html">
-            9/11 Sourcebooks &amp; Documents
-          </a>
-
-        </div>
-      </div>
-
-      <a href="entertainment-sports.html">
-        Entertainment / Sports
-      </a>
-
-      <a href="world-events.html">
-        World Events
-      </a>
-
-      <a href="social-media.html">
-        Social Media
-      </a>
-
-      <a href="thoughts.html">
-        Thoughts / Blog
-      </a>
-
-    </nav>
-
+  </div>
+  <a href="entertainment-sports.html">
+    Entertainment / Sports
+  </a>
+  <a href="world-events.html">
+    World Events
+  </a>
+  <a href="social-media.html">
+    Social Media
+  </a>
+  <a href="thoughts.html">
+    Thoughts / Blog
+  </a>
+</nav>
   </aside>
-
-
   <div class="menu-overlay"></div>
-
-
   <header class="site-header">
-
-    <div class="container header-inner">
-
-      <a href="index.html" class="brand">
-        THE HISTORICAL RECORD
-      </a>
-
-    </div>
-
+<div class="container header-inner">
+  <a href="index.html" class="brand">
+    THE HISTORICAL RECORD
+  </a>
+</div>
   </header>
-
-
   <main>
-
-    <section class="hero">
-
-      <div class="container">
-
-        <p class="eyebrow">
-          ARCHIVE SEARCH
-        </p>
-
-        <h1>
-          Search the Archive
-        </h1>
-
-        <p class="hero-text">
-          Search articles, records, events, posts, videos, photographs,
-          documents, and other material preserved throughout
-          The Historical Record.
-        </p>
-
-
-        <form id="search-form">
-
-          <input
-            type="search"
-            id="search-input"
-            placeholder="Search by subject, person, event, date, keyword..."
-            aria-label="Search the archive"
-            autocomplete="off"
-          >
-
-          <button type="submit">
-            Search
-          </button>
-
-        </form>
-
-      </div>
-
-    </section>
-
-
-    <section class="search-section">
-
-      <div class="container">
-
-        <div id="search-status"></div>
-
-        <div id="search-results"></div>
-
-      </div>
-
-    </section>
-
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">
+      ARCHIVE SEARCH
+    </p>
+    <h1>
+      Search the Archive
+    </h1>
+    <p class="hero-text">
+      Search articles, records, events, posts, videos, photographs,
+      documents, and other material preserved throughout
+      The Historical Record.
+    </p>
+    <form id="search-form">
+      <input
+        type="search"
+        id="search-input"
+        placeholder="Search by subject, person, event, date, keyword..."
+        aria-label="Search the archive"
+        autocomplete="off"
+      >
+      <button type="submit">
+        Search
+      </button>
+    </form>
+  </div>
+</section>
+<section class="search-section">
+  <div class="container">
+    <div id="search-status"></div>
+    <div id="search-results"></div>
+  </div>
+</section>
   </main>
-
-
   <footer class="site-footer">
-
-    <div class="container">
-
-      <p>
-        THE HISTORICAL RECORD
-      </p>
-
-      <p>
-        A living archive of the moments that matter.
-      </p>
-
-    </div>
-
+<div class="container">
+  <p>
+    THE HISTORICAL RECORD
+  </p>
+  <p>
+    A living archive of the moments that matter.
+  </p>
+</div>
   </footer>
-
-
   <script src="script.js"></script>
-
-
   <script>
-
     /*
-      ==========================================
-      THE HISTORICAL RECORD SEARCH DATABASE
-      ==========================================
-
-      Add new records here as the archive grows.
-
-      The search engine looks through:
-
-      - title
-      - category
-      - date
-      - description
-      - keywords
-
-      Keywords are NOT displayed to visitors.
-      They simply make the record easier to find.
+    ============================================================
+    THE HISTORICAL RECORD
+    SEARCH CACHE / SEARCH DATABASE
+    ============================================================
+    THIS IS THE IMPORTANT PART OF THE SEARCH SYSTEM.
+    Every archive record gets one entry below.
+    Visitors NEVER see these keywords.
+    The search engine searches:
+      • title
+      • category
+      • date
+      • description
+      • keywords
+      • aliases
+    "aliases" are useful for alternate spellings,
+    abbreviations, names, terminology, etc.
+    To add another archive record, copy one object and
+    change its information.
     */
-
-
     const archiveRecords = [
-
+      /* ======================================================
+         WORLD EVENTS
+         ====================================================== */
       {
         file: "iran-nuclear-program.html",
-
-        title: "Iran's Nuclear Program and the International Nuclear Crisis",
-
-        category: "World Events",
-
-        date: "September 13, 2026",
-
+        title:
+          "Iran's Nuclear Program and the International Nuclear Crisis",
+        category:
+          "World Events",
+        date:
+          "September 13, 2026",
         description:
           "A historical record documenting developments surrounding Iran's nuclear program and the international dispute surrounding Iran's nuclear activities.",
-
         keywords: [
           "Iran",
-          "Iran nuclear program",
-          "Iran nuclear weapons",
-          "Iran nuclear crisis",
+          "Islamic Republic of Iran",
+          "Tehran",
+          "Iranian",
+          "Iranian government",
           "nuclear",
-          "nuclear weapons",
           "nuclear program",
+          "Iran nuclear program",
+          "Iran nuclear crisis",
+          "Iran nuclear weapons",
+          "Iran nuclear weapon",
+          "nuclear weapons",
+          "nuclear weapon",
+          "nuclear proliferation",
+          "nuclear activities",
+          "nuclear development",
           "IAEA",
           "International Atomic Energy Agency",
+          "atomic energy",
+          "nuclear inspectors",
+          "nuclear inspection",
           "United Nations",
           "UN",
           "United Nations Security Council",
           "Security Council",
+          "UN Security Council",
           "Middle East",
           "international relations",
-          "international crisis"
+          "international crisis",
+          "geopolitics",
+          "diplomacy",
+          "foreign policy",
+          "September 13",
+          "September 13 2026",
+          "2026"
+        ],
+        aliases: [
+          "iran nuclear",
+          "iran nukes",
+          "iran atomic program",
+          "iran atomic energy",
+          "iran nuclear issue",
+          "iran nuclear dispute"
         ]
       },
-
-
+      /* ======================================================
+         SEPTEMBER 11 / POLITICS
+         ====================================================== */
       {
-        file: "politics.html",
-
-        title: "September 11, 2001: Historical Media Archive",
-
-        category: "Politics",
-
-        date: "September 11, 2001",
-
+        file: "september-11.html",
+        title:
+          "September 11, 2001: Historical Media Archive",
+        category:
+          "Politics",
+        date:
+          "September 11, 2001",
         description:
           "A collection of historical video footage, reporting, documentaries, social media posts, and other media relating to September 11, 2001 and its aftermath.",
-
         keywords: [
           "September 11",
           "September 11 2001",
+          "September 11th",
+          "September Eleventh",
           "9/11",
           "9 11",
-          "September Eleventh",
+          "911",
           "September 11 attacks",
           "9/11 attacks",
+          "September 11 terrorist attacks",
           "terrorist attacks",
           "terrorism",
           "World Trade Center",
+          "World Trade Center attacks",
           "Twin Towers",
+          "Twin Towers attacks",
+          "North Tower",
+          "South Tower",
           "New York City",
           "New York",
+          "NYC",
           "Manhattan",
+          "Lower Manhattan",
           "Pentagon",
+          "Pentagon attack",
+          "Arlington",
           "Flight 93",
           "United Airlines Flight 93",
-          "American Airlines",
+          "Flight 175",
+          "United Airlines Flight 175",
+          "Flight 11",
+          "American Airlines Flight 11",
+          "Flight 77",
+          "American Airlines Flight 77",
           "hijacked planes",
+          "hijacking",
+          "airplane hijacking",
+          "aircraft",
           "al-Qaeda",
+          "Al Qaeda",
+          "al Qaida",
           "Osama bin Laden",
+          "bin Laden",
           "George W. Bush",
+          "President Bush",
+          "Bush administration",
           "Afghanistan",
           "Iraq",
           "War on Terror",
+          "War on Terrorism",
           "Ground Zero",
           "9/11 memorial",
+          "September 11 memorial",
+          "memorial",
           "25th anniversary",
+          "25 years",
+          "25 years after September 11",
           "historical footage",
           "news coverage",
           "news footage",
+          "television coverage",
           "documentary",
-          "historical media"
+          "documentaries",
+          "historical media",
+          "archival footage",
+          "archive"
+        ],
+        aliases: [
+          "9-11",
+          "9 11 01",
+          "sept 11",
+          "sept 11 2001",
+          "sept. 11",
+          "sept. 11 2001",
+          "september eleven",
+          "september eleventh attacks"
         ]
       },
-
-
       {
-        file: "politics.html",
-
-        title: "25 years after Sept. 11 attacks, America reflects and remembers",
-
-        category: "Politics",
-
-        date: "September 11, 2026",
-
+        file: "september-11.html",
+        title:
+          "25 years after Sept. 11 attacks, America reflects and remembers",
+        category:
+          "Politics",
+        date:
+          "September 11, 2026",
         description:
           "CBS News coverage and reporting marking the 25th anniversary of the September 11 attacks.",
-
         keywords: [
           "September 11",
           "September 11 2001",
+          "September 11th",
+          "September Eleventh",
           "9/11",
           "9 11",
-          "September Eleventh",
+          "911",
           "25 years",
           "25th anniversary",
+          "25 year anniversary",
           "September 11 anniversary",
+          "9/11 anniversary",
+          "CBS",
           "CBS News",
+          "CBS NEWS",
+          "news",
           "America",
           "United States",
+          "USA",
+          "U.S.",
+          "American",
           "terrorist attacks",
           "terrorism",
           "World Trade Center",
@@ -520,349 +487,689 @@
           "Pentagon",
           "Flight 93",
           "New York City",
+          "New York",
+          "NYC",
+          "Manhattan",
           "memorial",
           "remembrance",
+          "remember",
+          "reflection",
           "history",
-          "historical record"
+          "historical record",
+          "September 11 2026",
+          "2026"
+        ],
+        aliases: [
+          "25 years after 9/11",
+          "25 years after september 11",
+          "25 years ago",
+          "9/11 25th anniversary",
+          "911 25th anniversary",
+          "sept 11 anniversary"
         ]
       },
-
-
+      /* ======================================================
+         SOCIAL MEDIA
+         ====================================================== */
       {
-        file: "politics.html",
-
-        title: "911 Revisionist X Post",
-
-        category: "Social Media",
-
-        date: "September 2026",
-
+        file: "september-11.html",
+        title:
+          "911 Revisionist X Post",
+        category:
+          "Social Media",
+        date:
+          "September 2026",
         description:
           "An archived X post from 911 Revisionist preserved as part of the September 11 historical media collection.",
-
         keywords: [
           "September 11",
           "September 11 2001",
+          "September 11th",
+          "September Eleventh",
           "9/11",
           "9 11",
-          "September Eleventh",
+          "911",
           "911 Revisionist",
+          "9/11 Revisionist",
+          "September 11 Revisionist",
           "X",
+          "X post",
           "Twitter",
+          "tweet",
           "social media",
           "September 11 attacks",
           "World Trade Center",
           "Twin Towers",
-          "historical media"
+          "historical media",
+          "archive"
+        ],
+        aliases: [
+          "911revisionist",
+          "911 revisionist x",
+          "911 revisionist twitter"
         ]
       },
-
-
       {
-        file: "politics.html",
-
-        title: "Fox News Politics X Post",
-
-        category: "Social Media",
-
-        date: "September 2026",
-
+        file: "september-11.html",
+        title:
+          "Fox News Politics X Post",
+        category:
+          "Social Media",
+        date:
+          "September 2026",
         description:
           "An archived X post from Fox News Politics preserved as part of the September 11 historical media collection.",
-
         keywords: [
           "September 11",
           "September 11 2001",
+          "September 11th",
+          "September Eleventh",
           "9/11",
           "9 11",
-          "September Eleventh",
+          "911",
           "Fox News",
           "Fox News Politics",
+          "FOX News",
+          "FOX",
+          "Fox",
           "X",
+          "X post",
           "Twitter",
+          "tweet",
           "social media",
           "September 11 attacks",
           "World Trade Center",
           "Twin Towers",
-          "historical media"
+          "historical media",
+          "archive"
+        ],
+        aliases: [
+          "fox news politics",
+          "foxnews",
+          "fox news x",
+          "fox news twitter"
         ]
       },
-
-
       {
-        file: "politics.html",
-
-        title: "25 Years Ago Live X Post",
-
-        category: "Social Media",
-
-        date: "September 2026",
-
+        file: "september-11.html",
+        title:
+          "25 Years Ago Live X Post",
+        category:
+          "Social Media",
+        date:
+          "September 2026",
         description:
           "An archived X post from 25 Years Ago Live preserved as part of the September 11 historical media collection.",
-
         keywords: [
           "September 11",
           "September 11 2001",
+          "September 11th",
+          "September Eleventh",
           "9/11",
           "9 11",
-          "September Eleventh",
+          "911",
           "25 Years Ago Live",
+          "25 years ago",
           "25 years",
           "25th anniversary",
           "X",
+          "X post",
           "Twitter",
+          "tweet",
           "social media",
           "September 11 attacks",
-          "historical media"
+          "World Trade Center",
+          "Twin Towers",
+          "historical media",
+          "archive"
+        ],
+        aliases: [
+          "25 years ago live",
+          "25yearsagolive",
+          "25 years ago live x",
+          "25 years ago live twitter"
         ]
       },
-
-
+      /* ======================================================
+         KENTA KOBASHI
+         ====================================================== */
       {
         file: "kenta-kobashi.html",
-
-        title: "Kenta Kobashi",
-
-        category: "Entertainment / Sports",
-
-        date: "March 27, 1967",
-
+        title:
+          "Kenta Kobashi",
+        category:
+          "Entertainment / Sports",
+        date:
+          "March 27, 1967",
         description:
           "A historical record documenting the career, championships, matches, injuries, retirement, and legacy of Japanese professional wrestler Kenta Kobashi.",
-
         keywords: [
           "Kenta Kobashi",
           "Kobashi Kenta",
+          "Kobashi",
           "professional wrestling",
+          "professional wrestler",
           "wrestling",
           "Japanese wrestling",
+          "Japanese professional wrestling",
           "Japan",
           "Japanese wrestler",
           "wrestler",
           "All Japan Pro Wrestling",
+          "All Japan Pro Wrestling",
           "AJPW",
           "Pro Wrestling NOAH",
+          "Pro Wrestling Noah",
           "NOAH",
           "Mitsuharu Misawa",
+          "Misawa",
           "Burning",
           "Burning Hammer",
           "Four Heavenly Kings",
           "Four Pillars",
+          "Four Pillars of Heaven",
           "Triple Crown",
           "Triple Crown Heavyweight Championship",
+          "AJPW Triple Crown",
           "GHC",
           "GHC Heavyweight Championship",
+          "GHC Championship",
           "championship",
           "championships",
+          "title",
+          "titles",
           "retirement",
           "retired",
+          "retire",
           "matches",
+          "match",
           "career",
           "legacy",
           "injuries",
+          "injury",
           "cancer",
           "1988",
           "1990s",
           "2000s",
-          "2010s"
+          "2010s",
+          "March 27",
+          "March 27 1967",
+          "1967"
+        ],
+        aliases: [
+          "kenta",
+          "kobashi",
+          "kenta kobashi wrestling",
+          "kobashi wrestling",
+          "kobashi ajpw",
+          "kobashi noah",
+          "burning hammer",
+          "triple crown",
+          "ghc heavyweight"
+        ]
+      },
+      /* ======================================================
+         ARCHIVE SECTION PAGES
+         ====================================================== */
+      {
+        file: "politics.html",
+        title:
+          "Politics Archive",
+        category:
+          "Politics",
+        date:
+          "Archive",
+        description:
+          "Political records, historical events, articles, documents, media, and other material preserved in the Politics section of The Historical Record.",
+        keywords: [
+          "politics",
+          "political",
+          "political history",
+          "government",
+          "president",
+          "presidential",
+          "election",
+          "elections",
+          "Congress",
+          "Senate",
+          "House of Representatives",
+          "legislation",
+          "policy",
+          "political events",
+          "political records",
+          "political documents",
+          "political archive",
+          "American politics",
+          "United States politics"
+        ],
+        aliases: [
+          "politics archive",
+          "political archive",
+          "political history"
+        ]
+      },
+      {
+        file: "entertainment-sports.html",
+        title:
+          "Entertainment and Sports Archive",
+        category:
+          "Entertainment / Sports",
+        date:
+          "Archive",
+        description:
+          "Records covering significant people, events, performances, competitions, careers, and moments from entertainment and sports.",
+        keywords: [
+          "entertainment",
+          "sports",
+          "sport",
+          "athletics",
+          "athlete",
+          "wrestling",
+          "professional wrestling",
+          "music",
+          "movies",
+          "film",
+          "television",
+          "TV",
+          "actors",
+          "actresses",
+          "performers",
+          "championships",
+          "competition",
+          "competitions",
+          "career",
+          "sports history",
+          "entertainment history"
+        ],
+        aliases: [
+          "entertainment archive",
+          "sports archive",
+          "entertainment sports",
+          "sports entertainment"
+        ]
+      },
+      {
+        file: "world-events.html",
+        title:
+          "World Events Archive",
+        category:
+          "World Events",
+        date:
+          "Archive",
+        description:
+          "Historical records documenting major events and developments from around the world.",
+        keywords: [
+          "world",
+          "world events",
+          "international",
+          "international events",
+          "global",
+          "global events",
+          "history",
+          "historical",
+          "historical events",
+          "international relations",
+          "geopolitics",
+          "conflict",
+          "crisis",
+          "war",
+          "peace",
+          "diplomacy",
+          "foreign affairs",
+          "foreign policy"
+        ],
+        aliases: [
+          "world archive",
+          "international archive",
+          "global archive",
+          "world history"
+        ]
+      },
+      {
+        file: "social-media.html",
+        title:
+          "Social Media Archive",
+        category:
+          "Social Media",
+        date:
+          "Archive",
+        description:
+          "Preserved posts, statements, announcements, photographs, videos, and other material from social media.",
+        keywords: [
+          "social media",
+          "social",
+          "media",
+          "X",
+          "Twitter",
+          "tweet",
+          "tweets",
+          "post",
+          "posts",
+          "social media post",
+          "Facebook",
+          "Instagram",
+          "YouTube",
+          "TikTok",
+          "video",
+          "videos",
+          "photograph",
+          "photographs",
+          "photo",
+          "photos",
+          "statement",
+          "statements",
+          "announcement",
+          "announcements",
+          "archived post",
+          "archive"
+        ],
+        aliases: [
+          "social archive",
+          "social media archive",
+          "twitter archive",
+          "x archive"
+        ]
+      },
+      {
+        file: "thoughts.html",
+        title:
+          "Thoughts / Blog",
+        category:
+          "Thoughts / Blog",
+        date:
+          "Archive",
+        description:
+          "Personal observations, commentary, reflections, and other writing preserved as part of the archive.",
+        keywords: [
+          "thoughts",
+          "blog",
+          "thoughts blog",
+          "writing",
+          "commentary",
+          "comments",
+          "opinion",
+          "observations",
+          "reflection",
+          "reflections",
+          "personal writing",
+          "essays",
+          "essay",
+          "articles",
+          "analysis"
+        ],
+        aliases: [
+          "thoughts",
+          "blog",
+          "thoughts and blog",
+          "blog archive"
         ]
       }
-
     ];
-
-
     /*
-      ==========================================
-      SEARCH FUNCTION
-      ==========================================
+    ============================================================
+    SEARCH ENGINE
+    ============================================================
     */
-
-
     const form =
       document.getElementById("search-form");
-
-
     const input =
       document.getElementById("search-input");
-
-
     const results =
       document.getElementById("search-results");
-
-
     const status =
       document.getElementById("search-status");
-
-
+    /*
+    ------------------------------------------------------------
+    NORMALIZE SEARCH TERMS
+    ------------------------------------------------------------
+    Makes searches less dependent on punctuation,
+    capitalization, apostrophes, slashes, etc.
+    */
+    function normalizeText(value) {
+      return String(value || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/&/g, " and ")
+        .replace(/['’]/g, "")
+        .replace(/[\/\\_.:,;!?()[\]{}"“”‘’]/g, " ")
+        .replace(/-/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+    /*
+    ------------------------------------------------------------
+    BUILD SEARCHABLE TEXT
+    ------------------------------------------------------------
+    Combines all hidden searchable information.
+    */
+    function buildSearchText(record) {
+      return normalizeText([
+        record.title,
+        record.category,
+        record.date,
+        record.description,
+        ...(record.keywords || []),
+        ...(record.aliases || [])
+      ].join(" "));
+    }
+    /*
+    ------------------------------------------------------------
+    SEARCH
+    ------------------------------------------------------------
+    A search containing several words does NOT require the
+    visitor to type the exact phrase.
+    Example:
+      "iran nuclear"
+    can find:
+      "Iran's Nuclear Program..."
+    Likewise:
+      "911 fox"
+    can find:
+      "Fox News Politics X Post"
+    */
+    function searchArchive(query) {
+      const normalizedQuery =
+        normalizeText(query);
+      const terms =
+        normalizedQuery
+          .split(" ")
+          .filter(Boolean);
+      if (!terms.length) {
+        return [];
+      }
+      return archiveRecords
+        .map(function(record) {
+          const searchableText =
+            buildSearchText(record);
+          let score = 0;
+          /*
+          Exact complete phrase gets a strong match.
+          */
+          if (
+            searchableText.includes(normalizedQuery)
+          ) {
+            score += 100;
+          }
+          /*
+          Score every individual search word.
+          */
+          terms.forEach(function(term) {
+            if (!term) {
+              return;
+            }
+            if (
+              normalizeText(record.title)
+                .includes(term)
+            ) {
+              score += 40;
+            }
+            if (
+              normalizeText(record.category)
+                .includes(term)
+            ) {
+              score += 25;
+            }
+            if (
+              normalizeText(record.date)
+                .includes(term)
+            ) {
+              score += 20;
+            }
+            if (
+              normalizeText(record.description)
+                .includes(term)
+            ) {
+              score += 15;
+            }
+            if (
+              (record.keywords || [])
+                .some(function(keyword) {
+                  return normalizeText(keyword)
+                    .includes(term);
+                })
+            ) {
+              score += 10;
+            }
+            if (
+              (record.aliases || [])
+                .some(function(alias) {
+                  return normalizeText(alias)
+                    .includes(term);
+                })
+            ) {
+              score += 10;
+            }
+          });
+          /*
+          Require every search word to appear somewhere.
+          This prevents a search such as:
+            "Kenta Iran"
+          from returning every Kenta record simply because
+          one of the two words matched.
+          */
+          const everyTermMatches =
+            terms.every(function(term) {
+              return searchableText.includes(term);
+            });
+          if (!everyTermMatches) {
+            return null;
+          }
+          return {
+            record: record,
+            score: score
+          };
+        })
+        .filter(Boolean)
+        .sort(function(a, b) {
+          return b.score - a.score;
+        })
+        .map(function(item) {
+          return item.record;
+        });
+    }
+    /*
+    ============================================================
+    DISPLAY RESULTS
+    ============================================================
+    */
     form.addEventListener(
       "submit",
       function(event) {
-
         event.preventDefault();
-
-
-        const keyword =
-          input.value
-            .trim()
-            .toLowerCase();
-
-
+        const query =
+          input.value.trim();
         results.innerHTML = "";
-
         status.innerHTML = "";
-
-
-        if (!keyword) {
-
+        if (!query) {
           status.innerHTML =
             '<div class="no-results">' +
             'Please enter a keyword to search the archive.' +
             '</div>';
-
           return;
-
         }
-
-
-        /*
-          Search through ALL searchable fields.
-        */
-
-
         const matches =
-          archiveRecords.filter(function(record) {
-
-
-            const searchableText = [
-
-              record.title,
-
-              record.category,
-
-              record.date,
-
-              record.description,
-
-              record.keywords.join(" ")
-
-            ]
-              .join(" ")
-              .toLowerCase();
-
-
-            return searchableText.includes(keyword);
-
-          });
-
-
+          searchArchive(query);
         /*
-          No results
+        --------------------------------------------------------
+        NO RESULTS
+        --------------------------------------------------------
         */
-
-
         if (matches.length === 0) {
-
           status.innerHTML =
             '<div class="no-results">' +
-            'No records were found containing <strong>' +
-            escapeHtml(keyword) +
+            'No records were found for <strong>' +
+            escapeHtml(query) +
             '</strong>.' +
+            '<br><br>' +
+            'Try a person, place, event, subject, organization, ' +
+            'date, or another keyword.' +
             '</div>';
-
           return;
-
         }
-
-
         /*
-          Results found
+        --------------------------------------------------------
+        RESULTS STATUS
+        --------------------------------------------------------
         */
-
-
         status.innerHTML =
           "<p>Found " +
           matches.length +
           " matching " +
-          (matches.length === 1
-            ? "record."
-            : "records.") +
+          (
+            matches.length === 1
+              ? "record."
+              : "records."
+          ) +
           "</p>";
-
-
+        /*
+        --------------------------------------------------------
+        CREATE RESULT CARDS
+        --------------------------------------------------------
+        */
         matches.forEach(function(record) {
-
-
           const article =
             document.createElement("article");
-
-
           article.className =
             "search-result";
-
-
           article.innerHTML = `
-
             <p class="result-category">
               ${escapeHtml(record.category)}
             </p>
-
             <h2>
               ${escapeHtml(record.title)}
             </h2>
-
             <p class="result-date">
               ${escapeHtml(record.date)}
             </p>
-
             <p>
               ${escapeHtml(record.description)}
             </p>
-
             <p>
               <a href="${escapeHtml(record.file)}">
                 View Record →
               </a>
             </p>
-
           `;
-
-
           results.appendChild(article);
-
         });
-
       }
     );
-
-
     /*
-      ==========================================
-      BASIC HTML ESCAPING
-      ==========================================
-
-      Prevents searchable text from being
-      interpreted as HTML.
+    ============================================================
+    BASIC HTML ESCAPING
+    ============================================================
+    Prevents titles, descriptions, dates, etc. from being
+    interpreted as HTML.
     */
-
-
     function escapeHtml(value) {
-
       return String(value)
-
         .replace(/&/g, "&amp;")
-
         .replace(/</g, "&lt;")
-
         .replace(/>/g, "&gt;")
-
         .replace(/"/g, "&quot;")
-
         .replace(/'/g, "&#039;");
-
     }
-
   </script>
-
 </body>
 </html>
