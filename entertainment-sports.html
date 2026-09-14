@@ -5,22 +5,139 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Entertainment / Sports | The Historical Record</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* =========================================
+       SELECTED VIDEOS
+       ========================================= */
+    .selected-videos {
+      margin-bottom: 42px;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+    .video-card {
+      position: relative;
+      background: var(--white);
+      border: 1px solid var(--light-blue);
+      border-left: 5px solid var(--red);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .video-player {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #111;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .video-player img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .video-play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 62px;
+      height: 62px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(178, 34, 52, 0.95);
+      cursor: pointer;
+    }
+    .video-play::after {
+      content: "";
+      position: absolute;
+      left: 25px;
+      top: 19px;
+      width: 0;
+      height: 0;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      border-left: 18px solid var(--white);
+    }
+    .video-player iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-info {
+      padding: 22px;
+    }
+    .video-label {
+      margin: 0 0 8px;
+      color: var(--red);
+      font-size: 0.72rem;
+      font-weight: bold;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .video-title {
+      margin: 0;
+      color: var(--blue);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: 1.35rem;
+      line-height: 1.25;
+    }
+    .video-uploader {
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+    @media (max-width: 760px) {
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-  <button class="menu-button" aria-label="Open menu" aria-expanded="false">
+  <!-- =========================================
+       HAMBURGER
+       ========================================= -->
+  <button
+    class="menu-button"
+    aria-label="Open menu"
+    aria-expanded="false"
+    type="button"
+  >
     <span></span>
     <span></span>
     <span></span>
   </button>
+  <!-- =========================================
+       SIDE MENU
+       ========================================= -->
   <aside class="side-menu">
     <div class="menu-header">
-      <h2>The Historical Record</h2>
-      <p>Archive Navigation</p>
+      <h2>
+        The Historical Record
+      </h2>
+      <p>
+        Archive Navigation
+      </p>
     </div>
     <nav>
-      <a href="search.html">Search the Archive</a>
-      <a href="archive.html">The Archive</a>
-      <a href="index.html">Home</a>
+      <a href="search.html">
+        Search the Archive
+      </a>
+      <a href="archive.html">
+        The Archive
+      </a>
+      <a href="index.html">
+        Home
+      </a>
+      <!-- POLITICS DROPDOWN -->
       <div class="menu-dropdown">
         <button
           class="menu-dropdown-toggle"
@@ -28,34 +145,70 @@
           aria-expanded="false"
           aria-controls="politics-submenu"
         >
-          <span>Politics</span>
-          <span class="menu-dropdown-arrow">▾</span>
+          <span>
+            Politics
+          </span>
+          <span class="menu-dropdown-arrow">
+            ▾
+          </span>
         </button>
-        <div class="menu-submenu" id="politics-submenu">
-          <a href="politics.html">Politics Home</a>
-          <a href="september-11.html">September 11, 2001</a>
+        <div
+          class="menu-submenu"
+          id="politics-submenu"
+        >
+          <a href="politics.html">
+            Politics Home
+          </a>
+          <a href="september-11.html">
+            September 11, 2001
+          </a>
           <a href="september-11-sourcebooks.html">
             9/11 Sourcebooks &amp; Documents
           </a>
         </div>
       </div>
-      <a href="entertainment-sports.html">Entertainment / Sports</a>
-      <a href="world-events.html">World Events</a>
-      <a href="social-media.html">Social Media</a>
-      <a href="thoughts.html">Thoughts / Blog</a>
+      <a href="entertainment-sports.html">
+        Entertainment / Sports
+      </a>
+      <a href="world-events.html">
+        World Events
+      </a>
+      <a href="social-media.html">
+        Social Media
+      </a>
+      <a href="thoughts.html">
+        Thoughts / Blog
+      </a>
       <!-- USER SUBMISSIONS -->
-      <a href="submissions.html">Submissions</a>
+      <a href="submissions.html">
+        Submissions
+      </a>
     </nav>
   </aside>
+  <!-- =========================================
+       OVERLAY
+       ========================================= -->
   <div class="menu-overlay"></div>
+  <!-- =========================================
+       SITE HEADER
+       ========================================= -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand">
+      <a
+        href="index.html"
+        class="brand"
+      >
         THE HISTORICAL RECORD
       </a>
     </div>
   </header>
+  <!-- =========================================
+       MAIN
+       ========================================= -->
   <main>
+    <!-- =========================================
+         HERO
+         ========================================= -->
     <section class="hero">
       <div class="container">
         <p class="eyebrow">
@@ -71,10 +224,33 @@
         </p>
       </div>
     </section>
+    <!-- =========================================
+         RECORDS
+         ========================================= -->
     <section class="records-section">
       <div class="container">
         <div class="record-list">
-          <!-- KENTA KOBASHI -->
+          <!-- =========================================
+               SELECTED VIDEOS
+               ========================================= -->
+          <div class="selected-videos">
+            <div class="section-heading">
+              <h2>
+                Selected Videos
+              </h2>
+              <p>
+                Selected entertainment and sports videos preserved
+                as part of The Historical Record.
+              </p>
+            </div>
+            <div
+              class="video-grid"
+              id="selected-video-grid"
+            ></div>
+          </div>
+          <!-- =========================================
+               KENTA KOBASHI
+               ========================================= -->
           <article class="record-card">
             <p class="record-label">
               SPORTS
@@ -87,15 +263,17 @@
             </p>
             <p>
               Explore the career of Kenta Kobashi, from his beginnings in All Japan
-              Pro Wrestling to his legendary years in Pro Wrestling NOAH, his
-              championship victories, historic rivalries, major injuries, battles
-              with cancer, and his emotional retirement in 2013.
+              Pro Wrestling to his legendary years in Pro Wrestling NOAH, his championship
+              victories, historic rivalries, major injuries, battles with cancer, and
+              his emotional retirement in 2013.
             </p>
             <a href="kenta-kobashi.html">
               View Kenta Kobashi's Historical Profile →
             </a>
           </article>
-          <!-- CHRIS BROWN / CONGRESSIONAL RECORD -->
+          <!-- =========================================
+               CHRIS BROWN / CONGRESSIONAL RECORD
+               ========================================= -->
           <article class="record-card">
             <p class="record-label">
               ENTERTAINMENT • SEPTEMBER 13, 2026
@@ -131,7 +309,9 @@
               </blockquote>
             </div>
           </article>
-          <!-- CHRIS BROWN / REACTION -->
+          <!-- =========================================
+               CHRIS BROWN / REACTION
+               ========================================= -->
           <article class="record-card">
             <p class="record-label">
               ENTERTAINMENT • SEPTEMBER 14, 2026
@@ -168,7 +348,9 @@
               </blockquote>
             </div>
           </article>
-          <!-- AAA TRIPLEMANIA -->
+          <!-- =========================================
+               AAA TRIPLEMANIA
+               ========================================= -->
           <article class="record-card">
             <p class="record-label">
               SPORTS • SEPTEMBER 14, 2026
@@ -208,6 +390,9 @@
       </div>
     </section>
   </main>
+  <!-- =========================================
+       FOOTER
+       ========================================= -->
   <footer class="site-footer">
     <div class="container">
       <p>
@@ -218,8 +403,205 @@
       </p>
     </div>
   </footer>
-  <!-- X WIDGET SCRIPT -->
-  <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
+  <!-- =========================================
+       X WIDGET SCRIPT
+       ========================================= -->
+  <script
+    async
+    src="https://platform.x.com/widgets.js"
+    charset="utf-8"
+  ></script>
+  <!-- =========================================
+       MAIN SITE SCRIPT
+       ========================================= -->
   <script src="script.js"></script>
+  <!-- =========================================
+       SELECTED VIDEOS SCRIPT
+       ========================================= -->
+  <script>
+    const selectedVideos = [
+      "E0HAuhYg5J4",
+      "dBwq-Iv6LzY",
+      "4Uajo4mQr2A",
+      "1mAtzfWIObs",
+      "61QfMt2uK-o",
+      "w3mb0yjdRcQ",
+      "6cKL-iDR4jA",
+      "CTO59VOCZJw",
+      "vaa4wyRnBOY",
+      "ztz97ViggJU",
+      "3jlb9KVzhhE",
+      "EdAVWuR7x5w",
+      "m-m5vEIEVaw",
+      "VlfV1bGq_ns",
+      "MKHZn4JFrXA",
+      "SMEYZHB_rlE"
+    ];
+    const videoGrid =
+      document.getElementById(
+        "selected-video-grid"
+      );
+    function createVideoCard(
+      id,
+      index
+    ) {
+      const card =
+        document.createElement(
+          "article"
+        );
+      card.className =
+        "video-card";
+      card.innerHTML = `
+        <div
+          class="video-player"
+          role="button"
+          tabindex="0"
+          aria-label="Play video"
+        >
+          <img
+            src="https://i.ytimg.com/vi/${id}/mqdefault.jpg"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          >
+          <button
+            class="video-play"
+            type="button"
+            aria-label="Play video"
+          ></button>
+        </div>
+        <div class="video-info">
+          <p class="video-label">
+            SELECTED VIDEO ${String(index + 1).padStart(2, "0")}
+          </p>
+          <h3 class="video-title">
+            Loading title…
+          </h3>
+          <p class="video-uploader">
+            <strong>Uploader:</strong>
+            <span>Loading…</span>
+          </p>
+        </div>
+      `;
+      const player =
+        card.querySelector(
+          ".video-player"
+        );
+      const playButton =
+        card.querySelector(
+          ".video-play"
+        );
+      function playVideo() {
+        if (
+          player.dataset.loaded === "true"
+        ) {
+          return;
+        }
+        player.dataset.loaded =
+          "true";
+        const iframe =
+          document.createElement(
+            "iframe"
+          );
+        iframe.src =
+          "https://www.youtube-nocookie.com/embed/" +
+          encodeURIComponent(id) +
+          "?autoplay=1&rel=0";
+        iframe.title =
+          card.querySelector(
+            ".video-title"
+          ).textContent;
+        iframe.loading =
+          "lazy";
+        iframe.allow =
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen =
+          true;
+        player.replaceChildren(
+          iframe
+        );
+      }
+      playButton.addEventListener(
+        "click",
+        function(event) {
+          event.stopPropagation();
+          playVideo();
+        }
+      );
+      player.addEventListener(
+        "click",
+        playVideo
+      );
+      player.addEventListener(
+        "keydown",
+        function(event) {
+          if (
+            event.key === "Enter" ||
+            event.key === " "
+          ) {
+            event.preventDefault();
+            playVideo();
+          }
+        }
+      );
+      loadVideoMetadata(
+        card,
+        id
+      );
+      return card;
+    }
+    async function loadVideoMetadata(
+      card,
+      id
+    ) {
+      const title =
+        card.querySelector(
+          ".video-title"
+        );
+      const uploader =
+        card.querySelector(
+          ".video-uploader span"
+        );
+      const endpoint =
+        "https://www.youtube.com/oembed?url=" +
+        encodeURIComponent(
+          "https://www.youtube.com/watch?v=" +
+          id
+        ) +
+        "&format=json";
+      try {
+        const response =
+          await fetch(endpoint);
+        if (!response.ok) {
+          throw new Error(
+            "Metadata unavailable"
+          );
+        }
+        const data =
+          await response.json();
+        title.textContent =
+          data.title ||
+          "Untitled Video";
+        uploader.textContent =
+          data.author_name ||
+          "Unknown uploader";
+      } catch (error) {
+        title.textContent =
+          "View video";
+        uploader.textContent =
+          "YouTube video";
+      }
+    }
+    selectedVideos.forEach(
+      function(id, index) {
+        videoGrid.appendChild(
+          createVideoCard(
+            id,
+            index
+          )
+        );
+      }
+    );
+  </script>
 </body>
 </html>
