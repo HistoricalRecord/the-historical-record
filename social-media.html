@@ -1,19 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>
-    Social Media | The Historical Record
-  </title>
-
+  <title>Social Media Archive | The Historical Record</title>
 
   <style>
 
@@ -22,25 +13,16 @@
     ========================================================= */
 
     :root {
-
       --blue: #0b1f4d;
       --blue-light: #163b78;
-
       --red: #b22234;
       --red-dark: #8f1b2b;
-
       --white: #ffffff;
       --off-white: #f8f8f8;
-
       --light-blue: #d5dbea;
-
       --text: #18284a;
       --muted: #5e6675;
-
-      --shadow:
-        0 8px 24px
-        rgba(11, 31, 77, 0.12);
-
+      --shadow: 0 8px 24px rgba(11, 31, 77, 0.12);
     }
 
 
@@ -52,39 +34,16 @@
       box-sizing: border-box;
     }
 
-
     html {
       scroll-behavior: smooth;
     }
 
-
     body {
-
       margin: 0;
-
-      background:
-        var(--off-white);
-
-      color:
-        var(--text);
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      background: var(--off-white);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.7;
-
-    }
-
-
-    body.menu-open {
-      overflow: hidden;
-    }
-
-
-    a {
-      color: inherit;
     }
 
 
@@ -93,15 +52,10 @@
     ========================================================= */
 
     body::before {
-
       content: "";
-
       position: fixed;
-
       inset: 0;
-
       pointer-events: none;
-
       opacity: 0.08;
 
       background:
@@ -113,8 +67,7 @@
           transparent 4px
         );
 
-      z-index: 9999;
-
+      z-index: 999;
     }
 
 
@@ -123,16 +76,278 @@
     ========================================================= */
 
     .container {
+      width: min(1100px, calc(100% - 36px));
+      margin: 0 auto;
+    }
 
-      width:
-        min(
-          1100px,
-          calc(100% - 36px)
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    .site-header {
+      background: var(--blue);
+      color: var(--white);
+      border-bottom: 5px solid var(--red);
+      padding-left: 78px;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      padding: 18px 0;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      color: var(--white);
+      text-decoration: none;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 1.15rem;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue) 0%,
+          var(--blue-light) 55%,
+          var(--red) 100%
         );
 
-      margin:
-        0 auto;
+      color: var(--white);
 
+      border-bottom: 5px solid var(--red);
+
+      padding: 85px 0 80px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+
+      color: var(--white);
+
+      font-size: 0.76rem;
+      font-weight: bold;
+
+      letter-spacing: 0.18em;
+
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 0 0 18px;
+
+      color: var(--white);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: clamp(2.7rem, 8vw, 5.6rem);
+
+      line-height: 1;
+
+      letter-spacing: -0.03em;
+    }
+
+    .hero-text {
+      max-width: 740px;
+
+      margin: 0;
+
+      color: var(--white);
+
+      font-size: 1.08rem;
+    }
+
+
+    /* =========================================================
+       SOCIAL MEDIA LANDING SECTION
+    ========================================================= */
+
+    .social-section {
+      padding: 72px 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 12px;
+
+      color: var(--blue);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: clamp(2rem, 5vw, 3.2rem);
+
+      line-height: 1.1;
+    }
+
+    .section-heading p {
+      margin: 0;
+
+      color: var(--muted);
+    }
+
+
+    /* =========================================================
+       SINGLE TOPIC CARD
+    ========================================================= */
+
+    .topic-card {
+      position: relative;
+
+      display: block;
+
+      min-height: 230px;
+
+      padding: 32px;
+
+      overflow: hidden;
+
+      background: var(--white);
+
+      border: 1px solid var(--light-blue);
+
+      border-left: 5px solid var(--red);
+
+      box-shadow: var(--shadow);
+
+      text-decoration: none;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .topic-card::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 5px;
+
+      background: var(--red);
+    }
+
+    .topic-card:hover {
+      transform: translateY(-3px);
+
+      border-color: var(--red);
+
+      box-shadow:
+        0 12px 30px rgba(11, 31, 77, 0.17);
+    }
+
+    .topic-card:focus {
+      outline: 3px solid rgba(178, 34, 52, 0.35);
+      outline-offset: 3px;
+    }
+
+    .topic-label {
+      display: block;
+
+      margin-bottom: 10px;
+
+      color: var(--red);
+
+      font-size: 0.74rem;
+      font-weight: bold;
+
+      letter-spacing: 0.13em;
+
+      text-transform: uppercase;
+    }
+
+    .topic-card h2 {
+      margin: 0 0 12px;
+
+      color: var(--blue);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 2rem;
+
+      line-height: 1.2;
+    }
+
+    .topic-card p {
+      margin: 0;
+
+      color: var(--muted);
+
+      max-width: 760px;
+    }
+
+    .topic-arrow {
+      display: inline-block;
+
+      margin-top: 20px;
+
+      color: var(--red);
+
+      font-weight: bold;
+
+      letter-spacing: 0.03em;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    .site-footer {
+      padding: 32px 0;
+
+      background: var(--blue);
+
+      color: var(--white);
+
+      border-top: 5px solid var(--red);
+    }
+
+    .site-footer p {
+      margin: 4px 0;
+
+      color: var(--white);
+    }
+
+    .site-footer a {
+      color: var(--white);
+    }
+
+    .site-footer a:hover {
+      color: #dce4f5;
     }
 
 
@@ -141,13 +356,12 @@
     ========================================================= */
 
     .menu-button {
-
       position: fixed;
 
       top: 18px;
       left: 18px;
 
-      z-index: 10002;
+      z-index: 1002;
 
       width: 48px;
       height: 48px;
@@ -161,52 +375,37 @@
 
       gap: 5px;
 
-      background:
-        var(--red);
+      background: var(--red);
 
-      border:
-        2px solid
-        var(--white);
+      border: 2px solid var(--white);
 
       cursor: pointer;
 
       box-shadow:
-        0 4px 12px
-        rgba(0, 0, 0, 0.22);
+        0 4px 12px rgba(0, 0, 0, 0.22);
 
-      transition:
-        0.2s ease;
-
+      transition: 0.2s ease;
     }
 
-
     .menu-button span {
-
       display: block;
 
       width: 23px;
       height: 2px;
 
-      background:
-        var(--white);
-
+      background: var(--white);
     }
 
-
     .menu-button:hover {
-
-      background:
-        var(--red-dark);
-
+      background: var(--red-dark);
     }
 
 
     /* =========================================================
-       SIDEBAR
+       SIDE MENU
     ========================================================= */
 
     .side-menu {
-
       position: fixed;
 
       top: 0;
@@ -214,187 +413,131 @@
       bottom: 0;
 
       width: 310px;
-
       max-width: 85vw;
 
       height: 100vh;
       height: 100dvh;
 
-      z-index: 10001;
+      z-index: 1001;
 
-      background:
-        var(--white);
+      background: var(--white);
 
-      color:
-        var(--blue);
+      color: var(--blue);
 
-      transform:
-        translateX(-100%);
+      transform: translateX(-100%);
 
       transition:
         transform 0.3s ease;
 
       box-shadow:
-        8px 0 30px
-        rgba(0, 0, 0, 0.25);
+        8px 0 30px rgba(0, 0, 0, 0.25);
 
       overflow-y: auto;
       overflow-x: hidden;
 
-      border-right:
-        5px solid
-        var(--red);
+      border-right: 5px solid var(--red);
 
-      touch-action:
-        pan-y;
+      touch-action: pan-y;
 
-      overscroll-behavior-y:
-        contain;
-
+      overscroll-behavior-y: contain;
     }
 
-
     .side-menu.open {
-
-      transform:
-        translateX(0);
+      transform: translateX(0);
 
       overflow-y: auto;
-
     }
 
 
     /* =========================================================
-       SIDEBAR HEADER
+       MENU HEADER
     ========================================================= */
 
     .menu-header {
+      padding: 75px 28px 25px;
 
-      padding:
-        75px 28px 25px;
+      background: var(--blue);
 
-      background:
-        var(--blue);
+      color: var(--white);
 
-      color:
-        var(--white);
-
-      border-bottom:
-        5px solid
-        var(--red);
-
+      border-bottom: 5px solid var(--red);
     }
 
-
     .menu-header h2 {
-
       margin: 0;
 
-      color:
-        var(--white);
+      color: var(--white);
 
       font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-      font-size:
-        1.8rem;
+      font-size: 1.8rem;
 
-      line-height:
-        1.2;
-
+      line-height: 1.2;
     }
 
-
     .menu-header p {
+      margin: 8px 0 0;
 
-      margin:
-        8px 0 0;
+      color: #dbe3f2;
 
-      color:
-        #dbe3f2;
+      font-size: 0.78rem;
 
-      font-size:
-        0.78rem;
+      letter-spacing: 0.1em;
 
-      letter-spacing:
-        0.1em;
-
-      text-transform:
-        uppercase;
-
+      text-transform: uppercase;
     }
 
 
     /* =========================================================
-       SIDEBAR NAV
+       MENU NAVIGATION
     ========================================================= */
 
     .side-menu nav {
-
       display: block;
 
       width: 100%;
 
       height: auto;
 
-      padding:
-        15px 0 80px;
+      padding: 15px 0 80px;
 
       overflow: visible;
 
-      touch-action:
-        pan-y;
-
+      touch-action: pan-y;
     }
 
-
     .side-menu nav > a {
-
       display: block;
 
-      padding:
-        17px 28px;
+      padding: 17px 28px;
 
-      background:
-        var(--white);
+      color: var(--blue);
 
-      color:
-        var(--blue);
+      text-decoration: none;
 
-      text-decoration:
-        none;
-
-      border-bottom:
-        1px solid
-        var(--light-blue);
+      border-bottom: 1px solid var(--light-blue);
 
       font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-      font-size:
-        1.15rem;
+      font-size: 1.15rem;
 
-      transition:
-        0.2s ease;
+      transition: 0.2s ease;
 
+      touch-action: pan-y;
     }
 
-
     .side-menu nav > a:hover {
+      padding-left: 35px;
 
-      padding-left:
-        35px;
+      background: var(--red);
 
-      background:
-        var(--red);
-
-      color:
-        var(--white);
-
+      color: var(--white);
     }
 
 
@@ -403,17 +546,12 @@
     ========================================================= */
 
     .menu-dropdown {
-
       width: 100%;
 
-      touch-action:
-        pan-y;
-
+      touch-action: pan-y;
     }
 
-
     .menu-dropdown-toggle {
-
       width: 100%;
 
       display: flex;
@@ -422,209 +560,139 @@
 
       justify-content: space-between;
 
-      padding:
-        17px 28px;
+      padding: 17px 28px;
 
-      background:
-        var(--white);
+      background: var(--white);
 
-      color:
-        var(--blue);
+      color: var(--blue);
 
       border: 0;
 
-      border-bottom:
-        1px solid
-        var(--light-blue);
+      border-bottom: 1px solid var(--light-blue);
 
       font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-      font-size:
-        1.15rem;
+      font-size: 1.15rem;
 
-      line-height:
-        inherit;
+      line-height: inherit;
 
-      text-align:
-        left;
+      text-align: left;
 
-      cursor:
-        pointer;
+      cursor: pointer;
 
-      touch-action:
-        pan-y;
+      transition: 0.2s ease;
 
-      transition:
-        0.2s ease;
-
+      touch-action: pan-y;
     }
-
 
     .menu-dropdown-toggle:hover {
+      background: var(--red);
 
-      background:
-        var(--red);
-
-      color:
-        var(--white);
-
+      color: var(--white);
     }
 
-
     .menu-dropdown-arrow {
+      display: inline-block;
 
-      display:
-        inline-block;
+      margin-left: 12px;
 
-      margin-left:
-        12px;
-
-      color:
-        var(--red);
+      color: var(--red);
 
       font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-      font-size:
-        0.9rem;
+      font-size: 0.9rem;
 
       transition:
         transform 0.25s ease;
-
     }
-
 
     .menu-dropdown-toggle:hover
     .menu-dropdown-arrow {
-
-      color:
-        var(--white);
-
+      color: var(--white);
     }
-
 
     .menu-dropdown.open
     .menu-dropdown-arrow {
-
-      transform:
-        rotate(180deg);
-
+      transform: rotate(180deg);
     }
 
 
     /* =========================================================
-       POLITICS SUBMENU
+       SUBMENU
     ========================================================= */
 
     .menu-submenu {
+      max-height: 0;
 
-      max-height:
-        0;
+      overflow: hidden;
 
-      overflow:
-        hidden;
+      background: #eef1f7;
 
-      background:
-        #eef1f7;
-
-      opacity:
-        0;
+      opacity: 0;
 
       transition:
         max-height 0.3s ease,
         opacity 0.3s ease;
 
-      touch-action:
-        pan-y;
-
+      touch-action: pan-y;
     }
-
 
     .menu-dropdown.open
     .menu-submenu {
+      max-height: 300px;
 
-      max-height:
-        400px;
-
-      opacity:
-        1;
-
+      opacity: 1;
     }
 
-
     .menu-submenu a {
+      display: block;
 
-      display:
-        block;
+      padding: 14px 28px 14px 48px;
 
-      padding:
-        14px 28px 14px 48px;
+      background: #eef1f7;
 
-      background:
-        #eef1f7;
+      color: var(--blue);
 
-      color:
-        var(--blue);
-
-      border-bottom:
-        1px solid
-        var(--light-blue);
+      border-bottom: 1px solid var(--light-blue);
 
       font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-      font-size:
-        0.95rem;
+      font-size: 0.95rem;
 
-      text-decoration:
-        none;
+      text-decoration: none;
 
-      transition:
-        0.2s ease;
+      transition: 0.2s ease;
 
+      touch-action: pan-y;
     }
-
 
     .menu-submenu a::before {
+      content: "•";
 
-      content:
-        "•";
+      margin-right: 9px;
 
-      margin-right:
-        9px;
-
-      color:
-        var(--red);
-
+      color: var(--red);
     }
-
 
     .menu-submenu a:hover {
+      padding-left: 55px;
 
-      padding-left:
-        55px;
+      background: var(--red);
 
-      background:
-        var(--red);
-
-      color:
-        var(--white);
-
+      color: var(--white);
     }
 
-
     .menu-submenu a:hover::before {
-
-      color:
-        var(--white);
-
+      color: var(--white);
     }
 
 
@@ -633,675 +701,30 @@
     ========================================================= */
 
     .menu-overlay {
-
       position: fixed;
 
       inset: 0;
 
-      z-index: 10000;
+      z-index: 1000;
 
       background:
         rgba(11, 31, 77, 0.58);
 
-      opacity:
-        0;
+      opacity: 0;
 
-      visibility:
-        hidden;
+      visibility: hidden;
 
-      transition:
-        0.3s ease;
-
+      transition: 0.3s ease;
     }
-
 
     .menu-overlay.show {
+      opacity: 1;
 
-      opacity:
-        1;
-
-      visibility:
-        visible;
-
+      visibility: visible;
     }
 
-
-    /* =========================================================
-       SITE HEADER
-    ========================================================= */
-
-    .site-header {
-
-      background:
-        var(--blue);
-
-      color:
-        var(--white);
-
-      border-bottom:
-        5px solid
-        var(--red);
-
-      padding-left:
-        78px;
-
-    }
-
-
-    .header-inner {
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        space-between;
-
-      gap:
-        22px;
-
-      padding:
-        18px 0;
-
-      flex-wrap:
-        wrap;
-
-    }
-
-
-    .brand {
-
-      color:
-        var(--white);
-
-      text-decoration:
-        none;
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-      font-size:
-        1.15rem;
-
-      font-weight:
-        bold;
-
-      letter-spacing:
-        0.08em;
-
-    }
-
-
-    /* =========================================================
-       HERO
-    ========================================================= */
-
-    .hero {
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--blue) 0%,
-          var(--blue-light) 55%,
-          var(--red) 100%
-        );
-
-      color:
-        var(--white);
-
-      border-bottom:
-        5px solid
-        var(--red);
-
-      padding:
-        85px 0 80px;
-
-    }
-
-
-    .eyebrow {
-
-      margin:
-        0 0 12px;
-
-      color:
-        var(--red);
-
-      font-size:
-        0.76rem;
-
-      font-weight:
-        bold;
-
-      letter-spacing:
-        0.18em;
-
-      text-transform:
-        uppercase;
-
-    }
-
-
-    .hero .eyebrow {
-
-      color:
-        var(--white);
-
-    }
-
-
-    .hero h1 {
-
-      margin:
-        0 0 18px;
-
-      color:
-        var(--white);
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-      font-size:
-        clamp(
-          2.7rem,
-          8vw,
-          5.6rem
-        );
-
-      line-height:
-        1;
-
-      letter-spacing:
-        -0.03em;
-
-    }
-
-
-    .hero-text {
-
-      max-width:
-        740px;
-
-      margin:
-        0;
-
-      color:
-        var(--white);
-
-      font-size:
-        1.08rem;
-
-    }
-
-
-    /* =========================================================
-       SOCIAL MEDIA CONTENT
-    ========================================================= */
-
-    .social-section {
-
-      padding:
-        72px 0;
-
-    }
-
-
-    .section-heading {
-
-      max-width:
-        760px;
-
-      margin-bottom:
-        34px;
-
-    }
-
-
-    .section-heading h2 {
-
-      margin:
-        0 0 12px;
-
-      color:
-        var(--blue);
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-      font-size:
-        clamp(
-          2rem,
-          5vw,
-          3.2rem
-        );
-
-      line-height:
-        1.1;
-
-    }
-
-
-    .section-heading p {
-
-      margin:
-        0;
-
-      color:
-        var(--muted);
-
-    }
-
-
-    /* =========================================================
-       CATEGORY GRID
-    ========================================================= */
-
-    .category-grid {
-
-      display:
-        grid;
-
-      grid-template-columns:
-        repeat(
-          2,
-          minmax(0, 1fr)
-        );
-
-      gap:
-        20px;
-
-    }
-
-
-    .category-card {
-
-      position:
-        relative;
-
-      display:
-        block;
-
-      min-height:
-        210px;
-
-      padding:
-        30px;
-
-      overflow:
-        hidden;
-
-      background:
-        var(--white);
-
-      border:
-        1px solid
-        var(--light-blue);
-
-      box-shadow:
-        var(--shadow);
-
-      text-decoration:
-        none;
-
-      transition:
-        0.2s ease;
-
-    }
-
-
-    .category-card::before {
-
-      content:
-        "";
-
-      position:
-        absolute;
-
-      top:
-        0;
-
-      left:
-        0;
-
-      width:
-        100%;
-
-      height:
-        5px;
-
-      background:
-        var(--red);
-
-    }
-
-
-    .category-card:hover {
-
-      transform:
-        translateY(-3px);
-
-      border-color:
-        var(--red);
-
-      box-shadow:
-        0 12px 30px
-        rgba(11, 31, 77, 0.17);
-
-    }
-
-
-    .category-number {
-
-      display:
-        block;
-
-      margin-bottom:
-        10px;
-
-      color:
-        var(--red);
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-      font-size:
-        1.5rem;
-
-      font-weight:
-        bold;
-
-    }
-
-
-    .category-card h3 {
-
-      margin:
-        0 0 10px;
-
-      color:
-        var(--blue);
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-      font-size:
-        1.65rem;
-
-      line-height:
-        1.2;
-
-    }
-
-
-    .category-card p {
-
-      margin:
-        0;
-
-      color:
-        var(--muted);
-
-    }
-
-
-    /* =========================================================
-       FEATURED RECORD
-    ========================================================= */
-
-    .featured-section {
-
-      padding:
-        0 0 72px;
-
-    }
-
-
-    .featured-record {
-
-      position:
-        relative;
-
-      padding:
-        30px;
-
-      background:
-        var(--white);
-
-      border:
-        1px solid
-        var(--light-blue);
-
-      border-left:
-        5px solid
-        var(--red);
-
-      box-shadow:
-        var(--shadow);
-
-    }
-
-
-    .record-label {
-
-      margin:
-        0 0 8px;
-
-      color:
-        var(--red);
-
-      font-size:
-        0.74rem;
-
-      font-weight:
-        bold;
-
-      letter-spacing:
-        0.13em;
-
-      text-transform:
-        uppercase;
-
-    }
-
-
-    .featured-record h3 {
-
-      margin:
-        0 0 10px;
-
-      color:
-        var(--blue);
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-      font-size:
-        1.7rem;
-
-      line-height:
-        1.25;
-
-    }
-
-
-    .featured-record p {
-
-      margin:
-        0;
-
-      color:
-        var(--muted);
-
-    }
-
-
-    .archive-link {
-
-      display:
-        inline-block;
-
-      margin-top:
-        20px;
-
-      padding:
-        10px 16px;
-
-      background:
-        var(--red);
-
-      color:
-        var(--white);
-
-      text-decoration:
-        none;
-
-      font-size:
-        0.82rem;
-
-      font-weight:
-        bold;
-
-      letter-spacing:
-        0.04em;
-
-      transition:
-        0.2s ease;
-
-    }
-
-
-    .archive-link:hover {
-
-      background:
-        var(--red-dark);
-
-    }
-
-
-    /* =========================================================
-       ABOUT
-    ========================================================= */
-
-    .about-section {
-
-      padding:
-        72px 0;
-
-      background:
-        var(--blue);
-
-      color:
-        var(--white);
-
-      border-top:
-        5px solid
-        var(--red);
-
-    }
-
-
-    .about-section .eyebrow {
-
-      color:
-        var(--red);
-
-    }
-
-
-    .about-section h2 {
-
-      margin:
-        0 0 18px;
-
-      color:
-        var(--white);
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-      font-size:
-        clamp(
-          2rem,
-          5vw,
-          3.2rem
-        );
-
-    }
-
-
-    .about-section p {
-
-      max-width:
-        780px;
-
-      color:
-        #e5e9f2;
-
-    }
-
-
-    /* =========================================================
-       FOOTER
-    ========================================================= */
-
-    .site-footer {
-
-      padding:
-        32px 0;
-
-      background:
-        var(--blue);
-
-      color:
-        var(--white);
-
-      border-top:
-        5px solid
-        var(--red);
-
-    }
-
-
-    .site-footer p {
-
-      margin:
-        4px 0;
-
-      color:
-        var(--white);
-
-    }
-
-
-    .site-footer a {
-
-      color:
-        var(--white);
-
-    }
-
-
-    .site-footer a:hover {
-
-      color:
-        #dce4f5;
-
+    body.menu-open {
+      overflow: hidden;
     }
 
 
@@ -1312,181 +735,86 @@
     @media (max-width: 760px) {
 
       .container {
-
         width:
           min(
             100% - 26px,
             1100px
           );
-
       }
-
-
-      .header-inner {
-
-        align-items:
-          flex-start;
-
-      }
-
-
-      .brand {
-
-        width:
-          100%;
-
-      }
-
 
       .hero {
-
-        padding:
-          62px 0 55px;
-
+        padding: 62px 0 55px;
       }
-
 
       .hero h1 {
-
-        font-size:
-          3rem;
-
+        font-size: 3rem;
       }
 
-
-      .social-section,
-      .about-section {
-
-        padding:
-          52px 0;
-
+      .social-section {
+        padding: 52px 0;
       }
 
-
-      .featured-section {
-
-        padding-bottom:
-          52px;
-
+      .topic-card {
+        padding: 24px;
+        min-height: 0;
       }
 
-
-      .category-grid {
-
-        grid-template-columns:
-          1fr;
-
+      .topic-card h2 {
+        font-size: 1.6rem;
       }
-
-
-      .category-card {
-
-        min-height:
-          0;
-
-      }
-
-
-      .featured-record {
-
-        padding:
-          23px;
-
-      }
-
-
-      .featured-record h3 {
-
-        font-size:
-          1.45rem;
-
-      }
-
 
       .side-menu {
+        width: 85vw;
+        max-width: 360px;
 
-        width:
-          285px;
-
+        height: 100dvh;
       }
-
 
       .menu-button {
+        top: 14px;
+        left: 14px;
 
-        top:
-          14px;
-
-        left:
-          14px;
-
-        width:
-          44px;
-
-        height:
-          44px;
-
+        width: 44px;
+        height: 44px;
       }
-
 
       .site-header {
-
-        padding-left:
-          70px;
-
+        padding-left: 70px;
       }
-
 
       .menu-dropdown-toggle {
-
-        padding:
-          16px 24px;
-
+        padding: 16px 24px;
       }
-
 
       .menu-submenu a {
-
-        padding-left:
-          44px;
-
+        padding-left: 44px;
       }
-
 
       .menu-submenu a:hover {
-
-        padding-left:
-          51px;
-
+        padding-left: 51px;
       }
-
     }
 
 
-    @media (max-width: 700px) {
+    /* =========================================================
+       CONSISTENT SIDEBAR FONT
+    ========================================================= */
 
-      .side-menu {
-
-        width:
-          85vw;
-
-        max-width:
-          360px;
-
-        height:
-          100dvh;
-
-        overflow-y:
-          auto;
-
-        overflow-x:
-          hidden;
-
-      }
-
+    .side-menu,
+    .side-menu *,
+    .side-menu a,
+    .side-menu button {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif !important;
     }
 
   </style>
-
 </head>
 
 
@@ -1494,29 +822,26 @@
 
 
   <!-- =======================================================
-       HAMBURGER
+       HAMBURGER BUTTON
   ======================================================== -->
 
   <button
     class="menu-button"
-    type="button"
     aria-label="Open menu"
     aria-expanded="false"
+    type="button"
   >
-
     <span></span>
     <span></span>
     <span></span>
-
   </button>
 
 
   <!-- =======================================================
-       SIDEBAR
+       SIDE MENU
   ======================================================== -->
 
   <aside class="side-menu">
-
 
     <div class="menu-header">
 
@@ -1533,26 +858,22 @@
 
     <nav>
 
-
       <a href="search.html">
         Search the Archive
       </a>
 
-
       <a href="archive.html">
         The Archive
       </a>
-
 
       <a href="index.html">
         Home
       </a>
 
 
-      <!-- POLITICS DROPDOWN -->
+      <!-- POLITICS -->
 
       <div class="menu-dropdown">
-
 
         <button
           class="menu-dropdown-toggle"
@@ -1577,21 +898,17 @@
           id="politics-submenu"
         >
 
-
           <a href="politics.html">
             Politics Home
           </a>
-
 
           <a href="september-11.html">
             September 11, 2001
           </a>
 
-
           <a href="september-11-sourcebooks.html">
             9/11 Sourcebooks &amp; Documents
           </a>
-
 
         </div>
 
@@ -1602,21 +919,17 @@
         Entertainment / Sports
       </a>
 
-
       <a href="world-events.html">
         World Events
       </a>
 
-
-      <a href="social-media.html">
+      <a href="social-media-archive.html">
         Social Media
       </a>
-
 
       <a href="thoughts.html">
         Thoughts / Blog
       </a>
-
 
     </nav>
 
@@ -1636,9 +949,7 @@
 
   <header class="site-header">
 
-
     <div class="container header-inner">
-
 
       <a
         href="index.html"
@@ -1646,7 +957,6 @@
       >
         THE HISTORICAL RECORD
       </a>
-
 
     </div>
 
@@ -1666,26 +976,21 @@
 
     <section class="hero">
 
-
       <div class="container">
-
 
         <p class="eyebrow">
           SOCIAL MEDIA
         </p>
 
-
         <h1>
-          Social Media
+          Social Media Archive
         </h1>
 
-
         <p class="hero-text">
-          This section preserves social media posts, internet culture,
-          memorable videos, memes, and other digital records documenting
-          the world as it was experienced online.
+          A collection of internet culture, social media posts,
+          videos, and other digital records preserved as part of
+          The Historical Record.
         </p>
-
 
       </div>
 
@@ -1693,240 +998,58 @@
 
 
     <!-- =====================================================
-         ARCHIVE CATEGORIES
+         SINGLE TOPIC
     ====================================================== -->
 
     <section class="social-section">
 
-
       <div class="container">
-
 
         <div class="section-heading">
 
-
           <h2>
-            Explore the Social Media Archive
+            Social Media Records
           </h2>
 
-
           <p>
-            Browse the different collections of digital material
-            preserved by The Historical Record.
+            Explore the digital material preserved in this section
+            of the archive.
           </p>
-
 
         </div>
 
 
-        <div class="category-grid">
+        <!-- =================================================
+             ONLY CLICKABLE TOPIC
+        ================================================== -->
 
+        <a
+          class="topic-card"
+          href="social-media.html"
+        >
 
-          <!-- =================================================
-               HISTORICAL MEMES
-          ================================================== -->
+          <span class="topic-label">
+            SOCIAL MEDIA ARCHIVE
+          </span>
 
-          <a
-            href="social-media-archive.html"
-            class="category-card"
-          >
-
-
-            <span class="category-number">
-              01
-            </span>
-
-
-            <h3>
-              Historical Memes
-            </h3>
-
-
-            <p>
-              A collection of memorable internet videos, viral
-              moments, and pieces of online culture preserved
-              as part of the historical record.
-            </p>
-
-
-          </a>
-
-
-          <!-- =================================================
-               SOCIAL MEDIA RECORDS
-          ================================================== -->
-
-          <a
-            href="social-media-records.html"
-            class="category-card"
-          >
-
-
-            <span class="category-number">
-              02
-            </span>
-
-
-            <h3>
-              Social Media Records
-            </h3>
-
-
-            <p>
-              Screenshots, posts, discussions, reactions, and
-              other social media material documenting events
-              and public conversation.
-            </p>
-
-
-          </a>
-
-
-          <!-- =================================================
-               INTERNET CULTURE
-          ================================================== -->
-
-          <a
-            href="internet-culture.html"
-            class="category-card"
-          >
-
-
-            <span class="category-number">
-              03
-            </span>
-
-
-            <h3>
-              Internet Culture
-            </h3>
-
-
-            <p>
-              Notable trends, jokes, viral moments, websites,
-              and other pieces of digital culture that shaped
-              their time.
-            </p>
-
-
-          </a>
-
-
-          <!-- =================================================
-               DIGITAL ARCHIVE
-          ================================================== -->
-
-          <a
-            href="digital-archive.html"
-            class="category-card"
-          >
-
-
-            <span class="category-number">
-              04
-            </span>
-
-
-            <h3>
-              Digital Archive
-            </h3>
-
-
-            <p>
-              A broader collection of online material preserved
-              as a record of how people communicated and
-              interacted on the internet.
-            </p>
-
-
-          </a>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         FEATURED ARCHIVE
-    ====================================================== -->
-
-    <section class="featured-section">
-
-
-      <div class="container">
-
-
-        <article class="featured-record">
-
-
-          <p class="record-label">
-            FEATURED SOCIAL MEDIA ARCHIVE
-          </p>
-
-
-          <h3>
-            Historical Memes
-          </h3>
-
+          <h2>
+            Historical Memes and Videos
+          </h2>
 
           <p>
-            Explore the collection of memorable internet videos
-            preserved in The Historical Record. Each video remains
-            connected to its original YouTube source.
+            A collection of memorable internet videos preserved
+            as part of The Historical Record.
           </p>
 
+          <span class="topic-arrow">
+            View the Historical Memes and Videos Archive →
+          </span>
 
-          <a
-            href="social-media-archive.html"
-            class="archive-link"
-          >
-            View the Historical Memes Archive
-          </a>
-
-
-        </article>
-
+        </a>
 
       </div>
 
     </section>
-
-
-    <!-- =====================================================
-         ABOUT
-    ====================================================== -->
-
-    <section class="about-section">
-
-
-      <div class="container">
-
-
-        <p class="eyebrow">
-          THE DIGITAL RECORD
-        </p>
-
-
-        <h2>
-          Preserving the internet as history.
-        </h2>
-
-
-        <p>
-          Social media has become one of the immediate records of
-          modern life. Posts, reactions, images, videos, memes, and
-          online conversations can disappear quickly. This section
-          preserves selected examples as part of The Historical Record.
-        </p>
-
-
-      </div>
-
-    </section>
-
 
   </main>
 
@@ -1937,19 +1060,15 @@
 
   <footer class="site-footer">
 
-
     <div class="container">
-
 
       <p>
         THE HISTORICAL RECORD
       </p>
 
-
       <p>
         A living archive of the moments that matter.
       </p>
-
 
     </div>
 
@@ -1957,212 +1076,140 @@
 
 
   <!-- =======================================================
-       MENU JAVASCRIPT
+       MENU SCRIPT
   ======================================================== -->
 
   <script>
 
+    const menuButton =
+      document.querySelector(".menu-button");
+
+    const sideMenu =
+      document.querySelector(".side-menu");
+
+    const menuOverlay =
+      document.querySelector(".menu-overlay");
+
+    const dropdown =
+      document.querySelector(".menu-dropdown");
+
+    const dropdownToggle =
+      document.querySelector(".menu-dropdown-toggle");
+
+
+    /* =======================================================
+       OPEN / CLOSE MENU
+    ======================================================== */
+
+    function openMenu() {
+
+      sideMenu.classList.add("open");
+
+      menuOverlay.classList.add("show");
+
+      document.body.classList.add("menu-open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        "true"
+      );
+
+      menuButton.setAttribute(
+        "aria-label",
+        "Close menu"
+      );
+
+    }
+
+
+    function closeMenu() {
+
+      sideMenu.classList.remove("open");
+
+      menuOverlay.classList.remove("show");
+
+      document.body.classList.remove("menu-open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      menuButton.setAttribute(
+        "aria-label",
+        "Open menu"
+      );
+
+    }
+
+
+    menuButton.addEventListener(
+      "click",
+      function() {
+
+        if (
+          sideMenu.classList.contains("open")
+        ) {
+
+          closeMenu();
+
+        } else {
+
+          openMenu();
+
+        }
+
+      }
+    );
+
+
+    menuOverlay.addEventListener(
+      "click",
+      closeMenu
+    );
+
+
+    /* =======================================================
+       POLITICS DROPDOWN
+    ======================================================== */
+
+    dropdownToggle.addEventListener(
+      "click",
+      function() {
+
+        const isOpen =
+          dropdown.classList.toggle("open");
+
+        dropdownToggle.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+
+      }
+    );
+
+
+    /* =======================================================
+       ESCAPE KEY
+    ======================================================== */
+
     document.addEventListener(
-      "DOMContentLoaded",
-      function () {
+      "keydown",
+      function(event) {
 
+        if (
+          event.key === "Escape" &&
+          sideMenu.classList.contains("open")
+        ) {
 
-        /* =====================================================
-           ELEMENTS
-        ===================================================== */
-
-        const menuButton =
-          document.querySelector(
-            ".menu-button"
-          );
-
-
-        const sideMenu =
-          document.querySelector(
-            ".side-menu"
-          );
-
-
-        const overlay =
-          document.querySelector(
-            ".menu-overlay"
-          );
-
-
-        const dropdown =
-          document.querySelector(
-            ".menu-dropdown"
-          );
-
-
-        const dropdownToggle =
-          document.querySelector(
-            ".menu-dropdown-toggle"
-          );
-
-
-        /* =====================================================
-           OPEN MENU
-        ===================================================== */
-
-        function openMenu() {
-
-          sideMenu.classList.add(
-            "open"
-          );
-
-          overlay.classList.add(
-            "show"
-          );
-
-          document.body.classList.add(
-            "menu-open"
-          );
-
-
-          menuButton.setAttribute(
-            "aria-expanded",
-            "true"
-          );
-
-
-          menuButton.setAttribute(
-            "aria-label",
-            "Close menu"
-          );
+          closeMenu();
 
         }
-
-
-        /* =====================================================
-           CLOSE MENU
-        ===================================================== */
-
-        function closeMenu() {
-
-          sideMenu.classList.remove(
-            "open"
-          );
-
-          overlay.classList.remove(
-            "show"
-          );
-
-          document.body.classList.remove(
-            "menu-open"
-          );
-
-
-          menuButton.setAttribute(
-            "aria-expanded",
-            "false"
-          );
-
-
-          menuButton.setAttribute(
-            "aria-label",
-            "Open menu"
-          );
-
-        }
-
-
-        /* =====================================================
-           HAMBURGER CLICK
-        ===================================================== */
-
-        menuButton.addEventListener(
-          "click",
-          function () {
-
-
-            if (
-              sideMenu.classList.contains(
-                "open"
-              )
-            ) {
-
-              closeMenu();
-
-            } else {
-
-              openMenu();
-
-            }
-
-
-          }
-        );
-
-
-        /* =====================================================
-           OVERLAY CLICK
-        ===================================================== */
-
-        overlay.addEventListener(
-          "click",
-          closeMenu
-        );
-
-
-        /* =====================================================
-           POLITICS DROPDOWN
-        ===================================================== */
-
-        dropdownToggle.addEventListener(
-          "click",
-          function () {
-
-
-            const currentlyOpen =
-              dropdown.classList.contains(
-                "open"
-              );
-
-
-            dropdown.classList.toggle(
-              "open"
-            );
-
-
-            dropdownToggle.setAttribute(
-              "aria-expanded",
-              String(!currentlyOpen)
-            );
-
-
-          }
-        );
-
-
-        /* =====================================================
-           ESCAPE KEY
-        ===================================================== */
-
-        document.addEventListener(
-          "keydown",
-          function (event) {
-
-
-            if (
-              event.key === "Escape"
-            ) {
-
-              closeMenu();
-
-            }
-
-
-          }
-        );
-
 
       }
     );
 
   </script>
 
-
 </body>
-
 </html>
