@@ -47,21 +47,21 @@
     }
 
     .meme-section {
-      padding: 34px 0 55px;
+      padding: 38px 0 45px;
       background: #ffffff;
     }
 
     .meme-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px 28px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
       align-items: start;
     }
 
     .meme-card {
       background: #ffffff;
       border: 1px solid #d7d7d7;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+      box-shadow: 0 2px 7px rgba(0, 0, 0, 0.08);
       padding: 9px;
       min-width: 0;
     }
@@ -82,18 +82,6 @@
       object-fit: cover;
     }
 
-    .meme-player::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.02),
-        rgba(0, 0, 0, 0.16)
-      );
-      pointer-events: none;
-    }
-
     .meme-play {
       position: absolute;
       left: 50%;
@@ -107,7 +95,7 @@
       border: 0;
       border-radius: 7px;
       background: #cc0000;
-      box-shadow: 0 2px 7px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 
       cursor: pointer;
     }
@@ -138,7 +126,7 @@
     }
 
     .meme-info {
-      padding: 10px 3px 2px;
+      padding: 10px 2px 2px;
     }
 
     .meme-number {
@@ -173,91 +161,59 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-wrap: wrap;
       gap: 7px;
-      margin-top: 38px;
+      margin-top: 34px;
+      flex-wrap: wrap;
     }
 
-    .page-button {
-      appearance: none;
-      border: 1px solid #cfcfcf;
-      background: #ffffff;
-      color: #333333;
-      min-width: 38px;
+    .pagination a {
+      display: inline-flex;
+      min-width: 36px;
       height: 36px;
       padding: 0 10px;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid #cccccc;
+      background: #ffffff;
+      color: #222222;
+
+      text-decoration: none;
       font-size: 13px;
       font-weight: 700;
-      cursor: pointer;
-      border-radius: 3px;
     }
 
-    .page-button:hover {
-      background: #f2f2f2;
-    }
-
-    .page-button.active {
+    .pagination a:hover,
+    .pagination a.active {
       background: #b40000;
       border-color: #b40000;
       color: #ffffff;
     }
 
-    .page-button:disabled {
-      opacity: 0.45;
-      cursor: default;
-    }
-
-    .page-status {
-      color: #777777;
-      font-size: 12px;
-      margin-left: 8px;
-    }
-
-    @media (max-width: 800px) {
+    @media (max-width: 1000px) {
       .meme-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .meme-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
       }
 
       .meme-header {
         padding: 34px 0 30px;
       }
-
-      .meme-header h1 {
-        font-size: 42px;
-      }
     }
 
-    @media (max-width: 520px) {
-      .meme-section {
-        padding-top: 24px;
+    @media (max-width: 500px) {
+      .meme-grid {
+        grid-template-columns: 1fr;
       }
 
       .meme-card {
-        padding: 8px;
-      }
-
-      .meme-play {
-        width: 50px;
-        height: 35px;
-      }
-
-      .meme-play::after {
-        left: 20px;
-        top: 9px;
-        border-top-width: 8px;
-        border-bottom-width: 8px;
-        border-left-width: 12px;
-      }
-
-      .pagination {
-        gap: 5px;
-      }
-
-      .page-button {
-        min-width: 34px;
-        height: 34px;
-        padding: 0 8px;
+        padding: 9px;
       }
     }
   </style>
@@ -283,11 +239,17 @@
     </div>
 
     <nav>
-      <a href="search.html">Search the Archive</a>
-      <a href="archive.html">The Archive</a>
-      <a href="index.html">Home</a>
+
+      <a href="archive.html">
+        The Archive
+      </a>
+
+      <a href="index.html">
+        Home
+      </a>
 
       <div class="menu-dropdown">
+
         <button
           class="menu-dropdown-toggle"
           type="button"
@@ -298,20 +260,41 @@
           <span class="menu-dropdown-arrow">▾</span>
         </button>
 
-        <div class="menu-submenu" id="politics-submenu">
-          <a href="politics.html">Politics Home</a>
-          <a href="september-11.html">September 11, 2001</a>
+        <div
+          class="menu-submenu"
+          id="politics-submenu"
+        >
+          <a href="politics.html">
+            Politics Home
+          </a>
+
+          <a href="september-11.html">
+            September 11, 2001
+          </a>
+
           <a href="september-11-sourcebooks.html">
             9/11 Sourcebooks &amp; Documents
           </a>
         </div>
+
       </div>
 
-      <a href="entertainment-sports.html">Entertainment / Sports</a>
-      <a href="world-events.html">World Events</a>
-      <a href="social-media.html">Social Media</a>
-      <a href="thoughts.html">Thoughts / Blog</a>
-      <a href="historical-memes.html">Historical Memes</a>
+      <a href="entertainment-sports.html">
+        Entertainment / Sports
+      </a>
+
+      <a href="world-events.html">
+        World Events
+      </a>
+
+      <a href="social-media.html">
+        Social Media
+      </a>
+
+      <a href="thoughts.html">
+        Thoughts / Blog
+      </a>
+
     </nav>
 
   </aside>
@@ -357,12 +340,15 @@
 
       <div class="container">
 
-        <div class="meme-grid" id="meme-grid"></div>
+        <div
+          class="meme-grid"
+          id="meme-grid"
+        ></div>
 
         <div
           class="pagination"
           id="pagination"
-          aria-label="Historical Memes pages"
+          aria-label="Meme pages"
         ></div>
 
       </div>
@@ -392,22 +378,18 @@
   <script>
 
     const videos = [
+
       "dMH0bHeiRNg",
-      "60og9gwKh1o",
       "_OBlgSz8sSM",
       "ZZ5LpwO-An4",
       "4pXfHLUlZf4",
-      "CbB2wQ9JjZQ",
       "0Bmhjf0rKe8",
-      "FzRH3iTQPrk",
       "EwTZ2xpQwpA",
-      "KmtzQCSh6xk",
       "jNQXAC9IVRw",
       "hMtZfW2z9dw",
       "fbGkxcY7YFU",
       "MtN1YnoL46Q",
       "Tx1XIm6q4r4",
-      "EIyohCQqGck",
       "oavMtUWDBTM",
       "YnopHCL1Jk8",
       "astISOttCQ0",
@@ -525,50 +507,60 @@
       "NYilBju7Wps",
       "uJs3qqGscMM",
       "Yvd3aEsThbc"
+
     ];
 
-    const uniqueVideos = [...new Set(videos)];
 
-    const grid = document.getElementById("meme-grid");
-    const pagination = document.getElementById("pagination");
+    const perPage = 50;
 
-    const videosPerPage = 50;
+    const params =
+      new URLSearchParams(window.location.search);
 
-    let currentPage = 1;
+    let page =
+      parseInt(params.get("page") || "1", 10);
 
-    function getPageFromURL() {
-      const params = new URLSearchParams(window.location.search);
-      const requestedPage = parseInt(params.get("page"), 10);
-
-      if (
-        Number.isInteger(requestedPage) &&
-        requestedPage >= 1
-      ) {
-        return requestedPage;
-      }
-
-      return 1;
+    if (!Number.isFinite(page) || page < 1) {
+      page = 1;
     }
+
+    const totalPages =
+      Math.max(
+        1,
+        Math.ceil(videos.length / perPage)
+      );
+
+    if (page > totalPages) {
+      page = totalPages;
+    }
+
+
+    const grid =
+      document.getElementById("meme-grid");
+
+    const pagination =
+      document.getElementById("pagination");
+
 
     function createCard(id, index) {
 
-      const card = document.createElement("article");
+      const card =
+        document.createElement("article");
 
-      card.className = "meme-card";
+      card.className =
+        "meme-card";
 
-      card.dataset.videoId = id;
 
       card.innerHTML = `
+
         <div
           class="meme-player"
           role="button"
           tabindex="0"
           aria-label="Play video"
-          data-video-id="${id}"
         >
 
           <img
-            src="https://i.ytimg.com/vi/${id}/hqdefault.jpg"
+            src="https://i.ytimg.com/vi/${id}/mqdefault.jpg"
             alt=""
             loading="lazy"
             decoding="async"
@@ -581,6 +573,7 @@
           ></button>
 
         </div>
+
 
         <div class="meme-info">
 
@@ -598,7 +591,9 @@
           </p>
 
         </div>
+
       `;
+
 
       const player =
         card.querySelector(".meme-player");
@@ -606,51 +601,72 @@
       const playButton =
         card.querySelector(".meme-play");
 
+
       function playVideo() {
 
-        if (player.dataset.loaded === "true") {
+        if (
+          player.dataset.loaded === "true"
+        ) {
           return;
         }
 
-        player.dataset.loaded = "true";
+
+        player.dataset.loaded =
+          "true";
+
 
         const iframe =
           document.createElement("iframe");
 
+
         iframe.src =
           "https://www.youtube-nocookie.com/embed/" +
           encodeURIComponent(id) +
-          "?autoplay=1&rel=0&modestbranding=1";
+          "?autoplay=1&rel=0";
+
 
         iframe.title =
-          card.querySelector(".meme-title").textContent;
+          card.querySelector(
+            ".meme-title"
+          ).textContent;
 
-        iframe.loading = "lazy";
+
+        iframe.loading =
+          "lazy";
+
 
         iframe.allow =
           "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
 
-        iframe.allowFullscreen = true;
 
-        player.innerHTML = "";
+        iframe.allowFullscreen =
+          true;
 
-        player.appendChild(iframe);
+
+        player.replaceChildren(
+          iframe
+        );
+
       }
+
 
       playButton.addEventListener(
         "click",
         function(event) {
+
           event.stopPropagation();
+
           playVideo();
+
         }
       );
 
+
       player.addEventListener(
         "click",
-        function() {
-          playVideo();
-        }
+        playVideo
       );
+
 
       player.addEventListener(
         "keydown",
@@ -660,52 +676,84 @@
             event.key === "Enter" ||
             event.key === " "
           ) {
+
             event.preventDefault();
+
             playVideo();
+
           }
 
         }
       );
 
-      loadMetadata(card, id);
+
+      loadMetadata(
+        card,
+        id
+      );
+
 
       return card;
+
     }
 
-    async function loadMetadata(card, id) {
+
+    async function loadMetadata(
+      card,
+      id
+    ) {
 
       const title =
-        card.querySelector(".meme-title");
+        card.querySelector(
+          ".meme-title"
+        );
 
       const uploader =
-        card.querySelector(".meme-uploader span");
+        card.querySelector(
+          ".meme-uploader span"
+        );
+
 
       const endpoint =
         "https://www.youtube.com/oembed?url=" +
         encodeURIComponent(
-          "https://www.youtube.com/watch?v=" + id
+          "https://www.youtube.com/watch?v=" +
+          id
         ) +
         "&format=json";
+
 
       try {
 
         const response =
           await fetch(endpoint);
 
+
         if (!response.ok) {
-          throw new Error("Metadata unavailable");
+
+          throw new Error(
+            "Metadata unavailable"
+          );
+
         }
+
 
         const data =
           await response.json();
 
+
         title.textContent =
-          data.title || "Untitled Video";
+          data.title ||
+          "Untitled Video";
+
 
         uploader.textContent =
-          data.author_name || "Unknown uploader";
+          data.author_name ||
+          "Unknown uploader";
 
-      } catch (error) {
+      }
+
+      catch (error) {
 
         title.textContent =
           "View video";
@@ -714,271 +762,93 @@
           "YouTube video";
 
       }
+
     }
 
-    function renderPage(page) {
 
-      const totalPages =
-        Math.ceil(
-          uniqueVideos.length / videosPerPage
+    function renderPagination() {
+
+      for (
+        let i = 1;
+        i <= totalPages;
+        i++
+      ) {
+
+        const link =
+          document.createElement("a");
+
+
+        link.href =
+          i === 1
+            ? "historical-memes.html"
+            : "historical-memes.html?page=" +
+              i;
+
+
+        link.textContent =
+          i;
+
+
+        link.className =
+          i === page
+            ? "active"
+            : "";
+
+
+        if (i === page) {
+
+          link.setAttribute(
+            "aria-current",
+            "page"
+          );
+
+        }
+
+
+        pagination.appendChild(
+          link
         );
 
-      if (page > totalPages) {
-        page = totalPages;
       }
 
-      currentPage = page;
+    }
 
-      grid.innerHTML = "";
 
-      const start =
-        (page - 1) * videosPerPage;
+    const start =
+      (page - 1) * perPage;
 
-      const end =
-        Math.min(
-          start + videosPerPage,
-          uniqueVideos.length
-        );
 
-      const fragment =
-        document.createDocumentFragment();
+    const currentVideos =
+      videos.slice(
+        start,
+        start + perPage
+      );
 
-      for (let i = start; i < end; i++) {
+
+    const fragment =
+      document.createDocumentFragment();
+
+
+    currentVideos.forEach(
+      function(id, index) {
 
         fragment.appendChild(
           createCard(
-            uniqueVideos[i],
-            i
+            id,
+            start + index
           )
         );
 
       }
-
-      grid.appendChild(fragment);
-
-      renderPagination(totalPages);
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    }
-
-    function renderPagination(totalPages) {
-
-      pagination.innerHTML = "";
-
-      if (totalPages <= 1) {
-        return;
-      }
-
-      const previous =
-        document.createElement("button");
-
-      previous.className =
-        "page-button";
-
-      previous.type = "button";
-
-      previous.textContent =
-        "‹";
-
-      previous.setAttribute(
-        "aria-label",
-        "Previous page"
-      );
-
-      previous.disabled =
-        currentPage === 1;
-
-      previous.addEventListener(
-        "click",
-        function() {
-          goToPage(currentPage - 1);
-        }
-      );
-
-      pagination.appendChild(previous);
-
-      const maxVisiblePages = 7;
-
-      let startPage =
-        Math.max(
-          1,
-          currentPage -
-          Math.floor(maxVisiblePages / 2)
-        );
-
-      let endPage =
-        Math.min(
-          totalPages,
-          startPage + maxVisiblePages - 1
-        );
-
-      if (
-        endPage - startPage + 1 <
-        maxVisiblePages
-      ) {
-        startPage =
-          Math.max(
-            1,
-            endPage - maxVisiblePages + 1
-          );
-      }
-
-      if (startPage > 1) {
-
-        addPageButton(1);
-
-        if (startPage > 2) {
-
-          const dots =
-            document.createElement("span");
-
-          dots.textContent = "…";
-
-          dots.className =
-            "page-status";
-
-          pagination.appendChild(dots);
-
-        }
-
-      }
-
-      for (
-        let page = startPage;
-        page <= endPage;
-        page++
-      ) {
-
-        addPageButton(page);
-
-      }
-
-      if (endPage < totalPages) {
-
-        if (endPage < totalPages - 1) {
-
-          const dots =
-            document.createElement("span");
-
-          dots.textContent = "…";
-
-          dots.className =
-            "page-status";
-
-          pagination.appendChild(dots);
-
-        }
-
-        addPageButton(totalPages);
-
-      }
-
-      const next =
-        document.createElement("button");
-
-      next.className =
-        "page-button";
-
-      next.type = "button";
-
-      next.textContent =
-        "›";
-
-      next.setAttribute(
-        "aria-label",
-        "Next page"
-      );
-
-      next.disabled =
-        currentPage === totalPages;
-
-      next.addEventListener(
-        "click",
-        function() {
-          goToPage(currentPage + 1);
-        }
-      );
-
-      pagination.appendChild(next);
-
-    }
-
-    function addPageButton(page) {
-
-      const button =
-        document.createElement("button");
-
-      button.className =
-        "page-button";
-
-      button.type = "button";
-
-      button.textContent =
-        page;
-
-      button.setAttribute(
-        "aria-label",
-        "Page " + page
-      );
-
-      if (page === currentPage) {
-        button.classList.add("active");
-        button.setAttribute(
-          "aria-current",
-          "page"
-        );
-      }
-
-      button.addEventListener(
-        "click",
-        function() {
-          goToPage(page);
-        }
-      );
-
-      pagination.appendChild(button);
-    }
-
-    function goToPage(page) {
-
-      const url =
-        new URL(
-          window.location.href
-        );
-
-      if (page === 1) {
-        url.searchParams.delete("page");
-      } else {
-        url.searchParams.set(
-          "page",
-          page
-        );
-      }
-
-      window.history.pushState(
-        {},
-        "",
-        url
-      );
-
-      renderPage(page);
-    }
-
-    window.addEventListener(
-      "popstate",
-      function() {
-        renderPage(
-          getPageFromURL()
-        );
-      }
     );
 
-    renderPage(
-      getPageFromURL()
+
+    grid.appendChild(
+      fragment
     );
+
+
+    renderPagination();
 
   </script>
 
