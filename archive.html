@@ -3,108 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>The Archive | The Historical Record</title>
+
   <link rel="stylesheet" href="style.css">
+
   <style>
-    /* ================================
-       ARCHIVE PAGE
-       ================================ */
     .archive-intro {
       text-align: center;
-      max-width: 900px;
+      max-width: 850px;
       margin: 0 auto;
       padding: 55px 20px 35px;
     }
+
     .archive-intro h2 {
       color: #0b1f4d;
       margin-bottom: 15px;
     }
+
     .archive-intro p {
       color: #444;
       line-height: 1.7;
     }
-    /* SEARCH */
-    .archive-search {
-      max-width: 900px;
-      margin: 0 auto 45px;
-      padding: 0 20px;
-    }
-    .archive-search-box {
-      background: #f1f3f8;
-      border: 1px solid #d5dbea;
-      padding: 25px;
-    }
-    .archive-search-box label {
-      display: block;
-      color: #0b1f4d;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    #archiveSearch {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 14px 16px;
-      border: 1px solid #b9c1d2;
-      background: #fff;
-      color: #222;
-      font-size: 16px;
-      outline: none;
-    }
-    #archiveSearch:focus {
-      border-color: #0b1f4d;
-    }
-    .search-help {
-      margin: 10px 0 0;
-      color: #666;
-      font-size: 14px;
-    }
-    /* FILTERS */
-    .archive-filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 0 auto 35px;
-      max-width: 1000px;
-      padding: 0 20px;
-    }
-    .archive-filter {
-      border: 1px solid #b9c1d2;
-      background: #fff;
-      color: #0b1f4d;
-      padding: 9px 14px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .archive-filter:hover,
-    .archive-filter.active {
-      background: #0b1f4d;
-      color: #fff;
-      border-color: #0b1f4d;
-    }
-    /* RESULTS */
-    .archive-results {
-      max-width: 1000px;
-      margin: 0 auto 30px;
-      padding: 0 20px;
-    }
-    .archive-result-count {
-      color: #666;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
+
     .archive-category {
       margin-bottom: 55px;
     }
+
     .archive-category-heading {
       border-bottom: 4px solid #b22234;
       padding-bottom: 12px;
       margin-bottom: 25px;
     }
+
     .archive-category-heading h2 {
       margin: 0;
       color: #0b1f4d;
       font-size: 30px;
     }
+
     .archive-record {
       background: #ffffff;
       border-left: 5px solid #0b1f4d;
@@ -112,12 +49,11 @@
       margin-bottom: 20px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
+
     .archive-record:hover {
       border-left-color: #b22234;
     }
-    .archive-record.hidden {
-      display: none;
-    }
+
     .archive-record .record-label {
       color: #b22234;
       font-size: 13px;
@@ -125,17 +61,20 @@
       letter-spacing: 1.5px;
       margin: 0 0 8px;
     }
+
     .archive-record h3 {
       margin: 0 0 10px;
       color: #0b1f4d;
       font-size: 24px;
       line-height: 1.3;
     }
+
     .archive-record p {
       color: #444;
       line-height: 1.7;
       margin-bottom: 15px;
     }
+
     .archive-record a {
       display: inline-block;
       padding: 10px 18px;
@@ -144,1219 +83,461 @@
       font-weight: bold;
       text-decoration: none;
     }
+
     .archive-record a:hover {
       background: #b22234;
       color: #ffffff;
       text-decoration: none;
     }
-    /* KEYWORDS */
-    .keyword-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin: 15px 0 0;
-    }
-    .keyword {
-      display: inline-block;
-      padding: 5px 9px;
-      background: #eef0f5;
-      border: 1px solid #d8dce6;
-      color: #555;
-      font-size: 12px;
-      line-height: 1.3;
-    }
-    /* NO RESULTS */
-    .no-results {
-      display: none;
-      text-align: center;
-      background: #f1f3f8;
-      border: 1px solid #d5dbea;
-      padding: 35px 20px;
-      color: #555;
-    }
-    .no-results.visible {
-      display: block;
-    }
-    /* NOTE */
+
     .archive-note {
-      margin: 20px auto 55px;
-      max-width: 1000px;
+      margin-top: 20px;
       padding: 25px;
       background: #f1f3f8;
       border-top: 1px solid #d5dbea;
       color: #555;
       text-align: center;
     }
-    /* MOBILE */
+
     @media (max-width: 600px) {
       .archive-intro {
         padding: 40px 20px 25px;
       }
+
       .archive-category-heading h2 {
         font-size: 25px;
       }
+
       .archive-record {
         padding: 20px;
       }
+
       .archive-record h3 {
         font-size: 21px;
-      }
-      .archive-filter {
-        font-size: 13px;
-        padding: 8px 11px;
       }
     }
   </style>
 </head>
+
 <body>
+
   <!-- MENU BUTTON -->
 
-<button
-class=“menu-button”
-aria-label=“Open menu”
-aria-expanded=“false”
+  <button
+    class="menu-button"
+    aria-label="Open menu"
+    aria-expanded="false"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
-<span></span>
-<span></span>
-<span></span>
-  </button>
   <!-- SIDEBAR -->
+
   <aside class="side-menu">
-<div class="menu-header">
-  <h2>The Historical Record</h2>
-  <p>Archive Navigation</p>
-</div>
-<nav>
-  <a href="search.html">Search the Archive</a>
-  <a href="archive.html">The Archive</a>
-  <a href="index.html">Home</a>
-  <div class="menu-dropdown">
-    <button
-      class="menu-dropdown-toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="politics-submenu"
-    >
-      <span>Politics</span>
-      <span class="menu-dropdown-arrow">▾</span>
-    </button>
-    <div class="menu-submenu" id="politics-submenu">
-      <a href="politics.html">
-        Politics Home
-      </a>
-      <a href="september-11.html">
-        September 11, 2001
-      </a>
-      <a href="september-11-sourcebooks.html">
-        9/11 Sourcebooks &amp; Documents
-      </a>
+
+    <div class="menu-header">
+      <h2>The Historical Record</h2>
+      <p>Archive Navigation</p>
     </div>
-  </div>
-  <a href="entertainment-sports.html">
-    Entertainment / Sports
-  </a>
-  <a href="world-events.html">
-    World Events
-  </a>
-  <a href="social-media.html">
-    Social Media
-  </a>
-  <a href="thoughts.html">
-    Thoughts / Blog
-  </a>
-</nav>
-  </aside>
-  <div class="menu-overlay"></div>
-  <!-- HEADER -->
-  <header class="site-header">
-<div class="container header-inner">
-  <a href="index.html" class="brand">
-    THE HISTORICAL RECORD
-  </a>
-</div>
-  </header>
-  <!-- MAIN -->
-  <main>
-<section class="hero">
-  <div class="container">
-    <p class="eyebrow">
-      THE ARCHIVE
-    </p>
-    <h1>
-      The Archive
-    </h1>
-    <p class="hero-text">
-      A living, searchable index of the people, places, events,
-      subjects, documents, articles, photographs, videos, and social
-      media records preserved by The Historical Record.
-    </p>
-  </div>
-</section>
-<!-- INTRO -->
-<section class="archive-intro">
-  <h2>
-    Everything in One Place
-  </h2>
-  <p>
-    Search the archive by subject, person, event, organization,
-    historical period, topic, or keyword. As new records are added,
-    their subjects and keywords can be indexed here without changing
-    the structure of the site.
-  </p>
-</section>
-<!-- SEARCH -->
-<section class="archive-search">
-  <div class="archive-search-box">
-    <label for="archiveSearch">
-      Search the Historical Record
-    </label>
-    <input
-      type="search"
-      id="archiveSearch"
-      placeholder="Search people, events, subjects, keywords..."
-      autocomplete="off"
-    >
-    <p class="search-help">
-      Try searches such as
-      <strong>Trump</strong>,
-      <strong>AI</strong>,
-      <strong>Gaza</strong>,
-      <strong>September 11</strong>,
-      <strong>Kenta Kobashi</strong>,
-      <strong>Iran</strong>,
-      <strong>Supreme Court</strong>,
-      <strong>pardon</strong>,
-      or <strong>wrestling</strong>.
-    </p>
-  </div>
-</section>
-<!-- FILTERS -->
-<div class="archive-filters">
-  <button class="archive-filter active" data-filter="all">
-    All
-  </button>
-  <button class="archive-filter" data-filter="politics">
-    Politics
-  </button>
-  <button class="archive-filter" data-filter="world">
-    World Events
-  </button>
-  <button class="archive-filter" data-filter="history">
-    History
-  </button>
-  <button class="archive-filter" data-filter="entertainment">
-    Entertainment
-  </button>
-  <button class="archive-filter" data-filter="sports">
-    Sports
-  </button>
-  <button class="archive-filter" data-filter="social">
-    Social Media
-  </button>
-  <button class="archive-filter" data-filter="documents">
-    Documents
-  </button>
-</div>
-<section class="archive-results">
-  <div class="archive-result-count">
-    Showing <span id="resultCount">0</span> archive records
-  </div>
-  <!-- ================================
-       WORLD EVENTS
-       ================================ -->
-  <div class="archive-category" data-category="world">
-    <div class="archive-category-heading">
-      <h2>World Events</h2>
-    </div>
-    <article
-      class="archive-record"
-      data-category="world"
-      data-search="
-        iran nuclear program iran nuclear crisis nuclear weapons
-        nuclear proliferation international crisis middle east
-        iran diplomacy sanctions uranium enrichment
-      "
-    >
-      <p class="record-label">
-        SEPTEMBER 13, 2026
-      </p>
-      <h3>
-        Iran's Nuclear Program and the International Nuclear Crisis
-      </h3>
-      <p>
-        A record documenting a significant development in the
-        international dispute surrounding Iran's nuclear program.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Iran</span>
-        <span class="keyword">Nuclear Program</span>
-        <span class="keyword">Nuclear Crisis</span>
-        <span class="keyword">Middle East</span>
-        <span class="keyword">International Relations</span>
-        <span class="keyword">Nuclear Weapons</span>
-        <span class="keyword">Diplomacy</span>
-        <span class="keyword">Geopolitics</span>
-      </div>
-      <a href="iran-nuclear-program.html">
-        View Record
+
+    <nav>
+
+      <a href="search.html">
+        Search the Archive
       </a>
-    </article>
-    <article
-      class="archive-record"
-      data-category="world"
-      data-search="
-        strait hormuz iran gulf oil shipping petroleum
-        middle east geopolitics gulf states muscat negotiations
-        international security
-      "
-    >
-      <p class="record-label">
-        SEPTEMBER 2026
-      </p>
-      <h3>
-        Strait of Hormuz
-      </h3>
-      <p>
-        Records concerning the Strait of Hormuz, regional diplomacy,
-        Iran, Gulf states, international shipping, energy security,
-        and the geopolitical importance of the waterway.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Strait of Hormuz</span>
-        <span class="keyword">Iran</span>
-        <span class="keyword">Gulf</span>
-        <span class="keyword">Oil</span>
-        <span class="keyword">Shipping</span>
-        <span class="keyword">Energy Security</span>
-        <span class="keyword">Muscat</span>
-      </div>
-    </article>
-    <article
-      class="archive-record"
-      data-category="world"
-      data-search="
-        israel gaza palestine israel gaza war conflict civilians
-        idf military surveillance quadcopters humanitarian crisis
-        middle east
-      "
-    >
-      <p class="record-label">
-        SEPTEMBER 2026
-      </p>
-      <h3>
-        Israel-Gaza Conflict
-      </h3>
-      <p>
-        Records documenting developments, political reactions,
-        military activity, civilian conditions, surveillance,
-        humanitarian concerns, and international debate surrounding
-        the Israel-Gaza conflict.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Israel</span>
-        <span class="keyword">Gaza</span>
-        <span class="keyword">Palestine</span>
-        <span class="keyword">IDF</span>
-        <span class="keyword">Civilians</span>
-        <span class="keyword">Military</span>
-        <span class="keyword">Humanitarian</span>
-        <span class="keyword">Middle East</span>
-      </div>
-    </article>
-  </div>
-  <!-- ================================
-       POLITICS
-       ================================ -->
-  <div class="archive-category" data-category="politics">
-    <div class="archive-category-heading">
-      <h2>Politics</h2>
-    </div>
-    <article
-      class="archive-record"
-      data-category="politics"
-      data-search="
-        politics political history united states government elections
-        legislation campaigns congress president administration
-        democratic republican
-      "
-    >
-      <p class="record-label">
-        POLITICAL HISTORY
-      </p>
-      <h3>
-        Politics Archive
-      </h3>
-      <p>
-        Explore political records, historical events, articles,
-        documents, statements, elections, legislation, campaigns,
-        administrations, and other material preserved in the Politics
-        section.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Politics</span>
-        <span class="keyword">Government</span>
-        <span class="keyword">Congress</span>
-        <span class="keyword">Elections</span>
-        <span class="keyword">Presidency</span>
-        <span class="keyword">Legislation</span>
-        <span class="keyword">Political History</span>
-      </div>
-      <a href="politics.html">
-        View Politics Archive
+
+      <a href="archive.html">
+        The Archive
       </a>
-    </article>
-    <article
-      class="archive-record"
-      data-category="politics history"
-      data-search="
-        september 11 2001 9/11 september eleven world trade center
-        pentagon shanksville al qaeda terrorism attacks new york
-        american history terrorism homeland security afghanistan
-        memorial victims
-      "
-    >
-      <p class="record-label">
-        SEPTEMBER 11, 2001
-      </p>
-      <h3>
-        September 11, 2001
-      </h3>
-      <p>
-        A historical collection documenting and remembering the
-        September 11 attacks and the events surrounding one of the
-        most consequential days in modern American history.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">September 11</span>
-        <span class="keyword">9/11</span>
-        <span class="keyword">World Trade Center</span>
-        <span class="keyword">Pentagon</span>
-        <span class="keyword">Shanksville</span>
-        <span class="keyword">New York</span>
-        <span class="keyword">American History</span>
-        <span class="keyword">Terrorism</span>
-      </div>
-      <a href="september-11.html">
-        View Record
+
+      <a href="index.html">
+        Home
       </a>
-    </article>
-    <article
-      class="archive-record"
-      data-category="politics"
-      data-search="
-        bernie sanders artificial intelligence ai artificial
-        superintelligence asi technology regulation developers
-        criminal penalties prison congressional policy
-      "
-    >
-      <p class="record-label">
-        SEPTEMBER 13, 2026
-      </p>
-      <h3>
-        Bernie Sanders and Artificial Superintelligence
-      </h3>
-      <p>
-        A record concerning proposals for criminal penalties,
-        regulation, and government oversight of advanced artificial
-        intelligence and Artificial Superintelligence.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Bernie Sanders</span>
-        <span class="keyword">Artificial Intelligence</span>
-        <span class="keyword">AI</span>
-        <span class="keyword">Superintelligence</span>
-        <span class="keyword">Regulation</span>
-        <span class="keyword">Technology</span>
-        <span class="keyword">Congress</span>
+
+      <div class="menu-dropdown">
+
+        <button
+          class="menu-dropdown-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="politics-submenu"
+        >
+          <span>Politics</span>
+          <span class="menu-dropdown-arrow">▾</span>
+        </button>
+
+        <div class="menu-submenu" id="politics-submenu">
+
+          <a href="politics.html">
+            Politics Home
+          </a>
+
+          <a href="september-11.html">
+            September 11, 2001
+          </a>
+
+          <a href="september-11-sourcebooks.html">
+            9/11 Sourcebooks &amp; Documents
+          </a>
+
+        </div>
+
       </div>
-    </article>
-    <article
-      class="archive-record"
-      data-category="politics"
-      data-search="
-        pete hegseth defense department pentagon civilian harm
-        mitigation response military rules engagement united states
-        nato iran iraq afghanistan military leadership
-      "
-    >
-      <p class="record-label">
-        SEPTEMBER 13–14, 2026
-      </p>
-      <h3>
-        Civilian Harm Mitigation and the U.S. Defense Department
-      </h3>
-      <p>
-        Records concerning civilian harm mitigation, the Defense
-        Department, international military cooperation, NATO,
-        operational policy, and Defense Secretary Pete Hegseth.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Pete Hegseth</span>
-        <span class="keyword">Pentagon</span>
-        <span class="keyword">Defense Department</span>
-        <span class="keyword">Civilian Harm</span>
-        <span class="keyword">Military</span>
-        <span class="keyword">NATO</span>
-        <span class="keyword">Iran</span>
-        <span class="keyword">Afghanistan</span>
-        <span class="keyword">Iraq</span>
-      </div>
-    </article>
-    <article
-      class="archive-record"
-      data-category="politics"
-      data-search="
-        eric trump donald trump military helicopters ireland
-        united states military aircraft taxpayers presidential family
-        government spending
-      "
-    >
-      <p class="record-label">
-        SEPTEMBER 14, 2026
-      </p>
-      <h3>
-        Eric Trump and U.S. Military Aircraft
-      </h3>
-      <p>
-        A record concerning claims involving Eric Trump, travel in
-        Ireland, U.S. military helicopters, government resources,
-        and public reaction.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Eric Trump</span>
-        <span class="keyword">Donald Trump</span>
-        <span class="keyword">Military</span>
-        <span class="keyword">Ireland</span>
-        <span class="keyword">Helicopters</span>
-        <span class="keyword">Taxpayers</span>
-      </div>
-    </article>
-    <article
-      class="archive-record"
-      data-category="politics"
-      data-search="
-        donald trump president approval rating polling cbs news
-        approve disapprove public opinion presidency
-      "
-    >
-      <p class="record-label">
-        SEPTEMBER 14, 2026
-      </p>
-      <h3>
-        President Trump Approval Rating
-      </h3>
-      <p>
-        A polling record documenting reported public approval and
-        disapproval of President Donald Trump.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Donald Trump</span>
-        <span class="keyword">Approval Rating</span>
-        <span class="keyword">Polling</span>
-        <span class="keyword">Public Opinion</span>
-        <span class="keyword">President</span>
-      </div>
-    </article>
-    <article
-      class="archive-record"
-      data-category="politics"
-      data-search="
-        defamation political commentary libel slander per se defamation
-        journalism media law speech
-      "
-    >
-      <p class="record-label">
-        SEPTEMBER 13, 2026
-      </p>
-      <h3>
-        Defamation and Political Commentary
-      </h3>
-      <p>
-        A social media record concerning political commentary and
-        discussion of defamation law.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Defamation</span>
-        <span class="keyword">Political Commentary</span>
-        <span class="keyword">Media</span>
-        <span class="keyword">Law</span>
-        <span class="keyword">Free Speech</span>
-      </div>
-    </article>
-    <article
-      class="archive-record"
-      data-category="politics"
-      data-search="
-        median voter elections political science electorate voters
-        public opinion campaigns voting
-      "
-    >
-      <p class="record-label">
-        SEPTEMBER 14, 2026
-      </p>
-      <h3>
-        Political Commentary and the Median Voter
-      </h3>
-      <p>
-        A record concerning political commentary, voter behavior,
-        elections, and the concept of the median voter.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Median Voter</span>
-        <span class="keyword">Voters</span>
-        <span class="keyword">Elections</span>
-        <span class="keyword">Political Science</span>
-        <span class="keyword">Public Opinion</span>
-      </div>
-    </article>
-    <article
-      class="archive-record"
-      data-category="politics"
-      data-search="
-        supreme court shadow docket supreme court emergency orders
-        federal courts trump administration ice abortion federal policy
-        judiciary
-      "
-    >
-      <p class="record-label">
-        SEPTEMBER 14, 2026
-      </p>
-      <h3>
-        Supreme Court and the “Shadow Docket”
-      </h3>
-      <p>
-        A record concerning Supreme Court emergency proceedings,
-        federal policy, lower courts, and debate surrounding the
-        Court's so-called shadow docket.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Supreme Court</span>
-        <span class="keyword">Shadow Docket</span>
-        <span class="keyword">Judiciary</span>
-        <span class="keyword">Federal Courts</span>
-        <span class="keyword">ICE</span>
-        <span class="keyword">Abortion</span>
-      </div>
-    </article>
-    <article
-      class="archive-record"
-      data-category="politics"
-      data-search="
-        israel gaza military aid united states public opinion polling
-        foreign aid aipac congress foreign policy
-      "
-    >
-      <p class="record-label">
-        SEPTEMBER 13, 2026
-      </p>
-      <h3>
-        Public Opinion and U.S. Military Aid to Israel
-      </h3>
-      <p>
-        A record concerning public opinion, U.S. foreign policy,
-        military assistance, Israel, Gaza, and political debate.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Israel</span>
-        <span class="keyword">Gaza</span>
-        <span class="keyword">Military Aid</span>
-        <span class="keyword">Polling</span>
-        <span class="keyword">Foreign Policy</span>
-        <span class="keyword">Congress</span>
-      </div>
-    </article>
-    <article
-      class="archive-record"
-      data-category="politics"
-      data-search="
-        robert f kennedy jr rfk kennedy cdc senate warnock congress
-        public health vaccines government testimony hearing
-      "
-    >
-      <p class="record-label">
-        SEPTEMBER 13, 2026
-      </p>
-      <h3>
-        Robert F. Kennedy Jr. and Senate Questioning
-      </h3>
-      <p>
-        A record concerning Robert F. Kennedy Jr., Senate questioning,
-        the Centers for Disease Control and Prevention, and political
-        debate surrounding public health policy.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Robert F. Kennedy Jr.</span>
-        <span class="keyword">RFK Jr.</span>
-        <span class="keyword">Senate</span>
-        <span class="keyword">Congress</span>
-        <span class="keyword">CDC</span>
-        <span class="keyword">Public Health</span>
-      </div>
-    </article>
-    <article
-      class="archive-record"
-      data-category="politics"
-      data-search="
-        pardon brokers presidential pardon clemency trump white house
-        jack burkman jacob wohl lobbying justice department
-        presidential power pardon economy
-      "
-    >
-      <p class="record-label">
-        SEPTEMBER 13–14, 2026
-      </p>
-      <h3>
-        Pardon Brokers and the Trump Clemency System
-      </h3>
-      <p>
-        A record concerning presidential clemency, pardon brokers,
-        lobbying, access to the White House, and the modern politics
-        surrounding presidential pardons.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Pardons</span>
-        <span class="keyword">Clemency</span>
-        <span class="keyword">Donald Trump</span>
-        <span class="keyword">White House</span>
-        <span class="keyword">Jack Burkman</span>
-        <span class="keyword">Jacob Wohl</span>
-        <span class="keyword">Lobbying</span>
-        <span class="keyword">Justice Department</span>
-      </div>
-    </article>
-    <article
-      class="archive-record"
-      data-category="politics"
-      data-search="
-        trump artificial intelligence global ai race sam altman openai
-        technology national security china artificial intelligence policy
-      "
-    >
-      <p class="record-label">
-        SEPTEMBER 14, 2026
-      </p>
-      <h3>
-        Trump, Artificial Intelligence, and the Global AI Race
-      </h3>
-      <p>
-        A record concerning artificial intelligence, international
-        technological competition, national policy, and the emerging
-        global AI race.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Donald Trump</span>
-        <span class="keyword">Artificial Intelligence</span>
-        <span class="keyword">AI</span>
-        <span class="keyword">Sam Altman</span>
-        <span class="keyword">OpenAI</span>
-        <span class="keyword">Technology</span>
-        <span class="keyword">National Security</span>
-      </div>
-    </article>
-    <article
-      class="archive-record"
-      data-category="politics"
-      data-search="
-        congress artificial intelligence guardrails mike johnson
-        speaker house bipartisan task force technology regulation
-        ai policy
-      "
-    >
-      <p class="record-label">
-        SEPTEMBER 13, 2026
-      </p>
-      <h3>
-        Congress and Artificial Intelligence Guardrails
-      </h3>
-      <p>
-        A record concerning congressional discussion of artificial
-        intelligence, bipartisan policy development, technological
-        guardrails, and regulation.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Congress</span>
-        <span class="keyword">Mike Johnson</span>
-        <span class="keyword">Artificial Intelligence</span>
-        <span class="keyword">AI Guardrails</span>
-        <span class="keyword">Technology Policy</span>
-      </div>
-    </article>
-    <article
-      class="archive-record"
-      data-category="politics"
-      data-search="
-        donald trump democrats economy political campaign rapid response
-        president economic policy elections political messaging
-      "
-    >
-      <p class="record-label">
-        SEPTEMBER 13, 2026
-      </p>
-      <h3>
-        President Trump on Democrats and the Economy
-      </h3>
-      <p>
-        A political record concerning President Trump's statements
-        about Democrats, government, elections, and the economy.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Donald Trump</span>
-        <span class="keyword">Democrats</span>
-        <span class="keyword">Economy</span>
-        <span class="keyword">Elections</span>
-        <span class="keyword">Campaigns</span>
-      </div>
-    </article>
-    <article
-      class="archive-record"
-      data-category="politics"
-      data-search="
-        north korea propaganda political propaganda media messaging
-        government information disinformation authoritarianism
-      "
-    >
-      <p class="record-label">
-        SEPTEMBER 13, 2026
-      </p>
-      <h3>
-        Political Propaganda Commentary
-      </h3>
-      <p>
-        A record concerning political messaging, propaganda,
-        government communications, and public commentary.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Propaganda</span>
-        <span class="keyword">North Korea</span>
-        <span class="keyword">Political Messaging</span>
-        <span class="keyword">Media</span>
-        <span class="keyword">Disinformation</span>
-      </div>
-    </article>
-    <article
-      class="archive-record"
-      data-category="politics"
-      data-search="
-        donald trump china xi china relations united states foreign policy
-        satellite imagery iran jordan military bases geopolitics
-      "
-    >
-      <p class="record-label">
-        SEPTEMBER 13, 2026
-      </p>
-      <h3>
-        President Trump and U.S.-China Relations
-      </h3>
-      <p>
-        A record concerning U.S.-China relations, President Trump,
-        China, Iran, satellite imagery, military issues, and foreign
-        policy.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Donald Trump</span>
-        <span class="keyword">China</span>
-        <span class="keyword">Xi Jinping</span>
-        <span class="keyword">U.S.-China Relations</span>
-        <span class="keyword">Iran</span>
-        <span class="keyword">Foreign Policy</span>
-      </div>
-    </article>
-    <article
-      class="archive-record"
-      data-category="politics"
-      data-search="
-        libertarians against trump libertarian political commentary
-        donald trump republican politics political movement
-      "
-    >
-      <p class="record-label">
-        SEPTEMBER 14, 2026
-      </p>
-      <h3>
-        Political Commentary Concerning the Trump Administration
-      </h3>
-      <p>
-        A social media record preserving political commentary
-        concerning President Trump and the Trump administration.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Trump Administration</span>
-        <span class="keyword">Libertarian</span>
-        <span class="keyword">Political Commentary</span>
-        <span class="keyword">Republican Politics</span>
-      </div>
-    </article>
-  </div>
-  <!-- ================================
-       ENTERTAINMENT / SPORTS
-       ================================ -->
-  <div class="archive-category" data-category="entertainment sports">
-    <div class="archive-category-heading">
-      <h2>Entertainment / Sports</h2>
-    </div>
-    <article
-      class="archive-record"
-      data-category="sports entertainment"
-      data-search="
-        kenta kobashi wrestling professional wrestling japanese wrestling
-        all japan pro wrestling ajpw noah puroresu wrestler championship
-        mitsuharu misawa stan hansen toshiaki kawada retirement
-        injuries legacy
-      "
-    >
-      <p class="record-label">
-        PROFESSIONAL WRESTLING
-      </p>
-      <h3>
-        Kenta Kobashi
-      </h3>
-      <p>
-        A historical profile documenting the career, championships,
-        rivalries, injuries, accomplishments, retirement, and legacy
-        of Japanese professional wrestler Kenta Kobashi.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Kenta Kobashi</span>
-        <span class="keyword">Professional Wrestling</span>
-        <span class="keyword">Japan</span>
-        <span class="keyword">AJPW</span>
-        <span class="keyword">NOAH</span>
-        <span class="keyword">Puroresu</span>
-        <span class="keyword">Championships</span>
-        <span class="keyword">Wrestling History</span>
-      </div>
-      <a href="kenta-kobashi.html">
-        View Kenta Kobashi Archive
-      </a>
-    </article>
-    <article
-      class="archive-record"
-      data-category="entertainment sports"
-      data-search="
-        entertainment sports actors athletes musicians performers
-        television film wrestling baseball football basketball
-        soccer history competitions championships
-      "
-    >
-      <p class="record-label">
-        ENTERTAINMENT / SPORTS
-      </p>
-      <h3>
-        Entertainment and Sports Archive
-      </h3>
-      <p>
-        Explore records covering significant people, events,
-        performances, competitions, championships, careers, and
-        moments from entertainment and sports.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Entertainment</span>
-        <span class="keyword">Sports</span>
-        <span class="keyword">Film</span>
-        <span class="keyword">Television</span>
-        <span class="keyword">Music</span>
-        <span class="keyword">Athletes</span>
-        <span class="keyword">Wrestling</span>
-      </div>
+
       <a href="entertainment-sports.html">
-        View Entertainment / Sports
+        Entertainment / Sports
       </a>
-    </article>
-    <article
-      class="archive-record"
-      data-category="entertainment"
-      data-search="
-        cat in the hat dr seuss theodor seuss geisel children's literature
-        children's books publishing reading books illustration pop culture
-        history
-      "
-    >
-      <p class="record-label">
-        CHILDREN'S LITERATURE / CULTURE
-      </p>
-      <h3>
-        The Cat in the Hat
-      </h3>
-      <p>
-        A cultural and literary record concerning The Cat in the Hat,
-        its creator, publication history, characters, illustrations,
-        adaptations, and place in American popular culture.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">The Cat in the Hat</span>
-        <span class="keyword">Dr. Seuss</span>
-        <span class="keyword">Theodor Seuss Geisel</span>
-        <span class="keyword">Children's Literature</span>
-        <span class="keyword">Books</span>
-        <span class="keyword">American Culture</span>
-        <span class="keyword">Publishing</span>
-      </div>
-    </article>
-  </div>
-  <!-- ================================
-       HISTORY / DOCUMENTS
-       ================================ -->
-  <div class="archive-category" data-category="history documents">
-    <div class="archive-category-heading">
-      <h2>History / Documents</h2>
-    </div>
-    <article
-      class="archive-record"
-      data-category="history documents politics"
-      data-search="
-        september 11 sourcebooks documents primary sources historical
-        records government reports testimony commission documents
-        photographs videos chronology
-      "
-    >
-      <p class="record-label">
-        SEPTEMBER 11, 2001
-      </p>
-      <h3>
-        9/11 Sourcebooks &amp; Documents
-      </h3>
-      <p>
-        A collection of source material, historical documents,
-        records, photographs, testimony, reports, and other primary
-        and secondary material relating to September 11, 2001.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">9/11</span>
-        <span class="keyword">Sourcebooks</span>
-        <span class="keyword">Documents</span>
-        <span class="keyword">Primary Sources</span>
-        <span class="keyword">Historical Records</span>
-        <span class="keyword">Government Reports</span>
-        <span class="keyword">Testimony</span>
-      </div>
-      <a href="september-11-sourcebooks.html">
-        View Sourcebooks &amp; Documents
+
+      <a href="world-events.html">
+        World Events
       </a>
-    </article>
-    <article
-      class="archive-record"
-      data-category="history"
-      data-search="
-        historical record history archives chronology primary source
-        historical documents photographs newspapers records memory
-        preservation
-      "
-    >
-      <p class="record-label">
-        ARCHIVAL METHOD
-      </p>
-      <h3>
-        Historical Records
-      </h3>
-      <p>
-        The archive preserves material not only for what happened,
-        but for how events were recorded, discussed, remembered, and
-        understood at the time.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">History</span>
-        <span class="keyword">Archives</span>
-        <span class="keyword">Primary Sources</span>
-        <span class="keyword">Documents</span>
-        <span class="keyword">Photographs</span>
-        <span class="keyword">Memory</span>
-        <span class="keyword">Preservation</span>
-      </div>
-    </article>
-  </div>
-  <!-- ================================
-       SOCIAL MEDIA
-       ================================ -->
-  <div class="archive-category" data-category="social">
-    <div class="archive-category-heading">
-      <h2>Social Media</h2>
-    </div>
-    <article
-      class="archive-record"
-      data-category="social politics"
-      data-search="
-        social media x twitter posts tweets statements breaking news
-        political commentary journalists politicians organizations
-        photographs videos links
-      "
-    >
-      <p class="record-label">
-        SOCIAL MEDIA
-      </p>
-      <h3>
-        Social Media Archive
-      </h3>
-      <p>
-        Preserved posts, statements, announcements, photographs,
-        videos, links, reactions, and other material from social media
-        platforms.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Social Media</span>
-        <span class="keyword">X</span>
-        <span class="keyword">Twitter</span>
-        <span class="keyword">Posts</span>
-        <span class="keyword">Statements</span>
-        <span class="keyword">Videos</span>
-        <span class="keyword">Photographs</span>
-      </div>
+
       <a href="social-media.html">
-        View Social Media
+        Social Media
       </a>
-    </article>
-  </div>
-  <!-- ================================
-       THOUGHTS / BLOG
-       ================================ -->
-  <div class="archive-category" data-category="history">
-    <div class="archive-category-heading">
-      <h2>Thoughts / Blog</h2>
-    </div>
-    <article
-      class="archive-record"
-      data-category="history"
-      data-search="
-        thoughts blog commentary essays writing reflections observations
-        personal history analysis opinions ideas culture society
-      "
-    >
-      <p class="record-label">
-        THOUGHTS / BLOG
-      </p>
-      <h3>
-        Thoughts / Blog
-      </h3>
-      <p>
-        Personal observations, commentary, reflections, essays,
-        analysis, and other writing preserved as part of the archive.
-      </p>
-      <div class="keyword-list">
-        <span class="keyword">Thoughts</span>
-        <span class="keyword">Blog</span>
-        <span class="keyword">Commentary</span>
-        <span class="keyword">Essays</span>
-        <span class="keyword">Reflections</span>
-        <span class="keyword">Analysis</span>
-        <span class="keyword">Writing</span>
-      </div>
+
       <a href="thoughts.html">
-        View Thoughts / Blog
+        Thoughts / Blog
       </a>
-    </article>
-  </div>
-  <div class="no-results" id="noResults">
-    <strong>
-      No matching records found.
-    </strong>
-    <p>
-      Try another keyword, person, event, organization, or subject.
-    </p>
-  </div>
-</section>
-<!-- NOTE -->
-<div class="archive-note">
-  <strong>
-    The archive is continually growing.
-  </strong>
-  <p>
-    New people, places, events, subjects, documents, photographs,
-    videos, articles, and social media records can be added to the
-    archive without changing the overall structure of this page.
-  </p>
-</div>
+
+    </nav>
+
+  </aside>
+
+  <div class="menu-overlay"></div>
+
+  <!-- HEADER -->
+
+  <header class="site-header">
+
+    <div class="container header-inner">
+
+      <a href="index.html" class="brand">
+        THE HISTORICAL RECORD
+      </a>
+
+    </div>
+
+  </header>
+
+  <!-- MAIN -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="container">
+
+        <p class="eyebrow">
+          THE ARCHIVE
+        </p>
+
+        <h1>
+          The Archive
+        </h1>
+
+        <p class="hero-text">
+          A chronological record of the articles, photographs, documents,
+          videos, social media posts, and other material preserved by
+          The Historical Record.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- INTRO -->
+
+    <section class="archive-intro">
+
+      <h2>
+        The Historical Record
+      </h2>
+
+      <p>
+        Every record preserved on this site belongs to the larger archive.
+        Browse the categories below to explore individual historical
+        records and the subjects they document.
+      </p>
+
+    </section>
+
+    <!-- RECORDS -->
+
+    <section class="records-section">
+
+      <div class="container">
+
+        <!-- WORLD EVENTS -->
+
+        <div class="archive-category">
+
+          <div class="archive-category-heading">
+
+            <h2>
+              World Events
+            </h2>
+
+          </div>
+
+          <article class="archive-record">
+
+            <p class="record-label">
+              SEPTEMBER 13, 2026
+            </p>
+
+            <h3>
+              Iran's Nuclear Program and the International Nuclear Crisis
+            </h3>
+
+            <p>
+              A record documenting a significant development in the
+              international dispute surrounding Iran's nuclear program.
+            </p>
+
+            <a href="iran-nuclear-program.html">
+              View Record
+            </a>
+
+          </article>
+
+        </div>
+
+        <!-- POLITICS -->
+
+        <div class="archive-category">
+
+          <div class="archive-category-heading">
+
+            <h2>
+              Politics
+            </h2>
+
+          </div>
+
+          <article class="archive-record">
+
+            <p class="record-label">
+              POLITICAL HISTORY
+            </p>
+
+            <h3>
+              Politics Archive
+            </h3>
+
+            <p>
+              Explore political records, historical events, articles,
+              documents, and other material preserved in the Politics
+              section of The Historical Record.
+            </p>
+
+            <a href="politics.html">
+              View Politics Archive
+            </a>
+
+          </article>
+
+          <article class="archive-record">
+
+            <p class="record-label">
+              SEPTEMBER 11, 2001
+            </p>
+
+            <h3>
+              September 11, 2001
+            </h3>
+
+            <p>
+              A historical collection documenting and remembering the
+              September 11 attacks and the events surrounding one of the
+              most consequential days in modern American history.
+            </p>
+
+            <a href="september-11.html">
+              View Record
+            </a>
+
+          </article>
+
+        </div>
+
+        <!-- ENTERTAINMENT / SPORTS -->
+
+        <div class="archive-category">
+
+          <div class="archive-category-heading">
+
+            <h2>
+              Entertainment / Sports
+            </h2>
+
+          </div>
+
+          <article class="archive-record">
+
+            <p class="record-label">
+              PROFESSIONAL WRESTLING
+            </p>
+
+            <h3>
+              Kenta Kobashi
+            </h3>
+
+            <p>
+              A historical profile documenting the career, championships,
+              rivalries, injuries, accomplishments, retirement, and legacy
+              of Japanese professional wrestler Kenta Kobashi.
+            </p>
+
+            <a href="kenta-kobashi.html">
+              View Kenta Kobashi Archive
+            </a>
+
+          </article>
+
+          <article class="archive-record">
+
+            <p class="record-label">
+              ENTERTAINMENT / SPORTS
+            </p>
+
+            <h3>
+              Entertainment and Sports Archive
+            </h3>
+
+            <p>
+              Explore records covering significant people, events,
+              performances, competitions, and moments from entertainment
+              and sports.
+            </p>
+
+            <a href="entertainment-sports.html">
+              View Entertainment / Sports
+            </a>
+
+          </article>
+
+        </div>
+
+        <!-- OTHER SECTIONS -->
+
+        <div class="archive-category">
+
+          <div class="archive-category-heading">
+
+            <h2>
+              Other Archive Sections
+            </h2>
+
+          </div>
+
+          <article class="archive-record">
+
+            <p class="record-label">
+              WORLD EVENTS
+            </p>
+
+            <h3>
+              World Events Archive
+            </h3>
+
+            <p>
+              Historical records documenting major events and developments
+              from around the world.
+            </p>
+
+            <a href="world-events.html">
+              View World Events
+            </a>
+
+          </article>
+
+          <article class="archive-record">
+
+            <p class="record-label">
+              SOCIAL MEDIA
+            </p>
+
+            <h3>
+              Social Media Archive
+            </h3>
+
+            <p>
+              Preserved posts, statements, announcements, photographs,
+              videos, and other material from social media.
+            </p>
+
+            <a href="social-media.html">
+              View Social Media
+            </a>
+
+          </article>
+
+          <article class="archive-record">
+
+            <p class="record-label">
+              THOUGHTS / BLOG
+            </p>
+
+            <h3>
+              Thoughts / Blog
+            </h3>
+
+            <p>
+              Personal observations, commentary, reflections, and other
+              writing preserved as part of the archive.
+            </p>
+
+            <a href="thoughts.html">
+              View Thoughts / Blog
+            </a>
+
+          </article>
+
+        </div>
+
+        <!-- NOTE -->
+
+        <div class="archive-note">
+
+          <strong>
+            The archive is continually growing.
+          </strong>
+
+          <p>
+            New records, subjects, events, and collections will be added
+            as The Historical Record continues to develop.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
   </main>
+
   <!-- FOOTER -->
+
   <footer class="site-footer">
-<div class="container">
-  <p>
-    THE HISTORICAL RECORD
-  </p>
-  <p>
-    A living archive of the moments that matter.
-  </p>
-</div>
+
+    <div class="container">
+
+      <p>
+        THE HISTORICAL RECORD
+      </p>
+
+      <p>
+        A living archive of the moments that matter.
+      </p>
+
+    </div>
+
   </footer>
+
   <script src="script.js"></script>
-  <!-- ARCHIVE SEARCH -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const searchInput = document.getElementById("archiveSearch");
-      const records = Array.from(
-        document.querySelectorAll(".archive-record")
-      );
-      const categories = Array.from(
-        document.querySelectorAll(".archive-category")
-      );
-      const filters = Array.from(
-        document.querySelectorAll(".archive-filter")
-      );
-      const resultCount = document.getElementById("resultCount");
-      const noResults = document.getElementById("noResults");
-      let activeFilter = "all";
-      function updateArchive() {
-        const query = searchInput.value
-          .toLowerCase()
-          .trim();
-        let visibleCount = 0;
-        records.forEach(function (record) {
-          const text =
-            record.innerText.toLowerCase() +
-            " " +
-            (record.dataset.search || "").toLowerCase();
-          const recordCategories =
-            (record.dataset.category || "").toLowerCase();
-          const matchesSearch =
-            query === "" || text.includes(query);
-          const matchesFilter =
-            activeFilter === "all" ||
-            recordCategories.includes(activeFilter);
-          const visible =
-            matchesSearch && matchesFilter;
-          record.classList.toggle(
-            "hidden",
-            !visible
-          );
-          if (visible) {
-            visibleCount++;
-          }
-        });
-        categories.forEach(function (category) {
-          const visibleRecords =
-            category.querySelectorAll(
-              ".archive-record:not(.hidden)"
-            );
-          category.style.display =
-            visibleRecords.length > 0
-              ? ""
-              : "none";
-        });
-        resultCount.textContent =
-          visibleCount;
-        noResults.classList.toggle(
-          "visible",
-          visibleCount === 0
-        );
-      }
-      searchInput.addEventListener(
-        "input",
-        updateArchive
-      );
-      filters.forEach(function (filter) {
-        filter.addEventListener(
-          "click",
-          function () {
-            filters.forEach(function (button) {
-              button.classList.remove("active");
-            });
-            filter.classList.add("active");
-            activeFilter =
-              filter.dataset.filter;
-            updateArchive();
-          }
-        );
-      });
-      updateArchive();
-    });
-  </script>
+
 </body>
 </html>
