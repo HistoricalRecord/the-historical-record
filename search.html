@@ -195,15 +195,25 @@
 
 <body>
 
-  <!-- ======================================================
-       SIDEBAR
-       ====================================================== -->
+  <!-- ========================================================
+       HAMBURGER BUTTON
+       ======================================================== -->
 
-  <span></span>
-  <span></span>
-  <span></span>
-
+  <button
+    class="menu-button"
+    aria-label="Open menu"
+    aria-expanded="false"
+    type="button"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
   </button>
+
+
+  <!-- ========================================================
+       SIDE MENU
+       ======================================================== -->
 
   <aside class="side-menu">
 
@@ -287,9 +297,9 @@
   <div class="menu-overlay"></div>
 
 
-  <!-- ======================================================
+  <!-- ========================================================
        HEADER
-       ====================================================== -->
+       ======================================================== -->
 
   <header class="site-header">
 
@@ -307,11 +317,11 @@
   </header>
 
 
-  <main>
+  <!-- ========================================================
+       MAIN
+       ======================================================== -->
 
-    <!-- ====================================================
-         SEARCH HERO
-         ==================================================== -->
+  <main>
 
     <section class="hero">
 
@@ -327,8 +337,8 @@
 
         <p class="hero-text">
           Search articles, records, events, posts, videos,
-          photographs, documents, and other material preserved
-          throughout The Historical Record.
+          photographs, documents, memes, and other material
+          preserved throughout The Historical Record.
         </p>
 
         <form id="search-form">
@@ -341,7 +351,9 @@
             autocomplete="off"
           >
 
-          <button type="submit">
+          <button
+            type="submit"
+          >
             Search
           </button>
 
@@ -351,10 +363,6 @@
 
     </section>
 
-
-    <!-- ====================================================
-         SEARCH RESULTS
-         ==================================================== -->
 
     <section class="search-section">
 
@@ -371,9 +379,9 @@
   </main>
 
 
-  <!-- ======================================================
+  <!-- ========================================================
        FOOTER
-       ====================================================== -->
+       ======================================================== -->
 
   <footer class="site-footer">
 
@@ -392,1224 +400,1243 @@
   </footer>
 
 
-  <!-- ======================================================
-       EXISTING SITE JAVASCRIPT
-       ====================================================== -->
+  <!-- ========================================================
+       EXISTING SITE SCRIPT
+       IMPORTANT:
+       This preserves the existing hamburger/sidebar behavior.
+       ======================================================== -->
 
   <script src="script.js"></script>
 
 
-  <!-- ======================================================
-       EXPANDED ARCHIVE SEARCH
-       ====================================================== -->
+  <!-- ========================================================
+       DEEP SEARCH ENGINE
+       ======================================================== -->
 
   <script>
 
     /*
-    ==========================================================
+    ============================================================
     THE HISTORICAL RECORD
-    SEARCH DATABASE
-    ==========================================================
+    DEEP ARCHIVE SEARCH ENGINE
 
-    The interface above is unchanged.
+    The visual interface above is intentionally unchanged.
 
-    This database is intentionally separate from the visual
-    design.
+    This search system searches:
 
-    Each record can point to a local article/page OR directly
-    to an external article/source.
-    ==========================================================
+      1. Page titles
+      2. Page headings
+      3. Page body text
+      4. Dates
+      5. Categories
+      6. Article descriptions
+      7. Keywords
+      8. Alternate terminology
+      9. Alternate spellings
+     10. Internal article links
+     11. External source links
+     12. YouTube links
+     13. Video embeds
+     14. Image captions
+     15. Image alt text
+     16. Figure captions
+     17. Blockquotes
+     18. Social media links
+     19. Meme terminology
+     20. Historical terminology
+
+    It also searches actual pages dynamically.
+
+    That means when a new article, meme page, video,
+    photograph, or linked source is added to the site,
+    the search engine can discover it without requiring
+    the search page itself to be redesigned.
+    ============================================================
     */
 
-    const archiveRecords = [
 
-      /* ======================================================
-         WORLD EVENTS
-         ====================================================== */
+    /* ============================================================
+       SITE PAGES
+       ============================================================ */
 
-      {
-        file: "iran-nuclear-program.html",
+    const SEARCH_PAGES = [
 
-        title:
-          "Iran's Nuclear Program and the International Nuclear Crisis",
+      "index.html",
+      "archive.html",
 
-        category:
-          "World Events",
+      "politics.html",
+      "september-11.html",
+      "september-11-sourcebooks.html",
 
-        date:
-          "September 13, 2026",
+      "entertainment-sports.html",
+      "kenta-kobashi.html",
 
-        description:
-          "A historical record documenting developments surrounding Iran's nuclear program and the international dispute surrounding Iran's nuclear activities.",
+      "world-events.html",
+      "iran-nuclear-program.html",
 
-        keywords: [
+      "social-media.html",
+      "social-media-archive.html",
 
-          "Iran",
-          "Iranian",
-          "Islamic Republic of Iran",
-          "Tehran",
-          "Persia",
-          "Persian Gulf",
+      "thoughts.html",
 
-          "nuclear",
-          "nukes",
-          "nuke",
-          "atomic",
-          "atomic energy",
-          "nuclear energy",
+      /*
+       * Meme pages are intentionally included.
+       *
+       * If the page exists, it is indexed automatically.
+       * If it does not exist yet, it is simply skipped.
+       *
+       * This makes the search engine ready for the
+       * Historical Meme Archive without changing the UI.
+       */
 
-          "nuclear program",
-          "nuclear programme",
-          "atomic program",
-          "atomic programme",
-
-          "nuclear weapons",
-          "nuclear weapon",
-          "atomic weapons",
-          "atomic weapon",
-
-          "nuclear crisis",
-          "nuclear issue",
-          "nuclear dispute",
-          "nuclear controversy",
-
-          "nuclear development",
-          "nuclear activities",
-          "nuclear proliferation",
-
-          "uranium",
-          "uranium enrichment",
-          "enrichment",
-          "enriched uranium",
-
-          "IAEA",
-          "International Atomic Energy Agency",
-
-          "nuclear inspectors",
-          "nuclear inspection",
-
-          "United Nations",
-          "UN",
-          "United Nations Security Council",
-          "Security Council",
-          "UN Security Council",
-
-          "Middle East",
-          "international relations",
-          "international crisis",
-          "geopolitics",
-          "diplomacy",
-          "diplomatic",
-          "foreign policy",
-          "foreign affairs",
-          "sanctions",
-
-          "September 13",
-          "September 13 2026",
-          "2026"
-
-        ],
-
-        aliases: [
-
-          "iran nuclear",
-          "iran nukes",
-          "iran nuke",
-          "iran atomic",
-          "iran atomic program",
-          "iran nuclear program",
-          "iran nuclear issue",
-          "iran nuclear dispute",
-          "iran nuclear crisis",
-          "iran nuclear weapons"
-
-        ]
-
-      },
-
-
-      /* ======================================================
-         SEPTEMBER 11
-         ====================================================== */
-
-      {
-        file: "september-11.html",
-
-        title:
-          "September 11, 2001: Historical Media Archive",
-
-        category:
-          "Politics",
-
-        date:
-          "September 11, 2001",
-
-        description:
-          "A collection of historical video footage, reporting, documentaries, social media posts, and other media relating to September 11, 2001 and its aftermath.",
-
-        keywords: [
-
-          "September 11",
-          "September 11 2001",
-          "September 11th",
-          "September Eleventh",
-
-          "Sept 11",
-          "Sept 11 2001",
-          "Sept. 11",
-          "Sept. 11 2001",
-
-          "9/11",
-          "9 11",
-          "9-11",
-          "911",
-
-          "September 11 attacks",
-          "September 11 attack",
-          "9/11 attacks",
-          "9/11 attack",
-          "911 attacks",
-
-          "terrorism",
-          "terrorist",
-          "terrorist attacks",
-          "terrorist attack",
-
-          "World Trade Center",
-          "WTC",
-          "Twin Towers",
-          "Twin Tower",
-          "North Tower",
-          "South Tower",
-          "Ground Zero",
-
-          "New York",
-          "New York City",
-          "NYC",
-          "Manhattan",
-          "Lower Manhattan",
-
-          "Pentagon",
-          "Pentagon attack",
-          "Arlington",
-          "Virginia",
-
-          "Flight 11",
-          "American Airlines Flight 11",
-          "AA11",
-
-          "Flight 175",
-          "United Airlines Flight 175",
-          "UA175",
-
-          "Flight 77",
-          "American Airlines Flight 77",
-          "AA77",
-
-          "Flight 93",
-          "United Airlines Flight 93",
-          "UA93",
-
-          "aircraft",
-          "airplane",
-          "airplanes",
-          "plane",
-          "planes",
-          "aviation",
-
-          "hijacking",
-          "hijack",
-          "hijacked",
-          "hijacked planes",
-          "airplane hijacking",
-          "aircraft hijacking",
-
-          "al-Qaeda",
-          "Al Qaeda",
-          "al Qaida",
-          "Osama bin Laden",
-          "bin Laden",
-
-          "George W. Bush",
-          "George W Bush",
-          "President Bush",
-          "Bush administration",
-
-          "Afghanistan",
-          "Iraq",
-
-          "War on Terror",
-          "War on Terrorism",
-          "Global War on Terror",
-
-          "memorial",
-          "memorials",
-          "9/11 memorial",
-          "September 11 memorial",
-          "remembrance",
-          "remember",
-          "remembering",
-
-          "victims",
-          "victim",
-
-          "historical footage",
-          "archival footage",
-          "news footage",
-          "news coverage",
-          "television coverage",
-          "television",
-          "broadcast",
-          "documentary",
-          "documentaries",
-          "historical media",
-          "archive"
-
-        ],
-
-        aliases: [
-
-          "911",
-          "9 11",
-          "9/11",
-          "9-11",
-          "sept 11",
-          "sept 11 2001",
-          "september eleven",
-          "september eleventh",
-          "september eleventh attacks",
-          "9/11 attacks",
-          "911 attacks",
-          "twin towers",
-          "world trade center attacks"
-
-        ]
-
-      },
-
-
-      /* ======================================================
-         25TH ANNIVERSARY
-         ====================================================== */
-
-      {
-        file: "september-11.html",
-
-        title:
-          "25 years after Sept. 11 attacks, America reflects and remembers",
-
-        category:
-          "Politics",
-
-        date:
-          "September 11, 2026",
-
-        description:
-          "CBS News coverage and reporting marking the 25th anniversary of the September 11 attacks.",
-
-        keywords: [
-
-          "September 11",
-          "September 11 2001",
-          "September 11 2026",
-          "September 11th",
-          "September Eleventh",
-
-          "9/11",
-          "9 11",
-          "911",
-          "9-11",
-
-          "25 years",
-          "25 years ago",
-          "25th anniversary",
-          "25 year anniversary",
-          "25th anniversary of 9/11",
-          "September 11 anniversary",
-          "9/11 anniversary",
-          "911 anniversary",
-
-          "CBS",
-          "CBS News",
-          "news",
-
-          "America",
-          "United States",
-          "USA",
-          "U.S.",
-          "American",
-
-          "terrorist attacks",
-          "terrorism",
-          "World Trade Center",
-          "Twin Towers",
-          "Pentagon",
-          "Flight 93",
-
-          "New York",
-          "New York City",
-          "NYC",
-          "Manhattan",
-
-          "memorial",
-          "remembrance",
-          "remember",
-          "reflection",
-          "history",
-          "historical record",
-
-          "2026"
-
-        ],
-
-        aliases: [
-
-          "25 years after 9/11",
-          "25 years after september 11",
-          "25 years ago",
-          "9/11 25th anniversary",
-          "911 25th anniversary",
-          "sept 11 anniversary"
-
-        ]
-
-      },
-
-
-      /* ======================================================
-         SOCIAL MEDIA RECORDS
-         ====================================================== */
-
-      {
-        file: "september-11.html",
-
-        title:
-          "911 Revisionist X Post",
-
-        category:
-          "Social Media",
-
-        date:
-          "September 2026",
-
-        description:
-          "An archived X post from 911 Revisionist preserved as part of the September 11 historical media collection.",
-
-        keywords: [
-
-          "September 11",
-          "September 11 2001",
-          "9/11",
-          "9 11",
-          "911",
-
-          "911 Revisionist",
-          "9/11 Revisionist",
-          "September 11 Revisionist",
-
-          "X",
-          "X post",
-          "Twitter",
-          "tweet",
-          "tweets",
-
-          "social media",
-          "social",
-
-          "September 11 attacks",
-          "World Trade Center",
-          "Twin Towers",
-
-          "historical media",
-          "archive"
-
-        ],
-
-        aliases: [
-
-          "911revisionist",
-          "911 revisionist x",
-          "911 revisionist twitter"
-
-        ]
-
-      },
-
-
-      {
-        file: "september-11.html",
-
-        title:
-          "Fox News Politics X Post",
-
-        category:
-          "Social Media",
-
-        date:
-          "September 2026",
-
-        description:
-          "An archived X post from Fox News Politics preserved as part of the September 11 historical media collection.",
-
-        keywords: [
-
-          "September 11",
-          "September 11 2001",
-          "9/11",
-          "9 11",
-          "911",
-
-          "Fox News",
-          "Fox News Politics",
-          "FOX News",
-          "FOX",
-          "Fox",
-
-          "X",
-          "X post",
-          "Twitter",
-          "tweet",
-          "tweets",
-
-          "social media",
-
-          "September 11 attacks",
-          "World Trade Center",
-          "Twin Towers",
-
-          "historical media",
-          "archive"
-
-        ],
-
-        aliases: [
-
-          "fox news politics",
-          "foxnews",
-          "fox news x",
-          "fox news twitter"
-
-        ]
-
-      },
-
-
-      {
-        file: "september-11.html",
-
-        title:
-          "25 Years Ago Live X Post",
-
-        category:
-          "Social Media",
-
-        date:
-          "September 2026",
-
-        description:
-          "An archived X post from 25 Years Ago Live preserved as part of the September 11 historical media collection.",
-
-        keywords: [
-
-          "September 11",
-          "September 11 2001",
-          "9/11",
-          "9 11",
-          "911",
-
-          "25 Years Ago Live",
-          "25 years ago",
-          "25 years",
-          "25th anniversary",
-
-          "X",
-          "X post",
-          "Twitter",
-          "tweet",
-          "tweets",
-
-          "social media",
-
-          "September 11 attacks",
-          "World Trade Center",
-          "Twin Towers",
-
-          "historical media",
-          "archive"
-
-        ],
-
-        aliases: [
-
-          "25 years ago live",
-          "25yearsagolive",
-          "25 years ago live x",
-          "25 years ago live twitter"
-
-        ]
-
-      },
-
-
-      /* ======================================================
-         KENTA KOBASHI
-         ====================================================== */
-
-      {
-        file: "kenta-kobashi.html",
-
-        title:
-          "Kenta Kobashi",
-
-        category:
-          "Entertainment / Sports",
-
-        date:
-          "March 27, 1967",
-
-        description:
-          "A historical record documenting the career, championships, matches, injuries, retirement, and legacy of Japanese professional wrestler Kenta Kobashi.",
-
-        keywords: [
-
-          "Kenta Kobashi",
-          "Kobashi Kenta",
-          "Kobashi",
-          "Kenta",
-
-          "professional wrestling",
-          "professional wrestler",
-          "pro wrestling",
-          "wrestling",
-          "wrestler",
-          "wrestlers",
-
-          "Japanese wrestling",
-          "Japanese professional wrestling",
-          "Japanese wrestler",
-          "Japan",
-
-          "All Japan Pro Wrestling",
-          "All Japan Pro-Wrestling",
-          "AJPW",
-
-          "Pro Wrestling NOAH",
-          "Pro Wrestling Noah",
-          "NOAH",
-
-          "Mitsuharu Misawa",
-          "Misawa",
-
-          "Burning",
-          "Burning Hammer",
-
-          "Four Heavenly Kings",
-          "Four Pillars",
-          "Four Pillars of Heaven",
-
-          "Triple Crown",
-          "Triple Crown Heavyweight Championship",
-          "AJPW Triple Crown",
-
-          "GHC",
-          "GHC Heavyweight Championship",
-          "GHC Championship",
-
-          "championship",
-          "championships",
-          "title",
-          "titles",
-
-          "match",
-          "matches",
-          "career",
-          "legacy",
-
-          "injury",
-          "injuries",
-
-          "retirement",
-          "retired",
-          "retire",
-
-          "March 27",
-          "March 27 1967",
-          "1967"
-
-        ],
-
-        aliases: [
-
-          "kenta",
-          "kobashi",
-          "kenta kobashi wrestling",
-          "kobashi wrestling",
-          "kobashi ajpw",
-          "kobashi noah",
-          "kobashi triple crown",
-          "kobashi ghc",
-          "burning hammer"
-
-        ]
-
-      },
-
-
-      /* ======================================================
-         SECTION PAGES
-         ====================================================== */
-
-      {
-        file: "politics.html",
-
-        title:
-          "Politics Archive",
-
-        category:
-          "Politics",
-
-        date:
-          "Archive",
-
-        description:
-          "Political records, historical events, articles, documents, media, and other material preserved in the Politics section of The Historical Record.",
-
-        keywords: [
-
-          "politics",
-          "political",
-          "political history",
-          "government",
-          "president",
-          "presidential",
-          "presidency",
-          "election",
-          "elections",
-          "vote",
-          "votes",
-          "voting",
-          "ballot",
-          "ballots",
-          "campaign",
-          "campaigns",
-          "candidate",
-          "candidates",
-          "Congress",
-          "congressional",
-          "Senate",
-          "senator",
-          "senators",
-          "House",
-          "House of Representatives",
-          "representative",
-          "representatives",
-          "legislation",
-          "policy",
-          "political events",
-          "political records",
-          "political documents",
-          "political archive",
-          "American politics",
-          "United States politics"
-
-        ],
-
-        aliases: [
-
-          "politics archive",
-          "political archive",
-          "political history",
-          "american politics",
-          "us politics"
-
-        ]
-
-      },
-
-
-      {
-        file: "entertainment-sports.html",
-
-        title:
-          "Entertainment and Sports Archive",
-
-        category:
-          "Entertainment / Sports",
-
-        date:
-          "Archive",
-
-        description:
-          "Records covering significant people, events, performances, competitions, careers, and moments from entertainment and sports.",
-
-        keywords: [
-
-          "entertainment",
-          "sports",
-          "sport",
-          "athletics",
-          "athlete",
-          "athletes",
-
-          "wrestling",
-          "professional wrestling",
-
-          "music",
-          "movie",
-          "movies",
-          "film",
-          "films",
-          "television",
-          "TV",
-
-          "actors",
-          "actresses",
-          "performers",
-
-          "championship",
-          "championships",
-          "competition",
-          "competitions",
-
-          "career",
-          "sports history",
-          "entertainment history"
-
-        ],
-
-        aliases: [
-
-          "entertainment archive",
-          "sports archive",
-          "entertainment sports",
-          "sports entertainment"
-
-        ]
-
-      },
-
-
-      {
-        file: "world-events.html",
-
-        title:
-          "World Events Archive",
-
-        category:
-          "World Events",
-
-        date:
-          "Archive",
-
-        description:
-          "Historical records documenting major events and developments from around the world.",
-
-        keywords: [
-
-          "world",
-          "world events",
-          "international",
-          "international events",
-          "global",
-          "global events",
-          "worldwide",
-
-          "history",
-          "historical",
-          "historical events",
-
-          "international relations",
-          "geopolitics",
-
-          "conflict",
-          "conflicts",
-          "crisis",
-          "crises",
-
-          "war",
-          "wars",
-          "peace",
-
-          "diplomacy",
-          "diplomatic",
-          "foreign affairs",
-          "foreign policy"
-
-        ],
-
-        aliases: [
-
-          "world archive",
-          "international archive",
-          "global archive",
-          "world history"
-
-        ]
-
-      },
-
-
-      {
-        file: "social-media.html",
-
-        title:
-          "Social Media Archive",
-
-        category:
-          "Social Media",
-
-        date:
-          "Archive",
-
-        description:
-          "Preserved posts, statements, announcements, photographs, videos, and other material from social media.",
-
-        keywords: [
-
-          "social media",
-          "social",
-          "media",
-
-          "X",
-          "Twitter",
-          "tweet",
-          "tweets",
-
-          "post",
-          "posts",
-          "social media post",
-
-          "Facebook",
-          "Instagram",
-          "YouTube",
-          "TikTok",
-
-          "video",
-          "videos",
-
-          "photograph",
-          "photographs",
-          "photo",
-          "photos",
-
-          "picture",
-          "pictures",
-          "image",
-          "images",
-
-          "statement",
-          "statements",
-
-          "announcement",
-          "announcements",
-
-          "archived post",
-          "archive"
-
-        ],
-
-        aliases: [
-
-          "social archive",
-          "social media archive",
-          "twitter archive",
-          "x archive"
-
-        ]
-
-      },
-
-
-      {
-        file: "thoughts.html",
-
-        title:
-          "Thoughts / Blog",
-
-        category:
-          "Thoughts / Blog",
-
-        date:
-          "Archive",
-
-        description:
-          "Personal observations, commentary, reflections, and other writing preserved as part of the archive.",
-
-        keywords: [
-
-          "thoughts",
-          "blog",
-          "writing",
-          "commentary",
-          "comments",
-          "opinion",
-
-          "observations",
-          "reflection",
-          "reflections",
-
-          "personal writing",
-
-          "essay",
-          "essays",
-
-          "article",
-          "articles",
-
-          "analysis"
-
-        ],
-
-        aliases: [
-
-          "thoughts",
-          "blog",
-          "thoughts and blog",
-          "blog archive"
-
-        ]
-
-      }
+      "historical-memes.html",
+      "historical-meme.html",
+      "meme-archive.html",
+      "memes.html",
+      "memes-archive.html"
 
     ];
 
 
-    /* =========================================================
-       DEEP SEARCH VOCABULARY
-       ========================================================= */
+    /* ============================================================
+       HUGE SEARCH VOCABULARY
+       ============================================================
 
-    const SEARCH_VOCABULARY = {
+       These words do NOT have to visibly appear on the page.
 
-      "9/11": [
-        "911",
-        "9 11",
-        "9-11",
-        "september 11",
-        "september 11 2001",
-        "september 11th",
-        "september eleventh",
-        "sept 11",
-        "sept 11 2001"
-      ],
+       They give the search engine conceptual relationships.
 
-      "nuclear": [
-        "nuke",
-        "nukes",
-        "atomic",
-        "atomic energy",
-        "nuclear energy",
-        "nuclear weapon",
-        "nuclear weapons",
-        "atomic weapon",
-        "atomic weapons",
-        "uranium",
-        "enrichment",
-        "uranium enrichment",
-        "IAEA"
-      ],
+       Example:
 
-      "iran": [
-        "iranian",
-        "tehran",
-        "islamic republic",
-        "persia",
-        "persian",
-        "persian gulf"
-      ],
+         Searching "clip"
 
-      "airplane": [
-        "aircraft",
-        "plane",
-        "planes",
-        "flight",
-        "aviation"
-      ],
+       can find:
 
-      "aircraft": [
-        "airplane",
-        "plane",
-        "planes",
-        "flight",
-        "aviation"
-      ],
+         video
+         footage
+         YouTube
+         recording
+         broadcast
+         documentary
 
-      "terrorist": [
-        "terrorism",
-        "terror",
-        "terrorist attack",
-        "terrorist attacks"
-      ],
+       Searching:
 
-      "wrestling": [
-        "wrestler",
-        "wrestlers",
-        "professional wrestling",
-        "professional wrestler",
-        "pro wrestling"
-      ],
+         "911"
 
-      "wrestler": [
-        "wrestling",
-        "professional wrestling",
-        "professional wrestler"
-      ],
+       can find:
 
-      "kobashi": [
-        "kenta kobashi",
-        "kenta",
-        "ajpw",
-        "all japan pro wrestling",
-        "noah",
-        "pro wrestling noah"
-      ],
+         September 11
+         September 11th
+         September Eleventh
+         9/11
+         World Trade Center
+         Twin Towers
+         Pentagon
+         Flight 93
 
-      "ajpw": [
-        "all japan pro wrestling",
-        "all japan pro-wrestling",
-        "all japan",
-        "triple crown"
-      ],
+       Searching:
 
-      "noah": [
-        "pro wrestling noah",
-        "ghc"
-      ],
+         "meme"
 
-      "twitter": [
-        "tweet",
-        "tweets",
-        "x",
-        "x post",
-        "social media"
-      ],
+       can find:
 
-      "tweet": [
-        "twitter",
-        "tweets",
-        "x",
-        "x post",
-        "social media"
-      ],
+         meme
+         memes
+         image
+         caption
+         viral
+         internet culture
+         reaction
+         funny image
+         historical meme
+         meme archive
+       ============================================================ */
 
-      "social media": [
-        "twitter",
-        "tweet",
-        "x",
-        "facebook",
-        "instagram",
-        "youtube",
-        "tiktok",
-        "post"
-      ],
+    const SEARCH_SYNONYMS = {
 
-      "video": [
-        "videos",
-        "footage",
-        "film",
-        "broadcast",
-        "television",
-        "documentary",
-        "recording"
-      ],
+      /* ---------------- GENERAL ARCHIVE ---------------- */
 
-      "document": [
-        "documents",
-        "pdf",
+      archive: [
+        "archives",
+        "archival",
+        "historical record",
         "record",
         "records",
+        "collection",
+        "collections",
+        "preserved",
+        "preservation",
+        "historical",
+        "history",
         "source",
         "sources",
-        "primary source"
+        "document",
+        "documents"
       ],
 
-      "article": [
+      history: [
+        "historical",
+        "archive",
+        "archival",
+        "record",
+        "records",
+        "past",
+        "historic",
+        "historical record",
+        "timeline"
+      ],
+
+      historical: [
+        "history",
+        "historic",
+        "archive",
+        "archival",
+        "record",
+        "records",
+        "past"
+      ],
+
+      record: [
+        "records",
+        "archive",
+        "archival",
+        "history",
+        "historical",
+        "documentation"
+      ],
+
+      records: [
+        "record",
+        "archive",
+        "archival",
+        "history",
+        "historical",
+        "documentation"
+      ],
+
+
+      /* ---------------- ARTICLE ---------------- */
+
+      article: [
         "articles",
         "story",
         "stories",
         "report",
         "reporting",
         "news",
+        "journalism",
+        "coverage",
+        "essay",
+        "writing",
+        "piece"
+      ],
+
+      articles: [
+        "article",
+        "story",
+        "stories",
+        "report",
+        "news",
+        "journalism",
+        "coverage"
+      ],
+
+      story: [
+        "article",
+        "report",
+        "news",
+        "coverage",
         "journalism"
       ],
 
-      "election": [
-        "elections",
-        "vote",
-        "votes",
-        "voting",
-        "ballot",
-        "ballots",
-        "campaign",
-        "candidate"
+      report: [
+        "reporting",
+        "article",
+        "news",
+        "journalism",
+        "coverage",
+        "source"
       ],
 
-      "government": [
-        "administration",
-        "official",
-        "officials",
-        "federal",
-        "state"
+
+      /* ---------------- NEWS ---------------- */
+
+      news: [
+        "reporting",
+        "journalism",
+        "article",
+        "articles",
+        "coverage",
+        "press",
+        "media",
+        "broadcast",
+        "headline",
+        "headlines"
       ],
 
-      "president": [
-        "presidential",
-        "presidency",
-        "administration",
-        "white house"
+      journalism: [
+        "news",
+        "reporting",
+        "press",
+        "media",
+        "coverage",
+        "journalist"
       ],
 
-      "war": [
-        "conflict",
-        "conflicts",
-        "battle",
-        "battles",
-        "military",
-        "armed conflict",
-        "hostilities"
+      reporting: [
+        "news",
+        "journalism",
+        "coverage",
+        "press",
+        "article"
       ],
 
-      "crisis": [
-        "crises",
-        "emergency",
-        "dispute",
-        "disputes",
-        "confrontation"
+      coverage: [
+        "news",
+        "reporting",
+        "journalism",
+        "television",
+        "broadcast",
+        "media"
       ],
 
-      "diplomacy": [
-        "diplomatic",
-        "negotiation",
-        "negotiations",
-        "foreign policy",
-        "international relations"
+
+      /* ---------------- VIDEO ---------------- */
+
+      video: [
+        "videos",
+        "footage",
+        "clip",
+        "clips",
+        "recording",
+        "recordings",
+        "film",
+        "films",
+        "documentary",
+        "documentaries",
+        "broadcast",
+        "broadcasts",
+        "television",
+        "tv",
+        "youtube",
+        "watch",
+        "visual",
+        "moving image"
       ],
 
-      "history": [
-        "historical",
-        "archive",
-        "archival",
-        "record",
-        "records",
-        "historical record"
+      videos: [
+        "video",
+        "footage",
+        "clip",
+        "clips",
+        "recording",
+        "youtube",
+        "documentary",
+        "broadcast"
       ],
 
-      "photograph": [
+      footage: [
+        "video",
+        "videos",
+        "clip",
+        "clips",
+        "recording",
+        "archival footage",
+        "news footage",
+        "television footage",
+        "broadcast"
+      ],
+
+      clip: [
+        "video",
+        "videos",
+        "footage",
+        "recording",
+        "youtube",
+        "film"
+      ],
+
+      clips: [
+        "clip",
+        "video",
+        "videos",
+        "footage",
+        "recording",
+        "youtube"
+      ],
+
+      recording: [
+        "video",
+        "footage",
+        "clip",
+        "broadcast",
+        "audio",
+        "film"
+      ],
+
+      youtube: [
+        "video",
+        "videos",
+        "footage",
+        "clip",
+        "documentary",
+        "channel"
+      ],
+
+      documentary: [
+        "documentary",
+        "documentaries",
+        "film",
+        "video",
+        "footage",
+        "history",
+        "archive"
+      ],
+
+
+      /* ---------------- PHOTOGRAPHS ---------------- */
+
+      photograph: [
         "photographs",
         "photo",
         "photos",
-        "picture",
-        "pictures",
         "image",
         "images",
+        "picture",
+        "pictures",
         "photography"
+      ],
+
+      photographs: [
+        "photograph",
+        "photo",
+        "photos",
+        "image",
+        "images",
+        "pictures"
+      ],
+
+      photo: [
+        "photograph",
+        "photographs",
+        "photos",
+        "image",
+        "images",
+        "picture",
+        "pictures"
+      ],
+
+      photos: [
+        "photo",
+        "photograph",
+        "photographs",
+        "image",
+        "images",
+        "pictures"
+      ],
+
+      image: [
+        "images",
+        "photo",
+        "photograph",
+        "photographs",
+        "picture",
+        "pictures",
+        "meme",
+        "memes"
+      ],
+
+      images: [
+        "image",
+        "photo",
+        "photograph",
+        "pictures",
+        "meme",
+        "memes"
+      ],
+
+
+      /* ---------------- MEMES ---------------- */
+
+      meme: [
+        "memes",
+        "meme archive",
+        "historical meme",
+        "historical memes",
+        "internet meme",
+        "internet memes",
+        "viral",
+        "viral image",
+        "viral images",
+        "reaction",
+        "reaction image",
+        "reaction images",
+        "funny image",
+        "funny images",
+        "caption",
+        "captions",
+        "internet culture",
+        "online culture",
+        "social media",
+        "social media post",
+        "image",
+        "images",
+        "picture",
+        "pictures",
+        "graphic",
+        "graphics"
+      ],
+
+      memes: [
+        "meme",
+        "meme archive",
+        "historical memes",
+        "historical meme",
+        "internet meme",
+        "viral",
+        "reaction",
+        "reaction image",
+        "caption",
+        "image",
+        "images",
+        "internet culture",
+        "social media"
+      ],
+
+      viral: [
+        "meme",
+        "memes",
+        "viral image",
+        "viral video",
+        "social media",
+        "internet",
+        "online",
+        "trending",
+        "trend"
+      ],
+
+      reaction: [
+        "meme",
+        "memes",
+        "reaction image",
+        "reaction images",
+        "internet meme",
+        "viral",
+        "social media"
+      ],
+
+      caption: [
+        "meme",
+        "memes",
+        "image",
+        "images",
+        "graphic",
+        "reaction",
+        "viral"
+      ],
+
+      funny: [
+        "meme",
+        "memes",
+        "humor",
+        "humour",
+        "comedy",
+        "joke",
+        "jokes",
+        "viral",
+        "reaction"
+      ],
+
+      humor: [
+        "humour",
+        "funny",
+        "comedy",
+        "meme",
+        "memes",
+        "joke",
+        "jokes"
+      ],
+
+      comedy: [
+        "humor",
+        "humour",
+        "funny",
+        "meme",
+        "memes",
+        "joke",
+        "satire"
+      ],
+
+
+      /* ---------------- SOCIAL MEDIA ---------------- */
+
+      social: [
+        "social media",
+        "x",
+        "twitter",
+        "tweet",
+        "tweets",
+        "facebook",
+        "instagram",
+        "tiktok",
+        "youtube",
+        "post",
+        "posts"
+      ],
+
+      "social media": [
+        "x",
+        "twitter",
+        "tweet",
+        "tweets",
+        "facebook",
+        "instagram",
+        "tiktok",
+        "youtube",
+        "post",
+        "posts",
+        "meme",
+        "memes"
+      ],
+
+      twitter: [
+        "x",
+        "tweet",
+        "tweets",
+        "social media",
+        "post",
+        "posts"
+      ],
+
+      tweet: [
+        "tweets",
+        "twitter",
+        "x",
+        "social media",
+        "post",
+        "posts"
+      ],
+
+      tweets: [
+        "tweet",
+        "twitter",
+        "x",
+        "social media",
+        "post",
+        "posts"
+      ],
+
+      post: [
+        "posts",
+        "tweet",
+        "tweets",
+        "social media",
+        "x",
+        "twitter",
+        "facebook",
+        "instagram"
+      ],
+
+      posts: [
+        "post",
+        "tweet",
+        "tweets",
+        "social media",
+        "x",
+        "twitter",
+        "facebook",
+        "instagram"
+      ],
+
+      instagram: [
+        "social media",
+        "post",
+        "posts",
+        "photo",
+        "photograph",
+        "image"
+      ],
+
+      facebook: [
+        "social media",
+        "post",
+        "posts",
+        "photo",
+        "image",
+        "video"
+      ],
+
+      tiktok: [
+        "social media",
+        "video",
+        "videos",
+        "clip",
+        "clips"
+      ],
+
+
+      /* ---------------- 9/11 ---------------- */
+
+      "9/11": [
+        "911",
+        "9 11",
+        "september 11",
+        "september 11th",
+        "september eleventh",
+        "september 11 attacks",
+        "terrorist attacks",
+        "world trade center",
+        "twin towers",
+        "pentagon",
+        "flight 93",
+        "flight 77",
+        "flight 175",
+        "flight 11",
+        "ground zero",
+        "new york city",
+        "manhattan",
+        "al qaeda",
+        "al-qaeda",
+        "osama bin laden",
+        "war on terror"
+      ],
+
+      "911": [
+        "9/11",
+        "9 11",
+        "september 11",
+        "september 11th",
+        "september eleventh",
+        "world trade center",
+        "twin towers",
+        "pentagon",
+        "flight 93",
+        "flight 77",
+        "flight 175",
+        "flight 11"
+      ],
+
+      "september 11": [
+        "9/11",
+        "911",
+        "september 11th",
+        "september eleventh",
+        "world trade center",
+        "twin towers",
+        "pentagon",
+        "flight 93",
+        "flight 77",
+        "flight 175",
+        "flight 11",
+        "ground zero"
+      ],
+
+      "september 11th": [
+        "september 11",
+        "9/11",
+        "911",
+        "september eleventh",
+        "world trade center",
+        "twin towers",
+        "pentagon"
+      ],
+
+      "september eleventh": [
+        "september 11",
+        "9/11",
+        "911",
+        "september 11th",
+        "world trade center",
+        "twin towers"
+      ],
+
+      "world trade center": [
+        "9/11",
+        "911",
+        "september 11",
+        "september 11 attacks",
+        "twin towers",
+        "north tower",
+        "south tower",
+        "ground zero",
+        "new york city",
+        "manhattan"
+      ],
+
+      "twin towers": [
+        "world trade center",
+        "9/11",
+        "911",
+        "september 11",
+        "north tower",
+        "south tower",
+        "new york city",
+        "manhattan"
+      ],
+
+      pentagon: [
+        "9/11",
+        "911",
+        "september 11",
+        "flight 77",
+        "arlington",
+        "pentagon attack"
+      ],
+
+      "flight 93": [
+        "united airlines flight 93",
+        "9/11",
+        "911",
+        "september 11",
+        "shanksville",
+        "pennsylvania"
+      ],
+
+      "flight 77": [
+        "american airlines flight 77",
+        "9/11",
+        "911",
+        "september 11",
+        "pentagon",
+        "arlington"
+      ],
+
+      "flight 175": [
+        "united airlines flight 175",
+        "9/11",
+        "911",
+        "september 11",
+        "south tower"
+      ],
+
+      "flight 11": [
+        "american airlines flight 11",
+        "9/11",
+        "911",
+        "september 11",
+        "north tower"
+      ],
+
+      "ground zero": [
+        "9/11",
+        "911",
+        "september 11",
+        "world trade center",
+        "new york",
+        "manhattan"
+      ],
+
+
+      /* ---------------- TERRORISM / HISTORY ---------------- */
+
+      terrorism: [
+        "terrorist",
+        "terrorist attacks",
+        "al qaeda",
+        "al-qaeda",
+        "osama bin laden",
+        "9/11",
+        "september 11",
+        "war on terror"
+      ],
+
+      terrorist: [
+        "terrorism",
+        "terrorist attacks",
+        "al qaeda",
+        "9/11",
+        "september 11"
+      ],
+
+      "al qaeda": [
+        "al-qaeda",
+        "al qaida",
+        "osama bin laden",
+        "bin laden",
+        "9/11",
+        "september 11"
+      ],
+
+      "osama bin laden": [
+        "bin laden",
+        "al qaeda",
+        "al-qaeda",
+        "9/11",
+        "september 11"
+      ],
+
+      "war on terror": [
+        "war on terrorism",
+        "terrorism",
+        "9/11",
+        "afghanistan",
+        "iraq",
+        "al qaeda"
+      ],
+
+
+      /* ---------------- IRAN ---------------- */
+
+      iran: [
+        "iranian",
+        "tehran",
+        "islamic republic of iran",
+        "nuclear",
+        "nuclear program",
+        "iran nuclear program",
+        "nuclear crisis",
+        "middle east",
+        "iaea",
+        "atomic energy",
+        "uranium",
+        "enrichment"
+      ],
+
+      iranian: [
+        "iran",
+        "tehran",
+        "islamic republic of iran"
+      ],
+
+      tehran: [
+        "iran",
+        "iranian",
+        "islamic republic of iran"
+      ],
+
+      nuclear: [
+        "iran",
+        "atomic",
+        "uranium",
+        "enrichment",
+        "reactor",
+        "nuclear program",
+        "nuclear weapons",
+        "proliferation",
+        "iaea",
+        "international atomic energy agency"
+      ],
+
+      atomic: [
+        "nuclear",
+        "uranium",
+        "reactor",
+        "atomic energy",
+        "iaea"
+      ],
+
+      uranium: [
+        "nuclear",
+        "enrichment",
+        "atomic",
+        "nuclear program"
+      ],
+
+      enrichment: [
+        "uranium",
+        "nuclear",
+        "atomic",
+        "nuclear program",
+        "proliferation"
+      ],
+
+      iaea: [
+        "international atomic energy agency",
+        "atomic energy",
+        "nuclear inspectors",
+        "nuclear inspection",
+        "nuclear",
+        "iran"
+      ],
+
+
+      /* ---------------- WORLD EVENTS ---------------- */
+
+      world: [
+        "world events",
+        "international",
+        "global",
+        "foreign",
+        "international relations",
+        "geopolitics"
+      ],
+
+      international: [
+        "global",
+        "world",
+        "foreign",
+        "international relations",
+        "diplomacy",
+        "geopolitics"
+      ],
+
+      global: [
+        "international",
+        "world",
+        "geopolitics",
+        "foreign affairs"
+      ],
+
+      geopolitics: [
+        "international relations",
+        "foreign policy",
+        "diplomacy",
+        "international",
+        "global",
+        "world"
+      ],
+
+      diplomacy: [
+        "diplomatic",
+        "foreign policy",
+        "international relations",
+        "negotiations",
+        "geopolitics"
+      ],
+
+      conflict: [
+        "war",
+        "crisis",
+        "fighting",
+        "hostilities",
+        "military",
+        "international relations"
+      ],
+
+      war: [
+        "conflict",
+        "fighting",
+        "military",
+        "hostilities",
+        "peace",
+        "warfare"
+      ],
+
+      crisis: [
+        "conflict",
+        "emergency",
+        "dispute",
+        "international crisis",
+        "political crisis"
+      ],
+
+
+      /* ---------------- POLITICS ---------------- */
+
+      politics: [
+        "political",
+        "government",
+        "president",
+        "presidential",
+        "election",
+        "elections",
+        "campaign",
+        "campaigns",
+        "congress",
+        "senate",
+        "house",
+        "legislation",
+        "policy",
+        "political history"
+      ],
+
+      political: [
+        "politics",
+        "government",
+        "election",
+        "campaign",
+        "policy",
+        "legislation"
+      ],
+
+      government: [
+        "politics",
+        "political",
+        "president",
+        "congress",
+        "senate",
+        "house",
+        "administration"
+      ],
+
+      president: [
+        "presidential",
+        "presidency",
+        "president",
+        "government",
+        "politics",
+        "administration"
+      ],
+
+      election: [
+        "elections",
+        "campaign",
+        "campaigns",
+        "voting",
+        "vote",
+        "politics",
+        "president"
+      ],
+
+      elections: [
+        "election",
+        "campaign",
+        "voting",
+        "vote",
+        "politics"
+      ],
+
+      congress: [
+        "senate",
+        "house",
+        "representatives",
+        "legislation",
+        "government",
+        "politics"
+      ],
+
+      senate: [
+        "senator",
+        "congress",
+        "legislation",
+        "government",
+        "politics"
+      ],
+
+      legislation: [
+        "law",
+        "bill",
+        "congress",
+        "senate",
+        "house",
+        "policy"
+      ],
+
+
+      /* ---------------- WRESTLING ---------------- */
+
+      wrestling: [
+        "professional wrestling",
+        "wrestler",
+        "wrestlers",
+        "match",
+        "matches",
+        "championship",
+        "championships",
+        "ajpw",
+        "all japan pro wrestling",
+        "noah",
+        "pro wrestling noah",
+        "triple crown",
+        "ghc"
+      ],
+
+      wrestler: [
+        "wrestling",
+        "professional wrestler",
+        "professional wrestling",
+        "championship",
+        "match",
+        "career"
+      ],
+
+      "professional wrestling": [
+        "wrestling",
+        "wrestler",
+        "match",
+        "championship",
+        "career",
+        "ajpw",
+        "noah"
+      ],
+
+      championship: [
+        "championships",
+        "title",
+        "titles",
+        "triple crown",
+        "ghc",
+        "match",
+        "wrestling"
+      ],
+
+      championships: [
+        "championship",
+        "title",
+        "titles",
+        "triple crown",
+        "ghc"
+      ],
+
+      match: [
+        "matches",
+        "wrestling",
+        "wrestler",
+        "championship",
+        "career"
+      ],
+
+      matches: [
+        "match",
+        "wrestling",
+        "wrestler",
+        "championship"
+      ],
+
+      ajpw: [
+        "all japan pro wrestling",
+        "all japan",
+        "kenta kobashi",
+        "triple crown"
+      ],
+
+      noah: [
+        "pro wrestling noah",
+        "kenta kobashi",
+        "ghc",
+        "ghc heavyweight championship"
+      ],
+
+      "triple crown": [
+        "championship",
+        "all japan",
+        "kenta kobashi",
+        "ajpw"
+      ],
+
+      "kenta kobashi": [
+        "kobashi",
+        "kenta",
+        "wrestling",
+        "ajpw",
+        "noah",
+        "triple crown",
+        "ghc",
+        "championship",
+        "burning hammer"
+      ],
+
+      kobashi: [
+        "kenta kobashi",
+        "kenta",
+        "wrestling",
+        "ajpw",
+        "noah",
+        "triple crown"
+      ],
+
+      kenta: [
+        "kenta kobashi",
+        "kobashi",
+        "wrestling"
       ]
 
     };
 
 
-    /* =========================================================
-       NORMALIZE
-       ========================================================= */
+    /* ============================================================
+       NORMALIZATION
+       ============================================================ */
 
     function normalizeText(value) {
 
@@ -1618,8 +1645,8 @@
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .replace(/&/g, " and ")
-        .replace(/['’]/g, "")
-        .replace(/[\/\\_.:,;!?()[\]{}"“”‘’]/g, " ")
+        .replace(/[’']/g, "")
+        .replace(/[\/\\_.:,;!?()[\]{}"“”‘’<>]/g, " ")
         .replace(/-/g, " ")
         .replace(/\s+/g, " ")
         .trim();
@@ -1627,55 +1654,180 @@
     }
 
 
-    /* =========================================================
-       BUILD SEARCH TEXT
-       ========================================================= */
+    /* ============================================================
+       TOKENIZATION
+       ============================================================ */
 
-    function buildSearchText(record) {
+    function tokenize(value) {
 
-      return normalizeText(
-
-        [
-
-          record.title,
-          record.category,
-          record.date,
-          record.description,
-
-          ...(record.keywords || []),
-          ...(record.aliases || [])
-
-        ].join(" ")
-
-      );
+      return normalizeText(value)
+        .split(" ")
+        .filter(Boolean);
 
     }
 
 
-    /* =========================================================
-       PREPARE DATABASE
-       ========================================================= */
+    /* ============================================================
+       STEMMING
 
-    const preparedRecords =
-      archiveRecords.map(
-        function(record) {
+       Very lightweight stemming catches common variations:
 
-          return {
+         meme / memes
+         video / videos
+         article / articles
+         photograph / photographs
+         attack / attacks
+         historical / history
+       ============================================================ */
 
-            ...record,
+    function stem(word) {
 
-            searchText:
-              buildSearchText(record)
+      let value = normalizeText(word);
 
-          };
+      if (!value) {
+        return "";
+      }
+
+      if (
+        value.length > 5 &&
+        value.endsWith("ies")
+      ) {
+        return value.slice(0, -3) + "y";
+      }
+
+      if (
+        value.length > 4 &&
+        value.endsWith("es")
+      ) {
+        return value.slice(0, -2);
+      }
+
+      if (
+        value.length > 4 &&
+        value.endsWith("s") &&
+        !value.endsWith("ss")
+      ) {
+        return value.slice(0, -1);
+      }
+
+      return value;
+
+    }
+
+
+    /* ============================================================
+       LEVENSHTEIN FUZZY MATCHING
+
+       This catches reasonable spelling mistakes.
+
+       Examples:
+
+         "kobashy" -> kobashi
+         "memee" -> meme
+         "septmber" -> september
+         "iranian" -> iran
+       ============================================================ */
+
+    function levenshtein(a, b) {
+
+      a = String(a);
+      b = String(b);
+
+      if (a === b) {
+        return 0;
+      }
+
+      if (!a.length) {
+        return b.length;
+      }
+
+      if (!b.length) {
+        return a.length;
+      }
+
+      const matrix = [];
+
+      for (let i = 0; i <= b.length; i++) {
+        matrix[i] = [i];
+      }
+
+      for (let j = 0; j <= a.length; j++) {
+        matrix[0][j] = j;
+      }
+
+      for (let i = 1; i <= b.length; i++) {
+
+        for (let j = 1; j <= a.length; j++) {
+
+          if (b.charAt(i - 1) === a.charAt(j - 1)) {
+
+            matrix[i][j] =
+              matrix[i - 1][j - 1];
+
+          } else {
+
+            matrix[i][j] = Math.min(
+
+              matrix[i - 1][j - 1] + 1,
+
+              matrix[i][j - 1] + 1,
+
+              matrix[i - 1][j] + 1
+
+            );
+
+          }
 
         }
-      );
+
+      }
+
+      return matrix[b.length][a.length];
+
+    }
 
 
-    /* =========================================================
-       EXPAND QUERY
-       ========================================================= */
+    function fuzzyWordMatch(queryWord, textWord) {
+
+      const q = stem(queryWord);
+      const t = stem(textWord);
+
+      if (!q || !t) {
+        return false;
+      }
+
+      if (q === t) {
+        return true;
+      }
+
+      if (
+        q.length >= 4 &&
+        (
+          t.includes(q) ||
+          q.includes(t)
+        )
+      ) {
+        return true;
+      }
+
+      const distance =
+        levenshtein(q, t);
+
+      const allowed =
+        q.length >= 8
+          ? 2
+          : q.length >= 5
+            ? 1
+            : 0;
+
+      return distance <= allowed;
+
+    }
+
+
+    /* ============================================================
+       QUERY EXPANSION
+       ============================================================ */
 
     function expandQuery(query) {
 
@@ -1683,59 +1835,44 @@
         normalizeText(query);
 
       const originalTerms =
-        normalized
-          .split(" ")
-          .filter(Boolean);
+        tokenize(normalized);
 
-      const expandedTerms =
-        new Set(originalTerms);
+      const expanded = new Set(
+        originalTerms
+      );
+
+      /*
+       * Add complete phrase if it exists
+       * in the synonym dictionary.
+       */
+
+      if (
+        SEARCH_SYNONYMS[normalized]
+      ) {
+
+        SEARCH_SYNONYMS[normalized]
+          .forEach(function(term) {
+            expanded.add(
+              normalizeText(term)
+            );
+          });
+
+      }
 
 
-      Object.keys(
-        SEARCH_VOCABULARY
-      ).forEach(
-        function(group) {
+      originalTerms.forEach(
+        function(term) {
 
-          const relatedTerms = [
+          if (
+            SEARCH_SYNONYMS[term]
+          ) {
 
-            group,
-
-            ...SEARCH_VOCABULARY[group]
-
-          ].map(normalizeText);
-
-
-          const matched =
-            relatedTerms.some(
-              function(term) {
-
-                return (
-                  normalized.includes(term) ||
-                  originalTerms.some(
-                    function(word) {
-
-                      return (
-                        term.includes(word) ||
-                        word.includes(term)
-                      );
-
-                    }
-                  )
+            SEARCH_SYNONYMS[term]
+              .forEach(function(alias) {
+                expanded.add(
+                  normalizeText(alias)
                 );
-
-              }
-            );
-
-
-          if (matched) {
-
-            relatedTerms.forEach(
-              function(term) {
-
-                expandedTerms.add(term);
-
-              }
-            );
+              });
 
           }
 
@@ -1743,388 +1880,1651 @@
       );
 
 
+      return Array.from(expanded);
+
+    }
+
+
+    /* ============================================================
+       CATEGORY DETECTION
+       ============================================================ */
+
+    function getCategory(file) {
+
+      const value =
+        normalizeText(file);
+
+      if (
+        value.includes("politic") ||
+        value.includes("september") ||
+        value.includes("911") ||
+        value.includes("sourcebook")
+      ) {
+        return "Politics";
+      }
+
+      if (
+        value.includes("wrestling") ||
+        value.includes("kobashi") ||
+        value.includes("entertainment") ||
+        value.includes("sport")
+      ) {
+        return "Entertainment / Sports";
+      }
+
+      if (
+        value.includes("iran") ||
+        value.includes("world") ||
+        value.includes("nuclear")
+      ) {
+        return "World Events";
+      }
+
+      if (
+        value.includes("social") ||
+        value.includes("meme")
+      ) {
+        return "Social Media";
+      }
+
+      if (
+        value.includes("thought")
+      ) {
+        return "Thoughts / Blog";
+      }
+
+      return "Archive";
+
+    }
+
+
+    /* ============================================================
+       MEDIA TYPE DETECTION
+       ============================================================ */
+
+    function getMediaType(url) {
+
+      const value =
+        String(url || "").toLowerCase();
+
+      if (
+        value.includes("youtube.com") ||
+        value.includes("youtu.be")
+      ) {
+        return "Video";
+      }
+
+      if (
+        value.includes("vimeo.com")
+      ) {
+        return "Video";
+      }
+
+      if (
+        /\.(mp4|webm|mov|m4v)(\?|$)/i.test(value)
+      ) {
+        return "Video";
+      }
+
+      if (
+        /\.(jpg|jpeg|png|gif|webp|avif)(\?|$)/i.test(value)
+      ) {
+        return "Photograph / Image";
+      }
+
+      if (
+        value.includes("x.com") ||
+        value.includes("twitter.com")
+      ) {
+        return "Social Media";
+      }
+
+      if (
+        value.includes("facebook.com") ||
+        value.includes("instagram.com") ||
+        value.includes("tiktok.com")
+      ) {
+        return "Social Media";
+      }
+
+      return "";
+
+    }
+
+
+    /* ============================================================
+       EXTRACT CLEAN PAGE TEXT
+       ============================================================ */
+
+    function getVisiblePageText(doc) {
+
+      const main =
+        doc.querySelector("main") ||
+        doc.body;
+
+      /*
+       * Do not index the navigation itself.
+       * We want actual archive material.
+       */
+
+      const clone =
+        main.cloneNode(true);
+
+      clone.querySelectorAll(
+        "script,style,nav,.side-menu,.menu-button,.menu-overlay,footer,header"
+      ).forEach(function(el) {
+        el.remove();
+      });
+
+      return Array.from(
+        clone.querySelectorAll(
+          "h1,h2,h3,h4,h5,p,li,figcaption,blockquote,dt,dd,caption,article"
+        )
+      )
+      .map(function(el) {
+        return el.textContent
+          .replace(/\s+/g, " ")
+          .trim();
+      })
+      .filter(Boolean)
+      .join(" ");
+
+    }
+
+
+    /* ============================================================
+       PAGE HEADINGS
+       ============================================================ */
+
+    function getHeadings(doc) {
+
+      return Array.from(
+        doc.querySelectorAll(
+          "main h1, main h2, main h3, main h4"
+        )
+      )
+      .map(function(el) {
+        return el.textContent
+          .replace(/\s+/g, " ")
+          .trim();
+      })
+      .filter(Boolean);
+
+    }
+
+
+    /* ============================================================
+       CREATE PAGE RECORD
+       ============================================================ */
+
+    function makePageRecord(file, doc) {
+
+      const title =
+        (doc.title || file)
+          .replace(
+            /\s*\|\s*The Historical Record.*$/i,
+            ""
+          )
+          .trim();
+
+      const headings =
+        getHeadings(doc);
+
+      const bodyText =
+        getVisiblePageText(doc);
+
+      const description =
+        headings.slice(0, 3).join(" • ") ||
+        bodyText.slice(0, 300);
+
+      const searchable =
+        [
+          file,
+          title,
+          getCategory(file),
+          description,
+          ...headings,
+          bodyText
+        ].join(" ");
+
       return {
 
-        original:
-          normalized,
+        id:
+          "page:" + file,
 
-        originalTerms,
+        file:
+          file,
 
-        expandedTerms:
-          Array.from(expandedTerms)
+        title:
+          title,
+
+        category:
+          getCategory(file),
+
+        date:
+          "Archive",
+
+        description:
+          description,
+
+        keywords:
+          searchable,
+
+        aliases:
+          [
+            file
+              .replace(/\.html$/i, "")
+              .replace(/[-_]/g, " ")
+          ],
+
+        type:
+          "page",
+
+        source:
+          file
 
       };
 
     }
 
 
-    /* =========================================================
-       TERM MATCHING
-       ========================================================= */
+    /* ============================================================
+       FIND DATE IN CONTEXT
+       ============================================================ */
 
-    function termMatches(
-      text,
-      term
+    function findDate(text) {
+
+      const patterns = [
+
+        /\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+\d{4}\b/i,
+
+        /\b\d{1,2}\/\d{1,2}\/\d{4}\b/,
+
+        /\b\d{4}-\d{2}-\d{2}\b/,
+
+        /\b(?:19|20)\d{2}\b/
+
+      ];
+
+      for (
+        let i = 0;
+        i < patterns.length;
+        i++
+      ) {
+
+        const match =
+          text.match(patterns[i]);
+
+        if (match) {
+          return match[0];
+        }
+
+      }
+
+      return "Archived material";
+
+    }
+
+
+    /* ============================================================
+       CREATE DIRECT LINK RECORD
+
+       Every meaningful link gets its own searchable result.
+
+       This is the important difference between:
+
+         "search finds the page"
+
+       and:
+
+         "search finds the actual article/video/source."
+       ============================================================ */
+
+    function makeLinkRecord(
+      sourceFile,
+      sourceDoc,
+      anchor,
+      index
     ) {
 
+      const href =
+        anchor.getAttribute("href") || "";
+
+      if (!href) {
+        return null;
+      }
+
       if (
-        !text ||
-        !term
+        href.startsWith("#") ||
+        href.toLowerCase()
+          .startsWith("javascript:")
       ) {
-        return false;
+        return null;
+      }
+
+      /*
+       * Ignore ordinary site navigation.
+       */
+
+      if (
+        anchor.closest(
+          ".side-menu, nav, header, footer"
+        )
+      ) {
+        return null;
+      }
+
+      const text =
+        anchor.textContent
+          .replace(/\s+/g, " ")
+          .trim();
+
+      const parent =
+        anchor.closest(
+          "article,figure,section,li,div"
+        ) ||
+        anchor.parentElement;
+
+      const context =
+        parent
+          ? parent.textContent
+              .replace(/\s+/g, " ")
+              .trim()
+          : "";
+
+      const headings =
+        parent
+          ? Array.from(
+              parent.querySelectorAll(
+                "h1,h2,h3,h4,h5"
+              )
+            )
+            .map(function(el) {
+              return el.textContent
+                .replace(/\s+/g, " ")
+                .trim();
+            })
+            .join(" ")
+          : "";
+
+      const absoluteUrl =
+        (() => {
+          try {
+            return new URL(
+              href,
+              window.location.href
+            ).href;
+          } catch (error) {
+            return href;
+          }
+        })();
+
+      const external =
+        /^(https?:)?\/\//i.test(href);
+
+      const mediaType =
+        getMediaType(absoluteUrl);
+
+      /*
+       * YouTube links are explicitly recognized.
+       */
+
+      const isYouTube =
+        /youtube\.com|youtu\.be/i
+          .test(absoluteUrl);
+
+      /*
+       * Avoid making generic navigation
+       * links into search results.
+       */
+
+      const genericLabels = [
+        "click here",
+        "read more",
+        "learn more",
+        "view",
+        "open",
+        "link",
+        "source"
+      ];
+
+      const normalizedText =
+        normalizeText(text);
+
+      const generic =
+        genericLabels.includes(
+          normalizedText
+        );
+
+      if (
+        generic &&
+        !headings &&
+        !context
+      ) {
+        return null;
+      }
+
+      let title =
+        text ||
+        headings ||
+        mediaType ||
+        "Archived Link";
+
+      /*
+       * If an anchor simply says "View Record",
+       * use the nearby heading as the title.
+       */
+
+      if (
+        (
+          normalizedText === "view record" ||
+          normalizedText === "read more" ||
+          normalizedText === "source"
+        ) &&
+        headings
+      ) {
+
+        title = headings;
+
+      }
+
+      /*
+       * YouTube videos get a stronger title
+       * from surrounding content.
+       */
+
+      if (
+        isYouTube &&
+        headings
+      ) {
+        title = headings;
+      }
+
+      const description =
+        context
+          ? context.slice(0, 500)
+          : (
+              "Direct link preserved from " +
+              sourceFile +
+              "."
+            );
+
+      const keywords = [
+
+        sourceFile,
+
+        getCategory(sourceFile),
+
+        text,
+
+        headings,
+
+        context,
+
+        href,
+
+        absoluteUrl,
+
+        mediaType,
+
+        isYouTube
+          ? "youtube video video videos footage"
+          : "",
+
+        external
+          ? "external direct source article source"
+          : "internal archive record"
+
+      ].join(" ");
+
+      return {
+
+        id:
+          "link:" +
+          sourceFile +
+          ":" +
+          index +
+          ":" +
+          href,
+
+        file:
+          absoluteUrl,
+
+        title:
+          title,
+
+        category:
+          mediaType === "Video"
+            ? "Video"
+            : mediaType === "Photograph / Image"
+              ? "Photographs / Images"
+              : mediaType === "Social Media"
+                ? "Social Media"
+                : getCategory(sourceFile),
+
+        date:
+          findDate(context),
+
+        description:
+          description,
+
+        keywords:
+          keywords,
+
+        aliases:
+          [
+            text,
+            headings,
+            mediaType,
+            isYouTube
+              ? "youtube"
+              : ""
+          ],
+
+        type:
+          mediaType
+            ? mediaType.toLowerCase()
+            : "link",
+
+        source:
+          sourceFile
+
+      };
+
+    }
+
+
+    /* ============================================================
+       CREATE IMAGE RECORD
+
+       This lets searches such as:
+
+         meme
+         photograph
+         picture
+         image
+         9/11 photo
+         historical meme
+
+       discover images that may not have a useful anchor text.
+       ============================================================ */
+
+    function makeImageRecord(
+      sourceFile,
+      image,
+      index
+    ) {
+
+      const alt =
+        image.getAttribute("alt") || "";
+
+      const title =
+        image.getAttribute("title") || "";
+
+      const figure =
+        image.closest("figure");
+
+      const caption =
+        figure
+          ? (
+              figure.querySelector("figcaption")
+                ?.textContent || ""
+            )
+          : "";
+
+      const src =
+        image.getAttribute("src") || "";
+
+      if (
+        !alt &&
+        !title &&
+        !caption &&
+        !src
+      ) {
+        return null;
+      }
+
+      const context =
+        [
+          alt,
+          title,
+          caption,
+          sourceFile,
+          "image photograph picture photo"
+        ].join(" ");
+
+      return {
+
+        id:
+          "image:" +
+          sourceFile +
+          ":" +
+          index,
+
+        file:
+          (() => {
+            try {
+              return new URL(
+                src,
+                window.location.href
+              ).href;
+            } catch (error) {
+              return src;
+            }
+          })(),
+
+        title:
+          alt ||
+          title ||
+          caption ||
+          "Archived Image",
+
+        category:
+          "Photographs / Images",
+
+        date:
+          findDate(
+            caption +
+            " " +
+            sourceFile
+          ),
+
+        description:
+          caption ||
+          alt ||
+          "Image preserved in the archive.",
+
+        keywords:
+          context,
+
+        aliases:
+          [
+            "image",
+            "photo",
+            "photograph",
+            "picture"
+          ],
+
+        type:
+          "image",
+
+        source:
+          sourceFile
+
+      };
+
+    }
+
+
+    /* ============================================================
+       CREATE VIDEO EMBED RECORD
+       ============================================================ */
+
+    function makeVideoEmbedRecord(
+      sourceFile,
+      element,
+      index
+    ) {
+
+      const src =
+        element.getAttribute("src") ||
+        element.getAttribute("data-src") ||
+        "";
+
+      if (!src) {
+        return null;
+      }
+
+      const absoluteUrl =
+        (() => {
+          try {
+            return new URL(
+              src,
+              window.location.href
+            ).href;
+          } catch (error) {
+            return src;
+          }
+        })();
+
+      const parent =
+        element.closest(
+          "article,figure,section,div"
+        );
+
+      const context =
+        parent
+          ? parent.textContent
+              .replace(/\s+/g, " ")
+              .trim()
+          : "";
+
+      const heading =
+        parent
+          ? Array.from(
+              parent.querySelectorAll(
+                "h1,h2,h3,h4,h5"
+              )
+            )
+            .map(function(el) {
+              return el.textContent
+                .replace(/\s+/g, " ")
+                .trim();
+            })
+            .join(" ")
+          : "";
+
+      return {
+
+        id:
+          "video:" +
+          sourceFile +
+          ":" +
+          index,
+
+        file:
+          absoluteUrl,
+
+        title:
+          heading ||
+          "Archived Video",
+
+        category:
+          "Video",
+
+        date:
+          findDate(context),
+
+        description:
+          context.slice(0, 500) ||
+          "Video preserved in the archive.",
+
+        keywords:
+          [
+            sourceFile,
+            heading,
+            context,
+            absoluteUrl,
+            "video videos footage recording youtube"
+          ].join(" "),
+
+        aliases:
+          [
+            "video",
+            "videos",
+            "footage",
+            "clip",
+            "recording"
+          ],
+
+        type:
+          "video",
+
+        source:
+          sourceFile
+
+      };
+
+    }
+
+
+    /* ============================================================
+       INDEX ONE PAGE
+       ============================================================ */
+
+    function indexPage(
+      file,
+      html
+    ) {
+
+      const parser =
+        new DOMParser();
+
+      const doc =
+        parser.parseFromString(
+          html,
+          "text/html"
+        );
+
+      const records = [];
+
+      /*
+       * Main page itself.
+       */
+
+      records.push(
+        makePageRecord(
+          file,
+          doc
+        )
+      );
+
+
+      /*
+       * Direct links.
+       */
+
+      const anchors =
+        Array.from(
+          doc.querySelectorAll(
+            "main a[href]"
+          )
+        );
+
+      anchors.forEach(
+        function(anchor, index) {
+
+          const record =
+            makeLinkRecord(
+              file,
+              doc,
+              anchor,
+              index
+            );
+
+          if (record) {
+            records.push(record);
+          }
+
+        }
+      );
+
+
+      /*
+       * Images.
+       */
+
+      const images =
+        Array.from(
+          doc.querySelectorAll(
+            "main img"
+          )
+        );
+
+      images.forEach(
+        function(image, index) {
+
+          const record =
+            makeImageRecord(
+              file,
+              image,
+              index
+            );
+
+          if (record) {
+            records.push(record);
+          }
+
+        }
+      );
+
+
+      /*
+       * Video elements and iframes.
+       */
+
+      const media =
+        Array.from(
+          doc.querySelectorAll(
+            "main iframe[src], main video[src], main source[src]"
+          )
+        );
+
+      media.forEach(
+        function(element, index) {
+
+          const record =
+            makeVideoEmbedRecord(
+              file,
+              element,
+              index
+            );
+
+          if (record) {
+            records.push(record);
+          }
+
+        }
+      );
+
+
+      return records;
+
+    }
+
+
+    /* ============================================================
+       LIVE SITE INDEX
+
+       Fetches every known page.
+
+       This is what allows the search system to grow with the site.
+       ============================================================ */
+
+    async function buildLiveIndex() {
+
+      const allRecords = [];
+
+      /*
+       * Keep a copy of the static pages.
+       */
+
+      for (
+        let i = 0;
+        i < SEARCH_PAGES.length;
+        i++
+      ) {
+
+        const file =
+          SEARCH_PAGES[i];
+
+        try {
+
+          const response =
+            await fetch(
+              file,
+              {
+                cache: "no-store"
+              }
+            );
+
+          if (!response.ok) {
+            continue;
+          }
+
+          const html =
+            await response.text();
+
+          const records =
+            indexPage(
+              file,
+              html
+            );
+
+          records.forEach(
+            function(record) {
+              allRecords.push(record);
+            }
+          );
+
+        } catch (error) {
+
+          /*
+           * A missing page is intentionally ignored.
+
+           * This is important for future pages such as
+           * historical-memes.html. Once the page exists,
+           * it is automatically picked up.
+           */
+
+        }
+
       }
 
 
-      if (
-        text.includes(term)
-      ) {
-        return true;
-      }
+      /*
+       * Remove duplicate records.
+       */
 
+      const uniqueRecords =
+        [];
 
-      const words =
-        text.split(" ");
+      const seen =
+        new Set();
 
+      allRecords.forEach(
+        function(record) {
 
-      return words.some(
-        function(word) {
+          const key =
+            record.id ||
+            (
+              record.file +
+              "|" +
+              record.title
+            );
 
-          return (
-            word === term ||
-            word.startsWith(term) ||
-            term.startsWith(word)
+          if (
+            seen.has(key)
+          ) {
+            return;
+          }
+
+          seen.add(key);
+
+          uniqueRecords.push(
+            record
           );
 
         }
       );
 
+
+      return uniqueRecords;
+
     }
 
 
-    /* =========================================================
-       SEARCH ENGINE
-       ========================================================= */
+    /* ============================================================
+       MATCH ONE RECORD AGAINST ONE TERM
+       ============================================================ */
 
-    function searchArchive(query) {
+    function scoreTerm(
+      record,
+      term,
+      expandedTerm
+    ) {
 
-      const queryData =
-        expandQuery(query);
+      const title =
+        normalizeText(
+          record.title
+        );
 
+      const category =
+        normalizeText(
+          record.category
+        );
+
+      const description =
+        normalizeText(
+          record.description
+        );
+
+      const keywords =
+        normalizeText(
+          record.keywords
+        );
+
+      const aliases =
+        normalizeText(
+          (
+            record.aliases || []
+          ).join(" ")
+        );
+
+      const file =
+        normalizeText(
+          record.file
+        );
+
+      const searchable =
+        [
+          title,
+          category,
+          description,
+          keywords,
+          aliases,
+          file
+        ].join(" ");
+
+      let score = 0;
+
+
+      /*
+       * Exact phrase match.
+       */
 
       if (
-        !queryData.originalTerms.length
+        expandedTerm &&
+        searchable.includes(
+          expandedTerm
+        )
       ) {
-        return [];
+        score += 18;
       }
 
 
-      return preparedRecords
+      /*
+       * Title is the strongest field.
+       */
 
-        .map(
-          function(record) {
+      if (
+        title.includes(term)
+      ) {
+        score += 45;
+      }
 
-            const searchable =
-              record.searchText;
 
-            const title =
+      /*
+       * Category.
+
+       */
+
+      if (
+        category.includes(term)
+      ) {
+        score += 28;
+      }
+
+
+      /*
+       * Description.
+
+       */
+
+      if (
+        description.includes(term)
+      ) {
+        score += 20;
+      }
+
+
+      /*
+       * Alias.
+
+       */
+
+      if (
+        aliases.includes(term)
+      ) {
+        score += 22;
+      }
+
+
+      /*
+       * Filename.
+
+       */
+
+      if (
+        file.includes(term)
+      ) {
+        score += 16;
+      }
+
+
+      /*
+       * General page content.
+
+       */
+
+      if (
+        keywords.includes(term)
+      ) {
+        score += 9;
+      }
+
+
+      /*
+       * Word-level fuzzy matching.
+
+       */
+
+      const words =
+        searchable
+          .split(/\s+/)
+          .filter(Boolean);
+
+      for (
+        let i = 0;
+        i < words.length;
+        i++
+      ) {
+
+        if (
+          fuzzyWordMatch(
+            term,
+            words[i]
+          )
+        ) {
+
+          score += 4;
+
+          break;
+
+        }
+
+      }
+
+
+      /*
+       * Media-specific boosts.
+
+       */
+
+      const mediaType =
+        normalizeText(
+          record.type
+        );
+
+      if (
+        (
+          term === "video" ||
+          term === "videos" ||
+          term === "footage" ||
+          term === "youtube" ||
+          term === "clip"
+        ) &&
+        (
+          mediaType === "video" ||
+          record.category === "Video"
+        )
+      ) {
+
+        score += 30;
+
+      }
+
+
+      /*
+       * Meme-specific boosts.
+
+       */
+
+      if (
+        (
+          term === "meme" ||
+          term === "memes"
+        ) &&
+        (
+          searchable.includes("meme") ||
+          searchable.includes("viral") ||
+          searchable.includes("reaction")
+        )
+      ) {
+
+        score += 25;
+
+      }
+
+
+      return score;
+
+    }
+
+
+    /* ============================================================
+       SEARCH THE INDEX
+       ============================================================ */
+
+    function searchArchive(
+      query,
+      index
+    ) {
+
+      const normalizedQuery =
+        normalizeText(query);
+
+      if (!normalizedQuery) {
+        return [];
+      }
+
+      const originalTerms =
+        tokenize(
+          normalizedQuery
+        );
+
+      /*
+       * Expanded concepts.
+
+       * We retain the original words separately so a search
+       * for "Kenta Iran" still requires both concepts.
+       */
+
+      const expandedTerms =
+        expandQuery(
+          normalizedQuery
+        );
+
+
+      const results = [];
+
+
+      index.forEach(
+        function(record) {
+
+          let totalScore = 0;
+
+          let matchedOriginalTerms = 0;
+
+
+          /*
+           * Every original search word must have
+           * some meaningful relationship with the record.
+           */
+
+          originalTerms.forEach(
+            function(term) {
+
+              let bestScore = 0;
+
+              /*
+               * Original term.
+               */
+
+              bestScore =
+                Math.max(
+                  bestScore,
+                  scoreTerm(
+                    record,
+                    term,
+                    term
+                  )
+                );
+
+
+              /*
+               * Synonyms / expanded terms.
+
+               * Only use expansion when the synonym
+               * actually exists in the record.
+               */
+
+              expandedTerms.forEach(
+                function(expandedTerm) {
+
+                  const expandedTokens =
+                    tokenize(
+                      expandedTerm
+                    );
+
+                  expandedTokens.forEach(
+                    function(token) {
+
+                      bestScore =
+                        Math.max(
+                          bestScore,
+                          scoreTerm(
+                            record,
+                            token,
+                            expandedTerm
+                          ) * 0.72
+                        );
+
+                    }
+                  );
+
+                }
+              );
+
+
+              if (
+                bestScore > 0
+              ) {
+
+                matchedOriginalTerms++;
+
+              }
+
+              totalScore +=
+                bestScore;
+
+            }
+          );
+
+
+          /*
+           * A multi-word search requires every
+           * original concept to be represented.
+           */
+
+          if (
+            matchedOriginalTerms !==
+            originalTerms.length
+          ) {
+            return;
+          }
+
+
+          /*
+           * Exact complete phrase gets a major boost.
+           */
+
+          const fullText =
+            normalizeText(
+              [
+                record.title,
+                record.description,
+                record.keywords,
+                record.aliases
+              ].join(" ")
+            );
+
+          if (
+            fullText.includes(
+              normalizedQuery
+            )
+          ) {
+
+            totalScore += 150;
+
+          }
+
+
+          /*
+           * Exact title phrase.
+
+           */
+
+          if (
+            normalizeText(
+              record.title
+            ).includes(
+              normalizedQuery
+            )
+          ) {
+
+            totalScore += 100;
+
+          }
+
+
+          /*
+           * Direct article/video/source results
+           * are valuable, so don't bury them.
+           */
+
+          if (
+            record.type === "video"
+          ) {
+
+            totalScore += 12;
+
+          }
+
+
+          if (
+            record.type === "image"
+          ) {
+
+            totalScore += 6;
+
+          }
+
+
+          if (
+            record.type === "link"
+          ) {
+
+            totalScore += 4;
+
+          }
+
+
+          results.push({
+
+            record:
+              record,
+
+            score:
+              totalScore
+
+          });
+
+        }
+      );
+
+
+      /*
+       * Sort strongest matches first.
+       */
+
+      results.sort(
+        function(a, b) {
+
+          return b.score -
+            a.score;
+
+        }
+      );
+
+
+      /*
+       * Remove duplicate destinations.
+
+       * If 20 anchors point to the same article,
+       * show the article once.
+       */
+
+      const finalResults = [];
+
+      const seenUrls =
+        new Set();
+
+      results.forEach(
+        function(item) {
+
+          const record =
+            item.record;
+
+          const key =
+            (
+              record.file +
+              "|" +
               normalizeText(
                 record.title
-              );
-
-            const category =
-              normalizeText(
-                record.category
-              );
-
-            const date =
-              normalizeText(
-                record.date
-              );
-
-            const description =
-              normalizeText(
-                record.description
-              );
-
-
-            let score = 0;
-
-            let originalMatchCount = 0;
-
-
-            /* ----------------------------------------------
-               EXACT QUERY
-               ---------------------------------------------- */
-
-            if (
-              searchable.includes(
-                queryData.original
               )
-            ) {
-
-              score += 150;
-
-            }
-
-
-            if (
-              title.includes(
-                queryData.original
-              )
-            ) {
-
-              score += 300;
-
-            }
-
-
-            /* ----------------------------------------------
-               INDIVIDUAL SEARCH TERMS
-               ---------------------------------------------- */
-
-            queryData.originalTerms.forEach(
-              function(term) {
-
-                if (
-                  termMatches(
-                    title,
-                    term
-                  )
-                ) {
-
-                  score += 120;
-                  originalMatchCount++;
-
-                }
-
-
-                if (
-                  termMatches(
-                    category,
-                    term
-                  )
-                ) {
-
-                  score += 70;
-                  originalMatchCount++;
-
-                }
-
-
-                if (
-                  termMatches(
-                    date,
-                    term
-                  )
-                ) {
-
-                  score += 55;
-                  originalMatchCount++;
-
-                }
-
-
-                if (
-                  termMatches(
-                    description,
-                    term
-                  )
-                ) {
-
-                  score += 50;
-                  originalMatchCount++;
-
-                }
-
-
-                if (
-                  termMatches(
-                    searchable,
-                    term
-                  )
-                ) {
-
-                  score += 35;
-                  originalMatchCount++;
-
-                }
-
-              }
             );
 
-
-            /* ----------------------------------------------
-               RELATED TERMS
-               ---------------------------------------------- */
-
-            queryData.expandedTerms.forEach(
-              function(term) {
-
-                if (
-                  queryData.originalTerms.includes(
-                    term
-                  )
-                ) {
-
-                  return;
-
-                }
-
-
-                if (
-                  termMatches(
-                    title,
-                    term
-                  )
-                ) {
-
-                  score += 35;
-
-                }
-
-                else if (
-                  termMatches(
-                    searchable,
-                    term
-                  )
-                ) {
-
-                  score += 12;
-
-                }
-
-              }
-            );
-
-
-            /* ----------------------------------------------
-               MULTI-WORD BONUS
-               ---------------------------------------------- */
-
-            if (
-              queryData.originalTerms.length > 1
-            ) {
-
-              const allTermsMatch =
-                queryData.originalTerms.every(
-                  function(term) {
-
-                    return termMatches(
-                      searchable,
-                      term
-                    );
-
-                  }
-                );
-
-
-              if (
-                allTermsMatch
-              ) {
-
-                score += 250;
-
-              }
-
-            }
-
-
-            /* ----------------------------------------------
-               REMOVE ZERO-MATCH RECORDS
-               ---------------------------------------------- */
-
-            if (
-              originalMatchCount === 0
-            ) {
-
-              const relatedMatch =
-                queryData.expandedTerms.some(
-                  function(term) {
-
-                    return termMatches(
-                      searchable,
-                      term
-                    );
-
-                  }
-                );
-
-
-              if (
-                !relatedMatch
-              ) {
-
-                return null;
-
-              }
-
-            }
-
-
-            return {
-
-              record,
-              score
-
-            };
-
+          if (
+            seenUrls.has(key)
+          ) {
+            return;
           }
-        )
 
-        .filter(Boolean)
+          seenUrls.add(key);
 
-        .sort(
-          function(a, b) {
+          finalResults.push(
+            item
+          );
 
-            return b.score - a.score;
+        }
+      );
 
-          }
-        )
 
+      return finalResults
+        .slice(0, 100)
         .map(
           function(item) {
-
             return item.record;
-
           }
         );
 
     }
 
 
-    /* =========================================================
-       DOM
-       ========================================================= */
+    /* ============================================================
+       HTML ESCAPING
+       ============================================================ */
 
-    const form =
-      document.getElementById(
-        "search-form"
-      );
+    function escapeHtml(value) {
 
-    const input =
-      document.getElementById(
-        "search-input"
-      );
+      return String(value || "")
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+        .replace(
+          /</g,
+          "&lt;"
+        )
+        .replace(
+          />/g,
+          "&gt;"
+        )
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+        .replace(
+          /'/g,
+          "&#039;"
+        );
 
-    const results =
-      document.getElementById(
-        "search-results"
-      );
-
-    const status =
-      document.getElementById(
-        "search-status"
-      );
+    }
 
 
-    /* =========================================================
-       DISPLAY RESULTS
-       ========================================================= */
+    /* ============================================================
+       EXTERNAL URL
+       ============================================================ */
 
-    function displayResults(query) {
+    function isExternalUrl(value) {
+
+      return /^(https?:)?\/\//i
+        .test(
+          String(value || "")
+        );
+
+    }
+
+
+    /* ============================================================
+       RESULT LINK LABEL
+       ============================================================ */
+
+    function resultLinkLabel(record) {
+
+      if (
+        record.type === "video" ||
+        record.category === "Video"
+      ) {
+        return "Watch Video →";
+      }
+
+      if (
+        record.type === "image"
+      ) {
+        return "Open Image →";
+      }
+
+      if (
+        record.type === "social media"
+      ) {
+        return "Open Social Media Source →";
+      }
+
+      if (
+        isExternalUrl(
+          record.file
+        )
+      ) {
+        return "Open Direct Source →";
+      }
+
+      return "View Record →";
+
+    }
+
+
+    /* ============================================================
+       RENDER SEARCH RESULTS
+       ============================================================ */
+
+    function renderResults(
+      query
+    ) {
+
+      const results =
+        document.getElementById(
+          "search-results"
+        );
+
+      const status =
+        document.getElementById(
+          "search-status"
+        );
+
 
       results.innerHTML = "";
-
       status.innerHTML = "";
 
 
@@ -2140,26 +3540,15 @@
       }
 
 
-      const matches =
-        searchArchive(query);
-
-
-      /* ------------------------------------------------------
-         NO RESULTS
-         ------------------------------------------------------ */
-
       if (
-        matches.length === 0
+        !window.HISTORICAL_ARCHIVE_INDEX ||
+        !window.HISTORICAL_ARCHIVE_INDEX.length
       ) {
 
         status.innerHTML =
           '<div class="no-results">' +
-          'No records were found for <strong>' +
-          escapeHtml(query) +
-          '</strong>.' +
-          '<br><br>' +
-          'Try a person, place, event, subject, organization, ' +
-          'date, keyword, article, document, video, or source.' +
+          'The archive search index is still loading. ' +
+          'Please try again in a moment.' +
           '</div>';
 
         return;
@@ -2167,9 +3556,40 @@
       }
 
 
-      /* ------------------------------------------------------
-         STATUS
-         ------------------------------------------------------ */
+      const matches =
+        searchArchive(
+          query,
+          window.HISTORICAL_ARCHIVE_INDEX
+        );
+
+
+      if (
+        matches.length === 0
+      ) {
+
+        status.innerHTML =
+          '<div class="no-results">' +
+
+          'No records were found for <strong>' +
+
+          escapeHtml(
+            query
+          ) +
+
+          '</strong>.' +
+
+          '<br><br>' +
+
+          'Try a person, place, event, organization, ' +
+          'article, video, photograph, meme, date, ' +
+          'social media post, or another keyword.' +
+
+          '</div>';
+
+        return;
+
+      }
+
 
       status.innerHTML =
         "<p>Found " +
@@ -2183,10 +3603,6 @@
         "</p>";
 
 
-      /* ------------------------------------------------------
-         RESULT CARDS
-         ------------------------------------------------------ */
-
       matches.forEach(
         function(record) {
 
@@ -2195,58 +3611,49 @@
               "article"
             );
 
-
           article.className =
             "search-result";
 
 
-          const isExternal =
-            /^https?:\/\//i.test(
+          const external =
+            isExternalUrl(
               record.file
             );
+
+
+          const target =
+            external
+              ? ' target="_blank" rel="noopener noreferrer"'
+              : "";
 
 
           article.innerHTML = `
 
             <p class="result-category">
-              ${escapeHtml(
-                record.category
-              )}
+              ${escapeHtml(record.category)}
             </p>
 
             <h2>
-              ${escapeHtml(
-                record.title
-              )}
+              ${escapeHtml(record.title)}
             </h2>
 
             <p class="result-date">
-              ${escapeHtml(
-                record.date
-              )}
+              ${escapeHtml(record.date)}
             </p>
 
             <p>
-              ${escapeHtml(
-                record.description
-              )}
+              ${escapeHtml(record.description)}
             </p>
 
             <p>
-
               <a
-                href="${escapeHtml(
-                  record.file
-                )}"
-                ${
-                  isExternal
-                    ? 'target="_blank" rel="noopener noreferrer"'
-                    : ''
-                }
+                href="${escapeHtml(record.file)}"
+                ${target}
               >
-                View Record →
+                ${escapeHtml(
+                  resultLinkLabel(record)
+                )}
               </a>
-
             </p>
 
           `;
@@ -2262,31 +3669,40 @@
     }
 
 
-    /* =========================================================
-       FORM SUBMISSION
-       ========================================================= */
+    /* ============================================================
+       FORM
+       ============================================================ */
 
-    form.addEventListener(
+    const searchForm =
+      document.getElementById(
+        "search-form"
+      );
+
+    const searchInput =
+      document.getElementById(
+        "search-input"
+      );
+
+
+    searchForm.addEventListener(
       "submit",
       function(event) {
 
         event.preventDefault();
 
-
         const query =
-          input.value.trim();
-
-
-        displayResults(
-          query
-        );
-
+          searchInput.value.trim();
 
         /*
-        Keep searches in the URL so a search can be shared:
-
-        search.html?q=iran+nuclear
-        */
+         * Keep the search query in the URL.
+         *
+         * Example:
+         *
+         * search.html?q=historical+meme
+         *
+         * This also makes search results
+         * bookmarkable.
+         */
 
         try {
 
@@ -2295,7 +3711,6 @@
               window.location.href
             );
 
-
           if (query) {
 
             url.searchParams.set(
@@ -2303,9 +3718,7 @@
               query
             );
 
-          }
-
-          else {
+          } else {
 
             url.searchParams.delete(
               "q"
@@ -2313,98 +3726,85 @@
 
           }
 
-
           window.history.replaceState(
             {},
             "",
             url
           );
 
+        } catch (error) {
+          /* Ignore URL errors. */
         }
 
-        catch (error) {
 
-          /*
-          Some local preview systems restrict URL changes.
-          Search itself still works.
-          */
-
-        }
+        renderResults(
+          query
+        );
 
       }
     );
 
 
-    /* =========================================================
-       LOAD QUERY FROM URL
-       ========================================================= */
+    /* ============================================================
+       INITIALIZE
+       ============================================================ */
 
-    try {
+    (async function() {
 
-      const initialQuery =
-        new URLSearchParams(
-          window.location.search
-        ).get("q");
-
-
-      if (
-        initialQuery
-      ) {
-
-        input.value =
-          initialQuery;
-
-        displayResults(
-          initialQuery
+      const status =
+        document.getElementById(
+          "search-status"
         );
+
+
+      status.innerHTML =
+        '<p>Building archive search index…</p>';
+
+
+      const index =
+        await buildLiveIndex();
+
+
+      window.HISTORICAL_ARCHIVE_INDEX =
+        index;
+
+
+      /*
+       * Search from ?q=...
+       */
+
+      try {
+
+        const params =
+          new URLSearchParams(
+            window.location.search
+          );
+
+        const initialQuery =
+          params.get("q");
+
+        if (initialQuery) {
+
+          searchInput.value =
+            initialQuery;
+
+          renderResults(
+            initialQuery
+          );
+
+        } else {
+
+          status.innerHTML = "";
+
+        }
+
+      } catch (error) {
+
+        status.innerHTML = "";
 
       }
 
-    }
-
-    catch (error) {
-
-      /*
-      Ignore URL parsing errors in restricted previews.
-      */
-
-    }
-
-
-    /* =========================================================
-       HTML ESCAPING
-       ========================================================= */
-
-    function escapeHtml(value) {
-
-      return String(value || "")
-
-        .replace(
-          /&/g,
-          "&amp;"
-        )
-
-        .replace(
-          /</g,
-          "&lt;"
-        )
-
-        .replace(
-          />/g,
-          "&gt;"
-        )
-
-        .replace(
-          /"/g,
-          "&quot;"
-        )
-
-        .replace(
-          /'/g,
-          "&#039;"
-        );
-
-    }
+    })();
 
   </script>
 
