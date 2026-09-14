@@ -1,285 +1,1513 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Historical Memes | The Historical Record</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <link rel="stylesheet" href="style.css">
+  <title>
+    Social Media | The Historical Record
+  </title>
+
 
   <style>
+
     /* =========================================================
-       PAGE
+       COLORS
     ========================================================= */
+
+    :root {
+
+      --blue: #0b1f4d;
+      --blue-light: #163b78;
+
+      --red: #b22234;
+      --red-dark: #8f1b2b;
+
+      --white: #ffffff;
+      --off-white: #f8f8f8;
+
+      --light-blue: #d5dbea;
+
+      --text: #18284a;
+      --muted: #5e6675;
+
+      --shadow:
+        0 8px 24px
+        rgba(11, 31, 77, 0.12);
+
+    }
+
+
+    /* =========================================================
+       BASIC RESET
+    ========================================================= */
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
 
     body {
-      background: #ffffff;
-    }
 
-    /* =========================================================
-       HEADER
-    ========================================================= */
-
-    .meme-header {
-      background: #b40000;
-      border-bottom: 1px solid #8f0000;
-      padding: 42px 0 38px;
-    }
-
-    .meme-header .eyebrow {
-      color: #ffffff;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      margin: 0 0 10px;
-    }
-
-    .meme-header h1 {
-      color: #ffffff;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: clamp(34px, 6vw, 64px);
-      font-weight: 900;
-      letter-spacing: -0.035em;
-      line-height: 0.98;
       margin: 0;
-      text-transform: uppercase;
+
+      background:
+        var(--off-white);
+
+      color:
+        var(--text);
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      line-height: 1.7;
+
     }
 
-    .meme-header p {
-      color: #ffffff;
-      font-size: 16px;
-      line-height: 1.6;
-      margin: 18px 0 0;
-      max-width: 720px;
-    }
 
-    /* =========================================================
-       VIDEO SECTION
-    ========================================================= */
-
-    .meme-section {
-      padding: 38px 0 50px;
-      background: #ffffff;
-    }
-
-    /*
-      FOUR COLUMNS
-      This is intentionally kept at 4 columns so the videos
-      remain small instead of becoming giant.
-    */
-
-    .meme-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 22px;
-      align-items: start;
-    }
-
-    /* =========================================================
-       VIDEO CARD
-    ========================================================= */
-
-    .meme-card {
-      background: #ffffff;
-      border: 1px solid #d7d7d7;
-      box-shadow: 0 2px 7px rgba(0, 0, 0, 0.08);
-      padding: 9px;
-      min-width: 0;
-    }
-
-    /*
-      The player is ALWAYS 16:9.
-      This prevents YouTube videos from becoming huge.
-    */
-
-    .meme-player {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background: #111111;
-      position: relative;
+    body.menu-open {
       overflow: hidden;
-      cursor: pointer;
     }
 
-    .meme-player img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
+
+    a {
+      color: inherit;
     }
+
 
     /* =========================================================
-       PLAY BUTTON
+       SUBTLE ARCHIVE TEXTURE
     ========================================================= */
 
-    .meme-play {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
+    body::before {
 
-      width: 54px;
-      height: 38px;
-
-      border: 0;
-      border-radius: 7px;
-
-      background: #cc0000;
-
-      box-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.35);
-
-      cursor: pointer;
-
-      z-index: 5;
-    }
-
-    .meme-play::after {
       content: "";
 
-      position: absolute;
+      position: fixed;
 
-      left: 22px;
-      top: 10px;
-
-      width: 0;
-      height: 0;
-
-      border-top: 9px solid transparent;
-      border-bottom: 9px solid transparent;
-      border-left: 13px solid #ffffff;
-    }
-
-    .meme-player:hover .meme-play {
-      background: #a90000;
-    }
-
-    /* =========================================================
-       YOUTUBE IFRAME
-    ========================================================= */
-
-    .meme-player iframe {
-      position: absolute;
       inset: 0;
 
-      width: 100%;
-      height: 100%;
+      pointer-events: none;
 
-      border: 0;
-      display: block;
+      opacity: 0.08;
 
-      background: #000000;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          rgba(11, 31, 77, 0.035) 0,
+          rgba(11, 31, 77, 0.035) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+
+      z-index: 9999;
+
     }
+
 
     /* =========================================================
-       INFORMATION
+       CONTAINER
     ========================================================= */
 
-    .meme-info {
-      padding: 10px 2px 2px;
+    .container {
+
+      width:
+        min(
+          1100px,
+          calc(100% - 36px)
+        );
+
+      margin:
+        0 auto;
+
     }
 
-    .meme-number {
-      color: #b40000;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      margin: 0 0 5px;
-      text-transform: uppercase;
-    }
-
-    .meme-title {
-      color: #222222;
-      font-size: 15px;
-      font-weight: 700;
-      line-height: 1.3;
-      margin: 0 0 5px;
-    }
-
-    .meme-uploader {
-      color: #666666;
-      font-size: 12px;
-      line-height: 1.4;
-      margin: 0;
-    }
-
-    .meme-uploader strong {
-      color: #333333;
-    }
 
     /* =========================================================
-       LOADING STATE
+       HAMBURGER BUTTON
     ========================================================= */
 
-    .meme-loading {
-      position: absolute;
-      inset: 0;
+    .menu-button {
+
+      position: fixed;
+
+      top: 18px;
+      left: 18px;
+
+      z-index: 10002;
+
+      width: 48px;
+      height: 48px;
 
       display: flex;
+
+      flex-direction: column;
+
       align-items: center;
       justify-content: center;
 
-      color: #ffffff;
-      background: #111111;
+      gap: 5px;
 
-      font-size: 13px;
-      font-weight: 700;
+      background:
+        var(--red);
 
-      z-index: 10;
+      border:
+        2px solid
+        var(--white);
+
+      cursor: pointer;
+
+      box-shadow:
+        0 4px 12px
+        rgba(0, 0, 0, 0.22);
+
+      transition:
+        0.2s ease;
+
     }
+
+
+    .menu-button span {
+
+      display: block;
+
+      width: 23px;
+      height: 2px;
+
+      background:
+        var(--white);
+
+    }
+
+
+    .menu-button:hover {
+
+      background:
+        var(--red-dark);
+
+    }
+
 
     /* =========================================================
-       RESPONSIVE
+       SIDEBAR
     ========================================================= */
 
-    @media (max-width: 1100px) {
+    .side-menu {
 
-      .meme-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
+      position: fixed;
+
+      top: 0;
+      left: 0;
+      bottom: 0;
+
+      width: 310px;
+
+      max-width: 85vw;
+
+      height: 100vh;
+      height: 100dvh;
+
+      z-index: 10001;
+
+      background:
+        var(--white);
+
+      color:
+        var(--blue);
+
+      transform:
+        translateX(-100%);
+
+      transition:
+        transform 0.3s ease;
+
+      box-shadow:
+        8px 0 30px
+        rgba(0, 0, 0, 0.25);
+
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      border-right:
+        5px solid
+        var(--red);
+
+      touch-action:
+        pan-y;
+
+      overscroll-behavior-y:
+        contain;
 
     }
+
+
+    .side-menu.open {
+
+      transform:
+        translateX(0);
+
+      overflow-y: auto;
+
+    }
+
+
+    /* =========================================================
+       SIDEBAR HEADER
+    ========================================================= */
+
+    .menu-header {
+
+      padding:
+        75px 28px 25px;
+
+      background:
+        var(--blue);
+
+      color:
+        var(--white);
+
+      border-bottom:
+        5px solid
+        var(--red);
+
+    }
+
+
+    .menu-header h2 {
+
+      margin: 0;
+
+      color:
+        var(--white);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        1.8rem;
+
+      line-height:
+        1.2;
+
+    }
+
+
+    .menu-header p {
+
+      margin:
+        8px 0 0;
+
+      color:
+        #dbe3f2;
+
+      font-size:
+        0.78rem;
+
+      letter-spacing:
+        0.1em;
+
+      text-transform:
+        uppercase;
+
+    }
+
+
+    /* =========================================================
+       SIDEBAR NAV
+    ========================================================= */
+
+    .side-menu nav {
+
+      display: block;
+
+      width: 100%;
+
+      height: auto;
+
+      padding:
+        15px 0 80px;
+
+      overflow: visible;
+
+      touch-action:
+        pan-y;
+
+    }
+
+
+    .side-menu nav > a {
+
+      display: block;
+
+      padding:
+        17px 28px;
+
+      background:
+        var(--white);
+
+      color:
+        var(--blue);
+
+      text-decoration:
+        none;
+
+      border-bottom:
+        1px solid
+        var(--light-blue);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        1.15rem;
+
+      transition:
+        0.2s ease;
+
+    }
+
+
+    .side-menu nav > a:hover {
+
+      padding-left:
+        35px;
+
+      background:
+        var(--red);
+
+      color:
+        var(--white);
+
+    }
+
+
+    /* =========================================================
+       POLITICS DROPDOWN
+    ========================================================= */
+
+    .menu-dropdown {
+
+      width: 100%;
+
+      touch-action:
+        pan-y;
+
+    }
+
+
+    .menu-dropdown-toggle {
+
+      width: 100%;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      padding:
+        17px 28px;
+
+      background:
+        var(--white);
+
+      color:
+        var(--blue);
+
+      border: 0;
+
+      border-bottom:
+        1px solid
+        var(--light-blue);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        1.15rem;
+
+      line-height:
+        inherit;
+
+      text-align:
+        left;
+
+      cursor:
+        pointer;
+
+      touch-action:
+        pan-y;
+
+      transition:
+        0.2s ease;
+
+    }
+
+
+    .menu-dropdown-toggle:hover {
+
+      background:
+        var(--red);
+
+      color:
+        var(--white);
+
+    }
+
+
+    .menu-dropdown-arrow {
+
+      display:
+        inline-block;
+
+      margin-left:
+        12px;
+
+      color:
+        var(--red);
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size:
+        0.9rem;
+
+      transition:
+        transform 0.25s ease;
+
+    }
+
+
+    .menu-dropdown-toggle:hover
+    .menu-dropdown-arrow {
+
+      color:
+        var(--white);
+
+    }
+
+
+    .menu-dropdown.open
+    .menu-dropdown-arrow {
+
+      transform:
+        rotate(180deg);
+
+    }
+
+
+    /* =========================================================
+       POLITICS SUBMENU
+    ========================================================= */
+
+    .menu-submenu {
+
+      max-height:
+        0;
+
+      overflow:
+        hidden;
+
+      background:
+        #eef1f7;
+
+      opacity:
+        0;
+
+      transition:
+        max-height 0.3s ease,
+        opacity 0.3s ease;
+
+      touch-action:
+        pan-y;
+
+    }
+
+
+    .menu-dropdown.open
+    .menu-submenu {
+
+      max-height:
+        400px;
+
+      opacity:
+        1;
+
+    }
+
+
+    .menu-submenu a {
+
+      display:
+        block;
+
+      padding:
+        14px 28px 14px 48px;
+
+      background:
+        #eef1f7;
+
+      color:
+        var(--blue);
+
+      border-bottom:
+        1px solid
+        var(--light-blue);
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size:
+        0.95rem;
+
+      text-decoration:
+        none;
+
+      transition:
+        0.2s ease;
+
+    }
+
+
+    .menu-submenu a::before {
+
+      content:
+        "•";
+
+      margin-right:
+        9px;
+
+      color:
+        var(--red);
+
+    }
+
+
+    .menu-submenu a:hover {
+
+      padding-left:
+        55px;
+
+      background:
+        var(--red);
+
+      color:
+        var(--white);
+
+    }
+
+
+    .menu-submenu a:hover::before {
+
+      color:
+        var(--white);
+
+    }
+
+
+    /* =========================================================
+       OVERLAY
+    ========================================================= */
+
+    .menu-overlay {
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 10000;
+
+      background:
+        rgba(11, 31, 77, 0.58);
+
+      opacity:
+        0;
+
+      visibility:
+        hidden;
+
+      transition:
+        0.3s ease;
+
+    }
+
+
+    .menu-overlay.show {
+
+      opacity:
+        1;
+
+      visibility:
+        visible;
+
+    }
+
+
+    /* =========================================================
+       SITE HEADER
+    ========================================================= */
+
+    .site-header {
+
+      background:
+        var(--blue);
+
+      color:
+        var(--white);
+
+      border-bottom:
+        5px solid
+        var(--red);
+
+      padding-left:
+        78px;
+
+    }
+
+
+    .header-inner {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        22px;
+
+      padding:
+        18px 0;
+
+      flex-wrap:
+        wrap;
+
+    }
+
+
+    .brand {
+
+      color:
+        var(--white);
+
+      text-decoration:
+        none;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        1.15rem;
+
+      font-weight:
+        bold;
+
+      letter-spacing:
+        0.08em;
+
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue) 0%,
+          var(--blue-light) 55%,
+          var(--red) 100%
+        );
+
+      color:
+        var(--white);
+
+      border-bottom:
+        5px solid
+        var(--red);
+
+      padding:
+        85px 0 80px;
+
+    }
+
+
+    .eyebrow {
+
+      margin:
+        0 0 12px;
+
+      color:
+        var(--red);
+
+      font-size:
+        0.76rem;
+
+      font-weight:
+        bold;
+
+      letter-spacing:
+        0.18em;
+
+      text-transform:
+        uppercase;
+
+    }
+
+
+    .hero .eyebrow {
+
+      color:
+        var(--white);
+
+    }
+
+
+    .hero h1 {
+
+      margin:
+        0 0 18px;
+
+      color:
+        var(--white);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        clamp(
+          2.7rem,
+          8vw,
+          5.6rem
+        );
+
+      line-height:
+        1;
+
+      letter-spacing:
+        -0.03em;
+
+    }
+
+
+    .hero-text {
+
+      max-width:
+        740px;
+
+      margin:
+        0;
+
+      color:
+        var(--white);
+
+      font-size:
+        1.08rem;
+
+    }
+
+
+    /* =========================================================
+       SOCIAL MEDIA CONTENT
+    ========================================================= */
+
+    .social-section {
+
+      padding:
+        72px 0;
+
+    }
+
+
+    .section-heading {
+
+      max-width:
+        760px;
+
+      margin-bottom:
+        34px;
+
+    }
+
+
+    .section-heading h2 {
+
+      margin:
+        0 0 12px;
+
+      color:
+        var(--blue);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        clamp(
+          2rem,
+          5vw,
+          3.2rem
+        );
+
+      line-height:
+        1.1;
+
+    }
+
+
+    .section-heading p {
+
+      margin:
+        0;
+
+      color:
+        var(--muted);
+
+    }
+
+
+    /* =========================================================
+       CATEGORY GRID
+    ========================================================= */
+
+    .category-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(
+          2,
+          minmax(0, 1fr)
+        );
+
+      gap:
+        20px;
+
+    }
+
+
+    .category-card {
+
+      position:
+        relative;
+
+      display:
+        block;
+
+      min-height:
+        210px;
+
+      padding:
+        30px;
+
+      overflow:
+        hidden;
+
+      background:
+        var(--white);
+
+      border:
+        1px solid
+        var(--light-blue);
+
+      box-shadow:
+        var(--shadow);
+
+      text-decoration:
+        none;
+
+      transition:
+        0.2s ease;
+
+    }
+
+
+    .category-card::before {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      top:
+        0;
+
+      left:
+        0;
+
+      width:
+        100%;
+
+      height:
+        5px;
+
+      background:
+        var(--red);
+
+    }
+
+
+    .category-card:hover {
+
+      transform:
+        translateY(-3px);
+
+      border-color:
+        var(--red);
+
+      box-shadow:
+        0 12px 30px
+        rgba(11, 31, 77, 0.17);
+
+    }
+
+
+    .category-number {
+
+      display:
+        block;
+
+      margin-bottom:
+        10px;
+
+      color:
+        var(--red);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        1.5rem;
+
+      font-weight:
+        bold;
+
+    }
+
+
+    .category-card h3 {
+
+      margin:
+        0 0 10px;
+
+      color:
+        var(--blue);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        1.65rem;
+
+      line-height:
+        1.2;
+
+    }
+
+
+    .category-card p {
+
+      margin:
+        0;
+
+      color:
+        var(--muted);
+
+    }
+
+
+    /* =========================================================
+       FEATURED RECORD
+    ========================================================= */
+
+    .featured-section {
+
+      padding:
+        0 0 72px;
+
+    }
+
+
+    .featured-record {
+
+      position:
+        relative;
+
+      padding:
+        30px;
+
+      background:
+        var(--white);
+
+      border:
+        1px solid
+        var(--light-blue);
+
+      border-left:
+        5px solid
+        var(--red);
+
+      box-shadow:
+        var(--shadow);
+
+    }
+
+
+    .record-label {
+
+      margin:
+        0 0 8px;
+
+      color:
+        var(--red);
+
+      font-size:
+        0.74rem;
+
+      font-weight:
+        bold;
+
+      letter-spacing:
+        0.13em;
+
+      text-transform:
+        uppercase;
+
+    }
+
+
+    .featured-record h3 {
+
+      margin:
+        0 0 10px;
+
+      color:
+        var(--blue);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        1.7rem;
+
+      line-height:
+        1.25;
+
+    }
+
+
+    .featured-record p {
+
+      margin:
+        0;
+
+      color:
+        var(--muted);
+
+    }
+
+
+    .archive-link {
+
+      display:
+        inline-block;
+
+      margin-top:
+        20px;
+
+      padding:
+        10px 16px;
+
+      background:
+        var(--red);
+
+      color:
+        var(--white);
+
+      text-decoration:
+        none;
+
+      font-size:
+        0.82rem;
+
+      font-weight:
+        bold;
+
+      letter-spacing:
+        0.04em;
+
+      transition:
+        0.2s ease;
+
+    }
+
+
+    .archive-link:hover {
+
+      background:
+        var(--red-dark);
+
+    }
+
+
+    /* =========================================================
+       ABOUT
+    ========================================================= */
+
+    .about-section {
+
+      padding:
+        72px 0;
+
+      background:
+        var(--blue);
+
+      color:
+        var(--white);
+
+      border-top:
+        5px solid
+        var(--red);
+
+    }
+
+
+    .about-section .eyebrow {
+
+      color:
+        var(--red);
+
+    }
+
+
+    .about-section h2 {
+
+      margin:
+        0 0 18px;
+
+      color:
+        var(--white);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        clamp(
+          2rem,
+          5vw,
+          3.2rem
+        );
+
+    }
+
+
+    .about-section p {
+
+      max-width:
+        780px;
+
+      color:
+        #e5e9f2;
+
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    .site-footer {
+
+      padding:
+        32px 0;
+
+      background:
+        var(--blue);
+
+      color:
+        var(--white);
+
+      border-top:
+        5px solid
+        var(--red);
+
+    }
+
+
+    .site-footer p {
+
+      margin:
+        4px 0;
+
+      color:
+        var(--white);
+
+    }
+
+
+    .site-footer a {
+
+      color:
+        var(--white);
+
+    }
+
+
+    .site-footer a:hover {
+
+      color:
+        #dce4f5;
+
+    }
+
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
 
     @media (max-width: 760px) {
 
-      .meme-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
+      .container {
+
+        width:
+          min(
+            100% - 26px,
+            1100px
+          );
+
       }
 
-      .meme-header {
-        padding: 34px 0 30px;
+
+      .header-inner {
+
+        align-items:
+          flex-start;
+
+      }
+
+
+      .brand {
+
+        width:
+          100%;
+
+      }
+
+
+      .hero {
+
+        padding:
+          62px 0 55px;
+
+      }
+
+
+      .hero h1 {
+
+        font-size:
+          3rem;
+
+      }
+
+
+      .social-section,
+      .about-section {
+
+        padding:
+          52px 0;
+
+      }
+
+
+      .featured-section {
+
+        padding-bottom:
+          52px;
+
+      }
+
+
+      .category-grid {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .category-card {
+
+        min-height:
+          0;
+
+      }
+
+
+      .featured-record {
+
+        padding:
+          23px;
+
+      }
+
+
+      .featured-record h3 {
+
+        font-size:
+          1.45rem;
+
+      }
+
+
+      .side-menu {
+
+        width:
+          285px;
+
+      }
+
+
+      .menu-button {
+
+        top:
+          14px;
+
+        left:
+          14px;
+
+        width:
+          44px;
+
+        height:
+          44px;
+
+      }
+
+
+      .site-header {
+
+        padding-left:
+          70px;
+
+      }
+
+
+      .menu-dropdown-toggle {
+
+        padding:
+          16px 24px;
+
+      }
+
+
+      .menu-submenu a {
+
+        padding-left:
+          44px;
+
+      }
+
+
+      .menu-submenu a:hover {
+
+        padding-left:
+          51px;
+
       }
 
     }
 
-    @media (max-width: 500px) {
 
-      .meme-grid {
-        grid-template-columns: 1fr;
+    @media (max-width: 700px) {
+
+      .side-menu {
+
+        width:
+          85vw;
+
+        max-width:
+          360px;
+
+        height:
+          100dvh;
+
+        overflow-y:
+          auto;
+
+        overflow-x:
+          hidden;
+
       }
 
     }
+
   </style>
+
 </head>
 
 
 <body>
 
+
   <!-- =======================================================
-       MENU BUTTON
+       HAMBURGER
   ======================================================== -->
 
   <button
     class="menu-button"
+    type="button"
     aria-label="Open menu"
     aria-expanded="false"
-    type="button"
   >
+
     <span></span>
     <span></span>
     <span></span>
+
   </button>
 
 
@@ -289,23 +1517,42 @@
 
   <aside class="side-menu">
 
+
     <div class="menu-header">
-      <h2>The Historical Record</h2>
-      <p>Archive Navigation</p>
+
+      <h2>
+        The Historical Record
+      </h2>
+
+      <p>
+        Archive Navigation
+      </p>
+
     </div>
 
+
     <nav>
+
+
+      <a href="search.html">
+        Search the Archive
+      </a>
+
 
       <a href="archive.html">
         The Archive
       </a>
+
 
       <a href="index.html">
         Home
       </a>
 
 
+      <!-- POLITICS DROPDOWN -->
+
       <div class="menu-dropdown">
+
 
         <button
           class="menu-dropdown-toggle"
@@ -313,8 +1560,15 @@
           aria-expanded="false"
           aria-controls="politics-submenu"
         >
-          <span>Politics</span>
-          <span class="menu-dropdown-arrow">▾</span>
+
+          <span>
+            Politics
+          </span>
+
+          <span class="menu-dropdown-arrow">
+            ▾
+          </span>
+
         </button>
 
 
@@ -323,17 +1577,21 @@
           id="politics-submenu"
         >
 
+
           <a href="politics.html">
             Politics Home
           </a>
+
 
           <a href="september-11.html">
             September 11, 2001
           </a>
 
+
           <a href="september-11-sourcebooks.html">
             9/11 Sourcebooks &amp; Documents
           </a>
+
 
         </div>
 
@@ -344,22 +1602,30 @@
         Entertainment / Sports
       </a>
 
+
       <a href="world-events.html">
         World Events
       </a>
+
 
       <a href="social-media.html">
         Social Media
       </a>
 
+
       <a href="thoughts.html">
         Thoughts / Blog
       </a>
+
 
     </nav>
 
   </aside>
 
+
+  <!-- =======================================================
+       OVERLAY
+  ======================================================== -->
 
   <div class="menu-overlay"></div>
 
@@ -370,7 +1636,9 @@
 
   <header class="site-header">
 
+
     <div class="container header-inner">
+
 
       <a
         href="index.html"
@@ -378,6 +1646,7 @@
       >
         THE HISTORICAL RECORD
       </a>
+
 
     </div>
 
@@ -392,25 +1661,31 @@
 
 
     <!-- =====================================================
-         RED TITLE HEADER
+         HERO
     ====================================================== -->
 
-    <section class="meme-header">
+    <section class="hero">
+
 
       <div class="container">
 
+
         <p class="eyebrow">
-          SOCIAL MEDIA ARCHIVE
+          SOCIAL MEDIA
         </p>
+
 
         <h1>
-          HISTORICAL MEMES
+          Social Media
         </h1>
 
-        <p>
-          A collection of memorable internet videos preserved as part of
-          The Historical Record.
+
+        <p class="hero-text">
+          This section preserves social media posts, internet culture,
+          memorable videos, memes, and other digital records documenting
+          the world as it was experienced online.
         </p>
+
 
       </div>
 
@@ -418,21 +1693,240 @@
 
 
     <!-- =====================================================
-         VIDEO GRID
+         ARCHIVE CATEGORIES
     ====================================================== -->
 
-    <section class="meme-section">
+    <section class="social-section">
+
 
       <div class="container">
 
-        <div
-          class="meme-grid"
-          id="meme-grid"
-        ></div>
+
+        <div class="section-heading">
+
+
+          <h2>
+            Explore the Social Media Archive
+          </h2>
+
+
+          <p>
+            Browse the different collections of digital material
+            preserved by The Historical Record.
+          </p>
+
+
+        </div>
+
+
+        <div class="category-grid">
+
+
+          <!-- =================================================
+               HISTORICAL MEMES
+          ================================================== -->
+
+          <a
+            href="social-media-archive.html"
+            class="category-card"
+          >
+
+
+            <span class="category-number">
+              01
+            </span>
+
+
+            <h3>
+              Historical Memes
+            </h3>
+
+
+            <p>
+              A collection of memorable internet videos, viral
+              moments, and pieces of online culture preserved
+              as part of the historical record.
+            </p>
+
+
+          </a>
+
+
+          <!-- =================================================
+               SOCIAL MEDIA RECORDS
+          ================================================== -->
+
+          <a
+            href="social-media-records.html"
+            class="category-card"
+          >
+
+
+            <span class="category-number">
+              02
+            </span>
+
+
+            <h3>
+              Social Media Records
+            </h3>
+
+
+            <p>
+              Screenshots, posts, discussions, reactions, and
+              other social media material documenting events
+              and public conversation.
+            </p>
+
+
+          </a>
+
+
+          <!-- =================================================
+               INTERNET CULTURE
+          ================================================== -->
+
+          <a
+            href="internet-culture.html"
+            class="category-card"
+          >
+
+
+            <span class="category-number">
+              03
+            </span>
+
+
+            <h3>
+              Internet Culture
+            </h3>
+
+
+            <p>
+              Notable trends, jokes, viral moments, websites,
+              and other pieces of digital culture that shaped
+              their time.
+            </p>
+
+
+          </a>
+
+
+          <!-- =================================================
+               DIGITAL ARCHIVE
+          ================================================== -->
+
+          <a
+            href="digital-archive.html"
+            class="category-card"
+          >
+
+
+            <span class="category-number">
+              04
+            </span>
+
+
+            <h3>
+              Digital Archive
+            </h3>
+
+
+            <p>
+              A broader collection of online material preserved
+              as a record of how people communicated and
+              interacted on the internet.
+            </p>
+
+
+          </a>
+
+
+        </div>
 
       </div>
 
     </section>
+
+
+    <!-- =====================================================
+         FEATURED ARCHIVE
+    ====================================================== -->
+
+    <section class="featured-section">
+
+
+      <div class="container">
+
+
+        <article class="featured-record">
+
+
+          <p class="record-label">
+            FEATURED SOCIAL MEDIA ARCHIVE
+          </p>
+
+
+          <h3>
+            Historical Memes
+          </h3>
+
+
+          <p>
+            Explore the collection of memorable internet videos
+            preserved in The Historical Record. Each video remains
+            connected to its original YouTube source.
+          </p>
+
+
+          <a
+            href="social-media-archive.html"
+            class="archive-link"
+          >
+            View the Historical Memes Archive
+          </a>
+
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ABOUT
+    ====================================================== -->
+
+    <section class="about-section">
+
+
+      <div class="container">
+
+
+        <p class="eyebrow">
+          THE DIGITAL RECORD
+        </p>
+
+
+        <h2>
+          Preserving the internet as history.
+        </h2>
+
+
+        <p>
+          Social media has become one of the immediate records of
+          modern life. Posts, reactions, images, videos, memes, and
+          online conversations can disappear quickly. This section
+          preserves selected examples as part of The Historical Record.
+        </p>
+
+
+      </div>
+
+    </section>
+
 
   </main>
 
@@ -443,15 +1937,19 @@
 
   <footer class="site-footer">
 
+
     <div class="container">
+
 
       <p>
         THE HISTORICAL RECORD
       </p>
 
+
       <p>
         A living archive of the moments that matter.
       </p>
+
 
     </div>
 
@@ -459,529 +1957,212 @@
 
 
   <!-- =======================================================
-       YOUR EXISTING SITE SCRIPT
-  ======================================================== -->
-
-  <script src="script.js"></script>
-
-
-  <!-- =======================================================
-       MEME VIDEO SCRIPT
+       MENU JAVASCRIPT
   ======================================================== -->
 
   <script>
 
-    /*
-     * ========================================================
-     * VIDEO LIST
-     * ========================================================
-     *
-     * All original videos plus the 10 new videos.
-     *
-     * Duplicates from the original list have been removed.
-     *
-     */
-
-    const videos = [
-
-      "dMH0bHeiRNg",
-      "_OBlgSz8sSM",
-      "ZZ5LpwO-An4",
-      "4pXfHLUlZf4",
-      "0Bmhjf0rKe8",
-      "EwTZ2xpQwpA",
-      "jNQXAC9IVRw",
-      "hMtZfW2z9dw",
-      "fbGkxcY7YFU",
-      "MtN1YnoL46Q",
-      "Tx1XIm6q4r4",
-      "oavMtUWDBTM",
-      "YnopHCL1Jk8",
-      "astISOttCQ0",
-      "ykwqXuMPsoc",
-      "NoHRBvtUV_g",
-      "ZN5PoW7_kdA",
-      "QFCSXr6qnv4",
-      "R5Nz8p3EP7A",
-      "9FXMYsMvs1A",
-      "aoEtd6HONEk",
-      "IY9YNF5MMQo",
-      "UmPmpUTr22c",
-      "HRPwMBAtfTY",
-      "d8CeSGlQQnM",
-      "Lt1u6N7lueM",
-      "EShUeudtaFg",
-      "TIoD7Uj7MUo",
-      "f4FuOi9rvKw",
-      "9KSGUVcNfZM",
-
-      "R9dRuaTOyBY",
-      "wsZ7013yHiw",
-      "LzxCJzM4xLo",
-      "dEI7oX0XxJw",
-      "x2Icz8xF174",
-      "HKst22Y2hgA",
-      "IdyXKJ8NcNI",
-      "vnkRvx3-j-k",
-      "9edByCiaLbY",
-      "DoskJt_UVG8",
-      "gLMo7_VXU_s",
-      "eaNI18GAxXs",
-      "sdnJxDmJNmA",
-      "I15sK7dNMOM",
-      "W-3DWBv0CvU",
-      "sHi6LCx6Lx8",
-      "IxX_QHay02M",
-      "SMWi7CLoZ2Q",
-      "msSc7Mv0QHY",
-      "OzKY5YHnOTg",
-
-      "_quu68XXHEs",
-      "gavT_q9CLME",
-      "3qwU1LQZA5g",
-      "zTL4T_NVGhY",
-      "AsFCSvqsqFA",
-      "xzpndHtdl9A",
-      "5vRlJrkxsqo",
-      "wAUK9hVgmNI",
-      "z_mhFOyLQBg",
-      "YCeQLeQiRP4",
-      "V_OVxxIvqVw",
-      "r3-Y31ONZuI",
-      "xaPepCVepCg",
-      "IJmIGC0nwK0",
-      "czhd1eHv6ac",
-      "lg5WKsVnEA4",
-      "lgh68Swuak0",
-      "rbE53XUtVw0",
-      "Ou6uXU0KFss",
-      "6f7pgA0riU8",
-
-      "otCpCn0l4Wo",
-      "AMrSGMF4PZo",
-      "7eKv4BEujFU",
-      "bjwgt1kRqEU",
-      "rmn7oV9bBRU",
-      "65e06P6Rhf4",
-      "p8f-dwURY20",
-      "8kjY9sKdHlY",
-      "InklyF13qjU",
-      "AUl4F8M8bxM",
-      "S4pk8jsk9h4",
-      "RV6aLIQgmYg",
-      "Z0NlmumRuVE",
-      "2zw-XgAko_E",
-      "NsaSG-0U4mU",
-      "o7zqouVuFZY",
-      "ykz_dbpYRPU",
-      "NOpS4qGILyY",
-      "GsWGqDzygDs",
-      "Q0IL0S0vTGw",
-
-      "JAVV2jbjKTQ",
-      "dxjLh3lZumY",
-      "oBnVNpG97Z4",
-      "Mh4f9AYRCZY",
-      "pNbN5Mk_sZw",
-      "ILtz5nX3_fc",
-      "WqSTXuJeTks",
-      "mfhBM_Yay6w",
-      "93hq0YU3Gqk",
-      "BEtIoGQxqQs",
-      "LeAltgu_pbM",
-      "aBfUFr9SBY0",
-      "D2kJZOfq7zk",
-      "UMf40daefsI",
-      "O61Do03ZCjw",
-      "D1R-jKKp3NA",
-      "tw5EsYzyG",
-      "2zOv7kvYmtg",
-
-      "2nYozPLpJRE",
-      "aBm_2IUn4MU",
-      "OTuMh7VDaC4",
-      "ys7pLfOVZDE",
-      "P6P_sXbQtgc",
-      "V4we8iFk-fY",
-      "eegQI9WM6mk",
-      "j03KzQDm8sk",
-      "G5QEdVMVbIw",
-      "QQEutrGhoqI",
-      "BXUhfoUJjuQ",
-      "OLpeX4RRo28",
-      "GiLMvrqI8Gc",
-      "TNW5JjiGyZw",
-      "EdvJnP5ruqA",
-      "BQw3v31s-Y8",
-      "xWcldHxHFpo",
-      "pXO76dbictU",
-      "NYilBju7Wps",
-      "uJs3qqGscMM",
-      "Yvd3aEsThbc",
-
-      /* ======================================================
-         10 NEW VIDEOS
-      ====================================================== */
-
-      "nwP3TeK-fPs",
-      "tGmmQ688Fkk",
-      "EoLjddNcnYU",
-      "ay6OgCjiHq4",
-      "uE-1RPDqJAY",
-      "YP5i5-G2f3c",
-      "JImcvtJzIK8",
-      "hLYMD6R6PvU",
-      "SiMHTK15Pik",
-      "EIyixC9NsLI"
-
-    ];
-
-
-    /*
-     * ========================================================
-     * GRID
-     * ========================================================
-     */
-
-    const grid =
-      document.getElementById("meme-grid");
-
-
-    /*
-     * ========================================================
-     * CREATE CARD
-     * ========================================================
-     */
-
-    function createCard(id, index) {
-
-      const card =
-        document.createElement("article");
-
-      card.className =
-        "meme-card";
-
-
-      card.innerHTML = `
-
-        <div
-          class="meme-player"
-          role="button"
-          tabindex="0"
-          aria-label="Play video"
-        >
+    document.addEventListener(
+      "DOMContentLoaded",
+      function () {
 
-          <img
-            src="https://i.ytimg.com/vi/${id}/hqdefault.jpg"
-            alt=""
-            loading="lazy"
-            decoding="async"
-          >
 
-          <button
-            class="meme-play"
-            type="button"
-            aria-label="Play video"
-          ></button>
+        /* =====================================================
+           ELEMENTS
+        ===================================================== */
 
-        </div>
+        const menuButton =
+          document.querySelector(
+            ".menu-button"
+          );
 
 
-        <div class="meme-info">
+        const sideMenu =
+          document.querySelector(
+            ".side-menu"
+          );
 
-          <p class="meme-number">
-            MEME ${String(index + 1).padStart(3, "0")}
-          </p>
 
-          <h2 class="meme-title">
-            Loading title…
-          </h2>
+        const overlay =
+          document.querySelector(
+            ".menu-overlay"
+          );
 
-          <p class="meme-uploader">
-            <strong>Uploader:</strong>
-            <span>Loading…</span>
-          </p>
 
-        </div>
+        const dropdown =
+          document.querySelector(
+            ".menu-dropdown"
+          );
 
-      `;
 
+        const dropdownToggle =
+          document.querySelector(
+            ".menu-dropdown-toggle"
+          );
 
-      const player =
-        card.querySelector(".meme-player");
 
+        /* =====================================================
+           OPEN MENU
+        ===================================================== */
 
-      const playButton =
-        card.querySelector(".meme-play");
+        function openMenu() {
 
+          sideMenu.classList.add(
+            "open"
+          );
 
-      /*
-       * ======================================================
-       * PLAY VIDEO
-       * ======================================================
-       */
+          overlay.classList.add(
+            "show"
+          );
 
-      function playVideo() {
+          document.body.classList.add(
+            "menu-open"
+          );
 
-        /*
-         * Prevent creating a second iframe.
-         */
 
-        if (
-          player.dataset.loaded === "true"
-        ) {
-          return;
-        }
+          menuButton.setAttribute(
+            "aria-expanded",
+            "true"
+          );
 
 
-        player.dataset.loaded =
-          "true";
-
-
-        /*
-         * Create the YouTube iframe.
-         *
-         * IMPORTANT:
-         * Using youtube.com/embed rather than the previous
-         * nocookie embed makes playback much more reliable.
-         */
-
-        const iframe =
-          document.createElement("iframe");
-
-
-        iframe.src =
-          "https://www.youtube.com/embed/" +
-          encodeURIComponent(id) +
-          "?autoplay=1&rel=0&modestbranding=1";
-
-
-        iframe.title =
-          card.querySelector(
-            ".meme-title"
-          ).textContent;
-
-
-        iframe.loading =
-          "lazy";
-
-
-        iframe.allow =
-          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-
-
-        iframe.allowFullscreen =
-          true;
-
-
-        /*
-         * Remove thumbnail and replace it
-         * with the real YouTube player.
-         */
-
-        player.replaceChildren(
-          iframe
-        );
-
-      }
-
-
-      /*
-       * Button click
-       */
-
-      playButton.addEventListener(
-        "click",
-        function(event) {
-
-          event.preventDefault();
-          event.stopPropagation();
-
-          playVideo();
-
-        }
-      );
-
-
-      /*
-       * Clicking anywhere on thumbnail
-       */
-
-      player.addEventListener(
-        "click",
-        function(event) {
-
-          /*
-           * Don't run twice when clicking
-           * the actual button.
-           */
-
-          if (
-            event.target === playButton
-          ) {
-            return;
-          }
-
-          playVideo();
-
-        }
-      );
-
-
-      /*
-       * Keyboard accessibility
-       */
-
-      player.addEventListener(
-        "keydown",
-        function(event) {
-
-          if (
-            event.key === "Enter" ||
-            event.key === " "
-          ) {
-
-            event.preventDefault();
-
-            playVideo();
-
-          }
-
-        }
-      );
-
-
-      /*
-       * Get title/uploader
-       */
-
-      loadMetadata(
-        card,
-        id
-      );
-
-
-      return card;
-
-    }
-
-
-    /*
-     * ========================================================
-     * LOAD YOUTUBE TITLE
-     * ========================================================
-     */
-
-    async function loadMetadata(
-      card,
-      id
-    ) {
-
-      const title =
-        card.querySelector(
-          ".meme-title"
-        );
-
-
-      const uploader =
-        card.querySelector(
-          ".meme-uploader span"
-        );
-
-
-      const endpoint =
-        "https://www.youtube.com/oembed?url=" +
-        encodeURIComponent(
-          "https://www.youtube.com/watch?v=" +
-          id
-        ) +
-        "&format=json";
-
-
-      try {
-
-        const response =
-          await fetch(endpoint);
-
-
-        if (!response.ok) {
-
-          throw new Error(
-            "Metadata unavailable"
+          menuButton.setAttribute(
+            "aria-label",
+            "Close menu"
           );
 
         }
 
 
-        const data =
-          await response.json();
+        /* =====================================================
+           CLOSE MENU
+        ===================================================== */
+
+        function closeMenu() {
+
+          sideMenu.classList.remove(
+            "open"
+          );
+
+          overlay.classList.remove(
+            "show"
+          );
+
+          document.body.classList.remove(
+            "menu-open"
+          );
 
 
-        title.textContent =
-          data.title ||
-          "Untitled Video";
+          menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+          );
 
 
-        uploader.textContent =
-          data.author_name ||
-          "Unknown uploader";
+          menuButton.setAttribute(
+            "aria-label",
+            "Open menu"
+          );
 
-      }
-
-      catch (error) {
-
-        /*
-         * The video can STILL PLAY even if
-         * YouTube's title lookup fails.
-         */
-
-        title.textContent =
-          "View video";
+        }
 
 
-        uploader.textContent =
-          "YouTube video";
+        /* =====================================================
+           HAMBURGER CLICK
+        ===================================================== */
 
-      }
-
-    }
-
-
-    /*
-     * ========================================================
-     * RENDER EVERYTHING
-     * ========================================================
-     *
-     * No pagination.
-     *
-     * No pages 2 or 3.
-     *
-     * Every video is on this one page.
-     */
-
-    const fragment =
-      document.createDocumentFragment();
+        menuButton.addEventListener(
+          "click",
+          function () {
 
 
-    videos.forEach(
-      function(id, index) {
+            if (
+              sideMenu.classList.contains(
+                "open"
+              )
+            ) {
 
-        fragment.appendChild(
-          createCard(
-            id,
-            index
-          )
+              closeMenu();
+
+            } else {
+
+              openMenu();
+
+            }
+
+
+          }
         );
 
+
+        /* =====================================================
+           OVERLAY CLICK
+        ===================================================== */
+
+        overlay.addEventListener(
+          "click",
+          closeMenu
+        );
+
+
+        /* =====================================================
+           POLITICS DROPDOWN
+        ===================================================== */
+
+        dropdownToggle.addEventListener(
+          "click",
+          function () {
+
+
+            const currentlyOpen =
+              dropdown.classList.contains(
+                "open"
+              );
+
+
+            dropdown.classList.toggle(
+              "open"
+            );
+
+
+            dropdownToggle.setAttribute(
+              "aria-expanded",
+              String(!currentlyOpen)
+            );
+
+
+          }
+        );
+
+
+        /* =====================================================
+           ESCAPE KEY
+        ===================================================== */
+
+        document.addEventListener(
+          "keydown",
+          function (event) {
+
+
+            if (
+              event.key === "Escape"
+            ) {
+
+              closeMenu();
+
+            }
+
+
+          }
+        );
+
+
       }
-    );
-
-
-    grid.appendChild(
-      fragment
     );
 
   </script>
 
+
 </body>
+
 </html>
