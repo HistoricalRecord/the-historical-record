@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Submissions | The Historical Record</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* =========================================================
+       USER SUBMISSIONS
+       ADDITIVE STYLING ONLY
+       ========================================================= */
+    .submission-page {
+      background: #f5f5f5;
+      color: #111111;
+    }
+    .submission-hero {
+      background: linear-gradient(
+        135deg,
+        #050505 0%,
+        #111111 55%,
+        #3b3b3b 100%
+      );
+      color: #ffffff;
+      padding: 65px 0 60px;
+      border-bottom: 5px solid #c0c0c0;
+    }
+    .submission-hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .submission-logo {
+      width: 82px;
+      height: 82px;
+      min-width: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #c0c0c0;
+      border-radius: 50%;
+      background: #111111;
+      color: #e0e0e0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: bold;
+      box-shadow:
+        0 0 0 5px rgba(192, 192, 192, 0.08),
+        0 10px 25px rgba(0, 0, 0, 0.35);
+    }
+    .submission-hero .eyebrow {
+      color: #c0c0c0;
+    }
+    .submission-hero h1 {
+      margin: 0 0 12px;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    .submission-hero .hero-text {
+      color: #e2e2e2;
+      max-width: 800px;
+      line-height: 1.75;
+    }
+    .submission-section {
+      padding: 55px 0 65px;
+      background: #f5f5f5;
+    }
+    .submission-intro {
+      max-width: 850px;
+      margin-bottom: 35px;
+    }
+    .submission-intro h2 {
+      margin-top: 0;
+      color: #111111;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    .submission-intro p {
+      color: #333333;
+      line-height: 1.75;
+    }
+    .submission-card {
+      max-width: 850px;
+      padding: 35px;
+      background: #ffffff;
+      border: 1px solid #c8c8c8;
+      border-left: 5px solid #111111;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+    .submission-card h3 {
+      margin-top: 0;
+      color: #111111;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    .submission-card p {
+      color: #333333;
+      line-height: 1.7;
+    }
+    .submission-list {
+      margin: 25px 0;
+      padding-left: 22px;
+    }
+    .submission-list li {
+      margin-bottom: 10px;
+      color: #333333;
+      line-height: 1.6;
+    }
+    .submission-rules {
+      margin-top: 30px;
+      padding: 25px;
+      background: #eeeeee;
+      border: 1px solid #cccccc;
+      border-left: 5px solid #555555;
+    }
+    .submission-rules h4 {
+      margin-top: 0;
+      color: #111111;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    .submission-rules p {
+      margin-bottom: 10px;
+    }
+    .submission-rules ul {
+      margin-bottom: 0;
+      padding-left: 20px;
+    }
+    .submission-rules li {
+      margin-bottom: 8px;
+      color: #333333;
+      line-height: 1.55;
+    }
+    .submission-action {
+      margin-top: 35px;
+    }
+    .submission-button {
+      display: inline-block;
+      padding: 15px 28px;
+      background: #111111;
+      color: #ffffff;
+      border: 2px solid #111111;
+      border-radius: 4px;
+      font-weight: bold;
+      text-decoration: none;
+      transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+    }
+    .submission-button:hover {
+      background: #c0c0c0;
+      color: #111111;
+      border-color: #999999;
+      text-decoration: none;
+    }
+    .submission-note {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: #666666;
+    }
+    @media (max-width: 700px) {
+      .submission-hero {
+        padding: 50px 0;
+      }
+      .submission-hero-inner {
+        align-items: flex-start;
+        gap: 18px;
+      }
+      .submission-logo {
+        width: 62px;
+        height: 62px;
+        min-width: 62px;
+        font-size: 1.5rem;
+      }
+      .submission-card {
+        padding: 25px;
+      }
+    }
+    @media (max-width: 500px) {
+      .submission-hero-inner {
+        flex-direction: column;
+      }
+      .submission-logo {
+        margin-bottom: 5px;
+      }
+      .submission-button {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- =========================================================
+       EXISTING SITE MENU — PRESERVED
+       ========================================================= -->
+  <button
+    class="menu-button"
+    aria-label="Open menu"
+    aria-expanded="false"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <aside class="side-menu">
+    <div class="menu-header">
+      <h2>The Historical Record</h2>
+      <p>Archive Navigation</p>
+    </div>
+    <nav>
+      <a href="search.html">
+        Search the Archive
+      </a>
+      <a href="archive.html">
+        The Archive
+      </a>
+      <a href="index.html">
+        Home
+      </a>
+      <div class="menu-dropdown">
+        <button
+          class="menu-dropdown-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="politics-submenu"
+        >
+          <span>Politics</span>
+          <span class="menu-dropdown-arrow">▾</span>
+        </button>
+        <div
+          class="menu-submenu"
+          id="politics-submenu"
+        >
+          <a href="politics.html">
+            Politics Home
+          </a>
+          <a href="september-11.html">
+            September 11, 2001
+          </a>
+          <a href="september-11-sourcebooks.html">
+            9/11 Sourcebooks &amp; Documents
+          </a>
+        </div>
+      </div>
+      <a href="entertainment-sports.html">
+        Entertainment / Sports
+      </a>
+      <a href="world-events.html">
+        World Events
+      </a>
+      <a href="social-media.html">
+        Social Media
+      </a>
+      <a href="thoughts.html">
+        Thoughts / Blog
+      </a>
+    </nav>
+  </aside>
+  <div class="menu-overlay"></div>
+  <!-- =========================================================
+       EXISTING SITE HEADER — PRESERVED
+       ========================================================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a
+        href="index.html"
+        class="brand"
+      >
+        THE HISTORICAL RECORD
+      </a>
+    </div>
+  </header>
+  <main class="submission-page">
+    <!-- =======================================================
+         SUBMISSION HERO
+         ======================================================= -->
+    <section class="submission-hero">
+      <div class="container">
+        <div class="submission-hero-inner">
+          <div
+            class="submission-logo"
+            aria-hidden="true"
+          >
+            HR
+          </div>
+          <div>
+            <p class="eyebrow">
+              COMMUNITY ARCHIVE
+            </p>
+            <h1>
+              User Submissions
+            </h1>
+            <p class="hero-text">
+              Help preserve the historical record by submitting
+              photographs, videos, posts, articles, memes, documents,
+              and other material you believe belongs in the archive.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- =======================================================
+         SUBMISSION CONTENT
+         ======================================================= -->
+    <section class="submission-section">
+      <div class="container">
+        <div class="submission-intro">
+          <h2>
+            Submit Material to The Historical Record
+          </h2>
+          <p>
+            The Historical Record is intended to grow over time.
+            Users can contribute material that may help document
+            important events, people, culture, media, internet history,
+            and moments that might otherwise disappear.
+          </p>
+          <p>
+            Submissions are reviewed before anything is added to the
+            archive. Sending material does not guarantee publication.
+          </p>
+        </div>
+        <div class="submission-card">
+          <h3>
+            What You Can Submit
+          </h3>
+          <p>
+            You may submit links, media, or other material including:
+          </p>
+          <ul class="submission-list">
+            <li>
+              YouTube videos
+            </li>
+            <li>
+              DailyMotion videos
+            </li>
+            <li>
+              TikTok videos
+            </li>
+            <li>
+              Facebook videos or posts
+            </li>
+            <li>
+              Reddit posts or videos
+            </li>
+            <li>
+              X / Twitter posts
+            </li>
+            <li>
+              Photographs and historical images
+            </li>
+            <li>
+              Memes and notable internet culture
+            </li>
+            <li>
+              Articles and news reports
+            </li>
+            <li>
+              Documents and source material
+            </li>
+            <li>
+              Personal files, photographs, screenshots, or other
+              files that you have the right to submit
+            </li>
+            <li>
+              Other material that may have historical or archival value
+            </li>
+          </ul>
+          <h3>
+            How to Submit Online Content
+          </h3>
+          <p>
+            If the material is hosted online, paste the direct link
+            into your submission email. This includes YouTube,
+            DailyMotion, TikTok, Facebook, Reddit, X/Twitter, and
+            other websites or platforms.
+          </p>
+          <p>
+            Whenever possible, please provide the <strong>direct link
+            to the specific video, post, photograph, article, or piece
+            of content</strong> rather than simply linking to the
+            website's home page.
+          </p>
+          <h3>
+            How to Submit Personal Files or Photos
+          </h3>
+          <p>
+            If you are submitting a personal photograph, screenshot,
+            video file, document, meme, or another file that is not
+            hosted online, <strong>attach the file directly to your
+            email</strong>.
+          </p>
+          <p>
+            Please make sure you have the legal right or permission
+            necessary to provide any personal file or other material
+            you submit.
+          </p>
+          <h3>
+            Please Include
+          </h3>
+          <ul class="submission-list">
+            <li>
+              Your name or username
+            </li>
+            <li>
+              A direct link to the content whenever possible
+            </li>
+            <li>
+              If there is no online link, attach the file directly
+              to the email
+            </li>
+            <li>
+              A short description of what you are submitting
+            </li>
+            <li>
+              Any comments or historical context you believe is useful
+            </li>
+            <li>
+              The approximate date of the material, if known
+            </li>
+            <li>
+              The original source, creator, account, or publication,
+              if known
+            </li>
+            <li>
+              Why you believe the material should be preserved
+            </li>
+          </ul>
+          <!-- ===================================================
+               CONTENT RULES
+               =================================================== -->
+          <div class="submission-rules">
+            <h4>
+              Important Submission Rules &amp; Warnings
+            </h4>
+            <p>
+              Please read these requirements before submitting
+              material.
+            </p>
+            <ul>
+              <li>
+                <strong>No pornography or sexually explicit material.</strong>
+              </li>
+              <li>
+                <strong>No graphic gore or gratuitous graphic violence.</strong>
+              </li>
+              <li>
+                <strong>
+                  No racist, antisemitic, sexist, or other hateful
+                  material submitted for the purpose of promoting
+                  hatred or harassment.
+                </strong>
+              </li>
+              <li>
+                <strong>No illegal material.</strong>
+              </li>
+              <li>
+                Do not submit material that you do not have permission
+                or the legal right to provide.
+              </li>
+              <li>
+                Do not submit private personal information belonging
+                to another person.
+              </li>
+              <li>
+                Do not submit content for the purpose of threatening,
+                harassing, or targeting another person.
+              </li>
+              <li>
+                Historical material containing controversial,
+                disturbing, offensive, or hateful subject matter may
+                be considered only when it has legitimate historical,
+                documentary, journalistic, or archival value and is
+                presented in an appropriate context.
+              </li>
+              <li>
+                Submissions are reviewed before publication.
+              </li>
+              <li>
+                Sending material does not guarantee that it will be
+                published.
+              </li>
+              <li>
+                The Historical Record reserves the right to reject,
+                edit, categorize, move, or remove submitted material.
+              </li>
+            </ul>
+          </div>
+          <!-- ===================================================
+               EMAIL SUBMISSION
+               =================================================== -->
+          <div class="submission-action">
+            <a
+              class="submission-button"
+              href="mailto:openhandusa1776@gmail.com?subject=The%20Historical%20Record%20-%20User%20Submission&body=USERNAME%20OR%20NAME%3A%0A%0AWHAT%20ARE%20YOU%20SUBMITTING%3F%0A%0ACONTENT%20LINK%20%28YouTube%2C%20DailyMotion%2C%20TikTok%2C%20Facebook%2C%20Reddit%2C%20X%2C%20etc.%29%3A%0A%0AIF%20YOU%20ARE%20SUBMITTING%20A%20PERSONAL%20FILE%2C%20PHOTO%2C%20SCREENSHOT%2C%20VIDEO%2C%20OR%20DOCUMENT%2C%20PLEASE%20ATTACH%20IT%20TO%20THIS%20EMAIL.%0A%0ADATE%20OF%20CONTENT%20%28IF%20KNOWN%29%3A%0A%0AORIGINAL%20SOURCE%20%2F%20CREATOR%20%2F%20ACCOUNT%20%28IF%20KNOWN%29%3A%0A%0ACOMMENTS%20OR%20HISTORICAL%20CONTEXT%3A%0A%0AWHY%20SHOULD%20THIS%20BE%20PRESERVED%3F%0A%0A"
+            >
+              Submit Content via Email →
+            </a>
+            <p class="submission-note">
+              The button opens a new email addressed to
+              openhandusa1776@gmail.com. The submission form will
+              already be filled into the email. Paste your content
+              link into the appropriate field, or attach your personal
+              file, photograph, screenshot, video, or document directly
+              to the email.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- =========================================================
+       EXISTING SITE FOOTER — PRESERVED
+       ========================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        THE HISTORICAL RECORD
+      </p>
+      <p>
+        A living archive of the moments that matter.
+      </p>
+    </div>
+  </footer>
+  <!-- =========================================================
+       EXISTING SITE JAVASCRIPT — PRESERVED
+       ========================================================= -->
+  <script src="script.js"></script>
+</body>
+</html>
