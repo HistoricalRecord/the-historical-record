@@ -47,22 +47,22 @@
     }
 
     .meme-section {
-      padding: 38px 0 70px;
+      padding: 34px 0 55px;
       background: #ffffff;
     }
 
     .meme-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 28px 34px;
+      gap: 22px 28px;
       align-items: start;
     }
 
     .meme-card {
       background: #ffffff;
       border: 1px solid #d7d7d7;
-      box-shadow: 0 2px 7px rgba(0, 0, 0, 0.08);
-      padding: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+      padding: 9px;
       min-width: 0;
     }
 
@@ -89,7 +89,7 @@
       background: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0.02),
-        rgba(0, 0, 0, 0.12)
+        rgba(0, 0, 0, 0.16)
       );
       pointer-events: none;
     }
@@ -101,13 +101,13 @@
       transform: translate(-50%, -50%);
       z-index: 3;
 
-      width: 64px;
-      height: 46px;
+      width: 54px;
+      height: 38px;
 
       border: 0;
-      border-radius: 8px;
+      border-radius: 7px;
       background: #cc0000;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 2px 7px rgba(0, 0, 0, 0.35);
 
       cursor: pointer;
     }
@@ -115,15 +115,15 @@
     .meme-play::after {
       content: "";
       position: absolute;
-      left: 26px;
-      top: 13px;
+      left: 22px;
+      top: 10px;
 
       width: 0;
       height: 0;
 
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid transparent;
-      border-left: 15px solid #ffffff;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      border-left: 13px solid #ffffff;
     }
 
     .meme-player:hover .meme-play {
@@ -138,29 +138,29 @@
     }
 
     .meme-info {
-      padding: 13px 4px 4px;
+      padding: 10px 3px 2px;
     }
 
     .meme-number {
       color: #b40000;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.12em;
-      margin: 0 0 6px;
+      margin: 0 0 5px;
       text-transform: uppercase;
     }
 
     .meme-title {
       color: #222222;
-      font-size: 17px;
+      font-size: 15px;
       font-weight: 700;
       line-height: 1.3;
-      margin: 0 0 7px;
+      margin: 0 0 5px;
     }
 
     .meme-uploader {
       color: #666666;
-      font-size: 13px;
+      font-size: 12px;
       line-height: 1.4;
       margin: 0;
     }
@@ -169,22 +169,54 @@
       color: #333333;
     }
 
-    .meme-loading {
-      color: #777777;
-      font-size: 13px;
-      margin: 0;
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 38px;
     }
 
-    .meme-error {
-      color: #8a0000;
+    .page-button {
+      appearance: none;
+      border: 1px solid #cfcfcf;
+      background: #ffffff;
+      color: #333333;
+      min-width: 38px;
+      height: 36px;
+      padding: 0 10px;
       font-size: 13px;
-      margin: 0;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    .page-button:hover {
+      background: #f2f2f2;
+    }
+
+    .page-button.active {
+      background: #b40000;
+      border-color: #b40000;
+      color: #ffffff;
+    }
+
+    .page-button:disabled {
+      opacity: 0.45;
+      cursor: default;
+    }
+
+    .page-status {
+      color: #777777;
+      font-size: 12px;
+      margin-left: 8px;
     }
 
     @media (max-width: 800px) {
       .meme-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 20px;
       }
 
       .meme-header {
@@ -198,24 +230,34 @@
 
     @media (max-width: 520px) {
       .meme-section {
-        padding-top: 25px;
+        padding-top: 24px;
       }
 
       .meme-card {
-        padding: 9px;
+        padding: 8px;
       }
 
       .meme-play {
-        width: 56px;
-        height: 40px;
+        width: 50px;
+        height: 35px;
       }
 
       .meme-play::after {
-        left: 23px;
-        top: 11px;
-        border-top-width: 9px;
-        border-bottom-width: 9px;
-        border-left-width: 13px;
+        left: 20px;
+        top: 9px;
+        border-top-width: 8px;
+        border-bottom-width: 8px;
+        border-left-width: 12px;
+      }
+
+      .pagination {
+        gap: 5px;
+      }
+
+      .page-button {
+        min-width: 34px;
+        height: 34px;
+        padding: 0 8px;
       }
     }
   </style>
@@ -269,6 +311,7 @@
       <a href="world-events.html">World Events</a>
       <a href="social-media.html">Social Media</a>
       <a href="thoughts.html">Thoughts / Blog</a>
+      <a href="historical-memes.html">Historical Memes</a>
     </nav>
 
   </aside>
@@ -314,9 +357,13 @@
 
       <div class="container">
 
-        <div class="meme-grid" id="meme-grid">
+        <div class="meme-grid" id="meme-grid"></div>
 
-        </div>
+        <div
+          class="pagination"
+          id="pagination"
+          aria-label="Historical Memes pages"
+        ></div>
 
       </div>
 
@@ -343,45 +390,26 @@
   <script src="script.js"></script>
 
   <script>
+
     const videos = [
-      "ILtz5nX3_fc",
-      "WqSTXuJeTks",
-      "mfhBM_Yay6w",
-      "93hq0YU3Gqk",
-      "BEtIoGQxqQs",
-      "LeAltgu_pbM",
-      "aBfUFr9SBY0",
-      "D2kJZOfq7zk",
-      "UMf40daefsI",
-      "O61Do03ZCjw",
-      "D1R-jKKp3NA",
-      "tw5EsYzyGWI",
-      "O4rfQSgkZOE",
-      "Y93xTChHV_0",
-      "OKI-5MHUkKY",
-      "5RDER307OKI",
-      "ISV1bt8-TDg",
-      "b_NQCTbvRnM",
-      "uEE3akeFeQU",
-      "7zH4Jb-6BZs",
-      "vzz704zeI4U",
-      "QpgJyYBTq84",
-      "mBxBzmhHTww",
-      "Q5im0Ssyyus",
-      "CsGYh8AacgY",
-      "s8MDNFaGfT4",
-      "Z3ZAGBL6UBA",
-      "qItugh-fFgg",
+      "dMH0bHeiRNg",
+      "60og9gwKh1o",
+      "_OBlgSz8sSM",
+      "ZZ5LpwO-An4",
+      "4pXfHLUlZf4",
+      "CbB2wQ9JjZQ",
+      "0Bmhjf0rKe8",
+      "FzRH3iTQPrk",
+      "EwTZ2xpQwpA",
+      "KmtzQCSh6xk",
       "jNQXAC9IVRw",
       "hMtZfW2z9dw",
       "fbGkxcY7YFU",
       "MtN1YnoL46Q",
       "Tx1XIm6q4r4",
       "EIyohCQqGck",
-      "2EcBClUGl5Q",
       "oavMtUWDBTM",
       "YnopHCL1Jk8",
-      "k85mRPqvMbE",
       "astISOttCQ0",
       "ykwqXuMPsoc",
       "NoHRBvtUV_g",
@@ -433,7 +461,6 @@
       "r3-Y31ONZuI",
       "xaPepCVepCg",
       "IJmIGC0nwK0",
-      "ZZ5LpwO-An4",
       "czhd1eHv6ac",
       "lg5WKsVnEA4",
       "lgh68Swuak0",
@@ -465,57 +492,70 @@
       "oBnVNpG97Z4",
       "Mh4f9AYRCZY",
       "pNbN5Mk_sZw",
-      "Cqd1Gvq-RBY",
-      "dMH0bHeiRNg",
-      "EwTZ2xpQwpA",
-      "txqiwrbYGrs",
-      "dQw4w9WgXcQ",
-      "2yJgwwDcgV8",
-      "9bZkp7q19f0",
-      "HPPj6viIBmU",
-      "wCF3ywukQYA",
-      "UjCdB5p2v0Y",
-      "OQSNhk5ICTI",
-      "hooKVstzbz0",
-      "3HjIljJd-o0",
-      "CMNry4PE93Y",
-      "aMS0O3kknvk",
-      "zVNTdWbVBgc",
-      "7WmMcqp670s",
-      "W45DRy7M1no",
-      "6B26asyGKDo",
-      "6bVa6jn4rpE",
-      "40uMbKjSBwU",
-      "5jwETfUw0TE",
-      "cBC1moosff0",
-      "bx4kwzUn2Bg",
-      "oHg5SJYRHA0",
-      "EwKpaD8g_gY",
-      "dmzDB8EHRxg",
-      "e3mG_gvaimo",
-      "EoLjddNcnYU",
-      "H6ly9KGuVTk",
-      "k0CJwbayisw",
-      "vo3qLUki5L8",
-      "1lQ3FGxpEU0",
-      "nwP3TeK-fPs",
-      "tGmmQ688Fkk",
-      "vHH1W1_f-6Y",
-      "hD8MPMTcvd8",
-      "RtfmTOv_kgA",
-      "VslKGGpl4Xc",
-      "ocd_GDed5qg",
-      "nUpNvmymAzM",
-      "0eOiL5dqP-I",
-      "3FS8_l_i81Q",
-      "4ZYziZg8LBc"
+      "ILtz5nX3_fc",
+      "WqSTXuJeTks",
+      "mfhBM_Yay6w",
+      "93hq0YU3Gqk",
+      "BEtIoGQxqQs",
+      "LeAltgu_pbM",
+      "aBfUFr9SBY0",
+      "D2kJZOfq7zk",
+      "UMf40daefsI",
+      "O61Do03ZCjw",
+      "D1R-jKKp3NA",
+      "2zOv7kvYmtg",
+      "2nYozPLpJRE",
+      "aBm_2IUn4MU",
+      "OTuMh7VDaC4",
+      "ys7pLfOVZDE",
+      "P6P_sXbQtgc",
+      "V4we8iFk-fY",
+      "eegQI9WM6mk",
+      "j03KzQDm8sk",
+      "G5QEdVMVbIw",
+      "QQEutrGhoqI",
+      "BXUhfoUJjuQ",
+      "OLpeX4RRo28",
+      "GiLMvrqI8Gc",
+      "TNW5JjiGyZw",
+      "EdvJnP5ruqA",
+      "BQw3v31s-Y8",
+      "xWcldHxHFpo",
+      "pXO76dbictU",
+      "NYilBju7Wps",
+      "uJs3qqGscMM",
+      "Yvd3aEsThbc"
     ];
 
+    const uniqueVideos = [...new Set(videos)];
+
     const grid = document.getElementById("meme-grid");
+    const pagination = document.getElementById("pagination");
+
+    const videosPerPage = 50;
+
+    let currentPage = 1;
+
+    function getPageFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      const requestedPage = parseInt(params.get("page"), 10);
+
+      if (
+        Number.isInteger(requestedPage) &&
+        requestedPage >= 1
+      ) {
+        return requestedPage;
+      }
+
+      return 1;
+    }
 
     function createCard(id, index) {
+
       const card = document.createElement("article");
+
       card.className = "meme-card";
+
       card.dataset.videoId = id;
 
       card.innerHTML = `
@@ -526,10 +566,12 @@
           aria-label="Play video"
           data-video-id="${id}"
         >
+
           <img
             src="https://i.ytimg.com/vi/${id}/hqdefault.jpg"
             alt=""
             loading="lazy"
+            decoding="async"
           >
 
           <button
@@ -537,6 +579,7 @@
             type="button"
             aria-label="Play video"
           ></button>
+
         </div>
 
         <div class="meme-info">
@@ -557,25 +600,32 @@
         </div>
       `;
 
-      const player = card.querySelector(".meme-player");
-      const playButton = card.querySelector(".meme-play");
+      const player =
+        card.querySelector(".meme-player");
+
+      const playButton =
+        card.querySelector(".meme-play");
 
       function playVideo() {
+
         if (player.dataset.loaded === "true") {
           return;
         }
 
         player.dataset.loaded = "true";
 
-        const iframe = document.createElement("iframe");
+        const iframe =
+          document.createElement("iframe");
 
         iframe.src =
           "https://www.youtube-nocookie.com/embed/" +
           encodeURIComponent(id) +
-          "?autoplay=1&rel=0";
+          "?autoplay=1&rel=0&modestbranding=1";
 
         iframe.title =
           card.querySelector(".meme-title").textContent;
+
+        iframe.loading = "lazy";
 
         iframe.allow =
           "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
@@ -583,27 +633,39 @@
         iframe.allowFullscreen = true;
 
         player.innerHTML = "";
+
         player.appendChild(iframe);
       }
 
-      playButton.addEventListener("click", function(event) {
-        event.stopPropagation();
-        playVideo();
-      });
-
-      player.addEventListener("click", function() {
-        playVideo();
-      });
-
-      player.addEventListener("keydown", function(event) {
-        if (
-          event.key === "Enter" ||
-          event.key === " "
-        ) {
-          event.preventDefault();
+      playButton.addEventListener(
+        "click",
+        function(event) {
+          event.stopPropagation();
           playVideo();
         }
-      });
+      );
+
+      player.addEventListener(
+        "click",
+        function() {
+          playVideo();
+        }
+      );
+
+      player.addEventListener(
+        "keydown",
+        function(event) {
+
+          if (
+            event.key === "Enter" ||
+            event.key === " "
+          ) {
+            event.preventDefault();
+            playVideo();
+          }
+
+        }
+      );
 
       loadMetadata(card, id);
 
@@ -611,8 +673,12 @@
     }
 
     async function loadMetadata(card, id) {
-      const title = card.querySelector(".meme-title");
-      const uploader = card.querySelector(".meme-uploader span");
+
+      const title =
+        card.querySelector(".meme-title");
+
+      const uploader =
+        card.querySelector(".meme-uploader span");
 
       const endpoint =
         "https://www.youtube.com/oembed?url=" +
@@ -622,13 +688,16 @@
         "&format=json";
 
       try {
-        const response = await fetch(endpoint);
+
+        const response =
+          await fetch(endpoint);
 
         if (!response.ok) {
           throw new Error("Metadata unavailable");
         }
 
-        const data = await response.json();
+        const data =
+          await response.json();
 
         title.textContent =
           data.title || "Untitled Video";
@@ -637,22 +706,280 @@
           data.author_name || "Unknown uploader";
 
       } catch (error) {
-        title.textContent = "View video";
+
+        title.textContent =
+          "View video";
 
         uploader.textContent =
           "YouTube video";
+
       }
     }
 
-    const fragment = document.createDocumentFragment();
+    function renderPage(page) {
 
-    videos.forEach(function(id, index) {
-      fragment.appendChild(
-        createCard(id, index)
+      const totalPages =
+        Math.ceil(
+          uniqueVideos.length / videosPerPage
+        );
+
+      if (page > totalPages) {
+        page = totalPages;
+      }
+
+      currentPage = page;
+
+      grid.innerHTML = "";
+
+      const start =
+        (page - 1) * videosPerPage;
+
+      const end =
+        Math.min(
+          start + videosPerPage,
+          uniqueVideos.length
+        );
+
+      const fragment =
+        document.createDocumentFragment();
+
+      for (let i = start; i < end; i++) {
+
+        fragment.appendChild(
+          createCard(
+            uniqueVideos[i],
+            i
+          )
+        );
+
+      }
+
+      grid.appendChild(fragment);
+
+      renderPagination(totalPages);
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    function renderPagination(totalPages) {
+
+      pagination.innerHTML = "";
+
+      if (totalPages <= 1) {
+        return;
+      }
+
+      const previous =
+        document.createElement("button");
+
+      previous.className =
+        "page-button";
+
+      previous.type = "button";
+
+      previous.textContent =
+        "‹";
+
+      previous.setAttribute(
+        "aria-label",
+        "Previous page"
       );
-    });
 
-    grid.appendChild(fragment);
+      previous.disabled =
+        currentPage === 1;
+
+      previous.addEventListener(
+        "click",
+        function() {
+          goToPage(currentPage - 1);
+        }
+      );
+
+      pagination.appendChild(previous);
+
+      const maxVisiblePages = 7;
+
+      let startPage =
+        Math.max(
+          1,
+          currentPage -
+          Math.floor(maxVisiblePages / 2)
+        );
+
+      let endPage =
+        Math.min(
+          totalPages,
+          startPage + maxVisiblePages - 1
+        );
+
+      if (
+        endPage - startPage + 1 <
+        maxVisiblePages
+      ) {
+        startPage =
+          Math.max(
+            1,
+            endPage - maxVisiblePages + 1
+          );
+      }
+
+      if (startPage > 1) {
+
+        addPageButton(1);
+
+        if (startPage > 2) {
+
+          const dots =
+            document.createElement("span");
+
+          dots.textContent = "…";
+
+          dots.className =
+            "page-status";
+
+          pagination.appendChild(dots);
+
+        }
+
+      }
+
+      for (
+        let page = startPage;
+        page <= endPage;
+        page++
+      ) {
+
+        addPageButton(page);
+
+      }
+
+      if (endPage < totalPages) {
+
+        if (endPage < totalPages - 1) {
+
+          const dots =
+            document.createElement("span");
+
+          dots.textContent = "…";
+
+          dots.className =
+            "page-status";
+
+          pagination.appendChild(dots);
+
+        }
+
+        addPageButton(totalPages);
+
+      }
+
+      const next =
+        document.createElement("button");
+
+      next.className =
+        "page-button";
+
+      next.type = "button";
+
+      next.textContent =
+        "›";
+
+      next.setAttribute(
+        "aria-label",
+        "Next page"
+      );
+
+      next.disabled =
+        currentPage === totalPages;
+
+      next.addEventListener(
+        "click",
+        function() {
+          goToPage(currentPage + 1);
+        }
+      );
+
+      pagination.appendChild(next);
+
+    }
+
+    function addPageButton(page) {
+
+      const button =
+        document.createElement("button");
+
+      button.className =
+        "page-button";
+
+      button.type = "button";
+
+      button.textContent =
+        page;
+
+      button.setAttribute(
+        "aria-label",
+        "Page " + page
+      );
+
+      if (page === currentPage) {
+        button.classList.add("active");
+        button.setAttribute(
+          "aria-current",
+          "page"
+        );
+      }
+
+      button.addEventListener(
+        "click",
+        function() {
+          goToPage(page);
+        }
+      );
+
+      pagination.appendChild(button);
+    }
+
+    function goToPage(page) {
+
+      const url =
+        new URL(
+          window.location.href
+        );
+
+      if (page === 1) {
+        url.searchParams.delete("page");
+      } else {
+        url.searchParams.set(
+          "page",
+          page
+        );
+      }
+
+      window.history.pushState(
+        {},
+        "",
+        url
+      );
+
+      renderPage(page);
+    }
+
+    window.addEventListener(
+      "popstate",
+      function() {
+        renderPage(
+          getPageFromURL()
+        );
+      }
+    );
+
+    renderPage(
+      getPageFromURL()
+    );
+
   </script>
 
 </body>
