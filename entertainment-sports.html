@@ -12,6 +12,13 @@
     .selected-videos {
       margin-bottom: 42px;
     }
+    .selected-videos-panel {
+      display: none;
+      margin-top: 28px;
+    }
+    .selected-videos-panel.open {
+      display: block;
+    }
     .video-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -94,9 +101,68 @@
       color: var(--muted);
       font-size: 0.84rem;
     }
+    .selected-videos-toggle {
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+    }
+    .selected-videos-toggle .topic-arrow {
+      border: 0;
+      background: transparent;
+      padding: 0;
+    }
+    /* =========================================
+       BACK TO TOP
+       ========================================= */
+    .back-to-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 999;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--white);
+      border-radius: 0;
+      background: var(--red);
+      color: var(--white);
+      font-size: 1.35rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow:
+        0 5px 16px rgba(0, 0, 0, 0.25);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .back-to-top:hover {
+      background: var(--red-dark);
+    }
+    .back-to-top:focus {
+      outline: 3px solid rgba(178, 34, 52, 0.35);
+      outline-offset: 3px;
+    }
     @media (max-width: 760px) {
       .video-grid {
         grid-template-columns: 1fr;
+      }
+      .back-to-top {
+        right: 14px;
+        bottom: 14px;
+        width: 46px;
+        height: 46px;
       }
     }
   </style>
@@ -105,85 +171,78 @@
   <!-- =========================================
        HAMBURGER
        ========================================= -->
-  <button
-    class="menu-button"
-    aria-label="Open menu"
-    aria-expanded="false"
-    type="button"
-  >
-    <span></span>
-    <span></span>
-    <span></span>
+
+<button
+class=“menu-button”
+aria-label=“Open menu”
+aria-expanded=“false”
+type=“button”
+
+<span></span>
+<span></span>
+<span></span>
   </button>
   <!-- =========================================
        SIDE MENU
        ========================================= -->
   <aside class="side-menu">
-    <div class="menu-header">
-      <h2>
-        The Historical Record
-      </h2>
-      <p>
-        Archive Navigation
-      </p>
+<div class="menu-header">
+  <h2>The Historical Record</h2>
+  <p>Archive Navigation</p>
+</div>
+<nav>
+  <a href="search.html">
+    Search the Archive
+  </a>
+  <a href="archive.html">
+    The Archive
+  </a>
+  <a href="index.html">
+    Home
+  </a>
+  <!-- POLITICS DROPDOWN -->
+  <div class="menu-dropdown">
+    <button
+      class="menu-dropdown-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="politics-submenu"
+    >
+      <span>Politics</span>
+      <span class="menu-dropdown-arrow">▾</span>
+    </button>
+    <div
+      class="menu-submenu"
+      id="politics-submenu"
+    >
+      <a href="politics.html">
+        Politics Home
+      </a>
+      <a href="september-11.html">
+        September 11, 2001
+      </a>
+      <a href="september-11-sourcebooks.html">
+        9/11 Sourcebooks &amp; Documents
+      </a>
     </div>
-    <nav>
-      <a href="search.html">
-        Search the Archive
-      </a>
-      <a href="archive.html">
-        The Archive
-      </a>
-      <a href="index.html">
-        Home
-      </a>
-      <!-- POLITICS DROPDOWN -->
-      <div class="menu-dropdown">
-        <button
-          class="menu-dropdown-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="politics-submenu"
-        >
-          <span>
-            Politics
-          </span>
-          <span class="menu-dropdown-arrow">
-            ▾
-          </span>
-        </button>
-        <div
-          class="menu-submenu"
-          id="politics-submenu"
-        >
-          <a href="politics.html">
-            Politics Home
-          </a>
-          <a href="september-11.html">
-            September 11, 2001
-          </a>
-          <a href="september-11-sourcebooks.html">
-            9/11 Sourcebooks &amp; Documents
-          </a>
-        </div>
-      </div>
-      <a href="entertainment-sports.html">
-        Entertainment / Sports
-      </a>
-      <a href="world-events.html">
-        World Events
-      </a>
-      <a href="social-media.html">
-        Social Media
-      </a>
-      <a href="thoughts.html">
-        Thoughts / Blog
-      </a>
-      <!-- USER SUBMISSIONS -->
-      <a href="submissions.html">
-        Submissions
-      </a>
-    </nav>
+  </div>
+  <a href="entertainment-sports.html">
+    Entertainment / Sports
+  </a>
+  <a href="world-events.html">
+    World Events
+  </a>
+  <a href="social-media.html">
+    Social Media
+  </a>
+  <a href="thoughts.html">
+    Thoughts / Blog
+  </a>
+  <!-- USER SUBMISSIONS -->
+  <a href="submissions.html">
+    Submissions
+  </a>
+</nav>
   </aside>
   <!-- =========================================
        OVERLAY
@@ -193,218 +252,246 @@
        SITE HEADER
        ========================================= -->
   <header class="site-header">
-    <div class="container header-inner">
-      <a
-        href="index.html"
-        class="brand"
-      >
-        THE HISTORICAL RECORD
-      </a>
-    </div>
+<div class="container header-inner">
+  <a
+    href="index.html"
+    class="brand"
+  >
+    THE HISTORICAL RECORD
+  </a>
+</div>
   </header>
   <!-- =========================================
        MAIN
        ========================================= -->
   <main>
-    <!-- =========================================
-         HERO
-         ========================================= -->
-    <section class="hero">
-      <div class="container">
-        <p class="eyebrow">
-          ENTERTAINMENT / SPORTS
-        </p>
-        <h1>
-          Entertainment / Sports
-        </h1>
-        <p class="hero-text">
-          This section contains articles, photographs, videos, social media
-          posts, announcements, results, and other records documenting
-          significant moments in entertainment and sports.
-        </p>
-      </div>
-    </section>
-    <!-- =========================================
-         RECORDS
-         ========================================= -->
-    <section class="records-section">
-      <div class="container">
-        <div class="record-list">
-          <!-- =========================================
-               SELECTED VIDEOS
-               ========================================= -->
-          <div class="selected-videos">
-            <div class="section-heading">
-              <h2>
-                Selected Videos
-              </h2>
-              <p>
-                Selected entertainment and sports videos preserved
-                as part of The Historical Record.
-              </p>
-            </div>
-            <div
-              class="video-grid"
-              id="selected-video-grid"
-            ></div>
-          </div>
-          <!-- =========================================
-               KENTA KOBASHI
-               ========================================= -->
-          <article class="record-card">
-            <p class="record-label">
-              SPORTS
-            </p>
-            <h3>
-              Kenta Kobashi
-            </h3>
-            <p>
-              The Burning Lariat. The Absolute Champion.
-            </p>
-            <p>
-              Explore the career of Kenta Kobashi, from his beginnings in All Japan
-              Pro Wrestling to his legendary years in Pro Wrestling NOAH, his championship
-              victories, historic rivalries, major injuries, battles with cancer, and
-              his emotional retirement in 2013.
-            </p>
-            <a href="kenta-kobashi.html">
-              View Kenta Kobashi's Historical Profile →
-            </a>
-          </article>
-          <!-- =========================================
-               CHRIS BROWN / CONGRESSIONAL RECORD
-               ========================================= -->
-          <article class="record-card">
-            <p class="record-label">
-              ENTERTAINMENT • SEPTEMBER 13, 2026
-            </p>
-            <h3>
-              Chris Brown's Two-Decade R&amp;B Legacy
-            </h3>
-            <p>
-              A social media record documenting the recognition of Chris Brown's
-              career and musical impact through an official entry in the
-              U.S. Congressional Record.
-            </p>
-            <div class="media-placeholder">
-              <strong>
-                RELATED SOCIAL MEDIA RECORD
-              </strong>
-              <blockquote class="twitter-tweet">
-                <p lang="en" dir="ltr">
-                  Chris Brown’s two-decade R&amp;B legacy receives a historic
-                  honor as Congresswoman Jasmine Crockett presents him with an
-                  official entry in the U.S. Congressional Record.
-                  <br><br>
-                  The recognition honors his career, musical impact and
-                  contributions to the genre.
-                  <a href="https://t.co/EqwlvdJx74">
-                    pic.twitter.com/EqwlvdJx74
-                  </a>
-                </p>
-                &mdash; Pop Core
-                <a href="https://x.com/TheePopCore/status/2099155301828092052?ref_src=twsrc%5Etfw">
-                  September 13, 2026
-                </a>
-              </blockquote>
-            </div>
-          </article>
-          <!-- =========================================
-               CHRIS BROWN / REACTION
-               ========================================= -->
-          <article class="record-card">
-            <p class="record-label">
-              ENTERTAINMENT • SEPTEMBER 14, 2026
-            </p>
-            <h3>
-              Public Reaction to Chris Brown's Congressional Recognition
-            </h3>
-            <p>
-              A social media record documenting public reaction to the
-              Congressional recognition of Chris Brown and discussion
-              surrounding his career.
-            </p>
-            <div class="media-placeholder">
-              <strong>
-                RELATED SOCIAL MEDIA RECORD
-              </strong>
-              <blockquote class="twitter-tweet">
-                <p lang="en" dir="ltr">
-                  <a href="https://x.com/RepJasmine?ref_src=twsrc%5Etfw">
-                    @RepJasmine
-                  </a>
-                  <a href="https://x.com/JasmineForUS?ref_src=twsrc%5Etfw">
-                    @JasmineForUS
-                  </a>
-                  in case you aren't aware of long streak of abuse!!
-                  <a href="https://t.co/9iN9BzDLLX">
-                    pic.twitter.com/9iN9BzDLLX
-                  </a>
-                </p>
-                &mdash; G Tyrant Daughter
-                <a href="https://x.com/jusamillenial/status/2099296147009347936?ref_src=twsrc%5Etfw">
-                  September 14, 2026
-                </a>
-              </blockquote>
-            </div>
-          </article>
-          <!-- =========================================
-               AAA TRIPLEMANIA
-               ========================================= -->
-          <article class="record-card">
-            <p class="record-label">
-              SPORTS • SEPTEMBER 14, 2026
-            </p>
-            <h3>
-              El Grande Americano Becomes AAA Megachampion
-            </h3>
-            <p>
-              A record documenting the conclusion of AAA Triplemanía and the
-              crowning of El Grande Americano as Megacampeón de AAA.
-            </p>
-            <div class="media-placeholder">
-              <strong>
-                RELATED SOCIAL MEDIA RECORD
-              </strong>
-              <blockquote class="twitter-tweet">
-                <p lang="es" dir="ltr">
-                  México NO DUERME 🇲🇽
-                  <br><br>
-                  Cerramos
-                  <a href="https://x.com/hashtag/AAATriplemania?src=hash&amp;ref_src=twsrc%5Etfw">
-                    #AAATriplemania
-                  </a>
-                  con El Grande Americano como Megacampeón de AAA ✨
-                  <a href="https://t.co/PRYpDIV71A">
-                    pic.twitter.com/PRYpDIV71A
-                  </a>
-                </p>
-                &mdash; Lucha Libre AAA Worldwide
-                <a href="https://x.com/luchalibreaaa/status/2099352156386238761?ref_src=twsrc%5Etfw">
-                  September 14, 2026
-                </a>
-              </blockquote>
-            </div>
-          </article>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">
+      ENTERTAINMENT / SPORTS
+    </p>
+    <h1>
+      Entertainment / Sports
+    </h1>
+    <p class="hero-text">
+      This section contains articles, photographs, videos, social media
+      posts, announcements, results, and other records documenting
+      significant moments in entertainment and sports.
+    </p>
+  </div>
+</section>
+<!-- =========================================
+     RECORDS
+     ========================================= -->
+<section class="records-section">
+  <div class="container">
+    <div class="record-list">
+      <!-- =========================================
+           SELECTED VIDEOS
+           ========================================= -->
+      <div class="selected-videos">
+        <button
+          class="topic-card selected-videos-toggle"
+          id="selected-videos-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="selected-videos-panel"
+        >
+          <span class="topic-label">
+            SELECTED VIDEOS
+          </span>
+          <h2>
+            Selected Videos
+          </h2>
+          <p>
+            A collection of selected entertainment and sports videos
+            preserved as part of The Historical Record.
+          </p>
+          <span class="topic-arrow">
+            View Selected Videos →
+          </span>
+        </button>
+        <div
+          class="selected-videos-panel"
+          id="selected-videos-panel"
+        >
+          <div
+            class="video-grid"
+            id="selected-video-grid"
+          ></div>
         </div>
       </div>
-    </section>
+      <!-- =========================================
+           KENTA KOBASHI
+           ========================================= -->
+      <article class="record-card">
+        <p class="record-label">
+          SPORTS
+        </p>
+        <h3>
+          Kenta Kobashi
+        </h3>
+        <p>
+          The Burning Lariat. The Absolute Champion.
+        </p>
+        <p>
+          Explore the career of Kenta Kobashi, from his beginnings in All Japan
+          Pro Wrestling to his legendary years in Pro Wrestling NOAH, his championship
+          victories, historic rivalries, major injuries, battles with cancer, and
+          his emotional retirement in 2013.
+        </p>
+        <a href="kenta-kobashi.html">
+          View Kenta Kobashi's Historical Profile →
+        </a>
+      </article>
+      <!-- =========================================
+           CHRIS BROWN / CONGRESSIONAL RECORD
+           ========================================= -->
+      <article class="record-card">
+        <p class="record-label">
+          ENTERTAINMENT • SEPTEMBER 13, 2026
+        </p>
+        <h3>
+          Chris Brown's Two-Decade R&amp;B Legacy
+        </h3>
+        <p>
+          A social media record documenting the recognition of Chris Brown's
+          career and musical impact through an official entry in the
+          U.S. Congressional Record.
+        </p>
+        <div class="media-placeholder">
+          <strong>
+            RELATED SOCIAL MEDIA RECORD
+          </strong>
+          <blockquote class="twitter-tweet">
+            <p lang="en" dir="ltr">
+              Chris Brown’s two-decade R&amp;B legacy receives a historic
+              honor as Congresswoman Jasmine Crockett presents him with an
+              official entry in the U.S. Congressional Record.
+              <br><br>
+              The recognition honors his career, musical impact and
+              contributions to the genre.
+              <a href="https://t.co/EqwlvdJx74">
+                pic.twitter.com/EqwlvdJx74
+              </a>
+            </p>
+            &mdash; Pop Core
+            <a href="https://x.com/TheePopCore/status/2099155301828092052?ref_src=twsrc%5Etfw">
+              September 13, 2026
+            </a>
+          </blockquote>
+        </div>
+      </article>
+      <!-- =========================================
+           CHRIS BROWN / REACTION
+           ========================================= -->
+      <article class="record-card">
+        <p class="record-label">
+          ENTERTAINMENT • SEPTEMBER 14, 2026
+        </p>
+        <h3>
+          Public Reaction to Chris Brown's Congressional Recognition
+        </h3>
+        <p>
+          A social media record documenting public reaction to the
+          Congressional recognition of Chris Brown and discussion
+          surrounding his career.
+        </p>
+        <div class="media-placeholder">
+          <strong>
+            RELATED SOCIAL MEDIA RECORD
+          </strong>
+          <blockquote class="twitter-tweet">
+            <p lang="en" dir="ltr">
+              <a href="https://x.com/RepJasmine?ref_src=twsrc%5Etfw">
+                @RepJasmine
+              </a>
+              <a href="https://x.com/JasmineForUS?ref_src=twsrc%5Etfw">
+                @JasmineForUS
+              </a>
+              in case you aren't aware of long streak of abuse!!
+              <a href="https://t.co/9iN9BzDLLX">
+                pic.twitter.com/9iN9BzDLLX
+              </a>
+            </p>
+            &mdash; G Tyrant Daughter
+            <a href="https://x.com/jusamillenial/status/2099296147009347936?ref_src=twsrc%5Etfw">
+              September 14, 2026
+            </a>
+          </blockquote>
+        </div>
+      </article>
+      <!-- =========================================
+           AAA TRIPLEMANIA
+           ========================================= -->
+      <article class="record-card">
+        <p class="record-label">
+          SPORTS • SEPTEMBER 14, 2026
+        </p>
+        <h3>
+          El Grande Americano Becomes AAA Megachampion
+        </h3>
+        <p>
+          A record documenting the conclusion of AAA Triplemanía and the
+          crowning of El Grande Americano as Megacampeón de AAA.
+        </p>
+        <div class="media-placeholder">
+          <strong>
+            RELATED SOCIAL MEDIA RECORD
+          </strong>
+          <blockquote class="twitter-tweet">
+            <p lang="es" dir="ltr">
+              México NO DUERME 🇲🇽
+              <br><br>
+              Cerramos
+              <a href="https://x.com/hashtag/AAATriplemania?src=hash&amp;ref_src=twsrc%5Etfw">
+                #AAATriplemania
+              </a>
+              con El Grande Americano como Megacampeón de AAA ✨
+              <a href="https://t.co/PRYpDIV71A">
+                pic.twitter.com/PRYpDIV71A
+              </a>
+            </p>
+            &mdash; Lucha Libre AAA Worldwide
+            <a href="https://x.com/luchalibreaaa/status/2099352156386238761?ref_src=twsrc%5Etfw">
+              September 14, 2026
+            </a>
+          </blockquote>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
   </main>
   <!-- =========================================
        FOOTER
        ========================================= -->
   <footer class="site-footer">
-    <div class="container">
-      <p>
-        THE HISTORICAL RECORD
-      </p>
-      <p>
-        A living archive of the moments that matter.
-      </p>
-    </div>
+<div class="container">
+  <p>
+    THE HISTORICAL RECORD
+  </p>
+  <p>
+    A living archive of the moments that matter.
+  </p>
+</div>
   </footer>
   <!-- =========================================
-       X WIDGET SCRIPT
+       BACK TO TOP
+       ========================================= -->
+
+<button
+class=“back-to-top”
+id=“back-to-top”
+type=“button”
+aria-label=“Back to top”
+title=“Back to top”
+
+↑
+  </button>
+  <!-- =========================================
+       X WIDGET
        ========================================= -->
   <script
     async
@@ -437,18 +524,47 @@
       "MKHZn4JFrXA",
       "SMEYZHB_rlE"
     ];
+    const selectedVideosToggle =
+      document.getElementById(
+        "selected-videos-toggle"
+      );
+    const selectedVideosPanel =
+      document.getElementById(
+        "selected-videos-panel"
+      );
     const videoGrid =
       document.getElementById(
         "selected-video-grid"
       );
-    function createVideoCard(
-      id,
-      index
-    ) {
-      const card =
-        document.createElement(
-          "article"
+    selectedVideosToggle.addEventListener(
+      "click",
+      function() {
+        const isOpen =
+          selectedVideosPanel.classList.toggle("open");
+        selectedVideosToggle.setAttribute(
+          "aria-expanded",
+          String(isOpen)
         );
+        if (isOpen) {
+          selectedVideosToggle.querySelector(
+            ".topic-arrow"
+          ).textContent =
+            "Hide Selected Videos ↑";
+          selectedVideosPanel.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        } else {
+          selectedVideosToggle.querySelector(
+            ".topic-arrow"
+          ).textContent =
+            "View Selected Videos →";
+        }
+      }
+    );
+    function createVideoCard(id, index) {
+      const card =
+        document.createElement("article");
       card.className =
         "video-card";
       card.innerHTML = `
@@ -565,8 +681,7 @@
       const endpoint =
         "https://www.youtube.com/oembed?url=" +
         encodeURIComponent(
-          "https://www.youtube.com/watch?v=" +
-          id
+          "https://www.youtube.com/watch?v=" + id
         ) +
         "&format=json";
       try {
@@ -602,6 +717,45 @@
         );
       }
     );
+  </script>
+  <!-- =========================================
+       BACK TO TOP SCRIPT
+       ========================================= -->
+  <script>
+    const backToTop =
+      document.getElementById(
+        "back-to-top"
+      );
+    function updateBackToTop() {
+      if (
+        window.scrollY > 500
+      ) {
+        backToTop.classList.add(
+          "show"
+        );
+      } else {
+        backToTop.classList.remove(
+          "show"
+        );
+      }
+    }
+    window.addEventListener(
+      "scroll",
+      updateBackToTop,
+      {
+        passive: true
+      }
+    );
+    backToTop.addEventListener(
+      "click",
+      function() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
+    );
+    updateBackToTop();
   </script>
 </body>
 </html>
