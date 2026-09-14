@@ -35,204 +35,261 @@
         box-shadow 0.2s ease,
         border-color 0.2s ease;
     }
-    .selected-videos-toggle::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: var(--red);
-    }
-    .selected-videos-toggle:hover {
-      transform: translateY(-3px);
-      background: var(--white);
-      border-color: var(--red);
-      box-shadow:
-        0 12px 30px rgba(11, 31, 77, 0.17);
-    }
-    .selected-videos-toggle:focus {
-      outline: 3px solid rgba(178, 34, 52, 0.35);
-      outline-offset: 3px;
-    }
-    .selected-videos-toggle .topic-label,
-    .selected-videos-toggle h2,
-    .selected-videos-toggle p,
-    .selected-videos-toggle .topic-arrow {
-      pointer-events: none;
-    }
-    .selected-videos-panel {
-      display: none;
-      margin-top: 28px;
-    }
-    .selected-videos-panel.open {
-      display: block;
-    }
-    .video-grid {
-      display: grid;
-      grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-      gap: 28px;
-    }
-    .video-card {
-      position: relative;
-      background: var(--white);
-      border: 1px solid var(--light-blue);
-      border-left: 5px solid var(--red);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-    .video-player {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background: #111;
-      cursor: pointer;
-      overflow: hidden;
-    }
-    .video-player img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .video-play {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform:
-        translate(-50%, -50%);
-      width: 62px;
-      height: 62px;
-      border: 0;
-      border-radius: 50%;
-      background:
-        rgba(178, 34, 52, 0.95);
-      cursor: pointer;
-    }
-    .video-play::after {
-      content: "";
-      position: absolute;
-      left: 25px;
-      top: 19px;
-      width: 0;
-      height: 0;
-      border-top:
-        12px solid transparent;
-      border-bottom:
-        12px solid transparent;
-      border-left:
-        18px solid var(--white);
-    }
-    .video-player iframe {
-      display: block;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-    .video-info {
-      padding: 22px;
-    }
-    .video-label {
-      margin: 0 0 8px;
-      color: var(--red);
-      font-size: 0.72rem;
-      font-weight: bold;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-    }
-    .video-title {
-      margin: 0;
-      color: var(--blue);
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-      font-size: 1.35rem;
-      line-height: 1.25;
-    }
-    .video-uploader {
-      margin: 9px 0 0;
-      color: var(--muted);
-      font-size: 0.84rem;
-    }
-    /* =========================================
-       BACK TO TOP
-       ========================================= */
-    .back-to-top {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      z-index: 999;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--red);
-      color: var(--white);
-      border: 2px solid var(--white);
-      border-radius: 0;
-      font-size: 1.35rem;
-      font-weight: bold;
-      line-height: 1;
-      cursor: pointer;
-      box-shadow:
-        0 5px 16px rgba(0, 0, 0, 0.25);
-      opacity: 0;
-      visibility: hidden;
-      transform:
-        translateY(12px);
-      transition:
-        opacity 0.2s ease,
-        visibility 0.2s ease,
-        transform 0.2s ease,
-        background 0.2s ease;
-    }
-    .back-to-top.show {
-      opacity: 1;
-      visibility: visible;
-      transform:
-        translateY(0);
-    }
-    .back-to-top:hover {
-      background: var(--red-dark);
-    }
-    .back-to-top:focus {
-      outline:
-        3px solid rgba(178, 34, 52, 0.35);
-      outline-offset: 3px;
-    }
-    /* =========================================
-       MOBILE
-       ========================================= */
-    @media (max-width: 760px) {
-      .selected-videos-toggle {
-        min-height: 0;
-        padding: 24px;
-      }
-      .video-grid {
-        grid-template-columns: 1fr;
-      }
-      .back-to-top {
-        right: 14px;
-        bottom: 14px;
-        width: 46px;
-        height: 46px;
-      }
-    }
+.selected-videos-toggle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--red);
+}
+.selected-videos-toggle:hover {
+  transform: translateY(-3px);
+  background: var(--white);
+  border-color: var(--red);
+  box-shadow:
+    0 12px 30px rgba(11, 31, 77, 0.17);
+}
+.selected-videos-toggle:focus {
+  outline: 3px solid rgba(178, 34, 52, 0.35);
+  outline-offset: 3px;
+}
+.selected-videos-toggle .topic-label,
+.selected-videos-toggle h2,
+.selected-videos-toggle p,
+.selected-videos-toggle .topic-arrow {
+  pointer-events: none;
+}
+.selected-videos-panel {
+  display: none;
+  margin-top: 28px;
+}
+.selected-videos-panel.open {
+  display: block;
+}
+.video-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+.video-card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--light-blue);
+  border-left: 5px solid var(--red);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.video-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #111;
+  cursor: pointer;
+  overflow: hidden;
+}
+.video-player img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.video-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform:
+    translate(-50%, -50%);
+  width: 62px;
+  height: 62px;
+  border: 0;
+  border-radius: 50%;
+  background:
+    rgba(178, 34, 52, 0.95);
+  cursor: pointer;
+}
+.video-play::after {
+  content: "";
+  position: absolute;
+  left: 25px;
+  top: 19px;
+  width: 0;
+  height: 0;
+  border-top:
+    12px solid transparent;
+  border-bottom:
+    12px solid transparent;
+  border-left:
+    18px solid var(--white);
+}
+.video-player iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video-info {
+  padding: 22px;
+}
+.video-label {
+  margin: 0 0 8px;
+  color: var(--red);
+  font-size: 0.72rem;
+  font-weight: bold;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.video-title {
+  margin: 0;
+  color: var(--blue);
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+.video-uploader {
+  margin: 9px 0 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+/* =========================================
+   RELATED ARTICLE / VIDEO RECORD
+   ========================================= */
+.record-source {
+  margin-top: 18px;
+}
+.record-source a {
+  display: inline-block;
+}
+.record-video-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
+.record-video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #111;
+  overflow: hidden;
+}
+.record-video img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.record-video a {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.18);
+  text-decoration: none;
+}
+.record-video-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(178, 34, 52, 0.95);
+}
+.record-video-play::after {
+  content: "";
+  margin-left: 4px;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  border-left: 17px solid var(--white);
+}
+/* =========================================
+   BACK TO TOP
+   ========================================= */
+.back-to-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 999;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--red);
+  color: var(--white);
+  border: 2px solid var(--white);
+  border-radius: 0;
+  font-size: 1.35rem;
+  font-weight: bold;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow:
+    0 5px 16px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transform:
+    translateY(12px);
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform:
+    translateY(0);
+}
+.back-to-top:hover {
+  background: var(--red-dark);
+}
+.back-to-top:focus {
+  outline:
+    3px solid rgba(178, 34, 52, 0.35);
+  outline-offset: 3px;
+}
+/* =========================================
+   MOBILE
+   ========================================= */
+@media (max-width: 760px) {
+  .selected-videos-toggle {
+    min-height: 0;
+    padding: 24px;
+  }
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+  .record-video-grid {
+    grid-template-columns: 1fr;
+  }
+  .back-to-top {
+    right: 14px;
+    bottom: 14px;
+    width: 46px;
+    height: 46px;
+  }
+}
   </style>
 </head>
 <body>
   <!-- =========================================
        HAMBURGER
        ========================================= -->
+
 <button
-class="menu-button"
-aria-label="Open menu"
-aria-expanded="false"
-type="button"
->
+class=“menu-button”
+aria-label=“Open menu”
+aria-expanded=“false”
+type=“button”
+
 <span></span>
 <span></span>
 <span></span>
@@ -241,14 +298,14 @@ type="button"
        SIDE MENU
        ========================================= -->
   <aside class="side-menu">
-<div class="menu-header">
-  <h2>
-    The Historical Record
-  </h2>
-  <p>
-    Archive Navigation
-  </p>
-</div>
+    <div class="menu-header">
+      <h2>
+        The Historical Record
+      </h2>
+      <p>
+        Archive Navigation
+      </p>
+    </div>
 <nav>
   <a href="search.html">
     Search the Archive
@@ -315,14 +372,14 @@ type="button"
        SITE HEADER
        ========================================= -->
   <header class="site-header">
-<div class="container header-inner">
-  <a
-    href="index.html"
-    class="brand"
-  >
-    THE HISTORICAL RECORD
-  </a>
-</div>
+    <div class="container header-inner">
+      <a
+        href="index.html"
+        class="brand"
+      >
+        THE HISTORICAL RECORD
+      </a>
+    </div>
   </header>
   <!-- =========================================
        MAIN
@@ -387,6 +444,230 @@ type="button"
           ></div>
         </div>
       </div>
+      <!-- =========================================
+           BILLS VS TEXANS — SEPTEMBER 13, 2026
+           ========================================= -->
+      <article class="record-card">
+        <p class="record-label">
+          SPORTS • SEPTEMBER 13, 2026
+        </p>
+        <h3>
+          Bills 36, Texans 31 | Final score, game highlights, key stats | Week 1
+        </h3>
+        <p>
+          Buffalo traveled down to Houston and defeated the Texans on the
+          road, 36-31, for the first time since 2006. The offense was
+          consistent all game, with the defense coming through on the final
+          drive of the game to start the season off in the win column.
+        </p>
+        <p>
+          <strong>
+            Location:
+          </strong>
+          Reliant Stadium
+        </p>
+        <p>
+          <strong>
+            Final score:
+          </strong>
+          Bills 36, Texans 31
+        </p>
+        <p>
+          <strong>
+            Records:
+          </strong>
+          Bills (1-0), Texans (0-1)
+        </p>
+        <p>
+          <strong>
+            Next opponent:
+          </strong>
+          Bills vs. Lions Thursday, Sept. 17 at 8:15 p.m. EST
+        </p>
+        <h4>
+          Game Recap
+        </h4>
+        <p>
+          The Bills needed a big drive, down 31-30 with 3:13 left in the
+          fourth quarter, backed up at their own four-yard line. TE Dalton
+          Kincaid kicked things off with a chunk play, finding open space on
+          the right side for a 35-yard reception.
+        </p>
+        <p>
+          Two plays later, QB Josh Allen sent a strike over the middle of
+          the field, catching WR Joshua Palmer perfectly in stride. The
+          34-yard touchdown catch was Palmer's lone grab of the day, coming
+          in the biggest moment.
+        </p>
+        <p>
+          Houston got the ball back with 1:36 on the clock, down 36-31.
+          Jim Leonhard's defense bent but didn't break, allowing the Texans
+          down to the nine-yard line. DL Deone Walker came through on a
+          first-down pass attempt, swimming his way into the backfield for
+          a huge sack that lost nine yards.
+        </p>
+        <p>
+          OLB Greg Rousseau showed up on third down with just 16 seconds on
+          the clock, bursting around the right edge and getting to the
+          quarterback as well. Using his length, Rousseau forced the ball
+          out of QB CJ Stroud's hands, with LB Terrel Bernard diving on it
+          to secure the victory.
+        </p>
+        <p>
+          Rousseau had a big game to start the year for Buffalo, tallying
+          another sack to cap off the first defensive drive of the game, as
+          well as the last. The 26-year-old forcefully made his way around
+          the edge in the first quarter, forcing a fumble from behind that
+          DL Ed Oliver pounced on.
+        </p>
+        <p>
+          The Bills offense got going in the second quarter, with Allen
+          taking matters into his own hands. He found WR Khalil Shakir
+          twice for 35 yards on the first drive of the quarter. He later
+          capped it off by scrambling to his right, finding open space and
+          taking it himself, barreling into the end zone for a 21-yard
+          rushing touchdown.
+        </p>
+        <p>
+          WR DJ Moore was quiet throughout the first quarter and a half of
+          the day, finding a spark at the end of the second. With under five
+          minutes to go before the break, Allen found his No. 1 receiver for
+          an 18-yard gain over the middle.
+        </p>
+        <p>
+          On the next play, Moore showed off his ability to stretch the
+          field, burning past defenders toward the back left pylon. Allen
+          lofted a ball to the 29-year-old, with Texans CB Kamari Lassiter
+          getting there a little too early, earning himself a pass
+          interference and placing the ball at the one-yard line.
+        </p>
+        <p>
+          Allen tallied his second rushing touchdown of the day, punching
+          it in from the one by taking a quarterback sneak up the middle of
+          the defense.
+        </p>
+        <p>
+          Getting the ball with just over two minutes before the end of the
+          first half, Allen and the Bills set out on an impressive
+          two-minute drill. It began with a 38-yard acrobatic catch by
+          Kincaid near the right sideline.
+        </p>
+        <p>
+          After the two-minute warning, Allen found Moore over the middle
+          for 15 yards, targeting him again on the next play. The
+          quarterback took a chance on a hole shot up the right sideline,
+          sneaking the pass in right before a defender could get in the
+          way. Moore made the catch with nothing but green in front of him,
+          scampering in for a 43-yard touchdown.
+        </p>
+        <p>
+          Moore showed out in his first game with the Bills, tallying 100
+          yards on five catches along with the touchdown. Kincaid led the
+          team with 130 yards on five catches in the win, helping set up
+          two touchdowns in the process.
+        </p>
+        <p>
+          Allen finished his day 20-of-29 passing, putting up 334 passing
+          yards and two touchdowns through the air. The gunslinger added on
+          23 rushing yards on six attempts, finding the end zone twice with
+          his legs.
+        </p>
+        <p>
+          The Texans were the first team to reach the end zone on Sunday,
+          putting together a 12-play, 76-yard drive. Stroud found WR Nico
+          Collins on a corner route by the right sideline on a third-and-eight
+          for 25 yards, setting up a one-yard rushing touchdown for RB David
+          Montgomery.
+        </p>
+        <p>
+          After taking up seven minutes on their first scoring drive,
+          Houston got the ball back and again got to work grinding its way
+          down the field. A brutal holding penalty on third and nine for
+          Buffalo extended the eight-minute drive, with Montgomery taking
+          the following play into the end zone untouched from 18 yards out.
+        </p>
+        <p>
+          Montgomery wasn't done there, capping off a 13-play, 72-yard drive
+          at the beginning of the fourth quarter. Off a fake touch pass to
+          the left side from the seven-yard line, Montgomery snuck out of
+          the backfield the other direction, catching a wide-open touchdown
+          for his third score of the game.
+        </p>
+        <p>
+          Down 30-28, the Texans got the ball across midfield, stalling out
+          at the Buffalo 39-yard line. K Ka'imi Fairbairn lined up for a
+          58-yard field goal, booting it right down the middle to give his
+          squad a one-point lead.
+        </p>
+        <p>
+          Three drives stalled out for the Bills down in enemy territory,
+          with K Tyler Bass cashing in each time. The 29-year-old made kicks
+          from 46, 34 and 33 yards, finishing 100 percent on the day.
+        </p>
+        <p>
+          Up next for Buffalo is the first game at Highmark Stadium,
+          hosting the Detroit Lions on Thursday, Sept. 17 at 8:15 p.m. EST.
+        </p>
+        <div class="record-source">
+          <a
+            href="https://www.buffalobills.com/news/bills-36-texans-31-final-score-game-highlights-key-stats-week-1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Read the Buffalo Bills source article →
+          </a>
+        </div>
+        <div class="record-video-grid">
+          <div class="record-video">
+            <img
+              src="https://i.ytimg.com/vi/4s5PpK9c2Yg/hqdefault.jpg"
+              alt="Bills vs Texans video"
+              loading="lazy"
+              decoding="async"
+            >
+            <a
+              href="https://youtu.be/4s5PpK9c2Yg?is=y-XXc8Pz-GcW1_mw"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Watch Bills vs Texans video"
+            >
+              <span class="record-video-play"></span>
+            </a>
+          </div>
+          <div class="record-video">
+            <img
+              src="https://i.ytimg.com/vi/RJYkgvKaE0Q/hqdefault.jpg"
+              alt="Bills vs Texans video"
+              loading="lazy"
+              decoding="async"
+            >
+            <a
+              href="https://youtu.be/RJYkgvKaE0Q?is=6KUBeYY8OTTtXhyv"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Watch Bills vs Texans video"
+            >
+              <span class="record-video-play"></span>
+            </a>
+          </div>
+          <div class="record-video">
+            <img
+              src="https://i.ytimg.com/vi/XN1wchtgjGI/hqdefault.jpg"
+              alt="Bills vs Texans video"
+              loading="lazy"
+              decoding="async"
+            >
+            <a
+              href="https://youtu.be/XN1wchtgjGI?is=dQqJLAvhKEWdfAkK"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Watch Bills vs Texans video"
+            >
+              <span class="record-video-play"></span>
+            </a>
+          </div>
+        </div>
+      </article>
       <!-- =========================================
            KENTA KOBASHI
            ========================================= -->
@@ -545,10 +826,10 @@ type="button"
        FOOTER
        ========================================= -->
   <footer class="site-footer">
-<div class="container">
-  <p>
-    THE HISTORICAL RECORD
-  </p>
+    <div class="container">
+      <p>
+        THE HISTORICAL RECORD
+      </p>
   <p>
     A living archive of the moments that matter.
   </p>
@@ -557,13 +838,14 @@ type="button"
   <!-- =========================================
        BACK TO TOP
        ========================================= -->
+
 <button
-class="back-to-top"
-id="back-to-top"
-type="button"
-aria-label="Back to top"
-title="Back to top"
->
+class=“back-to-top”
+id=“back-to-top”
+type=“button”
+aria-label=“Back to top”
+title=“Back to top”
+
 ↑
   </button>
   <!-- =========================================
