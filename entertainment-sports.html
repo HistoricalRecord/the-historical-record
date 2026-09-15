@@ -2362,109 +2362,45 @@
       }
     })();
   </script>
-  <!-- =========================================
-       ARCHIVE.ORG PLAYLIST LOADING
-       ========================================= -->
-  <script>
-    (function() {
-      function initializeArchivePlayers() {
-        const players =
-          document.querySelectorAll(
-            ".wrestling-player"
-          );
-        function loadPlaylist(player) {
-          if (
-            player.dataset.loaded === "true"
-          ) {
-            return;
-          }
-          const source =
-            player.dataset.src;
-          if (!source) {
-            return;
-          }
-          player.dataset.loaded =
-            "true";
-          const iframe =
-            document.createElement("iframe");
-          iframe.src =
-            source;
-          iframe.title =
-            "Wrestling playlist";
-          iframe.loading =
-            "lazy";
-          iframe.allow =
-            "autoplay; fullscreen; picture-in-picture";
-          iframe.setAttribute(
-            "webkitallowfullscreen",
-            "true"
-          );
-          iframe.setAttribute(
-            "mozallowfullscreen",
-            "true"
-          );
-          iframe.setAttribute(
-            "allowfullscreen",
-            "true"
-          );
-          player.replaceChildren(
-            iframe
-          );
-        }
-        players.forEach(
-          function(player) {
-            const button =
-              player.querySelector(
-                ".load-wrestling"
-              );
-            if (!button) {
-              return;
-            }
-            button.addEventListener(
-              "click",
-              function(event) {
-                event.preventDefault();
-                event.stopPropagation();
-                loadPlaylist(player);
-              }
-            );
-          }
-        );
-        /*
-          Players load only when they get near the viewport.
-          The playlist itself remains inside the Archive.org
-          iframe and remains scrollable/selectable.
-        */
-        players.forEach(function(player) {
-  const button = player.querySelector(".load-wrestling");
+ <!-- =========================================
+     ARCHIVE.ORG PLAYLIST LOADING
+     ========================================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
-  if (!button) {
-    return;
-  }
+  document.querySelectorAll(".wrestling-player").forEach(function (player) {
 
-  button.addEventListener("click", function(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    loadPlaylist(player);
+    const button = player.querySelector(".load-wrestling");
+
+    if (!button) return;
+
+    button.addEventListener("click", function (event) {
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      const source = player.getAttribute("data-src");
+
+      if (!source) return;
+
+      const iframe = document.createElement("iframe");
+
+      iframe.src = source;
+      iframe.title = "Wrestling playlist";
+      iframe.allow = "autoplay; fullscreen; picture-in-picture";
+      iframe.setAttribute("allowfullscreen", "");
+      iframe.setAttribute("webkitallowfullscreen", "");
+      iframe.setAttribute("mozallowfullscreen", "");
+
+      player.innerHTML = "";
+      player.appendChild(iframe);
+
+    });
+
   });
+
 });
-        }
-      }
-      if (
-        document.readyState === "loading"
-      ) {
-        document.addEventListener(
-          "DOMContentLoaded",
-          initializeArchivePlayers,
-          {
-            once: true
-          }
-        );
-      } else {
-        initializeArchivePlayers();
-      }
-    })();
-  </script>
+</script>
   <!-- =========================================
        BACK TO TOP
        ========================================= -->
