@@ -2375,5 +2375,25 @@ title=“Back to top”
       }
     })();
   </script>
+  <script>
+document.querySelectorAll('.load-wrestling').forEach(button => {
+  button.addEventListener('click', () => {
+    const player = button.closest('.wrestling-player');
+    if (!player || player.querySelector('iframe')) return;
+    const src = player.dataset.src;
+    if (!src) return;
+    const iframe = document.createElement('iframe');
+    iframe.src = src;
+    iframe.title = 'Wrestling video player';
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute(
+      'allow',
+      'autoplay; fullscreen; picture-in-picture'
+    );
+    player.innerHTML = '';
+    player.appendChild(iframe);
+  });
+});
+</script>
 </body>
 </html>
