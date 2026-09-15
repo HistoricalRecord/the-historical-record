@@ -35,248 +35,365 @@
         box-shadow 0.2s ease,
         border-color 0.2s ease;
     }
-.selected-videos-toggle::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background: var(--red);
-}
-.selected-videos-toggle:hover {
-  transform: translateY(-3px);
-  background: var(--white);
-  border-color: var(--red);
-  box-shadow:
-    0 12px 30px rgba(11, 31, 77, 0.17);
-}
-.selected-videos-toggle:focus {
-  outline: 3px solid rgba(178, 34, 52, 0.35);
-  outline-offset: 3px;
-}
-.selected-videos-toggle .topic-label,
-.selected-videos-toggle h2,
-.selected-videos-toggle p,
-.selected-videos-toggle .topic-arrow {
-  pointer-events: none;
-}
-.selected-videos-panel {
-  display: none;
-  margin-top: 28px;
-}
-.selected-videos-panel.open {
-  display: block;
-}
-.video-grid {
-  display: grid;
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
-  gap: 28px;
-}
-.video-card {
-  position: relative;
-  background: var(--white);
-  border: 1px solid var(--light-blue);
-  border-left: 5px solid var(--red);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
-.video-player {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #111;
-  cursor: pointer;
-  overflow: hidden;
-}
-.video-player img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.video-play {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform:
-    translate(-50%, -50%);
-  width: 62px;
-  height: 62px;
-  border: 0;
-  border-radius: 50%;
-  background:
-    rgba(178, 34, 52, 0.95);
-  cursor: pointer;
-}
-.video-play::after {
-  content: "";
-  position: absolute;
-  left: 25px;
-  top: 19px;
-  width: 0;
-  height: 0;
-  border-top:
-    12px solid transparent;
-  border-bottom:
-    12px solid transparent;
-  border-left:
-    18px solid var(--white);
-}
-.video-player iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-.video-info {
-  padding: 22px;
-}
-.video-label {
-  margin: 0 0 8px;
-  color: var(--red);
-  font-size: 0.72rem;
-  font-weight: bold;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-}
-.video-title {
-  margin: 0;
-  color: var(--blue);
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-  font-size: 1.35rem;
-  line-height: 1.25;
-}
-.video-uploader {
-  margin: 9px 0 0;
-  color: var(--muted);
-  font-size: 0.84rem;
-}
-/* =========================================
-   RELATED ARTICLE / VIDEO RECORD
-   ========================================= */
-.record-source {
-  margin-top: 18px;
-}
-.record-source a {
-  display: inline-block;
-}
-.record-video-grid {
-  display: grid;
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 22px;
-}
-.record-video {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  background: #111;
-  overflow: hidden;
-}
-.record-video img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.record-video a {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.18);
-  text-decoration: none;
-}
-.record-video-play {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  background: rgba(178, 34, 52, 0.95);
-}
-.record-video-play::after {
-  content: "";
-  margin-left: 4px;
-  border-top: 11px solid transparent;
-  border-bottom: 11px solid transparent;
-  border-left: 17px solid var(--white);
-}
-/* =========================================
-   BACK TO TOP
-   ========================================= */
-.back-to-top {
-  position: fixed;
-  right: 22px;
-  bottom: 22px;
-  z-index: 999;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--red);
-  color: var(--white);
-  border: 2px solid var(--white);
-  border-radius: 0;
-  font-size: 1.35rem;
-  font-weight: bold;
-  line-height: 1;
-  cursor: pointer;
-  box-shadow:
-    0 5px 16px rgba(0, 0, 0, 0.25);
-  opacity: 0;
-  visibility: hidden;
-  transform:
-    translateY(12px);
-  transition:
-    opacity 0.2s ease,
-    visibility 0.2s ease,
-    transform 0.2s ease,
-    background 0.2s ease;
-}
-.back-to-top.show {
-  opacity: 1;
-  visibility: visible;
-  transform:
-    translateY(0);
-}
-.back-to-top:hover {
-  background: var(--red-dark);
-}
-.back-to-top:focus {
-  outline:
-    3px solid rgba(178, 34, 52, 0.35);
-  outline-offset: 3px;
-}
-/* =========================================
-   MOBILE
-   ========================================= */
-@media (max-width: 760px) {
-  .selected-videos-toggle {
-    min-height: 0;
-    padding: 24px;
-  }
-  .video-grid {
-    grid-template-columns: 1fr;
-  }
-  .record-video-grid {
-    grid-template-columns: 1fr;
-  }
-  .back-to-top {
-    right: 14px;
-    bottom: 14px;
-    width: 46px;
-    height: 46px;
-  }
-}
+    .selected-videos-toggle::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--red);
+    }
+    .selected-videos-toggle:hover {
+      transform: translateY(-3px);
+      background: var(--white);
+      border-color: var(--red);
+      box-shadow:
+        0 12px 30px rgba(11, 31, 77, 0.17);
+    }
+    .selected-videos-toggle:focus {
+      outline: 3px solid rgba(178, 34, 52, 0.35);
+      outline-offset: 3px;
+    }
+    .selected-videos-toggle .topic-label,
+    .selected-videos-toggle h2,
+    .selected-videos-toggle p,
+    .selected-videos-toggle .topic-arrow {
+      pointer-events: none;
+    }
+    .selected-videos-panel {
+      display: none;
+      margin-top: 28px;
+    }
+    .selected-videos-panel.open {
+      display: block;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+    .video-card {
+      position: relative;
+      background: var(--white);
+      border: 1px solid var(--light-blue);
+      border-left: 5px solid var(--red);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .video-player {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #111;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .video-player img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .video-play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform:
+        translate(-50%, -50%);
+      width: 62px;
+      height: 62px;
+      border: 0;
+      border-radius: 50%;
+      background:
+        rgba(178, 34, 52, 0.95);
+      cursor: pointer;
+    }
+    .video-play::after {
+      content: "";
+      position: absolute;
+      left: 25px;
+      top: 19px;
+      width: 0;
+      height: 0;
+      border-top:
+        12px solid transparent;
+      border-bottom:
+        12px solid transparent;
+      border-left:
+        18px solid var(--white);
+    }
+    .video-player iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-info {
+      padding: 22px;
+    }
+    .video-label {
+      margin: 0 0 8px;
+      color: var(--red);
+      font-size: 0.72rem;
+      font-weight: bold;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .video-title {
+      margin: 0;
+      color: var(--blue);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: 1.35rem;
+      line-height: 1.25;
+    }
+    .video-uploader {
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+    /* =========================================
+       WRESTLING VIDEOS
+       ========================================= */
+    .wrestling-videos {
+      margin-bottom: 42px;
+    }
+    .wrestling-videos-toggle {
+      position: relative;
+      display: block;
+      width: 100%;
+      min-height: 230px;
+      margin: 0;
+      padding: 32px;
+      overflow: hidden;
+      background: var(--white);
+      color: var(--text);
+      border: 1px solid var(--light-blue);
+      border-left: 5px solid var(--red);
+      box-shadow: var(--shadow);
+      font: inherit;
+      text-align: left;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+    }
+    .wrestling-videos-toggle::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--red);
+    }
+    .wrestling-videos-toggle:hover {
+      transform: translateY(-3px);
+      background: var(--white);
+      border-color: var(--red);
+      box-shadow:
+        0 12px 30px rgba(11, 31, 77, 0.17);
+    }
+    .wrestling-videos-toggle:focus {
+      outline: 3px solid rgba(178, 34, 52, 0.35);
+      outline-offset: 3px;
+    }
+    .wrestling-videos-toggle .topic-label,
+    .wrestling-videos-toggle h2,
+    .wrestling-videos-toggle p,
+    .wrestling-videos-toggle .topic-arrow {
+      pointer-events: none;
+    }
+    .wrestling-videos-panel {
+      display: none;
+      margin-top: 28px;
+    }
+    .wrestling-videos-panel.open {
+      display: block;
+    }
+    .wrestling-video-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+    .wrestling-video-card {
+      position: relative;
+      background: var(--white);
+      border: 1px solid var(--light-blue);
+      border-left: 5px solid var(--red);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .wrestling-video-card iframe {
+      display: block;
+      width: 100%;
+      height: 420px;
+      border: 0;
+      background: #111;
+    }
+    .wrestling-video-card.audio iframe {
+      height: 80px;
+    }
+    .wrestling-video-info {
+      padding: 22px;
+    }
+    .wrestling-video-label {
+      margin: 0 0 8px;
+      color: var(--red);
+      font-size: 0.72rem;
+      font-weight: bold;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .wrestling-video-title {
+      margin: 0;
+      color: var(--blue);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: 1.25rem;
+      line-height: 1.3;
+    }
+    /* =========================================
+       RELATED ARTICLE / VIDEO RECORD
+       ========================================= */
+    .record-source {
+      margin-top: 18px;
+    }
+    .record-source a {
+      display: inline-block;
+    }
+    .record-video-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+    .record-video {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #111;
+      overflow: hidden;
+    }
+    .record-video img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .record-video a {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.18);
+      text-decoration: none;
+    }
+    .record-video-play {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: rgba(178, 34, 52, 0.95);
+    }
+    .record-video-play::after {
+      content: "";
+      margin-left: 4px;
+      border-top: 11px solid transparent;
+      border-bottom: 11px solid transparent;
+      border-left: 17px solid var(--white);
+    }
+    /* =========================================
+       BACK TO TOP
+       ========================================= */
+    .back-to-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 999;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--red);
+      color: var(--white);
+      border: 2px solid var(--white);
+      border-radius: 0;
+      font-size: 1.35rem;
+      font-weight: bold;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow:
+        0 5px 16px rgba(0, 0, 0, 0.25);
+      opacity: 0;
+      visibility: hidden;
+      transform:
+        translateY(12px);
+      transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform:
+        translateY(0);
+    }
+    .back-to-top:hover {
+      background: var(--red-dark);
+    }
+    .back-to-top:focus {
+      outline:
+        3px solid rgba(178, 34, 52, 0.35);
+      outline-offset: 3px;
+    }
+    /* =========================================
+       MOBILE
+       ========================================= */
+    @media (max-width: 760px) {
+      .selected-videos-toggle {
+        min-height: 0;
+        padding: 24px;
+      }
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+      .wrestling-videos-toggle {
+        min-height: 0;
+        padding: 24px;
+      }
+      .wrestling-video-grid {
+        grid-template-columns: 1fr;
+      }
+      .wrestling-video-card iframe {
+        height: 360px;
+      }
+      .record-video-grid {
+        grid-template-columns: 1fr;
+      }
+      .back-to-top {
+        right: 14px;
+        bottom: 14px;
+        width: 46px;
+        height: 46px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -285,15 +402,15 @@
        ========================================= -->
 
 <button
-  class="menu-button"
-  aria-label="Open menu"
-  aria-expanded="false"
-  type="button"
->
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+class=“menu-button”
+aria-label=“Open menu”
+aria-expanded=“false”
+type=“button”
+
+<span></span>
+<span></span>
+<span></span>
+  </button>
   <!-- =========================================
        SIDE MENU
        ========================================= -->
@@ -363,8 +480,8 @@
     Submissions
   </a>
   <a href="tv-anime.html">
-  TV / Anime
-</a>
+    TV / Anime
+  </a>
 </nav>
   </aside>
   <!-- =========================================
@@ -448,6 +565,42 @@
         </div>
       </div>
       <!-- =========================================
+           WRESTLING VIDEOS
+           ========================================= -->
+      <div class="wrestling-videos">
+        <button
+          class="wrestling-videos-toggle"
+          id="wrestling-videos-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="wrestling-videos-panel"
+        >
+          <span class="topic-label">
+            WRESTLING
+          </span>
+          <h2>
+            Wrestling Videos
+          </h2>
+          <p>
+            A collection of professional wrestling matches, events,
+            compilations, and historical recordings preserved as part
+            of The Historical Record.
+          </p>
+          <span class="topic-arrow">
+            View Wrestling Videos →
+          </span>
+        </button>
+        <div
+          class="wrestling-videos-panel"
+          id="wrestling-videos-panel"
+        >
+          <div
+            class="wrestling-video-grid"
+            id="wrestling-video-grid"
+          ></div>
+        </div>
+      </div>
+      <!-- =========================================
            BILLS VS TEXANS — SEPTEMBER 13, 2026
            ========================================= -->
       <article class="record-card">
@@ -493,8 +646,8 @@
         <p>
           The Bills needed a big drive, down 31-30 with 3:13 left in the
           fourth quarter, backed up at their own four-yard line. TE Dalton
-          Kincaid kicked things off with a chunk play, finding open space on
-          the right side for a 35-yard reception.
+          Kincaid kicked things off with a chunk play, finding open space
+          on the right side for a 35-yard reception.
         </p>
         <p>
           Two plays later, QB Josh Allen sent a strike over the middle of
@@ -518,10 +671,10 @@
         </p>
         <p>
           Rousseau had a big game to start the year for Buffalo, tallying
-          another sack to cap off the first defensive drive of the game, as
-          well as the last. The 26-year-old forcefully made his way around
-          the edge in the first quarter, forcing a fumble from behind that
-          DL Ed Oliver pounced on.
+          another sack to cap off the first defensive drive of the game,
+          as well as the last. The 26-year-old forcefully made his way
+          around the edge in the first quarter, forcing a fumble from
+          behind that DL Ed Oliver pounced on.
         </p>
         <p>
           The Bills offense got going in the second quarter, with Allen
@@ -533,9 +686,9 @@
         </p>
         <p>
           WR DJ Moore was quiet throughout the first quarter and a half of
-          the day, finding a spark at the end of the second. With under five
-          minutes to go before the break, Allen found his No. 1 receiver for
-          an 18-yard gain over the middle.
+          the day, finding a spark at the end of the second. With under
+          five minutes to go before the break, Allen found his No. 1
+          receiver for an 18-yard gain over the middle.
         </p>
         <p>
           On the next play, Moore showed off his ability to stretch the
@@ -1085,6 +1238,329 @@ title=“Back to top”
             id,
             index
           )
+        );
+      }
+    );
+  </script>
+  <!-- =========================================
+       WRESTLING VIDEOS SCRIPT
+       ========================================= -->
+  <script>
+    const wrestlingVideos = [
+      {
+        title:
+          "Best of F4W Online — 2010",
+        src:
+          "https://archive.org/embed/BestOfF4WWONaudio2010",
+        audio: true
+      },
+      {
+        title:
+          "Best of F4W Online — 2013",
+        src:
+          "https://archive.org/embed/BestOfF4WWON2013",
+        audio: true
+      },
+      {
+        title:
+          "Best of F4W Online — 2014",
+        src:
+          "https://archive.org/embed/BestOfF4WWONaudio2014",
+        audio: true
+      },
+      {
+        title:
+          "Hiro Matsuda & Masa Saito vs. Riki Choshu & Seiji Sakaguchi — NWA Hollywood",
+        src:
+          "https://archive.org/embed/06.15-hiro-matsuda-masa-saito-vs.-riki-choshu-seiji-sakaguchi-nwa-hollywood?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "Bob Backlund vs. Dusty Rhodes — NJPW 3rd Madison Square Garden Series, Day 28",
+        src:
+          "https://archive.org/embed/05.27-bob-backlund-vs.-dusty-rhodes-njpw-3rd-madison-square-garden-series-day-28?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "Jun Akiyama vs. Steve Williams — AJPW New Year Giant Series 1993",
+        src:
+          "https://archive.org/embed/01.02-jun-akiyama-vs.-steve-williams-ajpw-new-year-giant-series-1993-tag-1?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "Etsuko Mita & Mima Shimoda vs. Manami Toyota & Toshiyo Yamada — AJW",
+        src:
+          "https://archive.org/embed/01.24-etsuko-mita-mima-shimoda-vs.-manami-toyota-toshiyo-yamada-ajw-ota-ward-champion-legend?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "Cactus Jack vs. Terry Funk — IWA Japan New Year '95",
+        src:
+          "https://archive.org/embed/01.08-cactus-jack-vs.-terry-funk-iwa-japan-new-year-95-tag-6?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "WrestleMania X-Seven",
+        src:
+          "https://archive.org/embed/wwf-wrestlemania-x-7-dvd-rip-cd-1?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "WWF Invasion 2001",
+        src:
+          "https://archive.org/embed/wwf-invasion-2001?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "NJPW Wrestle Kingdom 20 in Tokyo Dome — April 1, 2026",
+        src:
+          "https://archive.org/embed/njpw-wrestle-kingdom-20-in-tokyo-dome-04-01-26?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "ECW 2000 — Complete",
+        src:
+          "https://archive.org/embed/re-c-dub-2000-complete?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "Approved Match Picks — August 2024",
+        src:
+          "https://archive.org/embed/approved_match_picks_08_2024?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "Dragon Gate Compilation",
+        src:
+          "https://archive.org/embed/01.08.2021-dragongate-kobe-pro-wrestling-festival-2021-tag-2-speed-star-final-480p-via-skyload?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "Dragon Gate 2025 Collection",
+        src:
+          "https://archive.org/embed/2024.12.17-dragon-gate-fantastic-gate-2024-tag-4?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "AJPW Compilation",
+        src:
+          "https://archive.org/embed/17.05.2005-ajpw?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "Zero-1 — June 14, 2001",
+        src:
+          "https://archive.org/embed/2001.06.14-shingeki?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "Dragon Gate — Truth Gate 2019, Day 5",
+        src:
+          "https://archive.org/embed/dragon.-gate.-2019.02.10.-truth.-gate.-2019.-day.-5?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "Michinoku Pro — Fukumen World League, July 17, 1999",
+        src:
+          "https://archive.org/embed/michinoku-pro-07-17-1999-fukumen-world-league-opener-480p-via-skyload?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "WAR — 1999",
+        src:
+          "https://archive.org/embed/WAR-1999?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "NWO DKCAMS — 1999",
+        src:
+          "https://archive.org/embed/nwodkcams-1999?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "WAR — 2000",
+        src:
+          "https://archive.org/embed/WAR-2000?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "February 3, 2000",
+        src:
+          "https://archive.org/embed/2000.02.03?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "WAR — 2001",
+        src:
+          "https://archive.org/embed/WAR-2001?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "March 15, 2001",
+        src:
+          "https://archive.org/embed/2001.03.15?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "January 28, 2002",
+        src:
+          "https://archive.org/embed/2002.01.28?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "February 7, 2002",
+        src:
+          "https://archive.org/embed/2002.02.07?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "December 29, 2003",
+        src:
+          "https://archive.org/embed/2003.12.29?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "May 22, 2003",
+        src:
+          "https://archive.org/embed/2003.05.22?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "June 14, 2004",
+        src:
+          "https://archive.org/embed/2004.06.14?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "June 24, 2004",
+        src:
+          "https://archive.org/embed/2004.06.24?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "October 3, 2005",
+        src:
+          "https://archive.org/embed/2005.10.03?playlist=1&autoplay=1"
+      },
+      {
+        title:
+          "November 18, 2005",
+        src:
+          "https://archive.org/embed/2005.11.18?playlist=1&autoplay=1"
+      }
+    ];
+    const wrestlingVideosToggle =
+      document.getElementById(
+        "wrestling-videos-toggle"
+      );
+    const wrestlingVideosPanel =
+      document.getElementById(
+        "wrestling-videos-panel"
+      );
+    const wrestlingVideoGrid =
+      document.getElementById(
+        "wrestling-video-grid"
+      );
+    wrestlingVideosToggle.addEventListener(
+      "click",
+      function() {
+        const isOpen =
+          wrestlingVideosPanel.classList.toggle(
+            "open"
+          );
+        wrestlingVideosToggle.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+        const arrow =
+          wrestlingVideosToggle.querySelector(
+            ".topic-arrow"
+          );
+        if (isOpen) {
+          arrow.textContent =
+            "Hide Wrestling Videos ↑";
+          wrestlingVideosPanel.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        } else {
+          arrow.textContent =
+            "View Wrestling Videos →";
+        }
+      }
+    );
+    wrestlingVideos.forEach(
+      function(video, index) {
+        const card =
+          document.createElement(
+            "article"
+          );
+        card.className =
+          "wrestling-video-card" +
+          (video.audio ? " audio" : "");
+        const iframe =
+          document.createElement(
+            "iframe"
+          );
+        iframe.src =
+          video.src;
+        iframe.title =
+          video.title;
+        iframe.loading =
+          "lazy";
+        iframe.setAttribute(
+          "frameborder",
+          "0"
+        );
+        iframe.setAttribute(
+          "webkitallowfullscreen",
+          "true"
+        );
+        iframe.setAttribute(
+          "mozallowfullscreen",
+          "true"
+        );
+        iframe.setAttribute(
+          "allowfullscreen",
+          "true"
+        );
+        const info =
+          document.createElement(
+            "div"
+          );
+        info.className =
+          "wrestling-video-info";
+        const label =
+          document.createElement(
+            "p"
+          );
+        label.className =
+          "wrestling-video-label";
+        label.textContent =
+          "WRESTLING " +
+          String(index + 1).padStart(2, "0");
+        const title =
+          document.createElement(
+            "h3"
+          );
+        title.className =
+          "wrestling-video-title";
+        title.textContent =
+          video.title;
+        info.appendChild(
+          label
+        );
+        info.appendChild(
+          title
+        );
+        card.appendChild(
+          iframe
+        );
+        card.appendChild(
+          info
+        );
+        wrestlingVideoGrid.appendChild(
+          card
         );
       }
     );
