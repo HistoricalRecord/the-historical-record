@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       overscroll-behavior: contain !important;
 
-      z-index: 1000 !important;
+      z-index: 1001 !important;
 
       padding-bottom: 40px !important;
     }
