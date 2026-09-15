@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Entertainment / Sports | The Historical Record</title>
   <link rel="stylesheet" href="style.css">
+
   <style>
     /* =========================================
-       SELECTED VIDEOS / WRESTLING
+       SELECTED / WRESTLING VIDEOS
        ========================================= */
+
     .selected-videos {
       margin-bottom: 42px;
     }
+
     .selected-videos-toggle {
       position: relative;
       display: block;
@@ -35,6 +38,7 @@
         box-shadow 0.2s ease,
         border-color 0.2s ease;
     }
+
     .selected-videos-toggle::before {
       content: "";
       position: absolute;
@@ -44,6 +48,7 @@
       height: 5px;
       background: var(--red);
     }
+
     .selected-videos-toggle:hover {
       transform: translateY(-3px);
       background: var(--white);
@@ -51,29 +56,39 @@
       box-shadow:
         0 12px 30px rgba(11, 31, 77, 0.17);
     }
+
     .selected-videos-toggle:focus {
       outline: 3px solid rgba(178, 34, 52, 0.35);
       outline-offset: 3px;
     }
+
     .selected-videos-toggle .topic-label,
     .selected-videos-toggle h2,
     .selected-videos-toggle p,
     .selected-videos-toggle .topic-arrow {
       pointer-events: none;
     }
+
     .selected-videos-panel {
       display: none;
       margin-top: 28px;
     }
+
     .selected-videos-panel.open {
       display: block;
     }
+
+    /* =========================================
+       YOUTUBE SELECTED VIDEOS
+       ========================================= */
+
     .video-grid {
       display: grid;
       grid-template-columns:
         repeat(2, minmax(0, 1fr));
       gap: 28px;
     }
+
     .video-card {
       position: relative;
       background: var(--white);
@@ -82,6 +97,7 @@
       box-shadow: var(--shadow);
       overflow: hidden;
     }
+
     .video-player {
       position: relative;
       width: 100%;
@@ -90,12 +106,14 @@
       cursor: pointer;
       overflow: hidden;
     }
+
     .video-player img {
       display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
     .video-play {
       position: absolute;
       left: 50%;
@@ -110,6 +128,7 @@
         rgba(178, 34, 52, 0.95);
       cursor: pointer;
     }
+
     .video-play::after {
       content: "";
       position: absolute;
@@ -124,15 +143,18 @@
       border-left:
         18px solid var(--white);
     }
+
     .video-player iframe {
       display: block;
       width: 100%;
       height: 100%;
       border: 0;
     }
+
     .video-info {
       padding: 22px;
     }
+
     .video-label {
       margin: 0 0 8px;
       color: var(--red);
@@ -141,6 +163,7 @@
       letter-spacing: 0.13em;
       text-transform: uppercase;
     }
+
     .video-title {
       margin: 0;
       color: var(--blue);
@@ -151,21 +174,52 @@
       font-size: 1.35rem;
       line-height: 1.25;
     }
+
     .video-uploader {
       margin: 9px 0 0;
       color: var(--muted);
       font-size: 0.84rem;
     }
+
     /* =========================================
-       WRESTLING VIDEO CATEGORIES
+       WRESTLING VIDEO SECTION
        ========================================= */
-    .wrestling-section {
+
+    .wrestling-videos {
       margin-top: 42px;
     }
-    .wrestling-section-header {
+
+    .wrestling-videos-header {
+      position: relative;
+      padding: 28px 32px;
       margin-bottom: 28px;
+      background: var(--white);
+      border: 1px solid var(--light-blue);
+      border-left: 5px solid var(--red);
+      box-shadow: var(--shadow);
     }
-    .wrestling-section-header h2 {
+
+    .wrestling-videos-header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--red);
+    }
+
+    .wrestling-videos-header .topic-label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--red);
+      font-size: 0.72rem;
+      font-weight: bold;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .wrestling-videos-header h2 {
       margin: 0;
       color: var(--blue);
       font-family:
@@ -175,119 +229,120 @@
       font-size: 2rem;
       line-height: 1.2;
     }
-    .wrestling-section-header p {
-      margin: 10px 0 0;
-    }
-    .wrestling-category {
-      margin-bottom: 28px;
-    }
-    .wrestling-category-toggle {
-      position: relative;
-      display: block;
-      width: 100%;
-      margin: 0;
-      padding: 24px 28px;
-      background: var(--white);
-      color: var(--text);
-      border: 1px solid var(--light-blue);
-      border-left: 5px solid var(--red);
-      box-shadow: var(--shadow);
-      font: inherit;
-      text-align: left;
-      appearance: none;
-      -webkit-appearance: none;
-      cursor: pointer;
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        border-color 0.2s ease;
-    }
-    .wrestling-category-toggle:hover {
-      transform: translateY(-2px);
-      border-color: var(--red);
-      box-shadow:
-        0 10px 25px rgba(11, 31, 77, 0.15);
-    }
-    .wrestling-category-toggle:focus {
-      outline: 3px solid rgba(178, 34, 52, 0.35);
-      outline-offset: 3px;
-    }
-    .wrestling-category-toggle h3 {
-      margin: 0;
-      color: var(--blue);
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-      font-size: 1.4rem;
-      line-height: 1.25;
-    }
-    .wrestling-category-toggle p {
-      margin: 8px 0 0;
+
+    .wrestling-videos-header p {
+      margin: 12px 0 0;
       color: var(--muted);
     }
-    .wrestling-category-arrow {
-      display: block;
-      margin-top: 12px;
-      color: var(--red);
-      font-size: 0.82rem;
-      font-weight: bold;
-      letter-spacing: 0.05em;
-    }
-    .wrestling-category-panel {
-      display: none;
-      margin-top: 22px;
-    }
-    .wrestling-category-panel.open {
-      display: block;
-    }
-    .wrestling-video-grid {
+
+    .wrestling-video-list {
       display: grid;
-      grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-      gap: 24px;
+      grid-template-columns: 1fr;
+      gap: 30px;
     }
+
     .wrestling-video-card {
+      position: relative;
       background: var(--white);
       border: 1px solid var(--light-blue);
       border-left: 5px solid var(--red);
       box-shadow: var(--shadow);
       overflow: hidden;
     }
+
+    .wrestling-video-info {
+      padding: 22px 24px 20px;
+    }
+
+    .wrestling-video-label {
+      margin: 0 0 8px;
+      color: var(--red);
+      font-size: 0.72rem;
+      font-weight: bold;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
     .wrestling-video-title {
-      padding: 18px 20px 0;
+      margin: 0;
       color: var(--blue);
       font-family:
         Georgia,
         "Times New Roman",
         serif;
-      font-size: 1.15rem;
+      font-size: 1.45rem;
       line-height: 1.3;
     }
-    .wrestling-video-player {
+
+    /*
+      Archive.org players are deliberately kept tall.
+      This preserves the internal playlist, episode scrolling,
+      and fullscreen controls.
+    */
+
+    .wrestling-player {
+      position: relative;
       width: 100%;
-      aspect-ratio: 16 / 9;
+      height: 620px;
       background: #111;
       overflow: hidden;
     }
-    .wrestling-video-player iframe {
+
+    .wrestling-player iframe {
       display: block;
       width: 100%;
       height: 100%;
+      min-height: 620px;
       border: 0;
     }
-    .wrestling-video-card .wrestling-video-title + .wrestling-video-player {
-      margin-top: 16px;
+
+    .wrestling-load {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #111;
     }
+
+    .wrestling-load button {
+      min-width: 190px;
+      padding: 14px 22px;
+      border: 0;
+      background: var(--red);
+      color: var(--white);
+      font: inherit;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow:
+        0 5px 16px rgba(0, 0, 0, 0.25);
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .wrestling-load button:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+    }
+
+    .wrestling-load button:focus {
+      outline: 3px solid rgba(178, 34, 52, 0.35);
+      outline-offset: 3px;
+    }
+
     /* =========================================
        RELATED ARTICLE / VIDEO RECORD
        ========================================= */
+
     .record-source {
       margin-top: 18px;
     }
+
     .record-source a {
       display: inline-block;
     }
+
     .record-video-grid {
       display: grid;
       grid-template-columns:
@@ -295,18 +350,21 @@
       gap: 18px;
       margin-top: 22px;
     }
+
     .record-video {
       position: relative;
       aspect-ratio: 16 / 9;
       background: #111;
       overflow: hidden;
     }
+
     .record-video img {
       display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
     .record-video a {
       position: absolute;
       inset: 0;
@@ -316,6 +374,7 @@
       background: rgba(0, 0, 0, 0.18);
       text-decoration: none;
     }
+
     .record-video-play {
       display: flex;
       align-items: center;
@@ -325,6 +384,7 @@
       border-radius: 50%;
       background: rgba(178, 34, 52, 0.95);
     }
+
     .record-video-play::after {
       content: "";
       margin-left: 4px;
@@ -332,9 +392,11 @@
       border-bottom: 11px solid transparent;
       border-left: 17px solid var(--white);
     }
+
     /* =========================================
        BACK TO TOP
        ========================================= */
+
     .back-to-top {
       position: fixed;
       right: 22px;
@@ -365,40 +427,66 @@
         transform 0.2s ease,
         background 0.2s ease;
     }
+
     .back-to-top.show {
       opacity: 1;
       visibility: visible;
       transform:
         translateY(0);
     }
+
     .back-to-top:hover {
       background: var(--red-dark);
     }
+
     .back-to-top:focus {
       outline:
         3px solid rgba(178, 34, 52, 0.35);
       outline-offset: 3px;
     }
+
     /* =========================================
        MOBILE
        ========================================= */
+
     @media (max-width: 760px) {
       .selected-videos-toggle {
         min-height: 0;
         padding: 24px;
       }
+
       .video-grid {
         grid-template-columns: 1fr;
       }
-      .wrestling-video-grid {
-        grid-template-columns: 1fr;
-      }
+
       .record-video-grid {
         grid-template-columns: 1fr;
       }
-      .wrestling-category-toggle {
-        padding: 22px;
+
+      .wrestling-videos-header {
+        padding: 24px;
       }
+
+      .wrestling-videos-header h2 {
+        font-size: 1.7rem;
+      }
+
+      .wrestling-player {
+        height: 560px;
+      }
+
+      .wrestling-player iframe {
+        min-height: 560px;
+      }
+
+      .wrestling-video-info {
+        padding: 20px;
+      }
+
+      .wrestling-video-title {
+        font-size: 1.25rem;
+      }
+
       .back-to-top {
         right: 14px;
         bottom: 14px;
@@ -408,10 +496,13 @@
     }
   </style>
 </head>
+
 <body>
+
   <!-- =========================================
        HAMBURGER
        ========================================= -->
+
   <button
     class="menu-button"
     aria-label="Open menu"
@@ -422,9 +513,11 @@
     <span></span>
     <span></span>
   </button>
+
   <!-- =========================================
        SIDE MENU
        ========================================= -->
+
   <aside class="side-menu">
     <div class="menu-header">
       <h2>
@@ -434,17 +527,22 @@
         Archive Navigation
       </p>
     </div>
+
     <nav>
       <a href="search.html">
         Search the Archive
       </a>
+
       <a href="archive.html">
         The Archive
       </a>
+
       <a href="index.html">
         Home
       </a>
+
       <!-- POLITICS DROPDOWN -->
+
       <div class="menu-dropdown">
         <button
           class="menu-dropdown-toggle"
@@ -455,10 +553,12 @@
           <span>
             Politics
           </span>
+
           <span class="menu-dropdown-arrow">
             ▾
           </span>
         </button>
+
         <div
           class="menu-submenu"
           id="politics-submenu"
@@ -466,42 +566,55 @@
           <a href="politics.html">
             Politics Home
           </a>
+
           <a href="september-11.html">
             September 11, 2001
           </a>
+
           <a href="september-11-sourcebooks.html">
             9/11 Sourcebooks &amp; Documents
           </a>
         </div>
       </div>
+
       <a href="entertainment-sports.html">
         Entertainment / Sports
       </a>
+
       <a href="world-events.html">
         World Events
       </a>
+
       <a href="social-media.html">
         Social Media
       </a>
+
       <a href="thoughts.html">
         Thoughts / Blog
       </a>
+
       <!-- USER SUBMISSIONS -->
+
       <a href="submissions.html">
         Submissions
       </a>
+
       <a href="tv-anime.html">
         TV / Anime
       </a>
     </nav>
   </aside>
+
   <!-- =========================================
        OVERLAY
        ========================================= -->
+
   <div class="menu-overlay"></div>
+
   <!-- =========================================
        SITE HEADER
        ========================================= -->
+
   <header class="site-header">
     <div class="container header-inner">
       <a
@@ -512,38 +625,53 @@
       </a>
     </div>
   </header>
+
   <!-- =========================================
        MAIN
        ========================================= -->
+
   <main>
+
     <!-- =========================================
          HERO
          ========================================= -->
+
     <section class="hero">
       <div class="container">
+
         <p class="eyebrow">
           ENTERTAINMENT / SPORTS
         </p>
+
         <h1>
           Entertainment / Sports
         </h1>
+
         <p class="hero-text">
           This section contains articles, photographs, videos, social media
           posts, announcements, results, and other records documenting
           significant moments in entertainment and sports.
         </p>
+
       </div>
     </section>
+
     <!-- =========================================
          RECORDS
          ========================================= -->
+
     <section class="records-section">
+
       <div class="container">
+
         <div class="record-list">
+
           <!-- =========================================
-               SELECTED VIDEOS + WRESTLING VIDEOS
+               SELECTED / WRESTLING VIDEOS
                ========================================= -->
+
           <div class="selected-videos">
+
             <button
               class="selected-videos-toggle"
               id="selected-videos-toggle"
@@ -551,1302 +679,1243 @@
               aria-expanded="false"
               aria-controls="selected-videos-panel"
             >
+
               <span class="topic-label">
-                WRESTLING
+                WRESTLING VIDEOS
               </span>
+
               <h2>
                 Wrestling Videos
               </h2>
+
               <p>
                 A collection of selected wrestling matches, events,
-                compilations, and television archives preserved as part
-                of The Historical Record.
+                compilations, and historical wrestling broadcasts preserved
+                as part of The Historical Record.
               </p>
+
               <span class="topic-arrow">
                 View Wrestling Videos →
               </span>
+
             </button>
+
             <div
               class="selected-videos-panel"
               id="selected-videos-panel"
             >
+
               <!-- =========================================
-                   SELECTED YOUTUBE VIDEOS
+                   YOUTUBE SELECTED VIDEOS
                    ========================================= -->
+
               <div
                 class="video-grid"
                 id="selected-video-grid"
               ></div>
+
               <!-- =========================================
-                   WRESTLING VIDEO COLLECTIONS
+                   ARCHIVE.ORG WRESTLING COLLECTION
                    ========================================= -->
-              <div class="wrestling-section">
-                <div class="wrestling-section-header">
+
+              <div class="wrestling-videos">
+
+                <div class="wrestling-videos-header">
+
+                  <span class="topic-label">
+                    WRESTLING ARCHIVE
+                  </span>
+
                   <h2>
-                    Wrestling Archives
+                    Wrestling Matches &amp; Events
                   </h2>
+
                   <p>
-                    Select a category below to open its archived wrestling
-                    videos. The archive players retain their scrollable
-                    playlists so individual episodes or matches can be selected.
+                    Historical wrestling matches, television broadcasts,
+                    events, and collections. Each playlist can be opened
+                    individually so the page does not load every Archive.org
+                    player at once.
                   </p>
+
                 </div>
-                <!-- =========================================
-                     1979
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-1979"
-                  >
-                    <h3>
-                      1979 Wrestling Matches
-                    </h3>
-                    <p>
-                      Hiro Matsuda &amp; Masa Saito vs. Riki Choshu &amp;
-                      Seiji Sakaguchi — NWA Hollywood
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View 1979 Wrestling Matches →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-1979"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          Hiro Matsuda &amp; Masa Saito vs. Riki Choshu &amp;
-                          Seiji Sakaguchi — NWA Hollywood
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/06.15-hiro-matsuda-masa-saito-vs.-riki-choshu-seiji-sakaguchi-nwa-hollywood?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="1979 Wrestling Match"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                <div class="wrestling-video-list">
+
+                  <!-- =========================================
+                       1979
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        WRESTLING • 1979
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        1979 Wrestling Matches
+                      </h3>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     1980
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-1980"
-                  >
-                    <h3>
-                      1980 Wrestling Matches
-                    </h3>
-                    <p>
-                      Bob Backlund vs. Dusty Rhodes — NJPW 3rd Madison Square
-                      Garden Series, Day 28
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View 1980 Wrestling Matches →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-1980"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          Bob Backlund vs. Dusty Rhodes — NJPW 3rd Madison
-                          Square Garden Series, Day 28
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/05.27-bob-backlund-vs.-dusty-rhodes-njpw-3rd-madison-square-garden-series-day-28?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="1980 Wrestling Match"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/06.15-hiro-matsuda-masa-saito-vs.-riki-choshu-seiji-sakaguchi-nwa-hollywood?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     1993
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-1993"
-                  >
-                    <h3>
-                      1993 Wrestling Matches
-                    </h3>
-                    <p>
-                      Jun Akiyama vs. Steve Williams — AJPW New Year Giant
-                      Series 1993
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View 1993 Wrestling Matches →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-1993"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          Jun Akiyama vs. Steve Williams — AJPW New Year
-                          Giant Series 1993
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/01.02-jun-akiyama-vs.-steve-williams-ajpw-new-year-giant-series-1993-tag-1?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="1993 Wrestling Match"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                  </article>
+
+                  <!-- =========================================
+                       1980
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        WRESTLING • 1980
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        1980 Wrestling Matches
+                      </h3>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     1994
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-1994"
-                  >
-                    <h3>
-                      1994 Wrestling Matches
-                    </h3>
-                    <p>
-                      Etsuko Mita &amp; Mima Shimoda vs. Manami Toyota &amp;
-                      Toshiyo Yamada — AJW
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View 1994 Wrestling Matches →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-1994"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          Etsuko Mita &amp; Mima Shimoda vs. Manami Toyota &amp;
-                          Toshiyo Yamada — AJW
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/01.24-etsuko-mita-mima-shimoda-vs.-manami-toyota-toshiyo-yamada-ajw-ota-ward-champion-legend?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="1994 Wrestling Match"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/05.27-bob-backlund-vs.-dusty-rhodes-njpw-3rd-madison-square-garden-series-day-28?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     1995
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-1995"
-                  >
-                    <h3>
-                      1995 Wrestling Matches
-                    </h3>
-                    <p>
-                      Cactus Jack vs. Terry Funk — IWA Japan New Year '95
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View 1995 Wrestling Matches →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-1995"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          Cactus Jack vs. Terry Funk — IWA Japan New Year '95
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/01.08-cactus-jack-vs.-terry-funk-iwa-japan-new-year-95-tag-6?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="1995 Wrestling Match"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                  </article>
+
+                  <!-- =========================================
+                       1993
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        WRESTLING • 1993
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        1993 Wrestling Matches
+                      </h3>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     WRESTLEMANIA XVII
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-wm17"
-                  >
-                    <h3>
-                      WrestleMania XVII
-                    </h3>
-                    <p>
-                      WWF WrestleMania X-Seven complete archive
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View WrestleMania XVII →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-wm17"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          WWF WrestleMania X-Seven
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/wwf-wrestlemania-x-7-dvd-rip-cd-1?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="WWF WrestleMania X-Seven"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/01.02-jun-akiyama-vs.-steve-williams-ajpw-new-year-giant-series-1993-tag-1?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     WWF INVASION 2001
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-invasion"
-                  >
-                    <h3>
-                      WWF Invasion 2001
-                    </h3>
-                    <p>
-                      WWF Invasion 2001 complete archive
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View WWF Invasion 2001 →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-invasion"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          WWF Invasion 2001
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/wwf-invasion-2001?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="WWF Invasion 2001"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                  </article>
+
+                  <!-- =========================================
+                       1994
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        WRESTLING • 1994
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        1994 Wrestling Matches
+                      </h3>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     NJPW WRESTLE KINGDOM 20
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-wk20"
-                  >
-                    <h3>
-                      NJPW Wrestle Kingdom 20
-                    </h3>
-                    <p>
-                      NJPW Wrestle Kingdom 20 in Tokyo Dome — April 1, 2026
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View Wrestle Kingdom 20 →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-wk20"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          NJPW Wrestle Kingdom 20 In Tokyo Dome — 04-01-26
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/njpw-wrestle-kingdom-20-in-tokyo-dome-04-01-26?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="NJPW Wrestle Kingdom 20"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/01.24-etsuko-mita-mima-shimoda-vs.-manami-toyota-toshiyo-yamada-ajw-ota-ward-champion-legend?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     APPROVED MATCH PICKS
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-approved"
-                  >
-                    <h3>
-                      Approved Match Picks
-                    </h3>
-                    <p>
-                      Selected wrestling match collection
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View Approved Match Picks →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-approved"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          Approved Match Picks — August 2024
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/approved_match_picks_08_2024?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="Approved Match Picks"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                  </article>
+
+                  <!-- =========================================
+                       1995
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        WRESTLING • 1995
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        1995 Wrestling Matches
+                      </h3>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     DRAGON GATE COMPILATION
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-dragongate"
-                  >
-                    <h3>
-                      Dragon Gate Compilation
-                    </h3>
-                    <p>
-                      Dragon Gate Kobe World / Wrestling Festival archive
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View Dragon Gate Compilation →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-dragongate"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          01.08.2021 Dragon Gate Kobe Pro Wrestling Festival
-                          2021 — Tag 2
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/01.08.2021-dragongate-kobe-pro-wrestling-festival-2021-tag-2-speed-star-final-480p-via-skyload?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="Dragon Gate Compilation"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/01.08-cactus-jack-vs.-terry-funk-iwa-japan-new-year-95-tag-6?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     DRAGON GATE 2025 COLLECTION
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-dragongate-2025"
-                  >
-                    <h3>
-                      Dragon Gate 2025 Collection
-                    </h3>
-                    <p>
-                      Fantastic Gate 2024 archive
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View Dragon Gate 2025 Collection →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-dragongate-2025"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          Dragon Gate Fantastic Gate 2024 — Tag 4
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/2024.12.17-dragon-gate-fantastic-gate-2024-tag-4?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="Dragon Gate 2025 Collection"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                  </article>
+
+                  <!-- =========================================
+                       WRESTLEMANIA XVII
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        WWF • 2001
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        WrestleMania XVII
+                      </h3>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     AJPW COMPILATION
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-ajpw"
-                  >
-                    <h3>
-                      AJPW Compilation
-                    </h3>
-                    <p>
-                      All Japan Pro Wrestling archive
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View AJPW Compilation →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-ajpw"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          AJPW — 17.05.2005
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/17.05.2005-ajpw?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="AJPW Compilation"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/wwf-wrestlemania-x-7-dvd-rip-cd-1?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     ZERO-1 2001
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-zero1"
-                  >
-                    <h3>
-                      Zero-1 2001
-                    </h3>
-                    <p>
-                      Zero-1 Shingeki archive
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View Zero-1 2001 →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-zero1"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          Zero-1 — Shingeki — 2001.06.14
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/2001.06.14-shingeki?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="Zero-1 2001"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                  </article>
+
+                  <!-- =========================================
+                       WWF INVASION 2001
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        WWF • 2001
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        WWF Invasion 2001
+                      </h3>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     DRAGON GATE 2019
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-dragongate-2019"
-                  >
-                    <h3>
-                      Dragon Gate
-                    </h3>
-                    <p>
-                      Truth Gate 2019 — Day 5
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View Dragon Gate →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-dragongate-2019"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          Dragon Gate — Truth Gate 2019 — Day 5
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/dragon.-gate.-2019.02.10.-truth.-gate.-2019.-day.-5?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="Dragon Gate 2019"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/wwf-invasion-2001?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     MICHINOKU PRO 1999
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-michinoku"
-                  >
-                    <h3>
-                      Michinoku Pro 1999 Fukumen World League
-                    </h3>
-                    <p>
-                      Fukumen World League opener
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View Michinoku Pro 1999 →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-michinoku"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          Michinoku Pro — 07.17.1999 Fukumen World League Opener
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/michinoku-pro-07-17-1999-fukumen-world-league-opener-480p-via-skyload?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="Michinoku Pro 1999"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                  </article>
+
+                  <!-- =========================================
+                       NJPW WRESTLE KINGDOM 20
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        NJPW • 2026
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        NJPW Wrestle Kingdom 20 In Tokyo Dome 04-01-26
+                      </h3>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     WWF RAW 1999
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-raw-1999"
-                  >
-                    <h3>
-                      WWF RAW 1999
-                    </h3>
-                    <p>
-                      WWF RAW television archive
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View WWF RAW 1999 →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-raw-1999"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          WWF RAW 1999
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/WAR-1999?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="WWF RAW 1999"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/njpw-wrestle-kingdom-20-in-tokyo-dome-04-01-26?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     WWF SMACKDOWN 1999
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-smackdown-1999"
-                  >
-                    <h3>
-                      WWF SmackDown 1999
-                    </h3>
-                    <p>
-                      WWF SmackDown television archive
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View WWF SmackDown 1999 →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-smackdown-1999"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          WWF SmackDown 1999
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/nwodkcams-1999?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="WWF SmackDown 1999"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                  </article>
+
+                  <!-- =========================================
+                       APPROVED MATCH PICKS
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        WRESTLING COLLECTION
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        Approved Match Picks
+                      </h3>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     WWF RAW 2000
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-raw-2000"
-                  >
-                    <h3>
-                      WWF RAW 2000
-                    </h3>
-                    <p>
-                      WWF RAW television archive
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View WWF RAW 2000 →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-raw-2000"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          WWF RAW 2000
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/WAR-2000?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="WWF RAW 2000"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/approved_match_picks_08_2024?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     WWF SMACKDOWN 2000
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-smackdown-2000"
-                  >
-                    <h3>
-                      WWF SmackDown 2000
-                    </h3>
-                    <p>
-                      February 3, 2000 archive
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View WWF SmackDown 2000 →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-smackdown-2000"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          WWF SmackDown 2000 — February 3, 2000
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/2000.02.03?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="WWF SmackDown 2000"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                  </article>
+
+                  <!-- =========================================
+                       DRAGON GATE COMPILATION
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        DRAGON GATE
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        Dragon Gate Compilation
+                      </h3>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     WWF RAW 2001
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-raw-2001"
-                  >
-                    <h3>
-                      WWF RAW 2001
-                    </h3>
-                    <p>
-                      WWF RAW television archive
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View WWF RAW 2001 →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-raw-2001"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          WWF RAW 2001
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/WAR-2001?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="WWF RAW 2001"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/01.08.2021-dragongate-kobe-pro-wrestling-festival-2021-tag-2-speed-star-final-480p-via-skyload?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     WWF SMACKDOWN 2001
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-smackdown-2001"
-                  >
-                    <h3>
-                      WWF SmackDown 2001
-                    </h3>
-                    <p>
-                      March 15, 2001 archive
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View WWF SmackDown 2001 →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-smackdown-2001"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          WWF SmackDown 2001 — March 15, 2001
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/2001.03.15?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="WWF SmackDown 2001"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                  </article>
+
+                  <!-- =========================================
+                       DRAGON GATE 2025 COLLECTION
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        DRAGON GATE • 2025
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        Dragon Gate 2025 Collection
+                      </h3>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     WWE RAW 2002
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-raw-2002"
-                  >
-                    <h3>
-                      WWE RAW 2002
-                    </h3>
-                    <p>
-                      January 28, 2002 archive
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View WWE RAW 2002 →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-raw-2002"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          WWE RAW 2002 — January 28, 2002
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/2002.01.28?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="WWE RAW 2002"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/2024.12.17-dragon-gate-fantastic-gate-2024-tag-4?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     WWE SMACKDOWN 2002
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-smackdown-2002"
-                  >
-                    <h3>
-                      WWE SmackDown 2002
-                    </h3>
-                    <p>
-                      February 7, 2002 archive
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View WWE SmackDown 2002 →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-smackdown-2002"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          WWE SmackDown 2002 — February 7, 2002
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/2002.02.07?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="WWE SmackDown 2002"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                  </article>
+
+                  <!-- =========================================
+                       AJPW COMPILATION
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        AJPW
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        AJPW Compilation
+                      </h3>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     WWE RAW 2003
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-raw-2003"
-                  >
-                    <h3>
-                      WWE RAW 2003
-                    </h3>
-                    <p>
-                      December 29, 2003 archive
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View WWE RAW 2003 →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-raw-2003"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          WWE RAW 2003 — December 29, 2003
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/2003.12.29?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="WWE RAW 2003"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/17.05.2005-ajpw?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     WWE SMACKDOWN 2003
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-smackdown-2003"
-                  >
-                    <h3>
-                      WWE SmackDown 2003
-                    </h3>
-                    <p>
-                      May 22, 2003 archive
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View WWE SmackDown 2003 →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-smackdown-2003"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          WWE SmackDown 2003 — May 22, 2003
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/2003.05.22?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="WWE SmackDown 2003"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                  </article>
+
+                  <!-- =========================================
+                       ZERO-1 2001
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        ZERO-1 • 2001
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        Zero-1 2001
+                      </h3>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     WWE RAW 2004
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-raw-2004"
-                  >
-                    <h3>
-                      WWE RAW 2004
-                    </h3>
-                    <p>
-                      June 14, 2004 archive
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View WWE RAW 2004 →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-raw-2004"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          WWE RAW 2004 — June 14, 2004
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/2004.06.14?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="WWE RAW 2004"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/2001.06.14-shingeki?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     WWE SMACKDOWN 2004
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-smackdown-2004"
-                  >
-                    <h3>
-                      WWE SmackDown 2004
-                    </h3>
-                    <p>
-                      June 24, 2004 archive
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View WWE SmackDown 2004 →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-smackdown-2004"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          WWE SmackDown 2004 — June 24, 2004
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/2004.06.24?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="WWE SmackDown 2004"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                  </article>
+
+                  <!-- =========================================
+                       DRAGON GATE
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        DRAGON GATE • 2019
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        Dragon Gate
+                      </h3>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     WWE RAW 2005
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-raw-2005"
-                  >
-                    <h3>
-                      WWE RAW 2005
-                    </h3>
-                    <p>
-                      October 3, 2005 archive
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View WWE RAW 2005 →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-raw-2005"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          WWE RAW 2005 — October 3, 2005
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/2005.10.03?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="WWE RAW 2005"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/dragon.-gate.-2019.02.10.-truth.-gate.-2019.-day.-5?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
                     </div>
-                  </div>
-                </div>
-                <!-- =========================================
-                     WWE SMACKDOWN 2005
-                     ========================================= -->
-                <div class="wrestling-category">
-                  <button
-                    class="wrestling-category-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="wrestling-smackdown-2005"
-                  >
-                    <h3>
-                      WWE SmackDown 2005
-                    </h3>
-                    <p>
-                      November 18, 2005 archive
-                    </p>
-                    <span class="wrestling-category-arrow">
-                      View WWE SmackDown 2005 →
-                    </span>
-                  </button>
-                  <div
-                    class="wrestling-category-panel"
-                    id="wrestling-smackdown-2005"
-                  >
-                    <div class="wrestling-video-grid">
-                      <article class="wrestling-video-card">
-                        <h4 class="wrestling-video-title">
-                          WWE SmackDown 2005 — November 18, 2005
-                        </h4>
-                        <div class="wrestling-video-player">
-                          <iframe
-                            src="https://archive.org/embed/2005.11.18?playlist=1&amp;autoplay=0"
-                            loading="lazy"
-                            allowfullscreen
-                            title="WWE SmackDown 2005"
-                          ></iframe>
-                        </div>
-                      </article>
+
+                  </article>
+
+                  <!-- =========================================
+                       MICHINOKU PRO 1999
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        MICHINOKU PRO • 1999
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        Michinoku Pro 1999 Fukumen World League
+                      </h3>
+
                     </div>
-                  </div>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/michinoku-pro-07-17-1999-fukumen-world-league-opener-480p-via-skyload?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  </article>
+
+                  <!-- =========================================
+                       WWF RAW 1999
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        WWF • 1999
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        WWF RAW 1999
+                      </h3>
+
+                    </div>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/WAR-1999?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  </article>
+
+                  <!-- =========================================
+                       WWF SMACKDOWN 1999
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        WWF • 1999
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        WWF SmackDown 1999
+                      </h3>
+
+                    </div>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/nwodkcams-1999?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  </article>
+
+                  <!-- =========================================
+                       WWF RAW 2000
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        WWF • 2000
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        WWF RAW 2000
+                      </h3>
+
+                    </div>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/WAR-2000?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  </article>
+
+                  <!-- =========================================
+                       WWF SMACKDOWN 2000
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        WWF • 2000
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        WWF SmackDown 2000
+                      </h3>
+
+                    </div>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/2000.02.03?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  </article>
+
+                  <!-- =========================================
+                       WWF RAW 2001
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        WWF • 2001
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        WWF RAW 2001
+                      </h3>
+
+                    </div>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/WAR-2001?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  </article>
+
+                  <!-- =========================================
+                       WWF SMACKDOWN 2001
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        WWF • 2001
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        WWF SmackDown 2001
+                      </h3>
+
+                    </div>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/2001.03.15?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  </article>
+
+                  <!-- =========================================
+                       WWE RAW 2002
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        WWE • 2002
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        WWE RAW 2002
+                      </h3>
+
+                    </div>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/2002.01.28?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  </article>
+
+                  <!-- =========================================
+                       WWE SMACKDOWN 2002
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        WWE • 2002
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        WWE SmackDown 2002
+                      </h3>
+
+                    </div>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/2002.02.07?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  </article>
+
+                  <!-- =========================================
+                       WWE RAW 2003
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        WWE • 2003
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        WWE RAW 2003
+                      </h3>
+
+                    </div>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/2003.12.29?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  </article>
+
+                  <!-- =========================================
+                       WWE SMACKDOWN 2003
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        WWE • 2003
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        WWE SmackDown 2003
+                      </h3>
+
+                    </div>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/2003.05.22?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  </article>
+
+                  <!-- =========================================
+                       WWE RAW 2004
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        WWE • 2004
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        WWE RAW 2004
+                      </h3>
+
+                    </div>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/2004.06.14?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  </article>
+
+                  <!-- =========================================
+                       WWE SMACKDOWN 2004
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        WWE • 2004
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        WWE SmackDown 2004
+                      </h3>
+
+                    </div>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/2004.06.24?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  </article>
+
+                  <!-- =========================================
+                       WWE RAW 2005
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        WWE • 2005
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        WWE RAW 2005
+                      </h3>
+
+                    </div>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/2005.10.03?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  </article>
+
+                  <!-- =========================================
+                       WWE SMACKDOWN 2005
+                       ========================================= -->
+
+                  <article class="wrestling-video-card">
+
+                    <div class="wrestling-video-info">
+
+                      <p class="wrestling-video-label">
+                        WWE • 2005
+                      </p>
+
+                      <h3 class="wrestling-video-title">
+                        WWE SmackDown 2005
+                      </h3>
+
+                    </div>
+
+                    <div
+                      class="wrestling-player"
+                      data-src="https://archive.org/embed/2005.11.18?playlist=1&amp;autoplay=1"
+                    >
+
+                      <div class="wrestling-load">
+
+                        <button
+                          type="button"
+                          class="load-wrestling"
+                        >
+                          Load Playlist
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  </article>
+
                 </div>
               </div>
+
             </div>
           </div>
+
           <!-- =========================================
                BILLS VS TEXANS — SEPTEMBER 13, 2026
                ========================================= -->
+
           <article class="record-card">
+
             <p class="record-label">
               SPORTS • SEPTEMBER 13, 2026
             </p>
+
             <h3>
               Bills 36, Texans 31 | Final score, game highlights, key stats | Week 1
             </h3>
+
             <p>
               Buffalo traveled down to Houston and defeated the Texans on the
               road, 36-31, for the first time since 2006. The offense was
               consistent all game, with the defense coming through on the final
               drive of the game to start the season off in the win column.
             </p>
+
             <p>
               <strong>
                 Location:
               </strong>
               Reliant Stadium
             </p>
+
             <p>
               <strong>
                 Final score:
               </strong>
               Bills 36, Texans 31
             </p>
+
             <p>
               <strong>
                 Records:
               </strong>
               Bills (1-0), Texans (0-1)
             </p>
+
             <p>
               <strong>
                 Next opponent:
               </strong>
               Bills vs. Lions Thursday, Sept. 17 at 8:15 p.m. EST
             </p>
+
             <h4>
               Game Recap
             </h4>
+
             <p>
               The Bills needed a big drive, down 31-30 with 3:13 left in the
               fourth quarter, backed up at their own four-yard line. TE Dalton
-              Kincaid kicked things off with a chunk play, finding open space on
-              the right side for a 35-yard reception.
+              Kincaid kicked things off with a chunk play, finding open space
+              on the right side for a 35-yard reception.
             </p>
+
             <p>
               Two plays later, QB Josh Allen sent a strike over the middle of
               the field, catching WR Joshua Palmer perfectly in stride. The
               34-yard touchdown catch was Palmer's lone grab of the day, coming
               in the biggest moment.
             </p>
+
             <p>
               Houston got the ball back with 1:36 on the clock, down 36-31.
               Jim Leonhard's defense bent but didn't break, allowing the Texans
@@ -1854,6 +1923,7 @@
               first-down pass attempt, swimming his way into the backfield for
               a huge sack that lost nine yards.
             </p>
+
             <p>
               OLB Greg Rousseau showed up on third down with just 16 seconds on
               the clock, bursting around the right edge and getting to the
@@ -1861,13 +1931,15 @@
               out of QB CJ Stroud's hands, with LB Terrel Bernard diving on it
               to secure the victory.
             </p>
+
             <p>
               Rousseau had a big game to start the year for Buffalo, tallying
-              another sack to cap off the first defensive drive of the game, as
-              well as the last. The 26-year-old forcefully made his way around
-              the edge in the first quarter, forcing a fumble from behind that
-              DL Ed Oliver pounced on.
+              another sack to cap off the first defensive drive of the game,
+              as well as the last. The 26-year-old forcefully made his way
+              around the edge in the first quarter, forcing a fumble from
+              behind that DL Ed Oliver pounced on.
             </p>
+
             <p>
               The Bills offense got going in the second quarter, with Allen
               taking matters into his own hands. He found WR Khalil Shakir
@@ -1876,12 +1948,14 @@
               taking it himself, barreling into the end zone for a 21-yard
               rushing touchdown.
             </p>
+
             <p>
               WR DJ Moore was quiet throughout the first quarter and a half of
-              the day, finding a spark at the end of the second. With under five
-              minutes to go before the break, Allen found his No. 1 receiver for
-              an 18-yard gain over the middle.
+              the day, finding a spark at the end of the second. With under
+              five minutes to go before the break, Allen found his No. 1
+              receiver for an 18-yard gain over the middle.
             </p>
+
             <p>
               On the next play, Moore showed off his ability to stretch the
               field, burning past defenders toward the back left pylon. Allen
@@ -1889,17 +1963,20 @@
               getting there a little too early, earning himself a pass
               interference and placing the ball at the one-yard line.
             </p>
+
             <p>
               Allen tallied his second rushing touchdown of the day, punching
               it in from the one by taking a quarterback sneak up the middle of
               the defense.
             </p>
+
             <p>
               Getting the ball with just over two minutes before the end of the
               first half, Allen and the Bills set out on an impressive
               two-minute drill. It began with a 38-yard acrobatic catch by
               Kincaid near the right sideline.
             </p>
+
             <p>
               After the two-minute warning, Allen found Moore over the middle
               for 15 yards, targeting him again on the next play. The
@@ -1908,25 +1985,29 @@
               way. Moore made the catch with nothing but green in front of him,
               scampering in for a 43-yard touchdown.
             </p>
+
             <p>
               Moore showed out in his first game with the Bills, tallying 100
               yards on five catches along with the touchdown. Kincaid led the
               team with 130 yards on five catches in the win, helping set up
               two touchdowns in the process.
             </p>
+
             <p>
               Allen finished his day 20-of-29 passing, putting up 334 passing
               yards and two touchdowns through the air. The gunslinger added on
               23 rushing yards on six attempts, finding the end zone twice with
               his legs.
             </p>
+
             <p>
               The Texans were the first team to reach the end zone on Sunday,
               putting together a 12-play, 76-yard drive. Stroud found WR Nico
-              Collins on a corner route by the right sideline on a third-and-eight
-              for 25 yards, setting up a one-yard rushing touchdown for RB David
-              Montgomery.
+              Collins on a corner route by the right sideline on a third-and-
+              eight for 25 yards, setting up a one-yard rushing touchdown for
+              RB David Montgomery.
             </p>
+
             <p>
               After taking up seven minutes on their first scoring drive,
               Houston got the ball back and again got to work grinding its way
@@ -1934,28 +2015,33 @@
               Buffalo extended the eight-minute drive, with Montgomery taking
               the following play into the end zone untouched from 18 yards out.
             </p>
+
             <p>
               Montgomery wasn't done there, capping off a 13-play, 72-yard drive
               at the beginning of the fourth quarter. Off a fake touch pass to
-              the left side from the seven-yard line, Montgomery snuck out of the
-              backfield the other direction, catching a wide-open touchdown for
-              his third score of the game.
+              the left side from the seven-yard line, Montgomery snuck out of
+              the backfield the other direction, catching a wide-open touchdown
+              for his third score of the game.
             </p>
+
             <p>
               Down 30-28, the Texans got the ball across midfield, stalling out
               at the Buffalo 39-yard line. K Ka'imi Fairbairn lined up for a
               58-yard field goal, booting it right down the middle to give his
               squad a one-point lead.
             </p>
+
             <p>
               Three drives stalled out for the Bills down in enemy territory,
               with K Tyler Bass cashing in each time. The 29-year-old made kicks
               from 46, 34 and 33 yards, finishing 100 percent on the day.
             </p>
+
             <p>
               Up next for Buffalo is the first game at Highmark Stadium,
               hosting the Detroit Lions on Thursday, Sept. 17 at 8:15 p.m. EST.
             </p>
+
             <div class="record-source">
               <a
                 href="https://www.buffalobills.com/news/bills-36-texans-31-final-score-game-highlights-key-stats-week-1"
@@ -1965,14 +2051,18 @@
                 Read the Buffalo Bills source article →
               </a>
             </div>
+
             <div class="record-video-grid">
+
               <div class="record-video">
+
                 <img
                   src="https://i.ytimg.com/vi/4s5PpK9c2Yg/hqdefault.jpg"
                   alt="Bills vs Texans video"
                   loading="lazy"
                   decoding="async"
                 >
+
                 <a
                   href="https://youtu.be/4s5PpK9c2Yg?is=y-XXc8Pz-GcW1_mw"
                   target="_blank"
@@ -1981,14 +2071,18 @@
                 >
                   <span class="record-video-play"></span>
                 </a>
+
               </div>
+
               <div class="record-video">
+
                 <img
                   src="https://i.ytimg.com/vi/RJYkgvKaE0Q/hqdefault.jpg"
                   alt="Bills vs Texans video"
                   loading="lazy"
                   decoding="async"
                 >
+
                 <a
                   href="https://youtu.be/RJYkgvKaE0Q?is=6KUBeYY8OTTtXhyv"
                   target="_blank"
@@ -1997,14 +2091,18 @@
                 >
                   <span class="record-video-play"></span>
                 </a>
+
               </div>
+
               <div class="record-video">
+
                 <img
                   src="https://i.ytimg.com/vi/XN1wchtgjGI/hqdefault.jpg"
                   alt="Bills vs Texans video"
                   loading="lazy"
                   decoding="async"
                 >
+
                 <a
                   href="https://youtu.be/XN1wchtgjGI?is=dQqJLAvhKEWdfAkK"
                   target="_blank"
@@ -2013,52 +2111,73 @@
                 >
                   <span class="record-video-play"></span>
                 </a>
+
               </div>
+
             </div>
+
           </article>
+
           <!-- =========================================
                KENTA KOBASHI
                ========================================= -->
+
           <article class="record-card">
+
             <p class="record-label">
               SPORTS
             </p>
+
             <h3>
               Kenta Kobashi
             </h3>
+
             <p>
               The Burning Lariat. The Absolute Champion.
             </p>
+
             <p>
-              Explore the career of Kenta Kobashi, from his beginnings in All Japan
-              Pro Wrestling to his legendary years in Pro Wrestling NOAH, his
-              championship victories, historic rivalries, major injuries, battles
-              with cancer, and his emotional retirement in 2013.
+              Explore the career of Kenta Kobashi, from his beginnings in All
+              Japan Pro Wrestling to his legendary years in Pro Wrestling
+              NOAH, his championship victories, historic rivalries, major
+              injuries, battles with cancer, and his emotional retirement
+              in 2013.
             </p>
+
             <a href="kenta-kobashi.html">
               View Kenta Kobashi's Historical Profile →
             </a>
+
           </article>
+
           <!-- =========================================
                CHRIS BROWN / CONGRESSIONAL RECORD
                ========================================= -->
+
           <article class="record-card">
+
             <p class="record-label">
               ENTERTAINMENT • SEPTEMBER 13, 2026
             </p>
+
             <h3>
               Chris Brown's Two-Decade R&amp;B Legacy
             </h3>
+
             <p>
-              A social media record documenting the recognition of Chris Brown's
-              career and musical impact through an official entry in the
-              U.S. Congressional Record.
+              A social media record documenting the recognition of Chris
+              Brown's career and musical impact through an official entry in
+              the U.S. Congressional Record.
             </p>
+
             <div class="media-placeholder">
+
               <strong>
                 RELATED SOCIAL MEDIA RECORD
               </strong>
+
               <blockquote class="twitter-tweet">
+
                 <p lang="en" dir="ltr">
                   Chris Brown’s two-decade R&amp;B legacy receives a historic
                   honor as Congresswoman Jasmine Crockett presents him with an
@@ -2070,122 +2189,178 @@
                     pic.twitter.com/EqwlvdJx74
                   </a>
                 </p>
+
                 &mdash; Pop Core
+
                 <a
                   href="https://x.com/TheePopCore/status/2099155301828092052?ref_src=twsrc%5Etfw"
                 >
                   September 13, 2026
                 </a>
+
               </blockquote>
+
             </div>
+
           </article>
+
           <!-- =========================================
                CHRIS BROWN / REACTION
                ========================================= -->
+
           <article class="record-card">
+
             <p class="record-label">
               ENTERTAINMENT • SEPTEMBER 14, 2026
             </p>
+
             <h3>
               Public Reaction to Chris Brown's Congressional Recognition
             </h3>
+
             <p>
               A social media record documenting public reaction to the
               Congressional recognition of Chris Brown and discussion
               surrounding his career.
             </p>
+
             <div class="media-placeholder">
+
               <strong>
                 RELATED SOCIAL MEDIA RECORD
               </strong>
+
               <blockquote class="twitter-tweet">
+
                 <p lang="en" dir="ltr">
+
                   <a
                     href="https://x.com/RepJasmine?ref_src=twsrc%5Etfw"
                   >
                     @RepJasmine
                   </a>
+
                   <a
                     href="https://x.com/JasmineForUS?ref_src=twsrc%5Etfw"
                   >
                     @JasmineForUS
                   </a>
+
                   in case you aren't aware of long streak of abuse!!
+
                   <a href="https://t.co/9iN9BzDLLX">
                     pic.twitter.com/9iN9BzDLLX
                   </a>
+
                 </p>
+
                 &mdash; G Tyrant Daughter
+
                 <a
                   href="https://x.com/jusamillenial/status/2099296147009347936?ref_src=twsrc%5Etfw"
                 >
                   September 14, 2026
                 </a>
+
               </blockquote>
+
             </div>
+
           </article>
+
           <!-- =========================================
                AAA TRIPLEMANIA
                ========================================= -->
+
           <article class="record-card">
+
             <p class="record-label">
               SPORTS • SEPTEMBER 14, 2026
             </p>
+
             <h3>
               El Grande Americano Becomes AAA Megachampion
             </h3>
+
             <p>
               A record documenting the conclusion of AAA Triplemanía and the
               crowning of El Grande Americano as Megacampeón de AAA.
             </p>
+
             <div class="media-placeholder">
+
               <strong>
                 RELATED SOCIAL MEDIA RECORD
               </strong>
+
               <blockquote class="twitter-tweet">
+
                 <p lang="es" dir="ltr">
+
                   México NO DUERME 🇲🇽
+
                   <br><br>
+
                   Cerramos
+
                   <a
                     href="https://x.com/hashtag/AAATriplemania?src=hash&amp;ref_src=twsrc%5Etfw"
                   >
                     #AAATriplemania
                   </a>
+
                   con El Grande Americano como Megacampeón de AAA ✨
+
                   <a href="https://t.co/PRYpDIV71A">
                     pic.twitter.com/PRYpDIV71A
                   </a>
+
                 </p>
+
                 &mdash; Lucha Libre AAA Worldwide
+
                 <a
                   href="https://x.com/luchalibreaaa/status/2099352156386238761?ref_src=twsrc%5Etfw"
                 >
                   September 14, 2026
                 </a>
+
               </blockquote>
+
             </div>
+
           </article>
+
         </div>
       </div>
     </section>
+
   </main>
+
   <!-- =========================================
        FOOTER
        ========================================= -->
+
   <footer class="site-footer">
+
     <div class="container">
+
       <p>
         THE HISTORICAL RECORD
       </p>
+
       <p>
         A living archive of the moments that matter.
       </p>
+
     </div>
+
   </footer>
+
   <!-- =========================================
        BACK TO TOP
        ========================================= -->
+
   <button
     class="back-to-top"
     id="back-to-top"
@@ -2195,423 +2370,740 @@
   >
     ↑
   </button>
+
   <!-- =========================================
        X WIDGET SCRIPT
        ========================================= -->
+
   <script
     async
     src="https://platform.x.com/widgets.js"
     charset="utf-8"
   ></script>
+
   <!-- =========================================
        MAIN SITE SCRIPT
        ========================================= -->
+
   <script src="script.js"></script>
+
   <!-- =========================================
-       SELF-CONTAINED SIDEBAR SCRIPT
-       This intentionally runs independently of
-       script.js so the hamburger always works.
+       SIDEBAR / HAMBURGER
        ========================================= -->
+
   <script>
-    (function () {
+    document.addEventListener("DOMContentLoaded", function() {
+
       const menuButton =
         document.querySelector(".menu-button");
+
       const sideMenu =
         document.querySelector(".side-menu");
+
       const menuOverlay =
         document.querySelector(".menu-overlay");
-      if (!menuButton || !sideMenu || !menuOverlay) {
+
+      if (
+        !menuButton ||
+        !sideMenu ||
+        !menuOverlay
+      ) {
         return;
       }
+
       function openMenu() {
         sideMenu.classList.add("open");
         menuOverlay.classList.add("show");
         document.body.classList.add("menu-open");
+
         menuButton.setAttribute(
           "aria-expanded",
           "true"
         );
+
+        menuButton.setAttribute(
+          "aria-label",
+          "Close menu"
+        );
       }
+
       function closeMenu() {
         sideMenu.classList.remove("open");
         menuOverlay.classList.remove("show");
         document.body.classList.remove("menu-open");
+
         menuButton.setAttribute(
           "aria-expanded",
           "false"
         );
+
+        menuButton.setAttribute(
+          "aria-label",
+          "Open menu"
+        );
       }
+
       function toggleMenu() {
-        if (sideMenu.classList.contains("open")) {
+        if (
+          sideMenu.classList.contains("open")
+        ) {
           closeMenu();
         } else {
           openMenu();
         }
       }
+
       menuButton.addEventListener(
         "click",
-        function (event) {
+        function(event) {
           event.preventDefault();
           event.stopPropagation();
           toggleMenu();
         }
       );
+
       menuOverlay.addEventListener(
         "click",
-        function () {
+        function() {
           closeMenu();
         }
       );
+
+      sideMenu
+        .querySelectorAll("a")
+        .forEach(function(link) {
+          link.addEventListener(
+            "click",
+            function() {
+              closeMenu();
+            }
+          );
+        });
+
       document.addEventListener(
         "keydown",
-        function (event) {
-          if (event.key === "Escape") {
+        function(event) {
+          if (
+            event.key === "Escape" &&
+            sideMenu.classList.contains("open")
+          ) {
             closeMenu();
           }
         }
       );
-      sideMenu.querySelectorAll("a").forEach(
-        function (link) {
-          link.addEventListener(
-            "click",
-            function () {
-              closeMenu();
-            }
-          );
-        }
-      );
-      sideMenu
-        .querySelectorAll(".menu-dropdown-toggle")
-        .forEach(function (button) {
+
+      const dropdownButtons =
+        document.querySelectorAll(
+          ".menu-dropdown-toggle"
+        );
+
+      dropdownButtons.forEach(
+        function(button) {
+
           button.addEventListener(
             "click",
-            function (event) {
+            function(event) {
+
               event.preventDefault();
               event.stopPropagation();
+
               const dropdown =
-                button.closest(".menu-dropdown");
+                button.closest(
+                  ".menu-dropdown"
+                );
+
               if (!dropdown) {
                 return;
               }
+
               const isOpen =
-                dropdown.classList.toggle("open");
+                dropdown.classList.toggle(
+                  "open"
+                );
+
               button.setAttribute(
                 "aria-expanded",
                 String(isOpen)
               );
+
             }
           );
-        });
-    })();
-  </script>
-  <!-- =========================================
-       WRESTLING CATEGORY SCRIPT
-       ========================================= -->
-  <script>
-    document
-      .querySelectorAll(".wrestling-category-toggle")
-      .forEach(function (button) {
-        button.addEventListener(
-          "click",
-          function () {
-            const panelId =
-              button.getAttribute("aria-controls");
-            const panel =
-              document.getElementById(panelId);
-            if (!panel) {
-              return;
-            }
-            const isOpen =
-              panel.classList.toggle("open");
-            button.setAttribute(
-              "aria-expanded",
-              String(isOpen)
-            );
-            const arrow =
-              button.querySelector(
-                ".wrestling-category-arrow"
-              );
-            if (arrow) {
-              if (isOpen) {
-                arrow.textContent =
-                  "Hide " +
-                  button.querySelector("h3").textContent +
-                  " ↑";
-              } else {
-                arrow.textContent =
-                  "View " +
-                  button.querySelector("h3").textContent +
-                  " →";
-              }
-            }
-          }
-        );
-      });
-  </script>
-  <!-- =========================================
-       SELECTED VIDEOS SCRIPT
-       ========================================= -->
-  <script>
-    const selectedVideos = [
-      "E0HAuhYg5J4",
-      "dBwq-Iv6LzY",
-      "4Uajo4mQr2A",
-      "1mAtzfWIObs",
-      "61QfMt2uK-o",
-      "w3mb0yjdRcQ",
-      "6cKL-iDR4jA",
-      "CTO59VOCZJw",
-      "vaa4wyRnBOY",
-      "ztz97ViggJU",
-      "3jlb9KVzhhE",
-      "EdAVWuR7x5w",
-      "m-m5vEIEVaw",
-      "VlfV1bGq_ns",
-      "MKHZn4JFrXA",
-      "SMEYZHB_rlE"
-    ];
-    const selectedVideosToggle =
-      document.getElementById(
-        "selected-videos-toggle"
-      );
-    const selectedVideosPanel =
-      document.getElementById(
-        "selected-videos-panel"
-      );
-    const videoGrid =
-      document.getElementById(
-        "selected-video-grid"
-      );
-    selectedVideosToggle.addEventListener(
-      "click",
-      function () {
-        const isOpen =
-          selectedVideosPanel.classList.toggle(
-            "open"
-          );
-        selectedVideosToggle.setAttribute(
-          "aria-expanded",
-          String(isOpen)
-        );
-        const arrow =
-          selectedVideosToggle.querySelector(
-            ".topic-arrow"
-          );
-        if (isOpen) {
-          arrow.textContent =
-            "Hide Wrestling Videos ↑";
-          selectedVideosPanel.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-        } else {
-          arrow.textContent =
-            "View Wrestling Videos →";
+
         }
+      );
+
+    });
+  </script>
+
+  <!-- =========================================
+       WRESTLING VIDEO SECTION
+       ========================================= -->
+
+  <script>
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
+
+        const selectedVideosToggle =
+          document.getElementById(
+            "selected-videos-toggle"
+          );
+
+        const selectedVideosPanel =
+          document.getElementById(
+            "selected-videos-panel"
+          );
+
+        if (
+          selectedVideosToggle &&
+          selectedVideosPanel
+        ) {
+
+          selectedVideosToggle.addEventListener(
+            "click",
+            function() {
+
+              const isOpen =
+                selectedVideosPanel.classList.toggle(
+                  "open"
+                );
+
+              selectedVideosToggle.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+              );
+
+              const arrow =
+                selectedVideosToggle.querySelector(
+                  ".topic-arrow"
+                );
+
+              if (arrow) {
+
+                arrow.textContent =
+                  isOpen
+                    ? "Hide Wrestling Videos ↑"
+                    : "View Wrestling Videos →";
+
+              }
+
+              if (isOpen) {
+
+                setTimeout(
+                  function() {
+
+                    selectedVideosPanel.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start"
+                    });
+
+                  },
+                  50
+                );
+
+              }
+
+            }
+          );
+
+        }
+
       }
     );
-    function createVideoCard(
-      id,
-      index
-    ) {
-      const card =
-        document.createElement(
-          "article"
-        );
-      card.className =
-        "video-card";
-      card.innerHTML = `
-        <div
-          class="video-player"
-          role="button"
-          tabindex="0"
-          aria-label="Play video"
-        >
-          <img
-            src="https://i.ytimg.com/vi/${id}/mqdefault.jpg"
-            alt=""
-            loading="lazy"
-            decoding="async"
-          >
-          <button
-            class="video-play"
-            type="button"
-            aria-label="Play video"
-          ></button>
-        </div>
-        <div class="video-info">
-          <p class="video-label">
-            SELECTED VIDEO ${String(index + 1).padStart(2, "0")}
-          </p>
-          <h3 class="video-title">
-            Loading title…
-          </h3>
-          <p class="video-uploader">
-            <strong>Uploader:</strong>
-            <span>Loading…</span>
-          </p>
-        </div>
-      `;
-      const player =
-        card.querySelector(
-          ".video-player"
-        );
-      const playButton =
-        card.querySelector(
-          ".video-play"
-        );
-      function playVideo() {
-        if (
-          player.dataset.loaded === "true"
-        ) {
+  </script>
+
+  <!-- =========================================
+       SELECTED YOUTUBE VIDEOS
+       ========================================= -->
+
+  <script>
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
+
+        const selectedVideos = [
+          "E0HAuhYg5J4",
+          "dBwq-Iv6LzY",
+          "4Uajo4mQr2A",
+          "1mAtzfWIObs",
+          "61QfMt2uK-o",
+          "w3mb0yjdRcQ",
+          "6cKL-iDR4jA",
+          "CTO59VOCZJw",
+          "vaa4wyRnBOY",
+          "ztz97ViggJU",
+          "3jlb9KVzhhE",
+          "EdAVWuR7x5w",
+          "m-m5vEIEVaw",
+          "VlfV1bGq_ns",
+          "MKHZn4JFrXA",
+          "SMEYZHB_rlE"
+        ];
+
+        const videoGrid =
+          document.getElementById(
+            "selected-video-grid"
+          );
+
+        if (!videoGrid) {
           return;
         }
-        player.dataset.loaded =
-          "true";
-        const iframe =
-          document.createElement(
-            "iframe"
-          );
-        iframe.src =
-          "https://www.youtube-nocookie.com/embed/" +
-          encodeURIComponent(id) +
-          "?autoplay=1&rel=0";
-        iframe.title =
-          card.querySelector(
-            ".video-title"
-          ).textContent;
-        iframe.loading =
-          "lazy";
-        iframe.allow =
-          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-        iframe.allowFullscreen =
-          true;
-        player.replaceChildren(
-          iframe
-        );
-      }
-      playButton.addEventListener(
-        "click",
-        function (event) {
-          event.stopPropagation();
-          playVideo();
-        }
-      );
-      player.addEventListener(
-        "click",
-        playVideo
-      );
-      player.addEventListener(
-        "keydown",
-        function (event) {
-          if (
-            event.key === "Enter" ||
-            event.key === " "
-          ) {
-            event.preventDefault();
-            playVideo();
+
+        function createVideoCard(
+          id,
+          index
+        ) {
+
+          const card =
+            document.createElement(
+              "article"
+            );
+
+          card.className =
+            "video-card";
+
+          card.innerHTML = `
+            <div
+              class="video-player"
+              role="button"
+              tabindex="0"
+              aria-label="Play video"
+            >
+              <img
+                src="https://i.ytimg.com/vi/${id}/mqdefault.jpg"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              >
+
+              <button
+                class="video-play"
+                type="button"
+                aria-label="Play video"
+              ></button>
+            </div>
+
+            <div class="video-info">
+
+              <p class="video-label">
+                SELECTED VIDEO ${String(index + 1).padStart(2, "0")}
+              </p>
+
+              <h3 class="video-title">
+                Loading title…
+              </h3>
+
+              <p class="video-uploader">
+                <strong>Uploader:</strong>
+                <span>Loading…</span>
+              </p>
+
+            </div>
+          `;
+
+          const player =
+            card.querySelector(
+              ".video-player"
+            );
+
+          const playButton =
+            card.querySelector(
+              ".video-play"
+            );
+
+          function playVideo() {
+
+            if (
+              player.dataset.loaded ===
+              "true"
+            ) {
+              return;
+            }
+
+            player.dataset.loaded =
+              "true";
+
+            const iframe =
+              document.createElement(
+                "iframe"
+              );
+
+            iframe.src =
+              "https://www.youtube-nocookie.com/embed/" +
+              encodeURIComponent(id) +
+              "?autoplay=1&rel=0";
+
+            iframe.title =
+              card.querySelector(
+                ".video-title"
+              ).textContent;
+
+            iframe.loading =
+              "lazy";
+
+            iframe.allow =
+              "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+
+            iframe.allowFullscreen =
+              true;
+
+            player.replaceChildren(
+              iframe
+            );
           }
+
+          playButton.addEventListener(
+            "click",
+            function(event) {
+              event.stopPropagation();
+              playVideo();
+            }
+          );
+
+          player.addEventListener(
+            "click",
+            function(event) {
+
+              if (
+                event.target.closest(
+                  ".video-play"
+                )
+              ) {
+                return;
+              }
+
+              playVideo();
+
+            }
+          );
+
+          player.addEventListener(
+            "keydown",
+            function(event) {
+
+              if (
+                event.key === "Enter" ||
+                event.key === " "
+              ) {
+
+                event.preventDefault();
+
+                playVideo();
+
+              }
+
+            }
+          );
+
+          loadVideoMetadata(
+            card,
+            id
+          );
+
+          return card;
         }
-      );
-      loadVideoMetadata(
-        card,
-        id
-      );
-      return card;
-    }
-    async function loadVideoMetadata(
-      card,
-      id
-    ) {
-      const title =
-        card.querySelector(
-          ".video-title"
-        );
-      const uploader =
-        card.querySelector(
-          ".video-uploader span"
-        );
-      const endpoint =
-        "https://www.youtube.com/oembed?url=" +
-        encodeURIComponent(
-          "https://www.youtube.com/watch?v=" +
+
+        async function loadVideoMetadata(
+          card,
           id
-        ) +
-        "&format=json";
-      try {
-        const response =
-          await fetch(
-            endpoint
-          );
-        if (!response.ok) {
-          throw new Error(
-            "Metadata unavailable"
-          );
+        ) {
+
+          const title =
+            card.querySelector(
+              ".video-title"
+            );
+
+          const uploader =
+            card.querySelector(
+              ".video-uploader span"
+            );
+
+          const endpoint =
+            "https://www.youtube.com/oembed?url=" +
+            encodeURIComponent(
+              "https://www.youtube.com/watch?v=" +
+              id
+            ) +
+            "&format=json";
+
+          try {
+
+            const response =
+              await fetch(
+                endpoint
+              );
+
+            if (!response.ok) {
+              throw new Error(
+                "Metadata unavailable"
+              );
+            }
+
+            const data =
+              await response.json();
+
+            title.textContent =
+              data.title ||
+              "Untitled Video";
+
+            uploader.textContent =
+              data.author_name ||
+              "Unknown uploader";
+
+          } catch (error) {
+
+            title.textContent =
+              "View video";
+
+            uploader.textContent =
+              "YouTube video";
+
+          }
+
         }
-        const data =
-          await response.json();
-        title.textContent =
-          data.title ||
-          "Untitled Video";
-        uploader.textContent =
-          data.author_name ||
-          "Unknown uploader";
-      } catch (error) {
-        title.textContent =
-          "View video";
-        uploader.textContent =
-          "YouTube video";
-      }
-    }
-    selectedVideos.forEach(
-      function(id, index) {
-        videoGrid.appendChild(
-          createVideoCard(
+
+        selectedVideos.forEach(
+          function(
             id,
             index
-          )
+          ) {
+
+            videoGrid.appendChild(
+              createVideoCard(
+                id,
+                index
+              )
+            );
+
+          }
         );
+
       }
     );
   </script>
+
+  <!-- =========================================
+       ARCHIVE.ORG PLAYLIST LOADING
+       ========================================= -->
+
+  <script>
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
+
+        const players =
+          document.querySelectorAll(
+            ".wrestling-player"
+          );
+
+        function loadPlaylist(
+          player
+        ) {
+
+          if (
+            player.dataset.loaded ===
+            "true"
+          ) {
+            return;
+          }
+
+          const source =
+            player.dataset.src;
+
+          if (!source) {
+            return;
+          }
+
+          player.dataset.loaded =
+            "true";
+
+          const iframe =
+            document.createElement(
+              "iframe"
+            );
+
+          iframe.src =
+            source;
+
+          iframe.title =
+            "Wrestling playlist";
+
+          iframe.loading =
+            "lazy";
+
+          iframe.allow =
+            "autoplay; fullscreen";
+
+          iframe.setAttribute(
+            "webkitallowfullscreen",
+            "true"
+          );
+
+          iframe.setAttribute(
+            "mozallowfullscreen",
+            "true"
+          );
+
+          iframe.setAttribute(
+            "allowfullscreen",
+            "true"
+          );
+
+          player.replaceChildren(
+            iframe
+          );
+
+        }
+
+        players.forEach(
+          function(player) {
+
+            const button =
+              player.querySelector(
+                ".load-wrestling"
+              );
+
+            if (!button) {
+              return;
+            }
+
+            button.addEventListener(
+              "click",
+              function(event) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                loadPlaylist(
+                  player
+                );
+
+              }
+            );
+
+          }
+        );
+
+        /*
+          Automatically load a playlist only when it gets
+          reasonably close to the viewport. This keeps the page
+          from loading every Archive.org player simultaneously.
+        */
+
+        if (
+          "IntersectionObserver" in window
+        ) {
+
+          const observer =
+            new IntersectionObserver(
+              function(entries) {
+
+                entries.forEach(
+                  function(entry) {
+
+                    if (
+                      entry.isIntersecting
+                    ) {
+
+                      loadPlaylist(
+                        entry.target
+                      );
+
+                      observer.unobserve(
+                        entry.target
+                      );
+
+                    }
+
+                  }
+                );
+
+              },
+              {
+                rootMargin:
+                  "700px 0px"
+              }
+            );
+
+          players.forEach(
+            function(player) {
+
+              observer.observe(
+                player
+              );
+
+            }
+          );
+
+        }
+
+      }
+    );
+  </script>
+
   <!-- =========================================
        BACK TO TOP SCRIPT
        ========================================= -->
+
   <script>
-    const backToTop =
-      document.getElementById(
-        "back-to-top"
-      );
-    function updateBackToTop() {
-      if (
-        window.scrollY > 500
-      ) {
-        backToTop.classList.add(
-          "show"
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
+
+        const backToTop =
+          document.getElementById(
+            "back-to-top"
+          );
+
+        if (!backToTop) {
+          return;
+        }
+
+        function updateBackToTop() {
+
+          if (
+            window.scrollY > 500
+          ) {
+
+            backToTop.classList.add(
+              "show"
+            );
+
+          } else {
+
+            backToTop.classList.remove(
+              "show"
+            );
+
+          }
+
+        }
+
+        window.addEventListener(
+          "scroll",
+          updateBackToTop,
+          {
+            passive: true
+          }
         );
-      } else {
-        backToTop.classList.remove(
-          "show"
+
+        backToTop.addEventListener(
+          "click",
+          function() {
+
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+
+          }
         );
-      }
-    }
-    window.addEventListener(
-      "scroll",
-      updateBackToTop,
-      {
-        passive: true
+
+        updateBackToTop();
+
       }
     );
-    backToTop.addEventListener(
-      "click",
-      function () {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-      }
-    );
-    updateBackToTop();
   </script>
+
 </body>
 </html>
