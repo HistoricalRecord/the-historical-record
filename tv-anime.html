@@ -477,7 +477,45 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.08;b
     /* =========================================================
        YU-GI-OH! GX â TV ANIME ARCHIVE
        ========================================================= */
+.gx-wiki {
+  margin: 28px 0;
+  border: 1px solid rgba(127,127,127,.2);
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--card-bg, #fff);
+  box-shadow: 0 8px 28px rgba(0,0,0,.06);
+}
 
+.gx-wiki-toggle {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 26px;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.gx-wiki-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.gx-wiki-toggle:hover {
+  background: rgba(127,127,127,.07);
+}
+
+.gx-wiki-chevron {
+  transition: transform .2s ease;
+}
+
+.gx-wiki[open] .gx-wiki-chevron {
+  transform: rotate(180deg);
+}
+
+.gx-wiki-content {
+  padding: 0 26px 30px;
+}
     .gx-page {
       max-width: 1400px;
       margin: 0 auto;
