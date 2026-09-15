@@ -896,5 +896,6 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.08;b
 <script>
 const menuButton=document.querySelector('.menu-button'),sideMenu=document.querySelector('.side-menu'),menuOverlay=document.querySelector('.menu-overlay');menuButton.onclick=()=>{sideMenu.classList.toggle('open');menuOverlay.classList.toggle('show');document.body.classList.toggle('menu-open')};menuOverlay.onclick=()=>{sideMenu.classList.remove('open');menuOverlay.classList.remove('show');document.body.classList.remove('menu-open')};
 </script>
+    .menu-dropdown.open .menu-submenu
 </body>
 </html>
