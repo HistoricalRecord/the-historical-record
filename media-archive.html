@@ -150,16 +150,17 @@
     }
 
     .media-player {
-      width: 100%;
-      max-width: 640px;
+      width: 640px;
+      max-width: 100%;
       margin: 0 auto;
     }
 
     .play-content {
       display: block;
-      width: 100%;
-      max-width: 640px;
-      min-height: 64px;
+      width: 640px;
+      max-width: 100%;
+      height: 580px;
+      min-height: 0;
       margin: 0 auto;
       padding: 16px 22px;
       border: 0;
@@ -182,10 +183,10 @@
       outline-offset: 3px;
     }
 
-    .archive-frame {
+    .archive-player {
       display: block;
-      width: 100%;
-      max-width: 640px;
+      width: 640px;
+      max-width: 100%;
       height: 580px;
       margin: 0 auto;
       border: 0;
@@ -221,17 +222,25 @@
         font-size: 21px;
       }
 
-      .archive-frame {
+      .archive-player {
+        width: 100%;
         height: 580px;
       }
 
       .play-content {
-        min-height: 60px;
+        width: 100%;
+        height: 580px;
       }
     }
 
     @media (max-width: 480px) {
-      .archive-frame {
+      .archive-player {
+        width: 100%;
+        height: 580px;
+      }
+
+      .play-content {
+        width: 100%;
         height: 580px;
       }
 
@@ -435,7 +444,7 @@
           <button
             class="play-content"
             type="button"
-            data-src="https://archive.org/embed/robocop-1987_202311?playlist=1&amp;autoplay=1"
+            data-archive-url="https://archive.org/embed/robocop-1987_202311?playlist=1&amp;autoplay=1"
           >
             Play Content
           </button>
@@ -454,7 +463,7 @@
           <button
             class="play-content"
             type="button"
-            data-src="https://archive.org/embed/aladdin-and-the-king-of-thieves-1997-laserdisc?playlist=1&amp;autoplay=1"
+            data-archive-url="https://archive.org/embed/aladdin-and-the-king-of-thieves-1997-laserdisc?playlist=1&amp;autoplay=1"
           >
             Play Content
           </button>
@@ -477,7 +486,7 @@
           <button
             class="play-content"
             type="button"
-            data-src="https://archive.org/embed/forensic-files-collection?playlist=1&amp;autoplay=1"
+            data-archive-url="https://archive.org/embed/forensic-files-collection?playlist=1&amp;autoplay=1"
           >
             Play Content
           </button>
@@ -528,7 +537,7 @@
           <button
             class="play-content"
             type="button"
-            data-src="https://archive.org/embed/celebrity_deathmatch_season1?playlist=1&amp;list_height=150"
+            data-archive-url="https://archive.org/embed/celebrity_deathmatch_season1?playlist=1&amp;list_height=150"
           >
             Play Content
           </button>
@@ -548,11 +557,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/Home-Movies-Cartoon-Series?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/Home-Movies-Cartoon-Series?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -564,11 +569,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/056mistakeswillhappenthewelldwellerthewisemandvdripxvidphz?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/056mistakeswillhappenthewelldwellerthewisemandvdripxvidphz?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -580,11 +581,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/036mysticmanorflopgoestheweaselthelegendoflongjondvdripxvidphz?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/036mysticmanorflopgoestheweaselthelegendoflongjondvdripxvidphz?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -596,11 +593,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/underrated-show-69420?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/underrated-show-69420?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -612,11 +605,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/068bouncingbabybluestheuglyducklinglearninglessonsdvdripxvidphz?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/068bouncingbabybluestheuglyducklinglearninglessonsdvdripxvidphz?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -628,11 +617,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/098dr.jekyllandmr.mousepaydaymaydayhowtodrivehumanscrazydvdripxvidphz?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/098dr.jekyllandmr.mousepaydaymaydayhowtodrivehumanscrazydvdripxvidphz?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -644,11 +629,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/116thoroughlymixedupmousetheoldmanofthemountainfoodfighterdvdripxvidphz?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/116thoroughlymixedupmousetheoldmanofthemountainfoodfighterdvdripxvidphz?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -663,11 +644,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/01halloweenhorror1978donaldpleasenceengsubs720ph264mp4"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/01halloweenhorror1978donaldpleasenceengsubs720ph264mp4">
             Play Content
           </button>
 
@@ -679,11 +656,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/they-live-1989-vhs"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/they-live-1989-vhs">
             Play Content
           </button>
 
@@ -695,11 +668,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/ShinGodzilla_201811"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/ShinGodzilla_201811">
             Play Content
           </button>
 
@@ -711,11 +680,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/the-terminator-1984_202206"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/the-terminator-1984_202206">
             Play Content
           </button>
 
@@ -727,11 +692,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/the-lion-king-1995-vhs_202412?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/the-lion-king-1995-vhs_202412?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -743,11 +704,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/ghostbusters-from-the-original-vhs-release-in-1985"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/ghostbusters-from-the-original-vhs-release-in-1985">
             Play Content
           </button>
 
@@ -759,11 +716,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/holy-grail-interlaced?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/holy-grail-interlaced?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -775,11 +728,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/teenage-mutant-ninja-turtles-1990-vhs-rip"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/teenage-mutant-ninja-turtles-1990-vhs-rip">
             Play Content
           </button>
 
@@ -791,11 +740,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/teenage-mutant-ninja-turtles-ii-1991-vhs-rip"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/teenage-mutant-ninja-turtles-ii-1991-vhs-rip">
             Play Content
           </button>
 
@@ -807,11 +752,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/fox-RHPS"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/fox-RHPS">
             Play Content
           </button>
 
@@ -823,11 +764,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/alien-1979._202103?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/alien-1979._202103?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -839,11 +776,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/back-to-the-future-trilogy?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/back-to-the-future-trilogy?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -855,11 +788,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/a-charlie-brown-christmas_202312"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/a-charlie-brown-christmas_202312">
             Play Content
           </button>
 
@@ -871,11 +800,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/the-warriors-1979-paramounts-first-video-release-circa-1980"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/the-warriors-1979-paramounts-first-video-release-circa-1980">
             Play Content
           </button>
 
@@ -887,11 +812,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/starwarstrilogyholidaymoviespecialchristmasmarathon"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/starwarstrilogyholidaymoviespecialchristmasmarathon">
             Play Content
           </button>
 
@@ -903,11 +824,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/05-return-of-the-living-dead-rave-to-the-grave?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/05-return-of-the-living-dead-rave-to-the-grave?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -919,11 +836,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/a-nightmare-on-elm-street-2-freddys-revenge-1986-media-vhs-rip"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/a-nightmare-on-elm-street-2-freddys-revenge-1986-media-vhs-rip">
             Play Content
           </button>
 
@@ -935,11 +848,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/friday-the-13th-part-v-a-new-beginning_202312"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/friday-the-13th-part-v-a-new-beginning_202312">
             Play Content
           </button>
 
@@ -951,11 +860,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/halloween-iii_202403"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/halloween-iii_202403">
             Play Content
           </button>
 
@@ -967,11 +872,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/chopping-mall-1986-vhs-rip"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/chopping-mall-1986-vhs-rip">
             Play Content
           </button>
 
@@ -983,11 +884,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/nickelodeon-woc-tape-july-30-2016"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/nickelodeon-woc-tape-july-30-2016">
             Play Content
           </button>
 
@@ -999,11 +896,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/FreddysNightmareS1?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/FreddysNightmareS1?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1015,11 +908,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/dragon-ball-z-movies-4-7-edited-vhs-rip?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/dragon-ball-z-movies-4-7-edited-vhs-rip?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1031,11 +920,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/aquateen-hungerforce?autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/aquateen-hungerforce?autoplay=1">
             Play Content
           </button>
 
@@ -1047,11 +932,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/um.11.vhs?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/um.11.vhs?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1063,11 +944,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/dvd-video-recorder_202207"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/dvd-video-recorder_202207">
             Play Content
           </button>
 
@@ -1079,11 +956,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/dvd-video-recording"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/dvd-video-recording">
             Play Content
           </button>
 
@@ -1095,11 +968,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/inuyasha-on-adult-swim"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/inuyasha-on-adult-swim">
             Play Content
           </button>
 
@@ -1111,11 +980,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/yu-gi-oh-season-zero-0?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/yu-gi-oh-season-zero-0?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1127,11 +992,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/911TelevisionRaw?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/911TelevisionRaw?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1143,11 +1004,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/HeavensGateVideo?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/HeavensGateVideo?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1159,11 +1016,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/columbine-high-school-shootings-april-20-1999"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/columbine-high-school-shootings-april-20-1999">
             Play Content
           </button>
 
@@ -1175,11 +1028,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/dvd-transfer-76?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/dvd-transfer-76?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1191,11 +1040,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/ConspiracyOfSilenceBannedDiscoveryChannelDocumentary"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/ConspiracyOfSilenceBannedDiscoveryChannelDocumentary">
             Play Content
           </button>
 
@@ -1207,11 +1052,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/wdsu-7-days-that-changed-new-orleans-2006-2"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/wdsu-7-days-that-changed-new-orleans-2006-2">
             Play Content
           </button>
 
@@ -1230,11 +1071,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/garth-brooks-live-from-central-park"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/garth-brooks-live-from-central-park">
             Play Content
           </button>
 
@@ -1253,11 +1090,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/the-simpsons-tracey-ullman-shorts?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/the-simpsons-tracey-ullman-shorts?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1276,11 +1109,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/04TheJimHensonHourDogCity?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/04TheJimHensonHourDogCity?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1295,11 +1124,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/TPIRSeason50Archive?playlist=1&amp;list_height=150"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/TPIRSeason50Archive?playlist=1&amp;list_height=150">
             Play Content
           </button>
 
@@ -1318,11 +1143,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/MostExtremeEliminationChallengeMXCSeason1?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/MostExtremeEliminationChallengeMXCSeason1?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1338,11 +1159,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/MostExtremeEliminationChallengeMXCSeason2?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/MostExtremeEliminationChallengeMXCSeason2?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1358,11 +1175,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/MostExtremeEliminationChallengeMXCSeason3?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/MostExtremeEliminationChallengeMXCSeason3?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1381,11 +1194,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/supermarketsweep-bmp?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/supermarketsweep-bmp?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1404,11 +1213,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/double-dare-1988_202011?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/double-dare-1988_202011?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1427,11 +1232,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/savedbythebell_202507?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/savedbythebell_202507?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1450,11 +1251,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/malcolm-in-the-middle-complete-series-2000-2006?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/malcolm-in-the-middle-complete-series-2000-2006?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1473,11 +1270,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/total-drama-all-episodes?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/total-drama-all-episodes?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1496,11 +1289,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/DrawnTogetherComplete?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/DrawnTogetherComplete?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1519,11 +1308,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/the-boondocks-upscale?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/the-boondocks-upscale?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1542,11 +1327,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/venture.bros.s01.s02.1080p.upscale?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/venture.bros.s01.s02.1080p.upscale?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1565,11 +1346,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/one-crazy-summer_202408?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/one-crazy-summer_202408?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1584,11 +1361,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/the-suite-life-of-zack-cody-s-01-e-09-band-in-boston?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/the-suite-life-of-zack-cody-s-01-e-09-band-in-boston?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1607,11 +1380,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/totally-spies-2001-s-00-e-01-totally-spies-the-movie-1080p-blu-ray-x-265-ghost?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/totally-spies-2001-s-00-e-01-totally-spies-the-movie-1080p-blu-ray-x-265-ghost?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1626,11 +1395,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/whose-line-is-it-anyway-us-s-01-webdl-1080p?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/whose-line-is-it-anyway-us-s-01-webdl-1080p?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1642,11 +1407,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/whose-line-is-it-anyway-us-s-02-webdl-1080p?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/whose-line-is-it-anyway-us-s-02-webdl-1080p?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1658,11 +1419,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/whose-line-is-it-anyway-us-s-03-webdl-1080p?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/whose-line-is-it-anyway-us-s-03-webdl-1080p?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1681,11 +1438,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/hannah-and-her-sisters-part-01?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/hannah-and-her-sisters-part-01?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1700,11 +1453,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/eyes-wide-shut-tom-cruise-nicole-kidman-sydney-pollack-director-stalnley-kubrick?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/eyes-wide-shut-tom-cruise-nicole-kidman-sydney-pollack-director-stalnley-kubrick?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1716,11 +1465,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/there-will-be-blood-2007-daniel-day-lewis-paul-dano-based-on-oil-by-upton-sinclair?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/there-will-be-blood-2007-daniel-day-lewis-paul-dano-based-on-oil-by-upton-sinclair?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1739,11 +1484,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/the-oblongs-s-complete?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/the-oblongs-s-complete?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1762,11 +1503,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/powerpuff-girls-z-complete-series-dub?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/powerpuff-girls-z-complete-series-dub?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1785,11 +1522,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/spider-man-the-new-animated-series-2003-the-complete-series-hd?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/spider-man-the-new-animated-series-2003-the-complete-series-hd?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1804,11 +1537,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/moral-orel-complete-720p?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/moral-orel-complete-720p?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1823,11 +1552,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/code-lyoko-episode-01-teddygozilla?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/code-lyoko-episode-01-teddygozilla?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1846,11 +1571,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/spider-mantheanimatedseries?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/spider-mantheanimatedseries?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1865,11 +1586,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/mib-series-jolli?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/mib-series-jolli?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1888,11 +1605,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/disney-channel-original-movies?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/disney-channel-original-movies?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1911,11 +1624,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/phil-of-the-future?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/phil-of-the-future?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -1947,11 +1656,7 @@
 
         <div class="media-player">
 
-          <button
-            class="play-content"
-            type="button"
-            data-src="https://archive.org/embed/RvB_s1_e01?playlist=1&amp;autoplay=1"
-          >
+          <button class="play-content" type="button" data-archive-url="https://archive.org/embed/RvB_s1_e01?playlist=1&amp;autoplay=1">
             Play Content
           </button>
 
@@ -2024,7 +1729,7 @@
 
         button.addEventListener("click", function () {
 
-          const source = button.getAttribute("data-src");
+          const source = button.getAttribute("data-archive-url");
 
           if (!source) {
             return;
@@ -2032,7 +1737,7 @@
 
           const iframe = document.createElement("iframe");
 
-          iframe.className = "archive-frame";
+          iframe.className = "archive-player";
 
           iframe.src = source;
 
@@ -2043,6 +1748,7 @@
           iframe.setAttribute("webkitallowfullscreen", "true");
           iframe.setAttribute("mozallowfullscreen", "true");
           iframe.setAttribute("allowfullscreen", "true");
+          iframe.setAttribute("loading", "lazy");
 
           button.replaceWith(iframe);
 
