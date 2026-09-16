@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Media Archive | The Historical Record</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      background: #f8f8f8;
+      color: #0b1f4d;
+    }
+
+    .site-header {
+      background: #0b1f4d;
+      border-bottom: 5px solid #b22234;
+    }
+
+    .brand {
+      color: #ffffff;
+    }
+
+    .hero {
+      background: linear-gradient(
+        135deg,
+        #0b1f4d 0%,
+        #163b78 55%,
+        #b22234 100%
+      );
+      color: #ffffff;
+      padding: 90px 20px;
+      text-align: center;
+    }
+
+    .hero .eyebrow,
+    .hero h1,
+    .hero-text {
+      color: #ffffff;
+    }
+
+    .flag-section {
+      background: #ffffff;
+      padding: 45px 20px;
+      border-bottom: 5px solid #b22234;
+    }
+
+    .flag-decal {
+      display: block;
+      width: 100%;
+      max-width: 850px;
+      height: auto;
+      margin: 0 auto;
+      border: 4px solid #0b1f4d;
+      border-radius: 4px;
+      box-shadow: 0 8px 25px rgba(11, 31, 77, 0.25);
+    }
+
+    .flag-caption {
+      text-align: center;
+      margin-top: 20px;
+      color: #0b1f4d;
+      font-size: 14px;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+
+    .about-section {
+      background: #ffffff;
+      border-top: 1px solid #d5dbea;
+      border-bottom: 1px solid #d5dbea;
+      color: #0b1f4d;
+    }
+
+    .about-section .eyebrow {
+      color: #b22234;
+    }
+
+    .about-section h2,
+    .about-section p {
+      color: #0b1f4d;
+    }
+
+    .site-footer {
+      background: #0b1f4d;
+      color: #ffffff;
+      border-top: 5px solid #b22234;
+    }
+
+    .site-footer p {
+      color: #ffffff;
+    }
+
+    /* =========================
+       SOURCE & RIGHTS NOTICE
+       ========================= */
+
+    .site-disclaimer {
+      max-width: 900px;
+      margin: 35px auto 0;
+      padding: 27px 20px 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+      text-align: center;
+    }
+
+    .site-disclaimer h3 {
+      margin: 0 0 10px;
+      color: #d6d6d6;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .site-disclaimer p {
+      max-width: 800px;
+      margin: 0 auto;
+      color: #b8b8b8;
+      font-size: 10.5px;
+      line-height: 1.7;
+    }
+
+    .site-disclaimer .copyright {
+      margin-top: 15px;
+      color: #d0d0d0;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.7px;
+    }
+
+    .menu-button {
+      background: #b22234;
+    }
+
+    .side-menu {
+      background: #ffffff;
+      border-right: 5px solid #b22234;
+    }
+
+    .menu-header {
+      background: #0b1f4d;
+      color: #ffffff;
+    }
+
+    .side-menu nav a {
+      color: #0b1f4d;
+      border-bottom: 1px solid #d5dbea;
+    }
+
+    .side-menu nav a:hover {
+      background: #b22234;
+      color: #ffffff;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 65px 20px;
+      }
+
+      .flag-section {
+        padding: 30px 15px;
+      }
+
+      .flag-decal {
+        border-width: 3px;
+      }
+
+      .flag-caption {
+        font-size: 11px;
+      }
+
+      .site-disclaimer {
+        margin-top: 30px;
+        padding: 22px 15px 18px;
+      }
+
+      .site-disclaimer h3 {
+        font-size: 10px;
+        letter-spacing: 1.2px;
+      }
+
+      .site-disclaimer p {
+        font-size: 10px;
+        line-height: 1.65;
+      }
+
+      .site-disclaimer .copyright {
+        font-size: 9.5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MENU BUTTON -->
+
+  <button
+    class="menu-button"
+    aria-label="Open menu"
+    aria-expanded="false"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- SIDE MENU -->
+
+  <aside class="side-menu">
+
+    <div class="menu-header">
+      <h2>The Historical Record</h2>
+      <p>Archive Navigation</p>
+    </div>
+
+    <nav>
+
+      <a href="search.html">
+        Search the Archive
+      </a>
+
+      <a href="archive.html">
+        The Archive
+      </a>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <div class="menu-dropdown">
+
+        <button
+          class="menu-dropdown-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="politics-submenu"
+        >
+          <span>Politics</span>
+          <span class="menu-dropdown-arrow">▾</span>
+        </button>
+
+        <div
+          class="menu-submenu"
+          id="politics-submenu"
+        >
+
+          <a href="politics.html">
+            Politics Home
+          </a>
+
+          <a href="september-11.html">
+            September 11, 2001
+          </a>
+
+          <a href="september-11-sourcebooks.html">
+            9/11 Sourcebooks &amp; Documents
+          </a>
+
+        </div>
+
+      </div>
+
+      <a href="entertainment-sports.html">
+        Entertainment / Sports
+      </a>
+
+      <a href="world-events.html">
+        World Events
+      </a>
+
+      <a href="social-media.html">
+        Social Media
+      </a>
+
+      <a href="thoughts.html">
+        Thoughts / Blog
+      </a>
+<a href="submissions.html">
+  Submissions
+</a>
+      <a href="tv-anime.html">
+  TV / Anime
+</a>
+    </nav>
+
+  </aside>
+
+  <!-- MENU OVERLAY -->
+
+  <div class="menu-overlay"></div>
+
+  <!-- HEADER -->
+
+  <header class="site-header">
+
+    <div class="container header-inner">
+
+      <a
+        href="index.html"
+        class="brand"
+      >
+        THE HISTORICAL RECORD
+      </a>
+
+    </div>
+
+  </header>
+
+  <!-- MAIN CONTENT -->
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <div class="container">
+
+        <p class="eyebrow">
+          A PERSONAL DIGITAL ARCHIVE
+        </p>
+
+        <h1>
+          The Historical Record
+        </h1>
+
+        <p class="hero-text">
+          A living archive of articles, posts, photographs, documents,
+          videos, and other records through one man's eyes.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- FLAG -->
+
+    <section class="flag-section">
+
+      <div class="container">
+
+        <img
+          src="IMG_3902.webp"
+          alt="Flag of the United States"
+          class="flag-decal"
+        >
+
+        <p class="flag-caption">
+          PRESERVING THE RECORD OF OUR TIME
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ABOUT -->
+
+    <section class="about-section">
+
+      <div class="container">
+
+        <p class="eyebrow">
+          PRESERVING WHAT HAPPENS
+        </p>
+
+        <h2>
+          Preserving what happens.
+        </h2>
+
+        <p>
+          The Historical Record is a one-man passion project dedicated to
+          documenting life as it unfolds.
+        </p>
+
+        <p>
+          The idea was inspired in part by the 25th anniversary of 9/11 and
+          the incredible photographs, videos, articles, documents, and other
+          records that have helped paint a picture of that tragedy for people
+          who may not have witnessed it unfold, as well as for those who did
+          and want an important historical record of what happened.
+        </p>
+
+        <p>
+          You never know what is going to be important. Something that seems
+          ordinary today may become meaningful tomorrow. A photograph, a
+          sentence, a post, a video, a document, or a moment that lasted only
+          a few seconds can become part of the historical record.
+        </p>
+
+        <p>
+          History is every moment that passes. This archive is an attempt to
+          preserve some of those moments through one man's eyes, as they happen
+          and as they become part of the world we leave behind.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer class="site-footer">
+
+    <div class="container">
+
+      <p>
+        THE HISTORICAL RECORD
+      </p>
+
+      <p>
+        A living archive of the moments that matter.
+      </p>
+
+      <!-- SOURCE & RIGHTS NOTICE -->
+
+      <div class="site-disclaimer">
+
+        <h3>
+          Source &amp; Rights Notice
+        </h3>
+
+        <p>
+          The Historical Record is a non-commercial historical archive created
+          for informational and educational purposes. Sources and media are
+          credited where applicable. The Historical Record does not claim
+          ownership of photographs, videos, trademarks, names, or other
+          copyrighted material belonging to their respective owners. Embedded
+          media remains the property of its respective creators and rights
+          holders.
+        </p>
+
+        <p class="copyright">
+          THE HISTORICAL RECORD &copy; 2026
+        </p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <!-- SITE SCRIPT -->
+
+  <script src="script.js"></script>
+
+</body>
+</html>
