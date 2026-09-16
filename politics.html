@@ -5,6 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Politics | The Historical Record</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+  /* =========================================
+     RECORD FOLD-OUT SYSTEM
+     ========================================= */
+
+  .record-card.is-collapsible .record-expand-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 18px;
+    padding: 10px 16px;
+    border: 1px solid currentColor;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .record-card.is-collapsible .record-expand-button:hover {
+    opacity: 0.8;
+  }
+
+  .record-card.is-collapsible .record-expand-button .arrow {
+    transition: transform 0.2s ease;
+  }
+
+  .record-card.is-collapsible.is-open .record-expand-button .arrow {
+    transform: rotate(180deg);
+  }
+
+  .record-card.is-collapsible .collapsible-content {
+    display: none;
+  }
+
+  .record-card.is-collapsible.is-open .collapsible-content {
+    display: block;
+  }
+
+  .record-card.is-collapsible .media-placeholder,
+  .record-card.is-collapsible .article-content {
+    margin-top: 20px;
+  }
+
+  .record-card.is-collapsible .record-expand-button.hide-button {
+    margin-top: 20px;
+  }
+</style>
 </head>
 <body>
   <button class="menu-button" aria-label="Open menu" aria-expanded="false">
