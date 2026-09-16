@@ -1472,12 +1472,159 @@
   </p>
 </div>
   </footer>
-  <!-- X WIDGET SCRIPT — LOAD ONCE -->
-  <script
-    async
-    src="https://platform.x.com/widgets.js"
-    charset="utf-8"
-  ></script>
-  <script src="script.js"></script>
+<!-- LAZY-LOAD RECORD SYSTEM -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const cards = document.querySelectorAll(".record-card");
+  let xWidgetLoaded = false;
+  let xWidgetLoading = false;
+
+  function loadXWidget() {
+    if (xWidgetLoaded || xWidgetLoading) return;
+
+    xWidgetLoading = true;
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://platform.x.com/widgets.js";
+    script.charset = "utf-8";
+
+    script.onload = function () {
+      xWidgetLoaded = true;
+      xWidgetLoading = false;
+
+      if (window.twttr && window.twttr.widgets) {
+        window.twttr.widgets.load();
+      }
+    };
+
+    document.body.appendChild(script);
+  }
+
+  cards.forEach(function (card) {
+
+    const media = card.querySelector(".media-placeholder");
+    const article = card.querySelector(".article-content");
+
+    /*
+      If the record has no expandable content,
+      leave it alone.
+    */
+    if (!media && !article) {
+      return;
+    }
+
+    card.classList.add("is-collapsible");
+
+    /*
+      Create one container for everything
+      that should be revealed when opened.
+    */
+    const collapsible = document.createElement("div");
+    collapsible.className = "collapsible-content";
+
+    if (media) {
+      collapsible.appendChild(media);
+    }
+
+    if (article) {
+      collapsible.appendChild(article);
+    }
+
+    card.appendChild(collapsible);
+
+    /*
+      Create the single expand button.
+    */
+    const button = document.createElement("button");
+
+    button.type = "button";
+    button.className = "record-expand-button";
+    button.setAttribute("aria-expanded", "false");
+
+    button.innerHTML =
+      '<span class="button-text">Read Full Record</span>' +
+      '<span class="arrow">▼</span>';
+
+    /*
+      Put the button immediately before
+      the hidden content.
+    */
+    card.insertBefore(button, collapsible);
+
+    /*
+      Create the collapse button.
+    */
+    const hideButton = document.createElement("button");
+
+    hideButton.type = "button";
+    hideButton.className =
+      "record-expand-button hide-button";
+
+    hideButton.innerHTML =
+      '<span class="button-text">Hide Record</span>' +
+      '<span class="arrow">▲</span>';
+
+    collapsible.appendChild(hideButton);
+
+    /*
+      Expand / collapse behavior.
+    */
+    button.addEventListener("click", function () {
+
+      const isOpen = card.classList.toggle("is-open");
+
+      button.setAttribute(
+        "aria-expanded",
+        isOpen ? "true" : "false"
+      );
+
+      button.querySelector(".button-text").textContent =
+        isOpen ? "Hide Record" : "Read Full Record";
+
+      /*
+        Load the X widget ONLY when someone
+        actually opens a record.
+      */
+      if (isOpen && media) {
+        loadXWidget();
+      }
+
+      if (isOpen) {
+        card.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest"
+        });
+      }
+    });
+
+    /*
+      Hide button closes the record.
+    */
+    hideButton.addEventListener("click", function () {
+
+      card.classList.remove("is-open");
+
+      button.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      button.querySelector(".button-text").textContent =
+        "Read Full Record";
+
+      card.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+      });
+    });
+
+  });
+
+});
+</script>
+
+<script src="script.js"></script>
 </body>
 </html>
