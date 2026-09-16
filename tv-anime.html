@@ -1,4 +1,20 @@
-s:repeat(5,1fr);gap:10px;margin:22px 0}.season-nav a{display:block;padding:13px 8px;text-align:center;background:var(--blue);color:#fff;text-decoration:none;font-weight:bold;border-bottom:4px solid var(--red)}
+<html lang="en">
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yu-Gi-Oh! GX | TV Anime | The Historical Record</title>
+<link rel="stylesheet" href="style.css">
+<style>
+:root{--blue:#0b1f4d;--blue-light:#163b78;--red:#b22234;--white:#fff;--off-white:#f8f8f8;--light-blue:#d5dbea;--text:#18284a;--muted:#5e6675;--shadow:0 8px 24px rgba(11,31,77,.12)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--off-white);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.7}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.08;background:repeating-linear-gradient(0deg,rgba(11,31,77,.035) 0,rgba(11,31,77,.035) 1px,transparent 1px,transparent 4px);z-index:999}
+.container{width:min(1100px,calc(100% - 36px));margin:0 auto}.site-header{background:var(--blue);color:#fff;border-bottom:5px solid var(--red);padding-left:78px}.header-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}.brand{color:#fff;text-decoration:none;font-family:Georgia,"Times New Roman",serif;font-size:1.15rem;font-weight:bold;letter-spacing:.08em}
+.hero{background:linear-gradient(135deg,var(--blue) 0%,var(--blue-light) 55%,var(--red) 100%);color:#fff;border-bottom:5px solid var(--red);padding:65px 0 60px}.eyebrow{margin:0 0 12px;font-size:.76rem;font-weight:bold;letter-spacing:.18em;text-transform:uppercase}.hero h1{margin:0 0 18px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.7rem,8vw,5.6rem);line-height:1}.hero-text{max-width:850px;margin:0;font-size:1.08rem}
+.archive-section{padding:58px 0 72px}.section-heading{max-width:850px;margin-bottom:30px}.section-heading h2,.record h2{color:var(--blue);font-family:Georgia,"Times New Roman",serif}.section-heading h2{margin:0 0 12px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.1}.section-heading p{margin:0;color:var(--muted)}
+.anchor-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:42px}.anchor-grid a{background:#fff;border:1px solid var(--light-blue);text-decoration:none;color:var(--blue);font-weight:bold;padding:17px;border-top:4px solid var(--red);box-shadow:var(--shadow)}
+.record{background:#fff;border:1px solid var(--light-blue);border-left:5px solid var(--red);box-shadow:var(--shadow);padding:30px;margin-bottom:28px}.record h2{margin-top:0;font-size:2rem}.record p{color:#333}.fact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.fact{background:#f5f7fb;border:1px solid var(--light-blue);padding:16px}.fact strong{display:block;color:var(--red);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase}
+.season-nav{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:22px 0}.season-nav a{display:block;padding:13px 8px;text-align:center;background:var(--blue);color:#fff;text-decoration:none;font-weight:bold;border-bottom:4px solid var(--red)}
 .season{scroll-margin-top:25px}.season-label{margin:0 0 8px!important;color:var(--red)!important;font-size:.76rem;font-weight:bold;letter-spacing:.15em;text-transform:uppercase}.season-title{margin:0 0 12px!important;font-size:2.25rem!important}
 .episode-list{display:grid;gap:12px}.episode{background:#fff;border:1px solid var(--light-blue);border-left:4px solid var(--blue);padding:18px 20px}.episode summary{cursor:pointer;list-style:none}.episode summary::-webkit-details-marker{display:none}.episode-head{display:grid;grid-template-columns:92px 1fr;gap:15px}.ep-no{color:var(--red);font-size:.76rem;font-weight:bold;letter-spacing:.12em}.ep-title{margin:0;color:var(--blue);font-family:Georgia,"Times New Roman",serif;font-size:1.18rem}.ep-meta{margin:4px 0 0!important;color:var(--muted)!important;font-size:.86rem}.ep-body{border-top:1px solid var(--light-blue);margin-top:15px;padding-top:15px}
 .character-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.character{background:#fff;border:1px solid var(--light-blue);border-top:4px solid var(--blue);padding:18px}.character h3{margin:0 0 7px;color:var(--blue);font-family:Georgia,"Times New Roman",serif}.character p{margin:0;color:#444}
@@ -13,11 +29,42 @@ s:repeat(5,1fr);gap:10px;margin:22px 0}.season-nav a{display:block;padding:13px 
 </style>
 </head>
 <body>
-  <summary class="gx-wiki-toggle">
-    <span>Yu-Gi-Oh! GX Wiki</span>
-    <span class="gx-wiki-chevron">▼</span>
-  </summary>
+<button class="menu-button" aria-label="Open menu" aria-expanded="false" type="button"><span></span><span></span><span></span></button>
+<aside class="side-menu"><div class="menu-header"><h2>The Historical Record</h2><p>Archive Navigation</p></div><nav>
+<a href="search.html">Search the Archive</a><a href="archive.html">The Archive</a><a href="index.html">Home</a>
+<div class="menu-dropdown"><button class="menu-dropdown-toggle" type="button" aria-expanded="false" aria-controls="politics-submenu"><span>Politics</span><span class="menu-dropdown-arrow">▼</span></button>
+<div class="menu-submenu" id="politics-submenu"><a href="politics.html">Politics Home</a><a href="september-11.html">September 11, 2001</a><a href="september-11-sourcebooks.html">9/11 Sourcebooks &amp; Documents</a></div></div>
+<a href="entertainment-sports.html">Entertainment / Sports</a><a href="world-events.html">World Events</a><a href="social-media.html">Social Media</a><a href="thoughts.html">Thoughts / Blog</a></nav></aside>
+<div class="menu-overlay"></div><header class="site-header"><div class="container header-inner"><a href="index.html" class="brand">THE HISTORICAL RECORD</a></div></header>
+<main>
+<section class="hero"><div class="container"><p class="eyebrow">TV ANIME ARCHIVE</p><h1>Yu-Gi-Oh! GX</h1><p class="hero-text">A comprehensive television-anime record covering production, Japanese broadcast history, American localization and airing, story structure, characters, locations, dueling themes and all 180 Japanese episodes.</p></div></section>
+<section class="archive-section"><div class="container">
+<div class="section-heading"><h2>Series Archive</h2><p>Organized as a reference archive so production, broadcast history, story arcs, characters and individual episodes can be explored independently.</p></div>
+<nav class="anchor-grid"><a href="#overview">Series Overview</a><a href="#characters">Characters</a><a href="#locations">Locations</a><a href="#dueling">Dueling &amp; Cards</a><a href="#episodes">All Episodes</a></nav>
 
+<section class="record" id="overview"><h2>Series Overview</h2><div class="fact-grid">
+<div class="fact"><strong>Japanese title</strong>Yu-Gi-Oh! Duel Monsters GX</div><div class="fact"><strong>English title</strong>Yu-Gi-Oh! GX</div><div class="fact"><strong>Format</strong>Television anime series</div><div class="fact"><strong>Episodes</strong>180 Japanese episodes</div><div class="fact"><strong>Japanese premiere</strong>October 6, 2004</div><div class="fact"><strong>Japanese finale</strong>March 26, 2008</div><div class="fact"><strong>Animation studio</strong>Studio Gallop</div><div class="fact"><strong>Broadcast network</strong>TV Tokyo</div><div class="fact"><strong>Franchise position</strong>Follow-up to Yu-Gi-Oh! Duel Monsters</div>
+</div></section>
+
+<section class="record" id="production"><h2>Production &amp; Development</h2><p>GX was developed as the next television-anime generation of the Yu-Gi-Oh! franchise. Rather than continuing Yugi as the central protagonist, it introduced Jaden Yuki and built the series around Duel Academy, where Duel Monsters is taught as an academic discipline and competitive pursuit.</p><div class="fact-grid">
+<div class="fact"><strong>Original creator</strong>Kazuki Takahashi</div><div class="fact"><strong>Animation</strong>Studio Gallop</div><div class="fact"><strong>Television production</strong>Nihon Ad Systems / TV Tokyo</div><div class="fact"><strong>Series director</strong>Hatsuki Tsuji</div><div class="fact"><strong>Core setting</strong>Duel Academy</div><div class="fact"><strong>Core premise</strong>A new generation of duelists learns, competes and grows at school</div>
+</div></section>
+
+
+
+<section class="record" id="characters"><h2>Character Archive</h2><div class="character-grid">
+<article class="character"><h3>Jaden Yuki</h3><p>The protagonist, a gifted instinctive duelist whose journey transforms him from an enthusiastic freshman into a more mature graduate.</p></article>
+<article class="character"><h3>Syrus Truesdale</h3><p>Jaden's closest early friend, whose growth is closely tied to overcoming insecurity and stepping out of his brother Zane's shadow.</p></article>
+<article class="character"><h3>Chazz Princeton</h3><p>Jaden's major school rival, whose arrogance and competitiveness gradually develop into loyalty and determination.</p></article>
+<article class="character"><h3>Alexis Rhodes</h3><p>An elite Obelisk Blue student and central member of Jaden's friend group, with major stories involving Atticus and the Society of Light.</p></article>
+<article class="character"><h3>Zane Truesdale</h3><p>Duel Academy's elite graduate whose transformation into the Hell Kaiser explores the darker side of competitive dueling.</p></article>
+<article class="character"><h3>Bastion Misawa</h3><p>An analytical strategist who approaches dueling through mathematics, science and calculated planning.</p></article>
+<article class="character"><h3>Jesse Anderson</h3><p>An international student and Jaden's closest friend during the Dimension World era, associated with the Crystal Beasts.</p></article>
+<article class="character"><h3>Aster Phoenix</h3><p>A professional Destiny HERO duelist who begins as Jaden's rival and becomes an important ally.</p></article>
+<article class="character"><h3>Yubel</h3><p>Jaden's deeply personal antagonist whose connection to him predates the main events of the series.</p></article>
+<article class="character"><h3>Sartorius</h3><p>The central antagonist of the Society of Light storyline, driven by visions of destiny and the Light of Destruction.</p></article>
+<article class="character"><h3>Vellian Crowler</h3><p>A demanding professor who initially opposes Jaden but gradually becomes an adult ally within the academy.</p></article>
+<article class="character"><h3>Professor Banner</h3><p>A teacher whose mysterious past and supernatural connections become increasingly important to the academy's history.</p></article>
 <article class="character"><h3>Professor Cobra</h3><p>The instructor whose duel-energy experiment helps trigger the Dimension World crisis.</p></article>
 <article class="character"><h3>Kagemaru</h3><p>The mastermind behind the Seven Stars conflict and the attempt to awaken the Sacred Beasts.</p></article>
 <article class="character"><h3>Atticus Rhodes</h3><p>Alexis's older brother, whose disappearance and connection to Nightshroud form an important early mystery.</p></article>
@@ -46,11 +93,6 @@ s:repeat(5,1fr);gap:10px;margin:22px 0}.season-nav a{display:block;padding:13px 
 </div></section>
 
 <section class="record" id="episodes"><h2>Complete 180-Episode Archive</h2><p><strong>All 180 Japanese episode numbers are represented below.</strong> Each record is independently addressable and expandable, making the page ready for the verified title/date/writer/synopsis dataset to be inserted without changing the layout.</p>
-
-    <summary class="gx-wiki-toggle">
-          <span>Yu-Gi-Oh! GX Wiki</span>
-  <span class="gx-wiki-chevron">▼</span>
-</summary>
 
 <section class="record season" id="season-1">
 <p class="season-label">Season 1 Episodes 001052</p>
@@ -423,10 +465,6 @@ s:repeat(5,1fr);gap:10px;margin:22px 0}.season-nav a{display:block;padding:13px 
 
 <details class="episode" id="episode-180"><summary><div class="episode-head"><div class="ep-no">EPISODE 180</div><div><h3 class="ep-title">The True Graduation Duel! Judai vs. Legendary Duelist</h3><p class="ep-meta">Japanese episode 180</p></div></div></summary><div class="ep-body"><p>Jaden is led to one final Duel against a legendary Duelist, bringing his three-year journey at Duel Academy to its true conclusion.</p></div></details>
 
-    </div>
-</details>
-   </div>
-</details>   
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -439,45 +477,7 @@ s:repeat(5,1fr);gap:10px;margin:22px 0}.season-nav a{display:block;padding:13px 
     /* =========================================================
        YU-GI-OH! GX â TV ANIME ARCHIVE
        ========================================================= */
-.gx-wiki {
-  margin: 28px 0;
-  border: 1px solid rgba(127,127,127,.2);
-  border-radius: 18px;
-  overflow: hidden;
-  background: var(--card-bg, #fff);
-  box-shadow: 0 8px 28px rgba(0,0,0,.06);
-}
 
-.gx-wiki-toggle {
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 22px 26px;
-  font-size: 1.35rem;
-  font-weight: 800;
-}
-
-.gx-wiki-toggle::-webkit-details-marker {
-  display: none;
-}
-
-.gx-wiki-toggle:hover {
-  background: rgba(127,127,127,.07);
-}
-
-.gx-wiki-chevron {
-  transition: transform .2s ease;
-}
-
-.gx-wiki[open] .gx-wiki-chevron {
-  transform: rotate(180deg);
-}
-
-.gx-wiki-content {
-  padding: 0 26px 30px;
-}
     .gx-page {
       max-width: 1400px;
       margin: 0 auto;
@@ -851,11 +851,11 @@ s:repeat(5,1fr);gap:10px;margin:22px 0}.season-nav a{display:block;padding:13px 
 <body>
 
 <main class="gx-page">
- <summary class="gx-wiki-toggle">
-  <span>Yu-Gi-Oh! GX Wiki</span>
-  <span class="gx-wiki-chevron">▼</span>
-</summary>
-<div class="gx-wiki-content">
+<details class="gx-wiki">
+  <summary class="gx-wiki-toggle">
+    <span>Yu-Gi-Oh! GX Wiki</span>
+    <span class="gx-wiki-chevron">▼</span>
+  </summary>
 
   <div class="gx-wiki-content">
   <!-- =======================================================
@@ -926,4 +926,3 @@ document.querySelectorAll('.menu-dropdown-toggle').forEach(button=>{
 </script>
 </body>
 </html>
-
