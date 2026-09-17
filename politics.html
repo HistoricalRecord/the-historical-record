@@ -3,1628 +3,2752 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Politics | The Historical Record</title>
+
   <link rel="stylesheet" href="style.css">
+
   <style>
-  /* =========================================
-     RECORD FOLD-OUT SYSTEM
-     ========================================= */
+    /* =========================================
+       POLITICS CATEGORY DROPDOWN SYSTEM
+       ========================================= */
 
-  .record-card.is-collapsible .record-expand-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 18px;
-    padding: 10px 16px;
-    border: 1px solid currentColor;
-    background: transparent;
-    color: inherit;
-    font: inherit;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 4px;
-  }
+    .politics-category {
+      margin-bottom: 22px;
+      border: 1px solid rgba(0, 0, 0, 0.14);
+      border-radius: 4px;
+      overflow: hidden;
+      background: transparent;
+    }
 
-  .record-card.is-collapsible .record-expand-button:hover {
-    opacity: 0.8;
-  }
+    .politics-category-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 20px;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+    }
 
-  .record-card.is-collapsible .record-expand-button .arrow {
-    transition: transform 0.2s ease;
-  }
+    .politics-category-toggle:hover {
+      opacity: 0.8;
+    }
 
-  .record-card.is-collapsible.is-open .record-expand-button .arrow {
-    transform: rotate(180deg);
-  }
+    .politics-category-toggle .category-arrow {
+      flex: 0 0 auto;
+      transition: transform 0.2s ease;
+    }
 
-  .record-card.is-collapsible .collapsible-content {
-    display: none;
-  }
+    .politics-category.is-open
+    .politics-category-toggle
+    .category-arrow {
+      transform: rotate(180deg);
+    }
 
-  .record-card.is-collapsible.is-open .collapsible-content {
-    display: block;
-  }
+    .politics-category-content {
+      display: none;
+      padding: 0 20px 20px;
+    }
 
-  .record-card.is-collapsible .media-placeholder,
-  .record-card.is-collapsible .article-content {
-    margin-top: 20px;
-  }
+    .politics-category.is-open .politics-category-content {
+      display: block;
+    }
 
-  .record-card.is-collapsible .record-expand-button.hide-button {
-    margin-top: 20px;
-  }
-</style>
+    .politics-category-content .record-list {
+      display: block;
+    }
+
+    .politics-category-content .record-card {
+      margin-bottom: 22px;
+    }
+
+    .politics-category-content .record-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .politics-category-description {
+      margin: 0 0 20px;
+      opacity: 0.85;
+    }
+
+    /* =========================================
+       RECORD FOLD-OUT SYSTEM
+       ========================================= */
+
+    .record-card.is-collapsible .record-expand-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 18px;
+      padding: 10px 16px;
+      border: 1px solid currentColor;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .record-card.is-collapsible .record-expand-button:hover {
+      opacity: 0.8;
+    }
+
+    .record-card.is-collapsible
+    .record-expand-button
+    .arrow {
+      transition: transform 0.2s ease;
+    }
+
+    .record-card.is-collapsible.is-open
+    .record-expand-button
+    .arrow {
+      transform: rotate(180deg);
+    }
+
+    .record-card.is-collapsible .collapsible-content {
+      display: none;
+    }
+
+    .record-card.is-collapsible.is-open
+    .collapsible-content {
+      display: block;
+    }
+
+    .record-card.is-collapsible .media-placeholder,
+    .record-card.is-collapsible .article-content {
+      margin-top: 20px;
+    }
+
+    .record-card.is-collapsible
+    .record-expand-button.hide-button {
+      margin-top: 20px;
+    }
+
+    /* =========================================
+       CATEGORY MOBILE ADJUSTMENT
+       ========================================= */
+
+    @media (max-width: 700px) {
+      .politics-category-toggle {
+        padding: 16px;
+      }
+
+      .politics-category-content {
+        padding: 0 16px 16px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <button class="menu-button" aria-label="Open menu" aria-expanded="false">
+
+  <button
+    class="menu-button"
+    aria-label="Open menu"
+    aria-expanded="false"
+  >
     <span></span>
     <span></span>
     <span></span>
   </button>
+
   <aside class="side-menu">
-<div class="menu-header">
-  <h2>The Historical Record</h2>
-  <p>Archive Navigation</p>
-</div>
-<nav>
-  <a href="search.html">Search the Archive</a>
-  <a href="archive.html">The Archive</a>
-  <a href="index.html">Home</a>
-  <div class="menu-dropdown">
-    <button
-      class="menu-dropdown-toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="politics-submenu"
-    >
-      <span>Politics</span>
-      <span class="menu-dropdown-arrow">▾</span>
-    </button>
-    <div class="menu-submenu" id="politics-submenu">
-      <a href="politics.html">Politics Home</a>
-      <a href="september-11.html">September 11, 2001</a>
-      <a href="september-11-sourcebooks.html">
-        9/11 Sourcebooks &amp; Documents
-      </a>
+
+    <div class="menu-header">
+      <h2>The Historical Record</h2>
+      <p>Archive Navigation</p>
     </div>
-  </div>
-  <a href="entertainment-sports.html">Entertainment / Sports</a>
-  <a href="world-events.html">World Events</a>
-  <a href="social-media.html">Social Media</a>
-  <a href="thoughts.html">Thoughts / Blog</a>
-  <a href="submissions.html">
-  Submissions
-</a>
-  <a href="tv-anime.html">
-  TV / Anime
-</a>
-</nav>
-  </aside>
-  <div class="menu-overlay"></div>
-  <header class="site-header">
-<div class="container header-inner">
-  <a href="index.html" class="brand">
-    THE HISTORICAL RECORD
-  </a>
-</div>
-  </header>
-  <main>
-<section class="hero">
-  <div class="container">
-    <p class="eyebrow">
-      POLITICS
-    </p>
-    <h1>
-      Politics
-    </h1>
-    <p class="hero-text">
-      This section contains articles, photographs, documents, videos,
-      social media posts, statements, and other records documenting
-      political events and developments.
-    </p>
-  </div>
-</section>
-<section class="records-section">
-  <div class="container">
-    <div class="record-list">
-      <!-- SEPTEMBER 11 ARCHIVE -->
-      <article class="record-card">
-        <p class="record-label">
-          HISTORICAL ARCHIVE
-        </p>
-        <h3>
-          September 11, 2001
-        </h3>
-        <p>
-          A dedicated collection of videos, articles, and social media
-          records documenting and remembering the September 11 attacks
-          and their place in American history.
-        </p>
-        <p>
-          <a href="september-11.html">
-            View the September 11, 2001 Archive →
+
+    <nav>
+
+      <a href="search.html">
+        Search the Archive
+      </a>
+
+      <a href="archive.html">
+        The Archive
+      </a>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <div class="menu-dropdown">
+
+        <button
+          class="menu-dropdown-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="politics-submenu"
+        >
+          <span>Politics</span>
+          <span class="menu-dropdown-arrow">▾</span>
+        </button>
+
+        <div
+          class="menu-submenu"
+          id="politics-submenu"
+        >
+          <a href="politics.html">
+            Politics Home
           </a>
-        </p>
-      </article>
-      <!-- GENERAL POLITICAL RECORDS -->
-      <article class="record-card">
-        <p class="record-label">
+
+          <a href="september-11.html">
+            September 11, 2001
+          </a>
+
+          <a href="september-11-sourcebooks.html">
+            9/11 Sourcebooks &amp; Documents
+          </a>
+        </div>
+
+      </div>
+
+      <a href="entertainment-sports.html">
+        Entertainment / Sports
+      </a>
+
+      <a href="world-events.html">
+        World Events
+      </a>
+
+      <a href="social-media.html">
+        Social Media
+      </a>
+
+      <a href="thoughts.html">
+        Thoughts / Blog
+      </a>
+
+      <a href="submissions.html">
+        Submissions
+      </a>
+
+      <a href="tv-anime.html">
+        TV / Anime
+      </a>
+
+    </nav>
+
+  </aside>
+
+  <div class="menu-overlay"></div>
+
+  <header class="site-header">
+
+    <div class="container header-inner">
+
+      <a
+        href="index.html"
+        class="brand"
+      >
+        THE HISTORICAL RECORD
+      </a>
+
+    </div>
+
+  </header>
+
+  <main>
+
+    <!-- =========================================
+         HERO
+         ========================================= -->
+
+    <section class="hero">
+
+      <div class="container">
+
+        <p class="eyebrow">
           POLITICS
         </p>
-        <h3>
-          Political Records
-        </h3>
-        <p>
-          This section preserves significant political events, decisions,
-          campaigns, elections, statements, legislation, and other moments
-          that may become part of the historical record.
+
+        <h1>
+          Politics
+        </h1>
+
+        <p class="hero-text">
+          This section contains articles, photographs, documents, videos,
+          social media posts, statements, and other records documenting
+          political events and developments.
         </p>
-      </article>
-      <!-- AI / BERNIE SANDERS -->
-      <article class="record-card">
-        <p class="record-label">
-          POLITICS • SEPTEMBER 13, 2026
-        </p>
-        <h3>
-          Bernie Sanders and the Debate Over Artificial Superintelligence
-        </h3>
-        <p>
-          A social media record documenting proposals concerning criminal
-          penalties and regulation of advanced artificial intelligence.
-        </p>
-        <div class="media-placeholder">
-          <strong>
-            RELATED SOCIAL MEDIA RECORD
-          </strong>
-          <blockquote class="twitter-tweet">
-            <p lang="en" dir="ltr">
-              BREAKING: Bernie Sanders has proposed a 20-year prison
-              sentence for AI developers who move forward with Artificial
-              Superintelligence plans, a penalty comparable to illegally
-              developing rogue nuclear weapons.
-            </p>
-            &mdash; unusual_whales (@unusual_whales)
-            <a href="https://x.com/unusual_whales/status/2099231290730135794?ref_src=twsrc%5Etfw">
-              September 13, 2026
-            </a>
-          </blockquote>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         POLITICAL RECORDS
+         ========================================= -->
+
+    <section class="records-section">
+
+      <div class="container">
+
+        <div class="record-list">
+
+
+          <!-- =====================================
+               CATEGORY 1
+               HISTORICAL EVENTS
+               ===================================== -->
+
+          <section
+            class="politics-category"
+            data-category="historical-events"
+          >
+
+            <button
+              class="politics-category-toggle"
+              type="button"
+              aria-expanded="false"
+            >
+
+              <span>
+                Historical Events &amp; Archives
+              </span>
+
+              <span
+                class="category-arrow"
+                aria-hidden="true"
+              >
+                ▼
+              </span>
+
+            </button>
+
+            <div class="politics-category-content">
+
+              <p class="politics-category-description">
+                Major historical events and dedicated archival collections
+                preserved as part of the political record.
+              </p>
+
+
+              <!-- SEPTEMBER 11 ARCHIVE -->
+
+              <article class="record-card">
+
+                <p class="record-label">
+                  HISTORICAL ARCHIVE
+                </p>
+
+                <h3>
+                  September 11, 2001
+                </h3>
+
+                <p>
+                  A dedicated collection of videos, articles, and social
+                  media records documenting and remembering the September 11
+                  attacks and their place in American history.
+                </p>
+
+                <p>
+                  <a href="september-11.html">
+                    View the September 11, 2001 Archive →
+                  </a>
+                </p>
+
+              </article>
+
+
+              <!-- GENERAL POLITICAL RECORDS -->
+
+              <article class="record-card">
+
+                <p class="record-label">
+                  POLITICS
+                </p>
+
+                <h3>
+                  Political Records
+                </h3>
+
+                <p>
+                  This section preserves significant political events,
+                  decisions, campaigns, elections, statements, legislation,
+                  and other moments that may become part of the historical
+                  record.
+                </p>
+
+              </article>
+
+            </div>
+
+          </section>
+
+
+          <!-- =====================================
+               CATEGORY 2
+               ARTIFICIAL INTELLIGENCE
+               ===================================== -->
+
+          <section
+            class="politics-category"
+            data-category="artificial-intelligence"
+          >
+
+            <button
+              class="politics-category-toggle"
+              type="button"
+              aria-expanded="false"
+            >
+
+              <span>
+                Artificial Intelligence &amp; Technology
+              </span>
+
+              <span
+                class="category-arrow"
+                aria-hidden="true"
+              >
+                ▼
+              </span>
+
+            </button>
+
+            <div class="politics-category-content">
+
+              <p class="politics-category-description">
+                Political statements, debates, proposals, and public records
+                concerning artificial intelligence and emerging technology.
+              </p>
+
+
+              <!-- AI / BERNIE SANDERS -->
+
+              <article class="record-card">
+
+                <p class="record-label">
+                  POLITICS • SEPTEMBER 13, 2026
+                </p>
+
+                <h3>
+                  Bernie Sanders and the Debate Over Artificial
+                  Superintelligence
+                </h3>
+
+                <p>
+                  A social media record documenting proposals concerning
+                  criminal penalties and regulation of advanced artificial
+                  intelligence.
+                </p>
+
+                <div class="media-placeholder">
+
+                  <strong>
+                    RELATED SOCIAL MEDIA RECORD
+                  </strong>
+
+                  <blockquote class="twitter-tweet">
+
+                    <p lang="en" dir="ltr">
+
+                      BREAKING: Bernie Sanders has proposed a 20-year prison
+                      sentence for AI developers who move forward with
+                      Artificial Superintelligence plans, a penalty
+                      comparable to illegally developing rogue nuclear
+                      weapons.
+
+                    </p>
+
+                    &mdash; unusual_whales (@unusual_whales)
+
+                    <a href="https://x.com/unusual_whales/status/2099231290730135794?ref_src=twsrc%5Etfw">
+                      September 13, 2026
+                    </a>
+
+                  </blockquote>
+
+                </div>
+
+              </article>
+
+
+              <!-- TRUMP / AI -->
+
+              <article class="record-card">
+
+                <p class="record-label">
+                  POLITICS • SEPTEMBER 14, 2026
+                </p>
+
+                <h3>
+                  Trump, Artificial Intelligence, and the Global AI Race
+                </h3>
+
+                <div class="media-placeholder">
+
+                  <strong>
+                    RELATED SOCIAL MEDIA RECORD
+                  </strong>
+
+                  <blockquote class="twitter-tweet">
+
+                    <p lang="en" dir="ltr">
+
+                      "Whoever wins AI wins."
+
+                      <br><br>
+
+                      President Trump is sounding the alarm about a global
+                      AI race as some of the biggest names in tech warn the
+                      systems they're building could advance faster than
+                      humans can safely control them.
+
+                      <br><br>
+
+                      OpenAI CEO Sam Altman is calling for international
+                      coordination…
+
+                      <a href="https://t.co/lJsVL63oMo">
+                        pic.twitter.com/lJsVL63oMo
+                      </a>
+
+                    </p>
+
+                    &mdash; Fox News (@FoxNews)
+
+                    <a href="https://x.com/FoxNews/status/2099456772381556996?ref_src=twsrc%5Etfw">
+                      September 14, 2026
+                    </a>
+
+                  </blockquote>
+
+                </div>
+
+              </article>
+
+
+              <!-- MIKE JOHNSON / AI -->
+
+              <article class="record-card">
+
+                <p class="record-label">
+                  POLITICS • SEPTEMBER 13, 2026
+                </p>
+
+                <h3>
+                  Congress and Artificial Intelligence Guardrails
+                </h3>
+
+                <div class="media-placeholder">
+
+                  <strong>
+                    RELATED SOCIAL MEDIA RECORD
+                  </strong>
+
+                  <blockquote class="twitter-tweet">
+
+                    <p lang="en" dir="ltr">
+
+                      Congress has been studying the AI issue since I set up
+                      a bipartisan task force to do so soon after I was
+                      elected Speaker. We all have a sense of urgency to
+                      create guardrails around the technology.
+
+                      <br><br>
+
+                      The key is designing the guardrails carefully, in a
+                      way that prevents any harm…
+
+                      <a href="https://t.co/nTJtjSr6R9">
+                        pic.twitter.com/nTJtjSr6R9
+                      </a>
+
+                    </p>
+
+                    &mdash; Speaker Mike Johnson (@SpeakerJohnson)
+
+                    <a href="https://x.com/SpeakerJohnson/status/2099284105003257875?ref_src=twsrc%5Etfw">
+                      September 13, 2026
+                    </a>
+
+                  </blockquote>
+
+                </div>
+
+              </article>
+
+            </div>
+
+          </section>
+
+
+          <!-- =====================================
+               CATEGORY 3
+               EXECUTIVE / WHITE HOUSE
+               ===================================== -->
+
+          <section
+            class="politics-category"
+            data-category="executive"
+          >
+
+            <button
+              class="politics-category-toggle"
+              type="button"
+              aria-expanded="false"
+            >
+
+              <span>
+                Executive Branch &amp; White House
+              </span>
+
+              <span
+                class="category-arrow"
+                aria-hidden="true"
+              >
+                ▼
+              </span>
+
+            </button>
+
+            <div class="politics-category-content">
+
+              <p class="politics-category-description">
+                Records concerning the presidency, administration officials,
+                executive policy, presidential statements, and related
+                political developments.
+              </p>
+
+
+              <!-- ERIC TRUMP -->
+
+              <article class="record-card">
+
+                <p class="record-label">
+                  POLITICS • SEPTEMBER 14, 2026
+                </p>
+
+                <h3>
+                  Eric Trump and Use of U.S. Military Aircraft
+                </h3>
+
+                <p>
+                  A social media record concerning claims about U.S.
+                  military helicopters and Eric Trump during travel in
+                  Ireland.
+                </p>
+
+                <div class="media-placeholder">
+
+                  <strong>
+                    RELATED SOCIAL MEDIA RECORD
+                  </strong>
+
+                  <blockquote class="twitter-tweet">
+
+                    <p lang="en" dir="ltr">
+
+                      Oh cool….US military helicopters taking Eric Trump and
+                      his kids on a joy ride over Ireland….don’t worry
+                      taxpayers paid for it
+
+                      <a href="https://t.co/67gKMNHpeQ">
+                        https://t.co/67gKMNHpeQ
+                      </a>
+
+                    </p>
+
+                    &mdash; Wu Tang is for the Children (@WUTangKids)
+
+                    <a href="https://x.com/WUTangKids/status/2099317273185902831?ref_src=twsrc%5Etfw">
+                      September 14, 2026
+                    </a>
+
+                  </blockquote>
+
+                </div>
+
+              </article>
+
+
+              <!-- TRUMP APPROVAL -->
+
+              <article class="record-card">
+
+                <p class="record-label">
+                  POLITICS • SEPTEMBER 14, 2026
+                </p>
+
+                <h3>
+                  President Trump Approval Rating
+                </h3>
+
+                <p>
+                  A polling record documenting a reported presidential
+                  approval rating.
+                </p>
+
+                <div class="media-placeholder">
+
+                  <strong>
+                    RELATED SOCIAL MEDIA RECORD
+                  </strong>
+
+                  <blockquote class="twitter-tweet">
+
+                    <p lang="en" dir="ltr">
+
+                      🇺🇸 President Trump approval rating
+
+                      <br><br>
+
+                      Approve: 39%
+
+                      <br>
+
+                      Disapprove: 61%
+
+                      <br><br>
+
+                      (CBS News)
+
+                    </p>
+
+                    &mdash; The Spectator Index (@spectatorindex)
+
+                    <a href="https://x.com/spectatorindex/status/2099483303653130631?ref_src=twsrc%5Etfw">
+                      September 14, 2026
+                    </a>
+
+                  </blockquote>
+
+                </div>
+
+              </article>
+
+
+              <!-- TRUMP CAMPAIGN STATEMENT -->
+
+              <article class="record-card">
+
+                <p class="record-label">
+                  POLITICS • SEPTEMBER 13, 2026
+                </p>
+
+                <h3>
+                  President Trump on Democrats and the Economy
+                </h3>
+
+                <div class="media-placeholder">
+
+                  <strong>
+                    RELATED SOCIAL MEDIA RECORD
+                  </strong>
+
+                  <blockquote class="twitter-tweet">
+
+                    <p lang="en" dir="ltr">
+
+                      .<a href="https://x.com/POTUS?ref_src=twsrc%5Etfw">
+                        @POTUS
+                      </a>:
+
+                      "If the Democrats get in, our country will be in
+                      shambles and they won't be able to do it... If the
+                      Democrats get in, they won't be able to pay it. With
+                      me, I've always made money — now I make a lot of money
+                      for the country."
+
+                      <a href="https://t.co/6HxK7o5nYJ">
+                        https://t.co/6HxK7o5nYJ
+                      </a>
+
+                      <a href="https://t.co/8DVNy3iym7">
+                        pic.twitter.com/8DVNy3iym7
+                      </a>
+
+                    </p>
+
+                    &mdash; Rapid Response 47 (@RapidResponse47)
+
+                    <a href="https://x.com/RapidResponse47/status/2099215693040300092?ref_src=twsrc%5Etfw">
+                      September 13, 2026
+                    </a>
+
+                  </blockquote>
+
+                </div>
+
+              </article>
+
+
+              <!-- NORTH KOREA COMMENTARY -->
+
+              <article class="record-card">
+
+                <p class="record-label">
+                  POLITICS • SEPTEMBER 13, 2026
+                </p>
+
+                <h3>
+                  Political Propaganda Commentary
+                </h3>
+
+                <div class="media-placeholder">
+
+                  <strong>
+                    RELATED SOCIAL MEDIA RECORD
+                  </strong>
+
+                  <blockquote class="twitter-tweet">
+
+                    <p lang="en" dir="ltr">
+
+                      This is North Korea-level propaganda shit.
+
+                      <a href="https://t.co/9oz9WiiQ8x">
+                        pic.twitter.com/9oz9WiiQ8x
+                      </a>
+
+                    </p>
+
+                    &mdash; Jamie Bonkiewicz (@JamieBonkiewicz)
+
+                    <a href="https://x.com/JamieBonkiewicz/status/2099120833125810495?ref_src=twsrc%5Etfw">
+                      September 13, 2026
+                    </a>
+
+                  </blockquote>
+
+                </div>
+
+              </article>
+
+
+              <!-- LIBERTARIANS AGAINST TRUMP -->
+
+              <article class="record-card">
+
+                <p class="record-label">
+                  POLITICS • SEPTEMBER 14, 2026
+                </p>
+
+                <h3>
+                  Political Commentary Concerning the Trump Administration
+                </h3>
+
+                <div class="media-placeholder">
+
+                  <strong>
+                    RELATED SOCIAL MEDIA RECORD
+                  </strong>
+
+                  <blockquote class="twitter-tweet">
+
+                    <p lang="zxx" dir="ltr">
+
+                      <a href="https://t.co/VZZFwEXwaz">
+                        https://t.co/VZZFwEXwaz
+                      </a>
+
+                      <a href="https://t.co/EMBu3CvvU2">
+                        pic.twitter.com/EMBu3CvvU2
+                      </a>
+
+                    </p>
+
+                    &mdash; Libertarians against Trump
+                    (@libertariansag)
+
+                    <a href="https://x.com/libertariansag/status/2099489512803983814?ref_src=twsrc%5Etfw">
+                      September 14, 2026
+                    </a>
+
+                  </blockquote>
+
+                </div>
+
+              </article>
+
+            </div>
+
+          </section>
+
+
+          <!-- =====================================
+               CATEGORY 4
+               DEFENSE / FOREIGN POLICY
+               ===================================== -->
+
+          <section
+            class="politics-category"
+            data-category="defense-foreign-policy"
+          >
+
+            <button
+              class="politics-category-toggle"
+              type="button"
+              aria-expanded="false"
+            >
+
+              <span>
+                Defense, Military &amp; Foreign Policy
+              </span>
+
+              <span
+                class="category-arrow"
+                aria-hidden="true"
+              >
+                ▼
+              </span>
+
+            </button>
+
+            <div class="politics-category-content">
+
+              <p class="politics-category-description">
+                Records concerning military policy, civilian protection,
+                international relations, armed conflicts, and U.S. foreign
+                policy.
+              </p>
+
+
+              <!-- CIVILIAN HARM / HEGSETH -->
+
+              <article class="record-card">
+
+                <p class="record-label">
+                  POLITICS • SEPTEMBER 13–14, 2026
+                </p>
+
+                <h3>
+                  Civilian Harm Mitigation and the U.S. Defense Department
+                </h3>
+
+                <p>
+                  Records concerning the U.S. military's civilian harm
+                  mitigation program, international cooperation, and the
+                  role of Defense Secretary Pete Hegseth.
+                </p>
+
+                <div class="media-placeholder">
+
+                  <strong>
+                    RELATED SOCIAL MEDIA RECORD
+                  </strong>
+
+                  <blockquote class="twitter-tweet">
+
+                    <p lang="en" dir="ltr">
+
+                      Defense Secretary Pete Hegseth, who derides rules of
+                      engagement as “woke,” gutted the civilian harm
+                      reduction program over the objections of top military
+                      commanders, ProPublica previously reported.
+
+                      <br><br>
+
+                      Staff plunged from nearly 200 to about two dozen.
+
+                      <a href="https://t.co/6dIHQzfnzf">
+                        https://t.co/6dIHQzfnzf
+                      </a>
+
+                    </p>
+
+                    &mdash; ProPublica (@propublica)
+
+                    <a href="https://x.com/propublica/status/2099144824918028659?ref_src=twsrc%5Etfw">
+                      September 13, 2026
+                    </a>
+
+                  </blockquote>
+
+                </div>
+
+                <div class="article-content">
+
+                  <h4>
+                    Empty Seat: U.S. Absent as Western Powers Meet on
+                    Wartime Protections for Civilians
+                  </h4>
+
+                  <p>
+                    Three years ago, the Defense Department led an ambitious
+                    international effort to better protect civilians during
+                    combat, a movement built on the bloody lessons of
+                    Afghanistan and Iraq.
+                  </p>
+
+                  <p>
+                    The Pentagon created a network with European partners,
+                    driving the creation of shared standards. Civilian harm
+                    experts described the moment as a “unique opportunity”
+                    for American leadership by example.
+                  </p>
+
+                  <p>
+                    Today, those efforts continue — without the United
+                    States, after Defense Secretary Pete Hegseth dismantled
+                    the civilian protection mission.
+                  </p>
+
+                  <p>
+                    And Thursday, no U.S. delegation will be in the room
+                    when the international forum the U.S. cofounded meets
+                    at NATO headquarters in Belgium.
+                  </p>
+
+                  <p>
+                    The country’s absence from the International Contact
+                    Group on Civilian Harm Mitigation and Response summit
+                    reinforces the abandonment of a mission the Pentagon
+                    had encouraged partners to embrace, said current and
+                    former officials. Most spoke to ProPublica on condition
+                    of anonymity for fear of retaliation from President
+                    Donald Trump’s administration.
+                  </p>
+
+                  <p>
+                    They called the step back “humiliating” and “dangerous,”
+                    pointing to reports of rising civilian casualties in
+                    Iran following strikes on schools and homes.
+                  </p>
+
+                  <p>
+                    “There will be a day when people who care about
+                    mitigating civilian harm can come back and say, ‘OK,
+                    are we ready to solve this problem?’” said Jenny McAvoy,
+                    a former Defense Department official who helped shape
+                    the U.S. civilian protection program. “But there are
+                    already enormous consequences of abandoning this work.”
+                  </p>
+
+                  <p>
+                    The Pentagon declined to comment about the lack of U.S.
+                    participation in the Brussels talks. A spokesperson
+                    previously told ProPublica that the Defense Department
+                    factors civilian protections into all phases of
+                    operational planning and “remains committed to
+                    fulfilling its civilian harm mitigation and response
+                    responsibilities.”
+                  </p>
+
+                  <p>
+                    The Pentagon adopted the civilian harm mitigation and
+                    response mission in 2022 after years of bloodshed in
+                    the post-9/11 “forever wars.” Known as CHMR and
+                    pronounced “chimmer,” the framework called for a
+                    specialized center to collect strike data and for
+                    advisers embedded with regional commands to help
+                    mitigate the risk to noncombatants.
+                  </p>
+
+                  <p>
+                    Not long after, the U.S. teamed up with the Netherlands
+                    to coordinate efforts internationally. The two
+                    countries had been frequent partners in recent military
+                    campaigns, including the fight against the Islamic
+                    State group, and were both coming to terms with
+                    high-profile civilian casualty incidents. For the
+                    United States, years of harm in Iraq and Afghanistan
+                    had drawn international outrage and pledges from
+                    commanders to better collect data and learn from deadly
+                    mistakes.
+                  </p>
+
+                  <p>
+                    In 2023, the U.S. and the Netherlands formed the loose
+                    coalition on CHMR. Participants described a small,
+                    informal group that has met half a dozen times since
+                    2023 to share best practices and hear briefings on
+                    civilian casualty trends.
+                  </p>
+
+                  <p>
+                    Advocacy groups said it had taken years to get the U.S.
+                    military to think of civilian casualties as more than
+                    “collateral damage,” showing commanders how the deaths
+                    of innocents were anathema to their morals and
+                    strategically harmful to their missions.
+                  </p>
+
+                  <p>
+                    “By the U.S. putting itself out there and saying, ‘We
+                    learned, we can do better,’ it gives permission and
+                    makes it OK for other governments to similarly
+                    acknowledge, ‘Yeah, we can do better too,’” said McAvoy.
+                  </p>
+
+                  <p>
+                    As participants gather this week in Brussels to discuss
+                    how to continue strengthening CHMR, however, the early
+                    momentum from the U.S. side has evaporated.
+                  </p>
+
+                  <p>
+                    Hegseth, who derides rules of engagement as “woke,”
+                    gutted the CHMR program over the objections of the
+                    nation’s top commanders, ProPublica reported last
+                    month. Staff plunged from nearly 200 to about two dozen.
+                  </p>
+
+                  <p>
+                    Days before the latest summit in Brussels, the United
+                    States wasn’t listed as a participant and there was no
+                    sign anyone from the Defense Department would attend.
+                  </p>
+
+                  <p>
+                    To experts, the message was clear: The era of U.S.
+                    leadership on civilian protection was over.
+                  </p>
+
+                  <p>
+                    “The U.S. stopped participating in this group last year
+                    and people assumed that meant the group would die,” said
+                    McAvoy. “But the group continued to exist and to meet —
+                    without the U.S. — under the leadership of the U.K. and
+                    the Netherlands.”
+                  </p>
+
+                  <p>
+                    The two-day summit opens with a broad discussion of CHMR,
+                    such as how it applies in coalitions or in operations at
+                    sea, that includes advocacy groups and academics, a
+                    draft agenda reviewed by ProPublica shows.
+                  </p>
+
+                  <p>
+                    Past attendees included Austria, Australia, Belgium,
+                    Denmark, Finland, Germany and Norway. The nations
+                    represent a wide variation in approaches and needs when
+                    it comes to CHMR, participants said.
+                  </p>
+
+                  <p>
+                    The U.K., for example, doesn’t have a formal framework
+                    for civilian harm mitigation and response, and
+                    advocates have spent years pushing the British Ministry
+                    of Defense to adopt policies similar to those of the
+                    United States.
+                  </p>
+
+                  <p>
+                    NATO boasts a civilian protection policy that predates
+                    the American model, but the organization is now
+                    incorporating elements of the U.S. approach, said
+                    Andrew Hyde, who studies U.S.-European relations at the
+                    Stimson Center, a nonpartisan foreign policy think tank.
+                  </p>
+
+                  <p>
+                    Hyde said international talks are important for sorting
+                    out how CHMR applies in joint operations when the United
+                    States, NATO and European nations all have different
+                    interpretations of harm mitigation.
+                  </p>
+
+                  <p>
+                    The shift in leadership could end up shielding civilian
+                    protection work from the whims of whichever U.S.
+                    administration is in power and leading to more enduring
+                    reforms, Hyde said.
+                  </p>
+
+                  <p>
+                    “NATO has continued to push forward without U.S. support
+                    or participation, keeping up the momentum and ready for
+                    U.S. re-engagement,” Hyde said.
+                  </p>
+
+                </div>
+
+              </article>
+
+
+              <!-- STRAIT OF HORMUZ -->
+
+              <article class="record-card">
+
+                <p class="record-label">
+                  POLITICS • SEPTEMBER 13, 2026
+                </p>
+
+                <h3>
+                  U.S. Role in Strait of Hormuz Talks
+                </h3>
+
+                <div class="media-placeholder">
+
+                  <strong>
+                    RELATED SOCIAL MEDIA RECORD
+                  </strong>
+
+                  <blockquote class="twitter-tweet">
+
+                    <p lang="en" dir="ltr">
+
+                      BREAKING: The United States is being cut out of talks
+                      over the Strait of Hormuz.
+
+                      <br><br>
+
+                      Gulf diplomats and Iranian officials will meet Monday
+                      in Muscat to negotiate a framework for reopening the
+                      world's most critical oil chokepoint — while
+                      Washington will be completely absent from the…
+
+                    </p>
+
+                    &mdash; The Hormuz Report (@HormuzReport)
+
+                    <a href="https://x.com/HormuzReport/status/2099181699297149349?ref_src=twsrc%5Etfw">
+                      September 13, 2026
+                    </a>
+
+                  </blockquote>
+
+                </div>
+
+              </article>
+
+
+              <!-- TRUMP / CHINA -->
+
+              <article class="record-card">
+
+                <p class="record-label">
+                  POLITICS • SEPTEMBER 13, 2026
+                </p>
+
+                <h3>
+                  President Trump and U.S.-China Relations
+                </h3>
+
+                <div class="media-placeholder">
+
+                  <strong>
+                    RELATED SOCIAL MEDIA RECORD
+                  </strong>
+
+                  <blockquote class="twitter-tweet">
+
+                    <p lang="en" dir="ltr">
+
+                      President Trump reluctant to criticize to China
+
+                      <br><br>
+
+                      Reporter: We recently reported that Chinese entities
+                      may have provided Iranians with satellite imagery of
+                      the air bases in Jordan.
+
+                      <br><br>
+
+                      Trump: They basically do what we do.
+
+                      <br><br>
+
+                      Reporter: Are you going to raise that with Xi when he…
+
+                      <a href="https://t.co/4CkZ60Sawq">
+                        pic.twitter.com/4CkZ60Sawq
+                      </a>
+
+                    </p>
+
+                    &mdash; Acyn (@Acyn)
+
+                    <a href="https://x.com/Acyn/status/2099282270200922293?ref_src=twsrc%5Etfw">
+                      September 13, 2026
+                    </a>
+
+                  </blockquote>
+
+                </div>
+
+              </article>
+
+
+              <!-- IDF / GAZA -->
+
+              <article class="record-card">
+
+                <p class="record-label">
+                  POLITICS • SEPTEMBER 14, 2026
+                </p>
+
+                <h3>
+                  Israel-Gaza Conflict and Political Reaction
+                </h3>
+
+                <div class="media-placeholder">
+
+                  <strong>
+                    RELATED SOCIAL MEDIA RECORD
+                  </strong>
+
+                  <blockquote class="twitter-tweet">
+
+                    <p lang="en" dir="ltr">
+
+                      IDF soldiers lob grenades across apartheid wall
+
+                      <a href="https://t.co/vKSXqHPeNO">
+                        pic.twitter.com/vKSXqHPeNO
+                      </a>
+
+                    </p>
+
+                    &mdash; The Gulag (@WelcomeTheGulag)
+
+                    <a href="https://x.com/WelcomeTheGulag/status/2099296426002133039?ref_src=twsrc%5Etfw">
+                      September 14, 2026
+                    </a>
+
+                  </blockquote>
+
+                </div>
+
+              </article>
+
+
+              <!-- GAZA QUADCOPTERS -->
+
+              <article class="record-card">
+
+                <p class="record-label">
+                  POLITICS • SEPTEMBER 13, 2026
+                </p>
+
+                <h3>
+                  Gaza and Reports Concerning Surveillance of Civilians
+                </h3>
+
+                <div class="media-placeholder">
+
+                  <strong>
+                    RELATED SOCIAL MEDIA RECORD
+                  </strong>
+
+                  <blockquote class="twitter-tweet">
+
+                    <p lang="en" dir="ltr">
+
+                      🚨HORRIFIC : The terrifying reality of life in Gaza.
+
+                      <br>
+
+                      Israeli quadcopters hover over civilians in Gaza
+                      City’s Tuffah neighborhood, near the Yellow Line,
+                      descending at times to low altitudes to surveil and
+                      film civilians. They can also open fire or detonate
+                      explosives without…
+
+                      <a href="https://t.co/OkkAXd8aeK">
+                        pic.twitter.com/OkkAXd8aeK
+                      </a>
+
+                    </p>
+
+                    &mdash; Gaza Notifications (@gazanotice)
+
+                    <a href="https://x.com/gazanotice/status/2099204350513967369?ref_src=twsrc%5Etfw">
+                      September 13, 2026
+                    </a>
+
+                  </blockquote>
+
+                </div>
+
+              </article>
+
+
+              <!-- POLLING / ISRAEL -->
+
+              <article class="record-card">
+
+                <p class="record-label">
+                  POLITICS • SEPTEMBER 13, 2026
+                </p>
+
+                <h3>
+                  Public Opinion and U.S. Military Aid to Israel
+                </h3>
+
+                <div class="media-placeholder">
+
+                  <strong>
+                    RELATED SOCIAL MEDIA RECORD
+                  </strong>
+
+                  <blockquote class="twitter-tweet">
+
+                    <p lang="en" dir="ltr">
+
+                      Polling confirms it. Most Americans want military aid
+                      to the Israeli apartheid state reduced or ended
+                      entirely.
+
+                      <a href="https://t.co/pNeYClBr4Q">
+                        pic.twitter.com/pNeYClBr4Q
+                      </a>
+
+                    </p>
+
+                    &mdash; AIPAC Tracker (@TrackAIPAC)
+
+                    <a href="https://x.com/TrackAIPAC/status/2099247288447328553?ref_src=twsrc%5Etfw">
+                      September 13, 2026
+                    </a>
+
+                  </blockquote>
+
+                </div>
+
+              </article>
+
+            </div>
+
+          </section>
+
+
+          <!-- =====================================
+               CATEGORY 5
+               COURTS / LAW / CLEMENCY
+               ===================================== -->
+
+          <section
+            class="politics-category"
+            data-category="courts-law"
+          >
+
+            <button
+              class="politics-category-toggle"
+              type="button"
+              aria-expanded="false"
+            >
+
+              <span>
+                Courts, Law &amp; Presidential Clemency
+              </span>
+
+              <span
+                class="category-arrow"
+                aria-hidden="true"
+              >
+                ▼
+              </span>
+
+            </button>
+
+            <div class="politics-category-content">
+
+              <p class="politics-category-description">
+                Records concerning courts, legal proceedings, constitutional
+                powers, presidential clemency, and political questions
+                involving the administration of law.
+              </p>
+
+
+              <!-- SUPREME COURT -->
+
+              <article class="record-card">
+
+                <p class="record-label">
+                  POLITICS • SEPTEMBER 14, 2026
+                </p>
+
+                <h3>
+                  Supreme Court and the “Shadow Docket”
+                </h3>
+
+                <p>
+                  A social media record concerning Supreme Court emergency
+                  proceedings and their implications for federal policy.
+                </p>
+
+                <div class="media-placeholder">
+
+                  <strong>
+                    RELATED SOCIAL MEDIA RECORD
+                  </strong>
+
+                  <blockquote class="twitter-tweet">
+
+                    <p lang="en" dir="ltr">
+
+                      For likely the 1st time in modern history, the Supreme
+                      Court decided more cases in fast-tracked, secretive
+                      proceedings than in open court.
+
+                      <br><br>
+
+                      These “shadow docket” decisions have let the Trump
+                      admin. bypass lower courts on ICE stops, abortion
+                      access &amp; more:
+
+                      <a href="https://t.co/PvHuXbvPYP">
+                        https://t.co/PvHuXbvPYP
+                      </a>
+
+                      <a href="https://t.co/jWWgkae6Ln">
+                        pic.twitter.com/jWWgkae6Ln
+                      </a>
+
+                    </p>
+
+                    &mdash; ProPublica (@propublica)
+
+                    <a href="https://x.com/propublica/status/2099302110223581200?ref_src=twsrc%5Etfw">
+                      September 14, 2026
+                    </a>
+
+                  </blockquote>
+
+                </div>
+
+              </article>
+
+
+              <!-- DEFAMATION -->
+
+              <article class="record-card">
+
+                <p class="record-label">
+                  POLITICS • SEPTEMBER 13, 2026
+                </p>
+
+                <h3>
+                  Defamation and Political Commentary
+                </h3>
+
+                <div class="media-placeholder">
+
+                  <strong>
+                    RELATED SOCIAL MEDIA RECORD
+                  </strong>
+
+                  <blockquote class="twitter-tweet">
+
+                    <p lang="en" dir="ltr">
+
+                      Kids, if you want to know what per se defamation looks
+                      like, here you are.
+
+                      <a href="https://t.co/IMWVuZY2en">
+                        https://t.co/IMWVuZY2en
+                      </a>
+
+                    </p>
+
+                    &mdash; S.V. Dáte (@svdate)
+
+                    <a href="https://x.com/svdate/status/2098936182293832190?ref_src=twsrc%5Etfw">
+                      September 13, 2026
+                    </a>
+
+                  </blockquote>
+
+                </div>
+
+              </article>
+
+
+              <!-- KENNEDY / WARN0CK -->
+
+              <article class="record-card">
+
+                <p class="record-label">
+                  POLITICS • SEPTEMBER 13, 2026
+                </p>
+
+                <h3>
+                  Robert F. Kennedy Jr. and Senate Questioning
+                </h3>
+
+                <div class="media-placeholder">
+
+                  <strong>
+                    RELATED SOCIAL MEDIA RECORD
+                  </strong>
+
+                  <blockquote class="twitter-tweet">
+
+                    <p lang="en" dir="ltr">
+
+                      🚨 BREAKING:
+
+                      <br><br>
+
+                      Warnock: "You compared the CDC’s work to Nazi death
+                      camps and sexual abusers in the Catholic Church."
+
+                      <br><br>
+
+                      Robert F. Kennedy Jr.: "I never said that."
+
+                      <br><br>
+
+                      Warnock: "Actually, I have a transcript."
+
+                      <a href="https://t.co/RfOijZdln5">
+                        pic.twitter.com/RfOijZdln5
+                      </a>
+
+                    </p>
+
+                    &mdash; GBC (@GBC_Press)
+
+                    <a href="https://x.com/GBC_Press/status/2099199760104124807?ref_src=twsrc%5Etfw">
+                      September 13, 2026
+                    </a>
+
+                  </blockquote>
+
+                </div>
+
+              </article>
+
+
+              <!-- PARDON BROKERS -->
+
+              <article class="record-card">
+
+                <p class="record-label">
+                  POLITICS • SEPTEMBER 13–14, 2026
+                </p>
+
+                <h3>
+                  Pardon Brokers and the Trump Clemency System
+                </h3>
+
+                <p>
+                  A record concerning private pardon brokers, presidential
+                  clemency, lobbying, and the process of seeking
+                  presidential pardons during the Trump administration.
+                </p>
+
+                <div class="media-placeholder">
+
+                  <strong>
+                    RELATED SOCIAL MEDIA RECORD
+                  </strong>
+
+                  <blockquote class="twitter-tweet">
+
+                    <p lang="en" dir="ltr">
+
+                      “There’s nothing corrupt about it,” says pardon broker
+                      Jacob Wohl.
+
+                      <br><br>
+
+                      “We don’t work for free,” adds his partner, Jack
+                      Burkman, defending the hefty fees they charge pardon
+                      seekers.
+
+                      <a href="https://t.co/4JXX4tPyYM">
+                        https://t.co/4JXX4tPyYM
+                      </a>
+
+                      <a href="https://t.co/bzr21QbYyN">
+                        pic.twitter.com/bzr21QbYyN
+                      </a>
+
+                    </p>
+
+                    &mdash; 60 Minutes (@60Minutes)
+
+                    <a href="https://x.com/60Minutes/status/2099292797605945637?ref_src=twsrc%5Etfw">
+                      September 14, 2026
+                    </a>
+
+                  </blockquote>
+
+                </div>
+
+                <div class="article-content">
+
+                  <h4>
+                    Pardon brokers offer to "put pressure on the president"
+                    — at sky-high costs
+                  </h4>
+
+                  <p>
+                    Gabe Kaminsky, Daniel Klaidman, Michael Kaplan<br>
+                    Sep 13, 2026
+                  </p>
+
+                  <p>
+                    It was mid-August at the bar inside the plush
+                    Ritz-Carlton hotel in Tysons Corner, Virginia, just
+                    outside Washington, and Jack Burkman and his business
+                    partner Jacob Wohl were making their latest sales pitch.
+                    They were seated at a table with Ammon Covino, a
+                    convicted felon, and his wife, Crystal.
+                  </p>
+
+                  <p>
+                    "With this particular White House, you have to put
+                    pressure on the president from all directions in a
+                    consistent way to force his hand," Burkman explained.
+                    He and Wohl, lobbyists and right-wing provocateurs, had
+                    become avatars of a lucrative new cottage industry of
+                    brokers courting those seeking pardons from President
+                    Trump.
+                  </p>
+
+                  <p>
+                    Now, they were zeroing in on the man they hoped would be
+                    their next client: Covino, an aquarium operator who
+                    served nearly two years in federal prison for illegally
+                    transporting a shark and a stingray across state lines.
+                  </p>
+
+                  <p>
+                    Covino had already filled out and submitted a pardon
+                    application form by mail to the Biden Justice
+                    Department. But his request was rejected in July by Mr.
+                    Trump, one of thousands of pardon-seekers denied
+                    clemency as part of the administration's effort to clear
+                    its backlog of applicants.
+                  </p>
+
+                  <p>
+                    Mr. Trump has employed a different approach to clemency
+                    over the last 18 months. On his first day in office, he
+                    cleared more than 1,500 people charged or convicted in
+                    relation to the Jan. 6, 2021, Capitol riot through
+                    pardons, commutations and dropped prosecutions. Dozens
+                    of clemency grants for white-collar criminals, often
+                    wealthy and well-connected, have followed.
+                  </p>
+
+                  <p>
+                    Burkman and Wohl's pitch at the Ritz-Carlton meeting
+                    leaned into what they described as a new path to a
+                    pardon. "It's more energy and less process," Burkman
+                    said. "...And contacts."
+                  </p>
+
+                  <p>
+                    But it would come with a price, they told Covino. For
+                    $300,000, they predicted, they could secure him a pardon
+                    by as early as October. What they didn't know was that
+                    Covino wasn't a real prospective client. CBS News' 60
+                    Minutes was investigating the world of pardon brokers.
+                    To uncover exactly how this business operated, CBS News
+                    asked Covino to approach the brokers — with hidden
+                    cameras in tow.
+                  </p>
+
+                  <h4>
+                    The coin of the realm
+                  </h4>
+
+                  <p>
+                    The archetypical pardon recipient is a repentant
+                    mercy-seeker who has paid his due to society. Presidents
+                    have long deviated from that formula, and long courted
+                    controversy.
+                  </p>
+
+                  <p>
+                    President Ford pardoned Richard Nixon. President Carter
+                    pardoned Vietnam draft-dodgers. On his final day in
+                    office, President Clinton pardoned Marc Rich, a fugitive
+                    financier whose wife, Denise Rich, was a major donor to
+                    the Clinton presidential library. In December 2024,
+                    President Biden faced scrutiny for 11th-hour pardons of
+                    allies, donors and family, including his son, Hunter
+                    Biden, who was convicted on firearms charges and pleaded
+                    guilty to tax evasion in a separate case. Biden also
+                    preemptively pardoned Anthony Fauci.
+                  </p>
+
+                  <p>
+                    Yet there is near-unanimity among the federal
+                    prosecutors, defense attorneys and other sources who
+                    discussed the clemency process with CBS News: There has
+                    never been such a dizzying pardon economy as there is in
+                    Washington right now — a Wild West of clemency populated
+                    by MAGA-connected brokers and influencers — where the
+                    old norms have been largely tossed aside.
+                  </p>
+
+                  <p>
+                    Previously, those seeking clemency typically went
+                    through the Justice Department. More than two dozen DOJ
+                    lawyers weighed factors that often included an
+                    applicant's remorse and evidence of rehabilitation, and
+                    recommended worthy recipients to the president. That
+                    process has been largely sidelined, according to sources
+                    with direct knowledge of the clemency process.
+                  </p>
+
+                  <p>
+                    About 70% of Mr. Trump's clemency actions in his second
+                    term were not routed through the Justice Department (and
+                    that number is 92% when including the Jan. 6 cases),
+                    according to a CBS News analysis of Justice Department
+                    data.
+                  </p>
+
+                  <p>
+                    Brokers seek out ways to influence Mr. Trump – through
+                    contacts in the White House, by deploying MAGA
+                    influencers, or by working with others close to the
+                    president. Access is the coin of the realm, and on the
+                    promise of delivering that access, brokers now charge
+                    fees that can reach as high as $3 million, sources told
+                    CBS News.
+                  </p>
+
+                  <p>
+                    "There's an industry that's built up around helping
+                    people get access to this system that should be free,
+                    that should be available to everybody," said Mark Osler,
+                    a law professor at the University of St. Thomas in
+                    Minnesota. He runs a pro bono clinic for people
+                    convicted of federal crimes to help them apply to the
+                    Justice Department for clemency.
+                  </p>
+
+                  <p>
+                    Part of this industry operates in full view: Lobbyists
+                    disclose clemency clients and fees to Congress. That
+                    list has grown steadily over Mr. Trump's first two years
+                    in office.
+                  </p>
+
+                  <p>
+                    But how they work — what they promise to
+                    clemency-seekers, how much they charge and how they
+                    navigate the process — is often shrouded in secrecy. CBS
+                    News sought interviews with a number of clemency brokers
+                    about their work, and they either declined or did not
+                    respond to our requests.
+                  </p>
+
+                  <p>
+                    Among those were several influential brokers with ties
+                    to the president, including Brett Tolman, a former U.S.
+                    attorney in Utah; Ches McDowell, a lawyer and registered
+                    lobbyist who is close to Donald Trump Jr. and helped
+                    secure a pardon for Changpeng Zhao — a cryptocurrency
+                    billionaire who was convicted of violating U.S.
+                    anti-money laundering laws; Adam Katz, an attorney who
+                    previously represented former New York City Mayor Rudy
+                    Giuliani; and Stefan Passantino, a former Trump White
+                    House official.
+                  </p>
+
+                  <h4>
+                    "I just send my petitions directly to the White House"
+                  </h4>
+
+                  <p>
+                    CBS News was with Covino when Tolman described the
+                    clemency process to him in an August phone call. In the
+                    phone call, Tolman explained he never sent clemency
+                    applications to the Justice Department because "it's the
+                    fox watching the hen house." Instead, he said, "I just
+                    send my petitions directly to the White House."
+                  </p>
+
+                  <p>
+                    By his own account, Tolman expects to work on roughly
+                    "40 or 50" clemency cases before Mr. Trump's second term
+                    is over, and said he expects to be successful in more
+                    than two-thirds of the cases. The application Covino
+                    submitted by himself — without a lobbyist — never stood
+                    a chance, Tolman told him, because it "never even got
+                    considered in the White House."
+                  </p>
+
+                  <p>
+                    CBS News sent Tolman detailed questions about his
+                    discussion with Covino. He did not respond.
+                  </p>
+
+                  <p>
+                    In a statement to CBS News, White House spokesperson
+                    Lauren Bis said that the Trump administration "has a
+                    robust pardon review process" that includes White House
+                    counsel, the Justice Department, Alice Marie Johnson —
+                    the White House "pardon czar" who had her sentence
+                    commuted for life imprisonment over a drug conviction
+                    by Mr. Trump in his first term — and "the president
+                    himself as the final decider."
+                  </p>
+
+                  <p>
+                    In a statement, White House Counsel Will Scharf said
+                    "President Trump performs his constitutional duties in
+                    an ethically sound manner and to suggest so otherwise is
+                    either ill-informed or malicious."
+                  </p>
+
+                  <p>
+                    Asked about pardon lobbying during Mr. Trump's second
+                    term, Bis said that anyone "spending money to lobby for
+                    pardons is foolishly wasting their money and the
+                    president doesn't even know who these so-called
+                    'lobbyists' are."
+                  </p>
+
+                  <p>
+                    As Mr. Trump has embraced his presidential pardon power,
+                    lobbyists with MAGA bona fides have rushed to sell their
+                    access — or the appearance of it.
+                  </p>
+
+                  <p>
+                    Burkman had been a fixture of the Washington lobbying
+                    scene for decades and a regular guest on cable TV shows
+                    in the 1990s. In 2017, Wohl joined his firm, JM Burkman
+                    and Associates. Soon after, the pair became known for
+                    stunts aimed at Democrats.
+                  </p>
+
+                  <p>
+                    In 2018, they called a press conference alleging that
+                    Robert Mueller, then the special counsel investigating
+                    Russian interference in the presidential election, had
+                    sexually assaulted a woman decades earlier. They
+                    offered no evidence, and the alleged accuser never
+                    materialized.
+                  </p>
+
+                  <p>
+                    In 2022, Burkman and Wohl pleaded guilty in Ohio to
+                    fraud after orchestrating an illegal robocall scheme
+                    aimed at suppressing the Black vote. They were sentenced
+                    to probation. In 2025, they pleaded no contest in
+                    Michigan to charges of intimidating voters and again
+                    received probation. They faced a more than $5 million
+                    fine from the Federal Communications Commission for
+                    robocalls.
+                  </p>
+
+                  <p>
+                    The two represented some clemency clients in Mr. Trump's
+                    first term. They reentered the business at the start of
+                    his second.
+                  </p>
+
+                  <p>
+                    Initially, Burkman and Wohl did not respond to CBS News
+                    requests to discuss the pardon work. They agreed to be
+                    interviewed later, after learning that their meeting
+                    with Covino had been captured on camera.
+                  </p>
+
+                  <p>
+                    Both rejected any suggestion that they are participants
+                    in a new pay-to-play marketplace. They said they are
+                    merely helping people navigate the complexities of the
+                    nation's capital — lobbyists who are adhering to the
+                    law.
+                  </p>
+
+                  <p>
+                    "We're proud of the work we do," Burkman said. "If people
+                    hire advocates, of course they have an advantage. But
+                    that's a very different question than saying something
+                    is pay-to-play."
+                  </p>
+
+                  <p>
+                    As for the notion that they were sidestepping the
+                    longstanding Justice Department process, Wohl said that
+                    the process is entirely in the hands of whoever sits in
+                    the Oval Office.
+                  </p>
+
+                  <p>
+                    "The president doesn't make decisions based on the
+                    judgment of nameless, faceless bureaucrats. He never
+                    has," Wohl said.
+                  </p>
+
+                  <p>
+                    CBS News reached out to a number of felons who had been
+                    denied pardons by the Justice Department to ask if they
+                    could help open a window into the pardon economy. Covino
+                    agreed.
+                  </p>
+
+                  <p>
+                    In 2013, Covino was sentenced to a year in prison for
+                    illegal trafficking of marine life, then violated the
+                    conditions of his supervised release in 2016 and spent
+                    another 11 months in prison, court records show.
+                  </p>
+
+                  <p>
+                    Burkman and Wohl responded to Covino's initial email
+                    outreach in seven minutes. They touted to Covino a
+                    success rate that included "six victories" on behalf of
+                    pardon-seekers and said they believed Covino's case was
+                    strong. They said Covino's prosecution was clearly
+                    "Obama craziness," since he was convicted in 2013.
+                  </p>
+
+                  <p>
+                    One case they noted involved Joseph Schwartz, a nursing
+                    home operator who pleaded guilty in federal court to
+                    failing to pay more than $38 million in employment taxes
+                    withheld from his workers and to failing to file a
+                    required financial report for his employees' retirement
+                    plan. Schwartz also pleaded guilty in Arkansas state
+                    court to attempting to evade taxes and Medicaid fraud.
+                  </p>
+
+                  <p>
+                    Schwartz received a pardon from Mr. Trump in November
+                    2025, three months into his three-year prison sentence.
+                    Just months earlier, the lobbying firm JM Burkman and
+                    Associates disclosed that it earned $960,000 from
+                    Schwartz, federal lobbying records show.
+                  </p>
+
+                  <p>
+                    The two men told CBS News the fee was justified because
+                    they believed Schwartz had been wrongly convicted and
+                    was in poor health.
+                  </p>
+
+                  <p>
+                    "We saved his life," Burkman said.
+                  </p>
+
+                  <p>
+                    A White House official said that Schwartz's case was "an
+                    example of over prosecution" and that his sentence was
+                    "exceptionally harmful to a 65-year-old man already in
+                    deteriorating health."
+                  </p>
+
+                  <p>
+                    Victims of Schwartz's collapsed-nursing home empire have
+                    a different view. They said they were devastated by the
+                    pardon.
+                  </p>
+
+                  <p>
+                    Melissa Coulson's family won a nearly $19 million
+                    wrongful-death judgment against Schwartz but never
+                    collected a dollar. Her mother, Doris Coulson, a retired
+                    cardiac nurse, was found unresponsive in September 2016
+                    by staff at a Little Rock, Arkansas, nursing home — a
+                    facility Schwartz's company had taken over five months
+                    earlier. She later died after being fed her breakfast by
+                    mouth, despite orders that she be fed only by tube.
+                  </p>
+
+                  <p>
+                    Coulson said in an interview that it felt like the
+                    pardon system betrayed her. "It's about how much you can
+                    pay for it," she said. "And if our system is getting like
+                    this, then it's definitely broken."
+                  </p>
+
+                  <h4>
+                    Putting Trump in "a pincer movement"
+                  </h4>
+
+                  <p>
+                    During the meeting in August at the Ritz-Carlton,
+                    Burkman described to Covino how he and Wohl enlist
+                    influencers and presidential insiders to come at Mr.
+                    Trump from all directions, so he becomes aware of their
+                    clients' stories.
+                  </p>
+
+                  <p>
+                    "We put him in a pincer movement," Burkman said of the
+                    president.
+                  </p>
+
+                  <p>
+                    The brokers told Covino the effort to reach the
+                    president is multi-layered and relentless.
+                  </p>
+
+                  <p>
+                    "We literally want to put the pen in his hand and get
+                    him to sign it because he's tired of hearing about it,"
+                    Burkman said.
+                  </p>
+
+                  <p>
+                    CBS News has learned that the White House has become
+                    sensitive to the perception that the president is
+                    selling pardons. During the meeting, the brokers advised
+                    Covino against making a political contribution.
+                  </p>
+
+                  <p>
+                    "People have to understand something about the
+                    president," Burkman said. "When it comes to these things
+                    [he's] not transactional. He doesn't need the money; he
+                    doesn't need the contributions."
+                  </p>
+
+                  <p>
+                    How the brokers attempt to deploy influential people on
+                    their behalf was detailed in text messages sent to
+                    another client, Torence Hatch, a rapper known by the
+                    stage name Boosie Badazz. A text from Wohl's number —
+                    which he has denied sending — said the brokers would
+                    enlist people like MAGA influencer Laura Loomer, House
+                    Speaker Mike Johnson, and conservative activist Erika
+                    Kirk to "endorse" the pardon he sought after a federal
+                    gun conviction.
+                  </p>
+
+                  <p>
+                    Another text message promised that Wohl would see if
+                    Loomer would ask Natalie Harp, a White House official
+                    known to be one of Mr. Trump's most loyal aides, "to
+                    bring it in to POTUS."
+                  </p>
+
+                  <p>
+                    Burkman and Wohl later said they not only did not send
+                    the text, but had not even heard of Harp at the time the
+                    message was sent. Lauren Bis, a White House spokesperson,
+                    said that Harp "has never even interacted with Jack
+                    Burkman and Jacob Wohl."
+                  </p>
+
+                  <p>
+                    Mr. Trump has not pardoned Hatch, who was sentenced in
+                    January to three years of supervised release, 300 hours
+                    of community service, and a $50,000 fine. Hatch has
+                    filed what appears to be the first known arbitration
+                    claim against pardon lobbyists during Mr. Trump's
+                    second term, seeking a refund from Burkman and Wohl.
+                  </p>
+
+                  <p>
+                    Hatch said in an interview that the lobbyists led him to
+                    believe "that if you come with this money, you will get
+                    a pardon." He said he paid $600,000 up front, under an
+                    agreement that half would be returned if no pardon came.
+                    Burkman disputed the claim, saying "the final agreement
+                    was never signed, so all you're left with legally
+                    speaking is oral contract."
+                  </p>
+
+                  <p>
+                    Loomer told CBS News that she does not get involved with
+                    pardons and has never spoken to Burkman or Wohl about
+                    clemency. "The only thing that I publicly said was that
+                    I felt that the judge and his case was biased," Loomer
+                    added about the Schwartz case, pointing to a social
+                    media post from her account in April 2025 that claimed
+                    Schwartz was a victim of a biased judge.
+                  </p>
+
+                  <p>
+                    "I do know [Wohl] personally but I have made it very
+                    clear that my name appears to be used for clout without
+                    my consent and I've publicly said I think Boosie was
+                    scammed," Loomer said.
+                  </p>
+
+                  <p>
+                    Spokespeople for Johnson and Turning Point USA, the group
+                    that Kirk runs, said they did not endorse the pardon,
+                    either.
+                  </p>
+
+                  <p>
+                    Burkman and Wohl maintained their dealings with Hatch
+                    were above board.
+                  </p>
+
+                  <p>
+                    "We don't owe him anything. ... We encourage him to drop
+                    the suit. It's without merit." Burkman said. Hatch's
+                    arbitration claim was first reported by the media outlet
+                    NOTUS, now called The Washington Sun.
+                  </p>
+
+                  <h4>
+                    A new approach to seeking clemency: Show no remorse
+                  </h4>
+
+                  <p>
+                    Ed Martin, a Trump loyalist who served as the Justice
+                    Department's pardon attorney from May 2025 until his
+                    departure earlier this month, denied the existence of a
+                    transactional pardon economy.
+                  </p>
+
+                  <p>
+                    "When people say 'there's brokers, there's quid pro quo,'
+                    I've never seen it. I haven't seen it. I haven't heard
+                    it," Martin said in an interview with CBS News.
+                  </p>
+
+                  <p>
+                    Martin said clemency decisions are within the sole
+                    purview of the president. "It's his obligation to decide
+                    how to do mercy," he said. "And Donald Trump has over
+                    and over again, much more than normal politicians, sought
+                    to give mercy."
+                  </p>
+
+                  <p>
+                    Martin also rejected the idea that the system favors
+                    those who can pay, citing Mr. Trump's acts of clemency
+                    for those who were charged or convicted in connection to
+                    the Jan. 6, 2021, Capitol riot.
+                  </p>
+
+                  <p>
+                    "There are people all across the spectrum," he said,
+                    "whether they're wealthy or poor."
+                  </p>
+
+                  <p>
+                    Instead, Mr. Trump's overriding goal, Martin said, was
+                    mercy for people who were allegedly the targets of
+                    political prosecutions. When he took over the pardon
+                    office, Martin said, the president told him that "the
+                    political weaponization against citizens is out of hand"
+                    and directed him to find "people that were targeted."
+                  </p>
+
+                  <p>
+                    Clemency, a 250-year-old mainstay of the American
+                    criminal justice system, is the most regal of powers
+                    bestowed on the president by the founding fathers.
+                    Alexander Hamilton called it a "benign prerogative," a
+                    constitutionally enshrined method of allowing for mercy
+                    in a system of criminal laws that are inherently
+                    inflexible.
+                  </p>
+
+                  <p>
+                    Historically it was rooted in contrition: a petitioner
+                    admitted the crime, showed remorse and demonstrated a
+                    changed life. Under the new playbook, some applicants
+                    are encouraged to show no remorse.
+                  </p>
+
+                  <p>
+                    "There's a little bit of a different way that you do
+                    pardon applications in cases like this," Wohl told
+                    Covino in August. He added that taking responsibility
+                    for a crime is "not the way you get these things
+                    approved."
+                  </p>
+
+                  <p>
+                    Instead, Burkman and Wohl, as well as other pardon
+                    brokers, have encouraged applicants to invoke Mr.
+                    Trump's own grievances against the justice system.
+                  </p>
+
+                  <p>
+                    "My client was persecuted by the weaponized Biden
+                    Justice Department" has become common lingo for them,
+                    according to one lawyer who works on clemency cases and
+                    spoke on the condition of anonymity.
+                  </p>
+
+                  <p>
+                    A number of pardon recipients have trumpeted their
+                    innocence. Trevor Milton was convicted of lying to
+                    investors about his electric truck company, Nikola. In
+                    a statement after his pardon, Milton thanked Mr. Trump
+                    for granting him "this sacred pardon of innocence."
+                  </p>
+
+                  <p>
+                    Juan Orlando Hernández, the former Honduras president
+                    who was convicted for conspiring to import 400 tons of
+                    cocaine and firearms offenses, claimed after Mr. Trump
+                    pardoned him last year that he was "set up by the Biden
+                    Harris administration and the deep state."
+                  </p>
+
+                  <p>
+                    "It shows you how far we've strayed from the days when
+                    we centered acceptance and responsibility, a sense of
+                    remorse over the harm done by the crime," Osler said.
+                    "We're to the point now where pardons are followed by
+                    the taunting of the prosecutor."
+                  </p>
+
+                  <p>
+                    Covino said he agreed to reach out to brokers with
+                    cameras rolling because he wanted to "expose unfairness."
+                    But he conceded that the system is probably all but
+                    inescapable.
+                  </p>
+
+                  <p>
+                    "I don't like the fact that you have to pay such a huge
+                    amount of money because of who you know," he said. "But
+                    if that's how the game's played, then that's how the
+                    game's played."
+                  </p>
+
+                  <p>
+                    CBS News investigative data reporter Steve Reilly,
+                    60 Minutes Producer Shachar Bar-On, 60 Minutes Associate
+                    Producer Jinsol Jung, and Associate Investigative
+                    Producer Callie Teitelbaum contributed to this report.
+                  </p>
+
+                </div>
+
+              </article>
+
+            </div>
+
+          </section>
+
+
+          <!-- =====================================
+               CATEGORY 6
+               ELECTIONS / PUBLIC OPINION
+               ===================================== -->
+
+          <section
+            class="politics-category"
+            data-category="elections-public-opinion"
+          >
+
+            <button
+              class="politics-category-toggle"
+              type="button"
+              aria-expanded="false"
+            >
+
+              <span>
+                Elections, Public Opinion &amp; Political Commentary
+              </span>
+
+              <span
+                class="category-arrow"
+                aria-hidden="true"
+              >
+                ▼
+              </span>
+
+            </button>
+
+            <div class="politics-category-content">
+
+              <p class="politics-category-description">
+                Polling records, electoral commentary, political reactions,
+                public statements, and other records concerning political
+                opinion.
+              </p>
+
+
+              <!-- MEDIAN VOTER -->
+
+              <article class="record-card">
+
+                <p class="record-label">
+                  POLITICS • SEPTEMBER 14, 2026
+                </p>
+
+                <h3>
+                  Political Commentary and the Median Voter
+                </h3>
+
+                <div class="media-placeholder">
+
+                  <strong>
+                    RELATED SOCIAL MEDIA RECORD
+                  </strong>
+
+                  <blockquote class="twitter-tweet">
+
+                    <p lang="en" dir="ltr">
+
+                      Some days I have to remind myself that this is the
+                      median voter.
+
+                      <a href="https://t.co/Abc3CtrOaO">
+                        https://t.co/Abc3CtrOaO
+                      </a>
+
+                    </p>
+
+                    &mdash; Joe (@electionsjoe)
+
+                    <a href="https://x.com/electionsjoe/status/2099334587646144996?ref_src=twsrc%5Etfw">
+                      September 14, 2026
+                    </a>
+
+                  </blockquote>
+
+                </div>
+
+              </article>
+
+            </div>
+
+          </section>
+
         </div>
-      </article>
-      <!-- CIVILIAN HARM / HEGSETH -->
-      <article class="record-card">
-        <p class="record-label">
-          POLITICS • SEPTEMBER 13–14, 2026
-        </p>
-        <h3>
-          Civilian Harm Mitigation and the U.S. Defense Department
-        </h3>
-        <p>
-          Records concerning the U.S. military's civilian harm mitigation
-          program, international cooperation, and the role of Defense
-          Secretary Pete Hegseth.
-        </p>
-        <div class="media-placeholder">
-          <strong>
-            RELATED SOCIAL MEDIA RECORD
-          </strong>
-          <blockquote class="twitter-tweet">
-            <p lang="en" dir="ltr">
-              Defense Secretary Pete Hegseth, who derides rules of
-              engagement as “woke,” gutted the civilian harm reduction
-              program over the objections of top military commanders,
-              ProPublica previously reported.
-              <br><br>
-              Staff plunged from nearly 200 to about two dozen.
-              <a href="https://t.co/6dIHQzfnzf">
-                https://t.co/6dIHQzfnzf
-              </a>
-            </p>
-            &mdash; ProPublica (@propublica)
-            <a href="https://x.com/propublica/status/2099144824918028659?ref_src=twsrc%5Etfw">
-              September 13, 2026
-            </a>
-          </blockquote>
-        </div>
-        <div class="article-content">
-          <h4>
-            Empty Seat: U.S. Absent as Western Powers Meet on Wartime Protections for Civilians
-          </h4>
-          <p>
-            Three years ago, the Defense Department led an ambitious
-            international effort to better protect civilians during combat,
-            a movement built on the bloody lessons of Afghanistan and Iraq.
-          </p>
-          <p>
-            The Pentagon created a network with European partners, driving
-            the creation of shared standards. Civilian harm experts
-            described the moment as a “unique opportunity” for American
-            leadership by example.
-          </p>
-          <p>
-            Today, those efforts continue — without the United States,
-            after Defense Secretary Pete Hegseth dismantled the civilian
-            protection mission.
-          </p>
-          <p>
-            And Thursday, no U.S. delegation will be in the room when the
-            international forum the U.S. cofounded meets at NATO
-            headquarters in Belgium.
-          </p>
-          <p>
-            The country’s absence from the International Contact Group on
-            Civilian Harm Mitigation and Response summit reinforces the
-            abandonment of a mission the Pentagon had encouraged partners
-            to embrace, said current and former officials. Most spoke to
-            ProPublica on condition of anonymity for fear of retaliation
-            from President Donald Trump’s administration.
-          </p>
-          <p>
-            They called the step back “humiliating” and “dangerous,”
-            pointing to reports of rising civilian casualties in Iran
-            following strikes on schools and homes.
-          </p>
-          <p>
-            “There will be a day when people who care about mitigating
-            civilian harm can come back and say, ‘OK, are we ready to solve
-            this problem?’” said Jenny McAvoy, a former Defense Department
-            official who helped shape the U.S. civilian protection
-            program. “But there are already enormous consequences of
-            abandoning this work.”
-          </p>
-          <p>
-            The Pentagon declined to comment about the lack of U.S.
-            participation in the Brussels talks. A spokesperson previously
-            told ProPublica that the Defense Department factors civilian
-            protections into all phases of operational planning and
-            “remains committed to fulfilling its civilian harm mitigation
-            and response responsibilities.”
-          </p>
-          <p>
-            The Pentagon adopted the civilian harm mitigation and response
-            mission in 2022 after years of bloodshed in the post-9/11
-            “forever wars.” Known as CHMR and pronounced “chimmer,” the
-            framework called for a specialized center to collect strike
-            data and for advisers embedded with regional commands to help
-            mitigate the risk to noncombatants.
-          </p>
-          <p>
-            Not long after, the U.S. teamed up with the Netherlands to
-            coordinate efforts internationally. The two countries had been
-            frequent partners in recent military campaigns, including the
-            fight against the Islamic State group, and were both coming to
-            terms with high-profile civilian casualty incidents. For the
-            United States, years of harm in Iraq and Afghanistan had drawn
-            international outrage and pledges from commanders to better
-            collect data and learn from deadly mistakes.
-          </p>
-          <p>
-            The Dutch were still addressing the fallout from a 2015
-            operation in Iraq in which air strikes targeting a car-bomb
-            factory ignited a nearby munitions depot, setting off an
-            enormous explosion that killed at least 70 civilians and
-            wounded hundreds. Dutch responsibility wasn’t revealed until
-            2019, causing a national scandal and accusations of a
-            cover-up.
-          </p>
-          <p>
-            In 2023, the U.S. and the Netherlands formed the loose
-            coalition on CHMR. Participants described a small, informal
-            group that has met half a dozen times since 2023 to share best
-            practices and hear briefings on civilian casualty trends.
-          </p>
-          <p>
-            Advocacy groups said it had taken years to get the U.S.
-            military to think of civilian casualties as more than
-            “collateral damage,” showing commanders how the deaths of
-            innocents were anathema to their morals and strategically
-            harmful to their missions. The eventual adoption of CHMR
-            guidelines by American defense officials helped their
-            counterparts abroad make the case for programs in their own
-            countries.
-          </p>
-          <p>
-            “By the U.S. putting itself out there and saying, ‘We learned,
-            we can do better,’ it gives permission and makes it OK for
-            other governments to similarly acknowledge, ‘Yeah, we can do
-            better too,’” said McAvoy.
-          </p>
-          <p>
-            As participants gather this week in Brussels to discuss how to
-            continue strengthening CHMR, however, the early momentum from
-            the U.S. side has evaporated.
-          </p>
-          <p>
-            Hegseth, who derides rules of engagement as “woke,” gutted the
-            CHMR program over the objections of the nation’s top commanders,
-            ProPublica reported last month. Staff plunged from nearly 200
-            to about two dozen.
-          </p>
-          <p>
-            Days before the latest summit in Brussels, the United States
-            wasn’t listed as a participant and there was no sign anyone
-            from the Defense Department would attend. Current and former
-            officials predicted either a no-show or, at most, a single
-            delegate from one of the commands showing up.
-          </p>
-          <p>
-            To experts, the message was clear: The era of U.S. leadership
-            on civilian protection was over.
-          </p>
-          <p>
-            “The U.S. stopped participating in this group last year and
-            people assumed that meant the group would die,” said McAvoy.
-            “But the group continued to exist and to meet — without the
-            U.S. — under the leadership of the U.K. and the Netherlands.”
-          </p>
-          <p>
-            The two-day summit opens with a broad discussion of CHMR, such
-            as how it applies in coalitions or in operations at sea, that
-            includes advocacy groups and academics, a draft agenda reviewed
-            by ProPublica shows. Day 2 is a closed-door session for more
-            intimate talks among senior representatives of member states.
-            The meeting wraps with a “looking ahead” panel.
-          </p>
-          <p>
-            Past attendees included Austria, Australia, Belgium, Denmark,
-            Finland, Germany and Norway. The nations represent a wide
-            variation in approaches and needs when it comes to CHMR,
-            participants said.
-          </p>
-          <p>
-            The U.K., for example, doesn’t have a formal framework for
-            civilian harm mitigation and response, and advocates have
-            spent years pushing the British Ministry of Defense to adopt
-            policies similar to those of the United States. Though
-            humanitarian groups generally regarded the American CHMR
-            enterprise as nascent and imperfect, the overall framework
-            provided a worthy standard, said Mae Thompson of the Ceasefire
-            Centre for Civilian Rights, a London-based advocacy group.
-          </p>
-          <p>
-            Advocates have framed the Pentagon’s rollback as an opportunity
-            for the U.K. to step into a leadership role, Thompson said, and
-            they’ve been encouraged by a recent internal report by the
-            defense ministry that calls for formalization of a program in
-            Britain, including systems to track civilian harm, investigate,
-            and make amends and offer post-harm response.
-          </p>
-          <p>
-            NATO boasts a civilian protection policy that predates the
-            American model, but the organization is now incorporating
-            elements of the U.S. approach, said Andrew Hyde, who studies
-            U.S.-European relations at the Stimson Center, a nonpartisan
-            foreign policy think tank.
-          </p>
-          <p>
-            Hyde said international talks are important for sorting out how
-            CHMR applies in joint operations when the United States, NATO
-            and European nations all have different interpretations of harm
-            mitigation. The diminished U.S. role, he said, means NATO and
-            other partners must step up on coordination.
-          </p>
-          <p>
-            The shift in leadership could end up shielding civilian
-            protection work from the whims of whichever U.S. administration
-            is in power and leading to more enduring reforms, Hyde said.
-          </p>
-          <p>
-            “NATO has continued to push forward without U.S. support or
-            participation, keeping up the momentum and ready for U.S.
-            re-engagement,” Hyde said.
-          </p>
-        </div>
-      </article>
-      <!-- ERIC TRUMP -->
-      <article class="record-card">
-        <p class="record-label">
-          POLITICS • SEPTEMBER 14, 2026
-        </p>
-        <h3>
-          Eric Trump and Use of U.S. Military Aircraft
-        </h3>
-        <p>
-          A social media record concerning claims about U.S. military
-          helicopters and Eric Trump during travel in Ireland.
-        </p>
-        <div class="media-placeholder">
-          <strong>
-            RELATED SOCIAL MEDIA RECORD
-          </strong>
-          <blockquote class="twitter-tweet">
-            <p lang="en" dir="ltr">
-              Oh cool….US military helicopters taking Eric Trump and his
-              kids on a joy ride over Ireland….don’t worry taxpayers paid
-              for it
-              <a href="https://t.co/67gKMNHpeQ">
-                https://t.co/67gKMNHpeQ
-              </a>
-            </p>
-            &mdash; Wu Tang is for the Children (@WUTangKids)
-            <a href="https://x.com/WUTangKids/status/2099317273185902831?ref_src=twsrc%5Etfw">
-              September 14, 2026
-            </a>
-          </blockquote>
-        </div>
-      </article>
-      <!-- TRUMP APPROVAL -->
-      <article class="record-card">
-        <p class="record-label">
-          POLITICS • SEPTEMBER 14, 2026
-        </p>
-        <h3>
-          President Trump Approval Rating
-        </h3>
-        <p>
-          A polling record documenting a reported presidential approval
-          rating.
-        </p>
-        <div class="media-placeholder">
-          <strong>
-            RELATED SOCIAL MEDIA RECORD
-          </strong>
-          <blockquote class="twitter-tweet">
-            <p lang="en" dir="ltr">
-              🇺🇸 President Trump approval rating
-              <br><br>
-              Approve: 39%
-              <br>
-              Disapprove: 61%
-              <br><br>
-              (CBS News)
-            </p>
-            &mdash; The Spectator Index (@spectatorindex)
-            <a href="https://x.com/spectatorindex/status/2099483303653130631?ref_src=twsrc%5Etfw">
-              September 14, 2026
-            </a>
-          </blockquote>
-        </div>
-      </article>
-      <!-- DEFAMATION -->
-      <article class="record-card">
-        <p class="record-label">
-          POLITICS • SEPTEMBER 13, 2026
-        </p>
-        <h3>
-          Defamation and Political Commentary
-        </h3>
-        <div class="media-placeholder">
-          <strong>
-            RELATED SOCIAL MEDIA RECORD
-          </strong>
-          <blockquote class="twitter-tweet">
-            <p lang="en" dir="ltr">
-              Kids, if you want to know what per se defamation looks like,
-              here you are.
-              <a href="https://t.co/IMWVuZY2en">
-                https://t.co/IMWVuZY2en
-              </a>
-            </p>
-            &mdash; S.V. Dáte (@svdate)
-            <a href="https://x.com/svdate/status/2098936182293832190?ref_src=twsrc%5Etfw">
-              September 13, 2026
-            </a>
-          </blockquote>
-        </div>
-      </article>
-      <!-- MEDIAN VOTER -->
-      <article class="record-card">
-        <p class="record-label">
-          POLITICS • SEPTEMBER 14, 2026
-        </p>
-        <h3>
-          Political Commentary and the Median Voter
-        </h3>
-        <div class="media-placeholder">
-          <strong>
-            RELATED SOCIAL MEDIA RECORD
-          </strong>
-          <blockquote class="twitter-tweet">
-            <p lang="en" dir="ltr">
-              Some days I have to remind myself that this is the median
-              voter.
-              <a href="https://t.co/Abc3CtrOaO">
-                https://t.co/Abc3CtrOaO
-              </a>
-            </p>
-            &mdash; Joe (@electionsjoe)
-            <a href="https://x.com/electionsjoe/status/2099334587646144996?ref_src=twsrc%5Etfw">
-              September 14, 2026
-            </a>
-          </blockquote>
-        </div>
-      </article>
-      <!-- IDF / GAZA -->
-      <article class="record-card">
-        <p class="record-label">
-          POLITICS • SEPTEMBER 14, 2026
-        </p>
-        <h3>
-          Israel-Gaza Conflict and Political Reaction
-        </h3>
-        <div class="media-placeholder">
-          <strong>
-            RELATED SOCIAL MEDIA RECORD
-          </strong>
-          <blockquote class="twitter-tweet">
-            <p lang="en" dir="ltr">
-              IDF soldiers lob grenades across apartheid wall
-              <a href="https://t.co/vKSXqHPeNO">
-                pic.twitter.com/vKSXqHPeNO
-              </a>
-            </p>
-            &mdash; The Gulag (@WelcomeTheGulag)
-            <a href="https://x.com/WelcomeTheGulag/status/2099296426002133039?ref_src=twsrc%5Etfw">
-              September 14, 2026
-            </a>
-          </blockquote>
-        </div>
-      </article>
-      <!-- SUPREME COURT -->
-      <article class="record-card">
-        <p class="record-label">
-          POLITICS • SEPTEMBER 14, 2026
-        </p>
-        <h3>
-          Supreme Court and the “Shadow Docket”
-        </h3>
-        <p>
-          A social media record concerning Supreme Court emergency
-          proceedings and their implications for federal policy.
-        </p>
-        <div class="media-placeholder">
-          <strong>
-            RELATED SOCIAL MEDIA RECORD
-          </strong>
-          <blockquote class="twitter-tweet">
-            <p lang="en" dir="ltr">
-              For likely the 1st time in modern history, the Supreme Court
-              decided more cases in fast-tracked, secretive proceedings
-              than in open court.
-              <br><br>
-              These “shadow docket” decisions have let the Trump admin.
-              bypass lower courts on ICE stops, abortion access &amp; more:
-              <a href="https://t.co/PvHuXbvPYP">
-                https://t.co/PvHuXbvPYP
-              </a>
-              <a href="https://t.co/jWWgkae6Ln">
-                pic.twitter.com/jWWgkae6Ln
-              </a>
-            </p>
-            &mdash; ProPublica (@propublica)
-            <a href="https://x.com/propublica/status/2099302110223581200?ref_src=twsrc%5Etfw">
-              September 14, 2026
-            </a>
-          </blockquote>
-        </div>
-      </article>
-      <!-- GAZA QUADCOPTERS -->
-      <article class="record-card">
-        <p class="record-label">
-          POLITICS • SEPTEMBER 13, 2026
-        </p>
-        <h3>
-          Gaza and Reports Concerning Surveillance of Civilians
-        </h3>
-        <div class="media-placeholder">
-          <strong>
-            RELATED SOCIAL MEDIA RECORD
-          </strong>
-          <blockquote class="twitter-tweet">
-            <p lang="en" dir="ltr">
-              🚨HORRIFIC : The terrifying reality of life in Gaza.
-              <br>
-              Israeli quadcopters hover over civilians in Gaza City’s
-              Tuffah neighborhood, near the Yellow Line, descending at
-              times to low altitudes to surveil and film civilians. They
-              can also open fire or detonate explosives without…
-              <a href="https://t.co/OkkAXd8aeK">
-                pic.twitter.com/OkkAXd8aeK
-              </a>
-            </p>
-            &mdash; Gaza Notifications (@gazanotice)
-            <a href="https://x.com/gazanotice/status/2099204350513967369?ref_src=twsrc%5Etfw">
-              September 13, 2026
-            </a>
-          </blockquote>
-        </div>
-      </article>
-      <!-- POLLING / ISRAEL -->
-      <article class="record-card">
-        <p class="record-label">
-          POLITICS • SEPTEMBER 13, 2026
-        </p>
-        <h3>
-          Public Opinion and U.S. Military Aid to Israel
-        </h3>
-        <div class="media-placeholder">
-          <strong>
-            RELATED SOCIAL MEDIA RECORD
-          </strong>
-          <blockquote class="twitter-tweet">
-            <p lang="en" dir="ltr">
-              Polling confirms it. Most Americans want military aid to the
-              Israeli apartheid state reduced or ended entirely.
-              <a href="https://t.co/pNeYClBr4Q">
-                pic.twitter.com/pNeYClBr4Q
-              </a>
-            </p>
-            &mdash; AIPAC Tracker (@TrackAIPAC)
-            <a href="https://x.com/TrackAIPAC/status/2099247288447328553?ref_src=twsrc%5Etfw">
-              September 13, 2026
-            </a>
-          </blockquote>
-        </div>
-      </article>
-      <!-- KENNEDY / WARN0CK -->
-      <article class="record-card">
-        <p class="record-label">
-          POLITICS • SEPTEMBER 13, 2026
-        </p>
-        <h3>
-          Robert F. Kennedy Jr. and Senate Questioning
-        </h3>
-        <div class="media-placeholder">
-          <strong>
-            RELATED SOCIAL MEDIA RECORD
-          </strong>
-          <blockquote class="twitter-tweet">
-            <p lang="en" dir="ltr">
-              🚨 BREAKING:
-              <br><br>
-              Warnock: "You compared the CDC’s work to Nazi death camps
-              and sexual abusers in the Catholic Church."
-              <br><br>
-              Robert F. Kennedy Jr.: "I never said that."
-              <br><br>
-              Warnock: "Actually, I have a transcript."
-              <a href="https://t.co/RfOijZdln5">
-                pic.twitter.com/RfOijZdln5
-              </a>
-            </p>
-            &mdash; GBC (@GBC_Press)
-            <a href="https://x.com/GBC_Press/status/2099199760104124807?ref_src=twsrc%5Etfw">
-              September 13, 2026
-            </a>
-          </blockquote>
-        </div>
-      </article>
-      <!-- PARDON BROKERS -->
-      <article class="record-card">
-        <p class="record-label">
-          POLITICS • SEPTEMBER 13–14, 2026
-        </p>
-        <h3>
-          Pardon Brokers and the Trump Clemency System
-        </h3>
-        <p>
-          A record concerning private pardon brokers, presidential
-          clemency, lobbying, and the process of seeking presidential
-          pardons during the Trump administration.
-        </p>
-        <div class="media-placeholder">
-          <strong>
-            RELATED SOCIAL MEDIA RECORD
-          </strong>
-          <blockquote class="twitter-tweet">
-            <p lang="en" dir="ltr">
-              “There’s nothing corrupt about it,” says pardon broker
-              Jacob Wohl.
-              <br><br>
-              “We don’t work for free,” adds his partner, Jack Burkman,
-              defending the hefty fees they charge pardon seekers.
-              <a href="https://t.co/4JXX4tPyYM">
-                https://t.co/4JXX4tPyYM
-              </a>
-              <a href="https://t.co/bzr21QbYyN">
-                pic.twitter.com/bzr21QbYyN
-              </a>
-            </p>
-            &mdash; 60 Minutes (@60Minutes)
-            <a href="https://x.com/60Minutes/status/2099292797605945637?ref_src=twsrc%5Etfw">
-              September 14, 2026
-            </a>
-          </blockquote>
-        </div>
-        <div class="article-content">
-          <h4>
-            Pardon brokers offer to "put pressure on the president" — at sky-high costs
-          </h4>
-          <p>
-            Gabe Kaminsky, Daniel Klaidman, Michael Kaplan<br>
-            Sep 13, 2026
-          </p>
-          <p>
-            It was mid-August at the bar inside the plush Ritz-Carlton
-            hotel in Tysons Corner, Virginia, just outside Washington, and
-            Jack Burkman and his business partner Jacob Wohl were making
-            their latest sales pitch. They were seated at a table with
-            Ammon Covino, a convicted felon, and his wife, Crystal.
-          </p>
-          <p>
-            "With this particular White House, you have to put pressure on
-            the president from all directions in a consistent way to force
-            his hand," Burkman explained. He and Wohl, lobbyists and
-            right-wing provocateurs, had become avatars of a lucrative new
-            cottage industry of brokers courting those seeking pardons
-            from President Trump.
-          </p>
-          <p>
-            Now, they were zeroing in on the man they hoped would be their
-            next client: Covino, an aquarium operator who served nearly two
-            years in federal prison for illegally transporting a shark and
-            a stingray across state lines.
-          </p>
-          <p>
-            Covino had already filled out and submitted a pardon
-            application form by mail to the Biden Justice Department. But
-            his request was rejected in July by Mr. Trump, one of thousands
-            of pardon-seekers denied clemency as part of the
-            administration's effort to clear its backlog of applicants.
-          </p>
-          <p>
-            Mr. Trump has employed a different approach to clemency over
-            the last 18 months. On his first day in office, he cleared more
-            than 1,500 people charged or convicted in relation to the Jan.
-            6, 2021, Capitol riot through pardons, commutations and
-            dropped prosecutions. Dozens of clemency grants for white-collar
-            criminals, often wealthy and well-connected, have followed.
-          </p>
-          <p>
-            Burkman and Wohl's pitch at the Ritz-Carlton meeting leaned
-            into what they described as a new path to a pardon. "It's more
-            energy and less process," Burkman said. "...And contacts."
-          </p>
-          <p>
-            But it would come with a price, they told Covino. For $300,000,
-            they predicted, they could secure him a pardon by as early as
-            October. What they didn't know was that Covino wasn't a real
-            prospective client. CBS News' 60 Minutes was investigating the
-            world of pardon brokers. To uncover exactly how this business
-            operated, CBS News asked Covino to approach the brokers — with
-            hidden cameras in tow.
-          </p>
-          <h4>
-            The coin of the realm
-          </h4>
-          <p>
-            The archetypical pardon recipient is a repentant mercy-seeker
-            who has paid his due to society. Presidents have long deviated
-            from that formula, and long courted controversy.
-          </p>
-          <p>
-            President Ford pardoned Richard Nixon. President Carter
-            pardoned Vietnam draft-dodgers. On his final day in office,
-            President Clinton pardoned Marc Rich, a fugitive financier
-            whose wife, Denise Rich, was a major donor to the Clinton
-            presidential library. In December 2024, President Biden faced
-            scrutiny for 11th-hour pardons of allies, donors and family,
-            including his son, Hunter Biden, who was convicted on firearms
-            charges and pleaded guilty to tax evasion in a separate case.
-            Biden also preemptively pardoned Anthony Fauci.
-          </p>
-          <p>
-            Yet there is near-unanimity among the federal prosecutors,
-            defense attorneys and other sources who discussed the clemency
-            process with CBS News: There has never been such a dizzying
-            pardon economy as there is in Washington right now — a Wild
-            West of clemency populated by MAGA-connected brokers and
-            influencers — where the old norms have been largely tossed
-            aside.
-          </p>
-          <p>
-            Previously, those seeking clemency typically went through the
-            Justice Department. More than two dozen DOJ lawyers weighed
-            factors that often included an applicant's remorse and evidence
-            of rehabilitation, and recommended worthy recipients to the
-            president. That process has been largely sidelined, according
-            to sources with direct knowledge of the clemency process.
-          </p>
-          <p>
-            About 70% of Mr. Trump's clemency actions in his second term
-            were not routed through the Justice Department (and that number
-            is 92% when including the Jan. 6 cases), according to a CBS
-            News analysis of Justice Department data.
-          </p>
-          <p>
-            Brokers seek out ways to influence Mr. Trump – through contacts
-            in the White House, by deploying MAGA influencers, or by
-            working with others close to the president. Access is the coin
-            of the realm, and on the promise of delivering that access,
-            brokers now charge fees that can reach as high as $3 million,
-            sources told CBS News.
-          </p>
-          <p>
-            "There's an industry that's built up around helping people get
-            access to this system that should be free, that should be
-            available to everybody," said Mark Osler, a law professor at
-            the University of St. Thomas in Minnesota. He runs a pro bono
-            clinic for people convicted of federal crimes to help them
-            apply to the Justice Department for clemency.
-          </p>
-          <p>
-            Part of this industry operates in full view: Lobbyists disclose
-            clemency clients and fees to Congress. That list has grown
-            steadily over Mr. Trump's first two years in office.
-          </p>
-          <p>
-            But how they work — what they promise to clemency-seekers, how
-            much they charge and how they navigate the process — is often
-            shrouded in secrecy. CBS News sought interviews with a number
-            of clemency brokers about their work, and they either declined
-            or did not respond to our requests.
-          </p>
-          <p>
-            Among those were several influential brokers with ties to the
-            president, including Brett Tolman, a former U.S. attorney in
-            Utah; Ches McDowell, a lawyer and registered lobbyist who is
-            close to Donald Trump Jr. and helped secure a pardon for
-            Changpeng Zhao — a cryptocurrency billionaire who was convicted
-            of violating U.S. anti-money laundering laws; Adam Katz, an
-            attorney who previously represented former New York City Mayor
-            Rudy Giuliani; and Stefan Passantino, a former Trump White
-            House official.
-          </p>
-          <h4>
-            "I just send my petitions directly to the White House"
-          </h4>
-          <p>
-            CBS News was with Covino when Tolman described the clemency
-            process to him in an August phone call. In the phone call,
-            Tolman explained he never sent clemency applications to the
-            Justice Department because "it's the fox watching the hen
-            house." Instead, he said, "I just send my petitions directly to
-            the White House."
-          </p>
-          <p>
-            By his own account, Tolman expects to work on roughly "40 or
-            50" clemency cases before Mr. Trump's second term is over, and
-            said he expects to be successful in more than two-thirds of the
-            cases. The application Covino submitted by himself — without a
-            lobbyist — never stood a chance, Tolman told him, because it
-            "never even got considered in the White House."
-          </p>
-          <p>
-            CBS News sent Tolman detailed questions about his discussion
-            with Covino. He did not respond.
-          </p>
-          <p>
-            In a statement to CBS News, White House spokesperson Lauren Bis
-            said that the Trump administration "has a robust pardon review
-            process" that includes White House counsel, the Justice
-            Department, Alice Marie Johnson — the White House "pardon czar"
-            who had her sentence commuted for life imprisonment over a drug
-            conviction by Mr. Trump in his first term — and "the president
-            himself as the final decider."
-          </p>
-          <p>
-            In a statement, White House Counsel Will Scharf said "President
-            Trump performs his constitutional duties in an ethically sound
-            manner and to suggest so otherwise is either ill-informed or
-            malicious."
-          </p>
-          <p>
-            Asked about pardon lobbying during Mr. Trump's second term,
-            Bis said that anyone "spending money to lobby for pardons is
-            foolishly wasting their money and the president doesn't even
-            know who these so-called 'lobbyists' are."
-          </p>
-          <p>
-            As Mr. Trump has embraced his presidential pardon power,
-            lobbyists with MAGA bona fides have rushed to sell their access
-            — or the appearance of it.
-          </p>
-          <p>
-            Burkman had been a fixture of the Washington lobbying scene for
-            decades and a regular guest on cable TV shows in the 1990s. In
-            2017, Wohl joined his firm, JM Burkman and Associates. Soon
-            after, the pair became known for stunts aimed at Democrats.
-          </p>
-          <p>
-            In 2018, they called a press conference alleging that Robert
-            Mueller, then the special counsel investigating Russian
-            interference in the presidential election, had sexually
-            assaulted a woman decades earlier. They offered no evidence,
-            and the alleged accuser never materialized.
-          </p>
-          <p>
-            In 2022, Burkman and Wohl pleaded guilty in Ohio to fraud after
-            orchestrating an illegal robocall scheme aimed at suppressing
-            the Black vote. They were sentenced to probation. In 2025, they
-            pleaded no contest in Michigan to charges of intimidating
-            voters and again received probation. They faced a more than $5
-            million fine from the Federal Communications Commission for
-            robocalls.
-          </p>
-          <p>
-            The two represented some clemency clients in Mr. Trump's first
-            term. They reentered the business at the start of his second.
-          </p>
-          <p>
-            Initially, Burkman and Wohl did not respond to CBS News
-            requests to discuss the pardon work. They agreed to be
-            interviewed later, after learning that their meeting with
-            Covino had been captured on camera.
-          </p>
-          <p>
-            Both rejected any suggestion that they are participants in a
-            new pay-to-play marketplace. They said they are merely helping
-            people navigate the complexities of the nation's capital —
-            lobbyists who are adhering to the law.
-          </p>
-          <p>
-            "We're proud of the work we do," Burkman said. "If people hire
-            advocates, of course they have an advantage. But that's a very
-            different question than saying something is pay-to-play."
-          </p>
-          <p>
-            As for the notion that they were sidestepping the longstanding
-            Justice Department process, Wohl said that the process is
-            entirely in the hands of whoever sits in the Oval Office.
-          </p>
-          <p>
-            "The president doesn't make decisions based on the judgment of
-            nameless, faceless bureaucrats. He never has," Wohl said.
-          </p>
-          <p>
-            CBS News reached out to a number of felons who had been denied
-            pardons by the Justice Department to ask if they could help
-            open a window into the pardon economy. Covino agreed.
-          </p>
-          <p>
-            In 2013, Covino was sentenced to a year in prison for illegal
-            trafficking of marine life, then violated the conditions of his
-            supervised release in 2016 and spent another 11 months in
-            prison, court records show.
-          </p>
-          <p>
-            Burkman and Wohl responded to Covino's initial email outreach
-            in seven minutes. They touted to Covino a success rate that
-            included "six victories" on behalf of pardon-seekers and said
-            they believed Covino's case was strong. They said Covino's
-            prosecution was clearly "Obama craziness," since he was
-            convicted in 2013.
-          </p>
-          <p>
-            One case they noted involved Joseph Schwartz, a nursing home
-            operator who pleaded guilty in federal court to failing to pay
-            more than $38 million in employment taxes withheld from his
-            workers and to failing to file a required financial report for
-            his employees' retirement plan. Schwartz also pleaded guilty in
-            Arkansas state court to attempting to evade taxes and Medicaid
-            fraud.
-          </p>
-          <p>
-            Schwartz received a pardon from Mr. Trump in November 2025,
-            three months into his three-year prison sentence. Just months
-            earlier, the lobbying firm JM Burkman and Associates disclosed
-            that it earned $960,000 from Schwartz, federal lobbying records
-            show.
-          </p>
-          <p>
-            The two men told CBS News the fee was justified because they
-            believed Schwartz had been wrongly convicted and was in poor
-            health.
-          </p>
-          <p>
-            "We saved his life," Burkman said.
-          </p>
-          <p>
-            A White House official said that Schwartz's case was "an
-            example of over prosecution" and that his sentence was
-            "exceptionally harmful to a 65-year-old man already in
-            deteriorating health."
-          </p>
-          <p>
-            Victims of Schwartz's collapsed-nursing home empire have a
-            different view. They said they were devastated by the pardon.
-          </p>
-          <p>
-            Melissa Coulson's family won a nearly $19 million
-            wrongful-death judgment against Schwartz but never collected a
-            dollar. Her mother, Doris Coulson, a retired cardiac nurse, was
-            found unresponsive in September 2016 by staff at a Little Rock,
-            Arkansas, nursing home — a facility Schwartz's company had
-            taken over five months earlier. She later died after being fed
-            her breakfast by mouth, despite orders that she be fed only by
-            tube.
-          </p>
-          <p>
-            Coulson said in an interview that it felt like the pardon
-            system betrayed her. "It's about how much you can pay for it,"
-            she said. "And if our system is getting like this, then it's
-            definitely broken."
-          </p>
-          <h4>
-            Putting Trump in "a pincer movement"
-          </h4>
-          <p>
-            During the meeting in August at the Ritz-Carlton, Burkman
-            described to Covino how he and Wohl enlist influencers and
-            presidential insiders to come at Mr. Trump from all directions,
-            so he becomes aware of their clients' stories.
-          </p>
-          <p>
-            "We put him in a pincer movement," Burkman said of the
-            president.
-          </p>
-          <p>
-            The brokers told Covino the effort to reach the president is
-            multi-layered and relentless.
-          </p>
-          <p>
-            "We literally want to put the pen in his hand and get him to
-            sign it because he's tired of hearing about it," Burkman said.
-          </p>
-          <p>
-            CBS News has learned that the White House has become sensitive
-            to the perception that the president is selling pardons. During
-            the meeting, the brokers advised Covino against making a
-            political contribution.
-          </p>
-          <p>
-            "People have to understand something about the president,"
-            Burkman said. "When it comes to these things [he's] not
-            transactional. He doesn't need the money; he doesn't need the
-            contributions."
-          </p>
-          <p>
-            How the brokers attempt to deploy influential people on their
-            behalf was detailed in text messages sent to another client,
-            Torence Hatch, a rapper known by the stage name Boosie Badazz.
-            A text from Wohl's number — which he has denied sending — said
-            the brokers would enlist people like MAGA influencer Laura
-            Loomer, House Speaker Mike Johnson, and conservative activist
-            Erika Kirk to "endorse" the pardon he sought after a federal
-            gun conviction.
-          </p>
-          <p>
-            Another text message promised that Wohl would see if Loomer
-            would ask Natalie Harp, a White House official known to be one
-            of Mr. Trump's most loyal aides, "to bring it in to POTUS."
-          </p>
-          <p>
-            Burkman and Wohl later said they not only did not send the text,
-            but had not even heard of Harp at the time the message was
-            sent. Lauren Bis, a White House spokesperson, said that Harp
-            "has never even interacted with Jack Burkman and Jacob Wohl."
-          </p>
-          <p>
-            Mr. Trump has not pardoned Hatch, who was sentenced in January
-            to three years of supervised release, 300 hours of community
-            service, and a $50,000 fine. Hatch has filed what appears to be
-            the first known arbitration claim against pardon lobbyists
-            during Mr. Trump's second term, seeking a refund from Burkman
-            and Wohl.
-          </p>
-          <p>
-            Hatch said in an interview that the lobbyists led him to believe
-            "that if you come with this money, you will get a pardon." He
-            said he paid $600,000 up front, under an agreement that half
-            would be returned if no pardon came. Burkman disputed the
-            claim, saying "the final agreement was never signed, so all
-            you're left with legally speaking is oral contract."
-          </p>
-          <p>
-            Loomer told CBS News that she does not get involved with
-            pardons and has never spoken to Burkman or Wohl about clemency.
-            "The only thing that I publicly said was that I felt that the
-            judge and his case was biased," Loomer added about the Schwartz
-            case, pointing to a social media post from her account in April
-            2025 that claimed Schwartz was a victim of a biased judge.
-          </p>
-          <p>
-            "I do know [Wohl] personally but I have made it very clear that
-            my name appears to be used for clout without my consent and I've
-            publicly said I think Boosie was scammed," Loomer said.
-          </p>
-          <p>
-            Spokespeople for Johnson and Turning Point USA, the group that
-            Kirk runs, said they did not endorse the pardon, either.
-          </p>
-          <p>
-            Burkman and Wohl maintained their dealings with Hatch were
-            above board.
-          </p>
-          <p>
-            "We don't owe him anything. ... We encourage him to drop the
-            suit. It's without merit." Burkman said. Hatch's arbitration
-            claim was first reported by the media outlet NOTUS, now called
-            The Washington Sun.
-          </p>
-          <h4>
-            A new approach to seeking clemency: Show no remorse
-          </h4>
-          <p>
-            Ed Martin, a Trump loyalist who served as the Justice
-            Department's pardon attorney from May 2025 until his departure
-            earlier this month, denied the existence of a transactional
-            pardon economy.
-          </p>
-          <p>
-            "When people say 'there's brokers, there's quid pro quo,' I've
-            never seen it. I haven't seen it. I haven't heard it," Martin
-            said in an interview with CBS News.
-          </p>
-          <p>
-            Martin said clemency decisions are within the sole purview of
-            the president. "It's his obligation to decide how to do mercy,"
-            he said. "And Donald Trump has over and over again, much more
-            than normal politicians, sought to give mercy."
-          </p>
-          <p>
-            Martin also rejected the idea that the system favors those who
-            can pay, citing Mr. Trump's acts of clemency for those who were
-            charged or convicted in connection to the Jan. 6, 2021, Capitol
-            riot.
-          </p>
-          <p>
-            "There are people all across the spectrum," he said, "whether
-            they're wealthy or poor."
-          </p>
-          <p>
-            Instead, Mr. Trump's overriding goal, Martin said, was mercy
-            for people who were allegedly the targets of political
-            prosecutions. When he took over the pardon office, Martin said,
-            the president told him that "the political weaponization
-            against citizens is out of hand" and directed him to find
-            "people that were targeted."
-          </p>
-          <p>
-            Clemency, a 250-year-old mainstay of the American criminal
-            justice system, is the most regal of powers bestowed on the
-            president by the founding fathers. Alexander Hamilton called it
-            a "benign prerogative," a constitutionally enshrined method of
-            allowing for mercy in a system of criminal laws that are
-            inherently inflexible.
-          </p>
-          <p>
-            Historically it was rooted in contrition: a petitioner admitted
-            the crime, showed remorse and demonstrated a changed life.
-            Under the new playbook, some applicants are encouraged to show
-            no remorse.
-          </p>
-          <p>
-            "There's a little bit of a different way that you do pardon
-            applications in cases like this," Wohl told Covino in August.
-            He added that taking responsibility for a crime is "not the way
-            you get these things approved."
-          </p>
-          <p>
-            Instead, Burkman and Wohl, as well as other pardon brokers, have
-            encouraged applicants to invoke Mr. Trump's own grievances
-            against the justice system.
-          </p>
-          <p>
-            "My client was persecuted by the weaponized Biden Justice
-            Department" has become common lingo for them, according to one
-            lawyer who works on clemency cases and spoke on the condition
-            of anonymity.
-          </p>
-          <p>
-            A number of pardon recipients have trumpeted their innocence.
-            Trevor Milton was convicted of lying to investors about his
-            electric truck company, Nikola. In a statement after his pardon,
-            Milton thanked Mr. Trump for granting him "this sacred pardon
-            of innocence."
-          </p>
-          <p>
-            Juan Orlando Hernández, the former Honduras president who was
-            convicted for conspiring to import 400 tons of cocaine and
-            firearms offenses, claimed after Mr. Trump pardoned him last
-            year that he was "set up by the Biden Harris administration and
-            the deep state."
-          </p>
-          <p>
-            "It shows you how far we've strayed from the days when we
-            centered acceptance and responsibility, a sense of remorse
-            over the harm done by the crime," Osler said. "We're to the
-            point now where pardons are followed by the taunting of the
-            prosecutor."
-          </p>
-          <p>
-            Covino said he agreed to reach out to brokers with cameras
-            rolling because he wanted to "expose unfairness." But he
-            conceded that the system is probably all but inescapable.
-          </p>
-          <p>
-            "I don't like the fact that you have to pay such a huge amount
-            of money because of who you know," he said. "But if that's how
-            the game's played, then that's how the game's played."
-          </p>
-          <p>
-            CBS News investigative data reporter Steve Reilly, 60 Minutes
-            Producer Shachar Bar-On, 60 Minutes Associate Producer Jinsol
-            Jung, and Associate Investigative Producer Callie Teitelbaum
-            contributed to this report.
-          </p>
-        </div>
-      </article>
-      <!-- TRUMP / AI -->
-      <article class="record-card">
-        <p class="record-label">
-          POLITICS • SEPTEMBER 14, 2026
-        </p>
-        <h3>
-          Trump, Artificial Intelligence, and the Global AI Race
-        </h3>
-        <div class="media-placeholder">
-          <strong>
-            RELATED SOCIAL MEDIA RECORD
-          </strong>
-          <blockquote class="twitter-tweet">
-            <p lang="en" dir="ltr">
-              "Whoever wins AI wins."
-              <br><br>
-              President Trump is sounding the alarm about a global AI race
-              as some of the biggest names in tech warn the systems they're
-              building could advance faster than humans can safely control
-              them.
-              <br><br>
-              OpenAI CEO Sam Altman is calling for international
-              coordination…
-              <a href="https://t.co/lJsVL63oMo">
-                pic.twitter.com/lJsVL63oMo
-              </a>
-            </p>
-            &mdash; Fox News (@FoxNews)
-            <a href="https://x.com/FoxNews/status/2099456772381556996?ref_src=twsrc%5Etfw">
-              September 14, 2026
-            </a>
-          </blockquote>
-        </div>
-      </article>
-      <!-- MIKE JOHNSON / AI -->
-      <article class="record-card">
-        <p class="record-label">
-          POLITICS • SEPTEMBER 13, 2026
-        </p>
-        <h3>
-          Congress and Artificial Intelligence Guardrails
-        </h3>
-        <div class="media-placeholder">
-          <strong>
-            RELATED SOCIAL MEDIA RECORD
-          </strong>
-          <blockquote class="twitter-tweet">
-            <p lang="en" dir="ltr">
-              Congress has been studying the AI issue since I set up a
-              bipartisan task force to do so soon after I was elected
-              Speaker. We all have a sense of urgency to create guardrails
-              around the technology.
-              <br><br>
-              The key is designing the guardrails carefully, in a way that
-              prevents any harm…
-              <a href="https://t.co/nTJtjSr6R9">
-                pic.twitter.com/nTJtjSr6R9
-              </a>
-            </p>
-            &mdash; Speaker Mike Johnson (@SpeakerJohnson)
-            <a href="https://x.com/SpeakerJohnson/status/2099284105003257875?ref_src=twsrc%5Etfw">
-              September 13, 2026
-            </a>
-          </blockquote>
-        </div>
-      </article>
-      <!-- LIBERTARIANS AGAINST TRUMP -->
-      <article class="record-card">
-        <p class="record-label">
-          POLITICS • SEPTEMBER 14, 2026
-        </p>
-        <h3>
-          Political Commentary Concerning the Trump Administration
-        </h3>
-        <div class="media-placeholder">
-          <strong>
-            RELATED SOCIAL MEDIA RECORD
-          </strong>
-          <blockquote class="twitter-tweet">
-            <p lang="zxx" dir="ltr">
-              <a href="https://t.co/VZZFwEXwaz">
-                https://t.co/VZZFwEXwaz
-              </a>
-              <a href="https://t.co/EMBu3CvvU2">
-                pic.twitter.com/EMBu3CvvU2
-              </a>
-            </p>
-            &mdash; Libertarians against Trump (@libertariansag)
-            <a href="https://x.com/libertariansag/status/2099489512803983814?ref_src=twsrc%5Etfw">
-              September 14, 2026
-            </a>
-          </blockquote>
-        </div>
-      </article>
-      <!-- TRUMP CAMPAIGN STATEMENT -->
-      <article class="record-card">
-        <p class="record-label">
-          POLITICS • SEPTEMBER 13, 2026
-        </p>
-        <h3>
-          President Trump on Democrats and the Economy
-        </h3>
-        <div class="media-placeholder">
-          <strong>
-            RELATED SOCIAL MEDIA RECORD
-          </strong>
-          <blockquote class="twitter-tweet">
-            <p lang="en" dir="ltr">
-              .<a href="https://x.com/POTUS?ref_src=twsrc%5Etfw">
-                @POTUS
-              </a>:
-              "If the Democrats get in, our country will be in shambles
-              and they won't be able to do it... If the Democrats get in,
-              they won't be able to pay it. With me, I've always made
-              money — now I make a lot of money for the country."
-              <a href="https://t.co/6HxK7o5nYJ">
-                https://t.co/6HxK7o5nYJ
-              </a>
-              <a href="https://t.co/8DVNy3iym7">
-                pic.twitter.com/8DVNy3iym7
-              </a>
-            </p>
-            &mdash; Rapid Response 47 (@RapidResponse47)
-            <a href="https://x.com/RapidResponse47/status/2099215693040300092?ref_src=twsrc%5Etfw">
-              September 13, 2026
-            </a>
-          </blockquote>
-        </div>
-      </article>
-      <!-- NORTH KOREA COMMENTARY -->
-      <article class="record-card">
-        <p class="record-label">
-          POLITICS • SEPTEMBER 13, 2026
-        </p>
-        <h3>
-          Political Propaganda Commentary
-        </h3>
-        <div class="media-placeholder">
-          <strong>
-            RELATED SOCIAL MEDIA RECORD
-          </strong>
-          <blockquote class="twitter-tweet">
-            <p lang="en" dir="ltr">
-              This is North Korea-level propaganda shit.
-              <a href="https://t.co/9oz9WiiQ8x">
-                pic.twitter.com/9oz9WiiQ8x
-              </a>
-            </p>
-            &mdash; Jamie Bonkiewicz (@JamieBonkiewicz)
-            <a href="https://x.com/JamieBonkiewicz/status/2099120833125810495?ref_src=twsrc%5Etfw">
-              September 13, 2026
-            </a>
-          </blockquote>
-        </div>
-      </article>
-      <!-- STRAIT OF HORMUZ -->
-      <article class="record-card">
-        <p class="record-label">
-          POLITICS • SEPTEMBER 13, 2026
-        </p>
-        <h3>
-          U.S. Role in Strait of Hormuz Talks
-        </h3>
-        <div class="media-placeholder">
-          <strong>
-            RELATED SOCIAL MEDIA RECORD
-          </strong>
-          <blockquote class="twitter-tweet">
-            <p lang="en" dir="ltr">
-              BREAKING: The United States is being cut out of talks over
-              the Strait of Hormuz.
-              <br><br>
-              Gulf diplomats and Iranian officials will meet Monday in
-              Muscat to negotiate a framework for reopening the world's
-              most critical oil chokepoint — while Washington will be
-              completely absent from the…
-            </p>
-            &mdash; The Hormuz Report (@HormuzReport)
-            <a href="https://x.com/HormuzReport/status/2099181699297149349?ref_src=twsrc%5Etfw">
-              September 13, 2026
-            </a>
-          </blockquote>
-        </div>
-      </article>
-      <!-- TRUMP / CHINA -->
-      <article class="record-card">
-        <p class="record-label">
-          POLITICS • SEPTEMBER 13, 2026
-        </p>
-        <h3>
-          President Trump and U.S.-China Relations
-        </h3>
-        <div class="media-placeholder">
-          <strong>
-            RELATED SOCIAL MEDIA RECORD
-          </strong>
-          <blockquote class="twitter-tweet">
-            <p lang="en" dir="ltr">
-              President Trump reluctant to criticize to China
-              <br><br>
-              Reporter: We recently reported that Chinese entities may have
-              provided Iranians with satellite imagery of the air bases in
-              Jordan.
-              <br><br>
-              Trump: They basically do what we do.
-              <br><br>
-              Reporter: Are you going to raise that with Xi when he…
-              <a href="https://t.co/4CkZ60Sawq">
-                pic.twitter.com/4CkZ60Sawq
-              </a>
-            </p>
-            &mdash; Acyn (@Acyn)
-            <a href="https://x.com/Acyn/status/2099282270200922293?ref_src=twsrc%5Etfw">
-              September 13, 2026
-            </a>
-          </blockquote>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
+
+      </div>
+
+    </section>
+
   </main>
+
+
+  <!-- =========================================
+       FOOTER
+       ========================================= -->
+
   <footer class="site-footer">
-<div class="container">
-  <p>
-    THE HISTORICAL RECORD
-  </p>
-  <p>
-    A living archive of the moments that matter.
-  </p>
-</div>
+
+    <div class="container">
+
+      <p>
+        THE HISTORICAL RECORD
+      </p>
+
+      <p>
+        A living archive of the moments that matter.
+      </p>
+
+    </div>
+
   </footer>
-<!-- LAZY-LOAD RECORD SYSTEM -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
 
-  const cards = document.querySelectorAll(".record-card");
-  let xWidgetLoaded = false;
-  let xWidgetLoading = false;
 
-  function loadXWidget() {
-    if (xWidgetLoaded || xWidgetLoading) return;
+  <!-- =========================================
+       CATEGORY DROPDOWN SYSTEM
+       ========================================= -->
 
-    xWidgetLoading = true;
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
 
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = "https://platform.x.com/widgets.js";
-    script.charset = "utf-8";
+      const categoryToggles =
+        document.querySelectorAll(
+          ".politics-category-toggle"
+        );
 
-    script.onload = function () {
-      xWidgetLoaded = true;
-      xWidgetLoading = false;
+      categoryToggles.forEach(function (toggle) {
 
-      if (window.twttr && window.twttr.widgets) {
-        window.twttr.widgets.load();
-      }
-    };
+        toggle.addEventListener("click", function () {
 
-    document.body.appendChild(script);
-  }
+          const category =
+            toggle.closest(".politics-category");
 
-  cards.forEach(function (card) {
+          if (!category) {
+            return;
+          }
 
-    const media = card.querySelector(".media-placeholder");
-    const article = card.querySelector(".article-content");
+          const isOpen =
+            category.classList.toggle("is-open");
 
-    /*
-      If the record has no expandable content,
-      leave it alone.
-    */
-    if (!media && !article) {
-      return;
-    }
+          toggle.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+          );
 
-    card.classList.add("is-collapsible");
-
-    /*
-      Create one container for everything
-      that should be revealed when opened.
-    */
-    const collapsible = document.createElement("div");
-    collapsible.className = "collapsible-content";
-
-    if (media) {
-      collapsible.appendChild(media);
-    }
-
-    if (article) {
-      collapsible.appendChild(article);
-    }
-
-    card.appendChild(collapsible);
-
-    /*
-      Create the single expand button.
-    */
-    const button = document.createElement("button");
-
-    button.type = "button";
-    button.className = "record-expand-button";
-    button.setAttribute("aria-expanded", "false");
-
-    button.innerHTML =
-      '<span class="button-text">Read Full Record</span>' +
-      '<span class="arrow">▼</span>';
-
-    /*
-      Put the button immediately before
-      the hidden content.
-    */
-    card.insertBefore(button, collapsible);
-
-    /*
-      Create the collapse button.
-    */
-    const hideButton = document.createElement("button");
-
-    hideButton.type = "button";
-    hideButton.className =
-      "record-expand-button hide-button";
-
-    hideButton.innerHTML =
-      '<span class="button-text">Hide Record</span>' +
-      '<span class="arrow">▲</span>';
-
-    collapsible.appendChild(hideButton);
-
-    /*
-      Expand / collapse behavior.
-    */
-    button.addEventListener("click", function () {
-
-      const isOpen = card.classList.toggle("is-open");
-
-      button.setAttribute(
-        "aria-expanded",
-        isOpen ? "true" : "false"
-      );
-
-      button.querySelector(".button-text").textContent =
-        isOpen ? "Hide Record" : "Read Full Record";
-
-      /*
-        Load the X widget ONLY when someone
-        actually opens a record.
-      */
-      if (isOpen && media) {
-        loadXWidget();
-      }
-
-      if (isOpen) {
-        card.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest"
         });
-      }
-    });
 
-    /*
-      Hide button closes the record.
-    */
-    hideButton.addEventListener("click", function () {
-
-      card.classList.remove("is-open");
-
-      button.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      button.querySelector(".button-text").textContent =
-        "Read Full Record";
-
-      card.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest"
       });
+
     });
+  </script>
 
-  });
 
-});
-</script>
+  <!-- =========================================
+       LAZY-LOAD RECORD SYSTEM
+       ========================================= -->
 
-<script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const cards =
+        document.querySelectorAll(".record-card");
+
+      let xWidgetLoaded = false;
+      let xWidgetLoading = false;
+
+
+      function loadXWidget() {
+
+        if (
+          xWidgetLoaded ||
+          xWidgetLoading
+        ) {
+          return;
+        }
+
+        xWidgetLoading = true;
+
+        const script =
+          document.createElement("script");
+
+        script.async = true;
+        script.src =
+          "https://platform.x.com/widgets.js";
+        script.charset = "utf-8";
+
+
+        script.onload = function () {
+
+          xWidgetLoaded = true;
+          xWidgetLoading = false;
+
+          if (
+            window.twttr &&
+            window.twttr.widgets
+          ) {
+
+            window.twttr.widgets.load();
+
+          }
+
+        };
+
+
+        script.onerror = function () {
+
+          xWidgetLoading = false;
+
+        };
+
+
+        document.body.appendChild(script);
+
+      }
+
+
+      cards.forEach(function (card) {
+
+        const media =
+          card.querySelector(
+            ".media-placeholder"
+          );
+
+        const article =
+          card.querySelector(
+            ".article-content"
+          );
+
+
+        /*
+          If the record has no expandable
+          content, leave it alone.
+        */
+
+        if (!media && !article) {
+          return;
+        }
+
+
+        card.classList.add(
+          "is-collapsible"
+        );
+
+
+        /*
+          Create one container for everything
+          that should be revealed when opened.
+        */
+
+        const collapsible =
+          document.createElement("div");
+
+        collapsible.className =
+          "collapsible-content";
+
+
+        if (media) {
+          collapsible.appendChild(media);
+        }
+
+
+        if (article) {
+          collapsible.appendChild(article);
+        }
+
+
+        card.appendChild(collapsible);
+
+
+        /*
+          Create the single expand button.
+        */
+
+        const button =
+          document.createElement("button");
+
+        button.type = "button";
+
+        button.className =
+          "record-expand-button";
+
+        button.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+
+        button.innerHTML =
+          '<span class="button-text">' +
+          'Read Full Record' +
+          '</span>' +
+          '<span class="arrow">▼</span>';
+
+
+        /*
+          Put the button immediately before
+          the hidden content.
+        */
+
+        card.insertBefore(
+          button,
+          collapsible
+        );
+
+
+        /*
+          Create the collapse button.
+        */
+
+        const hideButton =
+          document.createElement("button");
+
+        hideButton.type = "button";
+
+        hideButton.className =
+          "record-expand-button hide-button";
+
+
+        hideButton.innerHTML =
+          '<span class="button-text">' +
+          'Hide Record' +
+          '</span>' +
+          '<span class="arrow">▲</span>';
+
+
+        collapsible.appendChild(
+          hideButton
+        );
+
+
+        /*
+          Expand / collapse behavior.
+        */
+
+        button.addEventListener(
+          "click",
+          function () {
+
+            const isOpen =
+              card.classList.toggle(
+                "is-open"
+              );
+
+
+            button.setAttribute(
+              "aria-expanded",
+              isOpen
+                ? "true"
+                : "false"
+            );
+
+
+            button.querySelector(
+              ".button-text"
+            ).textContent =
+              isOpen
+                ? "Hide Record"
+                : "Read Full Record";
+
+
+            /*
+              Load the X widget ONLY when
+              someone actually opens a record.
+            */
+
+            if (
+              isOpen &&
+              media
+            ) {
+
+              loadXWidget();
+
+            }
+
+
+            if (isOpen) {
+
+              card.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest"
+              });
+
+            }
+
+          }
+        );
+
+
+        /*
+          Hide button closes the record.
+        */
+
+        hideButton.addEventListener(
+          "click",
+          function () {
+
+            card.classList.remove(
+              "is-open"
+            );
+
+
+            button.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+
+            button.querySelector(
+              ".button-text"
+            ).textContent =
+              "Read Full Record";
+
+
+            card.scrollIntoView({
+              behavior: "smooth",
+              block: "nearest"
+            });
+
+          }
+        );
+
+      });
+
+    });
+  </script>
+
+
+  <script src="script.js"></script>
+
 </body>
 </html>
