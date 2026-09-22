@@ -258,6 +258,7 @@
       border-left: 5px solid var(--red);
       box-shadow: var(--shadow);
       overflow: hidden;
+      min-width: 0;
     }
 
     .video-player {
@@ -332,16 +333,293 @@
       font-family: Georgia, "Times New Roman", serif;
       font-size: 1.35rem;
       line-height: 1.25;
+      overflow-wrap: anywhere;
     }
 
     .video-uploader {
       margin: 9px 0 0;
       color: var(--muted);
       font-size: 0.84rem;
+      overflow-wrap: anywhere;
     }
 
     /* =========================================
-       ARCHIVE CARDS
+       ARCHIVE DROPDOWNS
+       ========================================= */
+
+    .archive-dropdown {
+      margin-bottom: 28px;
+    }
+
+    .archive-dropdown-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+
+      padding: 26px 30px;
+
+      background: var(--white);
+      color: var(--blue);
+
+      border: 1px solid var(--light-blue);
+      border-left: 5px solid var(--red);
+
+      box-shadow: var(--shadow);
+
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      font-weight: bold;
+
+      text-align: left;
+      cursor: pointer;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .archive-dropdown-toggle:hover {
+      background: #f1f3f8;
+      border-color: var(--red);
+      transform: translateY(-2px);
+    }
+
+    .archive-dropdown-toggle:focus {
+      outline: 3px solid rgba(178, 34, 52, 0.35);
+      outline-offset: 3px;
+    }
+
+    .archive-dropdown-title {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .archive-dropdown-arrow {
+      flex: 0 0 auto;
+      color: var(--red);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+      transition: transform 0.25s ease;
+    }
+
+    .archive-dropdown.open .archive-dropdown-arrow {
+      transform: rotate(180deg);
+    }
+
+    .archive-dropdown-content {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+
+      transition:
+        max-height 0.45s ease,
+        opacity 0.3s ease;
+    }
+
+    .archive-dropdown.open .archive-dropdown-content {
+      max-height: 2000px;
+      opacity: 1;
+    }
+
+    .archive-entry {
+      margin-top: 18px;
+      padding: 28px;
+
+      background: var(--white);
+      border: 1px solid var(--light-blue);
+      border-left: 5px solid var(--red);
+      box-shadow: var(--shadow);
+
+      min-width: 0;
+    }
+
+    .archive-entry-label {
+      margin: 0 0 12px;
+      color: var(--red);
+      font-size: 0.74rem;
+      font-weight: bold;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .archive-entry p {
+      margin: 0;
+      color: var(--muted);
+      overflow-wrap: anywhere;
+    }
+
+    .archive-entry a {
+      color: var(--red);
+      font-weight: bold;
+      overflow-wrap: anywhere;
+    }
+
+    .archive-player {
+      width: 100%;
+      margin-top: 22px;
+    }
+
+    .archive-player-shell {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      background: #111;
+      overflow: hidden;
+    }
+
+    .archive-player-shell.ratio-640-580 {
+      aspect-ratio: 640 / 580;
+    }
+
+    .archive-player-shell.ratio-500-300 {
+      aspect-ratio: 500 / 300;
+    }
+
+    .archive-player-shell iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .archive-load-button {
+      position: absolute;
+      inset: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+      height: 100%;
+
+      padding: 24px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(11, 31, 77, 0.96),
+          rgba(22, 59, 120, 0.96)
+        );
+
+      color: var(--white);
+
+      border: 0;
+      cursor: pointer;
+
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.15rem, 3vw, 1.6rem);
+      font-weight: bold;
+      text-align: center;
+
+      transition: background 0.2s ease;
+    }
+
+    .archive-load-button:hover {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(22, 59, 120, 0.98),
+          rgba(178, 34, 52, 0.96)
+        );
+    }
+
+    .archive-load-button:focus {
+      outline: 3px solid rgba(255, 255, 255, 0.8);
+      outline-offset: -7px;
+    }
+
+    .archive-load-button span {
+      display: block;
+      max-width: 600px;
+    }
+
+    .archive-load-button span::after {
+      content: " →";
+      color: var(--white);
+    }
+
+    /* =========================================
+       ARCHIVE LINK CARD
+       ========================================= */
+
+    .archive-link-card {
+      position: relative;
+      display: block;
+
+      margin-top: 18px;
+      padding: 28px;
+
+      background: var(--white);
+      border: 1px solid var(--light-blue);
+      border-left: 5px solid var(--red);
+      box-shadow: var(--shadow);
+
+      text-decoration: none;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .archive-link-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--red);
+    }
+
+    .archive-link-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--red);
+      box-shadow: 0 12px 30px rgba(11, 31, 77, 0.17);
+    }
+
+    .archive-link-card:focus {
+      outline: 3px solid rgba(178, 34, 52, 0.35);
+      outline-offset: 3px;
+    }
+
+    .archive-link-label {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--red);
+      font-size: 0.74rem;
+      font-weight: bold;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .archive-link-card h3 {
+      margin: 0 0 12px;
+      color: var(--blue);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      line-height: 1.2;
+    }
+
+    .archive-link-card p {
+      margin: 0;
+      color: var(--muted);
+      overflow-wrap: anywhere;
+    }
+
+    .archive-link-arrow {
+      display: inline-block;
+      margin-top: 18px;
+      color: var(--red);
+      font-weight: bold;
+    }
+
+    /* =========================================
+       TOPIC CARDS
        ========================================= */
 
     .topic-card {
@@ -432,6 +710,8 @@
       border: 1px solid var(--light-blue);
       border-left: 5px solid var(--red);
       box-shadow: var(--shadow);
+
+      overflow-wrap: anywhere;
     }
 
     .article-card::before {
@@ -869,6 +1149,18 @@
         font-size: 0.68rem;
       }
 
+      .archive-dropdown-toggle {
+        padding: 21px 20px;
+      }
+
+      .archive-entry {
+        padding: 20px;
+      }
+
+      .archive-load-button {
+        padding: 18px;
+      }
+
       .topic-card {
         padding: 24px;
         min-height: 0;
@@ -921,6 +1213,7 @@
         width: 46px;
         height: 46px;
       }
+
     }
 
     /* =========================================
@@ -1049,12 +1342,15 @@
       <a href="thoughts.html">
         Thoughts / Blog
       </a>
+
       <a href="tv-anime.html">
-  TV / Anime
-</a>
-  <a href="yugioh-card-game-history.html">
-    Yu-Gi-Oh! Card Game History
-  </a>
+        TV / Anime
+      </a>
+
+      <a href="yugioh-card-game-history.html">
+        Yu-Gi-Oh! Card Game History
+      </a>
+
     </nav>
 
   </aside>
@@ -1204,6 +1500,607 @@
           </span>
 
         </a>
+
+
+        <!-- =========================================
+             ARCHIVE.ORG COLLECTIONS
+             ALL PLAYERS LOAD ONLY WHEN OPENED
+             ========================================= -->
+
+        <div class="archive-dropdown">
+
+          <button
+            class="archive-dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="vipurs-archive-content"
+          >
+
+            <span class="archive-dropdown-title">
+              Memes
+            </span>
+
+            <span class="archive-dropdown-arrow">
+              ▾
+            </span>
+
+          </button>
+
+
+          <div
+            class="archive-dropdown-content"
+            id="vipurs-archive-content"
+          >
+
+            <div class="archive-entry">
+
+              <p class="archive-entry-label">
+                MEMES
+              </p>
+
+              <p>
+                Archive of
+                <a
+                  href="https://www.youtube.com/user/Andresuperman11"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  vipurs
+                </a>
+                ' dank meme compilation videos on YouTube.
+              </p>
+
+              <div class="archive-player">
+
+                <div
+                  class="archive-player-shell ratio-640-580"
+                  data-archive-src="https://archive.org/embed/VipursDankMemeVideos?playlist=1&amp;autoplay=1"
+                  data-archive-width="640"
+                  data-archive-height="580"
+                >
+
+                  <button
+                    class="archive-load-button"
+                    type="button"
+                    aria-label="Load Memes archive player"
+                  >
+                    <span>
+                      Load Archive Player
+                    </span>
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="archive-dropdown">
+
+          <button
+            class="archive-dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="myspace-archive-content"
+          >
+
+            <span class="archive-dropdown-title">
+              The Myspace Archive Project
+            </span>
+
+            <span class="archive-dropdown-arrow">
+              ▾
+            </span>
+
+          </button>
+
+
+          <div
+            class="archive-dropdown-content"
+            id="myspace-archive-content"
+          >
+
+            <div class="archive-entry">
+
+              <p class="archive-entry-label">
+                MUSIC ARCHIVE
+              </p>
+
+              <p>
+                This is a collection of music from unsigned artists
+                who utilized Myspace and/or Pure Volume as their main
+                platform. A majority of the music found here is Metal,
+                Emo, Punk or Alternative.
+              </p>
+
+              <a
+                class="archive-link-card"
+                href="https://archive.org/details/myspace-Music"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+
+                <span class="archive-link-label">
+                  INTERNET ARCHIVE
+                </span>
+
+                <h3>
+                  The Myspace Archive Project
+                </h3>
+
+                <p>
+                  View the preserved collection on the Internet Archive.
+                </p>
+
+                <span class="archive-link-arrow">
+                  View Archive →
+                </span>
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="archive-dropdown">
+
+          <button
+            class="archive-dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="wii-soundtrack-content"
+          >
+
+            <span class="archive-dropdown-title">
+              Wii System Soundtrack
+            </span>
+
+            <span class="archive-dropdown-arrow">
+              ▾
+            </span>
+
+          </button>
+
+
+          <div
+            class="archive-dropdown-content"
+            id="wii-soundtrack-content"
+          >
+
+            <div class="archive-entry">
+
+              <p class="archive-entry-label">
+                MUSIC / VIDEO GAME HISTORY
+              </p>
+
+              <p>
+                Wii System Soundtrack
+              </p>
+
+              <div class="archive-player">
+
+                <div
+                  class="archive-player-shell ratio-500-300"
+                  data-archive-src="https://archive.org/embed/wii-system-soundtrack-flac?playlist=1&amp;autoplay=1"
+                  data-archive-width="500"
+                  data-archive-height="300"
+                >
+
+                  <button
+                    class="archive-load-button"
+                    type="button"
+                    aria-label="Load Wii System Soundtrack archive player"
+                  >
+                    <span>
+                      Load Archive Player
+                    </span>
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="archive-dropdown">
+
+          <button
+            class="archive-dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="cowards-crack-content"
+          >
+
+            <span class="archive-dropdown-title">
+              You'll Cowards Don't Even Smoke Crack
+            </span>
+
+            <span class="archive-dropdown-arrow">
+              ▾
+            </span>
+
+          </button>
+
+
+          <div
+            class="archive-dropdown-content"
+            id="cowards-crack-content"
+          >
+
+            <div class="archive-entry">
+
+              <p class="archive-entry-label">
+                INTERNET CULTURE
+              </p>
+
+              <p>
+                You'll Cowards Don't Even Smoke Crack
+              </p>
+
+              <div class="archive-player">
+
+                <div
+                  class="archive-player-shell ratio-500-300"
+                  data-archive-src="https://archive.org/embed/youll-cowards-dont-even-smoke-crack-pdgbg8?playlist=1&amp;autoplay=1"
+                  data-archive-width="500"
+                  data-archive-height="300"
+                >
+
+                  <button
+                    class="archive-load-button"
+                    type="button"
+                    aria-label="Load You'll Cowards Don't Even Smoke Crack archive player"
+                  >
+                    <span>
+                      Load Archive Player
+                    </span>
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="archive-dropdown">
+
+          <button
+            class="archive-dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="lil-peep-hellboy-content"
+          >
+
+            <span class="archive-dropdown-title">
+              Lil Peep — Hellboy
+            </span>
+
+            <span class="archive-dropdown-arrow">
+              ▾
+            </span>
+
+          </button>
+
+
+          <div
+            class="archive-dropdown-content"
+            id="lil-peep-hellboy-content"
+          >
+
+            <div class="archive-entry">
+
+              <p class="archive-entry-label">
+                MUSIC ARCHIVE
+              </p>
+
+              <p>
+                Lil Peep — Hellboy
+              </p>
+
+              <div class="archive-player">
+
+                <div
+                  class="archive-player-shell ratio-500-300"
+                  data-archive-src="https://archive.org/embed/lil-peep-hellboy?playlist=1&amp;autoplay=1"
+                  data-archive-width="500"
+                  data-archive-height="300"
+                >
+
+                  <button
+                    class="archive-load-button"
+                    type="button"
+                    aria-label="Load Lil Peep Hellboy archive player"
+                  >
+                    <span>
+                      Load Archive Player
+                    </span>
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+                <div class="archive-dropdown">
+
+          <button
+            class="archive-dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="lil-peep-crybaby-content"
+          >
+
+            <span class="archive-dropdown-title">
+              Lil Peep — Crybaby
+            </span>
+
+            <span class="archive-dropdown-arrow">
+              ▾
+            </span>
+
+          </button>
+
+
+          <div
+            class="archive-dropdown-content"
+            id="lil-peep-crybaby-content"
+          >
+
+            <div class="archive-entry">
+
+              <p class="archive-entry-label">
+                MUSIC ARCHIVE
+              </p>
+
+              <p>
+                Lil Peep — Crybaby
+              </p>
+
+              <div class="archive-player">
+
+                <div
+                  class="archive-player-shell ratio-500-300"
+                  data-archive-src="https://archive.org/embed/lil-peep-crybaby_202503?playlist=1&amp;autoplay=1"
+                  data-archive-width="500"
+                  data-archive-height="300"
+                >
+
+                  <button
+                    class="archive-load-button"
+                    type="button"
+                    aria-label="Load Lil Peep Crybaby archive player"
+                  >
+                    <span>
+                      Load Archive Player
+                    </span>
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="archive-dropdown">
+
+          <button
+            class="archive-dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="lil-peep-part-one-content"
+          >
+
+            <span class="archive-dropdown-title">
+              Lil Peep — Lil Peep Part One
+            </span>
+
+            <span class="archive-dropdown-arrow">
+              ▾
+            </span>
+
+          </button>
+
+
+          <div
+            class="archive-dropdown-content"
+            id="lil-peep-part-one-content"
+          >
+
+            <div class="archive-entry">
+
+              <p class="archive-entry-label">
+                MUSIC ARCHIVE
+              </p>
+
+              <p>
+                Lil Peep — Lil Peep Part One
+              </p>
+
+              <div class="archive-player">
+
+                <div
+                  class="archive-player-shell ratio-500-300"
+                  data-archive-src="https://archive.org/embed/lil-peep-lil-peep-part-one?playlist=1&amp;autoplay=1"
+                  data-archive-width="500"
+                  data-archive-height="300"
+                >
+
+                  <button
+                    class="archive-load-button"
+                    type="button"
+                    aria-label="Load Lil Peep Lil Peep Part One archive player"
+                  >
+                    <span>
+                      Load Archive Player
+                    </span>
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="archive-dropdown">
+
+          <button
+            class="archive-dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="lil-peep-live-forever-content"
+          >
+
+            <span class="archive-dropdown-title">
+              Lil Peep — Live Forever
+            </span>
+
+            <span class="archive-dropdown-arrow">
+              ▾
+            </span>
+
+          </button>
+
+
+          <div
+            class="archive-dropdown-content"
+            id="lil-peep-live-forever-content"
+          >
+
+            <div class="archive-entry">
+
+              <p class="archive-entry-label">
+                MUSIC ARCHIVE
+              </p>
+
+              <p>
+                Lil Peep — Live Forever
+              </p>
+
+              <div class="archive-player">
+
+                <div
+                  class="archive-player-shell ratio-500-300"
+                  data-archive-src="https://archive.org/embed/lil-peep-live-forever_202503?playlist=1&amp;autoplay=1"
+                  data-archive-width="500"
+                  data-archive-height="300"
+                >
+
+                  <button
+                    class="archive-load-button"
+                    type="button"
+                    aria-label="Load Lil Peep Live Forever archive player"
+                  >
+                    <span>
+                      Load Archive Player
+                    </span>
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="archive-dropdown">
+
+          <button
+            class="archive-dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="dedication-2-content"
+          >
+
+            <span class="archive-dropdown-title">
+              Lil Wayne — Dedication 2
+            </span>
+
+            <span class="archive-dropdown-arrow">
+              ▾
+            </span>
+
+          </button>
+
+
+          <div
+            class="archive-dropdown-content"
+            id="dedication-2-content"
+          >
+
+            <div class="archive-entry">
+
+              <p class="archive-entry-label">
+                MUSIC ARCHIVE
+              </p>
+
+              <p>
+                Lil Wayne — Dedication 2
+              </p>
+
+              <div class="archive-player">
+
+                <div
+                  class="archive-player-shell ratio-500-300"
+                  data-archive-src="https://archive.org/embed/dedication-2-lil-wayne?playlist=1&amp;autoplay=1"
+                  data-archive-width="500"
+                  data-archive-height="300"
+                >
+
+                  <button
+                    class="archive-load-button"
+                    type="button"
+                    aria-label="Load Lil Wayne Dedication 2 archive player"
+                  >
+                    <span>
+                      Load Archive Player
+                    </span>
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
 
 
         <!-- =========================================
@@ -1874,6 +2771,143 @@
             id,
             index
           )
+        );
+
+      }
+    );
+
+
+    /* =========================================
+       ARCHIVE.ORG DROPDOWN PLAYERS
+       LOAD ONLY AFTER CLICK
+       ========================================= */
+
+    const archiveDropdowns =
+      document.querySelectorAll(
+        ".archive-dropdown"
+      );
+
+
+    archiveDropdowns.forEach(
+      function(archiveDropdown) {
+
+        const toggle =
+          archiveDropdown.querySelector(
+            ".archive-dropdown-toggle"
+          );
+
+        const content =
+          archiveDropdown.querySelector(
+            ".archive-dropdown-content"
+          );
+
+        const playerShell =
+          archiveDropdown.querySelector(
+            ".archive-player-shell"
+          );
+
+
+        function loadArchivePlayer() {
+
+          if (
+            !playerShell ||
+            playerShell.dataset.loaded === "true"
+          ) {
+
+            return;
+
+          }
+
+
+          const source =
+            playerShell.dataset.archiveSrc;
+
+
+          if (!source) {
+
+            return;
+
+          }
+
+
+          const iframe =
+            document.createElement(
+              "iframe"
+            );
+
+
+          iframe.src =
+            source;
+
+
+          iframe.title =
+            archiveDropdown.querySelector(
+              ".archive-dropdown-title"
+            ).textContent;
+
+
+          iframe.loading =
+            "lazy";
+
+
+          iframe.setAttribute(
+            "frameborder",
+            "0"
+          );
+
+
+          iframe.setAttribute(
+            "webkitallowfullscreen",
+            ""
+          );
+
+
+          iframe.setAttribute(
+            "mozallowfullscreen",
+            ""
+          );
+
+
+          iframe.setAttribute(
+            "allowfullscreen",
+            ""
+          );
+
+
+          playerShell.dataset.loaded =
+            "true";
+
+
+          playerShell.replaceChildren(
+            iframe
+          );
+
+        }
+
+
+        toggle.addEventListener(
+          "click",
+          function() {
+
+            const isOpen =
+              archiveDropdown.classList.toggle(
+                "open"
+              );
+
+
+            toggle.setAttribute(
+              "aria-expanded",
+              String(isOpen)
+            );
+
+
+            if (isOpen) {
+
+              loadArchivePlayer();
+
+            }
+
+          }
         );
 
       }
