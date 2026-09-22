@@ -420,7 +420,7 @@
     }
 
     .archive-dropdown.open .archive-dropdown-content {
-      max-height: 5000px;
+      max-height: 2000px;
       opacity: 1;
     }
 
@@ -466,22 +466,22 @@
       position: relative;
       width: 100%;
       max-width: 100%;
-      height: 700px;
-      min-height: 700px;
       background: #111;
       overflow: hidden;
     }
 
-    .archive-player-shell.ratio-640-580,
+    .archive-player-shell.ratio-640-580 {
+      aspect-ratio: 640 / 580;
+    }
+
     .archive-player-shell.ratio-500-300 {
-      aspect-ratio: auto;
+      aspect-ratio: 500 / 300;
     }
 
     .archive-player-shell iframe {
       display: block;
       width: 100%;
       height: 100%;
-      min-height: 700px;
       border: 0;
     }
 
@@ -1155,15 +1155,6 @@
 
       .archive-entry {
         padding: 20px;
-      }
-
-      .archive-player-shell {
-        height: 650px;
-        min-height: 650px;
-      }
-
-      .archive-player-shell iframe {
-        min-height: 650px;
       }
 
       .archive-load-button {
@@ -1852,1241 +1843,1126 @@
           </div>
 
         </div>
-            <div class="record-card">
-      <button class="record-toggle" type="button" aria-expanded="false">
-        <span class="record-title">Memes</span>
-        <span class="record-arrow">▼</span>
-      </button>
+                <div class="archive-dropdown">
 
-      <div class="record-content">
-        <p>
-          Archive of <a href="https://www.youtube.com/user/Andresuperman11" target="_blank" rel="noopener noreferrer">vipurs</a>' dank meme compilation videos on YouTube.
-        </p>
+          <button
+            class="archive-dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="lil-peep-crybaby-content"
+          >
 
-        <div
-          class="archive-player"
-          data-archive-src="https://archive.org/embed/VipursDankMemeVideos?playlist=1&amp;autoplay=1"
-          data-archive-width="640"
-          data-archive-height="580"
-        >
-          <div class="archive-player-shell ratio-640-580">
-            <button class="load-archive-player" type="button">
-              Load Archive Player
-            </button>
+            <span class="archive-dropdown-title">
+              Lil Peep — Crybaby
+            </span>
+
+            <span class="archive-dropdown-arrow">
+              ▾
+            </span>
+
+          </button>
+
+
+          <div
+            class="archive-dropdown-content"
+            id="lil-peep-crybaby-content"
+          >
+
+            <div class="archive-entry">
+
+              <p class="archive-entry-label">
+                MUSIC ARCHIVE
+              </p>
+
+              <p>
+                Lil Peep — Crybaby
+              </p>
+
+              <div class="archive-player">
+
+                <div
+                  class="archive-player-shell ratio-500-300"
+                  data-archive-src="https://archive.org/embed/lil-peep-crybaby_202503?playlist=1&amp;autoplay=1"
+                  data-archive-width="500"
+                  data-archive-height="300"
+                >
+
+                  <button
+                    class="archive-load-button"
+                    type="button"
+                    aria-label="Load Lil Peep Crybaby archive player"
+                  >
+                    <span>
+                      Load Archive Player
+                    </span>
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
+
         </div>
-      </div>
-    </div>
 
-    <div class="record-card">
-      <button class="record-toggle" type="button" aria-expanded="false">
-        <span class="record-title">The Myspace Archive Project</span>
-        <span class="record-arrow">▼</span>
-      </button>
 
-      <div class="record-content">
-        <p>
-          This is a collection of music from unsigned artists who utilized Myspace and/or Pure Volume as their main platform. A majority of the music found here is Metal, Emo, Punk or Alternative.
-        </p>
+        <div class="archive-dropdown">
 
-        <p>
-          <a
-            href="https://archive.org/details/myspace"
-            target="_blank"
-            rel="noopener noreferrer"
-          >View the Myspace Archive Project on Internet Archive →</a>
-        </p>
-      </div>
-    </div>
+          <button
+            class="archive-dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="lil-peep-part-one-content"
+          >
 
-    <div class="record-card">
-      <button class="record-toggle" type="button" aria-expanded="false">
-        <span class="record-title">Wii System Soundtrack</span>
-        <span class="record-arrow">▼</span>
-      </button>
+            <span class="archive-dropdown-title">
+              Lil Peep — Lil Peep Part One
+            </span>
 
-      <div class="record-content">
-        <p>
-          Archive of the Wii system soundtrack.
-        </p>
+            <span class="archive-dropdown-arrow">
+              ▾
+            </span>
 
-        <div
-          class="archive-player"
-          data-archive-src="https://archive.org/embed/wii-system-soundtrack-flac?playlist=1&amp;autoplay=1"
-          data-archive-width="500"
-          data-archive-height="300"
-        >
-          <div class="archive-player-shell ratio-500-300">
-            <button class="load-archive-player" type="button">
-              Load Archive Player
-            </button>
+          </button>
+
+
+          <div
+            class="archive-dropdown-content"
+            id="lil-peep-part-one-content"
+          >
+
+            <div class="archive-entry">
+
+              <p class="archive-entry-label">
+                MUSIC ARCHIVE
+              </p>
+
+              <p>
+                Lil Peep — Lil Peep Part One
+              </p>
+
+              <div class="archive-player">
+
+                <div
+                  class="archive-player-shell ratio-500-300"
+                  data-archive-src="https://archive.org/embed/lil-peep-lil-peep-part-one?playlist=1&amp;autoplay=1"
+                  data-archive-width="500"
+                  data-archive-height="300"
+                >
+
+                  <button
+                    class="archive-load-button"
+                    type="button"
+                    aria-label="Load Lil Peep Lil Peep Part One archive player"
+                  >
+                    <span>
+                      Load Archive Player
+                    </span>
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
+
         </div>
-      </div>
-    </div>
 
-    <div class="record-card">
-      <button class="record-toggle" type="button" aria-expanded="false">
-        <span class="record-title">You'll Cowards Don't Even Smoke Crack</span>
-        <span class="record-arrow">▼</span>
-      </button>
 
-      <div class="record-content">
-        <p>
-          Archive of the viral video "You'll Cowards Don't Even Smoke Crack."
-        </p>
+        <div class="archive-dropdown">
 
-        <div
-          class="archive-player"
-          data-archive-src="https://archive.org/embed/youll-cowards-dont-even-smoke-crack-pdgbg8?playlist=1&amp;autoplay=1"
-          data-archive-width="500"
-          data-archive-height="300"
-        >
-          <div class="archive-player-shell ratio-500-300">
-            <button class="load-archive-player" type="button">
-              Load Archive Player
-            </button>
+          <button
+            class="archive-dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="lil-peep-live-forever-content"
+          >
+
+            <span class="archive-dropdown-title">
+              Lil Peep — Live Forever
+            </span>
+
+            <span class="archive-dropdown-arrow">
+              ▾
+            </span>
+
+          </button>
+
+
+          <div
+            class="archive-dropdown-content"
+            id="lil-peep-live-forever-content"
+          >
+
+            <div class="archive-entry">
+
+              <p class="archive-entry-label">
+                MUSIC ARCHIVE
+              </p>
+
+              <p>
+                Lil Peep — Live Forever
+              </p>
+
+              <div class="archive-player">
+
+                <div
+                  class="archive-player-shell ratio-500-300"
+                  data-archive-src="https://archive.org/embed/lil-peep-live-forever_202503?playlist=1&amp;autoplay=1"
+                  data-archive-width="500"
+                  data-archive-height="300"
+                >
+
+                  <button
+                    class="archive-load-button"
+                    type="button"
+                    aria-label="Load Lil Peep Live Forever archive player"
+                  >
+                    <span>
+                      Load Archive Player
+                    </span>
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
+
         </div>
-      </div>
-    </div>
 
-    <div class="record-card">
-      <button class="record-toggle" type="button" aria-expanded="false">
-        <span class="record-title">Lil Peep — Hellboy</span>
-        <span class="record-arrow">▼</span>
-      </button>
 
-      <div class="record-content">
-        <p>
-          Archive of Lil Peep's <em>Hellboy</em> mixtape.
-        </p>
+        <div class="archive-dropdown">
 
-        <div
-          class="archive-player"
-          data-archive-src="https://archive.org/embed/lil-peep-hellboy?playlist=1&amp;autoplay=1"
-          data-archive-width="500"
-          data-archive-height="300"
-        >
-          <div class="archive-player-shell ratio-500-300">
-            <button class="load-archive-player" type="button">
-              Load Archive Player
-            </button>
+          <button
+            class="archive-dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="dedication-2-content"
+          >
+
+            <span class="archive-dropdown-title">
+              Lil Wayne — Dedication 2
+            </span>
+
+            <span class="archive-dropdown-arrow">
+              ▾
+            </span>
+
+          </button>
+
+
+          <div
+            class="archive-dropdown-content"
+            id="dedication-2-content"
+          >
+
+            <div class="archive-entry">
+
+              <p class="archive-entry-label">
+                MUSIC ARCHIVE
+              </p>
+
+              <p>
+                Lil Wayne — Dedication 2
+              </p>
+
+              <div class="archive-player">
+
+                <div
+                  class="archive-player-shell ratio-500-300"
+                  data-archive-src="https://archive.org/embed/dedication-2-lil-wayne?playlist=1&amp;autoplay=1"
+                  data-archive-width="500"
+                  data-archive-height="300"
+                >
+
+                  <button
+                    class="archive-load-button"
+                    type="button"
+                    aria-label="Load Lil Wayne Dedication 2 archive player"
+                  >
+                    <span>
+                      Load Archive Player
+                    </span>
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
+
         </div>
+
+
+        <!-- =========================================
+             CAT IN THE HAT ARTICLE
+             ========================================= -->
+
+        <article class="article-card">
+
+          <span class="article-label">
+            SOCIAL MEDIA / PUBLIC SAFETY
+          </span>
+
+          <h2>
+            US schools and police warn about viral ‘Cat in the Hat’ trend after teens’ arrests
+          </h2>
+
+          <p class="article-meta">
+            September 2026
+          </p>
+
+          <p>
+            Schools and law enforcement authorities in the US are issuing
+            warnings against a viral “Cat in the Hat” social media trend in
+            which disturbing or AI-generated versions of the Dr Seuss
+            character are used to threaten students, schools and communities.
+          </p>
+
+          <p>
+            The latest warnings come as safety concerns increase and several
+            teenagers have been arrested or charged over posts connected to
+            the trend.
+          </p>
+
+          <p>
+            The trend originated on Snapchat as images or short videos showing
+            a disturbing version of the Cat in the Hat, often resembling the
+            character played by Mike Myers in the 2003 live-action film,
+            lurking outside homes, schools or on streets at night.
+          </p>
+
+          <p>
+            Some footage appears to be AI-generated, while other posts include
+            real people wearing costumes. Additionally, some videos include
+            threatening messages towards specific towns or schools. More
+            disturbing versions named individuals or included lists of
+            supposed targets.
+          </p>
+
+          <p>
+            The posts originally circulated in Ireland and the United Kingdom
+            in August 2026 before quickly becoming viral in parts of the United
+            States and Canada, according to the BBC.
+          </p>
+
+          <p>
+            Even though social media users view the trend as a hoax or prank,
+            authorities are warning that causing people to fear for their
+            safety could potentially constitute criminal harassment.
+          </p>
+
+          <p>
+            Recently, near Wichita, Kansas, a 15-year-old was arrested after
+            allegedly posting a video on social media that made ominous threats
+            toward students using the trend.
+          </p>
+
+          <p>
+            A statement shared by the Hutchinson Police Department said that
+            during the investigation, officers determined that a 15-year-old
+            Hutchinson high school student created a TikTok account for that
+            community referencing the Cat in the Hat trend. The juvenile was
+            ultimately charged with two counts of criminal threat.
+          </p>
+
+          <p>
+            “Threats of any nature are taken seriously by the Hutchinson Police
+            Department and Hutchinson High School. Regardless of whether a post
+            is intended as a joke, it is unlawful to cause others, particularly
+            students, to fear for their safety,” the statement added.
+          </p>
+
+          <p>
+            Similarly, in Worth County, Georgia, two students at Worth County
+            High School are facing charges after the school district said they
+            participated in the viral social media hoax.
+          </p>
+
+          <p>
+            Both students involved are being charged and will also face
+            disciplinary action, school officials say.
+          </p>
+
+          <p>
+            Due to the potential threats caused by the trend, some school
+            communities have also increased their police presence as a
+            precautionary measure.
+          </p>
+
+          <p>
+            In a statement released by the Grand Junction Police Department
+            in Colorado, it said that it increased its presence at West Middle
+            School and Grand Junction High School “out of an abundance of
+            caution” after the circulation of a Cat in the Hat post. The post
+            led to the arrest of a 14-year-old student.
+          </p>
+
+          <p>
+            As the trend continues to circulate, law enforcement authorities
+            are urging students to report any safety concerns to a trusted
+            adult, school administrator or law enforcement official rather than
+            reposting or sharing the content.
+          </p>
+
+          <p class="article-source">
+            Preserved as part of The Historical Record's Social Media Archive.
+          </p>
+
+        </article>
+
       </div>
-    </div>
 
-    <div class="record-card">
-      <button class="record-toggle" type="button" aria-expanded="false">
-        <span class="record-title">Lil Peep — Crybaby</span>
-        <span class="record-arrow">▼</span>
-      </button>
+    </section>
 
-      <div class="record-content">
-        <p>
-          Archive of Lil Peep's <em>Crybaby</em> mixtape.
-        </p>
+  </main>
 
-        <div
-          class="archive-player"
-          data-archive-src="https://archive.org/embed/lil-peep-crybaby_202503?playlist=1&amp;autoplay=1"
-          data-archive-width="500"
-          data-archive-height="300"
-        >
-          <div class="archive-player-shell ratio-500-300">
-            <button class="load-archive-player" type="button">
-              Load Archive Player
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="record-card">
-      <button class="record-toggle" type="button" aria-expanded="false">
-        <span class="record-title">Lil Peep — Lil Peep Part One</span>
-        <span class="record-arrow">▼</span>
-      </button>
+  <!-- =========================================
+       RETURN TO TOP
+       ========================================= -->
 
-      <div class="record-content">
-        <p>
-          Archive of Lil Peep's <em>Lil Peep Part One</em> mixtape.
-        </p>
+  <button
+    class="return-top"
+    id="return-top"
+    type="button"
+    aria-label="Return to top"
+    title="Return to top"
+  >
+    ↑
+  </button>
 
-        <div
-          class="archive-player"
-          data-archive-src="https://archive.org/embed/lil-peep-lil-peep-part-one?playlist=1&amp;autoplay=1"
-          data-archive-width="500"
-          data-archive-height="300"
-        >
-          <div class="archive-player-shell ratio-500-300">
-            <button class="load-archive-player" type="button">
-              Load Archive Player
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="record-card">
-      <button class="record-toggle" type="button" aria-expanded="false">
-        <span class="record-title">Lil Peep — Live Forever</span>
-        <span class="record-arrow">▼</span>
-      </button>
-
-      <div class="record-content">
-        <p>
-          Archive of Lil Peep's <em>Live Forever</em> mixtape.
-        </p>
-
-        <div
-          class="archive-player"
-          data-archive-src="https://archive.org/embed/lil-peep-live-forever_202503?playlist=1&amp;autoplay=1"
-          data-archive-width="500"
-          data-archive-height="300"
-        >
-          <div class="archive-player-shell ratio-500-300">
-            <button class="load-archive-player" type="button">
-              Load Archive Player
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="record-card">
-      <button class="record-toggle" type="button" aria-expanded="false">
-        <span class="record-title">Lil Wayne — Dedication 2</span>
-        <span class="record-arrow">▼</span>
-      </button>
-
-      <div class="record-content">
-        <p>
-          Archive of Lil Wayne's <em>Dedication 2</em> mixtape.
-        </p>
-
-        <div
-          class="archive-player"
-          data-archive-src="https://archive.org/embed/dedication-2-lil-wayne?playlist=1&amp;autoplay=1"
-          data-archive-width="500"
-          data-archive-height="300"
-        >
-          <div class="archive-player-shell ratio-500-300">
-            <button class="load-archive-player" type="button">
-              Load Archive Player
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <section class="selected-videos-section">
-    <div class="section-heading">
-      <h2>Selected Videos</h2>
-      <p>
-        A collection of videos preserved from YouTube and other online sources.
-      </p>
-    </div>
-
-    <div class="video-grid">
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="Ibi0XcyvxXg" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/Ibi0XcyvxXg/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="xNewd0IF2gI" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/xNewd0IF2gI/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="59O4q_SLk4E" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/59O4q_SLk4E/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="v_XYwd1TeH0" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/v_XYwd1TeH0/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="ilaJtPQsPvk" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/ilaJtPQsPvk/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="pI-O9v5Qtio" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/pI-O9v5Qtio/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="v9sheGfrFWs" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/v9sheGfrFWs/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="HJMg2Dg-51A" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/HJMg2Dg-51A/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="So6ZHS_bv_0" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/So6ZHS_bv_0/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="Qhdb-CpJYlY" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/Qhdb-CpJYlY/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="j-9jZMzj0Os" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/j-9jZMzj0Os/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="TkWSFoZp0UY" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/TkWSFoZp0UY/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="O2vi8R9DEfA" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/O2vi8R9DEfA/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="vrbAKFk4uhg" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/vrbAKFk4uhg/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="n_m_f-IB-h0" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/n_m_f-IB-h0/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="7ZAf1jPHyb0" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/7ZAf1jPHyb0/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="CZejXeoLdKs" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/CZejXeoLdKs/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="O7-l9IuDLNU" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/O7-l9IuDLNU/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="poywry4QZVM" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/poywry4QZVM/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="7Pv2lvwjsss" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/7Pv2lvwjsss/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="s3gmxhYvRqw" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/s3gmxhYvRqw/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="7-SnZVDuFJU" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/7-SnZVDuFJU/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="oYMcymxoyh0" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/oYMcymxoyh0/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="Dm9GkTYvzs8" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/Dm9GkTYvzs8/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="xpVnRPzlP5s" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/xpVnRPzlP5s/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="Gsbj8wZ3mwU" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/Gsbj8wZ3mwU/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="2wP0rYk2FU4" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/2wP0rYk2FU4/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="-JjSilbDdQQ" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/-JjSilbDdQQ/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="7GQk0hm-kEI" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/7GQk0hm-kEI/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="rcLrLH_g2dk" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/rcLrLH_g2dk/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="ymcNhAgO7Pw" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/ymcNhAgO7Pw/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="NwalnWcvxNI" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/NwalnWcvxNI/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="8kvqQIdHS7g" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/8kvqQIdHS7g/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="5Za31pEeM6Q" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/5Za31pEeM6Q/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="H12qqyjskLw" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/H12qqyjskLw/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="U1rtoP4l_yg" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/U1rtoP4l_yg/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="djo12DqE9-4" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/djo12DqE9-4/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="YEEpwhTlPj8" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/YEEpwhTlPj8/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="GpMP6Nh3FvU" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/GpMP6Nh3FvU/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="MamP5k2roPg" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/MamP5k2roPg/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="ipMIgN09aeo" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/ipMIgN09aeo/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="sJ1cf00rq1w" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/sJ1cf00rq1w/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="-jikG2HmB9A" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/-jikG2HmB9A/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="k0YrbE_4agM" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/k0YrbE_4agM/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="2_iJDXTVs9o" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/2_iJDXTVs9o/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="fCFnccOBm9o" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/fCFnccOBm9o/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="8O5TmqP7FlE" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/8O5TmqP7FlE/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="LzVMVAMu8_o" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/LzVMVAMu8_o/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="6REx5P1HGVY" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/6REx5P1HGVY/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="YDKFV6UdSKI" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/YDKFV6UdSKI/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="1__Qg1toSSs" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/1__Qg1toSSs/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="38KcVu5DkhA" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/38KcVu5DkhA/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="FTAW1PvEcAk" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/FTAW1PvEcAk/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="dmV1ehLK9sI" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/dmV1ehLK9sI/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="yjpYzFtxfjU" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/yjpYzFtxfjU/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="zohg5rx5ptU" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/zohg5rx5ptU/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="syocq98pAy8" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/syocq98pAy8/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="hxdSr03ULdM" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/hxdSr03ULdM/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="7zxgQpOZR7E" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/7zxgQpOZR7E/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="YssOkIOPBW8" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/YssOkIOPBW8/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="tExo3ovEBWQ" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/tExo3ovEBWQ/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="HSvjAJvempE" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/HSvjAJvempE/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="xFIn4Oyhzhs" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/xFIn4Oyhzhs/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="5599aKMzZNI" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/5599aKMzZNI/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="OSP3r0pnED0" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/OSP3r0pnED0/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="RCRTgtpC-Go" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/RCRTgtpC-Go/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="fZQlJCXWK1o" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/fZQlJCXWK1o/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="AS7QowYteEQ" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/AS7QowYteEQ/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-      <article class="video-card">
-        <div class="youtube-lazy" data-video-id="SbbWirY1k1k" tabindex="0" role="button" aria-label="Play video">
-          <img src="https://i.ytimg.com/vi/SbbWirY1k1k/mqdefault.jpg" alt="" loading="lazy" decoding="async">
-          <span class="youtube-play">▶</span>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">Loading title…</h3>
-          <p class="video-uploader">Loading uploader…</p>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <section class="record-section">
-    <article class="record-card">
-      <button class="record-toggle" type="button" aria-expanded="false">
-        <span class="record-title">US schools and police warn about viral ‘Cat in the Hat’ trend after teens’ arrests</span>
-        <span class="record-arrow">▼</span>
-      </button>
-
-      <div class="record-content">
-        <p>
-          A viral social-media trend involving people wearing Cat in the Hat-style hats has prompted warnings from schools and police departments after arrests involving teenagers.
-        </p>
-
-        <p>
-          The trend spread across social-media platforms, with participants posting videos and images connected to the character and attempting to recreate scenes or stunts.
-        </p>
-
-        <p>
-          Authorities and schools warned students and parents that some versions of the trend could result in trespassing, disruption, or other offenses, depending on how participants carried them out.
-        </p>
-
-        <p>
-          The incidents demonstrate how rapidly online trends can move from social-media posts into real-world activity involving schools, police, and teenagers.
-        </p>
-      </div>
-    </article>
-  </section>
+  <!-- =========================================
+       FOOTER
+       ========================================= -->
 
   <footer class="site-footer">
-    <p>&copy; 2026 The Historical Record</p>
+
+    <div class="container">
+
+      <p>
+        THE HISTORICAL RECORD
+      </p>
+
+      <p>
+        A living archive of the moments that matter.
+      </p>
+
+    </div>
+
   </footer>
 
+
+  <!-- =========================================
+       MENU SCRIPT
+       ========================================= -->
+
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const menuButton = document.getElementById("site-menu-button");
-      const sideMenu = document.getElementById("site-side-menu");
-      const menuOverlay = document.getElementById("site-menu-overlay");
 
-      function openMenu() {
-        if (!menuButton || !sideMenu || !menuOverlay) return;
+    const menuButton =
+      document.querySelector(".menu-button");
 
-        sideMenu.classList.add("open");
-        menuOverlay.classList.add("open");
-        menuButton.setAttribute("aria-expanded", "true");
-        document.body.classList.add("menu-open");
-      }
+    const sideMenu =
+      document.querySelector(".side-menu");
 
-      function closeMenu() {
-        if (!menuButton || !sideMenu || !menuOverlay) return;
+    const menuOverlay =
+      document.querySelector(".menu-overlay");
 
-        sideMenu.classList.remove("open");
-        menuOverlay.classList.remove("open");
-        menuButton.setAttribute("aria-expanded", "false");
-        document.body.classList.remove("menu-open");
-      }
+    const dropdown =
+      document.querySelector(".menu-dropdown");
 
-      if (menuButton) {
-        menuButton.addEventListener("click", function () {
-          const expanded = menuButton.getAttribute("aria-expanded") === "true";
+    const dropdownToggle =
+      document.querySelector(".menu-dropdown-toggle");
 
-          if (expanded) {
-            closeMenu();
-          } else {
-            openMenu();
-          }
-        });
-      }
 
-      if (menuOverlay) {
-        menuOverlay.addEventListener("click", closeMenu);
-      }
+    function openMenu() {
 
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
+      sideMenu.classList.add("open");
+
+      menuOverlay.classList.add("show");
+
+      document.body.classList.add("menu-open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        "true"
+      );
+
+      menuButton.setAttribute(
+        "aria-label",
+        "Close menu"
+      );
+
+    }
+
+
+    function closeMenu() {
+
+      sideMenu.classList.remove("open");
+
+      menuOverlay.classList.remove("show");
+
+      document.body.classList.remove("menu-open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      menuButton.setAttribute(
+        "aria-label",
+        "Open menu"
+      );
+
+    }
+
+
+    menuButton.addEventListener(
+      "click",
+      function() {
+
+        if (
+          sideMenu.classList.contains("open")
+        ) {
+
           closeMenu();
+
+        } else {
+
+          openMenu();
+
         }
-      });
 
-      const submenuButtons = document.querySelectorAll(".submenu-toggle");
+      }
+    );
 
-      submenuButtons.forEach(function (button) {
-        button.addEventListener("click", function () {
-          const submenu = button.nextElementSibling;
 
-          if (!submenu) return;
+    menuOverlay.addEventListener(
+      "click",
+      closeMenu
+    );
 
-          const isOpen = submenu.classList.toggle("open");
-          button.setAttribute("aria-expanded", isOpen ? "true" : "false");
-        });
-      });
 
-      const recordToggles = document.querySelectorAll(".record-toggle");
+    dropdownToggle.addEventListener(
+      "click",
+      function() {
 
-      recordToggles.forEach(function (toggle) {
-        toggle.addEventListener("click", function () {
-          const card = toggle.closest(".record-card");
-          const content = card ? card.querySelector(".record-content") : null;
+        const isOpen =
+          dropdown.classList.toggle("open");
 
-          if (!card || !content) return;
+        dropdownToggle.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
 
-          const isOpen = card.classList.toggle("open");
-          toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-        });
-      });
+      }
+    );
 
-      const archivePlayers = document.querySelectorAll(".archive-player");
 
-      archivePlayers.forEach(function (player) {
-        const shell = player.querySelector(".archive-player-shell");
+    document.addEventListener(
+      "keydown",
+      function(event) {
 
-        if (!shell) return;
+        if (
+          event.key === "Escape" &&
+          sideMenu.classList.contains("open")
+        ) {
+
+          closeMenu();
+
+        }
+
+      }
+    );
+
+  </script>
+
+
+  <!-- =========================================
+       SELECTED VIDEOS SCRIPT
+       ========================================= -->
+
+  <script>
+
+    const selectedVideos = [
+
+      "Ibi0XcyvxXg",
+      "xNewd0IF2gI",
+      "59O4q_SLk4E",
+      "v_XYwd1TeH0",
+      "ilaJtPQsPvk",
+      "pI-O9v5Qtio",
+      "v9sheGfrFWs",
+      "HJMg2Dg-51A",
+      "So6ZHS_bv_0",
+      "Qhdb-CpJYlY",
+      "j-9jZMzj0Os",
+      "TkWSFoZp0UY",
+      "O2vi8R9DEfA",
+      "vrbAKFk4uhg",
+      "n_m_f-IB-h0",
+      "7ZAf1jPHyb0",
+      "CZejXeoLdKs",
+      "O7-l9IuDLNU",
+      "poywry4QZVM",
+      "7Pv2lvwjsss",
+      "s3gmxhYvRqw",
+      "7-SnZVDuFJU",
+      "oYMcymxoyh0",
+      "Dm9GkTYvzs8",
+      "xpVnRPzlP5s",
+      "Gsbj8wZ3mwU",
+      "2wP0rYk2FU4",
+      "-JjSilbDdQQ",
+      "7GQk0hm-kEI",
+      "rcLrLH_g2dk",
+      "ymcNhAgO7Pw",
+      "NwalnWcvxNI",
+      "8kvqQIdHS7g",
+      "5Za31pEeM6Q",
+      "H12qqyjskLw",
+      "U1rtoP4l_yg",
+      "djo12DqE9-4",
+      "YEEpwhTlPj8",
+      "GpMP6Nh3FvU",
+      "MamP5k2roPg",
+      "ipMIgN09aeo",
+      "sJ1cf00rq1w",
+      "-jikG2HmB9A",
+      "k0YrbE_4agM",
+      "2_iJDXTVs9o",
+      "fCFnccOBm9o",
+      "8O5TmqP7FlE",
+      "LzVMVAMu8_o",
+      "6REx5P1HGVY",
+      "YDKFV6UdSKI",
+      "1__Qg1toSSs",
+      "38KcVu5DkhA",
+      "FTAW1PvEcAk",
+      "dmV1ehLK9sI",
+      "yjpYzFtxfjU",
+      "zohg5rx5ptU",
+      "syocq98pAy8",
+      "hxdSr03ULdM",
+      "7zxgQpOZR7E",
+      "YssOkIOPBW8",
+      "tExo3ovEBWQ",
+      "HSvjAJvempE",
+      "xFIn4Oyhzhs",
+      "5599aKMzZNI",
+      "OSP3r0pnED0",
+      "RCRTgtpC-Go",
+      "fZQlJCXWK1o",
+      "AS7QowYteEQ",
+      "SbbWirY1k1k"
+
+    ];
+
+
+    const selectedVideosSection =
+      document.getElementById(
+        "selected-videos"
+      );
+
+
+    const selectedVideosToggle =
+      document.getElementById(
+        "selected-videos-toggle"
+      );
+
+
+    const videoGrid =
+      document.getElementById(
+        "selected-video-grid"
+      );
+
+
+    /* =========================================
+       OPEN / CLOSE SELECTED VIDEOS
+       ========================================= */
+
+    selectedVideosToggle.addEventListener(
+      "click",
+      function() {
+
+        const isOpen =
+          selectedVideosSection.classList.toggle(
+            "open"
+          );
+
+        selectedVideosToggle.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+
+      }
+    );
+
+
+    /* =========================================
+       CREATE VIDEO CARD
+       ========================================= */
+
+    function createVideoCard(id, index) {
+
+      const card =
+        document.createElement("article");
+
+      card.className =
+        "video-card";
+
+
+      card.innerHTML = `
+
+        <div
+          class="video-player"
+          role="button"
+          tabindex="0"
+          aria-label="Play video"
+        >
+
+          <img
+            src="https://i.ytimg.com/vi/${id}/mqdefault.jpg"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          >
+
+          <button
+            class="video-play"
+            type="button"
+            aria-label="Play video"
+          ></button>
+
+        </div>
+
+
+        <div class="video-info">
+
+          <p class="video-label">
+            SELECTED VIDEO ${String(index + 1).padStart(2, "0")}
+          </p>
+
+          <h3 class="video-title">
+            Loading title…
+          </h3>
+
+          <p class="video-uploader">
+            <strong>Uploader:</strong>
+            <span>Loading…</span>
+          </p>
+
+        </div>
+
+      `;
+
+
+      const player =
+        card.querySelector(
+          ".video-player"
+        );
+
+
+      const playButton =
+        card.querySelector(
+          ".video-play"
+        );
+
+
+      function playVideo() {
+
+        if (
+          player.dataset.loaded === "true"
+        ) {
+          return;
+        }
+
+
+        player.dataset.loaded =
+          "true";
+
+
+        const iframe =
+          document.createElement(
+            "iframe"
+          );
+
+
+        iframe.src =
+          "https://www.youtube-nocookie.com/embed/" +
+          encodeURIComponent(id) +
+          "?autoplay=1&rel=0";
+
+
+        iframe.title =
+          card.querySelector(
+            ".video-title"
+          ).textContent;
+
+
+        iframe.loading =
+          "lazy";
+
+
+        iframe.allow =
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+
+
+        iframe.allowFullscreen =
+          true;
+
+
+        player.replaceChildren(
+          iframe
+        );
+
+      }
+
+
+      playButton.addEventListener(
+        "click",
+        function(event) {
+
+          event.stopPropagation();
+
+          playVideo();
+
+        }
+      );
+
+
+      player.addEventListener(
+        "click",
+        function(event) {
+
+          if (
+            event.target !== playButton
+          ) {
+
+            playVideo();
+
+          }
+
+        }
+      );
+
+
+      player.addEventListener(
+        "keydown",
+        function(event) {
+
+          if (
+            event.key === "Enter" ||
+            event.key === " "
+          ) {
+
+            event.preventDefault();
+
+            playVideo();
+
+          }
+
+        }
+      );
+
+
+      loadVideoMetadata(
+        card,
+        id
+      );
+
+
+      return card;
+
+    }
+
+
+    /* =========================================
+       LOAD YOUTUBE TITLE + UPLOADER
+       ========================================= */
+
+    async function loadVideoMetadata(
+      card,
+      id
+    ) {
+
+      const title =
+        card.querySelector(
+          ".video-title"
+        );
+
+
+      const uploader =
+        card.querySelector(
+          ".video-uploader span"
+        );
+
+
+      const endpoint =
+        "https://www.youtube.com/oembed?url=" +
+        encodeURIComponent(
+          "https://www.youtube.com/watch?v=" + id
+        ) +
+        "&format=json";
+
+
+      try {
+
+        const response =
+          await fetch(endpoint);
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Metadata unavailable"
+          );
+
+        }
+
+
+        const data =
+          await response.json();
+
+
+        title.textContent =
+          data.title ||
+          "Untitled Video";
+
+
+        uploader.textContent =
+          data.author_name ||
+          "Unknown uploader";
+
+
+      } catch (error) {
+
+        title.textContent =
+          "View video";
+
+
+        uploader.textContent =
+          "YouTube video";
+
+      }
+
+    }
+
+
+    /* =========================================
+       ADD ALL 70 VIDEOS
+       ========================================= */
+
+    selectedVideos.forEach(
+      function(id, index) {
+
+        videoGrid.appendChild(
+          createVideoCard(
+            id,
+            index
+          )
+        );
+
+      }
+    );
+
+
+    /* =========================================
+       ARCHIVE.ORG DROPDOWN PLAYERS
+       LOAD ONLY AFTER CLICK
+       ========================================= */
+
+    const archiveDropdowns =
+      document.querySelectorAll(
+        ".archive-dropdown"
+      );
+
+
+    archiveDropdowns.forEach(
+      function(archiveDropdown) {
+
+        const toggle =
+          archiveDropdown.querySelector(
+            ".archive-dropdown-toggle"
+          );
+
+        const content =
+          archiveDropdown.querySelector(
+            ".archive-dropdown-content"
+          );
+
+        const playerShell =
+          archiveDropdown.querySelector(
+            ".archive-player-shell"
+          );
+
 
         function loadArchivePlayer() {
-          if (shell.querySelector("iframe")) return;
 
-          const source = player.getAttribute("data-archive-src");
-          if (!source) return;
+          if (
+            !playerShell ||
+            playerShell.dataset.loaded === "true"
+          ) {
 
-          const iframe = document.createElement("iframe");
+            return;
 
-          iframe.src = source;
-          iframe.title =
-            player.closest(".record-card")?.querySelector(".record-title")?.textContent.trim() ||
-            "Internet Archive Player";
-
-          iframe.loading = "lazy";
-          iframe.frameBorder = "0";
-          iframe.setAttribute("webkitallowfullscreen", "");
-          iframe.setAttribute("mozallowfullscreen", "");
-          iframe.setAttribute("allowfullscreen", "");
-          iframe.allow = "autoplay; fullscreen";
-          iframe.allowFullscreen = true;
-
-          shell.replaceChildren(iframe);
-        }
-
-        player.closest(".record-card")?.querySelector(".record-toggle")?.addEventListener(
-          "click",
-          function () {
-            const card = player.closest(".record-card");
-
-            if (card && card.classList.contains("open")) {
-              loadArchivePlayer();
-            }
           }
-        );
-      });
 
-      const youtubePlayers = document.querySelectorAll(".youtube-lazy");
 
-      youtubePlayers.forEach(function (player) {
-        const videoId = player.getAttribute("data-video-id");
+          const source =
+            playerShell.dataset.archiveSrc;
 
-        if (!videoId) return;
 
-        let loaded = false;
+          if (!source) {
 
-        function loadYouTubePlayer() {
-          if (loaded) return;
-          loaded = true;
+            return;
 
-          const iframe = document.createElement("iframe");
+          }
+
+
+          const iframe =
+            document.createElement(
+              "iframe"
+            );
+
 
           iframe.src =
-            "https://www.youtube-nocookie.com/embed/" +
-            encodeURIComponent(videoId) +
-            "?autoplay=1&rel=0";
+            source;
 
-          iframe.title = "YouTube video";
-          iframe.loading = "lazy";
-          iframe.allow =
-            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-          iframe.allowFullscreen = true;
 
-          player.replaceChildren(iframe);
-          player.classList.add("loaded");
+          iframe.title =
+            archiveDropdown.querySelector(
+              ".archive-dropdown-title"
+            ).textContent;
+
+
+          iframe.loading =
+            "lazy";
+
+
+          iframe.setAttribute(
+            "frameborder",
+            "0"
+          );
+
+
+          iframe.setAttribute(
+            "webkitallowfullscreen",
+            ""
+          );
+
+
+          iframe.setAttribute(
+            "mozallowfullscreen",
+            ""
+          );
+
+
+          iframe.setAttribute(
+            "allowfullscreen",
+            ""
+          );
+
+
+          playerShell.dataset.loaded =
+            "true";
+
+
+          playerShell.replaceChildren(
+            iframe
+          );
+
         }
 
-        player.addEventListener("click", loadYouTubePlayer);
 
-        player.addEventListener("keydown", function (event) {
-          if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            loadYouTubePlayer();
+        toggle.addEventListener(
+          "click",
+          function() {
+
+            const isOpen =
+              archiveDropdown.classList.toggle(
+                "open"
+              );
+
+
+            toggle.setAttribute(
+              "aria-expanded",
+              String(isOpen)
+            );
+
+
+            if (isOpen) {
+
+              loadArchivePlayer();
+
+            }
+
           }
+        );
+
+      }
+    );
+
+
+    /* =========================================
+       RETURN TO TOP
+       ========================================= */
+
+    const returnTop =
+      document.getElementById(
+        "return-top"
+      );
+
+
+    window.addEventListener(
+      "scroll",
+      function() {
+
+        if (
+          window.scrollY > 500
+        ) {
+
+          returnTop.classList.add(
+            "show"
+          );
+
+        } else {
+
+          returnTop.classList.remove(
+            "show"
+          );
+
+        }
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    returnTop.addEventListener(
+      "click",
+      function() {
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
         });
 
-        fetch(
-          "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=" +
-          encodeURIComponent(videoId) +
-          "&format=json"
-        )
-          .then(function (response) {
-            if (!response.ok) {
-              throw new Error("Unable to retrieve video metadata.");
-            }
+      }
+    );
 
-            return response.json();
-          })
-          .then(function (data) {
-            const card = player.closest(".video-card");
-
-            if (!card) return;
-
-            const title = card.querySelector(".video-title");
-            const uploader = card.querySelector(".video-uploader");
-
-            if (title && data.title) {
-              title.textContent = data.title;
-            }
-
-            if (uploader && data.author_name) {
-              uploader.textContent = data.author_name;
-            }
-          })
-          .catch(function () {
-            const card = player.closest(".video-card");
-
-            if (!card) return;
-
-            const title = card.querySelector(".video-title");
-            const uploader = card.querySelector(".video-uploader");
-
-            if (title) {
-              title.textContent = "YouTube video";
-            }
-
-            if (uploader) {
-              uploader.textContent = "";
-            }
-          });
-      });
-    });
   </script>
 
 </body>
