@@ -466,22 +466,22 @@
       position: relative;
       width: 100%;
       max-width: 100%;
+      height: 700px;
+      min-height: 700px;
       background: #111;
       overflow: hidden;
     }
 
-    .archive-player-shell.ratio-640-580 {
-      aspect-ratio: 640 / 580;
-    }
-
+    .archive-player-shell.ratio-640-580,
     .archive-player-shell.ratio-500-300 {
-      aspect-ratio: 500 / 300;
+      aspect-ratio: auto;
     }
 
     .archive-player-shell iframe {
       display: block;
       width: 100%;
       height: 100%;
+      min-height: 700px;
       border: 0;
     }
 
@@ -1161,6 +1161,15 @@
         padding: 18px;
       }
 
+      .archive-player-shell {
+        height: 620px;
+        min-height: 620px;
+      }
+
+      .archive-player-shell iframe {
+        min-height: 620px;
+      }
+
       .topic-card {
         padding: 24px;
         min-height: 0;
@@ -1504,7 +1513,7 @@
 
         <!-- =========================================
              ARCHIVE.ORG COLLECTIONS
-             ALL PLAYERS LOAD ONLY WHEN OPENED
+             ALL PLAYERS LOAD ONLY WHEN CLICKED
              ========================================= -->
 
         <div class="archive-dropdown">
@@ -2796,93 +2805,94 @@
             ".archive-dropdown-toggle"
           );
 
-        const content =
-          archiveDropdown.querySelector(
-            ".archive-dropdown-content"
-          );
-
         const playerShell =
           archiveDropdown.querySelector(
             ".archive-player-shell"
           );
 
 
-        function loadArchivePlayer() {
-
-          if (
-            !playerShell ||
-            playerShell.dataset.loaded === "true"
-          ) {
-
-            return;
-
-          }
+        if (!toggle || !playerShell) {
+          return;
+        }
 
 
-          const source =
-            playerShell.dataset.archiveSrc;
+        const button =
+          playerShell.querySelector(
+            ".archive-load-button"
+          );
 
 
-          if (!source) {
-
-            return;
-
-          }
+        if (!button) {
+          return;
+        }
 
 
-          const iframe =
-            document.createElement(
-              "iframe"
+        button.addEventListener(
+          "click",
+          function(event) {
+
+            event.preventDefault();
+            event.stopPropagation();
+
+
+            const source =
+              playerShell.getAttribute(
+                "data-archive-src"
+              );
+
+
+            if (!source) {
+              return;
+            }
+
+
+            const iframe =
+              document.createElement(
+                "iframe"
+              );
+
+
+            iframe.src =
+              source;
+
+
+            iframe.title =
+              archiveDropdown.querySelector(
+                ".archive-dropdown-title"
+              ).textContent.trim();
+
+
+            iframe.allow =
+              "autoplay; fullscreen; picture-in-picture";
+
+
+            iframe.setAttribute(
+              "allowfullscreen",
+              ""
             );
 
 
-          iframe.src =
-            source;
+            iframe.setAttribute(
+              "webkitallowfullscreen",
+              ""
+            );
 
 
-          iframe.title =
-            archiveDropdown.querySelector(
-              ".archive-dropdown-title"
-            ).textContent;
+            iframe.setAttribute(
+              "mozallowfullscreen",
+              ""
+            );
 
 
-          iframe.loading =
-            "lazy";
+            playerShell.innerHTML = "";
 
 
-          iframe.setAttribute(
-            "frameborder",
-            "0"
-          );
+            playerShell.appendChild(
+              iframe
+            );
 
-
-          iframe.setAttribute(
-            "webkitallowfullscreen",
-            ""
-          );
-
-
-          iframe.setAttribute(
-            "mozallowfullscreen",
-            ""
-          );
-
-
-          iframe.setAttribute(
-            "allowfullscreen",
-            ""
-          );
-
-
-          playerShell.dataset.loaded =
-            "true";
-
-
-          playerShell.replaceChildren(
-            iframe
-          );
-
-        }
+          }
+        );
 
 
         toggle.addEventListener(
@@ -2899,13 +2909,6 @@
               "aria-expanded",
               String(isOpen)
             );
-
-
-            if (isOpen) {
-
-              loadArchivePlayer();
-
-            }
 
           }
         );
